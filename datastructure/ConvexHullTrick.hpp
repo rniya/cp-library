@@ -1,6 +1,6 @@
 /**
  * @brief Convex Hull Trick
- * @docs docs/datastructure/ConvexHullTrick
+ * @docs docs/datastructure/ConvexHullTrick.md
  */
 
 #pragma once

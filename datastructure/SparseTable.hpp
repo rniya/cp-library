@@ -1,6 +1,6 @@
 /**
  * @brief Sparse table
- * @docs docs/datastructure/SparseTable.hpp
+ * @docs docs/datastructure/SparseTable.md
  */
 
 #pragma once
