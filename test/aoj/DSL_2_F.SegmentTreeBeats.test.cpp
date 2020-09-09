@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_F"
 
 #include "../../base.hpp"
-#include "../../SegmentTreeBeats.hpp"
+#include "../../datastructure/SegmentTreeBeats.hpp"
 
 int main(){
     cin.tie(0);
