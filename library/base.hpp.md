@@ -39,12 +39,14 @@ layout: default
 ## Required by
 
 * :heavy_check_mark: <a href="datastructure/BinaryIndexedTree.hpp.html">BinaryIndexedTree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
+* :heavy_check_mark: <a href="datastructure/SegmentTree.hpp.html">SegmentTree <small>(datastructure/SegmentTree.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_1_A.test.cpp.html">test/aoj/DSL_1_A.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/DSL_2_A.test.cpp.html">test/aoj/DSL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_2_B.test.cpp.html">test/aoj/DSL_2_B.test.cpp</a>
 
 
