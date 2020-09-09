@@ -1,9 +1,10 @@
 /**
- * @brief BinaryIndexedTree
+ * @brief Binary Indexed Tree
  * @docs docs/datastructure/BinaryIndexedTree.md
  */
 
 #pragma once
+
 #include "../base.hpp"
 
 template<typename T>

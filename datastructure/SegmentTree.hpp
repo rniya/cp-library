@@ -1,9 +1,10 @@
 /**
- * @brief SegmentTree
+ * @brief Segment Tree
  * @docs docs/datastructure/SegmentTree.md
  */
 
 #pragma once
+
 #include "../base.hpp"
 
 template<typename Monoid>
