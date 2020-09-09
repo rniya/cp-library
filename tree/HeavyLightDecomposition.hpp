@@ -1,5 +1,5 @@
 /**
- * @brief Heavy LIght Decomposition
+ * @brief Heavy Light Decomposition
  * @docsdocs/tree/HeavyLightDecomposition.md
  */
 

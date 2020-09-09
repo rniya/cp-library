@@ -1,11 +1,12 @@
 #pragma once
+
 #include <bits/stdc++.h>
 using namespace std;
 #define LOCAL
 #pragma region Macros
 typedef long long ll;
 #define ALL(x) (x).begin(),(x).end()
-const long long MOD=1e9+7;
+const long long MOD=1000000007;
 // const long long MOD=998244353;
 const int INF=1e9;
 const long long IINF=1e18;
