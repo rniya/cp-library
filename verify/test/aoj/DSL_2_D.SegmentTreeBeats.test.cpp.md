@@ -25,15 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
+# :heavy_check_mark: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-09-09 18:55:15+09:00
 
 
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_D">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_D</a>
+
+
+## Depends on
+
+* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../../../library/datastructure/SegmentTreeBeats.hpp.html">Segment Tree Beats <small>(datastructure/SegmentTreeBeats.hpp)</small></a>
 
 
 ## Code
@@ -44,7 +51,7 @@ layout: default
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_D"
 
 #include "../../base.hpp"
-#include "../../SegmentTreeBeats.hpp"
+#include "../../datastructure/SegmentTreeBeats.hpp"
 
 int main(){
     cin.tie(0);
@@ -79,9 +86,9 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 399, in update
     self.update(self._resolve(pathlib.Path(included), included_from=path))
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 258, in _resolve
-    raise BundleErrorAt(path, -1, "no such header")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../SegmentTreeBeats.hpp: line -1: no such header
+  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
+    raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/SegmentTreeBeats.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Segment Tree Beats <small>(datastructure/SegmentTreeBeats.hpp)</small>
+# :heavy_check_mark: Segment Tree Beats <small>(datastructure/SegmentTreeBeats.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -43,6 +43,18 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp</a>
 
 
 ## Code
