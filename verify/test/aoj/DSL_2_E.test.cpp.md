@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/DSL_2_A.test.cpp
+# :heavy_check_mark: test/aoj/DSL_2_E.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_2_A.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_2_E.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-09-09 18:12:21+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_2_A">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_2_A</a>
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_E">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_E</a>
 
 
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../../library/datastructure/SegmentTree.hpp.html">Segment Tree <small>(datastructure/SegmentTree.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/datastructure/LazySegmentTree.hpp.html">Lazy Segment Tree <small>(datastructure/LazySegmentTree.hpp)</small></a>
 
 
 ## Code
@@ -48,22 +48,28 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_2_A"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_E"
 
 #include "../../base.hpp"
-#include "../../datastructure/SegmentTree.hpp"
+#include "../../datastructure/LazySegmentTree.hpp"
 
 int main(){
     cin.tie(0);
     ios::sync_with_stdio(false);
     int n,q; cin >> n >> q;
 
-    SegmentTree<int> seg(n,[](int a,int b){return min(a,b);},INT_MAX);
+    auto f=[](int a,int b){return a+b;};
+    LazySegmentTree<int,int> seg(n,f,f,f,0,0);
 
     for (;q--;){
-        int c,x,y; cin >> c >> x >> y;
-        if (!c) seg.update(x,y);
-        else cout << seg.query(x,y+1) << '\n';
+        int c,s,t,x,i; cin >> c;
+        if (!c){
+            cin >> s >> t >> x;
+            seg.update(s-1,t,x);
+        } else {
+            cin >> i;
+            cout << seg[i-1] << '\n';
+        }
     }
 }
 ```
@@ -81,7 +87,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/SegmentTree.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/LazySegmentTree.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

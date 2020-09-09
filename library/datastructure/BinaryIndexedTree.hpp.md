@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: BinaryIndexedTree <small>(datastructure/BinaryIndexedTree.hpp)</small>
+# :heavy_check_mark: Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/datastructure/BinaryIndexedTree.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 15:57:36+09:00
+    - Last commit date: 2020-09-09 18:12:21+09:00
 
 
 
@@ -56,11 +56,12 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief BinaryIndexedTree
+ * @brief Binary Indexed Tree
  * @docs docs/datastructure/BinaryIndexedTree.md
  */
 
 #pragma once
+
 #include "../base.hpp"
 
 template<typename T>
