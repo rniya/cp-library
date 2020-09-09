@@ -53,10 +53,15 @@ layout: default
 * :heavy_check_mark: <a href="datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/WeightedUnionFind.hpp.html">Weighted UnionFind <small>(datastructure/WeightedUnionFind.hpp)</small></a>
 * :warning: <a href="test/aoj/DSL_3_D.SlidingWindowAggregation.cpp.html">test/aoj/DSL_3_D.SlidingWindowAggregation.cpp</a>
+* :heavy_check_mark: <a href="tree/HeavyLightDecomposition.hpp.html">Heavy LIght Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small></a>
+* :heavy_check_mark: <a href="tree/LowestCommonAncestor.hpp.html">Lowest Common Ancestor <small>(tree/LowestCommonAncestor.hpp)</small></a>
+* :heavy_check_mark: <a href="tree/TreeDiameter.hpp.html">Tree Diameter <small>(tree/TreeDiameter.hpp)</small></a>
+* :warning: <a href="util/compress.hpp.html">compress <small>(util/compress.hpp)</small></a>
 
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../verify/test/aoj/2667.test.cpp.html">test/aoj/2667.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_1_A.test.cpp.html">test/aoj/DSL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_1_B.test.cpp.html">test/aoj/DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp</a>
@@ -79,6 +84,11 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_2_I.test.cpp.html">test/aoj/DSL_2_I.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_3_D.test.cpp.html">test/aoj/DSL_3_D.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_5_B.test.cpp.html">test/aoj/DSL_5_B.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/GRL_5_A.test.cpp.html">test/aoj/GRL_5_A.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/GRL_5_B.test.cpp.html">test/aoj/GRL_5_B.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp.html">test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/GRL_5_C.test.cpp.html">test/aoj/GRL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp.html">test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp</a>
 
 
 ## Code

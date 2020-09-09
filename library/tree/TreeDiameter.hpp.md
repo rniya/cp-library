@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Convex Hull Trick <small>(datastructure/ConvexHullTrick.hpp)</small>
+# :heavy_check_mark: Tree Diameter <small>(tree/TreeDiameter.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/datastructure/ConvexHullTrick.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 22:52:43+09:00
+* category: <a href="../../index.html#c0af77cf8294ff93a5cdb2963ca9f038">tree</a>
+* <a href="{{ site.github.repository_url }}/blob/master/tree/TreeDiameter.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-09 22:47:41+09:00
 
 
 
@@ -45,62 +45,77 @@ layout: default
 * :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_A.test.cpp.html">test/aoj/GRL_5_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_B.test.cpp.html">test/aoj/GRL_5_B.test.cpp</a>
+
+
 ## Code
 
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
 /**
- * @brief Convex Hull Trick
- * @docs docs/datastructure/ConvexHullTrick.md
+ * @brief Tree Diameter
+ * @docs docs/tree/TreeDiameter.md
  */
 
 #pragma once
 
 #include "../base.hpp"
 
-template<typename T,bool Mono>
-struct ConvexHullTrick{
-    typedef function<bool(T,T)> C;
-    #define F first
-    #define S second
-    using Line=pair<T,T>;
-    C cmp;
-    deque<Line> Lines;
-    ConvexHullTrick(C cmp=[](T l,T r){return l>=r;})
-        :cmp(cmp){}
-    bool check(Line l1,Line l2,Line l3){
-        if (l1<l3) swap(l1,l3);
-        return (l3.S-l2.S)*(l2.F-l1.F)>=(l2.S-l1.S)*(l3.F-l2.F);
+template<typename T>
+struct TreeDiameter{
+    vector<T> dp,par;
+    vector<vector<pair<int,T>>> G;
+    TreeDiameter(int n):dp(n),par(n),G(n){}
+    void add_edge(int u,int v,T c){
+        G[u].emplace_back(v,c);
+        G[v].emplace_back(u,c);
     }
-    void add(T a,T b){
-        Line line(a,b);
-        while(Lines.size()>=2&&check(*(Lines.end()-2)
-        ,Lines.back(),line)) Lines.pop_back();
-        Lines.emplace_back(line);
-    }
-    T f(const int &i,const T &x){
-        return Lines[i].F*x+Lines[i].S;
-    }
-    T f(const Line &line,const T &x){
-        return line.F*x+line.S;
-    }
-    T query(T x){
-        if (Mono){
-            while(Lines.size()>=2
-            &&cmp(f(0,x),f(1,x))) Lines.pop_front();
-            return f(0,x);
-        } else {
-            int lb=-1,ub=Lines.size()-1;
-            while(ub-lb>1){
-                int mid=(lb+ub)>>1;
-                (cmp(f(mid,x),f(mid+1,x))?lb:ub)=mid;
-            }
-            return f(ub,x);
+    void dfs(int v,int p,int &s){
+        par[v]=p;
+        if (p<0) dp[v]=T(0);
+        if (dp[s]<dp[v]) s=v;
+        for (auto e:G[v]){
+            int u=e.first;
+            if (u==p) continue;
+            dp[u]=dp[v]+e.second;
+            dfs(u,v,s);
         }
     }
-    #undef F
-    #undef S
+    pair<int,int> endPoints(){
+        int s=0;
+        dfs(s,-1,s);
+        int t=s;
+        dfs(t,-1,t);
+        return make_pair(s,t);
+    }
+    T build(){
+        int t=endPoints().second;
+        return dp[t];
+    }
+    vector<int> restore(){
+        int t=endPoints().second;
+        vector<int> res;
+        while(~t){
+            res.emplace_back(t);
+            t=par[t];
+        }
+        return res;
+    }
+    vector<T> distance(int v){
+        dfs(v,-1,v);
+        return dp;
+    }
+    vector<T> farthest(){
+        int t=endPoints().second;
+        auto ds=dp;
+        auto dt=distance(t);
+        for (int i=0;i<ds.size();++i) ds[i]=max(ds[i],dt[i]);
+        return ds;
+    }
 };
 ```
 {% endraw %}
@@ -115,7 +130,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/ConvexHullTrick.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/TreeDiameter.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

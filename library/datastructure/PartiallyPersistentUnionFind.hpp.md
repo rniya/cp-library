@@ -36,6 +36,10 @@ layout: default
 
 
 
+## 概要
+
+## 計算量
+
 ## Depends on
 
 * :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
