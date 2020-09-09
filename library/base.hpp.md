@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../index.html#5058f1af8388633f609cadb75a75dc9d">.</a>
 * <a href="{{ site.github.repository_url }}/blob/master/base.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 13:53:26+09:00
+    - Last commit date: 2020-09-09 23:15:02+09:00
 
 
 
@@ -53,7 +53,7 @@ layout: default
 * :heavy_check_mark: <a href="datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/WeightedUnionFind.hpp.html">Weighted UnionFind <small>(datastructure/WeightedUnionFind.hpp)</small></a>
 * :warning: <a href="test/aoj/DSL_3_D.SlidingWindowAggregation.cpp.html">test/aoj/DSL_3_D.SlidingWindowAggregation.cpp</a>
-* :heavy_check_mark: <a href="tree/HeavyLightDecomposition.hpp.html">Heavy LIght Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small></a>
+* :heavy_check_mark: <a href="tree/HeavyLightDecomposition.hpp.html">Heavy Light Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small></a>
 * :heavy_check_mark: <a href="tree/LowestCommonAncestor.hpp.html">Lowest Common Ancestor <small>(tree/LowestCommonAncestor.hpp)</small></a>
 * :heavy_check_mark: <a href="tree/TreeDiameter.hpp.html">Tree Diameter <small>(tree/TreeDiameter.hpp)</small></a>
 * :warning: <a href="util/compress.hpp.html">compress <small>(util/compress.hpp)</small></a>
@@ -97,13 +97,14 @@ layout: default
 {% raw %}
 ```cpp
 #pragma once
+
 #include <bits/stdc++.h>
 using namespace std;
 #define LOCAL
 #pragma region Macros
 typedef long long ll;
 #define ALL(x) (x).begin(),(x).end()
-const long long MOD=1e9+7;
+const long long MOD=1000000007;
 // const long long MOD=998244353;
 const int INF=1e9;
 const long long IINF=1e18;
@@ -183,13 +184,14 @@ template<class T1,class T2> inline bool chmax(T1 &a,T2 b){
 {% raw %}
 ```cpp
 #line 2 "base.hpp"
+
 #include <bits/stdc++.h>
 using namespace std;
 #define LOCAL
 #pragma region Macros
 typedef long long ll;
 #define ALL(x) (x).begin(),(x).end()
-const long long MOD=1e9+7;
+const long long MOD=1000000007;
 // const long long MOD=998244353;
 const int INF=1e9;
 const long long IINF=1e18;

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 22:47:41+09:00
+    - Last commit date: 2020-09-09 23:15:02+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_E">https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_E</a>
@@ -41,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
 * :heavy_check_mark: <a href="../../../library/datastructure/LazySegmentTree.hpp.html">Lazy Segment Tree <small>(datastructure/LazySegmentTree.hpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/tree/HeavyLightDecomposition.hpp.html">Heavy LIght Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/tree/HeavyLightDecomposition.hpp.html">Heavy Light Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small></a>
 
 
 ## Code

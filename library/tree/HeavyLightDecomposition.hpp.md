@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Heavy LIght Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small>
+# :heavy_check_mark: Heavy Light Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#c0af77cf8294ff93a5cdb2963ca9f038">tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tree/HeavyLightDecomposition.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 22:47:41+09:00
+    - Last commit date: 2020-09-09 23:15:02+09:00
 
 
 
@@ -58,7 +58,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief Heavy LIght Decomposition
+ * @brief Heavy Light Decomposition
  * @docsdocs/tree/HeavyLightDecomposition.md
  */
 

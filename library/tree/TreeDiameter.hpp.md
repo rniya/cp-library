@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#c0af77cf8294ff93a5cdb2963ca9f038">tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/tree/TreeDiameter.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 22:47:41+09:00
+    - Last commit date: 2020-09-09 23:15:02+09:00
 
 
 

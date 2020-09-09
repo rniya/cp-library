@@ -72,7 +72,7 @@ layout: default
 
 ### tree
 
-* :heavy_check_mark: <a href="library/tree/HeavyLightDecomposition.hpp.html">Heavy LIght Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small></a>
+* :heavy_check_mark: <a href="library/tree/HeavyLightDecomposition.hpp.html">Heavy Light Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small></a>
 * :heavy_check_mark: <a href="library/tree/LowestCommonAncestor.hpp.html">Lowest Common Ancestor <small>(tree/LowestCommonAncestor.hpp)</small></a>
 * :heavy_check_mark: <a href="library/tree/TreeDiameter.hpp.html">Tree Diameter <small>(tree/TreeDiameter.hpp)</small></a>
 
