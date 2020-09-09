@@ -45,7 +45,7 @@ layout: default
 
 ### datastructure
 
-* :heavy_check_mark: <a href="library/datastructure/UnionFind.hpp.html">datastructure/UnionFind.hpp</a>
+* :heavy_check_mark: <a href="library/datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 
 
 ## Verify Files

@@ -38,7 +38,7 @@ layout: default
 
 ## Required by
 
-* :heavy_check_mark: <a href="datastructure/UnionFind.hpp.html">datastructure/UnionFind.hpp</a>
+* :heavy_check_mark: <a href="datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 
 
 ## Verified with
