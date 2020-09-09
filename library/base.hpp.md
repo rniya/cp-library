@@ -41,6 +41,7 @@ layout: default
 * :heavy_check_mark: <a href="datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/LazySegmentTree.hpp.html">Lazy Segment Tree <small>(datastructure/LazySegmentTree.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/SegmentTree.hpp.html">Segment Tree <small>(datastructure/SegmentTree.hpp)</small></a>
+* :warning: <a href="datastructure/SegmentTreeBeats.hpp.html">Segment Tree Beats <small>(datastructure/SegmentTreeBeats.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 
 
