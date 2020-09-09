@@ -1,3 +1,8 @@
+/**
+ * @brief UnionFind
+ * @docs docs/datastructure/UnionFind.md
+ */
+
 #pragma once
 #include "../base.hpp"
 
