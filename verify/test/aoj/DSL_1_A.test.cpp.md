@@ -21,29 +21,26 @@ layout: default
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="../../assets/css/copy-button.css" />
+<script type="text/javascript" src="../../../assets/js/copy-button.js"></script>
+<link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: datastructure/UnionFind.hpp
+# :heavy_check_mark: test/aoj/DSL_1_A.test.cpp
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/datastructure/UnionFind.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 13:59:49+09:00
+* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_1_A.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-09 15:10:28+09:00
 
 
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_1_A.test.cpp.html">test/aoj/DSL_1_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../../../library/datastructure/UnionFind.hpp.html">datastructure/UnionFind.hpp</a>
 
 
 ## Code
@@ -51,37 +48,33 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#pragma once
-#include "../base.hpp"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A"
 
-struct UnionFind{
-    int num;
-    vector<int> par,rank;
-    UnionFind(int n):num(n),par(n),rank(n,1){
-        iota(par.begin(),par.end(),0);
+#include "../../base.hpp"
+#include "../../datastructure/UnionFind.hpp"
+
+int main(){
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+    int n,q; cin >> n >> q;
+
+    UnionFind UF(n);
+
+    for (;q--;){
+        int c,x,y; cin >> c >> x >> y;
+        if (!c) UF.merge(x,y);
+        else cout << UF.same(x,y) << '\n';
     }
-    int root(int x){
-        return (par[x]==x?x:par[x]=root(par[x]));
-    }
-    bool merge(int x, int y){
-        x=root(x); y=root(y);
-        if (x==y) return false;
-        if (rank[x]<rank[y]) swap(x,y);
-        par[y]=x;
-        rank[x]+=rank[y];
-        --num;
-        return true;
-    }
-    bool same(int x, int y){return root(x)==root(y);}
-    int size(int x){return rank[root(x)];}
-    int count(){return num;}
-};
+}
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
+#line 1 "test/aoj/DSL_1_A.test.cpp"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A"
+
 #line 2 "base.hpp"
 #include <bits/stdc++.h>
 using namespace std;
@@ -186,9 +179,24 @@ struct UnionFind{
     int size(int x){return rank[root(x)];}
     int count(){return num;}
 };
+#line 5 "test/aoj/DSL_1_A.test.cpp"
+
+int main(){
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+    int n,q; cin >> n >> q;
+
+    UnionFind UF(n);
+
+    for (;q--;){
+        int c,x,y; cin >> c >> x >> y;
+        if (!c) UF.merge(x,y);
+        else cout << UF.same(x,y) << '\n';
+    }
+}
 
 ```
 {% endraw %}
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../index.html">Back to top page</a>
 

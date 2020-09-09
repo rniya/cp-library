@@ -38,18 +38,19 @@ layout: default
 
 ### .
 
-* :warning: <a href="library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="library/base.hpp.html">base.hpp</a>
 
 
 <div id="8dc87745f885a4cc532acd7b15b8b5fe"></div>
 
 ### datastructure
 
-* :warning: <a href="library/datastructure/UnionFind.hpp.html">datastructure/UnionFind.hpp</a>
+* :heavy_check_mark: <a href="library/datastructure/UnionFind.hpp.html">datastructure/UnionFind.hpp</a>
 
 
 ## Verify Files
 
+* :heavy_check_mark: <a href="verify/test/aoj/DSL_1_A.test.cpp.html">test/aoj/DSL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/example.test.cpp.html">test/aoj/example.test.cpp</a>
 
 
