@@ -1,11 +1,14 @@
 {
 "test/aoj/DSL_1_A.test.cpp": "2020-09-09 15:41:11 +0900",
+"test/aoj/DSL_1_B.test.cpp": "2020-09-09 22:12:38 +0900",
 "test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp": "2020-09-09 18:55:15 +0900",
 "test/aoj/DSL_2_A.test.cpp": "2020-09-09 18:12:21 +0900",
 "test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp": "2020-09-09 18:55:15 +0900",
 "test/aoj/DSL_2_B.test.cpp": "2020-09-09 18:12:21 +0900",
+"test/aoj/DSL_2_D.DualSegmentTree.test.cpp": "2020-09-09 22:12:38 +0900",
 "test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp": "2020-09-09 18:55:15 +0900",
 "test/aoj/DSL_2_D.test.cpp": "2020-09-09 18:12:21 +0900",
+"test/aoj/DSL_2_E.DualSegmentTree.test.cpp": "2020-09-09 22:12:38 +0900",
 "test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp": "2020-09-09 18:55:15 +0900",
 "test/aoj/DSL_2_E.test.cpp": "2020-09-09 18:12:21 +0900",
 "test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp": "2020-09-09 18:55:15 +0900",
@@ -16,5 +19,7 @@
 "test/aoj/DSL_2_H.test.cpp": "2020-09-09 18:12:21 +0900",
 "test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp": "2020-09-09 18:55:15 +0900",
 "test/aoj/DSL_2_I.test.cpp": "2020-09-09 18:12:21 +0900",
+"test/aoj/DSL_3_D.test.cpp": "2020-09-09 22:12:38 +0900",
+"test/aoj/DSL_5_B.test.cpp": "2020-09-09 22:12:38 +0900",
 "test/aoj/example.test.cpp": "2020-09-09 14:10:41 +0900"
 }
