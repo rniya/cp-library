@@ -31,14 +31,14 @@ layout: default
 
 * category: <a href="../../index.html#ac1ed416572b96a9f5d69740d174ef3d">combinatorics</a>
 * <a href="{{ site.github.repository_url }}/blob/master/combinatorics/combination.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 14:24:53+09:00
+    - Last commit date: 2020-09-10 15:03:02+09:00
 
 
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
+* :question: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Code
@@ -66,7 +66,7 @@ struct Combination{
         for (int i=1;i<=n;++i) _inv[i]=_finv[i]*_finv[i-1];
     }
     M fac(int k) const {return _fac[k];}
-    M finv (int k) const {return _finv[k];}
+    M finv(int k) const {return _finv[k];}
     M inv(int k) const {return _inv[k];}
     M P(int n,int r) const {
         if (n<0||r<0||n<r) return 0;

@@ -25,29 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small>
+# :warning: 素数判定 <small>(math/is_prime.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
-* <a href="{{ site.github.repository_url }}/blob/master/graph/WarshallFloyd.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 10:46:07+09:00
+* category: <a href="../../index.html#7e676e9e663beb40fd133f5ee24487c2">math</a>
+* <a href="{{ site.github.repository_url }}/blob/master/math/is_prime.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-10 15:03:02+09:00
 
 
 
-
-## 概要
-
-## 計算量
 
 ## Depends on
 
 * :question: <a href="../base.hpp.html">base.hpp</a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
 
 
 ## Code
@@ -56,25 +47,18 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief Warshall Floyd
- * @docs docs/graph/WarshallFloyd.md
+ * @brief 素数判定
  */
 
 #pragma once
 
 #include "../base.hpp"
 
-template<typename T>
-void Warshall_Floyd(vector<vector<T>> &d,T id){
-    int n=d.size();
-    for (int k=0;k<n;++k){
-        for (int i=0;i<n;++i){
-            for (int j=0;j<n;++j){
-                if (d[i][k]==id||d[k][j]==id) continue;
-                d[i][j]=min(d[i][j],d[i][k]+d[k][j]);
-            }
-        }
+template<typename T> bool is_prime(T n){
+    for (T i=2;i*i<=n;++i){
+        if (n%i==0) return false;
     }
+    return 1<n;
 }
 ```
 {% endraw %}
@@ -89,7 +73,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/WarshallFloyd.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/is_prime.hpp: line 5: #pragma once found in a non-first line
 
 ```
 {% endraw %}

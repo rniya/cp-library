@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/GRL_3_C.test.cpp
+# :heavy_check_mark: test/aoj/NTL_1_B.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_3_C.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 10:46:07+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/NTL_1_B.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-10 15:03:02+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_C">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_C</a>
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_B">https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_B</a>
 
 
 ## Depends on
 
 * :question: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/StronglyConnectedComponents.hpp.html">Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/math/modpow.hpp.html">繰り返し自乗法 <small>(math/modpow.hpp)</small></a>
 
 
 ## Code
@@ -48,28 +48,17 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_C"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_B"
 
 #include "../../base.hpp"
-#include "../../graph/StronglyConnectedComponents.hpp"
+#include "../../math/modpow.hpp"
 
 int main(){
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int V,E; cin >> V >> E;
+    long long m,n; cin >> m >> n;
 
-    StronglyConnectedComponents SCC(V);
-    for (int i=0;i<E;++i){
-        int s,t; cin >> s >> t;
-        SCC.add_edge(s,t);
-    }
-    SCC.build();
-
-    int Q; cin >> Q;
-    for (;Q--;){
-        int u,v; cin >> u >> v;
-        cout << (SCC[u]==SCC[v]) << '\n';
-    }
+    cout << modpow(m,n,1000000007) << '\n';
 }
 ```
 {% endraw %}
@@ -86,7 +75,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/StronglyConnectedComponents.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/modpow.hpp: line 5: #pragma once found in a non-first line
 
 ```
 {% endraw %}
