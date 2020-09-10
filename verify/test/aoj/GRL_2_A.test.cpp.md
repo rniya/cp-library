@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+# :heavy_check_mark: test/aoj/GRL_2_A.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 23:15:02+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_2_A.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-10 11:16:56+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C">https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C</a>
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A</a>
 
 
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../../library/tree/HeavyLightDecomposition.hpp.html">Heavy Light Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/Kruskal.hpp.html"> <small>(graph/Kruskal.hpp)</small></a>
 
 
 ## Code
@@ -48,31 +48,24 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A"
 
 #include "../../base.hpp"
-#include "../../tree/HeavyLightDecomposition.hpp"
+#include "../../graph/Kruskal.hpp"
 
 int main(){
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int n; cin >> n;
+    int V,E; cin >> V >> E;
 
-    HeavyLightDecomposition HLD(n);
-    for (int i=0;i<n;++i){
-        int k; cin >> k;
-        for (;k--;){
-            int c; cin >> c;
-            HLD.add_edge(i,c);
-        }
-    }
-    HLD.build();
+    Kruskal<int> K(V);
 
-    int q; cin >> q;
-    for (;q--;){
-        int u,v; cin >> u >> v;
-        cout << HLD.lca(u,v) << '\n';
+    for (int i=0;i<E;++i){
+        int s,t,w; cin >> s >> t >> w;
+        K.add_edge(s,t,w);
     }
+
+    cout << K.build() << '\n';
 }
 ```
 {% endraw %}
@@ -89,7 +82,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/HeavyLightDecomposition.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/Kruskal.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

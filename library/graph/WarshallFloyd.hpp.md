@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small>
+# :heavy_check_mark: Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -42,12 +42,12 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Verified with
 
-* :x: <a href="../../verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
 
 
 ## Code

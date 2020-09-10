@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
 * :heavy_check_mark: <a href="../../../library/datastructure/LazySegmentTree.hpp.html">Lazy Segment Tree <small>(datastructure/LazySegmentTree.hpp)</small></a>
 
 

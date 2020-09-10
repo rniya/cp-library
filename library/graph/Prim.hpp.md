@@ -25,16 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Dual Segment Tree <small>(datastructure/DualSegmentTree.hpp)</small>
+# :heavy_check_mark:  <small>(graph/Prim.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/datastructure/DualSegmentTree.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 23:15:02+09:00
+* category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
+* <a href="{{ site.github.repository_url }}/blob/master/graph/Prim.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-10 11:16:56+09:00
 
 
 
+
+## 概要
+
+## 計算量
 
 ## Depends on
 
@@ -43,8 +47,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_D.DualSegmentTree.test.cpp.html">test/aoj/DSL_2_D.DualSegmentTree.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_E.DualSegmentTree.test.cpp.html">test/aoj/DSL_2_E.DualSegmentTree.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_2_A.Prim.test.cpp.html">test/aoj/GRL_2_A.Prim.test.cpp</a>
 
 
 ## Code
@@ -53,51 +56,39 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief Dual Segment Tree
- * @docs docs/datastructure/DualSegmentTree.hpp
+ * @brief
+ * @docs docs/graph/Prim.md
  */
 
 #pragma once
 
 #include "../base.hpp"
 
-template<typename OperatorMonoid>
-struct DualSegmentTree{
-    typedef function<OperatorMonoid(OperatorMonoid,OperatorMonoid)> H;
-    int n,hi;
-    H h;
-    OperatorMonoid id1;
-    vector<OperatorMonoid> laz;
-    DualSegmentTree(int n_,H h,OperatorMonoid id1):h(h),id1(id1){init(n_);}
-    void init(int n_){
-        n=1,hi=0;
-        while(n<n_) n<<=1,++hi;
-        laz.assign(n<<1,id1);
+template<typename T>
+struct Prim{
+    using P=pair<T,int>;
+    int n;
+    vector<vector<pair<int,T>>> G;
+    vector<bool> used;
+    Prim(int n):n(n),G(n),used(n,false){}
+    void add_edge(int u,int v,T c){
+        G[u].emplace_back(v,c);
+        G[v].emplace_back(u,c);
     }
-    inline void propagate(int k){
-        if (laz[k]==id1) return;
-        laz[k<<1|0]=h(laz[k<<1|0],laz[k]);
-        laz[k<<1|1]=h(laz[k<<1|1],laz[k]);
-        laz[k]=id1;
-    }
-    inline void thrust(int k){
-        for (int i=hi;i;--i) propagate(k>>i);
-    }
-    void update(int a,int b,OperatorMonoid x){
-        if (a>=b) return;
-        thrust(a+=n); thrust(b+=n-1);
-        for (int l=a,r=b+1;l<r;l>>=1,r>>=1){
-            if (l&1) laz[l]=h(laz[l],x),++l;
-            if (r&1) --r,laz[r]=h(laz[r],x);
+    T build(){
+        T res=0;
+        priority_queue<P,vector<P>,greater<P>> pq;
+        pq.emplace(0,0);
+        while(!pq.empty()){
+            P p=pq.top(); pq.pop();
+            if (used[p.second]) continue;
+            used[p.second]=true;
+            res+=p.first;
+            for (auto e:G[p.second]){
+                pq.emplace(e.second,e.first);
+            }
         }
-    }
-    void set_val(int k,OperatorMonoid x){
-        thrust(k+=n);
-        laz[k]=x;
-    }
-    OperatorMonoid operator[](int k){
-        thrust(k+=n);
-        return laz[k];
+        return res;
     }
 };
 ```
@@ -113,7 +104,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/DualSegmentTree.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/Prim.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

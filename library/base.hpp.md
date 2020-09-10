@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../assets/css/copy-button.css" />
 
 
-# :question: base.hpp
+# :heavy_check_mark: base.hpp
 
 <a href="../index.html">Back to top page</a>
 
@@ -55,11 +55,13 @@ layout: default
 * :heavy_check_mark: <a href="datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/WeightedUnionFind.hpp.html">Weighted UnionFind <small>(datastructure/WeightedUnionFind.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/Dijkstra.hpp.html">Dijkstra <small>(graph/Dijkstra.hpp)</small></a>
+* :heavy_check_mark: <a href="graph/Kruskal.hpp.html"> <small>(graph/Kruskal.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/LowLink.hpp.html">Low Link (橋/関節点) <small>(graph/LowLink.hpp)</small></a>
+* :heavy_check_mark: <a href="graph/Prim.hpp.html"> <small>(graph/Prim.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/StronglyConnectedComponents.hpp.html">Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/TopologicalSort.hpp.html">Topological Sort <small>(graph/TopologicalSort.hpp)</small></a>
 * :warning: <a href="graph/TwoEdgeConnectedComponents.hpp.html">Two Edge Connected Components <small>(graph/TwoEdgeConnectedComponents.hpp)</small></a>
-* :x: <a href="graph/WarshallFloyd.hpp.html">Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small></a>
+* :heavy_check_mark: <a href="graph/WarshallFloyd.hpp.html">Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small></a>
 * :warning: <a href="modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 * :warning: <a href="modulo/runtime_modint.hpp.html">実行時 modint <small>(modulo/runtime_modint.hpp)</small></a>
 * :warning: <a href="test/aoj/DSL_3_D.SlidingWindowAggregation.cpp.html">test/aoj/DSL_3_D.SlidingWindowAggregation.cpp</a>
@@ -95,7 +97,9 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_3_D.test.cpp.html">test/aoj/DSL_3_D.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_5_B.test.cpp.html">test/aoj/DSL_5_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_1_A.test.cpp.html">test/aoj/GRL_1_A.test.cpp</a>
-* :x: <a href="../verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/GRL_2_A.Prim.test.cpp.html">test/aoj/GRL_2_A.Prim.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_3_A.test.cpp.html">test/aoj/GRL_3_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_3_B.test.cpp.html">test/aoj/GRL_3_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_3_C.test.cpp.html">test/aoj/GRL_3_C.test.cpp</a>

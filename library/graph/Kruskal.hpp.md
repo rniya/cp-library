@@ -25,16 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Dual Segment Tree <small>(datastructure/DualSegmentTree.hpp)</small>
+# :heavy_check_mark:  <small>(graph/Kruskal.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/datastructure/DualSegmentTree.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 23:15:02+09:00
+* category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
+* <a href="{{ site.github.repository_url }}/blob/master/graph/Kruskal.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-10 11:16:56+09:00
 
 
 
+
+## 概要
+
+## 計算量
 
 ## Depends on
 
@@ -43,8 +47,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_D.DualSegmentTree.test.cpp.html">test/aoj/DSL_2_D.DualSegmentTree.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_E.DualSegmentTree.test.cpp.html">test/aoj/DSL_2_E.DualSegmentTree.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
 
 
 ## Code
@@ -53,51 +56,66 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief Dual Segment Tree
- * @docs docs/datastructure/DualSegmentTree.hpp
+ * @brief
+ * @docs docs/graph/Kruskal.md
  */
 
 #pragma once
 
 #include "../base.hpp"
 
-template<typename OperatorMonoid>
-struct DualSegmentTree{
-    typedef function<OperatorMonoid(OperatorMonoid,OperatorMonoid)> H;
-    int n,hi;
-    H h;
-    OperatorMonoid id1;
-    vector<OperatorMonoid> laz;
-    DualSegmentTree(int n_,H h,OperatorMonoid id1):h(h),id1(id1){init(n_);}
-    void init(int n_){
-        n=1,hi=0;
-        while(n<n_) n<<=1,++hi;
-        laz.assign(n<<1,id1);
-    }
-    inline void propagate(int k){
-        if (laz[k]==id1) return;
-        laz[k<<1|0]=h(laz[k<<1|0],laz[k]);
-        laz[k<<1|1]=h(laz[k<<1|1],laz[k]);
-        laz[k]=id1;
-    }
-    inline void thrust(int k){
-        for (int i=hi;i;--i) propagate(k>>i);
-    }
-    void update(int a,int b,OperatorMonoid x){
-        if (a>=b) return;
-        thrust(a+=n); thrust(b+=n-1);
-        for (int l=a,r=b+1;l<r;l>>=1,r>>=1){
-            if (l&1) laz[l]=h(laz[l],x),++l;
-            if (r&1) --r,laz[r]=h(laz[r],x);
+template<typename T>
+struct Kruskal{
+private:
+    struct edge{
+        int from,to,used,id; T cost;
+        edge(int from,int to,T cost,int id):
+            from(from),to(to),cost(cost),id(id),used(0){}
+        bool operator<(const edge &e) const{
+            if (cost!=e.cost) return cost<e.cost;
+            else if (from!=e.from) return from<e.from;
+            else return to<e.to;
         }
+    };
+    vector<edge> es;
+    vector<int> par,rank;
+    int root(int x){
+        if (par[x]==x) return x;
+        return par[x]=root(par[x]);
     }
-    void set_val(int k,OperatorMonoid x){
-        thrust(k+=n);
-        laz[k]=x;
+    bool merge(int x, int y){
+        x=root(x),y=root(y);
+        if (x==y) return false;
+        if (rank[x]<rank[y]) swap(x,y);
+        par[y]=x;
+        rank[x]+=rank[y];
+        return true;
     }
-    OperatorMonoid operator[](int k){
-        thrust(k+=n);
-        return laz[k];
+    bool same(int x, int y){return root(x)==root(y);}
+    int size(int x){return rank[root(x)];}
+public:
+    Kruskal(int n):par(n),rank(n,1){
+        iota(par.begin(),par.end(),0);
+    }
+    void add_edge(int u,int v,T c,int id=0){
+        es.emplace_back(u,v,c,id);
+    }
+    T build(){
+        sort(es.begin(),es.end());
+        T res=0;
+        for (auto &e:es){
+            if (!same(e.from,e.to)){
+                res+=e.cost; e.used=1;
+                merge(e.from,e.to);
+            }
+        }
+        return res;
+    }
+    vector<int> restore(T &c){
+        int m=es.size();
+        vector<int> res(m);
+        for (int i=0;i<m;++i) res[es[i].id]=es[i].used;
+        return res;
     }
 };
 ```
@@ -113,7 +131,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/DualSegmentTree.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/Kruskal.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

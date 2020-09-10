@@ -38,7 +38,7 @@ layout: default
 
 ### .
 
-* :question: <a href="library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="library/base.hpp.html">base.hpp</a>
 
 
 <div id="a9595c1c24c33b16056d2ad07e71682d"></div>
@@ -74,11 +74,13 @@ layout: default
 ### graph
 
 * :heavy_check_mark: <a href="library/graph/Dijkstra.hpp.html">Dijkstra <small>(graph/Dijkstra.hpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/Kruskal.hpp.html"> <small>(graph/Kruskal.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/LowLink.hpp.html">Low Link (橋/関節点) <small>(graph/LowLink.hpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/Prim.hpp.html"> <small>(graph/Prim.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/StronglyConnectedComponents.hpp.html">Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/TopologicalSort.hpp.html">Topological Sort <small>(graph/TopologicalSort.hpp)</small></a>
 * :warning: <a href="library/graph/TwoEdgeConnectedComponents.hpp.html">Two Edge Connected Components <small>(graph/TwoEdgeConnectedComponents.hpp)</small></a>
-* :x: <a href="library/graph/WarshallFloyd.hpp.html">Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/WarshallFloyd.hpp.html">Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small></a>
 
 
 <div id="5dcb4a1ea5a35da52691d50c8313c333"></div>
@@ -138,7 +140,9 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_3_D.test.cpp.html">test/aoj/DSL_3_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_5_B.test.cpp.html">test/aoj/DSL_5_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_1_A.test.cpp.html">test/aoj/GRL_1_A.test.cpp</a>
-* :x: <a href="verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_2_A.Prim.test.cpp.html">test/aoj/GRL_2_A.Prim.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_3_A.test.cpp.html">test/aoj/GRL_3_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_3_B.test.cpp.html">test/aoj/GRL_3_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_3_C.test.cpp.html">test/aoj/GRL_3_C.test.cpp</a>
