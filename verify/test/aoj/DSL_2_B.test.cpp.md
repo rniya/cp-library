@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :question: <a href="../../../library/base.hpp.html">base.hpp</a>
 * :heavy_check_mark: <a href="../../../library/datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
 
 

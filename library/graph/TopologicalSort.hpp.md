@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: スライド最小値 <small>(datastructure/Slide_Min.hpp)</small>
+# :heavy_check_mark: Topological Sort <small>(graph/TopologicalSort.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/datastructure/Slide_Min.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 23:15:02+09:00
+* category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
+* <a href="{{ site.github.repository_url }}/blob/master/graph/TopologicalSort.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-10 10:46:07+09:00
 
 
 
@@ -47,7 +47,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_3_D.test.cpp.html">test/aoj/DSL_3_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_4_B.test.cpp.html">test/aoj/GRL_4_B.test.cpp</a>
 
 
 ## Code
@@ -56,28 +56,37 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief スライド最小値
- * @docs docs/datastructure/Slide_Min.md
+ * @brief Topological Sort
+ * @docs docs/graph/TopologicalSort.md
  */
 
 #pragma once
 
 #include "../base.hpp"
 
-template<typename T>
-vector<T> Slide_Min(const vector<T> &v,int k){
-    deque<int> deq;
-    vector<T> res;
-    for (int i=0;i<v.size();++i){
-        while(!deq.empty()&&v[deq.back()]>=v[i]) deq.pop_back();
-        deq.push_back(i);
-        if (i-k+1>=0){
-            res.push_back(v[deq.front()]);
-            if (deq.front()==i-k+1) deq.pop_front();
-        }
+struct TopologicalSort{
+    vector<vector<int>> G;
+    vector<int> seen,order;
+    TopologicalSort(int n):G(n),seen(n){}
+    void add_edge(int u,int v){
+        G[u].emplace_back(v);
     }
-    return res;
-}
+    void dfs(int v){
+        seen[v]=1;
+        for (int u:G[v]){
+            if (!seen[u]) dfs(u);
+        }
+        order.emplace_back(v);
+    }
+    vector<int> build(){
+        for (int i=0;i<G.size();++i){
+            if (!seen[i]) dfs(i);
+        }
+        reverse(order.begin(),order.end());
+        return order;
+    }
+    int operator[](int i){return order[i];}
+};
 ```
 {% endraw %}
 
@@ -91,7 +100,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/Slide_Min.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/TopologicalSort.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

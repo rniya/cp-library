@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: スライド最小値 <small>(datastructure/Slide_Min.hpp)</small>
+# :heavy_check_mark: Low Link (橋/関節点) <small>(graph/LowLink.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/datastructure/Slide_Min.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 23:15:02+09:00
+* category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
+* <a href="{{ site.github.repository_url }}/blob/master/graph/LowLink.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-10 10:46:07+09:00
 
 
 
@@ -47,7 +47,8 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_3_D.test.cpp.html">test/aoj/DSL_3_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_3_A.test.cpp.html">test/aoj/GRL_3_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_3_B.test.cpp.html">test/aoj/GRL_3_B.test.cpp</a>
 
 
 ## Code
@@ -56,28 +57,54 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief スライド最小値
- * @docs docs/datastructure/Slide_Min.md
+ * @brief Low Link (橋/関節点)
+ * @docs docs/graph/LowLink.md
  */
 
 #pragma once
 
 #include "../base.hpp"
 
-template<typename T>
-vector<T> Slide_Min(const vector<T> &v,int k){
-    deque<int> deq;
-    vector<T> res;
-    for (int i=0;i<v.size();++i){
-        while(!deq.empty()&&v[deq.back()]>=v[i]) deq.pop_back();
-        deq.push_back(i);
-        if (i-k+1>=0){
-            res.push_back(v[deq.front()]);
-            if (deq.front()==i-k+1) deq.pop_front();
+struct LowLink{
+    int n,time;
+    vector<int> ord,low;
+    vector<vector<int>> G;
+    vector<int> articulation;
+    vector<pair<int,int>> bridge;
+    LowLink(int n):n(n),time(0),ord(n,-1),low(n),G(n){}
+    void add_edge(int u,int v){
+        G[u].emplace_back(v);
+        G[v].emplace_back(u);
+    }
+    bool is_bridge(int u,int v){
+        if (ord[u]>ord[v]) swap(u,v);
+        return ord[u]<low[v];
+    }
+    void dfs(int v,int p){
+        ord[v]=low[v]=time++;
+        bool is_articulation=false;
+        int cnt=0;
+        for (int u:G[v]){
+            if (u==p) continue;
+            if (~ord[u]){
+                low[v]=min(low[v],ord[u]);
+                continue;
+            }
+            ++cnt;
+            dfs(u,v);
+            low[v]=min(low[v],low[u]);
+            is_articulation|=(~p&&ord[v]<=low[u]);
+            if (is_bridge(v,u)) bridge.emplace_back(v,u);
+        }
+        is_articulation|=(p<0&&cnt>1);
+        if (is_articulation) articulation.emplace_back(v);
+    }
+    void build(){
+        for (int v=0;v<n;++v){
+            if (ord[v]<0) dfs(v,-1);
         }
     }
-    return res;
-}
+};
 ```
 {% endraw %}
 
@@ -91,7 +118,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/Slide_Min.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/LowLink.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

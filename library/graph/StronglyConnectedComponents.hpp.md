@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small>
+# :heavy_check_mark: Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -42,7 +42,12 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
+* :question: <a href="../base.hpp.html">base.hpp</a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_3_C.test.cpp.html">test/aoj/GRL_3_C.test.cpp</a>
 
 
 ## Code
