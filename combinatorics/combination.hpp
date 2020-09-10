@@ -18,7 +18,7 @@ struct Combination{
         for (int i=1;i<=n;++i) _inv[i]=_finv[i]*_finv[i-1];
     }
     M fac(int k) const {return _fac[k];}
-    M finv (int k) const {return _finv[k];}
+    M finv(int k) const {return _finv[k];}
     M inv(int k) const {return _inv[k];}
     M P(int n,int r) const {
         if (n<0||r<0||n<r) return 0;
