@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Low Link (橋/関節点) <small>(graph/LowLink.hpp)</small>
+# :warning: Trie <small>(string/Trie.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
-* <a href="{{ site.github.repository_url }}/blob/master/graph/LowLink.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 10:46:07+09:00
+* category: <a href="../../index.html#b45cffe084dd3d20d928bee85e7b0f21">string</a>
+* <a href="{{ site.github.repository_url }}/blob/master/string/Trie.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-10 15:23:12+09:00
 
 
 
@@ -45,65 +45,70 @@ layout: default
 * :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_3_A.test.cpp.html">test/aoj/GRL_3_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_3_B.test.cpp.html">test/aoj/GRL_3_B.test.cpp</a>
-
-
 ## Code
 
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
 /**
- * @brief Low Link (橋/関節点)
- * @docs docs/graph/LowLink.md
+ * @brief Trie
+ * @docs docs/string/Trie.md
  */
 
 #pragma once
 
 #include "../base.hpp"
 
-struct LowLink{
-    int n,time;
-    vector<int> ord,low;
-    vector<vector<int>> G;
-    vector<int> articulation;
-    vector<pair<int,int>> bridge;
-    LowLink(int n):n(n),time(0),ord(n,-1),low(n),G(n){}
-    void add_edge(int u,int v){
-        G[u].emplace_back(v);
-        G[v].emplace_back(u);
+template<int char_size>
+struct Trie{
+    struct TrieNode{
+        char c; int dep;
+        vector<int> nxt,idxs;
+        TrieNode(char c,int dep):c(c),dep(dep),nxt(char_size,-1){}
+    };
+    vector<TrieNode> Nodes;
+    function<int(char)> ctoi;
+    Trie(function<int(char)> ctoi):ctoi(ctoi){
+        Nodes.emplace_back('$',0);
     }
-    bool is_bridge(int u,int v){
-        if (ord[u]>ord[v]) swap(u,v);
-        return ord[u]<low[v];
+    inline int &next(int node,int c){
+        return Nodes[node].nxt[c];
     }
-    void dfs(int v,int p){
-        ord[v]=low[v]=time++;
-        bool is_articulation=false;
-        int cnt=0;
-        for (int u:G[v]){
-            if (u==p) continue;
-            if (~ord[u]){
-                low[v]=min(low[v],ord[u]);
-                continue;
+    inline int &next(int node,char c){
+        return next(node,ctoi(c));
+    }
+    void add(const string &s,int x=0){
+        int node=0;
+        for (int i=0;i<s.size();++i){
+            int k=ctoi(s[i]);
+            if (next(node,k)<0){
+                next(node,k)=Nodes.size();
+                Nodes.emplace_back(s[i],i+1);
             }
-            ++cnt;
-            dfs(u,v);
-            low[v]=min(low[v],low[u]);
-            is_articulation|=(~p&&ord[v]<=low[u]);
-            if (is_bridge(v,u)) bridge.emplace_back(v,u);
+            node=next(node,k);
         }
-        is_articulation|=(p<0&&cnt>1);
-        if (is_articulation) articulation.emplace_back(v);
+        Nodes[node].idxs.emplace_back(x);
     }
-    void build(){
-        for (int v=0;v<n;++v){
-            if (ord[v]<0) dfs(v,-1);
+    int find(const string &s){
+        int node=0;
+        for (int i=0;i<s.size();++i){
+            int k=ctoi(s[i]);
+            if (next(node,k)<0) return -1;
+            node=next(node,k);
+        }
+        return node;
+    }
+    template<typename F>
+    void query(const string &s,const F &f,int l){
+        int node=0;
+        for (int i=l;i<s.size();++i){
+            node=next(node,s[i]);
+            if (node<0) return;
+            for (auto &idx:Nodes[node].idxs) f(idx);
         }
     }
+    int size(){return Nodes.size();};
+    vector<int> idxs(int node){return Nodes[node].idxs;}
 };
 ```
 {% endraw %}
@@ -118,7 +123,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/LowLink.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: string/Trie.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

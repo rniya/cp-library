@@ -31,14 +31,14 @@ layout: default
 
 * category: <a href="../../index.html#5dcb4a1ea5a35da52691d50c8313c333">modulo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/modulo/runtime_modint.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 10:17:21+09:00
+    - Last commit date: 2020-09-10 15:23:12+09:00
 
 
 
 
 ## Depends on
 
-* :question: <a href="../base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Code
@@ -60,7 +60,7 @@ class runtime_modint{
         static u64 mod_=0;
         return mod_;
     }
-    public:
+public:
     u64 a;
     static void set_mod(const u64 x){mod()=x;}
     static u64 get_mod(){return mod();}

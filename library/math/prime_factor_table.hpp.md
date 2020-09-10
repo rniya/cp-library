@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#7e676e9e663beb40fd133f5ee24487c2">math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/prime_factor_table.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 15:03:02+09:00
+    - Last commit date: 2020-09-10 15:23:12+09:00
 
 
 
@@ -42,7 +42,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Code
@@ -59,14 +59,13 @@ layout: default
 
 #include "../base.hpp"
 
-template<typename T> map<T,int> prime_factor(T n){
-    map<T,int> res;
-    for (T i=2;i*i<=n;++i){
-        while (n%i==0){
-            ++res[i]; n/=i;
+vector<int> prime_factor_table(int n){
+    vector<int> res(n+1,0);
+    for (int i=2;i<=n;++i) if (!res[i]){
+        for (int j=i;j<=n;j+=i){
+            if (!res[j]) res[j]=i;
         }
     }
-    if (n!=1) res[n]=1;
     return res;
 }
 ```

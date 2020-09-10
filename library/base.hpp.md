@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../assets/css/copy-button.css" />
 
 
-# :question: base.hpp
+# :heavy_check_mark: base.hpp
 
 <a href="../index.html">Back to top page</a>
 
@@ -67,7 +67,7 @@ layout: default
 * :warning: <a href="graph/TwoSatisfiability.hpp.html">2-SAT <small>(graph/TwoSatisfiability.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/WarshallFloyd.hpp.html">Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small></a>
 * :warning: <a href="math/divisor.hpp.html">約数列挙 <small>(math/divisor.hpp)</small></a>
-* :x: <a href="math/euler_phi.hpp.html">Eulerのφ関数 <small>(math/euler_phi.hpp)</small></a>
+* :heavy_check_mark: <a href="math/euler_phi.hpp.html">Eulerのφ関数 <small>(math/euler_phi.hpp)</small></a>
 * :heavy_check_mark: <a href="math/extgcd.hpp.html">拡張ユークリッドの互除法 <small>(math/extgcd.hpp)</small></a>
 * :warning: <a href="math/is_prime.hpp.html">素数判定 <small>(math/is_prime.hpp)</small></a>
 * :heavy_check_mark: <a href="math/modpow.hpp.html">繰り返し自乗法 <small>(math/modpow.hpp)</small></a>
@@ -75,6 +75,10 @@ layout: default
 * :warning: <a href="math/prime_factor_table.hpp.html">osa_k法 <small>(math/prime_factor_table.hpp)</small></a>
 * :warning: <a href="modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 * :warning: <a href="modulo/runtime_modint.hpp.html">実行時 modint <small>(modulo/runtime_modint.hpp)</small></a>
+* :warning: <a href="string/Kunth_Morris_Pratt.hpp.html">Knuth Moriss Pratt (KMP法) <small>(string/Kunth_Morris_Pratt.hpp)</small></a>
+* :warning: <a href="string/Manacher.hpp.html"> <small>(string/Manacher.hpp)</small></a>
+* :warning: <a href="string/Trie.hpp.html">Trie <small>(string/Trie.hpp)</small></a>
+* :warning: <a href="string/Z_algorithm.hpp.html">Z-Algorithm <small>(string/Z_algorithm.hpp)</small></a>
 * :warning: <a href="test/aoj/DSL_3_D.SlidingWindowAggregation.cpp.html">test/aoj/DSL_3_D.SlidingWindowAggregation.cpp</a>
 * :heavy_check_mark: <a href="tree/EulerTourforEdge.hpp.html">Euler Tour (パスに対する操作) <small>(tree/EulerTourforEdge.hpp)</small></a>
 * :heavy_check_mark: <a href="tree/EulerTourforVertex.hpp.html">Euler Tour (部分木に対する操作) <small>(tree/EulerTourforVertex.hpp)</small></a>
@@ -128,7 +132,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp.html">test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/NTL_1_B.test.cpp.html">test/aoj/NTL_1_B.test.cpp</a>
-* :x: <a href="../verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
 
 

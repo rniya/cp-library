@@ -38,7 +38,7 @@ layout: default
 
 ### .
 
-* :question: <a href="library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="library/base.hpp.html">base.hpp</a>
 
 
 <div id="ac1ed416572b96a9f5d69740d174ef3d"></div>
@@ -98,7 +98,7 @@ layout: default
 ### math
 
 * :warning: <a href="library/math/divisor.hpp.html">約数列挙 <small>(math/divisor.hpp)</small></a>
-* :x: <a href="library/math/euler_phi.hpp.html">Eulerのφ関数 <small>(math/euler_phi.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/euler_phi.hpp.html">Eulerのφ関数 <small>(math/euler_phi.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/extgcd.hpp.html">拡張ユークリッドの互除法 <small>(math/extgcd.hpp)</small></a>
 * :warning: <a href="library/math/is_prime.hpp.html">素数判定 <small>(math/is_prime.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/modpow.hpp.html">繰り返し自乗法 <small>(math/modpow.hpp)</small></a>
@@ -112,6 +112,16 @@ layout: default
 
 * :warning: <a href="library/modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 * :warning: <a href="library/modulo/runtime_modint.hpp.html">実行時 modint <small>(modulo/runtime_modint.hpp)</small></a>
+
+
+<div id="b45cffe084dd3d20d928bee85e7b0f21"></div>
+
+### string
+
+* :warning: <a href="library/string/Kunth_Morris_Pratt.hpp.html">Knuth Moriss Pratt (KMP法) <small>(string/Kunth_Morris_Pratt.hpp)</small></a>
+* :warning: <a href="library/string/Manacher.hpp.html"> <small>(string/Manacher.hpp)</small></a>
+* :warning: <a href="library/string/Trie.hpp.html">Trie <small>(string/Trie.hpp)</small></a>
+* :warning: <a href="library/string/Z_algorithm.hpp.html">Z-Algorithm <small>(string/Z_algorithm.hpp)</small></a>
 
 
 <div id="0d0c91c0cca30af9c1c9faef0cf04aa9"></div>
@@ -183,7 +193,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp.html">test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_B.test.cpp.html">test/aoj/NTL_1_B.test.cpp</a>
-* :x: <a href="verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/example.test.cpp.html">test/aoj/example.test.cpp</a>
 

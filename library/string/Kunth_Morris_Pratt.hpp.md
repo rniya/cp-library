@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Low Link (橋/関節点) <small>(graph/LowLink.hpp)</small>
+# :warning: Knuth Moriss Pratt (KMP法) <small>(string/Kunth_Morris_Pratt.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
-* <a href="{{ site.github.repository_url }}/blob/master/graph/LowLink.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 10:46:07+09:00
+* category: <a href="../../index.html#b45cffe084dd3d20d928bee85e7b0f21">string</a>
+* <a href="{{ site.github.repository_url }}/blob/master/string/Kunth_Morris_Pratt.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-10 15:23:12+09:00
 
 
 
@@ -45,64 +45,51 @@ layout: default
 * :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_3_A.test.cpp.html">test/aoj/GRL_3_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_3_B.test.cpp.html">test/aoj/GRL_3_B.test.cpp</a>
-
-
 ## Code
 
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
 /**
- * @brief Low Link (橋/関節点)
- * @docs docs/graph/LowLink.md
+ * @brief Knuth Moriss Pratt (KMP法)
+ * @docs docs/string/Knuth_Morris_Pratt.md
  */
 
 #pragma once
 
 #include "../base.hpp"
 
-struct LowLink{
-    int n,time;
-    vector<int> ord,low;
-    vector<vector<int>> G;
-    vector<int> articulation;
-    vector<pair<int,int>> bridge;
-    LowLink(int n):n(n),time(0),ord(n,-1),low(n),G(n){}
-    void add_edge(int u,int v){
-        G[u].emplace_back(v);
-        G[v].emplace_back(u);
-    }
-    bool is_bridge(int u,int v){
-        if (ord[u]>ord[v]) swap(u,v);
-        return ord[u]<low[v];
-    }
-    void dfs(int v,int p){
-        ord[v]=low[v]=time++;
-        bool is_articulation=false;
-        int cnt=0;
-        for (int u:G[v]){
-            if (u==p) continue;
-            if (~ord[u]){
-                low[v]=min(low[v],ord[u]);
-                continue;
-            }
-            ++cnt;
-            dfs(u,v);
-            low[v]=min(low[v],low[u]);
-            is_articulation|=(~p&&ord[v]<=low[u]);
-            if (is_bridge(v,u)) bridge.emplace_back(v,u);
-        }
-        is_articulation|=(p<0&&cnt>1);
-        if (is_articulation) articulation.emplace_back(v);
-    }
+struct Knuth_Morris_Pratt{
+    string s;
+    int n;
+    vector<int> kmp;
+    Knuth_Morris_Pratt(const string &s):s(s){build();}
     void build(){
-        for (int v=0;v<n;++v){
-            if (ord[v]<0) dfs(v,-1);
+        n=s.size();
+        kmp.assign(n+1,-1);
+        for (int i=0,j=-1;i<n;kmp[++i]=++j){
+            while(j>=0&&s[i]!=s[j]) j=kmp[j];
         }
+    }
+    vector<int> KMP(){return kmp;}
+    vector<int> next_period(){
+        vector<int> np=kmp;
+        for (int i=1;i<kmp.size();++i) np[i]=i-np[i];
+        return np;
+    }
+    vector<int> pattern_match(const string &t){
+        int m=t.size();
+        vector<int> res;
+        int i=0,j=0;
+        while(i+j<m){
+            if (s[j]==t[i+j]){
+                if (++j!=n) continue;
+                res.emplace_back(i);
+            }
+            i+=j-kmp[j];
+            j=max(kmp[j],0);
+        }
+        return res;
     }
 };
 ```
@@ -118,7 +105,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/LowLink.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: string/Kunth_Morris_Pratt.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

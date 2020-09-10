@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: Eulerのφ関数 <small>(math/euler_phi.hpp)</small>
+# :heavy_check_mark: Eulerのφ関数 <small>(math/euler_phi.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -42,12 +42,12 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Verified with
 
-* :x: <a href="../../verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
 
 
 ## Code
