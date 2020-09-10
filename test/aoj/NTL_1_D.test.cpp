@@ -8,5 +8,5 @@ int main(){
     ios::sync_with_stdio(false);
     int n; cin >> n;
 
-    cout << eular_phi(n) << '\n';
+    cout << euler_phi(n) << '\n';
 }

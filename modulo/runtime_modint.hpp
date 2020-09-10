@@ -12,7 +12,7 @@ class runtime_modint{
         static u64 mod_=0;
         return mod_;
     }
-    public:
+public:
     u64 a;
     static void set_mod(const u64 x){mod()=x;}
     static u64 get_mod(){return mod();}

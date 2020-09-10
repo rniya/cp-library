@@ -7,13 +7,12 @@
 
 #include "../base.hpp"
 
-template<typename T> map<T,int> prime_factor(T n){
-    map<T,int> res;
-    for (T i=2;i*i<=n;++i){
-        while (n%i==0){
-            ++res[i]; n/=i;
+vector<int> prime_factor_table(int n){
+    vector<int> res(n+1,0);
+    for (int i=2;i<=n;++i) if (!res[i]){
+        for (int j=i;j<=n;j+=i){
+            if (!res[j]) res[j]=i;
         }
     }
-    if (n!=1) res[n]=1;
     return res;
 }
