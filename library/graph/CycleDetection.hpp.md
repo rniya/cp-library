@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Euler Tour (部分木に対する操作) <small>(tree/EulerTourforVertex.hpp)</small>
+# :heavy_check_mark: Cycle Detection <small>(graph/CycleDetection.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#c0af77cf8294ff93a5cdb2963ca9f038">tree</a>
-* <a href="{{ site.github.repository_url }}/blob/master/tree/EulerTourforVertex.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 12:32:51+09:00
+* category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
+* <a href="{{ site.github.repository_url }}/blob/master/graph/CycleDetection.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-10 14:24:53+09:00
 
 
 
@@ -43,7 +43,8 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj/2871.test.cpp.html">test/aoj/2871.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/2891.test.cpp.html">test/aoj/2891.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_4_A.test.cpp.html">test/aoj/GRL_4_A.test.cpp</a>
 
 
 ## Code
@@ -52,38 +53,47 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief Euler Tour (部分木に対する操作)
- * @docs dosc/tree/EulerTourforVertex.md
+ * @brief Cycle Detection
+ * @docs docs/graph/CycleDetection.hpp
  */
 
 #pragma once
 
 #include "../base.hpp"
 
-class EulerTourforVertex{
-    vector<int> ls,rs;
-    int time;
-    void dfs(int v,int p){
-        ls[v]=time++;
-        for (int u:G[v]){
-            if (u!=p) dfs(u,v);
-        }
-        rs[v]=time;
-    }
-public:
+template<bool directed>
+struct CycleDetection{
     vector<vector<int>> G;
-    EulerTourforVertex(int n):ls(n),rs(n),G(n){}
+    vector<int> seen,finished;
+    stack<int> hist;
+    int pos;
+    CycleDetection(int n):G(n),seen(n,0),finished(n,0),pos(-1){}
     void add_edge(int u,int v){
         G[u].emplace_back(v);
-        G[v].emplace_back(u);
     }
-    void build(int r=0){
-        time=0; dfs(r,-1);
+    void dfs(int v,int p){
+        seen[v]=1; hist.emplace(v);
+        for (int u:G[v]){
+            if (!directed&&u==p) continue;
+            if (finished[u]) continue;
+            if (seen[u]&&!finished[u]){pos=u; return;}
+            dfs(u,v);
+            if (~pos) return;
+        }
+        finished[v]=1; hist.pop();
     }
-    int idx(int v){return ls[v];}
-    template<typename F>
-    void exec(int v,F f){
-        f(ls[v],rs[v]);
+    vector<int> build(){
+        for (int v=0;v<G.size();++v){
+            if (!seen[v]) dfs(v,-1);
+            if (~pos) break;
+        }
+        vector<int> res;
+        while(!hist.empty()){
+            int t=hist.top(); hist.pop();
+            res.emplace_back(t);
+            if (t==pos) break;
+        }
+        return res;
     }
 };
 ```
@@ -99,7 +109,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/EulerTourforVertex.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/CycleDetection.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

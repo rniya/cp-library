@@ -38,6 +38,7 @@ layout: default
 
 ## Required by
 
+* :warning: <a href="combinatorics/combination.hpp.html">combination <small>(combinatorics/combination.hpp)</small></a>
 * :warning: <a href="convolution/FastFourierTransform.hpp.html">Fast Fourier Transform <small>(convolution/FastFourierTransform.hpp)</small></a>
 * :warning: <a href="convolution/NumberTheoreticTransform.hpp.html">Number Theoretic Transform <small>(convolution/NumberTheoreticTransform.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
@@ -55,6 +56,7 @@ layout: default
 * :heavy_check_mark: <a href="datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/WeightedUnionFind.hpp.html">Weighted UnionFind <small>(datastructure/WeightedUnionFind.hpp)</small></a>
 * :warning: <a href="graph/BipartiteGraph.hpp.html">2部グラフ判定 <small>(graph/BipartiteGraph.hpp)</small></a>
+* :heavy_check_mark: <a href="graph/CycleDetection.hpp.html">Cycle Detection <small>(graph/CycleDetection.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/Dijkstra.hpp.html">Dijkstra <small>(graph/Dijkstra.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/Kruskal.hpp.html">Kruskal <small>(graph/Kruskal.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/LowLink.hpp.html">Low Link (橋/関節点) <small>(graph/LowLink.hpp)</small></a>
@@ -68,7 +70,7 @@ layout: default
 * :warning: <a href="modulo/runtime_modint.hpp.html">実行時 modint <small>(modulo/runtime_modint.hpp)</small></a>
 * :warning: <a href="test/aoj/DSL_3_D.SlidingWindowAggregation.cpp.html">test/aoj/DSL_3_D.SlidingWindowAggregation.cpp</a>
 * :heavy_check_mark: <a href="tree/EulerTourforEdge.hpp.html">Euler Tour (パスに対する操作) <small>(tree/EulerTourforEdge.hpp)</small></a>
-* :warning: <a href="tree/EulerTourforVertex.hpp.html">Euler Tour (部分木に対する操作) <small>(tree/EulerTourforVertex.hpp)</small></a>
+* :heavy_check_mark: <a href="tree/EulerTourforVertex.hpp.html">Euler Tour (部分木に対する操作) <small>(tree/EulerTourforVertex.hpp)</small></a>
 * :heavy_check_mark: <a href="tree/HeavyLightDecomposition.hpp.html">Heavy Light Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small></a>
 * :heavy_check_mark: <a href="tree/LowestCommonAncestor.hpp.html">Lowest Common Ancestor <small>(tree/LowestCommonAncestor.hpp)</small></a>
 * :heavy_check_mark: <a href="tree/TreeDiameter.hpp.html">Tree Diameter <small>(tree/TreeDiameter.hpp)</small></a>
@@ -78,6 +80,8 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../verify/test/aoj/2667.test.cpp.html">test/aoj/2667.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/2871.test.cpp.html">test/aoj/2871.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/2891.test.cpp.html">test/aoj/2891.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_1_A.test.cpp.html">test/aoj/DSL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_1_B.test.cpp.html">test/aoj/DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp</a>
@@ -107,6 +111,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_3_A.test.cpp.html">test/aoj/GRL_3_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_3_B.test.cpp.html">test/aoj/GRL_3_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_3_C.test.cpp.html">test/aoj/GRL_3_C.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/GRL_4_A.test.cpp.html">test/aoj/GRL_4_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_4_B.test.cpp.html">test/aoj/GRL_4_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_5_A.test.cpp.html">test/aoj/GRL_5_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_5_B.test.cpp.html">test/aoj/GRL_5_B.test.cpp</a>
