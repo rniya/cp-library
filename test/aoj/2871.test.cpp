@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/2871"
 
 #include "../../base.hpp"
-#include "../../datastructure/LazySegmetnTree.hpp"
+#include "../../datastructure/LazySegmentTree.hpp"
 #include "../../tree/EulerTourforVertex.hpp"
 
 int main(){
