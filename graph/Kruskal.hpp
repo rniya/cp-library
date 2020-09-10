@@ -1,5 +1,5 @@
 /**
- * @brief
+ * @brief Kruskal
  * @docs docs/graph/Kruskal.md
  */
 

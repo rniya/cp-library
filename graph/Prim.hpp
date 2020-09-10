@@ -1,5 +1,5 @@
 /**
- * @brief
+ * @brief Prim
  * @docs docs/graph/Prim.md
  */
 
