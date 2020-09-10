@@ -25,34 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small>
+# :warning: 2-SAT <small>(graph/TwoSatisfiability.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
-* <a href="{{ site.github.repository_url }}/blob/master/graph/StronglyConnectedComponents.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 10:17:21+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/graph/TwoSatisfiability.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-10 12:32:51+09:00
 
 
 
-
-## 概要
-
-## 計算量
 
 ## Depends on
 
 * :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
-
-
-## Required by
-
-* :warning: <a href="TwoSatisfiability.hpp.html">2-SAT <small>(graph/TwoSatisfiability.hpp)</small></a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_3_C.test.cpp.html">test/aoj/GRL_3_C.test.cpp</a>
+* :heavy_check_mark: <a href="StronglyConnectedComponents.hpp.html">Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small></a>
 
 
 ## Code
@@ -61,58 +48,45 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief Strongly Connected Components
- * @docs docs/graph/StronglyConnectedComponents.md
+ * @brief 2-SAT
+ * @docs docs/graph/TwoSatisfiability
  */
 
 #pragma once
 
 #include "../base.hpp"
+#include "StronglyConnectedComponents.hpp"
 
-struct StronglyConnectedComponents{
-    vector<vector<int>> G,rG,C,T;
-    vector<int> vs,cmp,used;
-    StronglyConnectedComponents(int n):G(n),rG(n),cmp(n),used(n){}
-    void add_edge(int u,int v){
-        G[u].emplace_back(v);
-        rG[v].emplace_back(u);
+struct TwoSatisfiability{
+    int n;
+    StronglyConnectedComponents SCC;
+    TwoSatisfiability(int n):n(n),SCC(n*2){}
+    int neg(int v){return (n+v)%(n*2);}
+    void add_if(int u,int v){
+        SCC.add_edge(u,v);
+        SCC.add_edge(neg(v),neg(u));
     }
-    void dfs(int v){
-        used[v]=1;
-        for (int u:G[v]) if(!used[u]) dfs(u);
-        vs.emplace_back(v);
+    void add_or(int u,int v){
+        add_if(neg(u),v);
     }
-    void rdfs(int v,int k){
-        used[v]=1;
-        cmp[v]=k;
-        C[k].emplace_back(v);
-        for (int u:rG[v]) if (!used[u]) rdfs(u,k);
+    void add_nand(int u,int v){
+        add_if(u,neg(v));
     }
-    int build(){
-        int n=G.size();
-        for (int i=0;i<n;++i) if (!used[i]) dfs(i);
-        fill(used.begin(),used.end(),0);
-        int k=0;
-        for (int i=n-1;i>=0;--i){
-            if (!used[vs[i]]){
-                C.emplace_back(),T.emplace_back();
-                rdfs(vs[i],k++);
-            }
+    void set_true(int v){
+        SCC.add_edge(neg(v),v);
+    }
+    void set_false(int v){
+        SCC.add_edge(v,neg(v));
+    }
+    vector<int> build(){
+        SCC.build();
+        vector<int> res(n);
+        for (int i=0;i<n;++i){
+            if (SCC[i]==SCC[n+i]) return {};
+            res[i]=SCC[i]>SCC[n+i];
         }
-        for (int v=0;v<n;++v){
-            for (int u:G[v]){
-                if (cmp[v]!=cmp[u]){
-                    T[cmp[v]].emplace_back(cmp[u]);
-                }
-            }
-        }
-        for (int i=0;i<k;++i){
-            sort(T[i].begin(),T[i].end());
-            T[i].erase(unique(T[i].begin(),T[i].end()),T[i].end());
-        }
-        return k;
+        return res;
     }
-    int operator[](int i) const{return cmp[i];}
 };
 ```
 {% endraw %}
@@ -127,7 +101,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/StronglyConnectedComponents.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/TwoSatisfiability.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

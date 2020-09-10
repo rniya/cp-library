@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small>
+# :heavy_check_mark: Euler Tour (パスに対する操作) <small>(tree/EulerTourforEdge.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
-* <a href="{{ site.github.repository_url }}/blob/master/graph/StronglyConnectedComponents.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 10:17:21+09:00
+* category: <a href="../../index.html#c0af77cf8294ff93a5cdb2963ca9f038">tree</a>
+* <a href="{{ site.github.repository_url }}/blob/master/tree/EulerTourforEdge.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-10 12:32:51+09:00
 
 
 
@@ -45,14 +45,9 @@ layout: default
 * :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
-## Required by
-
-* :warning: <a href="TwoSatisfiability.hpp.html">2-SAT <small>(graph/TwoSatisfiability.hpp)</small></a>
-
-
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_3_C.test.cpp.html">test/aoj/GRL_3_C.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
 
 
 ## Code
@@ -61,58 +56,63 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief Strongly Connected Components
- * @docs docs/graph/StronglyConnectedComponents.md
+ * @brief Euler Tour (パスに対する操作)
+ * @docs docs/tree/EulerTourforEdge.md
  */
 
 #pragma once
 
 #include "../base.hpp"
 
-struct StronglyConnectedComponents{
-    vector<vector<int>> G,rG,C,T;
-    vector<int> vs,cmp,used;
-    StronglyConnectedComponents(int n):G(n),rG(n),cmp(n),used(n){}
+class EulerTourforEdge{
+    vector<int> ds,us,dep,btm;
+    void dfs(int v,int p,int d){
+        dep[v]=d;
+        for (int u:G[v]){
+            if (u==p) continue;
+            ds[u]=btm.size();
+            btm.emplace_back(u);
+            dfs(u,v,d+1);
+            us[u]=btm.size();
+            btm.emplace_back(u);
+        }
+    }
+public:
+    vector<vector<int>> G;
+    EulerTourforEdge(int n):
+        ds(n),us(n),dep(n),G(n){}
     void add_edge(int u,int v){
         G[u].emplace_back(v);
-        rG[v].emplace_back(u);
+        G[v].emplace_back(u);
     }
-    void dfs(int v){
-        used[v]=1;
-        for (int u:G[v]) if(!used[u]) dfs(u);
-        vs.emplace_back(v);
+    void build(int r=0){
+        btm.clear();
+        ds[r]=btm.size(); btm.emplace_back(r);
+        dfs(r,-1,0);
+        us[r]=btm.size(); btm.emplace_back(r);
     }
-    void rdfs(int v,int k){
-        used[v]=1;
-        cmp[v]=k;
-        C[k].emplace_back(v);
-        for (int u:rG[v]) if (!used[u]) rdfs(u,k);
+    int child(int u,int v){
+        return dep[u]<dep[v]?v:u;
     }
-    int build(){
-        int n=G.size();
-        for (int i=0;i<n;++i) if (!used[i]) dfs(i);
-        fill(used.begin(),used.end(),0);
-        int k=0;
-        for (int i=n-1;i>=0;--i){
-            if (!used[vs[i]]){
-                C.emplace_back(),T.emplace_back();
-                rdfs(vs[i],k++);
-            }
-        }
-        for (int v=0;v<n;++v){
-            for (int u:G[v]){
-                if (cmp[v]!=cmp[u]){
-                    T[cmp[v]].emplace_back(cmp[u]);
-                }
-            }
-        }
-        for (int i=0;i<k;++i){
-            sort(T[i].begin(),T[i].end());
-            T[i].erase(unique(T[i].begin(),T[i].end()),T[i].end());
-        }
-        return k;
+    int bottom(int e){
+        return btm[e];
     }
-    int operator[](int i) const{return cmp[i];}
+    template<typename T,typename F>
+    T query(int v,F f){
+        return f(0,us[v]);
+    }
+    // u or v must be lca(u,v)
+    template<typename T,typename F>
+    T query(int u,int v,F f){
+        if (dep[u]<dep[v]) swap(u,v);
+        return query<T>(u,f)-query<T>(v,f);
+    }
+    // v is child of the edge
+    template<typename T,typename G>
+    void update(int v,T x,G g){
+        g(ds[v],x);
+        g(us[v],-x);
+    }
 };
 ```
 {% endraw %}
@@ -127,7 +127,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/StronglyConnectedComponents.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/EulerTourforEdge.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

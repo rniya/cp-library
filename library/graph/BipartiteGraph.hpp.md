@@ -21,26 +21,28 @@ layout: default
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../../../assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="../../../assets/css/copy-button.css" />
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+<link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/GRL_2_A.test.cpp
+# :warning: 2部グラフ判定 <small>(graph/BipartiteGraph.hpp)</small>
 
-<a href="../../../index.html">Back to top page</a>
+<a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_2_A.test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
+* <a href="{{ site.github.repository_url }}/blob/master/graph/BipartiteGraph.hpp">View this file on GitHub</a>
     - Last commit date: 2020-09-10 12:32:51+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A</a>
 
+
+## 概要
+
+## 計算量
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/Kruskal.hpp.html">Kruskal <small>(graph/Kruskal.hpp)</small></a>
+* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Code
@@ -48,25 +50,40 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A"
+/**
+ * @brief 2部グラフ判定
+ * @docs docs/graph/BipartiteGraph.md
+ */
 
-#include "../../base.hpp"
-#include "../../graph/Kruskal.hpp"
+#pragma once
 
-int main(){
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    int V,E; cin >> V >> E;
+#include "../base.hpp"
 
-    Kruskal<int> K(V);
-
-    for (int i=0;i<E;++i){
-        int s,t,w; cin >> s >> t >> w;
-        K.add_edge(s,t,w);
+struct BipartiteGraph{
+    vector<vector<int>> G;
+    vector<int> color,root;
+    BipartiteGraph(int n):G(n),color(n,-1),root(n,-1){}
+    void add_edge(int u,int v){
+        G[u].emplace_back(v);
+        G[v].emplace_back(u);
     }
-
-    cout << K.build() << '\n';
-}
+    bool dfs(int v,int c,int r){
+        color[v]=c; root[v]=r;
+        for (int u:G[v]){
+            if (color[u]==c) return false;
+            if (color[u]<0&&!dfs(u,c^1,r)) return false;
+        }
+        return true;
+    }
+    bool build(){
+        for (int v=0;v<G.size();++v){
+            if (color[v]<0&&!dfs(v,0,v)){
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 {% endraw %}
 
@@ -78,14 +95,12 @@ Traceback (most recent call last):
     bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 185, in bundle
     bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 399, in update
-    self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/Kruskal.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/BipartiteGraph.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}
 
-<a href="../../../index.html">Back to top page</a>
+<a href="../../index.html">Back to top page</a>
 

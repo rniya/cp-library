@@ -21,26 +21,24 @@ layout: default
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../../../assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="../../../assets/css/copy-button.css" />
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+<link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/GRL_2_A.test.cpp
+# :warning: Euler Tour (部分木に対する操作) <small>(tree/EulerTourforVertex.hpp)</small>
 
-<a href="../../../index.html">Back to top page</a>
+<a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_2_A.test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#c0af77cf8294ff93a5cdb2963ca9f038">tree</a>
+* <a href="{{ site.github.repository_url }}/blob/master/tree/EulerTourforVertex.hpp">View this file on GitHub</a>
     - Last commit date: 2020-09-10 12:32:51+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/Kruskal.hpp.html">Kruskal <small>(graph/Kruskal.hpp)</small></a>
+* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Code
@@ -48,25 +46,41 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A"
+/**
+ * @brief Euler Tour (部分木に対する操作)
+ * @docs dosc/tree/EulerTourforVertex.md
+ */
 
-#include "../../base.hpp"
-#include "../../graph/Kruskal.hpp"
+#pragma once
 
-int main(){
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    int V,E; cin >> V >> E;
+#include "../base.hpp"
 
-    Kruskal<int> K(V);
-
-    for (int i=0;i<E;++i){
-        int s,t,w; cin >> s >> t >> w;
-        K.add_edge(s,t,w);
+class EulerTourforVertex{
+    vector<int> ls,rs;
+    int time;
+    void dfs(int v,int p){
+        ls[v]=time++;
+        for (int u:G[v]){
+            if (u!=p) dfs(u,v);
+        }
+        rs[v]=time;
     }
-
-    cout << K.build() << '\n';
-}
+public:
+    vector<vector<int>> G;
+    EulerTourforVertex(int n):ls(n),rs(n),G(n){}
+    void add_edge(int u,int v){
+        G[u].emplace_back(v);
+        G[v].emplace_back(u);
+    }
+    void build(int r=0){
+        time=0; dfs(r,-1);
+    }
+    int idx(int v){return ls[v];}
+    template<typename F>
+    void exec(int v,F f){
+        f(ls[v],rs[v]);
+    }
+};
 ```
 {% endraw %}
 
@@ -78,14 +92,12 @@ Traceback (most recent call last):
     bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 185, in bundle
     bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 399, in update
-    self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/Kruskal.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/EulerTourforVertex.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}
 
-<a href="../../../index.html">Back to top page</a>
+<a href="../../index.html">Back to top page</a>
 

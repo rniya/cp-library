@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_2_A.Prim.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 11:16:56+09:00
+    - Last commit date: 2020-09-10 12:32:51+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/Prim.hpp.html"> <small>(graph/Prim.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/Prim.hpp.html">Prim <small>(graph/Prim.hpp)</small></a>
 
 
 ## Code

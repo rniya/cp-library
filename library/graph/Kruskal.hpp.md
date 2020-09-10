@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark:  <small>(graph/Kruskal.hpp)</small>
+# :heavy_check_mark: Kruskal <small>(graph/Kruskal.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/Kruskal.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 11:16:56+09:00
+    - Last commit date: 2020-09-10 12:32:51+09:00
 
 
 
@@ -56,7 +56,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief
+ * @brief Kruskal
  * @docs docs/graph/Kruskal.md
  */
 
