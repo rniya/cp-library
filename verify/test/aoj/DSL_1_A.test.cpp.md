@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :question: <a href="../../../library/base.hpp.html">base.hpp</a>
 * :heavy_check_mark: <a href="../../../library/datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 
 

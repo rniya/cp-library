@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: base.hpp
+# :question: base.hpp
 
 <a href="../index.html">Back to top page</a>
 
@@ -55,9 +55,11 @@ layout: default
 * :warning: <a href="datastructure/SparseTable.hpp.html">Sparse table <small>(datastructure/SparseTable.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/WeightedUnionFind.hpp.html">Weighted UnionFind <small>(datastructure/WeightedUnionFind.hpp)</small></a>
+* :heavy_check_mark: <a href="graph/BellmanFord.hpp.html">Bellman Ford <small>(graph/BellmanFord.hpp)</small></a>
 * :warning: <a href="graph/BipartiteGraph.hpp.html">2部グラフ判定 <small>(graph/BipartiteGraph.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/CycleDetection.hpp.html">Cycle Detection <small>(graph/CycleDetection.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/Dijkstra.hpp.html">Dijkstra <small>(graph/Dijkstra.hpp)</small></a>
+* :x: <a href="graph/EulerianTrail.hpp.html">オイラーグラフ・準オイラーグラフの構築 <small>(graph/EulerianTrail.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/Kruskal.hpp.html">Kruskal <small>(graph/Kruskal.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/LowLink.hpp.html">Low Link (橋/関節点) <small>(graph/LowLink.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/Prim.hpp.html">Prim <small>(graph/Prim.hpp)</small></a>
@@ -66,6 +68,9 @@ layout: default
 * :warning: <a href="graph/TwoEdgeConnectedComponents.hpp.html">Two Edge Connected Components <small>(graph/TwoEdgeConnectedComponents.hpp)</small></a>
 * :warning: <a href="graph/TwoSatisfiability.hpp.html">2-SAT <small>(graph/TwoSatisfiability.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/WarshallFloyd.hpp.html">Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small></a>
+* :warning: <a href="linearalgebra/Kitamasa.hpp.html">Kitamasa <small>(linearalgebra/Kitamasa.hpp)</small></a>
+* :warning: <a href="linearalgebra/Matrix.hpp.html">Matrix <small>(linearalgebra/Matrix.hpp)</small></a>
+* :warning: <a href="linearalgebra/SquareMatrix.hpp.html">Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small></a>
 * :warning: <a href="math/divisor.hpp.html">約数列挙 <small>(math/divisor.hpp)</small></a>
 * :heavy_check_mark: <a href="math/euler_phi.hpp.html">Eulerのφ関数 <small>(math/euler_phi.hpp)</small></a>
 * :heavy_check_mark: <a href="math/extgcd.hpp.html">拡張ユークリッドの互除法 <small>(math/extgcd.hpp)</small></a>
@@ -76,7 +81,8 @@ layout: default
 * :warning: <a href="modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 * :warning: <a href="modulo/runtime_modint.hpp.html">実行時 modint <small>(modulo/runtime_modint.hpp)</small></a>
 * :warning: <a href="string/Kunth_Morris_Pratt.hpp.html">Knuth Moriss Pratt (KMP法) <small>(string/Kunth_Morris_Pratt.hpp)</small></a>
-* :warning: <a href="string/Manacher.hpp.html"> <small>(string/Manacher.hpp)</small></a>
+* :warning: <a href="string/Manacher.hpp.html">Manacher <small>(string/Manacher.hpp)</small></a>
+* :heavy_check_mark: <a href="string/RollingHash.hpp.html">Rolling Hash <small>(string/RollingHash.hpp)</small></a>
 * :warning: <a href="string/Trie.hpp.html">Trie <small>(string/Trie.hpp)</small></a>
 * :warning: <a href="string/Z_algorithm.hpp.html">Z-Algorithm <small>(string/Z_algorithm.hpp)</small></a>
 * :warning: <a href="test/aoj/DSL_3_D.SlidingWindowAggregation.cpp.html">test/aoj/DSL_3_D.SlidingWindowAggregation.cpp</a>
@@ -93,6 +99,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/aoj/2667.test.cpp.html">test/aoj/2667.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/2871.test.cpp.html">test/aoj/2871.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/2891.test.cpp.html">test/aoj/2891.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/ALDS_1_14_B.test.cpp.html">test/aoj/ALDS_1_14_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_1_A.test.cpp.html">test/aoj/DSL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_1_B.test.cpp.html">test/aoj/DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp</a>
@@ -116,6 +123,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_3_D.test.cpp.html">test/aoj/DSL_3_D.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_5_B.test.cpp.html">test/aoj/DSL_5_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_1_A.test.cpp.html">test/aoj/GRL_1_A.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/GRL_1_B.test.cpp.html">test/aoj/GRL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_2_A.Prim.test.cpp.html">test/aoj/GRL_2_A.Prim.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
@@ -134,6 +142,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/aoj/NTL_1_B.test.cpp.html">test/aoj/NTL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
+* :x: <a href="../verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
 
 
 ## Code

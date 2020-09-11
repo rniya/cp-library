@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning:  <small>(string/Manacher.hpp)</small>
+# :warning: Manacher <small>(string/Manacher.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b45cffe084dd3d20d928bee85e7b0f21">string</a>
 * <a href="{{ site.github.repository_url }}/blob/master/string/Manacher.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 15:23:12+09:00
+    - Last commit date: 2020-09-11 16:00:32+09:00
 
 
 
@@ -42,7 +42,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
+* :question: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Code
@@ -51,7 +51,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief
+ * @brief Manacher
  * @docs docs/string/Manacher.md
  */
 

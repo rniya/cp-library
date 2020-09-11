@@ -38,7 +38,7 @@ layout: default
 
 ### .
 
-* :heavy_check_mark: <a href="library/base.hpp.html">base.hpp</a>
+* :question: <a href="library/base.hpp.html">base.hpp</a>
 
 
 <div id="ac1ed416572b96a9f5d69740d174ef3d"></div>
@@ -80,9 +80,11 @@ layout: default
 
 ### graph
 
+* :heavy_check_mark: <a href="library/graph/BellmanFord.hpp.html">Bellman Ford <small>(graph/BellmanFord.hpp)</small></a>
 * :warning: <a href="library/graph/BipartiteGraph.hpp.html">2部グラフ判定 <small>(graph/BipartiteGraph.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/CycleDetection.hpp.html">Cycle Detection <small>(graph/CycleDetection.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/Dijkstra.hpp.html">Dijkstra <small>(graph/Dijkstra.hpp)</small></a>
+* :x: <a href="library/graph/EulerianTrail.hpp.html">オイラーグラフ・準オイラーグラフの構築 <small>(graph/EulerianTrail.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/Kruskal.hpp.html">Kruskal <small>(graph/Kruskal.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/LowLink.hpp.html">Low Link (橋/関節点) <small>(graph/LowLink.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/Prim.hpp.html">Prim <small>(graph/Prim.hpp)</small></a>
@@ -91,6 +93,15 @@ layout: default
 * :warning: <a href="library/graph/TwoEdgeConnectedComponents.hpp.html">Two Edge Connected Components <small>(graph/TwoEdgeConnectedComponents.hpp)</small></a>
 * :warning: <a href="library/graph/TwoSatisfiability.hpp.html">2-SAT <small>(graph/TwoSatisfiability.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/WarshallFloyd.hpp.html">Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small></a>
+
+
+<div id="1bbf1d9f5340fa94bf2c5fb5ce73a5f5"></div>
+
+### linearalgebra
+
+* :warning: <a href="library/linearalgebra/Kitamasa.hpp.html">Kitamasa <small>(linearalgebra/Kitamasa.hpp)</small></a>
+* :warning: <a href="library/linearalgebra/Matrix.hpp.html">Matrix <small>(linearalgebra/Matrix.hpp)</small></a>
+* :warning: <a href="library/linearalgebra/SquareMatrix.hpp.html">Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small></a>
 
 
 <div id="7e676e9e663beb40fd133f5ee24487c2"></div>
@@ -119,7 +130,8 @@ layout: default
 ### string
 
 * :warning: <a href="library/string/Kunth_Morris_Pratt.hpp.html">Knuth Moriss Pratt (KMP法) <small>(string/Kunth_Morris_Pratt.hpp)</small></a>
-* :warning: <a href="library/string/Manacher.hpp.html"> <small>(string/Manacher.hpp)</small></a>
+* :warning: <a href="library/string/Manacher.hpp.html">Manacher <small>(string/Manacher.hpp)</small></a>
+* :heavy_check_mark: <a href="library/string/RollingHash.hpp.html">Rolling Hash <small>(string/RollingHash.hpp)</small></a>
 * :warning: <a href="library/string/Trie.hpp.html">Trie <small>(string/Trie.hpp)</small></a>
 * :warning: <a href="library/string/Z_algorithm.hpp.html">Z-Algorithm <small>(string/Z_algorithm.hpp)</small></a>
 
@@ -154,6 +166,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/2667.test.cpp.html">test/aoj/2667.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/2871.test.cpp.html">test/aoj/2871.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/2891.test.cpp.html">test/aoj/2891.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/ALDS_1_14_B.test.cpp.html">test/aoj/ALDS_1_14_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_1_A.test.cpp.html">test/aoj/DSL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_1_B.test.cpp.html">test/aoj/DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp</a>
@@ -177,6 +190,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_3_D.test.cpp.html">test/aoj/DSL_3_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/DSL_5_B.test.cpp.html">test/aoj/DSL_5_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_1_A.test.cpp.html">test/aoj/GRL_1_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/GRL_1_B.test.cpp.html">test/aoj/GRL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_2_A.Prim.test.cpp.html">test/aoj/GRL_2_A.Prim.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
@@ -196,5 +210,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/example.test.cpp.html">test/aoj/example.test.cpp</a>
+* :x: <a href="verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
 
 
