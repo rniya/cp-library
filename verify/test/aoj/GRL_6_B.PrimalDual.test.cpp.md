@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/GRL_6_A.DInic.test.cpp
+# :heavy_check_mark: test/aoj/GRL_6_B.PrimalDual.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_6_A.DInic.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_6_B.PrimalDual.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-09-11 21:18:12+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A</a>
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B</a>
 
 
 ## Depends on
 
 * :question: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../../library/flow/Dinic.hpp.html">Dinic <small>(flow/Dinic.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/flow/PrimalDual.hpp.html">Primal Dual <small>(flow/PrimalDual.hpp)</small></a>
 
 
 ## Code
@@ -48,24 +48,24 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B"
 
 #include "../../base.hpp"
-#include "../../flow/Dinic.hpp"
+#include "../../flow/PrimalDual.hpp"
 
 int main(){
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int V,E; cin >> V >> E;
+    int V,E,F; cin >> V >> E >> F;
 
-    Dinic<int,true> D(V);
+    PrimalDual<int,int> PD(V);
 
     for (int i=0;i<E;++i){
-        int u,v,c; cin >> u >> v >> c;
-        D.add_edge(u,v,c);
+        int u,v,c,d; cin >> u >> v >> c >> d;
+        PD.add_edge(u,v,c,d);
     }
 
-    cout << D.max_flow(0,V-1) << '\n';
+    cout << PD.min_cost_flow(0,V-1,F) << '\n';
 }
 ```
 {% endraw %}
@@ -82,7 +82,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: flow/Dinic.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: flow/PrimalDual.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

@@ -31,10 +31,14 @@ layout: default
 
 * category: <a href="../../index.html#cff5497121104c2b8e0cb41ed2083a9b">flow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/flow/BipartiteMatching.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-11 18:26:48+09:00
+    - Last commit date: 2020-09-11 21:18:12+09:00
 
 
 
+
+## 概要
+
+## 計算量
 
 ## Depends on
 
@@ -53,7 +57,7 @@ layout: default
 ```cpp
 /**
  * @brief 2部グラフの最大マッチング
- * @docs docs/flow/BipartiteMatchgin.md
+ * @docs docs/flow/BipartiteMatching.md
  */
 
 #pragma once

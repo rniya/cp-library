@@ -58,6 +58,8 @@ layout: default
 * :heavy_check_mark: <a href="flow/BipartiteMatching.hpp.html">2部グラフの最大マッチング <small>(flow/BipartiteMatching.hpp)</small></a>
 * :heavy_check_mark: <a href="flow/Dinic.hpp.html">Dinic <small>(flow/Dinic.hpp)</small></a>
 * :heavy_check_mark: <a href="flow/FordFulkerson.hpp.html">Ford Fulkerson <small>(flow/FordFulkerson.hpp)</small></a>
+* :heavy_check_mark: <a href="flow/MinCostFlow.hpp.html">最小費用流 <small>(flow/MinCostFlow.hpp)</small></a>
+* :heavy_check_mark: <a href="flow/PrimalDual.hpp.html">Primal Dual <small>(flow/PrimalDual.hpp)</small></a>
 * :warning: <a href="flow/ProjectSelectionProblem.hpp.html">Project Selection Problem <small>(flow/ProjectSelectionProblem.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/BellmanFord.hpp.html">Bellman Ford <small>(graph/BellmanFord.hpp)</small></a>
 * :warning: <a href="graph/BipartiteGraph.hpp.html">2部グラフ判定 <small>(graph/BipartiteGraph.hpp)</small></a>
@@ -144,6 +146,8 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp.html">test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_6_A.DInic.test.cpp.html">test/aoj/GRL_6_A.DInic.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_6_A.test.cpp.html">test/aoj/GRL_6_A.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/GRL_6_B.PrimalDual.test.cpp.html">test/aoj/GRL_6_B.PrimalDual.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/GRL_6_B.test.cpp.html">test/aoj/GRL_6_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/GRL_7_A.test.cpp.html">test/aoj/GRL_7_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/NTL_1_B.test.cpp.html">test/aoj/NTL_1_B.test.cpp</a>

@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Dinic <small>(flow/Dinic.hpp)</small>
+# :heavy_check_mark: 最小費用流 <small>(flow/MinCostFlow.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#cff5497121104c2b8e0cb41ed2083a9b">flow</a>
-* <a href="{{ site.github.repository_url }}/blob/master/flow/Dinic.hpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/flow/MinCostFlow.hpp">View this file on GitHub</a>
     - Last commit date: 2020-09-11 21:18:12+09:00
 
 
@@ -47,7 +47,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_6_A.DInic.test.cpp.html">test/aoj/GRL_6_A.DInic.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj/GRL_6_B.test.cpp.html">test/aoj/GRL_6_B.test.cpp</a>
 
 
 ## Code
@@ -56,85 +56,70 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief Dinic
- * @docs docs/flow/Dinic.md
+ * @brief 最小費用流
+ * @docs docs/flow/MinCostFlow.md
  */
 
 #pragma once
 
 #include "../base.hpp"
 
-template<typename T,bool directed>
-struct Dinic{
+template<typename T,typename E>
+struct MinCostFlow{
+    const E inf=numeric_limits<E>::max();
     struct edge{
-        int to,rev; T cap;
-        edge(int to,T cap,int rev):to(to),cap(cap),rev(rev){}
+        int to,rev; T cap; E cost;
+        edge(int to,T cap,E cost,int rev):to(to),cap(cap),cost(cost),rev(rev){}
     };
     vector<vector<edge>> G;
     vector<pair<int,int>> pos;
-    vector<int> level,iter;
-    Dinic(int n):G(n),level(n),iter(n){}
-    int add_edge(int from,int to,T cap){
+    vector<E> dist;
+    vector<int> prevv,preve;
+    MinCostFlow(int n):G(n),dist(n),prevv(n),preve(n){}
+    int add_edge(int from,int to,T cap,E cost){
         pos.emplace_back(from,G[from].size());
-        G[from].emplace_back(to,cap,G[to].size());
-        G[to].emplace_back(from,directed?0:cap,G[from].size()-1);
+        G[from].emplace_back(to,cap,cost,G[to].size());
+        G[to].emplace_back(from,0,-cost,G[from].size()-1);
         return pos.size()-1;
     }
-    int add_vertex(){
-        G.emplace_back();
-        level.emplace_back();
-        iter.emplace_back();
-        return G.size()-1;
-    }
-    tuple<int,int,int,int> get_edge(int i){
+    tuple<int,int,int,int,int> get_edge(int i){
         auto e=G[pos[i].first][pos[i].second];
         auto re=G[e.to][e.rev];
-        return {e.from,e.to,e.cap+re.cap,re.cap};
+        return {e.from,e.to,e.cap+re.cap,re.cap,e.cost};
     }
-    void bfs(int s){
-        fill(level.begin(),level.end(),-1);
-        queue<int> que;
-        level[s]=0; que.emplace(s);
-        while(!que.empty()){
-            int v=que.front(); que.pop();
-            for (auto &e:G[v]){
-                if (e.cap>0&&level[e.to]<0){
-                    level[e.to]=level[v]+1;
-                    que.emplace(e.to);
+    E min_cost_flow(int s,int t,T f){
+        E res=0;
+        while(f>0){
+            fill(dist.begin(),dist.end(),inf);
+            dist[s]=0;
+            bool update=true;
+            while(update){
+                update=false;
+                for (int v=0;v<G.size();++v){
+                    if (dist[v]==inf) continue;
+                    for (int i=0;i<G[v].size();++i){
+                        edge &e=G[v][i];
+                        if (e.cap>0&&dist[e.to]>dist[v]+e.cost){
+                            dist[e.to]=dist[v]+e.cost;
+                            prevv[e.to]=v; preve[e.to]=i;
+                            update=true;
+                        }
+                    }
                 }
             }
-        }
-    }
-    T dfs(int v,int t,T f){
-        if (v==t) return f;
-        for (int &i=iter[v];i<G[v].size();++i){
-            auto &e=G[v][i];
-            if (e.cap>0&&level[v]<level[e.to]){
-                T d=dfs(e.to,t,min(f,e.cap));
-                if (d<=0) continue;
-                e.cap-=d;
-                G[e.to][e.rev].cap+=d;
-                return d;
+            if (dist[t]==inf) return -1;
+            T d=f;
+            for (int v=t;v!=s;v=prevv[v]){
+                d=min(d,G[prevv[v]][preve[v]].cap);
+            }
+            f-=d;
+            res+=dist[t]*d;
+            for (int v=t;v!=s;v=prevv[v]){
+                edge &e=G[prevv[v]][preve[v]];
+                e.cap-=d; G[v][e.rev].cap+=d;
             }
         }
-        return 0;
-    }
-    T max_flow(int s,int t,T lim){
-        T flow=0;
-        while(lim>0){
-            bfs(s);
-            if (level[t]<0) break;
-            fill(iter.begin(),iter.end(),0);
-            while(lim>0){
-                T f=dfs(s,t,lim);
-                if (f==0) break;
-                flow+=f; lim-=f;
-            }
-        }
-        return flow;
-    }
-    T max_flow(int s,int t){
-        return max_flow(s,t,numeric_limits<T>::max());
+        return res;
     }
 };
 ```
@@ -150,7 +135,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: flow/Dinic.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: flow/MinCostFlow.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}
