@@ -1,5 +1,5 @@
 /**
- * @brief
+ * @brief Manacher
  * @docs docs/string/Manacher.md
  */
 
