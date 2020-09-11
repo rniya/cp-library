@@ -45,6 +45,7 @@
 "test/aoj/GRL_6_A.test.cpp": "2020-09-11 18:26:48 +0900",
 "test/aoj/GRL_6_B.PrimalDual.test.cpp": "2020-09-11 21:18:12 +0900",
 "test/aoj/GRL_6_B.test.cpp": "2020-09-11 21:18:12 +0900",
+"test/aoj/GRL_7_A.HopcroftKarp.test.cpp": "2020-09-12 02:15:37 +0900",
 "test/aoj/GRL_7_A.test.cpp": "2020-09-11 21:18:12 +0900",
 "test/aoj/NTL_1_A.test.cpp": "2020-09-10 15:03:02 +0900",
 "test/aoj/NTL_1_B.test.cpp": "2020-09-10 15:03:02 +0900",
