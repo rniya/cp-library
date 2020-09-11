@@ -1,6 +1,6 @@
 /**
  * @brief 2部グラフの最大マッチング
- * @docs docs/flow/BipartiteMatchgin.md
+ * @docs docs/flow/BipartiteMatching.md
  */
 
 #pragma once

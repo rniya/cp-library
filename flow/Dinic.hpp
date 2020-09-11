@@ -23,6 +23,12 @@ struct Dinic{
         G[to].emplace_back(from,directed?0:cap,G[from].size()-1);
         return pos.size()-1;
     }
+    int add_vertex(){
+        G.emplace_back();
+        level.emplace_back();
+        iter.emplace_back();
+        return G.size()-1;
+    }
     tuple<int,int,int,int> get_edge(int i){
         auto e=G[pos[i].first][pos[i].second];
         auto re=G[e.to][e.rev];
