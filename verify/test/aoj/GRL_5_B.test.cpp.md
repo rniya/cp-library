@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
 * :heavy_check_mark: <a href="../../../library/tree/TreeDiameter.hpp.html">Tree Diameter <small>(tree/TreeDiameter.hpp)</small></a>
 
 

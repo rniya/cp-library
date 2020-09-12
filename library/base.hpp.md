@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../assets/css/copy-button.css" />
 
 
-# :question: base.hpp
+# :heavy_check_mark: base.hpp
 
 <a href="../index.html">Back to top page</a>
 
@@ -77,7 +77,7 @@ layout: default
 * :heavy_check_mark: <a href="graph/WarshallFloyd.hpp.html">Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small></a>
 * :warning: <a href="linearalgebra/Kitamasa.hpp.html">Kitamasa <small>(linearalgebra/Kitamasa.hpp)</small></a>
 * :warning: <a href="linearalgebra/Matrix.hpp.html">Matrix <small>(linearalgebra/Matrix.hpp)</small></a>
-* :x: <a href="linearalgebra/SquareMatrix.hpp.html">Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small></a>
+* :heavy_check_mark: <a href="linearalgebra/SquareMatrix.hpp.html">Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small></a>
 * :warning: <a href="math/divisor.hpp.html">約数列挙 <small>(math/divisor.hpp)</small></a>
 * :heavy_check_mark: <a href="math/euler_phi.hpp.html">Eulerのφ関数 <small>(math/euler_phi.hpp)</small></a>
 * :heavy_check_mark: <a href="math/extgcd.hpp.html">拡張ユークリッドの互除法 <small>(math/extgcd.hpp)</small></a>
@@ -177,7 +177,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/yosupo/two_sat.test.cpp.html">test/yosupo/two_sat.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/vertex_add_path_sum.test.cpp.html">test/yosupo/vertex_add_path_sum.test.cpp</a>
-* :x: <a href="../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/206.test.cpp.html">test/yukicoder/206.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/952.test.cpp.html">test/yukicoder/952.test.cpp</a>

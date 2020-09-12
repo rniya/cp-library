@@ -38,7 +38,7 @@ layout: default
 
 ### .
 
-* :question: <a href="library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="library/base.hpp.html">base.hpp</a>
 
 
 <div id="ac1ed416572b96a9f5d69740d174ef3d"></div>
@@ -114,7 +114,7 @@ layout: default
 
 * :warning: <a href="library/linearalgebra/Kitamasa.hpp.html">Kitamasa <small>(linearalgebra/Kitamasa.hpp)</small></a>
 * :warning: <a href="library/linearalgebra/Matrix.hpp.html">Matrix <small>(linearalgebra/Matrix.hpp)</small></a>
-* :x: <a href="library/linearalgebra/SquareMatrix.hpp.html">Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small></a>
+* :heavy_check_mark: <a href="library/linearalgebra/SquareMatrix.hpp.html">Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small></a>
 
 
 <div id="7e676e9e663beb40fd133f5ee24487c2"></div>
@@ -251,7 +251,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yosupo/two_sat.test.cpp.html">test/yosupo/two_sat.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/vertex_add_path_sum.test.cpp.html">test/yosupo/vertex_add_path_sum.test.cpp</a>
-* :x: <a href="verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/206.test.cpp.html">test/yukicoder/206.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/952.test.cpp.html">test/yukicoder/952.test.cpp</a>
