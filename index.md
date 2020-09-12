@@ -38,7 +38,7 @@ layout: default
 
 ### .
 
-* :heavy_check_mark: <a href="library/base.hpp.html">base.hpp</a>
+* :question: <a href="library/base.hpp.html">base.hpp</a>
 
 
 <div id="ac1ed416572b96a9f5d69740d174ef3d"></div>
@@ -52,7 +52,7 @@ layout: default
 
 ### convolution
 
-* :warning: <a href="library/convolution/FastFourierTransform.hpp.html">Fast Fourier Transform <small>(convolution/FastFourierTransform.hpp)</small></a>
+* :heavy_check_mark: <a href="library/convolution/FastFourierTransform.hpp.html">Fast Fourier Transform <small>(convolution/FastFourierTransform.hpp)</small></a>
 * :heavy_check_mark: <a href="library/convolution/NumberTheoreticTransform.hpp.html">Number Theoretic Transform <small>(convolution/NumberTheoreticTransform.hpp)</small></a>
 
 
@@ -114,7 +114,7 @@ layout: default
 
 * :warning: <a href="library/linearalgebra/Kitamasa.hpp.html">Kitamasa <small>(linearalgebra/Kitamasa.hpp)</small></a>
 * :warning: <a href="library/linearalgebra/Matrix.hpp.html">Matrix <small>(linearalgebra/Matrix.hpp)</small></a>
-* :warning: <a href="library/linearalgebra/SquareMatrix.hpp.html">Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small></a>
+* :x: <a href="library/linearalgebra/SquareMatrix.hpp.html">Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small></a>
 
 
 <div id="7e676e9e663beb40fd133f5ee24487c2"></div>
@@ -126,7 +126,7 @@ layout: default
 * :heavy_check_mark: <a href="library/math/extgcd.hpp.html">拡張ユークリッドの互除法 <small>(math/extgcd.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/floor_sum.hpp.html">Sum of Floor of Linear <small>(math/floor_sum.hpp)</small></a>
 * :warning: <a href="library/math/is_prime.hpp.html">素数判定 <small>(math/is_prime.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/modpow.hpp.html">繰り返し自乗法 <small>(math/modpow.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/modpow.hpp.html">繰り返し2乗法 <small>(math/modpow.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime_factor.hpp.html">素因数分解 <small>(math/prime_factor.hpp)</small></a>
 * :warning: <a href="library/math/prime_factor_table.hpp.html">osa_k法 <small>(math/prime_factor_table.hpp)</small></a>
 
@@ -251,6 +251,8 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yosupo/two_sat.test.cpp.html">test/yosupo/two_sat.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/vertex_add_path_sum.test.cpp.html">test/yosupo/vertex_add_path_sum.test.cpp</a>
+* :x: <a href="verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yukicoder/206.test.cpp.html">test/yukicoder/206.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yukicoder/952.test.cpp.html">test/yukicoder/952.test.cpp</a>
 

@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 繰り返し自乗法 <small>(math/modpow.hpp)</small>
+# :heavy_check_mark: 繰り返し2乗法 <small>(math/modpow.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#7e676e9e663beb40fd133f5ee24487c2">math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/modpow.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 15:03:02+09:00
+    - Last commit date: 2020-09-13 02:46:40+09:00
 
 
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
+* :question: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Verified with
@@ -52,7 +52,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief 繰り返し自乗法
+ * @brief 繰り返し2乗法
  */
 
 #pragma once

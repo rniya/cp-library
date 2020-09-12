@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: base.hpp
+# :question: base.hpp
 
 <a href="../index.html">Back to top page</a>
 
@@ -39,7 +39,7 @@ layout: default
 ## Required by
 
 * :warning: <a href="combinatorics/combination.hpp.html">combination <small>(combinatorics/combination.hpp)</small></a>
-* :warning: <a href="convolution/FastFourierTransform.hpp.html">Fast Fourier Transform <small>(convolution/FastFourierTransform.hpp)</small></a>
+* :heavy_check_mark: <a href="convolution/FastFourierTransform.hpp.html">Fast Fourier Transform <small>(convolution/FastFourierTransform.hpp)</small></a>
 * :heavy_check_mark: <a href="convolution/NumberTheoreticTransform.hpp.html">Number Theoretic Transform <small>(convolution/NumberTheoreticTransform.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/BinaryTrie.hpp.html">Binary Trie <small>(datastructure/BinaryTrie.hpp)</small></a>
@@ -77,13 +77,13 @@ layout: default
 * :heavy_check_mark: <a href="graph/WarshallFloyd.hpp.html">Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small></a>
 * :warning: <a href="linearalgebra/Kitamasa.hpp.html">Kitamasa <small>(linearalgebra/Kitamasa.hpp)</small></a>
 * :warning: <a href="linearalgebra/Matrix.hpp.html">Matrix <small>(linearalgebra/Matrix.hpp)</small></a>
-* :warning: <a href="linearalgebra/SquareMatrix.hpp.html">Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small></a>
+* :x: <a href="linearalgebra/SquareMatrix.hpp.html">Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small></a>
 * :warning: <a href="math/divisor.hpp.html">約数列挙 <small>(math/divisor.hpp)</small></a>
 * :heavy_check_mark: <a href="math/euler_phi.hpp.html">Eulerのφ関数 <small>(math/euler_phi.hpp)</small></a>
 * :heavy_check_mark: <a href="math/extgcd.hpp.html">拡張ユークリッドの互除法 <small>(math/extgcd.hpp)</small></a>
 * :heavy_check_mark: <a href="math/floor_sum.hpp.html">Sum of Floor of Linear <small>(math/floor_sum.hpp)</small></a>
 * :warning: <a href="math/is_prime.hpp.html">素数判定 <small>(math/is_prime.hpp)</small></a>
-* :heavy_check_mark: <a href="math/modpow.hpp.html">繰り返し自乗法 <small>(math/modpow.hpp)</small></a>
+* :heavy_check_mark: <a href="math/modpow.hpp.html">繰り返し2乗法 <small>(math/modpow.hpp)</small></a>
 * :heavy_check_mark: <a href="math/prime_factor.hpp.html">素因数分解 <small>(math/prime_factor.hpp)</small></a>
 * :warning: <a href="math/prime_factor_table.hpp.html">osa_k法 <small>(math/prime_factor_table.hpp)</small></a>
 * :heavy_check_mark: <a href="modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
@@ -177,6 +177,8 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/yosupo/two_sat.test.cpp.html">test/yosupo/two_sat.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/vertex_add_path_sum.test.cpp.html">test/yosupo/vertex_add_path_sum.test.cpp</a>
+* :x: <a href="../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/yukicoder/206.test.cpp.html">test/yukicoder/206.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/952.test.cpp.html">test/yukicoder/952.test.cpp</a>
 

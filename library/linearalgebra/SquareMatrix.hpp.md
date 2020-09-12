@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small>
+# :x: Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,7 +38,12 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
+* :question: <a href="../base.hpp.html">base.hpp</a>
+
+
+## Verified with
+
+* :x: <a href="../../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
 
 
 ## Code

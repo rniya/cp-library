@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :question: <a href="../../../library/base.hpp.html">base.hpp</a>
 * :heavy_check_mark: <a href="../../../library/datastructure/Slide_Min.hpp.html">スライド最小値 <small>(datastructure/Slide_Min.hpp)</small></a>
 
 

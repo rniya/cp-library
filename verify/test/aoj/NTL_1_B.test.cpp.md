@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/NTL_1_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 15:03:02+09:00
+    - Last commit date: 2020-09-13 02:46:40+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_B">https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_B</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../../library/math/modpow.hpp.html">繰り返し自乗法 <small>(math/modpow.hpp)</small></a>
+* :question: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../../../library/math/modpow.hpp.html">繰り返し2乗法 <small>(math/modpow.hpp)</small></a>
 
 
 ## Code
