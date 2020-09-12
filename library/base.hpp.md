@@ -43,7 +43,7 @@ layout: default
 * :heavy_check_mark: <a href="convolution/NumberTheoreticTransform.hpp.html">Number Theoretic Transform <small>(convolution/NumberTheoreticTransform.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/BinaryTrie.hpp.html">Binary Trie <small>(datastructure/BinaryTrie.hpp)</small></a>
-* :warning: <a href="datastructure/ConvexHullTrick.hpp.html">Convex Hull Trick <small>(datastructure/ConvexHullTrick.hpp)</small></a>
+* :heavy_check_mark: <a href="datastructure/ConvexHullTrick.hpp.html">Convex Hull Trick <small>(datastructure/ConvexHullTrick.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/CumulativeSum2D.hpp.html">2次元累積和 <small>(datastructure/CumulativeSum2D.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/DualSegmentTree.hpp.html">Dual Segment Tree <small>(datastructure/DualSegmentTree.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/LazySegmentTree.hpp.html">Lazy Segment Tree <small>(datastructure/LazySegmentTree.hpp)</small></a>
@@ -178,6 +178,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/vertex_add_path_sum.test.cpp.html">test/yosupo/vertex_add_path_sum.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/yukicoder/952.test.cpp.html">test/yukicoder/952.test.cpp</a>
 
 
 ## Code
