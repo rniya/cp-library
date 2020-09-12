@@ -2,7 +2,7 @@
 
 #include "../../base.hpp"
 #include "../../modulo/modint.hpp"
-#include "../../covolution/NumberTheoreticTransform.hpp"
+#include "../../convolution/NumberTheoreticTransform.hpp"
 
 using mint=modint<998244353>;
 
