@@ -25,15 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/yosupo/convolution_mod.test.cpp
+# :heavy_check_mark: test/yosupo/convolution_mod.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/convolution_mod.test.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-09-12 21:38:24+09:00
 
 
+* see: <a href="https://judge.yosupo.jp/problem/convolution_mod">https://judge.yosupo.jp/problem/convolution_mod</a>
+
+
+## Depends on
+
+* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../../../library/convolution/NumberTheoreticTransform.hpp.html">Number Theoretic Transform <small>(convolution/NumberTheoreticTransform.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 
 
 ## Code
@@ -45,7 +53,7 @@ layout: default
 
 #include "../../base.hpp"
 #include "../../modulo/modint.hpp"
-#include "../../covolution/NumberTheoreticTransform.hpp"
+#include "../../convolution/NumberTheoreticTransform.hpp"
 
 using mint=modint<998244353>;
 

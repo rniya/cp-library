@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: オイラーグラフ・準オイラーグラフの構築 <small>(graph/EulerianTrail.hpp)</small>
+# :heavy_check_mark: オイラーグラフ・準オイラーグラフの構築 <small>(graph/EulerianTrail.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -42,12 +42,12 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Verified with
 
-* :x: <a href="../../verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
 
 
 ## Code

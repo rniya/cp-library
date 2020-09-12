@@ -25,22 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+# :heavy_check_mark: test/yosupo/two_sat.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 23:15:02+09:00
+* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/two_sat.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-12 21:38:24+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C">https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C</a>
+* see: <a href="https://judge.yosupo.jp/problem/two_sat">https://judge.yosupo.jp/problem/two_sat</a>
 
 
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../../library/tree/HeavyLightDecomposition.hpp.html">Heavy Light Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/StronglyConnectedComponents.hpp.html">Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/TwoSatisfiability.hpp.html">2-SAT <small>(graph/TwoSatisfiability.hpp)</small></a>
 
 
 ## Code
@@ -48,31 +49,30 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C"
+#define PROBLEM "https://judge.yosupo.jp/problem/two_sat"
 
 #include "../../base.hpp"
-#include "../../tree/HeavyLightDecomposition.hpp"
+#include "../../graph/StronglyConnectedComponents.hpp"
+#include "../../graph/TwoSatisfiability.hpp"
 
 int main(){
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int n; cin >> n;
+    string p,cnf; cin >> p >> cnf;
+    int N,M; cin >> N >> M;
 
-    HeavyLightDecomposition HLD(n);
-    for (int i=0;i<n;++i){
-        int k; cin >> k;
-        for (;k--;){
-            int c; cin >> c;
-            HLD.add_edge(i,c);
-        }
+    TwoSatisfiability TS(N+1);
+    for (int i=0;i<M;++i){
+        int a,b,c; cin >> a >> b >> c;
+        TS.add_or((a<0?TS.neg(-a):a),(b<0?TS.neg(-b):b));
     }
-    HLD.build();
 
-    int q; cin >> q;
-    for (;q--;){
-        int u,v; cin >> u >> v;
-        cout << HLD.lca(u,v) << '\n';
-    }
+    vector<int> ans=TS.build();
+    if (ans.empty()){cout << "s UNSATISFIABLE" << '\n'; return 0;}
+    cout << "s SATISFIABLE" << '\n';
+    cout << "v ";
+    for (int i=1;i<=N;++i) cout << (ans[i]?i:-i) << ' ';
+    cout << "0\n";
 }
 ```
 {% endraw %}
@@ -89,7 +89,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/HeavyLightDecomposition.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/StronglyConnectedComponents.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

@@ -42,18 +42,19 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Required by
 
-* :warning: <a href="TwoSatisfiability.hpp.html">2-SAT <small>(graph/TwoSatisfiability.hpp)</small></a>
+* :heavy_check_mark: <a href="TwoSatisfiability.hpp.html">2-SAT <small>(graph/TwoSatisfiability.hpp)</small></a>
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_3_C.test.cpp.html">test/aoj/GRL_3_C.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/scc.test.cpp.html">test/yosupo/scc.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/two_sat.test.cpp.html">test/yosupo/two_sat.test.cpp</a>
 
 
 ## Code

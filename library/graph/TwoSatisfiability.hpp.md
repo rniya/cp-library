@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: 2-SAT <small>(graph/TwoSatisfiability.hpp)</small>
+# :heavy_check_mark: 2-SAT <small>(graph/TwoSatisfiability.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,8 +38,13 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 * :heavy_check_mark: <a href="StronglyConnectedComponents.hpp.html">Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/yosupo/two_sat.test.cpp.html">test/yosupo/two_sat.test.cpp</a>
 
 
 ## Code
