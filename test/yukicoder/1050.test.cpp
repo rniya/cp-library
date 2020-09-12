@@ -1,7 +1,10 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1050"
 
 #include "../../base.hpp"
+#include "../../modulo/modint.hpp"
 #include "../../linearalgebra/SquareMatrix.hpp"
+
+using mint=modint<1000000007>;
 
 int main(){
     cin.tie(0);
