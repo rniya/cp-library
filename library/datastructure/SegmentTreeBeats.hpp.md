@@ -55,6 +55,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/range_chmin_chmax_add_range_sum.test.cpp.html">test/yosupo/range_chmin_chmax_add_range_sum.test.cpp</a>
 
 
 ## Code

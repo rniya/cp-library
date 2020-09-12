@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Binary Trie <small>(datastructure/BinaryTrie.hpp)</small>
+# :heavy_check_mark: Binary Trie <small>(datastructure/BinaryTrie.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -43,6 +43,11 @@ layout: default
 ## Depends on
 
 * :question: <a href="../base.hpp.html">base.hpp</a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/yosupo/set_xor_min.test.cpp.html">test/yosupo/set_xor_min.test.cpp</a>
 
 
 ## Code

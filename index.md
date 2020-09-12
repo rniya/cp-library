@@ -61,7 +61,7 @@ layout: default
 ### datastructure
 
 * :heavy_check_mark: <a href="library/datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
-* :warning: <a href="library/datastructure/BinaryTrie.hpp.html">Binary Trie <small>(datastructure/BinaryTrie.hpp)</small></a>
+* :heavy_check_mark: <a href="library/datastructure/BinaryTrie.hpp.html">Binary Trie <small>(datastructure/BinaryTrie.hpp)</small></a>
 * :warning: <a href="library/datastructure/ConvexHullTrick.hpp.html">Convex Hull Trick <small>(datastructure/ConvexHullTrick.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/CumulativeSum2D.hpp.html">2次元累積和 <small>(datastructure/CumulativeSum2D.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/DualSegmentTree.hpp.html">Dual Segment Tree <small>(datastructure/DualSegmentTree.hpp)</small></a>
@@ -71,7 +71,7 @@ layout: default
 * :heavy_check_mark: <a href="library/datastructure/SegmentTreeBeats.hpp.html">Segment Tree Beats <small>(datastructure/SegmentTreeBeats.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/Slide_Min.hpp.html">スライド最小値 <small>(datastructure/Slide_Min.hpp)</small></a>
 * :warning: <a href="library/datastructure/SlidingWindowAggregation.hpp.html">Sliding Window Aggregation (SWAG) <small>(datastructure/SlidingWindowAggregation.hpp)</small></a>
-* :warning: <a href="library/datastructure/SparseTable.hpp.html">Sparse table <small>(datastructure/SparseTable.hpp)</small></a>
+* :heavy_check_mark: <a href="library/datastructure/SparseTable.hpp.html">Sparse table <small>(datastructure/SparseTable.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/WeightedUnionFind.hpp.html">Weighted UnionFind <small>(datastructure/WeightedUnionFind.hpp)</small></a>
 
@@ -103,7 +103,7 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/Prim.hpp.html">Prim <small>(graph/Prim.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/StronglyConnectedComponents.hpp.html">Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/TopologicalSort.hpp.html">Topological Sort <small>(graph/TopologicalSort.hpp)</small></a>
-* :warning: <a href="library/graph/TwoEdgeConnectedComponents.hpp.html">Two Edge Connected Components <small>(graph/TwoEdgeConnectedComponents.hpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/TwoEdgeConnectedComponents.hpp.html">Two Edge Connected Components <small>(graph/TwoEdgeConnectedComponents.hpp)</small></a>
 * :warning: <a href="library/graph/TwoSatisfiability.hpp.html">2-SAT <small>(graph/TwoSatisfiability.hpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/WarshallFloyd.hpp.html">Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small></a>
 
@@ -124,6 +124,7 @@ layout: default
 * :warning: <a href="library/math/divisor.hpp.html">約数列挙 <small>(math/divisor.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/euler_phi.hpp.html">Eulerのφ関数 <small>(math/euler_phi.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/extgcd.hpp.html">拡張ユークリッドの互除法 <small>(math/extgcd.hpp)</small></a>
+* :heavy_check_mark: <a href="library/math/floor_sum.hpp.html">Sum of Floor of Linear <small>(math/floor_sum.hpp)</small></a>
 * :warning: <a href="library/math/is_prime.hpp.html">素数判定 <small>(math/is_prime.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/modpow.hpp.html">繰り返し自乗法 <small>(math/modpow.hpp)</small></a>
 * :heavy_check_mark: <a href="library/math/prime_factor.hpp.html">素因数分解 <small>(math/prime_factor.hpp)</small></a>
@@ -134,7 +135,7 @@ layout: default
 
 ### modulo
 
-* :warning: <a href="library/modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
+* :heavy_check_mark: <a href="library/modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 * :warning: <a href="library/modulo/runtime_modint.hpp.html">実行時 modint <small>(modulo/runtime_modint.hpp)</small></a>
 
 
@@ -231,6 +232,24 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/example.test.cpp.html">test/aoj/example.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/aplusb.test.cpp.html">test/yosupo/aplusb.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/associative_array.test.cpp.html">test/yosupo/associative_array.test.cpp</a>
+* :x: <a href="verify/test/yosupo/convolution_mod.test.cpp.html">test/yosupo/convolution_mod.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/lca.test.cpp.html">test/yosupo/lca.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/point_add_range_sum.test.cpp.html">test/yosupo/point_add_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/point_set_range_composite.test.cpp.html">test/yosupo/point_set_range_composite.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/range_affine_range_sum.test.cpp.html">test/yosupo/range_affine_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/range_chmin_chmax_add_range_sum.test.cpp.html">test/yosupo/range_chmin_chmax_add_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/scc.test.cpp.html">test/yosupo/scc.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/set_xor_min.test.cpp.html">test/yosupo/set_xor_min.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/shortest_path.test.cpp.html">test/yosupo/shortest_path.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/static_range_sum.test.cpp.html">test/yosupo/static_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/sum_of_floor_of_linear.test.cpp.html">test/yosupo/sum_of_floor_of_linear.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/tree_diameter.test.cpp.html">test/yosupo/tree_diameter.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/two_edge_connected_components.test.cpp.html">test/yosupo/two_edge_connected_components.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/vertex_add_path_sum.test.cpp.html">test/yosupo/vertex_add_path_sum.test.cpp</a>
 * :x: <a href="verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
 
 

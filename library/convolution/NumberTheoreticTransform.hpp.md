@@ -43,7 +43,7 @@ layout: default
 ## Depends on
 
 * :question: <a href="../base.hpp.html">base.hpp</a>
-* :warning: <a href="../modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
+* :heavy_check_mark: <a href="../modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 
 
 ## Code

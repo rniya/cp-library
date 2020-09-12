@@ -21,34 +21,26 @@ layout: default
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="../../assets/css/copy-button.css" />
+<script type="text/javascript" src="../../../assets/js/copy-button.js"></script>
+<link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: UnionFind <small>(datastructure/UnionFind.hpp)</small>
+# :heavy_check_mark: test/yosupo/unionfind.test.cpp
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/datastructure/UnionFind.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 23:15:02+09:00
-
-
+* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/unionfind.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-12 20:51:23+09:00
 
 
-## 概要
+* see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
 
-## 計算量
 
 ## Depends on
 
-* :question: <a href="../base.hpp.html">base.hpp</a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_1_A.test.cpp.html">test/aoj/DSL_1_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
+* :question: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../../../library/datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 
 
 ## Code
@@ -56,36 +48,23 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-/**
- * @brief UnionFind
- * @docs docs/datastructure/UnionFind.md
- */
+#define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 
-#pragma once
-#include "../base.hpp"
+#include "../../base.hpp"
+#include "../../datastructure/UnionFind.hpp"
 
-struct UnionFind{
-    int num;
-    vector<int> par,rank;
-    UnionFind(int n):num(n),par(n),rank(n,1){
-        iota(par.begin(),par.end(),0);
+int main(){
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+    int N,Q; cin >> N >> Q;
+
+    UnionFind UF(N);
+    for (;Q--;){
+        int t,u,v; cin >> t >> u >> v;
+        if (!t) UF.merge(u,v);
+        else cout << UF.same(u,v) << '\n';
     }
-    int root(int x){
-        return (par[x]==x?x:par[x]=root(par[x]));
-    }
-    bool merge(int x, int y){
-        x=root(x); y=root(y);
-        if (x==y) return false;
-        if (rank[x]<rank[y]) swap(x,y);
-        par[y]=x;
-        rank[x]+=rank[y];
-        --num;
-        return true;
-    }
-    bool same(int x, int y){return root(x)==root(y);}
-    int size(int x){return rank[root(x)];}
-    int count(){return num;}
-};
+}
 ```
 {% endraw %}
 
@@ -97,6 +76,8 @@ Traceback (most recent call last):
     bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 185, in bundle
     bundler.update(path)
+  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 399, in update
+    self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
 onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/UnionFind.hpp: line 6: #pragma once found in a non-first line
@@ -104,5 +85,5 @@ onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/Union
 ```
 {% endraw %}
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../index.html">Back to top page</a>
 

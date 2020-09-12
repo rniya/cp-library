@@ -25,20 +25,16 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: UnionFind <small>(datastructure/UnionFind.hpp)</small>
+# :heavy_check_mark: Sum of Floor of Linear <small>(math/floor_sum.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#8dc87745f885a4cc532acd7b15b8b5fe">datastructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/datastructure/UnionFind.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 23:15:02+09:00
+* category: <a href="../../index.html#7e676e9e663beb40fd133f5ee24487c2">math</a>
+* <a href="{{ site.github.repository_url }}/blob/master/math/floor_sum.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-12 20:51:23+09:00
 
 
 
-
-## 概要
-
-## 計算量
 
 ## Depends on
 
@@ -47,8 +43,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj/DSL_1_A.test.cpp.html">test/aoj/DSL_1_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/sum_of_floor_of_linear.test.cpp.html">test/yosupo/sum_of_floor_of_linear.test.cpp</a>
 
 
 ## Code
@@ -57,35 +52,30 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief UnionFind
- * @docs docs/datastructure/UnionFind.md
+ * @brief Sum of Floor of Linear
+ * docs docs/math/floor_sum.hpp
  */
 
 #pragma once
+
 #include "../base.hpp"
 
-struct UnionFind{
-    int num;
-    vector<int> par,rank;
-    UnionFind(int n):num(n),par(n),rank(n,1){
-        iota(par.begin(),par.end(),0);
+long long floor_sum(long long n,long long m,long long a,long long b){
+    long long ans=0;
+    if (a>=m){
+        ans+=(n-1)*n*(a/m)/2;
+        a%=m;
     }
-    int root(int x){
-        return (par[x]==x?x:par[x]=root(par[x]));
+    if (b>=m){
+        ans+=n*(b/m);
+        b%=m;
     }
-    bool merge(int x, int y){
-        x=root(x); y=root(y);
-        if (x==y) return false;
-        if (rank[x]<rank[y]) swap(x,y);
-        par[y]=x;
-        rank[x]+=rank[y];
-        --num;
-        return true;
-    }
-    bool same(int x, int y){return root(x)==root(y);}
-    int size(int x){return rank[root(x)];}
-    int count(){return num;}
-};
+    long long y_max=(a*n+b)/m,x_max=y_max*m-b;
+    if (y_max==0) return ans;
+    ans+=(n-(x_max+a-1)/a)*y_max;
+    ans+=floor_sum(y_max,a,m,(a-x_max%a)%a);
+    return ans;
+}
 ```
 {% endraw %}
 
@@ -99,7 +89,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/UnionFind.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/floor_sum.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}
