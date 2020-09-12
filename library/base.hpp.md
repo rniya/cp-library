@@ -58,7 +58,7 @@ layout: default
 * :heavy_check_mark: <a href="flow/BipartiteMatching.hpp.html">2部グラフの最大マッチング <small>(flow/BipartiteMatching.hpp)</small></a>
 * :heavy_check_mark: <a href="flow/Dinic.hpp.html">Dinic <small>(flow/Dinic.hpp)</small></a>
 * :heavy_check_mark: <a href="flow/FordFulkerson.hpp.html">Ford Fulkerson <small>(flow/FordFulkerson.hpp)</small></a>
-* :heavy_check_mark: <a href="flow/HopcroftKarp.hpp.html"> <small>(flow/HopcroftKarp.hpp)</small></a>
+* :heavy_check_mark: <a href="flow/HopcroftKarp.hpp.html">Hopcroft Karp <small>(flow/HopcroftKarp.hpp)</small></a>
 * :heavy_check_mark: <a href="flow/MinCostFlow.hpp.html">最小費用流 <small>(flow/MinCostFlow.hpp)</small></a>
 * :heavy_check_mark: <a href="flow/PrimalDual.hpp.html">Primal Dual <small>(flow/PrimalDual.hpp)</small></a>
 * :warning: <a href="flow/ProjectSelectionProblem.hpp.html">Project Selection Problem <small>(flow/ProjectSelectionProblem.hpp)</small></a>
@@ -90,6 +90,7 @@ layout: default
 * :warning: <a href="string/Kunth_Morris_Pratt.hpp.html">Knuth Moriss Pratt (KMP法) <small>(string/Kunth_Morris_Pratt.hpp)</small></a>
 * :warning: <a href="string/Manacher.hpp.html">Manacher <small>(string/Manacher.hpp)</small></a>
 * :heavy_check_mark: <a href="string/RollingHash.hpp.html">Rolling Hash <small>(string/RollingHash.hpp)</small></a>
+* :heavy_check_mark: <a href="string/SuffixArray.hpp.html">Suffix Array <small>(string/SuffixArray.hpp)</small></a>
 * :warning: <a href="string/Trie.hpp.html">Trie <small>(string/Trie.hpp)</small></a>
 * :warning: <a href="string/Z_algorithm.hpp.html">Z-Algorithm <small>(string/Z_algorithm.hpp)</small></a>
 * :warning: <a href="test/aoj/DSL_3_D.SlidingWindowAggregation.cpp.html">test/aoj/DSL_3_D.SlidingWindowAggregation.cpp</a>
@@ -106,6 +107,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/aoj/2667.test.cpp.html">test/aoj/2667.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/2871.test.cpp.html">test/aoj/2871.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/2891.test.cpp.html">test/aoj/2891.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/ALDS1_14_D.test.cpp.html">test/aoj/ALDS1_14_D.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/ALDS_1_14_B.test.cpp.html">test/aoj/ALDS_1_14_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_1_A.test.cpp.html">test/aoj/DSL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_1_B.test.cpp.html">test/aoj/DSL_1_B.test.cpp</a>

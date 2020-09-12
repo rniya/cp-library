@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark:  <small>(flow/HopcroftKarp.hpp)</small>
+# :heavy_check_mark: Hopcroft Karp <small>(flow/HopcroftKarp.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#cff5497121104c2b8e0cb41ed2083a9b">flow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/flow/HopcroftKarp.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-12 02:15:37+09:00
+    - Last commit date: 2020-09-12 12:22:43+09:00
 
 
 
@@ -52,7 +52,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief
+ * @brief Hopcroft Karp
  * @docs docs/flow/HopcroftKarp
  */
 

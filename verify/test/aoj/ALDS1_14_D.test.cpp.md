@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
+# :heavy_check_mark: test/aoj/ALDS1_14_D.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_7_A.HopcroftKarp.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/ALDS1_14_D.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-09-12 12:22:43+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/problems/GRL_7_A">https://onlinejudge.u-aizu.ac.jp/problems/GRL_7_A</a>
+* see: <a href="https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_D">https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_D</a>
 
 
 ## Depends on
 
 * :question: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../../library/flow/HopcroftKarp.hpp.html">Hopcroft Karp <small>(flow/HopcroftKarp.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/string/SuffixArray.hpp.html">Suffix Array <small>(string/SuffixArray.hpp)</small></a>
 
 
 ## Code
@@ -48,23 +48,23 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/GRL_7_A"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_D"
 
 #include "../../base.hpp"
-#include "../../flow/HopcroftKarp.hpp"
+#include "../../string/SuffixArray.hpp"
 
 int main(){
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int X,Y,E; cin >> X >> Y >> E;
+    string T; int Q; cin >> T >> Q;
 
-    HopcroftKarp HK(X,Y);
-    for (int i=0;i<E;++i){
-        int x,y; cin >> x >> y;
-        HK.add_edge(x,y);
+    SuffixArray SA(T);
+
+    for (;Q--;){
+        string P; cin >> P;
+        auto ans=SA.lower_upper_bound(P);
+        cout << (ans.first!=ans.second) << '\n';
     }
-
-    cout << HK.max_matching().size() << '\n';
 }
 ```
 {% endraw %}
@@ -81,7 +81,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: flow/HopcroftKarp.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: string/SuffixArray.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}
