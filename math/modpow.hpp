@@ -1,5 +1,5 @@
 /**
- * @brief 繰り返し自乗法
+ * @brief 繰り返し2乗法
  */
 
 #pragma once
