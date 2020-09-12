@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_6_A.DInic.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-12 21:38:24+09:00
+    - Last commit date: 2020-09-12 21:46:40+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A</a>
@@ -59,6 +59,7 @@ int main(){
     int V,E; cin >> V >> E;
 
     Dinic<int,true> D(V);
+
     for (int i=0;i<E;++i){
         int u,v,c; cin >> u >> v >> c;
         D.add_edge(u,v,c);

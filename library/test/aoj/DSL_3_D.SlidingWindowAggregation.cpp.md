@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_3_D.SlidingWindowAggregation.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 23:15:02+09:00
+    - Last commit date: 2020-09-12 21:46:40+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D</a>
@@ -61,8 +61,8 @@ int main(){
     for (int i=0;i<N;++i) cin >> a[i];
 
     SlidingWindowAggregation<int> SWAG([](int a,int b){return min(a,b);},INT_MAX);
-    for (int i=0;i<L-1;++i) SWAG.push(a[i]);
 
+    for (int i=0;i<L-1;++i) SWAG.push(a[i]);
     for (int i=L-1;i<N;++i){
         SWAG.push(a[i]);
         cout << SWAG.fold() << (i+1==N?'\n':' ');
