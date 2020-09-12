@@ -1,5 +1,5 @@
 /**
- * @brief
+ * @brief Hopcroft Karp
  * @docs docs/flow/HopcroftKarp
  */
 
