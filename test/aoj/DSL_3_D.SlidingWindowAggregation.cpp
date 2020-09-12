@@ -11,8 +11,8 @@ int main(){
     for (int i=0;i<N;++i) cin >> a[i];
 
     SlidingWindowAggregation<int> SWAG([](int a,int b){return min(a,b);},INT_MAX);
-    for (int i=0;i<L-1;++i) SWAG.push(a[i]);
 
+    for (int i=0;i<L-1;++i) SWAG.push(a[i]);
     for (int i=L-1;i<N;++i){
         SWAG.push(a[i]);
         cout << SWAG.fold() << (i+1==N?'\n':' ');
