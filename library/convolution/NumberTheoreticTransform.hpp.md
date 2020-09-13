@@ -46,9 +46,15 @@ layout: default
 * :heavy_check_mark: <a href="../modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 
 
+## Required by
+
+* :heavy_check_mark: <a href="ArbitaryModConvolution.hpp.html">Arbirary Mod Convolution (任意mod畳み込み) <small>(convolution/ArbitaryModConvolution.hpp)</small></a>
+
+
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/yosupo/convolution_mod.test.cpp.html">test/yosupo/convolution_mod.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/convolution_mod_1000000007.test.cpp.html">test/yosupo/convolution_mod_1000000007.test.cpp</a>
 
 
 ## Code
