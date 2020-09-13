@@ -12,7 +12,7 @@
 template<typename M>
 vector<M> ArbitaryModConvolution(const vector<M> &a,const vector<M> &b){
     int n=a.size(),m=b.size();
-    static constexpr int mod0=167772161,mod1=469762049,mod2=1224736769;
+    static constexpr int mod0=167772161,mod1=469762049,mod2=754974721;
     using mint0=modint<mod0>;
     using mint1=modint<mod1>;
     using mint2=modint<mod2>;
