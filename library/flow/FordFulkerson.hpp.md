@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#cff5497121104c2b8e0cb41ed2083a9b">flow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/flow/FordFulkerson.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-11 18:26:48+09:00
+    - Last commit date: 2020-09-13 20:30:44+09:00
 
 
 
@@ -79,7 +79,14 @@ struct FordFulkerson{
     tuple<int,int,int,int> get_edge(int i){
         auto e=G[pos[i].first][pos[i].second];
         auto re=G[e.to][e.rev];
-        return {e.from,e.to,e.cap+re.cap,re.cap};
+        return {pos[i].first,e.to,e.cap+re.cap,re.cap};
+    }
+    vector<tuple<int,int,int,int>> edges(){
+        vector<tuple<int,int,int,int>> res;
+        for (int i=0;i<pos.size();++i){
+            res.emplace_back(get_edge(i));
+        }
+        return res;
     }
     T dfs(int v,int t,T f){
         if (v==t) return f;
