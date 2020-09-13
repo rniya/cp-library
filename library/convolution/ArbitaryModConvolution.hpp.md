@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a9595c1c24c33b16056d2ad07e71682d">convolution</a>
 * <a href="{{ site.github.repository_url }}/blob/master/convolution/ArbitaryModConvolution.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-13 15:43:48+09:00
+    - Last commit date: 2020-09-13 16:09:55+09:00
 
 
 
@@ -71,7 +71,7 @@ layout: default
 template<typename M>
 vector<M> ArbitaryModConvolution(const vector<M> &a,const vector<M> &b){
     int n=a.size(),m=b.size();
-    static constexpr int mod0=167772161,mod1=469762049,mod2=1224736769;
+    static constexpr int mod0=167772161,mod1=469762049,mod2=754974721;
     using mint0=modint<mod0>;
     using mint1=modint<mod1>;
     using mint2=modint<mod2>;

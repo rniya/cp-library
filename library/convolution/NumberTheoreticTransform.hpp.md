@@ -55,6 +55,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../verify/test/yosupo/convolution_mod.test.cpp.html">test/yosupo/convolution_mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/convolution_mod_1000000007.test.cpp.html">test/yosupo/convolution_mod_1000000007.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/1068.test.cpp.html">test/yukicoder/1068.test.cpp</a>
 
 
 ## Code

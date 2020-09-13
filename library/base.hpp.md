@@ -183,6 +183,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/vertex_add_path_sum.test.cpp.html">test/yosupo/vertex_add_path_sum.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/yukicoder/1068.test.cpp.html">test/yukicoder/1068.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/206.test.cpp.html">test/yukicoder/206.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/952.test.cpp.html">test/yukicoder/952.test.cpp</a>
