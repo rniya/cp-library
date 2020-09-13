@@ -12,7 +12,6 @@ int main(){
 
     for (;Q--;){
         string P; cin >> P;
-        auto ans=SA.lower_upper_bound(P);
-        cout << (ans.first!=ans.second) << '\n';
+        cout << (SA.count(P)>0) << '\n';
     }
 }
