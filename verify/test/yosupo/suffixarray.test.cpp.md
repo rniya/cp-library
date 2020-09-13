@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/ALDS_1_14_B.test.cpp
+# :heavy_check_mark: test/yosupo/suffixarray.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/ALDS_1_14_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-11 16:00:32+09:00
+* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/suffixarray.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-13 14:01:02+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B</a>
+* see: <a href="https://judge.yosupo.jp/problem/suffixarray">https://judge.yosupo.jp/problem/suffixarray</a>
 
 
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../../library/string/RollingHash.hpp.html">Rolling Hash <small>(string/RollingHash.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/string/SuffixArray.hpp.html">Suffix Array <small>(string/SuffixArray.hpp)</small></a>
 
 
 ## Code
@@ -48,24 +48,19 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B"
+#define PROBLEM "https://judge.yosupo.jp/problem/suffixarray"
 
 #include "../../base.hpp"
-#include "../../string/RollingHash.hpp"
+#include "../../string/SuffixArray.hpp"
 
 int main(){
     cin.tie(0);
     ios::sync_with_stdio(false);
-    string S,T; cin >> S >> T;
+    string S; cin >> S;
 
-    RollingHash rh1(S),rh2(T);
-    int s=S.size(),t=T.size();
+    SuffixArray SA(S);
 
-    for (int i=0;i+t<=s;++i){
-        if (rh1.get(i,i+t)==rh2.get(0,t)){
-            cout << i << '\n';
-        }
-    }
+    for (int i=0;i<S.size();++i) cout << SA[i+1] << (i+1==S.size()?'\n':' ');
 }
 ```
 {% endraw %}
@@ -82,7 +77,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: string/RollingHash.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: string/SuffixArray.hpp: line 6: #pragma once found in a non-first line
 
 ```
 {% endraw %}

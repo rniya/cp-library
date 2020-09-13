@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Suffix Array <small>(string/SuffixArray.hpp)</small>
+# :heavy_check_mark: Longest Common Prefix Array <small>(string/LongestCommonPrefixArray.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b45cffe084dd3d20d928bee85e7b0f21">string</a>
-* <a href="{{ site.github.repository_url }}/blob/master/string/SuffixArray.hpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/string/LongestCommonPrefixArray.hpp">View this file on GitHub</a>
     - Last commit date: 2020-09-13 14:01:02+09:00
 
 
@@ -39,18 +39,12 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
-
-
-## Required by
-
-* :heavy_check_mark: <a href="LongestCommonPrefixArray.hpp.html">Longest Common Prefix Array <small>(string/LongestCommonPrefixArray.hpp)</small></a>
+* :heavy_check_mark: <a href="SuffixArray.hpp.html">Suffix Array <small>(string/SuffixArray.hpp)</small></a>
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj/ALDS1_14_D.test.cpp.html">test/aoj/ALDS1_14_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yosupo/number_of_substrings.test.cpp.html">test/yosupo/number_of_substrings.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yosupo/suffixarray.test.cpp.html">test/yosupo/suffixarray.test.cpp</a>
 
 
 ## Code
@@ -59,73 +53,50 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief Suffix Array
- * @docs docs/string/SuffixArray.hpp
+ * @brief Longest Common Prefix Array
+ * @docs docs/string/LongestCommonPrefixArray.md
  */
 
-#pragma once
-
 #include "../base.hpp"
+#include "../string/SuffixArray.hpp"
 
-struct SuffixArray{
-    string s;
-    vector<int> SA;
-    SuffixArray(const string &S):s(S){
+struct LongestCommonPrefixArray{
+    SuffixArray SA;
+    vector<int> LCP,rank,lookup;
+    vector<vector<int>> dat;
+    LongestCommonPrefixArray(const string &s):SA(s){
         int n=s.size();
-        s.push_back('$');
-        SA.resize(n+1);
-        iota(SA.begin(),SA.end(),0);
-        sort(SA.begin(),SA.end(),[&](int a,int b){
-            return s[a]==s[b]?a>b:s[a]<s[b];
-        });
-        vector<int> c(s.begin(),s.end()),cnt(n+1),nxt(n+1);
-        for (int j=1;j<=n;j<<=1){
-            for (int i=0;i<=n;++i){
-                nxt[SA[i]]=((i&&c[SA[i-1]]==c[SA[i]]&&SA[i-1]+j<n&&c[SA[i-1]+j/2]==c[SA[i]+j/2])?nxt[SA[i-1]]:i);
+        LCP.resize(n); rank.resize(n+1);
+        for (int i=0;i<=n;++i) rank[SA[i]]=i;
+        LCP[0]=0;
+        for (int i=0,t=0;i<n;++i){
+            if (t) --t;
+            for (int j=SA[rank[i]-1];max(i,j)+t<n&&s[i+t]==s[j+t];++t);
+            LCP[rank[i]-1]=t;
+        }
+        int h=1;
+        while((1<<h)<=n) ++h;
+        dat.assign(h,vector<int>(n));
+        lookup.assign(n+1,0);
+        for (int i=2;i<=n;++i) lookup[i]=lookup[i>>1]+1;
+        for (int j=0;j<n;++j) dat[0][j]=LCP[j];
+        for (int i=1,mask=1;i<h;++i,mask<<=1){
+            for (int j=0;j<n;++j){
+                dat[i][j]=min(dat[i-1][j],dat[i-1][min(j+mask,n-1)]);
             }
-            iota(cnt.begin(),cnt.end(),0);
-            copy(SA.begin(),SA.end(),c.begin());
-            for (int i=0;i<=n;++i){
-                if (c[i]-j>=0){
-                    SA[cnt[nxt[c[i]-j]]++]=c[i]-j;
-                }
-            }
-            nxt.swap(c);
         }
     }
-    bool comp(const string &t,int si=0,int ti=0){
-        int sn=s.size(),tn=t.size();
-        for (;si<sn&&ti<tn;++si,++ti){
-            if (s[si]<t[ti]) return true;
-            if (s[si]>t[ti]) return false;
-        }
-        return si>=sn&&ti<tn;
+    int query(int a,int b){
+        if (a>b) swap(a,b);
+        int d=lookup[b-a];
+        return min(dat[d][a],dat[d][b-(1<<d)]);
     }
-    int lower_bound(const string &t){
-        int lb=-1,ub=SA.size();
-        while(ub-lb>1){
-            int mid=(ub+lb)>>1;
-            (comp(t,SA[mid])?lb:ub)=mid;
-        }
-        return ub;
+    // longest common prefix of s[a...] and s[b...]
+    int lcp(int a,int b){
+        return query(rank[a],rank[b]);
     }
-    pair<int,int> lower_upper_bound(string &t){
-        int l=lower_bound(t);
-        int lb=l-1,ub=SA.size();
-        ++t.back();
-        while(ub-lb>1){
-            int mid=(ub+lb)>>1;
-            (comp(t,SA[mid])?lb:ub)=mid;
-        }
-        --t.back();
-        return {l,ub};
-    }
-    int count(string &t){
-        pair<int,int> p=lower_upper_bound(t);
-        return p.second-p.first;
-    }
-    int operator[](int i) const {return SA[i];}
-    int size() const {return s.size();}
+    int operator[](int i) const {return LCP[i];}
+    int size() const {return LCP.size();}
 };
 ```
 {% endraw %}
@@ -138,6 +109,8 @@ Traceback (most recent call last):
     bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 185, in bundle
     bundler.update(path)
+  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 399, in update
+    self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
 onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: string/SuffixArray.hpp: line 6: #pragma once found in a non-first line

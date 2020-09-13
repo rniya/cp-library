@@ -25,21 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/ALDS1_14_D.test.cpp
+# :heavy_check_mark: test/yosupo/number_of_substrings.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/ALDS1_14_D.test.cpp">View this file on GitHub</a>
+* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/number_of_substrings.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-09-13 14:01:02+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_D">https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_D</a>
+* see: <a href="https://judge.yosupo.jp/problem/number_of_substrings">https://judge.yosupo.jp/problem/number_of_substrings</a>
 
 
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../../../library/string/LongestCommonPrefixArray.hpp.html">Longest Common Prefix Array <small>(string/LongestCommonPrefixArray.hpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/string/SuffixArray.hpp.html">Suffix Array <small>(string/SuffixArray.hpp)</small></a>
 
 
@@ -48,22 +49,25 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_D"
+#define PROBLEM "https://judge.yosupo.jp/problem/number_of_substrings"
 
 #include "../../base.hpp"
-#include "../../string/SuffixArray.hpp"
+#include "../../string/LongestCommonPrefixArray.hpp"
 
 int main(){
     cin.tie(0);
     ios::sync_with_stdio(false);
-    string T; int Q; cin >> T >> Q;
+    string S; cin >> S;
+    int N=S.size();
 
-    SuffixArray SA(T);
+    LongestCommonPrefixArray LCP(S);
 
-    for (;Q--;){
-        string P; cin >> P;
-        cout << (SA.count(P)>0) << '\n';
+    long long ans=0;
+    for (int i=0;i<N;++i){
+        ans+=N-LCP.SA[i+1]-LCP[i];
     }
+
+    cout << ans << '\n';
 }
 ```
 {% endraw %}
@@ -76,6 +80,8 @@ Traceback (most recent call last):
     bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 185, in bundle
     bundler.update(path)
+  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 399, in update
+    self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 399, in update
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update

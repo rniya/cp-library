@@ -89,6 +89,7 @@ layout: default
 * :heavy_check_mark: <a href="modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 * :warning: <a href="modulo/runtime_modint.hpp.html">実行時 modint <small>(modulo/runtime_modint.hpp)</small></a>
 * :warning: <a href="string/Kunth_Morris_Pratt.hpp.html">Knuth Moriss Pratt (KMP法) <small>(string/Kunth_Morris_Pratt.hpp)</small></a>
+* :heavy_check_mark: <a href="string/LongestCommonPrefixArray.hpp.html">Longest Common Prefix Array <small>(string/LongestCommonPrefixArray.hpp)</small></a>
 * :warning: <a href="string/Manacher.hpp.html">Manacher <small>(string/Manacher.hpp)</small></a>
 * :heavy_check_mark: <a href="string/RollingHash.hpp.html">Rolling Hash <small>(string/RollingHash.hpp)</small></a>
 * :heavy_check_mark: <a href="string/SuffixArray.hpp.html">Suffix Array <small>(string/SuffixArray.hpp)</small></a>
@@ -108,8 +109,8 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/aoj/2667.test.cpp.html">test/aoj/2667.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/2871.test.cpp.html">test/aoj/2871.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/2891.test.cpp.html">test/aoj/2891.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/aoj/ALDS1_14_B.test.cpp.html">test/aoj/ALDS1_14_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/ALDS1_14_D.test.cpp.html">test/aoj/ALDS1_14_D.test.cpp</a>
-* :heavy_check_mark: <a href="../verify/test/aoj/ALDS_1_14_B.test.cpp.html">test/aoj/ALDS_1_14_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_1_A.test.cpp.html">test/aoj/DSL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_1_B.test.cpp.html">test/aoj/DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp</a>
@@ -162,6 +163,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/yosupo/associative_array.test.cpp.html">test/yosupo/associative_array.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/convolution_mod.test.cpp.html">test/yosupo/convolution_mod.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/lca.test.cpp.html">test/yosupo/lca.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/yosupo/number_of_substrings.test.cpp.html">test/yosupo/number_of_substrings.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/point_add_range_sum.test.cpp.html">test/yosupo/point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/point_set_range_composite.test.cpp.html">test/yosupo/point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/range_affine_range_sum.test.cpp.html">test/yosupo/range_affine_range_sum.test.cpp</a>
@@ -171,6 +173,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/yosupo/shortest_path.test.cpp.html">test/yosupo/shortest_path.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/static_range_sum.test.cpp.html">test/yosupo/static_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/yosupo/suffixarray.test.cpp.html">test/yosupo/suffixarray.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/sum_of_floor_of_linear.test.cpp.html">test/yosupo/sum_of_floor_of_linear.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/tree_diameter.test.cpp.html">test/yosupo/tree_diameter.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/two_edge_connected_components.test.cpp.html">test/yosupo/two_edge_connected_components.test.cpp</a>
