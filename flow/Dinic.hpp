@@ -32,7 +32,14 @@ struct Dinic{
     tuple<int,int,int,int> get_edge(int i){
         auto e=G[pos[i].first][pos[i].second];
         auto re=G[e.to][e.rev];
-        return {e.from,e.to,e.cap+re.cap,re.cap};
+        return {pos[i].first,e.to,e.cap+re.cap,re.cap};
+    }
+    vector<tuple<int,int,int,int>> edges(){
+        vector<tuple<int,int,int,int>> res;
+        for (int i=0;i<pos.size();++i){
+            res.emplace_back(get_edge(i));
+        }
+        return res;
     }
     void bfs(int s){
         fill(level.begin(),level.end(),-1);

@@ -28,7 +28,14 @@ struct MinCostFlow{
     tuple<int,int,int,int,int> get_edge(int i){
         auto e=G[pos[i].first][pos[i].second];
         auto re=G[e.to][e.rev];
-        return {e.from,e.to,e.cap+re.cap,re.cap,e.cost};
+        return {pos[i].first,e.to,e.cap+re.cap,re.cap,e.cost};
+    }
+    vector<tuple<int,int,int,int,int>> edges(){
+        vector<tuple<int,int,int,int,int>> res;
+        for (int i=0;i<pos.size();++i){
+            res.emplace_back(get_edge(i));
+        }
+        return res;
     }
     E min_cost_flow(int s,int t,T f){
         E res=0;
