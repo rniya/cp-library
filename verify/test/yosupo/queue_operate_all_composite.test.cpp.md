@@ -25,22 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
+# :heavy_check_mark: test/yosupo/queue_operate_all_composite.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/DSL_3_D.SlidingWindowAggregation.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-12 21:46:40+09:00
+* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/queue_operate_all_composite.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-14 16:34:26+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D">https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D</a>
+* see: <a href="https://judge.yosupo.jp/problem/queue_operate_all_composite">https://judge.yosupo.jp/problem/queue_operate_all_composite</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../datastructure/SlidingWindowAggregation.hpp.html">Sliding Window Aggregation (SWAG) <small>(datastructure/SlidingWindowAggregation.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../../../library/datastructure/SlidingWindowAggregation.hpp.html">Sliding Window Aggregation (SWAG) <small>(datastructure/SlidingWindowAggregation.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 
 
 ## Code
@@ -48,25 +49,37 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D"
+#define PROBLEM "https://judge.yosupo.jp/problem/queue_operate_all_composite"
 
 #include "../../base.hpp"
+#include "../../modulo/modint.hpp"
 #include "../../datastructure/SlidingWindowAggregation.hpp"
+
+using mint=modint<998244353>;
 
 int main(){
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int N,L; cin >> N >> L;
-    vector<int> a(N);
-    for (int i=0;i<N;++i) cin >> a[i];
+    struct node{
+        mint a,b;
+        node(mint a,mint b):a(a),b(b){}
+    };
+    auto f=[](node a,node b){return node(a.a*b.a,a.b*b.a+b.b);};
+    SlidingWindowAggregation<node> SWAG(f,node(1,0));
 
-    SlidingWindowAggregation<int> SWAG([](int a,int b){return min(a,b);},INT_MAX);
-
-    for (int i=0;i<L-1;++i) SWAG.push(a[i]);
-    for (int i=L-1;i<N;++i){
-        SWAG.push(a[i]);
-        cout << SWAG.fold() << (i+1==N?'\n':' ');
-        SWAG.pop();
+    int Q; cin >> Q;
+    for (;Q--;){
+        int t; cin >> t;
+        if (t==0){
+            int a,b; cin >> a >> b;
+            SWAG.push(node(a,b));
+        } else if (t==1){
+            SWAG.pop();
+        } else {
+            int x; cin >> x;
+            node ans=SWAG.fold();
+            cout << ans.a*x+ans.b << '\n';
+        }
     }
 }
 ```
@@ -84,7 +97,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/SlidingWindowAggregation.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: modulo/modint.hpp: line 5: #pragma once found in a non-first line
 
 ```
 {% endraw %}

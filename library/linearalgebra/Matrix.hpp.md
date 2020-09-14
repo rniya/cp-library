@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Matrix <small>(linearalgebra/Matrix.hpp)</small>
+# :heavy_check_mark: Matrix <small>(linearalgebra/Matrix.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -43,6 +43,11 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/526.test.cpp.html">test/yukicoder/526.test.cpp</a>
 
 
 ## Code

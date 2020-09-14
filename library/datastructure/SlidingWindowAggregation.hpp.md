@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Sliding Window Aggregation (SWAG) <small>(datastructure/SlidingWindowAggregation.hpp)</small>
+# :heavy_check_mark: Sliding Window Aggregation (SWAG) <small>(datastructure/SlidingWindowAggregation.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -48,6 +48,11 @@ layout: default
 ## Required by
 
 * :warning: <a href="../test/aoj/DSL_3_D.SlidingWindowAggregation.cpp.html">test/aoj/DSL_3_D.SlidingWindowAggregation.cpp</a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/yosupo/queue_operate_all_composite.test.cpp.html">test/yosupo/queue_operate_all_composite.test.cpp</a>
 
 
 ## Code

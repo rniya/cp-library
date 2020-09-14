@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: 実行時 modint <small>(modulo/runtime_modint.hpp)</small>
+# :heavy_check_mark: 実行時 modint <small>(modulo/runtime_modint.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -39,6 +39,11 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/yukicoder/526.test.cpp.html">test/yukicoder/526.test.cpp</a>
 
 
 ## Code

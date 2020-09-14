@@ -52,7 +52,7 @@ layout: default
 * :heavy_check_mark: <a href="datastructure/SegmentTree.hpp.html">Segment Tree <small>(datastructure/SegmentTree.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/SegmentTreeBeats.hpp.html">Segment Tree Beats <small>(datastructure/SegmentTreeBeats.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/Slide_Min.hpp.html">スライド最小値 <small>(datastructure/Slide_Min.hpp)</small></a>
-* :warning: <a href="datastructure/SlidingWindowAggregation.hpp.html">Sliding Window Aggregation (SWAG) <small>(datastructure/SlidingWindowAggregation.hpp)</small></a>
+* :heavy_check_mark: <a href="datastructure/SlidingWindowAggregation.hpp.html">Sliding Window Aggregation (SWAG) <small>(datastructure/SlidingWindowAggregation.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/SparseTable.hpp.html">Sparse table <small>(datastructure/SparseTable.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/WeightedUnionFind.hpp.html">Weighted UnionFind <small>(datastructure/WeightedUnionFind.hpp)</small></a>
@@ -77,7 +77,7 @@ layout: default
 * :heavy_check_mark: <a href="graph/TwoSatisfiability.hpp.html">2-SAT <small>(graph/TwoSatisfiability.hpp)</small></a>
 * :heavy_check_mark: <a href="graph/WarshallFloyd.hpp.html">Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small></a>
 * :warning: <a href="linearalgebra/Kitamasa.hpp.html">Kitamasa <small>(linearalgebra/Kitamasa.hpp)</small></a>
-* :warning: <a href="linearalgebra/Matrix.hpp.html">Matrix <small>(linearalgebra/Matrix.hpp)</small></a>
+* :heavy_check_mark: <a href="linearalgebra/Matrix.hpp.html">Matrix <small>(linearalgebra/Matrix.hpp)</small></a>
 * :heavy_check_mark: <a href="linearalgebra/SquareMatrix.hpp.html">Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small></a>
 * :warning: <a href="math/divisor.hpp.html">約数列挙 <small>(math/divisor.hpp)</small></a>
 * :heavy_check_mark: <a href="math/euler_phi.hpp.html">Eulerのφ関数 <small>(math/euler_phi.hpp)</small></a>
@@ -88,7 +88,7 @@ layout: default
 * :heavy_check_mark: <a href="math/prime_factor.hpp.html">素因数分解 <small>(math/prime_factor.hpp)</small></a>
 * :warning: <a href="math/prime_factor_table.hpp.html">osa_k法 <small>(math/prime_factor_table.hpp)</small></a>
 * :heavy_check_mark: <a href="modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
-* :warning: <a href="modulo/runtime_modint.hpp.html">実行時 modint <small>(modulo/runtime_modint.hpp)</small></a>
+* :heavy_check_mark: <a href="modulo/runtime_modint.hpp.html">実行時 modint <small>(modulo/runtime_modint.hpp)</small></a>
 * :warning: <a href="string/Kunth_Morris_Pratt.hpp.html">Knuth Moriss Pratt (KMP法) <small>(string/Kunth_Morris_Pratt.hpp)</small></a>
 * :heavy_check_mark: <a href="string/LongestCommonPrefixArray.hpp.html">Longest Common Prefix Array <small>(string/LongestCommonPrefixArray.hpp)</small></a>
 * :warning: <a href="string/Manacher.hpp.html">Manacher <small>(string/Manacher.hpp)</small></a>
@@ -168,6 +168,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/yosupo/number_of_substrings.test.cpp.html">test/yosupo/number_of_substrings.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/point_add_range_sum.test.cpp.html">test/yosupo/point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/point_set_range_composite.test.cpp.html">test/yosupo/point_set_range_composite.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/yosupo/queue_operate_all_composite.test.cpp.html">test/yosupo/queue_operate_all_composite.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/range_affine_range_sum.test.cpp.html">test/yosupo/range_affine_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/range_chmin_chmax_add_range_sum.test.cpp.html">test/yosupo/range_chmin_chmax_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/scc.test.cpp.html">test/yosupo/scc.test.cpp</a>
@@ -185,6 +186,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/1068.test.cpp.html">test/yukicoder/1068.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/206.test.cpp.html">test/yukicoder/206.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/yukicoder/526.test.cpp.html">test/yukicoder/526.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yukicoder/952.test.cpp.html">test/yukicoder/952.test.cpp</a>
 
