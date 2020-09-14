@@ -89,6 +89,7 @@ layout: default
 * :warning: <a href="math/prime_factor_table.hpp.html">osa_k法 <small>(math/prime_factor_table.hpp)</small></a>
 * :heavy_check_mark: <a href="modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 * :heavy_check_mark: <a href="modulo/runtime_modint.hpp.html">実行時 modint <small>(modulo/runtime_modint.hpp)</small></a>
+* :warning: <a href="other/Mo.hpp.html">Mo's Algorithm <small>(other/Mo.hpp)</small></a>
 * :warning: <a href="string/Kunth_Morris_Pratt.hpp.html">Knuth Moriss Pratt (KMP法) <small>(string/Kunth_Morris_Pratt.hpp)</small></a>
 * :heavy_check_mark: <a href="string/LongestCommonPrefixArray.hpp.html">Longest Common Prefix Array <small>(string/LongestCommonPrefixArray.hpp)</small></a>
 * :warning: <a href="string/Manacher.hpp.html">Manacher <small>(string/Manacher.hpp)</small></a>
