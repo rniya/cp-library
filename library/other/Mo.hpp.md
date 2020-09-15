@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Mo's Algorithm <small>(other/Mo.hpp)</small>
+# :x: Mo's Algorithm <small>(other/Mo.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
 * <a href="{{ site.github.repository_url }}/blob/master/other/Mo.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-14 23:25:25+09:00
+    - Last commit date: 2020-09-15 13:26:33+09:00
 
 
 
@@ -42,7 +42,12 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
+* :question: <a href="../base.hpp.html">base.hpp</a>
+
+
+## Verified with
+
+* :x: <a href="../../verify/test/yosupo/static_range_inversions_query.test.cpp.html">test/yosupo/static_range_inversions_query.test.cpp</a>
 
 
 ## Code
@@ -61,32 +66,32 @@ layout: default
 
 struct Mo{
     int sz;
-    vector<int> left,right,order;
-    vector<bool> check;
-    Mo(int n,int q):sz((int)sqrt(n)),order(q),check(n){}
+    vector<int> left,right;
+    Mo(int n):sz((int)sqrt(n)){}
     void insert(int l,int r){
         left.emplace_back(l);
         right.emplace_back(r);
     }
-    template<typename ADD,typename DEL,typename REM>
-    void build(const ADD &add,const DEL &del,const REM &rem){
-        iota(order.begin(),order.end(),0);
-        sort(order.begin(),order.end(),[&](int a,int b){
+    template<typename ADDL,typename ADDR,typename DELL,typename DELR,typename REM>
+    void build(const ADDL &add_left,const ADDR &add_right,const DELL &del_left,const DELR &del_right,const REM &rem){
+        int q=left.size();
+        vector<int> ord(q);
+        iota(ord.begin(),ord.end(),0);
+        sort(ord.begin(),ord.end(),[&](int a,int b){
             return (left[a]/sz!=left[b]/sz?left[a]<left[b]:right[a]<right[b]);
         });
         int l=0,r=0;
-        auto push=[&](int idx){
-            check[idx].flip();
-            if (check[idx]) add(idx);
-            else del(idx);
-        };
-        for (int idx:order){
-            while(l>left[idx]) push(--l);
-            while(r<right[idx]) push(r++);
-            while(l<left[idx]) push(l++);
-            while(r>right[idx]) push(--r);
+        for (int idx:ord){
+            while(l>left[idx]) add_left(--l);
+            while(r<right[idx]) add_right(r++);
+            while(l<left[idx]) del_left(l++);
+            while(r>right[idx]) del_right(--r);
             rem(idx);
         }
+    }
+    template<typename ADD,typename DEL,typename REM>
+    void build(const ADD &add,const DEL &del,const REM &rem){
+        build(add,add,del,del,rem);
     }
 };
 ```

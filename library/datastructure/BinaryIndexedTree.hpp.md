@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small>
+# :question: Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -42,13 +42,14 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
+* :question: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj/DSL_2_B.test.cpp.html">test/aoj/DSL_2_B.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
+* :x: <a href="../../verify/test/yosupo/static_range_inversions_query.test.cpp.html">test/yosupo/static_range_inversions_query.test.cpp</a>
 
 
 ## Code

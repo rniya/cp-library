@@ -42,7 +42,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
+* :question: <a href="../base.hpp.html">base.hpp</a>
 * :heavy_check_mark: <a href="NumberTheoreticTransform.hpp.html">Number Theoretic Transform <small>(convolution/NumberTheoreticTransform.hpp)</small></a>
 * :heavy_check_mark: <a href="../modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 

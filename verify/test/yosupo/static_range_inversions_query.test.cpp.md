@@ -25,22 +25,24 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj/GRL_3_C.test.cpp
+# :x: test/yosupo/static_range_inversions_query.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj/GRL_3_C.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-10 10:46:07+09:00
+* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/static_range_inversions_query.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-09-15 13:26:33+09:00
 
 
-* see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_C">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_C</a>
+* see: <a href="https://judge.yosupo.jp/problem/static_range_inversions_query">https://judge.yosupo.jp/problem/static_range_inversions_query</a>
 
 
 ## Depends on
 
 * :question: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/StronglyConnectedComponents.hpp.html">Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small></a>
+* :question: <a href="../../../library/datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
+* :x: <a href="../../../library/other/Mo.hpp.html">Mo's Algorithm <small>(other/Mo.hpp)</small></a>
+* :x: <a href="../../../library/util/compress.hpp.html">compress <small>(util/compress.hpp)</small></a>
 
 
 ## Code
@@ -48,28 +50,55 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_C"
+#define PROBLEM "https://judge.yosupo.jp/problem/static_range_inversions_query"
 
 #include "../../base.hpp"
-#include "../../graph/StronglyConnectedComponents.hpp"
+#include "../../util/compress.hpp"
+#include "../../datastructure/BinaryIndexedTree.hpp"
+#include "../../other/Mo.hpp"
 
 int main(){
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int V,E; cin >> V >> E;
+    int N,Q; cin >> N >> Q;
+    vector<int> A(N);
+    for (int i=0;i<N;++i) cin >> A[i];
 
-    StronglyConnectedComponents SCC(V);
-    for (int i=0;i<E;++i){
-        int s,t; cin >> s >> t;
-        SCC.add_edge(s,t);
+    Mo mo(N);
+    for (int i=0;i<Q;++i){
+        int l,r; cin >> l >> r;
+        mo.insert(l,r);
     }
-    SCC.build();
 
-    int Q; cin >> Q;
-    for (;Q--;){
-        int u,v; cin >> u >> v;
-        cout << (SCC[u]==SCC[v]) << '\n';
-    }
+    map<int,int> mp=dict(compress(A));
+    for (int i=0;i<N;++i) A[i]=mp[A[i]];
+    int n=mp.size();
+    BinaryIndexedTree<int> BIT(n+1);
+    vector<long long> ans(Q);
+    long long inv=0; int sum=0;
+    auto add_left=[&](int idx){
+        inv+=BIT.sum0(A[idx]-1);
+        ++sum; BIT.add0(A[idx],1);
+    };
+    auto add_right=[&](int idx){
+        inv+=sum-BIT.sum0(A[idx]);
+        ++sum; BIT.add0(A[idx],1);
+    };
+    auto del_left=[&](int idx){
+        inv-=BIT.sum0(A[idx]-1);
+        --sum; BIT.add0(A[idx],-1);
+    };
+    auto del_right=[&](int idx){
+        inv-=sum-BIT.sum0(A[idx]);
+        --sum; BIT.add0(A[idx],-1);
+    };
+    auto rem=[&](int idx){
+        ans[idx]=inv;
+    };
+
+    mo.build(add_left,add_right,del_left,del_right,rem);
+
+    for (int i=0;i<Q;++i) cout << ans[i] << '\n';
 }
 ```
 {% endraw %}
@@ -86,7 +115,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 310, in update
     raise BundleErrorAt(path, i + 1, "#pragma once found in a non-first line")
-onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/StronglyConnectedComponents.hpp: line 6: #pragma once found in a non-first line
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: util/compress.hpp: line 5: #pragma once found in a non-first line
 
 ```
 {% endraw %}
