@@ -18,7 +18,7 @@ int main(){
         mo.insert(l,r);
     }
 
-    map<int,int> mp=dict(compress(A));
+    map<int,int> mp=compress(A);
     for (int i=0;i<N;++i) A[i]=mp[A[i]];
     int n=mp.size();
     BinaryIndexedTree<int> BIT(n+1);
