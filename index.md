@@ -38,7 +38,7 @@ layout: default
 
 ### .
 
-* :question: <a href="library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="library/base.hpp.html">base.hpp</a>
 
 
 <div id="ac1ed416572b96a9f5d69740d174ef3d"></div>
@@ -61,7 +61,7 @@ layout: default
 
 ### datastructure
 
-* :question: <a href="library/datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
+* :heavy_check_mark: <a href="library/datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/BinaryTrie.hpp.html">Binary Trie <small>(datastructure/BinaryTrie.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/ConvexHullTrick.hpp.html">Convex Hull Trick <small>(datastructure/ConvexHullTrick.hpp)</small></a>
 * :heavy_check_mark: <a href="library/datastructure/CumulativeSum2D.hpp.html">2次元累積和 <small>(datastructure/CumulativeSum2D.hpp)</small></a>
@@ -144,7 +144,7 @@ layout: default
 
 ### other
 
-* :x: <a href="library/other/Mo.hpp.html">Mo's Algorithm <small>(other/Mo.hpp)</small></a>
+* :heavy_check_mark: <a href="library/other/Mo.hpp.html">Mo's Algorithm <small>(other/Mo.hpp)</small></a>
 
 
 <div id="b45cffe084dd3d20d928bee85e7b0f21"></div>
@@ -182,7 +182,7 @@ layout: default
 
 ### util
 
-* :x: <a href="library/util/compress.hpp.html">compress <small>(util/compress.hpp)</small></a>
+* :heavy_check_mark: <a href="library/util/compress.hpp.html">compress <small>(util/compress.hpp)</small></a>
 
 
 ## Verify Files
@@ -255,7 +255,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yosupo/scc.test.cpp.html">test/yosupo/scc.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/set_xor_min.test.cpp.html">test/yosupo/set_xor_min.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/shortest_path.test.cpp.html">test/yosupo/shortest_path.test.cpp</a>
-* :x: <a href="verify/test/yosupo/static_range_inversions_query.test.cpp.html">test/yosupo/static_range_inversions_query.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/static_range_inversions_query.test.cpp.html">test/yosupo/static_range_inversions_query.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/static_range_sum.test.cpp.html">test/yosupo/static_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/suffixarray.test.cpp.html">test/yosupo/suffixarray.test.cpp</a>

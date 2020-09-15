@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/yosupo/static_range_inversions_query.test.cpp
+# :heavy_check_mark: test/yosupo/static_range_inversions_query.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/static_range_inversions_query.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-15 13:26:33+09:00
+    - Last commit date: 2020-09-15 16:01:36+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/static_range_inversions_query">https://judge.yosupo.jp/problem/static_range_inversions_query</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/base.hpp.html">base.hpp</a>
-* :question: <a href="../../../library/datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
-* :x: <a href="../../../library/other/Mo.hpp.html">Mo's Algorithm <small>(other/Mo.hpp)</small></a>
-* :x: <a href="../../../library/util/compress.hpp.html">compress <small>(util/compress.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../../../library/datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/other/Mo.hpp.html">Mo's Algorithm <small>(other/Mo.hpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/util/compress.hpp.html">compress <small>(util/compress.hpp)</small></a>
 
 
 ## Code
@@ -70,7 +70,7 @@ int main(){
         mo.insert(l,r);
     }
 
-    map<int,int> mp=dict(compress(A));
+    map<int,int> mp=compress(A);
     for (int i=0;i<N;++i) A[i]=mp[A[i]];
     int n=mp.size();
     BinaryIndexedTree<int> BIT(n+1);

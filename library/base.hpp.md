@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../assets/css/copy-button.css" />
 
 
-# :question: base.hpp
+# :heavy_check_mark: base.hpp
 
 <a href="../index.html">Back to top page</a>
 
@@ -42,7 +42,7 @@ layout: default
 * :heavy_check_mark: <a href="convolution/ArbitaryModConvolution.hpp.html">Arbirary Mod Convolution (任意mod畳み込み) <small>(convolution/ArbitaryModConvolution.hpp)</small></a>
 * :heavy_check_mark: <a href="convolution/FastFourierTransform.hpp.html">Fast Fourier Transform <small>(convolution/FastFourierTransform.hpp)</small></a>
 * :heavy_check_mark: <a href="convolution/NumberTheoreticTransform.hpp.html">Number Theoretic Transform <small>(convolution/NumberTheoreticTransform.hpp)</small></a>
-* :question: <a href="datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
+* :heavy_check_mark: <a href="datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/BinaryTrie.hpp.html">Binary Trie <small>(datastructure/BinaryTrie.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/ConvexHullTrick.hpp.html">Convex Hull Trick <small>(datastructure/ConvexHullTrick.hpp)</small></a>
 * :heavy_check_mark: <a href="datastructure/CumulativeSum2D.hpp.html">2次元累積和 <small>(datastructure/CumulativeSum2D.hpp)</small></a>
@@ -89,7 +89,7 @@ layout: default
 * :warning: <a href="math/prime_factor_table.hpp.html">osa_k法 <small>(math/prime_factor_table.hpp)</small></a>
 * :heavy_check_mark: <a href="modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
 * :heavy_check_mark: <a href="modulo/runtime_modint.hpp.html">実行時 modint <small>(modulo/runtime_modint.hpp)</small></a>
-* :x: <a href="other/Mo.hpp.html">Mo's Algorithm <small>(other/Mo.hpp)</small></a>
+* :heavy_check_mark: <a href="other/Mo.hpp.html">Mo's Algorithm <small>(other/Mo.hpp)</small></a>
 * :warning: <a href="string/Kunth_Morris_Pratt.hpp.html">Knuth Moriss Pratt (KMP法) <small>(string/Kunth_Morris_Pratt.hpp)</small></a>
 * :heavy_check_mark: <a href="string/LongestCommonPrefixArray.hpp.html">Longest Common Prefix Array <small>(string/LongestCommonPrefixArray.hpp)</small></a>
 * :warning: <a href="string/Manacher.hpp.html">Manacher <small>(string/Manacher.hpp)</small></a>
@@ -103,7 +103,7 @@ layout: default
 * :heavy_check_mark: <a href="tree/HeavyLightDecomposition.hpp.html">Heavy Light Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small></a>
 * :heavy_check_mark: <a href="tree/LowestCommonAncestor.hpp.html">Lowest Common Ancestor <small>(tree/LowestCommonAncestor.hpp)</small></a>
 * :heavy_check_mark: <a href="tree/TreeDiameter.hpp.html">Tree Diameter <small>(tree/TreeDiameter.hpp)</small></a>
-* :x: <a href="util/compress.hpp.html">compress <small>(util/compress.hpp)</small></a>
+* :heavy_check_mark: <a href="util/compress.hpp.html">compress <small>(util/compress.hpp)</small></a>
 
 
 ## Verified with
@@ -175,7 +175,7 @@ layout: default
 * :heavy_check_mark: <a href="../verify/test/yosupo/scc.test.cpp.html">test/yosupo/scc.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/set_xor_min.test.cpp.html">test/yosupo/set_xor_min.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/shortest_path.test.cpp.html">test/yosupo/shortest_path.test.cpp</a>
-* :x: <a href="../verify/test/yosupo/static_range_inversions_query.test.cpp.html">test/yosupo/static_range_inversions_query.test.cpp</a>
+* :heavy_check_mark: <a href="../verify/test/yosupo/static_range_inversions_query.test.cpp.html">test/yosupo/static_range_inversions_query.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/static_range_sum.test.cpp.html">test/yosupo/static_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="../verify/test/yosupo/suffixarray.test.cpp.html">test/yosupo/suffixarray.test.cpp</a>

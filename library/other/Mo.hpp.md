@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: Mo's Algorithm <small>(other/Mo.hpp)</small>
+# :heavy_check_mark: Mo's Algorithm <small>(other/Mo.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -42,12 +42,12 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Verified with
 
-* :x: <a href="../../verify/test/yosupo/static_range_inversions_query.test.cpp.html">test/yosupo/static_range_inversions_query.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/static_range_inversions_query.test.cpp.html">test/yosupo/static_range_inversions_query.test.cpp</a>
 
 
 ## Code

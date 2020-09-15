@@ -25,25 +25,25 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: compress <small>(util/compress.hpp)</small>
+# :heavy_check_mark: compress <small>(util/compress.hpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#05c7e24700502a079cdd88012b5a76d3">util</a>
 * <a href="{{ site.github.repository_url }}/blob/master/util/compress.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-09 23:15:02+09:00
+    - Last commit date: 2020-09-15 16:01:36+09:00
 
 
 
 
 ## Depends on
 
-* :question: <a href="../base.hpp.html">base.hpp</a>
+* :heavy_check_mark: <a href="../base.hpp.html">base.hpp</a>
 
 
 ## Verified with
 
-* :x: <a href="../../verify/test/yosupo/static_range_inversions_query.test.cpp.html">test/yosupo/static_range_inversions_query.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yosupo/static_range_inversions_query.test.cpp.html">test/yosupo/static_range_inversions_query.test.cpp</a>
 
 
 ## Code
@@ -59,24 +59,11 @@ layout: default
 
 #include "../base.hpp"
 
-template<typename T> vector<T> compress(vector<T> v){
+template<typename T> map<T,int> compress(vector<T> v){
     sort(v.begin(),v.end());
     v.erase(unique(v.begin(),v.end()),v.end());
-    return v;
-}
-
-template<typename T> map<T,int> dict(vector<T> v){
     map<T,int> res;
     for (int i=0;i<v.size();++i) res[v[i]]=i;
-    return res;
-}
-
-template<typename T> vector<int> dict(vector<T> v){
-    vector<T> cv=compress(v);
-    int n=v.size();
-    vector<int> res(n);
-    for (int i=0;i<n;++i)
-        res[i]=lower_bound(cv.begin(),cv.end(),v[i])-cv.begin();
     return res;
 }
 ```
