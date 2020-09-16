@@ -1,275 +1,500 @@
 ---
-layout: default
+data:
+  libraryCategories:
+  - name: .
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: base.hpp
+      title: base.hpp
+  - name: combinatorics
+    pages:
+    - icon: ':warning:'
+      path: combinatorics/combination.hpp
+      title: combination
+  - name: convolution
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: convolution/ArbitaryModConvolution.hpp
+      title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
+    - icon: ':heavy_check_mark:'
+      path: convolution/FastFourierTransform.hpp
+      title: Fast Fourier Transform
+    - icon: ':heavy_check_mark:'
+      path: convolution/NumberTheoreticTransform.hpp
+      title: Number Theoretic Transform
+  - name: datastructure
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: datastructure/BinaryIndexedTree.hpp
+      title: Binary Indexed Tree
+    - icon: ':heavy_check_mark:'
+      path: datastructure/BinaryTrie.hpp
+      title: Binary Trie
+    - icon: ':heavy_check_mark:'
+      path: datastructure/ConvexHullTrick.hpp
+      title: Convex Hull Trick
+    - icon: ':heavy_check_mark:'
+      path: datastructure/CumulativeSum2D.hpp
+      title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
+    - icon: ':heavy_check_mark:'
+      path: datastructure/DualSegmentTree.hpp
+      title: Dual Segment Tree
+    - icon: ':heavy_check_mark:'
+      path: datastructure/LazySegmentTree.hpp
+      title: Lazy Segment Tree
+    - icon: ':warning:'
+      path: datastructure/PartiallyPersistentUnionFind.hpp
+      title: Partially Persistent UnionFind
+    - icon: ':heavy_check_mark:'
+      path: datastructure/SegmentTree.hpp
+      title: Segment Tree
+    - icon: ':heavy_check_mark:'
+      path: datastructure/SegmentTreeBeats.hpp
+      title: Segment Tree Beats
+    - icon: ':heavy_check_mark:'
+      path: datastructure/Slide_Min.hpp
+      title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
+    - icon: ':heavy_check_mark:'
+      path: datastructure/SlidingWindowAggregation.hpp
+      title: Sliding Window Aggregation (SWAG)
+    - icon: ':heavy_check_mark:'
+      path: datastructure/SparseTable.hpp
+      title: Sparse table
+    - icon: ':heavy_check_mark:'
+      path: datastructure/UnionFind.hpp
+      title: UnionFind
+    - icon: ':heavy_check_mark:'
+      path: datastructure/WeightedUnionFind.hpp
+      title: Weighted UnionFind
+  - name: flow
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: flow/BipartiteMatching.hpp
+      title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
+    - icon: ':heavy_check_mark:'
+      path: flow/Dinic.hpp
+      title: Dinic
+    - icon: ':heavy_check_mark:'
+      path: flow/FordFulkerson.hpp
+      title: Ford Fulkerson
+    - icon: ':heavy_check_mark:'
+      path: flow/HopcroftKarp.hpp
+      title: Hopcroft Karp
+    - icon: ':heavy_check_mark:'
+      path: flow/MinCostFlow.hpp
+      title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
+    - icon: ':heavy_check_mark:'
+      path: flow/PrimalDual.hpp
+      title: Primal Dual
+    - icon: ':warning:'
+      path: flow/ProjectSelectionProblem.hpp
+      title: Project Selection Problem
+  - name: graph
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/BellmanFord.hpp
+      title: Bellman Ford
+    - icon: ':warning:'
+      path: graph/BipartiteGraph.hpp
+      title: "2\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
+    - icon: ':heavy_check_mark:'
+      path: graph/CycleDetection.hpp
+      title: Cycle Detection
+    - icon: ':heavy_check_mark:'
+      path: graph/Dijkstra.hpp
+      title: Dijkstra
+    - icon: ':heavy_check_mark:'
+      path: graph/EulerianTrail.hpp
+      title: "\u30AA\u30A4\u30E9\u30FC\u30B0\u30E9\u30D5\u30FB\u6E96\u30AA\u30A4\u30E9\
+        \u30FC\u30B0\u30E9\u30D5\u306E\u69CB\u7BC9"
+    - icon: ':heavy_check_mark:'
+      path: graph/Kruskal.hpp
+      title: Kruskal
+    - icon: ':heavy_check_mark:'
+      path: graph/LowLink.hpp
+      title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
+    - icon: ':heavy_check_mark:'
+      path: graph/Prim.hpp
+      title: Prim
+    - icon: ':heavy_check_mark:'
+      path: graph/StronglyConnectedComponents.hpp
+      title: Strongly Connected Components
+    - icon: ':heavy_check_mark:'
+      path: graph/TopologicalSort.hpp
+      title: Topological Sort
+    - icon: ':heavy_check_mark:'
+      path: graph/TwoEdgeConnectedComponents.hpp
+      title: Two Edge Connected Components
+    - icon: ':heavy_check_mark:'
+      path: graph/TwoSatisfiability.hpp
+      title: 2-SAT
+    - icon: ':heavy_check_mark:'
+      path: graph/WarshallFloyd.hpp
+      title: Warshall Floyd
+  - name: linearalgebra
+    pages:
+    - icon: ':warning:'
+      path: linearalgebra/Kitamasa.hpp
+      title: Kitamasa
+    - icon: ':heavy_check_mark:'
+      path: linearalgebra/Matrix.hpp
+      title: Matrix
+    - icon: ':heavy_check_mark:'
+      path: linearalgebra/SquareMatrix.hpp
+      title: Square Matrix
+  - name: math
+    pages:
+    - icon: ':warning:'
+      path: math/divisor.hpp
+      title: "\u7D04\u6570\u5217\u6319"
+    - icon: ':heavy_check_mark:'
+      path: math/euler_phi.hpp
+      title: "Euler\u306E\u03C6\u95A2\u6570"
+    - icon: ':heavy_check_mark:'
+      path: math/extgcd.hpp
+      title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
+    - icon: ':heavy_check_mark:'
+      path: math/floor_sum.hpp
+      title: Sum of Floor of Linear
+    - icon: ':warning:'
+      path: math/is_prime.hpp
+      title: "\u7D20\u6570\u5224\u5B9A"
+    - icon: ':heavy_check_mark:'
+      path: math/modpow.hpp
+      title: "\u7E70\u308A\u8FD4\u30572\u4E57\u6CD5"
+    - icon: ':heavy_check_mark:'
+      path: math/prime_factor.hpp
+      title: "\u7D20\u56E0\u6570\u5206\u89E3"
+    - icon: ':warning:'
+      path: math/prime_factor_table.hpp
+      title: "osa_k\u6CD5"
+  - name: modulo
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: modulo/modint.hpp
+      title: modint
+    - icon: ':heavy_check_mark:'
+      path: modulo/runtime_modint.hpp
+      title: "\u5B9F\u884C\u6642 modint"
+  - name: other
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: other/Mo.hpp
+      title: Mo's Algorithm
+  - name: string
+    pages:
+    - icon: ':warning:'
+      path: string/Kunth_Morris_Pratt.hpp
+      title: "Knuth Moriss Pratt (KMP\u6CD5)"
+    - icon: ':heavy_check_mark:'
+      path: string/LongestCommonPrefixArray.hpp
+      title: Longest Common Prefix Array
+    - icon: ':warning:'
+      path: string/Manacher.hpp
+      title: Manacher
+    - icon: ':heavy_check_mark:'
+      path: string/RollingHash.hpp
+      title: Rolling Hash
+    - icon: ':heavy_check_mark:'
+      path: string/SuffixArray.hpp
+      title: Suffix Array
+    - icon: ':warning:'
+      path: string/Trie.hpp
+      title: Trie
+    - icon: ':warning:'
+      path: string/Z_algorithm.hpp
+      title: Z-Algorithm
+  - name: test/aoj
+    pages:
+    - icon: ':warning:'
+      path: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
+      title: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
+  - name: tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: tree/CentroidDecomposition.hpp
+      title: Centroid Decomposition
+    - icon: ':heavy_check_mark:'
+      path: tree/EulerTourforEdge.hpp
+      title: "Euler Tour (\u30D1\u30B9\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)"
+    - icon: ':heavy_check_mark:'
+      path: tree/EulerTourforVertex.hpp
+      title: "Euler Tour (\u90E8\u5206\u6728\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)"
+    - icon: ':heavy_check_mark:'
+      path: tree/HeavyLightDecomposition.hpp
+      title: Heavy Light Decomposition
+    - icon: ':heavy_check_mark:'
+      path: tree/LowestCommonAncestor.hpp
+      title: Lowest Common Ancestor
+    - icon: ':heavy_check_mark:'
+      path: tree/TreeDiameter.hpp
+      title: Tree Diameter
+  - name: util
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: util/compress.hpp
+      title: compress
+  verificationCategories:
+  - name: test/aoj
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/2667.test.cpp
+      title: test/aoj/2667.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/2871.test.cpp
+      title: test/aoj/2871.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/2891.test.cpp
+      title: test/aoj/2891.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_14_B.test.cpp
+      title: test/aoj/ALDS1_14_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_14_D.test.cpp
+      title: test/aoj/ALDS1_14_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_1_A.test.cpp
+      title: test/aoj/DSL_1_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_1_B.test.cpp
+      title: test/aoj/DSL_1_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
+      title: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_A.test.cpp
+      title: test/aoj/DSL_2_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
+      title: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_B.test.cpp
+      title: test/aoj/DSL_2_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_D.DualSegmentTree.test.cpp
+      title: test/aoj/DSL_2_D.DualSegmentTree.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
+      title: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_D.test.cpp
+      title: test/aoj/DSL_2_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_E.DualSegmentTree.test.cpp
+      title: test/aoj/DSL_2_E.DualSegmentTree.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
+      title: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_E.test.cpp
+      title: test/aoj/DSL_2_E.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
+      title: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_F.test.cpp
+      title: test/aoj/DSL_2_F.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
+      title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_G.test.cpp
+      title: test/aoj/DSL_2_G.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
+      title: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_H.test.cpp
+      title: test/aoj/DSL_2_H.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
+      title: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_2_I.test.cpp
+      title: test/aoj/DSL_2_I.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_3_D.test.cpp
+      title: test/aoj/DSL_3_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_5_B.test.cpp
+      title: test/aoj/DSL_5_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_1_A.test.cpp
+      title: test/aoj/GRL_1_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_1_B.test.cpp
+      title: test/aoj/GRL_1_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_1_C.test.cpp
+      title: test/aoj/GRL_1_C.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_2_A.Prim.test.cpp
+      title: test/aoj/GRL_2_A.Prim.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_2_A.test.cpp
+      title: test/aoj/GRL_2_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_3_A.test.cpp
+      title: test/aoj/GRL_3_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_3_B.test.cpp
+      title: test/aoj/GRL_3_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_3_C.test.cpp
+      title: test/aoj/GRL_3_C.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_4_A.test.cpp
+      title: test/aoj/GRL_4_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_4_B.test.cpp
+      title: test/aoj/GRL_4_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_5_A.test.cpp
+      title: test/aoj/GRL_5_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_5_B.test.cpp
+      title: test/aoj/GRL_5_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+      title: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_5_C.test.cpp
+      title: test/aoj/GRL_5_C.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_5_D.test.cpp
+      title: test/aoj/GRL_5_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
+      title: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_6_A.DInic.test.cpp
+      title: test/aoj/GRL_6_A.DInic.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_6_A.test.cpp
+      title: test/aoj/GRL_6_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_6_B.PrimalDual.test.cpp
+      title: test/aoj/GRL_6_B.PrimalDual.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_6_B.test.cpp
+      title: test/aoj/GRL_6_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
+      title: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_7_A.test.cpp
+      title: test/aoj/GRL_7_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/NTL_1_A.test.cpp
+      title: test/aoj/NTL_1_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/NTL_1_B.test.cpp
+      title: test/aoj/NTL_1_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/NTL_1_D.test.cpp
+      title: test/aoj/NTL_1_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/NTL_1_E.test.cpp
+      title: test/aoj/NTL_1_E.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/example.test.cpp
+      title: test/aoj/example.test.cpp
+  - name: test/yosupo
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/aplusb.test.cpp
+      title: test/yosupo/aplusb.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/associative_array.test.cpp
+      title: test/yosupo/associative_array.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/convolution_mod.test.cpp
+      title: test/yosupo/convolution_mod.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/convolution_mod_1000000007.test.cpp
+      title: test/yosupo/convolution_mod_1000000007.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/frequency_table_of_tree_distance.test.cpp
+      title: test/yosupo/frequency_table_of_tree_distance.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/lca.test.cpp
+      title: test/yosupo/lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/number_of_substrings.test.cpp
+      title: test/yosupo/number_of_substrings.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/point_add_range_sum.test.cpp
+      title: test/yosupo/point_add_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/point_set_range_composite.test.cpp
+      title: test/yosupo/point_set_range_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/queue_operate_all_composite.test.cpp
+      title: test/yosupo/queue_operate_all_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/range_affine_range_sum.test.cpp
+      title: test/yosupo/range_affine_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
+      title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/scc.test.cpp
+      title: test/yosupo/scc.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/set_xor_min.test.cpp
+      title: test/yosupo/set_xor_min.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/shortest_path.test.cpp
+      title: test/yosupo/shortest_path.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/static_range_inversions_query.test.cpp
+      title: test/yosupo/static_range_inversions_query.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/static_range_sum.test.cpp
+      title: test/yosupo/static_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/staticrmq.test.cpp
+      title: test/yosupo/staticrmq.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/suffixarray.test.cpp
+      title: test/yosupo/suffixarray.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/sum_of_floor_of_linear.test.cpp
+      title: test/yosupo/sum_of_floor_of_linear.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/tree_diameter.test.cpp
+      title: test/yosupo/tree_diameter.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/two_edge_connected_components.test.cpp
+      title: test/yosupo/two_edge_connected_components.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/two_sat.test.cpp
+      title: test/yosupo/two_sat.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/unionfind.test.cpp
+      title: test/yosupo/unionfind.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/vertex_add_path_sum.test.cpp
+      title: test/yosupo/vertex_add_path_sum.test.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1050.test.cpp
+      title: test/yukicoder/1050.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1068.test.cpp
+      title: test/yukicoder/1068.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/206.test.cpp
+      title: test/yukicoder/206.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/526.test.cpp
+      title: test/yukicoder/526.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/583.test.cpp
+      title: test/yukicoder/583.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/952.test.cpp
+      title: test/yukicoder/952.test.cpp
+layout: toppage
 ---
-
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    TeX: { equationNumbers: { autoNumber: "AMS" }},
-    tex2jax: {
-      inlineMath: [ ['$','$'] ],
-      processEscapes: true
-    },
-    "HTML-CSS": { matchFontHeight: false },
-    displayAlign: "left",
-    displayIndent: "2em"
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="assets/css/copy-button.css" />
-
-
-# {{ site.title }}
-
-[![Actions Status]({{ site.github.repository_url }}/workflows/verify/badge.svg)]({{ site.github.repository_url }}/actions)
-<a href="{{ site.github.repository_url }}"><img src="https://img.shields.io/github/last-commit/{{ site.github.owner_name }}/{{ site.github.repository_name }}" /></a>
-
-{% if site.github.project_tagline %}{{ site.github.project_tagline }}{% else %}This documentation is automatically generated by <a href="https://github.com/online-judge-tools/verification-helper">online-judge-tools/verification-helper</a>.{% endif %}
-
-## Library Files
-
-<div id="5058f1af8388633f609cadb75a75dc9d"></div>
-
-### .
-
-* :heavy_check_mark: <a href="library/base.hpp.html">base.hpp</a>
-
-
-<div id="ac1ed416572b96a9f5d69740d174ef3d"></div>
-
-### combinatorics
-
-* :warning: <a href="library/combinatorics/combination.hpp.html">combination <small>(combinatorics/combination.hpp)</small></a>
-
-
-<div id="a9595c1c24c33b16056d2ad07e71682d"></div>
-
-### convolution
-
-* :heavy_check_mark: <a href="library/convolution/ArbitaryModConvolution.hpp.html">Arbirary Mod Convolution (任意mod畳み込み) <small>(convolution/ArbitaryModConvolution.hpp)</small></a>
-* :heavy_check_mark: <a href="library/convolution/FastFourierTransform.hpp.html">Fast Fourier Transform <small>(convolution/FastFourierTransform.hpp)</small></a>
-* :heavy_check_mark: <a href="library/convolution/NumberTheoreticTransform.hpp.html">Number Theoretic Transform <small>(convolution/NumberTheoreticTransform.hpp)</small></a>
-
-
-<div id="8dc87745f885a4cc532acd7b15b8b5fe"></div>
-
-### datastructure
-
-* :heavy_check_mark: <a href="library/datastructure/BinaryIndexedTree.hpp.html">Binary Indexed Tree <small>(datastructure/BinaryIndexedTree.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/BinaryTrie.hpp.html">Binary Trie <small>(datastructure/BinaryTrie.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/ConvexHullTrick.hpp.html">Convex Hull Trick <small>(datastructure/ConvexHullTrick.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/CumulativeSum2D.hpp.html">2次元累積和 <small>(datastructure/CumulativeSum2D.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/DualSegmentTree.hpp.html">Dual Segment Tree <small>(datastructure/DualSegmentTree.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/LazySegmentTree.hpp.html">Lazy Segment Tree <small>(datastructure/LazySegmentTree.hpp)</small></a>
-* :warning: <a href="library/datastructure/PartiallyPersistentUnionFind.hpp.html">Partially Persistent UnionFind <small>(datastructure/PartiallyPersistentUnionFind.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/SegmentTree.hpp.html">Segment Tree <small>(datastructure/SegmentTree.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/SegmentTreeBeats.hpp.html">Segment Tree Beats <small>(datastructure/SegmentTreeBeats.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/Slide_Min.hpp.html">スライド最小値 <small>(datastructure/Slide_Min.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/SlidingWindowAggregation.hpp.html">Sliding Window Aggregation (SWAG) <small>(datastructure/SlidingWindowAggregation.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/SparseTable.hpp.html">Sparse table <small>(datastructure/SparseTable.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/UnionFind.hpp.html">UnionFind <small>(datastructure/UnionFind.hpp)</small></a>
-* :heavy_check_mark: <a href="library/datastructure/WeightedUnionFind.hpp.html">Weighted UnionFind <small>(datastructure/WeightedUnionFind.hpp)</small></a>
-
-
-<div id="cff5497121104c2b8e0cb41ed2083a9b"></div>
-
-### flow
-
-* :heavy_check_mark: <a href="library/flow/BipartiteMatching.hpp.html">2部グラフの最大マッチング <small>(flow/BipartiteMatching.hpp)</small></a>
-* :heavy_check_mark: <a href="library/flow/Dinic.hpp.html">Dinic <small>(flow/Dinic.hpp)</small></a>
-* :heavy_check_mark: <a href="library/flow/FordFulkerson.hpp.html">Ford Fulkerson <small>(flow/FordFulkerson.hpp)</small></a>
-* :heavy_check_mark: <a href="library/flow/HopcroftKarp.hpp.html">Hopcroft Karp <small>(flow/HopcroftKarp.hpp)</small></a>
-* :heavy_check_mark: <a href="library/flow/MinCostFlow.hpp.html">最小費用流 <small>(flow/MinCostFlow.hpp)</small></a>
-* :heavy_check_mark: <a href="library/flow/PrimalDual.hpp.html">Primal Dual <small>(flow/PrimalDual.hpp)</small></a>
-* :warning: <a href="library/flow/ProjectSelectionProblem.hpp.html">Project Selection Problem <small>(flow/ProjectSelectionProblem.hpp)</small></a>
-
-
-<div id="f8b0b924ebd7046dbfa85a856e4682c8"></div>
-
-### graph
-
-* :heavy_check_mark: <a href="library/graph/BellmanFord.hpp.html">Bellman Ford <small>(graph/BellmanFord.hpp)</small></a>
-* :warning: <a href="library/graph/BipartiteGraph.hpp.html">2部グラフ判定 <small>(graph/BipartiteGraph.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/CycleDetection.hpp.html">Cycle Detection <small>(graph/CycleDetection.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/Dijkstra.hpp.html">Dijkstra <small>(graph/Dijkstra.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/EulerianTrail.hpp.html">オイラーグラフ・準オイラーグラフの構築 <small>(graph/EulerianTrail.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/Kruskal.hpp.html">Kruskal <small>(graph/Kruskal.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/LowLink.hpp.html">Low Link (橋/関節点) <small>(graph/LowLink.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/Prim.hpp.html">Prim <small>(graph/Prim.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/StronglyConnectedComponents.hpp.html">Strongly Connected Components <small>(graph/StronglyConnectedComponents.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/TopologicalSort.hpp.html">Topological Sort <small>(graph/TopologicalSort.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/TwoEdgeConnectedComponents.hpp.html">Two Edge Connected Components <small>(graph/TwoEdgeConnectedComponents.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/TwoSatisfiability.hpp.html">2-SAT <small>(graph/TwoSatisfiability.hpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/WarshallFloyd.hpp.html">Warshall Floyd <small>(graph/WarshallFloyd.hpp)</small></a>
-
-
-<div id="1bbf1d9f5340fa94bf2c5fb5ce73a5f5"></div>
-
-### linearalgebra
-
-* :warning: <a href="library/linearalgebra/Kitamasa.hpp.html">Kitamasa <small>(linearalgebra/Kitamasa.hpp)</small></a>
-* :heavy_check_mark: <a href="library/linearalgebra/Matrix.hpp.html">Matrix <small>(linearalgebra/Matrix.hpp)</small></a>
-* :heavy_check_mark: <a href="library/linearalgebra/SquareMatrix.hpp.html">Square Matrix <small>(linearalgebra/SquareMatrix.hpp)</small></a>
-
-
-<div id="7e676e9e663beb40fd133f5ee24487c2"></div>
-
-### math
-
-* :warning: <a href="library/math/divisor.hpp.html">約数列挙 <small>(math/divisor.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/euler_phi.hpp.html">Eulerのφ関数 <small>(math/euler_phi.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/extgcd.hpp.html">拡張ユークリッドの互除法 <small>(math/extgcd.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/floor_sum.hpp.html">Sum of Floor of Linear <small>(math/floor_sum.hpp)</small></a>
-* :warning: <a href="library/math/is_prime.hpp.html">素数判定 <small>(math/is_prime.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/modpow.hpp.html">繰り返し2乗法 <small>(math/modpow.hpp)</small></a>
-* :heavy_check_mark: <a href="library/math/prime_factor.hpp.html">素因数分解 <small>(math/prime_factor.hpp)</small></a>
-* :warning: <a href="library/math/prime_factor_table.hpp.html">osa_k法 <small>(math/prime_factor_table.hpp)</small></a>
-
-
-<div id="5dcb4a1ea5a35da52691d50c8313c333"></div>
-
-### modulo
-
-* :heavy_check_mark: <a href="library/modulo/modint.hpp.html">modint <small>(modulo/modint.hpp)</small></a>
-* :heavy_check_mark: <a href="library/modulo/runtime_modint.hpp.html">実行時 modint <small>(modulo/runtime_modint.hpp)</small></a>
-
-
-<div id="795f3202b17cb6bc3d4b771d8c6c9eaf"></div>
-
-### other
-
-* :heavy_check_mark: <a href="library/other/Mo.hpp.html">Mo's Algorithm <small>(other/Mo.hpp)</small></a>
-
-
-<div id="b45cffe084dd3d20d928bee85e7b0f21"></div>
-
-### string
-
-* :warning: <a href="library/string/Kunth_Morris_Pratt.hpp.html">Knuth Moriss Pratt (KMP法) <small>(string/Kunth_Morris_Pratt.hpp)</small></a>
-* :heavy_check_mark: <a href="library/string/LongestCommonPrefixArray.hpp.html">Longest Common Prefix Array <small>(string/LongestCommonPrefixArray.hpp)</small></a>
-* :warning: <a href="library/string/Manacher.hpp.html">Manacher <small>(string/Manacher.hpp)</small></a>
-* :heavy_check_mark: <a href="library/string/RollingHash.hpp.html">Rolling Hash <small>(string/RollingHash.hpp)</small></a>
-* :heavy_check_mark: <a href="library/string/SuffixArray.hpp.html">Suffix Array <small>(string/SuffixArray.hpp)</small></a>
-* :warning: <a href="library/string/Trie.hpp.html">Trie <small>(string/Trie.hpp)</small></a>
-* :warning: <a href="library/string/Z_algorithm.hpp.html">Z-Algorithm <small>(string/Z_algorithm.hpp)</small></a>
-
-
-<div id="0d0c91c0cca30af9c1c9faef0cf04aa9"></div>
-
-### test/aoj
-
-* :warning: <a href="library/test/aoj/DSL_3_D.SlidingWindowAggregation.cpp.html">test/aoj/DSL_3_D.SlidingWindowAggregation.cpp</a>
-
-
-<div id="c0af77cf8294ff93a5cdb2963ca9f038"></div>
-
-### tree
-
-* :heavy_check_mark: <a href="library/tree/EulerTourforEdge.hpp.html">Euler Tour (パスに対する操作) <small>(tree/EulerTourforEdge.hpp)</small></a>
-* :heavy_check_mark: <a href="library/tree/EulerTourforVertex.hpp.html">Euler Tour (部分木に対する操作) <small>(tree/EulerTourforVertex.hpp)</small></a>
-* :heavy_check_mark: <a href="library/tree/HeavyLightDecomposition.hpp.html">Heavy Light Decomposition <small>(tree/HeavyLightDecomposition.hpp)</small></a>
-* :heavy_check_mark: <a href="library/tree/LowestCommonAncestor.hpp.html">Lowest Common Ancestor <small>(tree/LowestCommonAncestor.hpp)</small></a>
-* :heavy_check_mark: <a href="library/tree/TreeDiameter.hpp.html">Tree Diameter <small>(tree/TreeDiameter.hpp)</small></a>
-
-
-<div id="05c7e24700502a079cdd88012b5a76d3"></div>
-
-### util
-
-* :heavy_check_mark: <a href="library/util/compress.hpp.html">compress <small>(util/compress.hpp)</small></a>
-
-
-## Verify Files
-
-* :heavy_check_mark: <a href="verify/test/aoj/2667.test.cpp.html">test/aoj/2667.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/2871.test.cpp.html">test/aoj/2871.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/2891.test.cpp.html">test/aoj/2891.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_14_B.test.cpp.html">test/aoj/ALDS1_14_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_14_D.test.cpp.html">test/aoj/ALDS1_14_D.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_1_A.test.cpp.html">test/aoj/DSL_1_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_1_B.test.cpp.html">test/aoj/DSL_1_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_A.test.cpp.html">test/aoj/DSL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_B.test.cpp.html">test/aoj/DSL_2_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_D.DualSegmentTree.test.cpp.html">test/aoj/DSL_2_D.DualSegmentTree.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_D.test.cpp.html">test/aoj/DSL_2_D.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_E.DualSegmentTree.test.cpp.html">test/aoj/DSL_2_E.DualSegmentTree.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_E.test.cpp.html">test/aoj/DSL_2_E.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_F.test.cpp.html">test/aoj/DSL_2_F.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_G.test.cpp.html">test/aoj/DSL_2_G.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_H.test.cpp.html">test/aoj/DSL_2_H.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp.html">test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_2_I.test.cpp.html">test/aoj/DSL_2_I.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_3_D.test.cpp.html">test/aoj/DSL_3_D.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/DSL_5_B.test.cpp.html">test/aoj/DSL_5_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_1_A.test.cpp.html">test/aoj/GRL_1_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_1_B.test.cpp.html">test/aoj/GRL_1_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_1_C.test.cpp.html">test/aoj/GRL_1_C.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_2_A.Prim.test.cpp.html">test/aoj/GRL_2_A.Prim.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_2_A.test.cpp.html">test/aoj/GRL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_3_A.test.cpp.html">test/aoj/GRL_3_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_3_B.test.cpp.html">test/aoj/GRL_3_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_3_C.test.cpp.html">test/aoj/GRL_3_C.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_4_A.test.cpp.html">test/aoj/GRL_4_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_4_B.test.cpp.html">test/aoj/GRL_4_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_5_A.test.cpp.html">test/aoj/GRL_5_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_5_B.test.cpp.html">test/aoj/GRL_5_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp.html">test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_5_C.test.cpp.html">test/aoj/GRL_5_C.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_5_D.test.cpp.html">test/aoj/GRL_5_D.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp.html">test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_6_A.DInic.test.cpp.html">test/aoj/GRL_6_A.DInic.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_6_A.test.cpp.html">test/aoj/GRL_6_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_6_B.PrimalDual.test.cpp.html">test/aoj/GRL_6_B.PrimalDual.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_6_B.test.cpp.html">test/aoj/GRL_6_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_7_A.HopcroftKarp.test.cpp.html">test/aoj/GRL_7_A.HopcroftKarp.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/GRL_7_A.test.cpp.html">test/aoj/GRL_7_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_A.test.cpp.html">test/aoj/NTL_1_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_B.test.cpp.html">test/aoj/NTL_1_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_D.test.cpp.html">test/aoj/NTL_1_D.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/NTL_1_E.test.cpp.html">test/aoj/NTL_1_E.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/example.test.cpp.html">test/aoj/example.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/aplusb.test.cpp.html">test/yosupo/aplusb.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/associative_array.test.cpp.html">test/yosupo/associative_array.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/convolution_mod.test.cpp.html">test/yosupo/convolution_mod.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/convolution_mod_1000000007.test.cpp.html">test/yosupo/convolution_mod_1000000007.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/lca.test.cpp.html">test/yosupo/lca.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/number_of_substrings.test.cpp.html">test/yosupo/number_of_substrings.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/point_add_range_sum.test.cpp.html">test/yosupo/point_add_range_sum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/point_set_range_composite.test.cpp.html">test/yosupo/point_set_range_composite.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/queue_operate_all_composite.test.cpp.html">test/yosupo/queue_operate_all_composite.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/range_affine_range_sum.test.cpp.html">test/yosupo/range_affine_range_sum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/range_chmin_chmax_add_range_sum.test.cpp.html">test/yosupo/range_chmin_chmax_add_range_sum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/scc.test.cpp.html">test/yosupo/scc.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/set_xor_min.test.cpp.html">test/yosupo/set_xor_min.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/shortest_path.test.cpp.html">test/yosupo/shortest_path.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/static_range_inversions_query.test.cpp.html">test/yosupo/static_range_inversions_query.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/static_range_sum.test.cpp.html">test/yosupo/static_range_sum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/suffixarray.test.cpp.html">test/yosupo/suffixarray.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/sum_of_floor_of_linear.test.cpp.html">test/yosupo/sum_of_floor_of_linear.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/tree_diameter.test.cpp.html">test/yosupo/tree_diameter.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/two_edge_connected_components.test.cpp.html">test/yosupo/two_edge_connected_components.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/two_sat.test.cpp.html">test/yosupo/two_sat.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/vertex_add_path_sum.test.cpp.html">test/yosupo/vertex_add_path_sum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/1050.test.cpp.html">test/yukicoder/1050.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/1068.test.cpp.html">test/yukicoder/1068.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/206.test.cpp.html">test/yukicoder/206.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/526.test.cpp.html">test/yukicoder/526.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/583.test.cpp.html">test/yukicoder/583.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yukicoder/952.test.cpp.html">test/yukicoder/952.test.cpp</a>
-
-

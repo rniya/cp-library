@@ -1,0 +1,92 @@
+---
+data:
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: base.hpp
+    title: base.hpp
+  - icon: ':heavy_check_mark:'
+    path: modulo/modint.hpp
+    title: modint
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: convolution/ArbitaryModConvolution.hpp
+    title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1068.test.cpp
+    title: test/yukicoder/1068.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/convolution_mod.test.cpp
+    title: test/yosupo/convolution_mod.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/convolution_mod_1000000007.test.cpp
+    title: test/yosupo/convolution_mod_1000000007.test.cpp
+  _pathExtension: hpp
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    _deprecated_at_docs: docs/convolution/NumberTheoreticTransform.md
+    document_title: Number Theoretic Transform
+    links: []
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 70, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir).decode()\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 191, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
+    \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
+    \ convolution/NumberTheoreticTransform.hpp: line 6: #pragma once found in a non-first\
+    \ line\n"
+  code: "/**\n * @brief Number Theoretic Transform\n * @docs docs/convolution/NumberTheoreticTransform.md\n\
+    \ */\n\n#pragma once\n\n#include \"../base.hpp\"\n#include \"../modulo/modint.hpp\"\
+    \n\ntemplate<int mod>\nstruct NumberTheoreticTransform{\n    using Mint=modint<mod>;\n\
+    \    vector<Mint> roots;\n    vector<int> rev;\n    int base,max_base;\n    Mint\
+    \ root;\n    NumberTheoreticTransform():base(1),rev{0,1},roots{Mint(0),Mint(1)}{\n\
+    \        int tmp=mod-1;\n        for (max_base=0;tmp%2==0;++max_base) tmp>>=1;\n\
+    \        root=2;\n        while(pow(root,(mod-1)>>1)==1) ++root;\n        root=pow(root,(mod-1)>>max_base);\n\
+    \    }\n    void ensure_base(int nbase){\n        if (nbase<=base) return;\n \
+    \       rev.resize(1<<nbase);\n        for (int i=0;i<(1<<nbase);++i){\n     \
+    \       rev[i]=(rev[i>>1]>>1)|((i&1)<<(nbase-1));\n        }\n        roots.resize(1<<nbase);\n\
+    \        for (;base<nbase;++base){\n            Mint z=pow(root,1<<(max_base-1-base));\n\
+    \            for (int i=1<<(base-1);i<(1<<base);++i){\n                roots[i<<1]=roots[i];\n\
+    \                roots[i<<1|1]=roots[i]*z;\n            }\n        }\n    }\n\
+    \    void ntt(vector<Mint> &a){\n        const int n=a.size();\n        int zeros=__builtin_ctz(n);\n\
+    \        ensure_base(zeros);\n        int shift=base-zeros;\n        for (int\
+    \ i=0;i<n;++i){\n            if (i<(rev[i]>>shift)){\n                swap(a[i],a[rev[i]>>shift]);\n\
+    \            }\n        }\n        for (int k=1;k<n;k<<=1){\n            for (int\
+    \ i=0;i<n;i+=(k<<1)){\n                for (int j=0;j<k;++j){\n              \
+    \      Mint z=a[i+j+k]*roots[j+k];\n                    a[i+j+k]=a[i+j]-z;\n \
+    \                   a[i+j]=a[i+j]+z;\n                }\n            }\n     \
+    \   }\n    }\n    vector<Mint> multiply(vector<Mint> a,vector<Mint> b){\n    \
+    \    int need=a.size()+b.size()-1;\n        int nbase=1;\n        while((1<<nbase)<need)\
+    \ ++nbase;\n        ensure_base(nbase);\n        int sz=1<<nbase;\n        a.resize(sz,Mint(0));\
+    \ b.resize(sz,Mint(0));\n        ntt(a); ntt(b);\n        Mint inv_sz=1/Mint(sz);\n\
+    \        for (int i=0;i<sz;++i) a[i]*=b[i]*inv_sz;\n        reverse(a.begin()+1,a.end());\n\
+    \        ntt(a);\n        a.resize(need);\n        return a;\n    }\n    vector<int>\
+    \ multiply(vector<int> a,vector<int> b){\n        vector<Mint> A(a.size()),B(b.size());\n\
+    \        for (int i=0;i<a.size();++i) A[i]=Mint(a[i]);\n        for (int i=0;i<b.size();++i)\
+    \ B[i]=Mint(b[i]);\n        vector<Mint> C=multiply(A,B);\n        vector<int>\
+    \ res(C.size());\n        for (int i=0;i<C.size();++i) res[i]=C[i].a;\n      \
+    \  return res;\n    }\n};"
+  dependsOn:
+  - base.hpp
+  - modulo/modint.hpp
+  isVerificationFile: false
+  path: convolution/NumberTheoreticTransform.hpp
+  requiredBy:
+  - convolution/ArbitaryModConvolution.hpp
+  timestamp: '2020-09-10 10:17:21+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/1068.test.cpp
+  - test/yosupo/convolution_mod.test.cpp
+  - test/yosupo/convolution_mod_1000000007.test.cpp
+documentation_of: convolution/NumberTheoreticTransform.hpp
+layout: document
+redirect_from:
+- /library/convolution/NumberTheoreticTransform.hpp
+- /library/convolution/NumberTheoreticTransform.hpp.html
+title: Number Theoretic Transform
+---
+## 概要
+
+## 計算量
