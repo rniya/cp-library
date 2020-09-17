@@ -19,6 +19,9 @@ data:
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/665.test.cpp
+    title: test/yukicoder/665.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
   - icon: ':heavy_check_mark:'
@@ -96,6 +99,7 @@ data:
   verifiedWith:
   - test/yukicoder/1068.test.cpp
   - test/yukicoder/1050.test.cpp
+  - test/yukicoder/665.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp

@@ -5,9 +5,12 @@ data:
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/665.test.cpp
+    title: test/yukicoder/665.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/polynomial/lagrange_interpolation.md
@@ -41,8 +44,9 @@ data:
   path: polynomial/lagrange_interpolation.hpp
   requiredBy: []
   timestamp: '2020-09-17 23:33:34+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/665.test.cpp
 documentation_of: polynomial/lagrange_interpolation.hpp
 layout: document
 redirect_from:

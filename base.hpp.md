@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/lagrange_interpolation.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - icon: ':heavy_check_mark:'
@@ -386,6 +386,9 @@ data:
     path: test/yukicoder/526.test.cpp
     title: test/yukicoder/526.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/665.test.cpp
+    title: test/yukicoder/665.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sum_of_floor_of_linear.test.cpp
     title: test/yosupo/sum_of_floor_of_linear.test.cpp
   - icon: ':heavy_check_mark:'
@@ -653,6 +656,7 @@ data:
   - test/yukicoder/1050.test.cpp
   - test/yukicoder/952.test.cpp
   - test/yukicoder/526.test.cpp
+  - test/yukicoder/665.test.cpp
   - test/yosupo/sum_of_floor_of_linear.test.cpp
   - test/yosupo/associative_array.test.cpp
   - test/yosupo/aplusb.test.cpp
