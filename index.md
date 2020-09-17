@@ -181,6 +181,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: other/Mo.hpp
       title: Mo's Algorithm
+  - name: polynomial
+    pages:
+    - icon: ':warning:'
+      path: polynomial/lagrange_interpolation.hpp
+      title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - name: string
     pages:
     - icon: ':warning:'

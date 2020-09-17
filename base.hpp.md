@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: polynomial/lagrange_interpolation.hpp
+    title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - icon: ':heavy_check_mark:'
     path: tree/HeavyLightDecomposition.hpp
     title: Heavy Light Decomposition
@@ -520,6 +523,7 @@ data:
   isVerificationFile: false
   path: base.hpp
   requiredBy:
+  - polynomial/lagrange_interpolation.hpp
   - tree/HeavyLightDecomposition.hpp
   - tree/EulerTourforVertex.hpp
   - tree/LowestCommonAncestor.hpp
