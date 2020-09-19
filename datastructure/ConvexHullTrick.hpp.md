@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/atcoder/colopl2018_final_c.cpp
+    title: test/atcoder/colopl2018_final_c.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/colopl2018_final_c.test.cpp
-    title: test/atcoder/colopl2018_final_c.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/datastructure/ConvexHullTrick.md
@@ -57,12 +57,12 @@ data:
   - base.hpp
   isVerificationFile: false
   path: datastructure/ConvexHullTrick.hpp
-  requiredBy: []
+  requiredBy:
+  - test/atcoder/colopl2018_final_c.cpp
   timestamp: '2020-09-13 02:18:42+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/952.test.cpp
-  - test/atcoder/colopl2018_final_c.test.cpp
 documentation_of: datastructure/ConvexHullTrick.hpp
 layout: document
 redirect_from:

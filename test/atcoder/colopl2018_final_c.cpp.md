@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/ConvexHullTrick.hpp
     title: Convex Hull Trick
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     IGNORE: ''
@@ -38,16 +38,16 @@ data:
   dependsOn:
   - base.hpp
   - datastructure/ConvexHullTrick.hpp
-  isVerificationFile: true
-  path: test/atcoder/colopl2018_final_c.test.cpp
+  isVerificationFile: false
+  path: test/atcoder/colopl2018_final_c.cpp
   requiredBy: []
-  timestamp: '2020-09-19 23:43:02+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-09-19 23:47:31+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/atcoder/colopl2018_final_c.test.cpp
+documentation_of: test/atcoder/colopl2018_final_c.cpp
 layout: document
 redirect_from:
-- /verify/test/atcoder/colopl2018_final_c.test.cpp
-- /verify/test/atcoder/colopl2018_final_c.test.cpp.html
-title: test/atcoder/colopl2018_final_c.test.cpp
+- /library/test/atcoder/colopl2018_final_c.cpp
+- /library/test/atcoder/colopl2018_final_c.cpp.html
+title: test/atcoder/colopl2018_final_c.cpp
 ---
