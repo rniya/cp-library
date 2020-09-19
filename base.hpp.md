@@ -5,6 +5,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/lagrange_interpolation.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
+  - icon: ':warning:'
+    path: polynomial/Kitamasa.hpp
+    title: Kitamasa
   - icon: ':heavy_check_mark:'
     path: tree/HeavyLightDecomposition.hpp
     title: Heavy Light Decomposition
@@ -27,8 +30,38 @@ data:
     path: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
     title: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
   - icon: ':warning:'
+    path: test/atcoder/dp_z.cpp
+    title: test/atcoder/dp_z.cpp
+  - icon: ':warning:'
+    path: test/atcoder/abc061_d.cpp
+    title: test/atcoder/abc061_d.cpp
+  - icon: ':warning:'
+    path: test/atcoder/tdpc_fibonacci.cpp
+    title: test/atcoder/tdpc_fibonacci.cpp
+  - icon: ':warning:'
+    path: test/atcoder/arc085_c.cpp
+    title: test/atcoder/arc085_c.cpp
+  - icon: ':warning:'
+    path: test/atcoder/arc039_d.cpp
+    title: test/atcoder/arc039_d.cpp
+  - icon: ':warning:'
+    path: test/atcoder/agc002_d.cpp
+    title: test/atcoder/agc002_d.cpp
+  - icon: ':warning:'
     path: test/atcoder/colopl2018_final_c.cpp
     title: test/atcoder/colopl2018_final_c.cpp
+  - icon: ':warning:'
+    path: test/atcoder/abc137_e.cpp
+    title: test/atcoder/abc137_e.cpp
+  - icon: ':warning:'
+    path: test/codeforces/1404_E.cpp
+    title: test/codeforces/1404_E.cpp
+  - icon: ':warning:'
+    path: test/codeforces/1179_C.cpp
+    title: test/codeforces/1179_C.cpp
+  - icon: ':warning:'
+    path: test/codeforces/1361_C.cpp
+    title: test/codeforces/1361_C.cpp
   - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
@@ -533,6 +566,7 @@ data:
   path: base.hpp
   requiredBy:
   - polynomial/lagrange_interpolation.hpp
+  - polynomial/Kitamasa.hpp
   - tree/HeavyLightDecomposition.hpp
   - tree/EulerTourforVertex.hpp
   - tree/LowestCommonAncestor.hpp
@@ -540,7 +574,17 @@ data:
   - tree/TreeDiameter.hpp
   - tree/EulerTourforEdge.hpp
   - test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
+  - test/atcoder/dp_z.cpp
+  - test/atcoder/abc061_d.cpp
+  - test/atcoder/tdpc_fibonacci.cpp
+  - test/atcoder/arc085_c.cpp
+  - test/atcoder/arc039_d.cpp
+  - test/atcoder/agc002_d.cpp
   - test/atcoder/colopl2018_final_c.cpp
+  - test/atcoder/abc137_e.cpp
+  - test/codeforces/1404_E.cpp
+  - test/codeforces/1179_C.cpp
+  - test/codeforces/1361_C.cpp
   - convolution/NumberTheoreticTransform.hpp
   - convolution/FastFourierTransform.hpp
   - convolution/ArbitaryModConvolution.hpp

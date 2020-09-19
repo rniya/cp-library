@@ -5,6 +5,9 @@ data:
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/atcoder/tdpc_fibonacci.cpp
+    title: test/atcoder/tdpc_fibonacci.cpp
   - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
@@ -92,6 +95,7 @@ data:
   isVerificationFile: false
   path: modulo/modint.hpp
   requiredBy:
+  - test/atcoder/tdpc_fibonacci.cpp
   - convolution/NumberTheoreticTransform.hpp
   - convolution/ArbitaryModConvolution.hpp
   timestamp: '2020-09-10 10:17:21+09:00'

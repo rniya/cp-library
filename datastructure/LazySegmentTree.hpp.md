@@ -4,7 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/codeforces/1179_C.cpp
+    title: test/codeforces/1179_C.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_I.test.cpp
@@ -102,7 +105,8 @@ data:
   - base.hpp
   isVerificationFile: false
   path: datastructure/LazySegmentTree.hpp
-  requiredBy: []
+  requiredBy:
+  - test/codeforces/1179_C.cpp
   timestamp: '2020-09-09 23:15:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

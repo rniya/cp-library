@@ -4,7 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/codeforces/1361_C.cpp
+    title: test/codeforces/1361_C.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/583.test.cpp
@@ -62,7 +65,8 @@ data:
   - base.hpp
   isVerificationFile: false
   path: graph/EulerianTrail.hpp
-  requiredBy: []
+  requiredBy:
+  - test/codeforces/1361_C.cpp
   timestamp: '2020-09-11 16:00:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

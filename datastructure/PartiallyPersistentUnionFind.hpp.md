@@ -4,7 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/atcoder/agc002_d.cpp
+    title: test/atcoder/agc002_d.cpp
   _extendedVerifiedWith: []
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
@@ -39,7 +42,8 @@ data:
   - base.hpp
   isVerificationFile: false
   path: datastructure/PartiallyPersistentUnionFind.hpp
-  requiredBy: []
+  requiredBy:
+  - test/atcoder/agc002_d.cpp
   timestamp: '2020-09-09 23:15:02+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

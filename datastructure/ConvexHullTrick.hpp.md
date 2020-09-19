@@ -6,6 +6,9 @@ data:
     title: base.hpp
   _extendedRequiredBy:
   - icon: ':warning:'
+    path: test/atcoder/dp_z.cpp
+    title: test/atcoder/dp_z.cpp
+  - icon: ':warning:'
     path: test/atcoder/colopl2018_final_c.cpp
     title: test/atcoder/colopl2018_final_c.cpp
   _extendedVerifiedWith:
@@ -58,6 +61,7 @@ data:
   isVerificationFile: false
   path: datastructure/ConvexHullTrick.hpp
   requiredBy:
+  - test/atcoder/dp_z.cpp
   - test/atcoder/colopl2018_final_c.cpp
   timestamp: '2020-09-13 02:18:42+09:00'
   verificationStatus: LIBRARY_ALL_AC

@@ -183,6 +183,9 @@ data:
       title: Mo's Algorithm
   - name: polynomial
     pages:
+    - icon: ':warning:'
+      path: polynomial/Kitamasa.hpp
+      title: Kitamasa
     - icon: ':heavy_check_mark:'
       path: polynomial/lagrange_interpolation.hpp
       title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
@@ -217,8 +220,40 @@ data:
   - name: test/atcoder
     pages:
     - icon: ':warning:'
+      path: test/atcoder/abc061_d.cpp
+      title: test/atcoder/abc061_d.cpp
+    - icon: ':warning:'
+      path: test/atcoder/abc137_e.cpp
+      title: test/atcoder/abc137_e.cpp
+    - icon: ':warning:'
+      path: test/atcoder/agc002_d.cpp
+      title: test/atcoder/agc002_d.cpp
+    - icon: ':warning:'
+      path: test/atcoder/arc039_d.cpp
+      title: test/atcoder/arc039_d.cpp
+    - icon: ':warning:'
+      path: test/atcoder/arc085_c.cpp
+      title: test/atcoder/arc085_c.cpp
+    - icon: ':warning:'
       path: test/atcoder/colopl2018_final_c.cpp
       title: test/atcoder/colopl2018_final_c.cpp
+    - icon: ':warning:'
+      path: test/atcoder/dp_z.cpp
+      title: test/atcoder/dp_z.cpp
+    - icon: ':warning:'
+      path: test/atcoder/tdpc_fibonacci.cpp
+      title: test/atcoder/tdpc_fibonacci.cpp
+  - name: test/codeforces
+    pages:
+    - icon: ':warning:'
+      path: test/codeforces/1179_C.cpp
+      title: test/codeforces/1179_C.cpp
+    - icon: ':warning:'
+      path: test/codeforces/1361_C.cpp
+      title: test/codeforces/1361_C.cpp
+    - icon: ':warning:'
+      path: test/codeforces/1404_E.cpp
+      title: test/codeforces/1404_E.cpp
   - name: tree
     pages:
     - icon: ':heavy_check_mark:'
