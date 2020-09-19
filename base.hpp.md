@@ -254,6 +254,9 @@ data:
     path: test/aoj/GRL_6_A.DInic.test.cpp
     title: test/aoj/GRL_6_A.DInic.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/2313.test.cpp
+    title: test/aoj/2313.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_4_B.test.cpp
     title: test/aoj/GRL_4_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -612,6 +615,7 @@ data:
   - test/aoj/DSL_2_A.test.cpp
   - test/aoj/DSL_2_E.test.cpp
   - test/aoj/GRL_6_A.DInic.test.cpp
+  - test/aoj/2313.test.cpp
   - test/aoj/GRL_4_B.test.cpp
   - test/aoj/DSL_1_A.test.cpp
   - test/aoj/NTL_1_E.test.cpp

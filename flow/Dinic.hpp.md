@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_6_A.DInic.test.cpp
     title: test/aoj/GRL_6_A.DInic.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/2313.test.cpp
+    title: test/aoj/2313.test.cpp
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -36,8 +39,11 @@ data:
     \        auto re=G[e.to][e.rev];\n        return {pos[i].first,e.to,e.cap+re.cap,re.cap};\n\
     \    }\n    vector<tuple<int,int,int,int>> edges(){\n        vector<tuple<int,int,int,int>>\
     \ res;\n        for (int i=0;i<pos.size();++i){\n            res.emplace_back(get_edge(i));\n\
-    \        }\n        return res;\n    }\n    void bfs(int s){\n        fill(level.begin(),level.end(),-1);\n\
-    \        queue<int> que;\n        level[s]=0; que.emplace(s);\n        while(!que.empty()){\n\
+    \        }\n        return res;\n    }\n    void change_edge(int i,T new_cap,T\
+    \ new_flow){\n        auto &e=G[pos[i].first][pos[i].second];\n        auto &re=G[e.to][e.rev];\n\
+    \        e.cap=new_cap-new_flow;\n        re.cap=(directed?new_flow:new_cap+new_flow);\n\
+    \    }\n    void bfs(int s){\n        fill(level.begin(),level.end(),-1);\n  \
+    \      queue<int> que;\n        level[s]=0; que.emplace(s);\n        while(!que.empty()){\n\
     \            int v=que.front(); que.pop();\n            for (auto &e:G[v]){\n\
     \                if (e.cap>0&&level[e.to]<0){\n                    level[e.to]=level[v]+1;\n\
     \                    que.emplace(e.to);\n                }\n            }\n  \
@@ -58,10 +64,11 @@ data:
   isVerificationFile: false
   path: flow/Dinic.hpp
   requiredBy: []
-  timestamp: '2020-09-13 20:30:44+09:00'
+  timestamp: '2020-09-19 17:20:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_6_A.DInic.test.cpp
+  - test/aoj/2313.test.cpp
 documentation_of: flow/Dinic.hpp
 layout: document
 redirect_from:

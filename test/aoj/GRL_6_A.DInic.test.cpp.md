@@ -37,7 +37,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_6_A.DInic.test.cpp
   requiredBy: []
-  timestamp: '2020-09-13 20:30:44+09:00'
+  timestamp: '2020-09-19 17:20:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_A.DInic.test.cpp

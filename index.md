@@ -243,6 +243,9 @@ data:
   - name: test/aoj
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/aoj/2313.test.cpp
+      title: test/aoj/2313.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/2667.test.cpp
       title: test/aoj/2667.test.cpp
     - icon: ':heavy_check_mark:'
