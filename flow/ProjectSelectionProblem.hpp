@@ -6,6 +6,7 @@
 #pragma once
 
 #include "../base.hpp"
+#include "../flow/Dinic.hpp"
 
 template<typename T>
 struct ProjectSelectionProblem{
