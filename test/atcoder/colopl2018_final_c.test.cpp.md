@@ -4,19 +4,20 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
-    path: graph/EulerianTrail.hpp
-    title: "\u30AA\u30A4\u30E9\u30FC\u30B0\u30E9\u30D5\u30FB\u6E96\u30AA\u30A4\u30E9\
-      \u30FC\u30B0\u30E9\u30D5\u306E\u69CB\u7BC9"
+  - icon: ':question:'
+    path: datastructure/ConvexHullTrick.hpp
+    title: Convex Hull Trick
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/583
+    IGNORE: ''
+    IGNORE_IF_CLANG: ''
+    IGNORE_IF_GCC: ''
     links:
-    - https://yukicoder.me/problems/no/583
+    - https://atcoder.jp/contests/colopl2018-final-open/tasks/colopl2018_final_c
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 70, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir).decode()\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
@@ -25,26 +26,28 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ graph/EulerianTrail.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "#define PROBLEM \"https://yukicoder.me/problems/no/583\"\n\n#include \"../../base.hpp\"\
-    \n#include \"../../graph/EulerianTrail.hpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N,M; cin >> N >> M;\n\n    EulerianTrail<false>\
-    \ ET(N);\n    for (int i=0;i<M;++i){\n        int a,b; cin >> a >> b;\n      \
-    \  ET.add_edge(a,b);\n    }\n\n    cout << (ET.build_semi().size()==1?\"YES\"\
-    :\"NO\") << '\\n';\n}"
+    \ datastructure/ConvexHullTrick.hpp: line 6: #pragma once found in a non-first\
+    \ line\n"
+  code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/colopl2018-final-open/tasks/colopl2018_final_c\"\
+    \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/ConvexHullTrick.hpp\"\
+    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\
+    \ cin >> N;\n    vector<long long> a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\
+    \n    ConvexHullTrick<long long> CHT;\n\n    for (long long i=0;i<N;++i) CHT.add(-2*i,a[i]+i*i);\n\
+    \    for (long long i=0;i<N;++i) cout << CHT.query_monotone_inc(i)+i*i << '\\\
+    n';\n}"
   dependsOn:
   - base.hpp
-  - graph/EulerianTrail.hpp
+  - datastructure/ConvexHullTrick.hpp
   isVerificationFile: true
-  path: test/yukicoder/583.test.cpp
+  path: test/atcoder/colopl2018_final_c.test.cpp
   requiredBy: []
-  timestamp: '2020-09-11 16:00:32+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2020-09-19 23:43:02+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/yukicoder/583.test.cpp
+documentation_of: test/atcoder/colopl2018_final_c.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yukicoder/583.test.cpp
-- /verify/test/yukicoder/583.test.cpp.html
-title: test/yukicoder/583.test.cpp
+- /verify/test/atcoder/colopl2018_final_c.test.cpp
+- /verify/test/atcoder/colopl2018_final_c.test.cpp.html
+title: test/atcoder/colopl2018_final_c.test.cpp
 ---

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -9,8 +9,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
+  - icon: ':x:'
+    path: test/atcoder/colopl2018_final_c.test.cpp
+    title: test/atcoder/colopl2018_final_c.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/datastructure/ConvexHullTrick.md
@@ -56,9 +59,10 @@ data:
   path: datastructure/ConvexHullTrick.hpp
   requiredBy: []
   timestamp: '2020-09-13 02:18:42+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/952.test.cpp
+  - test/atcoder/colopl2018_final_c.test.cpp
 documentation_of: datastructure/ConvexHullTrick.hpp
 layout: document
 redirect_from:

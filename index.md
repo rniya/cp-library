@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -30,7 +30,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/BinaryTrie.hpp
       title: Binary Trie
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: datastructure/ConvexHullTrick.hpp
       title: Convex Hull Trick
     - icon: ':heavy_check_mark:'
@@ -407,6 +407,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/example.test.cpp
       title: test/aoj/example.test.cpp
+  - name: test/atcoder
+    pages:
+    - icon: ':x:'
+      path: test/atcoder/colopl2018_final_c.test.cpp
+      title: test/atcoder/colopl2018_final_c.test.cpp
   - name: test/yosupo
     pages:
     - icon: ':heavy_check_mark:'
