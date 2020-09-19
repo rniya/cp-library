@@ -41,6 +41,12 @@ struct Dinic{
         }
         return res;
     }
+    void change_edge(int i,T new_cap,T new_flow){
+        auto &e=G[pos[i].first][pos[i].second];
+        auto &re=G[e.to][e.rev];
+        e.cap=new_cap-new_flow;
+        re.cap=(directed?new_flow:new_cap+new_flow);
+    }
     void bfs(int s){
         fill(level.begin(),level.end(),-1);
         queue<int> que;
