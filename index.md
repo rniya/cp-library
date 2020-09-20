@@ -86,7 +86,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/PrimalDual.hpp
       title: Primal Dual
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem
   - name: graph
@@ -294,6 +294,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/2891.test.cpp
       title: test/aoj/2891.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/2903.test.cpp
+      title: test/aoj/2903.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_14_B.test.cpp
       title: test/aoj/ALDS1_14_B.test.cpp

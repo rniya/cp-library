@@ -182,7 +182,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/LongestCommonPrefixArray.hpp
     title: Longest Common Prefix Array
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: flow/ProjectSelectionProblem.hpp
     title: Project Selection Problem
   - icon: ':heavy_check_mark:'
@@ -268,6 +268,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2871.test.cpp
     title: test/aoj/2871.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/2903.test.cpp
+    title: test/aoj/2903.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_6_B.test.cpp
     title: test/aoj/GRL_6_B.test.cpp
@@ -656,6 +659,7 @@ data:
   - test/aoj/DSL_3_D.test.cpp
   - test/aoj/DSL_2_G.test.cpp
   - test/aoj/2871.test.cpp
+  - test/aoj/2903.test.cpp
   - test/aoj/GRL_6_B.test.cpp
   - test/aoj/DSL_2_D.test.cpp
   - test/aoj/GRL_1_C.test.cpp

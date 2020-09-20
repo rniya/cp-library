@@ -8,10 +8,13 @@ data:
   - icon: ':warning:'
     path: test/atcoder/arc085_c.cpp
     title: test/atcoder/arc085_c.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: flow/ProjectSelectionProblem.hpp
     title: Project Selection Problem
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/2903.test.cpp
+    title: test/aoj/2903.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_6_A.DInic.test.cpp
     title: test/aoj/GRL_6_A.DInic.test.cpp
@@ -75,6 +78,7 @@ data:
   timestamp: '2020-09-19 17:20:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/2903.test.cpp
   - test/aoj/GRL_6_A.DInic.test.cpp
   - test/aoj/2313.test.cpp
 documentation_of: flow/Dinic.hpp

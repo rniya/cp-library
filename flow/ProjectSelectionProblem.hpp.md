@@ -11,9 +11,12 @@ data:
   - icon: ':warning:'
     path: test/atcoder/arc085_c.cpp
     title: test/atcoder/arc085_c.cpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/2903.test.cpp
+    title: test/aoj/2903.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/flow/ProjectSelectionProblem.md
@@ -52,8 +55,9 @@ data:
   requiredBy:
   - test/atcoder/arc085_c.cpp
   timestamp: '2020-09-20 00:58:20+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/2903.test.cpp
 documentation_of: flow/ProjectSelectionProblem.hpp
 layout: document
 redirect_from:
