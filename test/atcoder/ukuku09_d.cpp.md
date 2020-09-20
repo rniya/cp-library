@@ -4,12 +4,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
+  - icon: ':warning:'
+    path: string/Manacher.hpp
+    title: Manacher
   - icon: ':heavy_check_mark:'
-    path: flow/ProjectSelectionProblem.hpp
-    title: Project Selection Problem
-  - icon: ':heavy_check_mark:'
-    path: flow/Dinic.hpp
-    title: Dinic
+    path: datastructure/SegmentTree.hpp
+    title: Segment Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
@@ -20,7 +20,7 @@ data:
     IGNORE_IF_CLANG: ''
     IGNORE_IF_GCC: ''
     links:
-    - https://codeforces.com/contest/1404/problem/E
+    - https://atcoder.jp/contests/ukuku09/tasks/ukuku09_d
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 70, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir).decode()\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
@@ -29,34 +29,31 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ flow/ProjectSelectionProblem.hpp: line 6: #pragma once found in a non-first\
-    \ line\n"
-  code: "#define IGNORE\n\n#define PROBLEM \"https://codeforces.com/contest/1404/problem/E\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../flow/ProjectSelectionProblem.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,m;\
-    \ cin >> n >> m;\n    vector<string> S(n);\n    for (int i=0;i<n;++i) cin >> S[i];\n\
-    \n    ProjectSelectionProblem<int> PSP(n*m);\n    auto id=[&](int x,int y){return\
-    \ x*m+y;};\n    int ans=0;\n    for (int i=0;i<n;++i){\n        for (int j=0;j<m;++j){\n\
-    \            if (S[i][j]!='#') continue;\n            ++ans;\n            for\
-    \ (int k=0;k<2;++k){\n                int nx=i+(k^1),ny=j+k;\n               \
-    \ if (n<=nx||m<=ny) continue;\n                if (S[nx][ny]!='#') continue;\n\
-    \                if (!k) PSP.x_true_y_true_profit(id(i,j),id(nx,ny),1);\n    \
-    \            else PSP.x_false_y_false_profit(id(i,j),id(nx,ny),1);\n         \
-    \   }\n        }\n    }\n\n    cout << ans+PSP.build() << '\\n';\n}"
+    \ string/Manacher.hpp: line 6: #pragma once found in a non-first line\n"
+  code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/ukuku09/tasks/ukuku09_d\"\
+    \n\n#include \"../../base.hpp\"\n#include \"../../string/Manacher.hpp\"\n#include\
+    \ \"../../datastructure/SegmentTree.hpp\"\n\nint main(){\n    cin.tie(0);\n  \
+    \  ios::sync_with_stdio(false);\n    int N,Q; string S; cin >> N >> Q >> S;\n\n\
+    \    vector<int> v=Manacher(S);\n    SegmentTree<int> seg(N,[](int a,int b){return\
+    \ max(a,b);},0);\n    seg.build(v);\n\n    for (;Q--;){\n        int l,r; cin\
+    \ >> l >> r; --l;\n        int lb=0,ub=(r-l+1)/2+1;\n        while(ub-lb>1){\n\
+    \            int mid=(lb+ub)>>1;\n            int x=seg.query(l+mid-1,r-mid+1);\n\
+    \            (mid<=x?lb:ub)=mid;\n        }\n        cout << lb*2-1 << '\\n';\n\
+    \    }\n}"
   dependsOn:
   - base.hpp
-  - flow/ProjectSelectionProblem.hpp
-  - flow/Dinic.hpp
+  - string/Manacher.hpp
+  - datastructure/SegmentTree.hpp
   isVerificationFile: false
-  path: test/codeforces/1404_E.cpp
+  path: test/atcoder/ukuku09_d.cpp
   requiredBy: []
   timestamp: '2020-09-20 18:39:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/codeforces/1404_E.cpp
+documentation_of: test/atcoder/ukuku09_d.cpp
 layout: document
 redirect_from:
-- /library/test/codeforces/1404_E.cpp
-- /library/test/codeforces/1404_E.cpp.html
-title: test/codeforces/1404_E.cpp
+- /library/test/atcoder/ukuku09_d.cpp
+- /library/test/atcoder/ukuku09_d.cpp.html
+title: test/atcoder/ukuku09_d.cpp
 ---

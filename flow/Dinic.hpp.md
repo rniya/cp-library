@@ -8,6 +8,9 @@ data:
   - icon: ':warning:'
     path: test/atcoder/arc085_c.cpp
     title: test/atcoder/arc085_c.cpp
+  - icon: ':warning:'
+    path: test/codeforces/1404_E.cpp
+    title: test/codeforces/1404_E.cpp
   - icon: ':heavy_check_mark:'
     path: flow/ProjectSelectionProblem.hpp
     title: Project Selection Problem
@@ -74,6 +77,7 @@ data:
   path: flow/Dinic.hpp
   requiredBy:
   - test/atcoder/arc085_c.cpp
+  - test/codeforces/1404_E.cpp
   - flow/ProjectSelectionProblem.hpp
   timestamp: '2020-09-19 17:20:09+09:00'
   verificationStatus: LIBRARY_ALL_AC

@@ -11,6 +11,9 @@ data:
   - icon: ':warning:'
     path: test/atcoder/arc085_c.cpp
     title: test/atcoder/arc085_c.cpp
+  - icon: ':warning:'
+    path: test/codeforces/1404_E.cpp
+    title: test/codeforces/1404_E.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2903.test.cpp
@@ -54,6 +57,7 @@ data:
   path: flow/ProjectSelectionProblem.hpp
   requiredBy:
   - test/atcoder/arc085_c.cpp
+  - test/codeforces/1404_E.cpp
   timestamp: '2020-09-20 00:58:20+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

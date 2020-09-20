@@ -30,11 +30,17 @@ data:
     path: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
     title: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
   - icon: ':warning:'
+    path: test/atcoder/tenka1_2016_final_c.cpp
+    title: test/atcoder/tenka1_2016_final_c.cpp
+  - icon: ':warning:'
     path: test/atcoder/dp_z.cpp
     title: test/atcoder/dp_z.cpp
   - icon: ':warning:'
     path: test/atcoder/abc061_d.cpp
     title: test/atcoder/abc061_d.cpp
+  - icon: ':warning:'
+    path: test/atcoder/ukuku09_d.cpp
+    title: test/atcoder/ukuku09_d.cpp
   - icon: ':warning:'
     path: test/atcoder/tdpc_fibonacci.cpp
     title: test/atcoder/tdpc_fibonacci.cpp
@@ -125,6 +131,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: other/Mo.hpp
     title: Mo's Algorithm
+  - icon: ':warning:'
+    path: geometry/geometry.hpp
+    title: geometry
   - icon: ':warning:'
     path: linearalgebra/Kitamasa.hpp
     title: Kitamasa
@@ -577,8 +586,10 @@ data:
   - tree/TreeDiameter.hpp
   - tree/EulerTourforEdge.hpp
   - test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
+  - test/atcoder/tenka1_2016_final_c.cpp
   - test/atcoder/dp_z.cpp
   - test/atcoder/abc061_d.cpp
+  - test/atcoder/ukuku09_d.cpp
   - test/atcoder/tdpc_fibonacci.cpp
   - test/atcoder/arc085_c.cpp
   - test/atcoder/arc039_d.cpp
@@ -609,6 +620,7 @@ data:
   - datastructure/Slide_Min.hpp
   - datastructure/LazySegmentTree.hpp
   - other/Mo.hpp
+  - geometry/geometry.hpp
   - linearalgebra/Kitamasa.hpp
   - linearalgebra/Matrix.hpp
   - linearalgebra/SquareMatrix.hpp

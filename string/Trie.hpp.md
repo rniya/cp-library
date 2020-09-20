@@ -4,7 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/atcoder/tenka1_2016_final_c.cpp
+    title: test/atcoder/tenka1_2016_final_c.cpp
   _extendedVerifiedWith: []
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
@@ -44,7 +47,8 @@ data:
   - base.hpp
   isVerificationFile: false
   path: string/Trie.hpp
-  requiredBy: []
+  requiredBy:
+  - test/atcoder/tenka1_2016_final_c.cpp
   timestamp: '2020-09-10 15:23:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

@@ -89,6 +89,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem
+  - name: geometry
+    pages:
+    - icon: ':warning:'
+      path: geometry/geometry.hpp
+      title: geometry
   - name: graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -243,6 +248,12 @@ data:
     - icon: ':warning:'
       path: test/atcoder/tdpc_fibonacci.cpp
       title: test/atcoder/tdpc_fibonacci.cpp
+    - icon: ':warning:'
+      path: test/atcoder/tenka1_2016_final_c.cpp
+      title: test/atcoder/tenka1_2016_final_c.cpp
+    - icon: ':warning:'
+      path: test/atcoder/ukuku09_d.cpp
+      title: test/atcoder/ukuku09_d.cpp
   - name: test/codeforces
     pages:
     - icon: ':warning:'

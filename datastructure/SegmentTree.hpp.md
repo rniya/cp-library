@@ -4,7 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/atcoder/ukuku09_d.cpp
+    title: test/atcoder/ukuku09_d.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_A.test.cpp
@@ -68,7 +71,8 @@ data:
   - base.hpp
   isVerificationFile: false
   path: datastructure/SegmentTree.hpp
-  requiredBy: []
+  requiredBy:
+  - test/atcoder/ukuku09_d.cpp
   timestamp: '2020-09-09 23:15:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
