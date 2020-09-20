@@ -92,4 +92,19 @@ struct Dinic{
     T max_flow(int s,int t){
         return max_flow(s,t,numeric_limits<T>::max());
     }
+    vector<bool> min_cut(int s){
+        vector<bool> res(G.size());
+        queue<int> que;
+        res[s]=true; que.emplace(s);
+        while(!que.empty()){
+            int v=que.front(); que.pop();
+            for (auto e:G[v]){
+                if (e.cap>0&&!res[e.to]){
+                    res[e.to]=true;
+                    que.emplace(e.to);
+                }
+            }
+        }
+        return res;
+    }
 };
