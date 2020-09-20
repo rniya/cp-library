@@ -70,7 +70,12 @@ data:
     \                T f=dfs(s,t,lim);\n                if (f==0) break;\n       \
     \         flow+=f; lim-=f;\n            }\n        }\n        return flow;\n \
     \   }\n    T max_flow(int s,int t){\n        return max_flow(s,t,numeric_limits<T>::max());\n\
-    \    }\n};"
+    \    }\n    vector<bool> min_cut(int s){\n        vector<bool> res(G.size());\n\
+    \        queue<int> que;\n        res[s]=true; que.emplace(s);\n        while(!que.empty()){\n\
+    \            int v=que.front(); que.pop();\n            for (auto e:G[v]){\n \
+    \               if (e.cap>0&&!res[e.to]){\n                    res[e.to]=true;\n\
+    \                    que.emplace(e.to);\n                }\n            }\n  \
+    \      }\n        return res;\n    }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
@@ -79,7 +84,7 @@ data:
   - test/atcoder/arc085_c.cpp
   - test/codeforces/1404_E.cpp
   - flow/ProjectSelectionProblem.hpp
-  timestamp: '2020-09-19 17:20:09+09:00'
+  timestamp: '2020-09-20 20:19:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp

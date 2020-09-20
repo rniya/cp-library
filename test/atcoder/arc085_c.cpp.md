@@ -46,7 +46,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/arc085_c.cpp
   requiredBy: []
-  timestamp: '2020-09-20 00:58:20+09:00'
+  timestamp: '2020-09-20 20:19:13+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/arc085_c.cpp
