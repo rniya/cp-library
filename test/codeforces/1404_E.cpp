@@ -3,7 +3,7 @@
 #define PROBLEM "https://codeforces.com/contest/1404/problem/E"
 
 #include "../../base.hpp"
-#include "../../flow/PrimalDual.hpp"
+#include "../../flow/ProjectSelectionProblem.hpp"
 
 int main(){
     cin.tie(0);
