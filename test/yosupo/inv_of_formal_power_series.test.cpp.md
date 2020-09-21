@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':question:'
-    path: convolution/FastFourierTransform.hpp
-    title: Fast Fourier Transform
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
+    path: convolution/NumberTheoreticTransform.hpp
+    title: Number Theoretic Transform
+  - icon: ':heavy_check_mark:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/inv_of_formal_power_series
@@ -33,7 +33,7 @@ data:
     \ modulo/modint.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/inv_of_formal_power_series\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include\
-    \ \"../../convolution/FastFourierTransform.hpp\"\n#include \"../../polynomial/FormalPowerSeries.hpp\"\
+    \ \"../../convolution/NumberTheoreticTransform.hpp\"\n#include \"../../polynomial/FormalPowerSeries.hpp\"\
     \n\nusing mint=modint<998244353>;\nusing FPS=FormalPowerSeries<mint>;\n\nint main(){\n\
     \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    NumberTheoreticTransform<998244353>\
     \ NTT;\n    auto mul=[&](const FPS::Poly &a,const FPS::Poly &b){\n        auto\
@@ -44,13 +44,13 @@ data:
   dependsOn:
   - base.hpp
   - modulo/modint.hpp
-  - convolution/FastFourierTransform.hpp
+  - convolution/NumberTheoreticTransform.hpp
   - polynomial/FormalPowerSeries.hpp
   isVerificationFile: true
   path: test/yosupo/inv_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2020-09-22 00:43:37+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-09-22 00:55:04+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/inv_of_formal_power_series.test.cpp
 layout: document
