@@ -2,7 +2,7 @@
 
 #include "../../base.hpp"
 #include "../../modulo/modint.hpp"
-#include "../../convolution/FastFourierTransform.hpp"
+#include "../../convolution/NumberTheoreticTransform.hpp"
 #include "../../polynomial/FormalPowerSeries.hpp"
 
 using mint=modint<998244353>;
