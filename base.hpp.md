@@ -5,6 +5,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/lagrange_interpolation.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
+  - icon: ':question:'
+    path: polynomial/FormalPowerSeries.hpp
+    title: Formal Power Series
   - icon: ':warning:'
     path: polynomial/Kitamasa.hpp
     title: Kitamasa
@@ -68,16 +71,16 @@ data:
   - icon: ':warning:'
     path: test/codeforces/1361_C.cpp
     title: test/codeforces/1361_C.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/FastFourierTransform.hpp
     title: Fast Fourier Transform
   - icon: ':heavy_check_mark:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   - icon: ':heavy_check_mark:'
@@ -443,6 +446,9 @@ data:
     path: test/yosupo/sum_of_floor_of_linear.test.cpp
     title: test/yosupo/sum_of_floor_of_linear.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/exp_of_formal_power_series.test.cpp
+    title: test/yosupo/exp_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/associative_array.test.cpp
     title: test/yosupo/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
@@ -470,8 +476,14 @@ data:
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/log_of_formal_power_series.test.cpp
+    title: test/yosupo/log_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/pow_of_formal_power_series.test.cpp
+    title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
@@ -502,6 +514,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/inv_of_formal_power_series.test.cpp
+    title: test/yosupo/inv_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/two_edge_connected_components.test.cpp
     title: test/yosupo/two_edge_connected_components.test.cpp
@@ -515,7 +530,7 @@ data:
     path: test/yosupo/point_add_range_sum.test.cpp
     title: test/yosupo/point_add_range_sum.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
@@ -578,6 +593,7 @@ data:
   path: base.hpp
   requiredBy:
   - polynomial/lagrange_interpolation.hpp
+  - polynomial/FormalPowerSeries.hpp
   - polynomial/Kitamasa.hpp
   - tree/HeavyLightDecomposition.hpp
   - tree/EulerTourforVertex.hpp
@@ -661,7 +677,7 @@ data:
   - graph/BellmanFord.hpp
   - graph/BipartiteGraph.hpp
   timestamp: '2020-09-09 23:15:02+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_I.test.cpp
@@ -726,6 +742,7 @@ data:
   - test/yukicoder/526.test.cpp
   - test/yukicoder/665.test.cpp
   - test/yosupo/sum_of_floor_of_linear.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/associative_array.test.cpp
   - test/yosupo/aplusb.test.cpp
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
@@ -735,7 +752,9 @@ data:
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/scc.test.cpp
   - test/yosupo/suffixarray.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
@@ -746,6 +765,7 @@ data:
   - test/yosupo/staticrmq.test.cpp
   - test/yosupo/set_xor_min.test.cpp
   - test/yosupo/unionfind.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/two_edge_connected_components.test.cpp
   - test/yosupo/two_sat.test.cpp
   - test/yosupo/static_range_sum.test.cpp

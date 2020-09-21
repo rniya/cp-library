@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
   - icon: ':warning:'
     path: test/atcoder/tdpc_fibonacci.cpp
     title: test/atcoder/tdpc_fibonacci.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
@@ -25,6 +25,9 @@ data:
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/exp_of_formal_power_series.test.cpp
+    title: test/yosupo/exp_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
   - icon: ':heavy_check_mark:'
@@ -34,13 +37,22 @@ data:
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/log_of_formal_power_series.test.cpp
+    title: test/yosupo/log_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/pow_of_formal_power_series.test.cpp
+    title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/inv_of_formal_power_series.test.cpp
+    title: test/yosupo/inv_of_formal_power_series.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     document_title: modint
@@ -99,16 +111,20 @@ data:
   - convolution/NumberTheoreticTransform.hpp
   - convolution/ArbitaryModConvolution.hpp
   timestamp: '2020-09-10 10:17:21+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1068.test.cpp
   - test/yukicoder/1050.test.cpp
   - test/yukicoder/665.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
 documentation_of: modulo/modint.hpp
 layout: document
 redirect_from:

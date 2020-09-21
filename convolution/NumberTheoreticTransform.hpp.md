@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy:
@@ -16,13 +16,22 @@ data:
     path: test/yukicoder/1068.test.cpp
     title: test/yukicoder/1068.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/exp_of_formal_power_series.test.cpp
+    title: test/yosupo/exp_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/log_of_formal_power_series.test.cpp
+    title: test/yosupo/log_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/pow_of_formal_power_series.test.cpp
+    title: test/yosupo/pow_of_formal_power_series.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/convolution/NumberTheoreticTransform.md
@@ -75,11 +84,14 @@ data:
   requiredBy:
   - convolution/ArbitaryModConvolution.hpp
   timestamp: '2020-09-10 10:17:21+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1068.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
 documentation_of: convolution/NumberTheoreticTransform.hpp
 layout: document
 redirect_from:

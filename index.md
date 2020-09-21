@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -16,10 +16,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: convolution/ArbitaryModConvolution.hpp
       title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: convolution/FastFourierTransform.hpp
       title: Fast Fourier Transform
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: convolution/NumberTheoreticTransform.hpp
       title: Number Theoretic Transform
   - name: datastructure
@@ -175,7 +175,7 @@ data:
       title: "osa_k\u6CD5"
   - name: modulo
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: modulo/modint.hpp
       title: modint
     - icon: ':heavy_check_mark:'
@@ -188,6 +188,9 @@ data:
       title: Mo's Algorithm
   - name: polynomial
     pages:
+    - icon: ':question:'
+      path: polynomial/FormalPowerSeries.hpp
+      title: Formal Power Series
     - icon: ':warning:'
       path: polynomial/Kitamasa.hpp
       title: Kitamasa
@@ -476,11 +479,20 @@ data:
       path: test/yosupo/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution_mod_1000000007.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/exp_of_formal_power_series.test.cpp
+      title: test/yosupo/exp_of_formal_power_series.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/frequency_table_of_tree_distance.test.cpp
       title: test/yosupo/frequency_table_of_tree_distance.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/inv_of_formal_power_series.test.cpp
+      title: test/yosupo/inv_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/lca.test.cpp
       title: test/yosupo/lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/log_of_formal_power_series.test.cpp
+      title: test/yosupo/log_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/number_of_substrings.test.cpp
       title: test/yosupo/number_of_substrings.test.cpp
@@ -490,6 +502,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/pow_of_formal_power_series.test.cpp
+      title: test/yosupo/pow_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/queue_operate_all_composite.test.cpp
       title: test/yosupo/queue_operate_all_composite.test.cpp
