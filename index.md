@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -175,7 +175,7 @@ data:
       title: "osa_k\u6CD5"
   - name: modulo
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: modulo/modint.hpp
       title: modint
     - icon: ':heavy_check_mark:'
@@ -194,7 +194,7 @@ data:
     - icon: ':warning:'
       path: polynomial/Kitamasa.hpp
       title: Kitamasa
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: polynomial/lagrange_interpolation.hpp
       title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - name: string
@@ -573,7 +573,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/583.test.cpp
       title: test/yukicoder/583.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/665.test.cpp
       title: test/yukicoder/665.test.cpp
     - icon: ':heavy_check_mark:'

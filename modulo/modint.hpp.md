@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -24,7 +24,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
   - icon: ':heavy_check_mark:'
@@ -55,7 +55,7 @@ data:
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     document_title: modint
@@ -110,7 +110,7 @@ data:
   - convolution/NumberTheoreticTransform.hpp
   - convolution/ArbitaryModConvolution.hpp
   timestamp: '2020-09-22 12:07:47+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/3046.test.cpp
   - test/yukicoder/1068.test.cpp
