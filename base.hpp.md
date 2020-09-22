@@ -81,11 +81,11 @@ data:
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':heavy_check_mark:'
+    path: modulo/dynamic_modint.hpp
+    title: "\u5B9F\u884C\u6642 modint"
+  - icon: ':heavy_check_mark:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
-    path: modulo/runtime_modint.hpp
-    title: "\u5B9F\u884C\u6642 modint"
   - icon: ':warning:'
     path: combinatorics/combination.hpp
     title: combination
@@ -621,8 +621,8 @@ data:
   - convolution/NumberTheoreticTransform.hpp
   - convolution/FastFourierTransform.hpp
   - convolution/ArbitaryModConvolution.hpp
+  - modulo/dynamic_modint.hpp
   - modulo/modint.hpp
-  - modulo/runtime_modint.hpp
   - combinatorics/combination.hpp
   - datastructure/SparseTable.hpp
   - datastructure/BinaryIndexedTree.hpp

@@ -176,11 +176,11 @@ data:
   - name: modulo
     pages:
     - icon: ':heavy_check_mark:'
+      path: modulo/dynamic_modint.hpp
+      title: "\u5B9F\u884C\u6642 modint"
+    - icon: ':heavy_check_mark:'
       path: modulo/modint.hpp
       title: modint
-    - icon: ':heavy_check_mark:'
-      path: modulo/runtime_modint.hpp
-      title: "\u5B9F\u884C\u6642 modint"
   - name: other
     pages:
     - icon: ':heavy_check_mark:'
