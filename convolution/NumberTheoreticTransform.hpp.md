@@ -89,7 +89,7 @@ data:
   path: convolution/NumberTheoreticTransform.hpp
   requiredBy:
   - convolution/ArbitaryModConvolution.hpp
-  timestamp: '2020-09-22 12:07:47+09:00'
+  timestamp: '2020-09-22 13:03:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/3046.test.cpp

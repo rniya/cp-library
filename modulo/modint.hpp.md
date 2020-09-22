@@ -86,21 +86,22 @@ data:
     \   return *this*=rhs.pow(mod-2);\n    }\n    constexpr modint pow(u64 exp) const\
     \ noexcept {\n        modint self(*this),res(1);\n        while (exp>0){\n   \
     \         if (exp&1) res*=self;\n            self*=self; exp>>=1;\n        }\n\
-    \        return res;\n    }\n    template<class T> friend constexpr modint operator+(T\
+    \        return res;\n    }\n    constexpr modint &operator++() noexcept {if (++v==mod)\
+    \ v=0; return *this;}\n    constexpr modint &operator--() noexcept {if (v==0)\
+    \ v=mod; return --v,*this;}\n    constexpr modint operator++(int) noexcept {modint\
+    \ t=*this; return ++*this,t;}\n    constexpr modint operator--(int) noexcept {modint\
+    \ t=*this; return --*this,t;}\n    template<class T> friend constexpr modint operator+(T\
     \ x,modint y) noexcept {return modint(x)+y;}\n    template<class T> friend constexpr\
     \ modint operator-(T x,modint y) noexcept {return modint(x)-y;}\n    template<class\
     \ T> friend constexpr modint operator*(T x,modint y) noexcept {return modint(x)*y;}\n\
     \    template<class T> friend constexpr modint operator/(T x,modint y) noexcept\
-    \ {return modint(x)/y;}\n    constexpr modint &operator++() noexcept {return ++v,*this;}\n\
-    \    constexpr modint &operator--() noexcept {return --v,*this;}\n    constexpr\
-    \ modint operator++(int) noexcept {modint t=*this; return ++v,t;}\n    constexpr\
-    \ modint operator--(int) noexcept {modint t=*this; return --v,t;}\n    constexpr\
-    \ bool operator==(const modint &rhs) const noexcept {return v==rhs.v;}\n    constexpr\
-    \ bool operator!=(const modint &rhs) const noexcept {return v!=rhs.v;}\n    constexpr\
-    \ bool operator!() const noexcept {return !v;}\n    friend istream &operator>>(istream\
-    \ &s,modint &rhs) noexcept {\n        i64 v; rhs=modint{(s>>v,v)}; return s;\n\
-    \    }\n    friend ostream &operator<<(ostream &s,const modint &rhs) noexcept\
-    \ {\n        return s<<rhs.v;\n    }\n};"
+    \ {return modint(x)/y;}\n    constexpr bool operator==(const modint &rhs) const\
+    \ noexcept {return v==rhs.v;}\n    constexpr bool operator!=(const modint &rhs)\
+    \ const noexcept {return v!=rhs.v;}\n    constexpr bool operator!() const noexcept\
+    \ {return !v;}\n    friend istream &operator>>(istream &s,modint &rhs) noexcept\
+    \ {\n        i64 v; rhs=modint{(s>>v,v)}; return s;\n    }\n    friend ostream\
+    \ &operator<<(ostream &s,const modint &rhs) noexcept {\n        return s<<rhs.v;\n\
+    \    }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
@@ -109,7 +110,7 @@ data:
   - test/atcoder/tdpc_fibonacci.cpp
   - convolution/NumberTheoreticTransform.hpp
   - convolution/ArbitaryModConvolution.hpp
-  timestamp: '2020-09-22 12:07:47+09:00'
+  timestamp: '2020-09-22 13:03:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/3046.test.cpp
