@@ -22,8 +22,8 @@ vector<M> ArbitaryModConvolution(const vector<M> &a,const vector<M> &b){
     vector<mint0> a0(n),b0(m);
     vector<mint1> a1(n),b1(m);
     vector<mint2> a2(n),b2(m);
-    for (int i=0;i<n;++i) a0[i]=a[i].a,a1[i]=a[i].a,a2[i]=a[i].a;
-    for (int i=0;i<m;++i) b0[i]=b[i].a,b1[i]=b[i].a,b2[i]=b[i].a;
+    for (int i=0;i<n;++i) a0[i]=a[i].v,a1[i]=a[i].v,a2[i]=a[i].v;
+    for (int i=0;i<m;++i) b0[i]=b[i].v,b1[i]=b[i].v,b2[i]=b[i].v;
     auto c0=ntt0.multiply(a0,b0);
     auto c1=ntt1.multiply(a1,b1);
     auto c2=ntt2.multiply(a2,b2);
@@ -32,9 +32,9 @@ vector<M> ArbitaryModConvolution(const vector<M> &a,const vector<M> &b){
     static const M m0=mod0,m0m1=m0*mod1;
     vector<M> res(n+m-1);
     for (int i=0;i<n+m-1;++i){
-        int v0=c0[i].a;
-        int v1=(inv0*(c1[i]-v0)).a;
-        int v2=(inv0inv1*(c2[i]-v0)-inv1*v1).a;
+        int v0=c0[i].v;
+        int v1=(inv0*(c1[i]-v0)).v;
+        int v2=(inv0inv1*(c2[i]-v0)-inv1*v1).v;
         res[i]=v0+m0*v1+m0m1*v2;
     }
     return res;

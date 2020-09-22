@@ -19,8 +19,8 @@ struct NumberTheoreticTransform{
         int tmp=mod-1;
         for (max_base=0;tmp%2==0;++max_base) tmp>>=1;
         root=2;
-        while(pow(root,(mod-1)>>1)==1) ++root;
-        root=pow(root,(mod-1)>>max_base);
+        while (root.pow((mod-1)>>1)==1) ++root;
+        root=root.pow((mod-1)>>max_base);
     }
     void ensure_base(int nbase){
         if (nbase<=base) return;
@@ -30,7 +30,7 @@ struct NumberTheoreticTransform{
         }
         roots.resize(1<<nbase);
         for (;base<nbase;++base){
-            Mint z=pow(root,1<<(max_base-1-base));
+            Mint z=root.pow(1<<(max_base-1-base));
             for (int i=1<<(base-1);i<(1<<base);++i){
                 roots[i<<1]=roots[i];
                 roots[i<<1|1]=roots[i]*z;
@@ -60,7 +60,7 @@ struct NumberTheoreticTransform{
     vector<Mint> multiply(vector<Mint> a,vector<Mint> b){
         int need=a.size()+b.size()-1;
         int nbase=1;
-        while((1<<nbase)<need) ++nbase;
+        while ((1<<nbase)<need) ++nbase;
         ensure_base(nbase);
         int sz=1<<nbase;
         a.resize(sz,Mint(0)); b.resize(sz,Mint(0));

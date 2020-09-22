@@ -15,7 +15,7 @@ struct FormalPowerSeries:vector<M>{
     static MUL &get_mul(){static MUL mul=nullptr; return mul;}
     static void set_mul(MUL f){get_mul()=f;}
     void shrink(){
-        while(this->size()&&this->back()==M(0)) this->pop_back();
+        while (this->size()&&this->back()==M(0)) this->pop_back();
     }
     Poly pre(int deg) const {return Poly(this->begin(),this->begin()+min((int)this->size(),deg));}
     Poly operator+(const M &v) const {return Poly(*this)+=v;}
@@ -133,13 +133,13 @@ struct FormalPowerSeries:vector<M>{
         }
         return res.pre(deg);
     }
-    Poly power(long long k,int deg=-1) const {
+    Poly pow(long long k,int deg=-1) const {
         if (deg<0) deg=this->size();
         for (int i=0;i<this->size();++i){
             if ((*this)[i]==M(0)) continue;
             if (k*i>deg) return Poly(deg,M(0));
             M inv=M(1)/(*this)[i];
-            Poly res=(((*this*inv)>>i).log()*k).exp()*pow((*this)[i],k);
+            Poly res=(((*this*inv)>>i).log()*k).exp()*(*this)[i].pow(k);
             res=(res<<(i*k)).pre(deg);
             if (res.size()<deg) res.resize(deg,M(0));
             return res;

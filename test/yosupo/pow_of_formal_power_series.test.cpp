@@ -21,6 +21,6 @@ int main(){
     int N,M; cin >> N >> M;
     FPS a(N);
     for (int i=0;i<N;++i) cin >> a[i];
-    FPS b=a.power(M);
+    FPS b=a.pow(M);
     for (int i=0;i<N;++i) cout << b[i] << (i+1==N?'\n':' ');
 }
