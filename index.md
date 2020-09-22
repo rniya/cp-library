@@ -19,7 +19,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: convolution/FastFourierTransform.hpp
       title: Fast Fourier Transform
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: convolution/NumberTheoreticTransform.hpp
       title: Number Theoretic Transform
   - name: datastructure
@@ -144,7 +144,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: linearalgebra/Matrix.hpp
       title: Matrix
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: linearalgebra/SquareMatrix.hpp
       title: Square Matrix
   - name: math
@@ -555,15 +555,18 @@ data:
       title: test/yosupo/vertex_add_path_sum.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1050.test.cpp
       title: test/yukicoder/1050.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1068.test.cpp
       title: test/yukicoder/1068.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/206.test.cpp
       title: test/yukicoder/206.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/3046.test.cpp
+      title: test/yukicoder/3046.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/526.test.cpp
       title: test/yukicoder/526.test.cpp

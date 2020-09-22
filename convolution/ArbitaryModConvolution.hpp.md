@@ -7,11 +7,14 @@ data:
   - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/3046.test.cpp
+    title: test/yukicoder/3046.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
@@ -58,6 +61,7 @@ data:
   timestamp: '2020-09-22 12:07:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yukicoder/3046.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
 documentation_of: convolution/ArbitaryModConvolution.hpp
 layout: document

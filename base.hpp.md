@@ -71,7 +71,7 @@ data:
   - icon: ':warning:'
     path: test/codeforces/1361_C.cpp
     title: test/codeforces/1361_C.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
@@ -143,7 +143,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: linearalgebra/Matrix.hpp
     title: Matrix
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: linearalgebra/SquareMatrix.hpp
     title: Square Matrix
   - icon: ':heavy_check_mark:'
@@ -422,15 +422,18 @@ data:
     path: test/aoj/NTL_1_D.test.cpp
     title: test/aoj/NTL_1_D.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/3046.test.cpp
+    title: test/yukicoder/3046.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/206.test.cpp
     title: test/yukicoder/206.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/583.test.cpp
     title: test/yukicoder/583.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1068.test.cpp
     title: test/yukicoder/1068.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
   - icon: ':heavy_check_mark:'
@@ -734,6 +737,7 @@ data:
   - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
   - test/aoj/NTL_1_D.test.cpp
+  - test/yukicoder/3046.test.cpp
   - test/yukicoder/206.test.cpp
   - test/yukicoder/583.test.cpp
   - test/yukicoder/1068.test.cpp

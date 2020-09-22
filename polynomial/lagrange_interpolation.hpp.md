@@ -31,7 +31,7 @@ data:
     \        M c=1;\n        for (int j=0;j<=n;++j){\n            if (i==j) continue;\n\
     \            (c*=T-x[j])/=x[i]-x[j];\n        }\n        res+=c*y[i];\n    }\n\
     \    return res;\n}\n\ntemplate<typename M>\nM lagrange_interpolation_arithmetic(vector<M>\
-    \ &y,M T){\n    int n=y.size()-1;\n    if (T.a<=n) return y[T.a];\n    vector<M>\
+    \ &y,M T){\n    int n=y.size()-1;\n    if (T.v<=n) return y[T.v];\n    vector<M>\
     \ left(n+1,1),right(n+1,1),fac(n+1,1),finv(n+1,1);\n    for (int i=0;i<n;++i)\
     \ left[i+1]=left[i]*(T-i);\n    for (int i=n-1;i>=0;--i) right[i]=right[i+1]*(T-(i+1));\n\
     \    for (int i=1;i<=n;++i) fac[i]=fac[i-1]*i;\n    finv[n]=(M)1/fac[n];\n   \
@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: polynomial/lagrange_interpolation.hpp
   requiredBy: []
-  timestamp: '2020-09-17 23:33:34+09:00'
+  timestamp: '2020-09-22 12:35:49+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/665.test.cpp
