@@ -78,7 +78,7 @@ struct NumberTheoreticTransform{
         for (int i=0;i<b.size();++i) B[i]=Mint(b[i]);
         vector<Mint> C=multiply(A,B);
         vector<int> res(C.size());
-        for (int i=0;i<C.size();++i) res[i]=C[i].a;
+        for (int i=0;i<C.size();++i) res[i]=C[i].v;
         return res;
     }
 };
