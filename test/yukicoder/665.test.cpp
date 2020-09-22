@@ -11,6 +11,6 @@ int main(){
     ios::sync_with_stdio(false);
     long long n; int k; cin >> n >> k;
     vector<mint> A(k+2,0);
-    for (int i=1;i<=k+1;++i) A[i]=A[i-1]+pow((mint)i,k);
+    for (int i=1;i<=k+1;++i) A[i]=A[i-1]+((mint)i).pow(k);
     cout << lagrange_interpolation_arithmetic(A,(mint)n) << '\n';
 }
