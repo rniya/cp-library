@@ -150,6 +150,9 @@ data:
     path: util/compress.hpp
     title: compress
   - icon: ':warning:'
+    path: util/ZobristHash.hpp
+    title: Zobrist Hash
+  - icon: ':warning:'
     path: math/prime_factor_table.hpp
     title: "osa_k\u6CD5"
   - icon: ':heavy_check_mark:'
@@ -644,6 +647,7 @@ data:
   - linearalgebra/Matrix.hpp
   - linearalgebra/SquareMatrix.hpp
   - util/compress.hpp
+  - util/ZobristHash.hpp
   - math/prime_factor_table.hpp
   - math/extgcd.hpp
   - math/prime_factor.hpp

@@ -290,6 +290,9 @@ data:
       title: Tree Diameter
   - name: util
     pages:
+    - icon: ':warning:'
+      path: util/ZobristHash.hpp
+      title: Zobrist Hash
     - icon: ':heavy_check_mark:'
       path: util/compress.hpp
       title: compress
