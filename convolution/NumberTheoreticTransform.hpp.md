@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy:
@@ -12,7 +12,7 @@ data:
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1068.test.cpp
     title: test/yukicoder/1068.test.cpp
   - icon: ':heavy_check_mark:'
@@ -34,7 +34,7 @@ data:
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/convolution/NumberTheoreticTransform.md
@@ -54,11 +54,11 @@ data:
     \    vector<Mint> roots;\n    vector<int> rev;\n    int base,max_base;\n    Mint\
     \ root;\n    NumberTheoreticTransform():base(1),rev{0,1},roots{Mint(0),Mint(1)}{\n\
     \        int tmp=mod-1;\n        for (max_base=0;tmp%2==0;++max_base) tmp>>=1;\n\
-    \        root=2;\n        while(pow(root,(mod-1)>>1)==1) ++root;\n        root=pow(root,(mod-1)>>max_base);\n\
+    \        root=2;\n        while (root.pow((mod-1)>>1)==1) ++root;\n        root=root.pow((mod-1)>>max_base);\n\
     \    }\n    void ensure_base(int nbase){\n        if (nbase<=base) return;\n \
     \       rev.resize(1<<nbase);\n        for (int i=0;i<(1<<nbase);++i){\n     \
     \       rev[i]=(rev[i>>1]>>1)|((i&1)<<(nbase-1));\n        }\n        roots.resize(1<<nbase);\n\
-    \        for (;base<nbase;++base){\n            Mint z=pow(root,1<<(max_base-1-base));\n\
+    \        for (;base<nbase;++base){\n            Mint z=root.pow(1<<(max_base-1-base));\n\
     \            for (int i=1<<(base-1);i<(1<<base);++i){\n                roots[i<<1]=roots[i];\n\
     \                roots[i<<1|1]=roots[i]*z;\n            }\n        }\n    }\n\
     \    void ntt(vector<Mint> &a){\n        const int n=a.size();\n        int zeros=__builtin_ctz(n);\n\
@@ -69,7 +69,7 @@ data:
     \      Mint z=a[i+j+k]*roots[j+k];\n                    a[i+j+k]=a[i+j]-z;\n \
     \                   a[i+j]=a[i+j]+z;\n                }\n            }\n     \
     \   }\n    }\n    vector<Mint> multiply(vector<Mint> a,vector<Mint> b){\n    \
-    \    int need=a.size()+b.size()-1;\n        int nbase=1;\n        while((1<<nbase)<need)\
+    \    int need=a.size()+b.size()-1;\n        int nbase=1;\n        while ((1<<nbase)<need)\
     \ ++nbase;\n        ensure_base(nbase);\n        int sz=1<<nbase;\n        a.resize(sz,Mint(0));\
     \ b.resize(sz,Mint(0));\n        ntt(a); ntt(b);\n        Mint inv_sz=1/Mint(sz);\n\
     \        for (int i=0;i<sz;++i) a[i]*=b[i]*inv_sz;\n        reverse(a.begin()+1,a.end());\n\
@@ -86,8 +86,8 @@ data:
   path: convolution/NumberTheoreticTransform.hpp
   requiredBy:
   - convolution/ArbitaryModConvolution.hpp
-  timestamp: '2020-09-10 10:17:21+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2020-09-22 12:07:47+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1068.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp

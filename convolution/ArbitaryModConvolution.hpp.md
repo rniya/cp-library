@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   _extendedRequiredBy: []
@@ -40,13 +40,13 @@ data:
     \    NumberTheoreticTransform<mod0> ntt0;\n    NumberTheoreticTransform<mod1>\
     \ ntt1;\n    NumberTheoreticTransform<mod2> ntt2;\n    vector<mint0> a0(n),b0(m);\n\
     \    vector<mint1> a1(n),b1(m);\n    vector<mint2> a2(n),b2(m);\n    for (int\
-    \ i=0;i<n;++i) a0[i]=a[i].a,a1[i]=a[i].a,a2[i]=a[i].a;\n    for (int i=0;i<m;++i)\
-    \ b0[i]=b[i].a,b1[i]=b[i].a,b2[i]=b[i].a;\n    auto c0=ntt0.multiply(a0,b0);\n\
+    \ i=0;i<n;++i) a0[i]=a[i].v,a1[i]=a[i].v,a2[i]=a[i].v;\n    for (int i=0;i<m;++i)\
+    \ b0[i]=b[i].v,b1[i]=b[i].v,b2[i]=b[i].v;\n    auto c0=ntt0.multiply(a0,b0);\n\
     \    auto c1=ntt1.multiply(a1,b1);\n    auto c2=ntt2.multiply(a2,b2);\n    static\
     \ const mint1 inv0=(mint1)1/mod0;\n    static const mint2 inv1=(mint2)1/mod1,inv0inv1=inv1/mod0;\n\
     \    static const M m0=mod0,m0m1=m0*mod1;\n    vector<M> res(n+m-1);\n    for\
-    \ (int i=0;i<n+m-1;++i){\n        int v0=c0[i].a;\n        int v1=(inv0*(c1[i]-v0)).a;\n\
-    \        int v2=(inv0inv1*(c2[i]-v0)-inv1*v1).a;\n        res[i]=v0+m0*v1+m0m1*v2;\n\
+    \ (int i=0;i<n+m-1;++i){\n        int v0=c0[i].v;\n        int v1=(inv0*(c1[i]-v0)).v;\n\
+    \        int v2=(inv0inv1*(c2[i]-v0)-inv1*v1).v;\n        res[i]=v0+m0*v1+m0m1*v2;\n\
     \    }\n    return res;\n}"
   dependsOn:
   - base.hpp
@@ -55,7 +55,7 @@ data:
   isVerificationFile: false
   path: convolution/ArbitaryModConvolution.hpp
   requiredBy: []
-  timestamp: '2020-09-13 16:09:55+09:00'
+  timestamp: '2020-09-22 12:07:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/convolution_mod_1000000007.test.cpp

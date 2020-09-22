@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
@@ -39,7 +39,7 @@ data:
     \ NTT;\n    auto mul=[&](const FPS::Poly &a,const FPS::Poly &b){\n        auto\
     \ res=NTT.multiply(a,b);\n        return FPS::Poly(res.begin(),res.end());\n \
     \   };\n    FPS::set_mul(mul);\n\n    int N,M; cin >> N >> M;\n    FPS a(N);\n\
-    \    for (int i=0;i<N;++i) cin >> a[i];\n    FPS b=a.power(M);\n    for (int i=0;i<N;++i)\
+    \    for (int i=0;i<N;++i) cin >> a[i];\n    FPS b=a.pow(M);\n    for (int i=0;i<N;++i)\
     \ cout << b[i] << (i+1==N?'\\n':' ');\n}"
   dependsOn:
   - base.hpp
@@ -49,7 +49,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/pow_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2020-09-22 00:55:04+09:00'
+  timestamp: '2020-09-22 12:07:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/pow_of_formal_power_series.test.cpp

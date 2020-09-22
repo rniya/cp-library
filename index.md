@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -19,7 +19,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: convolution/FastFourierTransform.hpp
       title: Fast Fourier Transform
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: convolution/NumberTheoreticTransform.hpp
       title: Number Theoretic Transform
   - name: datastructure
@@ -144,7 +144,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: linearalgebra/Matrix.hpp
       title: Matrix
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: linearalgebra/SquareMatrix.hpp
       title: Square Matrix
   - name: math
@@ -175,7 +175,7 @@ data:
       title: "osa_k\u6CD5"
   - name: modulo
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: modulo/modint.hpp
       title: modint
     - icon: ':heavy_check_mark:'
@@ -194,7 +194,7 @@ data:
     - icon: ':warning:'
       path: polynomial/Kitamasa.hpp
       title: Kitamasa
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: polynomial/lagrange_interpolation.hpp
       title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - name: string
@@ -555,10 +555,10 @@ data:
       title: test/yosupo/vertex_add_path_sum.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/1050.test.cpp
       title: test/yukicoder/1050.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/1068.test.cpp
       title: test/yukicoder/1068.test.cpp
     - icon: ':heavy_check_mark:'
@@ -570,7 +570,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/583.test.cpp
       title: test/yukicoder/583.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/665.test.cpp
       title: test/yukicoder/665.test.cpp
     - icon: ':heavy_check_mark:'
