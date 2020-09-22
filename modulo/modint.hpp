@@ -44,14 +44,14 @@ public:
         }
         return res;
     }
+    constexpr modint &operator++() noexcept {if (++v==mod) v=0; return *this;}
+    constexpr modint &operator--() noexcept {if (v==0) v=mod; return --v,*this;}
+    constexpr modint operator++(int) noexcept {modint t=*this; return ++*this,t;}
+    constexpr modint operator--(int) noexcept {modint t=*this; return --*this,t;}
     template<class T> friend constexpr modint operator+(T x,modint y) noexcept {return modint(x)+y;}
     template<class T> friend constexpr modint operator-(T x,modint y) noexcept {return modint(x)-y;}
     template<class T> friend constexpr modint operator*(T x,modint y) noexcept {return modint(x)*y;}
     template<class T> friend constexpr modint operator/(T x,modint y) noexcept {return modint(x)/y;}
-    constexpr modint &operator++() noexcept {return ++v,*this;}
-    constexpr modint &operator--() noexcept {return --v,*this;}
-    constexpr modint operator++(int) noexcept {modint t=*this; return ++v,t;}
-    constexpr modint operator--(int) noexcept {modint t=*this; return --v,t;}
     constexpr bool operator==(const modint &rhs) const noexcept {return v==rhs.v;}
     constexpr bool operator!=(const modint &rhs) const noexcept {return v!=rhs.v;}
     constexpr bool operator!() const noexcept {return !v;}

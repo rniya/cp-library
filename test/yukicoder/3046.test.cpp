@@ -5,7 +5,7 @@
 #include "../../convolution/ArbitaryModConvolution.hpp"
 #include "../../polynomial/FormalPowerSeries.hpp"
 
-using mint=modint<MOD>;
+using mint=modint<1000000007>;
 using FPS=FormalPowerSeries<mint>;
 const int MAX_N=100010;
 
@@ -19,10 +19,10 @@ int main(){
     FPS::set_mul(mul);
 
     int K,N; cin >> K >> N;
-    FPS a(MAX_N,0); a[0]+=1;
+    FPS a(MAX_N,0); ++a[0];
     for (;N--;){
         int x; cin >> x;
-        a[x]-=1;
+        --a[x];
     }
     a=a.inv();
     cout << a[K] << '\n';
