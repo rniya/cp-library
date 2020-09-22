@@ -80,7 +80,7 @@ data:
     \ multiply(vector<int> a,vector<int> b){\n        vector<Mint> A(a.size()),B(b.size());\n\
     \        for (int i=0;i<a.size();++i) A[i]=Mint(a[i]);\n        for (int i=0;i<b.size();++i)\
     \ B[i]=Mint(b[i]);\n        vector<Mint> C=multiply(A,B);\n        vector<int>\
-    \ res(C.size());\n        for (int i=0;i<C.size();++i) res[i]=C[i].a;\n      \
+    \ res(C.size());\n        for (int i=0;i<C.size();++i) res[i]=C[i].v;\n      \
     \  return res;\n    }\n};"
   dependsOn:
   - base.hpp
@@ -89,7 +89,7 @@ data:
   path: convolution/NumberTheoreticTransform.hpp
   requiredBy:
   - convolution/ArbitaryModConvolution.hpp
-  timestamp: '2020-09-22 13:03:14+09:00'
+  timestamp: '2020-09-22 14:07:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/3046.test.cpp
