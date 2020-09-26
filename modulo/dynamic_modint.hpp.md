@@ -56,14 +56,14 @@ data:
     \ dynamic_modint &rhs){return v==rhs.v;}\n    bool operator!=(const dynamic_modint\
     \ &rhs){return v!=rhs.v;}\n    bool operator!(){return !v;}\n    friend istream\
     \ &operator>>(istream &s,dynamic_modint &rhs){\n        i64 v; rhs=dynamic_modint{(s>>v,v)};\
-    \ return s;\n    }\n    friend ostream &operator<<(ostream &s,dynamic_modint &rhs){\n\
-    \        return s<<rhs.v;\n    }\n};"
+    \ return s;\n    }\n    friend ostream &operator<<(ostream &s,const dynamic_modint\
+    \ &rhs){\n        return s<<rhs.v;\n    }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: modulo/dynamic_modint.hpp
   requiredBy: []
-  timestamp: '2020-09-22 13:41:20+09:00'
+  timestamp: '2020-09-27 00:38:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/526.test.cpp

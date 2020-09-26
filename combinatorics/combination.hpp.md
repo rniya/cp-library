@@ -25,7 +25,7 @@ data:
     \ Combination{\n    vector<M> _fac,_inv,_finv;\n    Combination(int n):_fac(n+1),_inv(n+1),_finv(n+1){\n\
     \        _fac[0]=_finv[n]=_inv[0]=1;\n        for (int i=1;i<=n;++i) _fac[i]=_fac[i-1]*i;\n\
     \        _finv[n]/=_fac[n];\n        for (int i=n-1;i>=0;--i) _finv[i]=_finv[i+1]*(i+1);\n\
-    \        for (int i=1;i<=n;++i) _inv[i]=_finv[i]*_finv[i-1];\n    }\n    M fac(int\
+    \        for (int i=1;i<=n;++i) _inv[i]=_finv[i]*_fac[i-1];\n    }\n    M fac(int\
     \ k) const {return _fac[k];}\n    M finv(int k) const {return _finv[k];}\n   \
     \ M inv(int k) const {return _inv[k];}\n    M P(int n,int r) const {\n       \
     \ if (n<0||r<0||n<r) return 0;\n        return _fac[n]*_finv[n-r];\n    }\n  \
@@ -36,7 +36,7 @@ data:
   isVerificationFile: false
   path: combinatorics/combination.hpp
   requiredBy: []
-  timestamp: '2020-09-10 15:03:02+09:00'
+  timestamp: '2020-09-27 00:38:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: combinatorics/combination.hpp
