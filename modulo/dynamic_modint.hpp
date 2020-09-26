@@ -67,7 +67,7 @@ public:
     friend istream &operator>>(istream &s,dynamic_modint &rhs){
         i64 v; rhs=dynamic_modint{(s>>v,v)}; return s;
     }
-    friend ostream &operator<<(ostream &s,dynamic_modint &rhs){
+    friend ostream &operator<<(ostream &s,const dynamic_modint &rhs){
         return s<<rhs.v;
     }
 };
