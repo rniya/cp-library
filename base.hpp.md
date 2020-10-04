@@ -198,8 +198,8 @@ data:
   - icon: ':warning:'
     path: string/Trie.hpp
     title: Trie
-  - icon: ':warning:'
-    path: string/Z_algorithm.hpp
+  - icon: ':heavy_check_mark:'
+    path: string/Z_Algorithm.hpp
     title: Z-Algorithm
   - icon: ':warning:'
     path: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
@@ -554,6 +554,9 @@ data:
     path: test/yosupo/vertex_add_path_sum.test.cpp
     title: test/yosupo/vertex_add_path_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/zalgorithm.test.cpp
+    title: test/yosupo/zalgorithm.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
   - icon: ':heavy_check_mark:'
@@ -703,9 +706,9 @@ data:
   - string/Manacher.hpp
   - string/RollingHash.hpp
   - string/Kunth_Morris_Pratt.hpp
-  - string/Z_algorithm.hpp
   - string/SuffixArray.hpp
   - string/Trie.hpp
+  - string/Z_Algorithm.hpp
   - string/LongestCommonPrefixArray.hpp
   - flow/ProjectSelectionProblem.hpp
   - flow/HopcroftKarp.hpp
@@ -821,6 +824,7 @@ data:
   - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yosupo/suffixarray.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
+  - test/yosupo/zalgorithm.test.cpp
   - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/shortest_path.test.cpp
   - test/yosupo/number_of_substrings.test.cpp

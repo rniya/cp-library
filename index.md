@@ -226,8 +226,8 @@ data:
     - icon: ':warning:'
       path: string/Trie.hpp
       title: Trie
-    - icon: ':warning:'
-      path: string/Z_algorithm.hpp
+    - icon: ':heavy_check_mark:'
+      path: string/Z_Algorithm.hpp
       title: Z-Algorithm
   - name: test/aoj
     pages:
@@ -598,7 +598,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/vertex_add_path_sum.test.cpp
       title: test/yosupo/vertex_add_path_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/zalgorithm.test.cpp
       title: test/yosupo/zalgorithm.test.cpp
   - name: test/yukicoder

@@ -5,9 +5,12 @@ data:
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/zalgorithm.test.cpp
+    title: test/yosupo/zalgorithm.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/string/Z_Algorithm.md
     document_title: Z-Algorithm
@@ -18,7 +21,7 @@ data:
     , line 191, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ string/Z_algorithm.hpp: line 6: #pragma once found in a non-first line\n"
+    \ string/Z_Algorithm.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\n * @brief Z-Algorithm\n * @docs docs/string/Z_Algorithm.md\n */\n\n\
     #pragma once\n\n#include \"../base.hpp\"\n\ntemplate<typename T>\nvector<int>\
     \ Z_Algorithm(const T &s){\n    int n=s.size();\n    vector<int> z(n);\n    z[0]=n;\n\
@@ -27,19 +30,20 @@ data:
     \ z[i+k]=z[k],++k;\n        i+=k; j-=k;\n    }\n    return z;\n}\n\ntemplate<typename\
     \ T>\nvector<int> LCP(const T &s,const T &t){\n    T u(s);\n    u.insert(u.begin(),t.begin(),t.end());\n\
     \    vector<int> z=Z_Algorithm(u);\n    for (int &i:z) i=min(i,(int)t.size());\n\
-    \    return vector<int>(z.begin()+t.size(),z.end());\n}"
+    \    return vector<int>(z.begin()+t.size(),z.end());\n}\n"
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: string/Z_algorithm.hpp
+  path: string/Z_Algorithm.hpp
   requiredBy: []
-  timestamp: '2020-10-04 23:03:50+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: string/Z_algorithm.hpp
+  timestamp: '2020-10-04 23:19:35+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/zalgorithm.test.cpp
+documentation_of: string/Z_Algorithm.hpp
 layout: document
 redirect_from:
-- /library/string/Z_algorithm.hpp
-- /library/string/Z_algorithm.hpp.html
+- /library/string/Z_Algorithm.hpp
+- /library/string/Z_Algorithm.hpp.html
 title: Z-Algorithm
 ---
