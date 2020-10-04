@@ -1,6 +1,6 @@
 /**
  * @brief 分割数テーブル
- * @docs docs/combinatorics/Partitiontable.md
+ * @docs docs/combinatorics/PartitionTable.md
  */
 
 #pragma once
