@@ -8,11 +8,12 @@ int main(){
     ios::sync_with_stdio(false);
     string S,T; cin >> S >> T;
 
-    RollingHash rh1(S),rh2(T);
+    uint64_t base=RollingHash::generate_base();
+    RollingHash RH1(S,base),RH2(T,base);
     int s=S.size(),t=T.size();
 
     for (int i=0;i+t<=s;++i){
-        if (rh1.get(i,i+t)==rh2.get(0,t)){
+        if (RH1.query(i,i+t)==RH2.query(0,t)){
             cout << i << '\n';
         }
     }
