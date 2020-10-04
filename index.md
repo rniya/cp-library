@@ -225,7 +225,7 @@ data:
       title: Trie
     - icon: ':warning:'
       path: string/Z_algorithm.hpp
-      title: Z-Algorithm
+      title: Z Algorithm
   - name: test/aoj
     pages:
     - icon: ':warning:'

@@ -197,7 +197,7 @@ data:
     title: Trie
   - icon: ':warning:'
     path: string/Z_algorithm.hpp
-    title: Z-Algorithm
+    title: Z Algorithm
   - icon: ':warning:'
     path: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
     title: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
