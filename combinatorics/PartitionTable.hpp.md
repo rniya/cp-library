@@ -15,7 +15,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/combinatorics/Partitiontable.md
+    _deprecated_at_docs: docs/combinatorics/PartitionTable.md
     document_title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -26,7 +26,7 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ combinatorics/PartitionTable.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
-  code: "/**\n * @brief \u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB\n * @docs docs/combinatorics/Partitiontable.md\n\
+  code: "/**\n * @brief \u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB\n * @docs docs/combinatorics/PartitionTable.md\n\
     \ */\n\n#pragma once\n\n#include \"../base.hpp\"\n\ntemplate<typename T>\nvector<vector<T>>\
     \ partition_table(int n,int k){\n    vector<vector<T>> dp(n+1,vector<T>(k+1));\n\
     \    dp[0][0]=1;\n    for (int i=0;i<=n;++i){\n        for (int j=1;j<=k;++j){\n\
@@ -37,7 +37,7 @@ data:
   isVerificationFile: false
   path: combinatorics/PartitionTable.hpp
   requiredBy: []
-  timestamp: '2020-10-04 21:46:12+09:00'
+  timestamp: '2020-10-04 22:03:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DPL_5_L.test.cpp
@@ -49,3 +49,14 @@ redirect_from:
 - /library/combinatorics/PartitionTable.hpp.html
 title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
 ---
+## 概要
+分割数$P\left(n,k\right)$は$n$の個の区別できない玉を$k$個の区別できない箱に入れる組合せ数, すなわち整数$n$をちょうど$k$個の非負整数の和で表す場合の数を与える. これは,
+1. 分割が$0$を含むとき, 組合せ数は$P\left(n,k-1\right)$に帰着される.
+2. 分割が$0$を含まないとき, $k$個の整数が全て$0$以上なので, それらから$1$ずつ除けば組合せ数は$P\left(n-k,k\right)$に帰着される.
+
+から,
+$$P\left(n,k\right)=P\left(n,k-1\right)+P\left(n-k,k\right)$$
+によって計算できる.
+
+## 計算量
+$O\left(nk\right)$

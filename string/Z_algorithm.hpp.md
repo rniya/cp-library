@@ -20,27 +20,20 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ string/Z_algorithm.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\n * @brief Z-Algorithm\n * @docs docs/string/Z_algorithm.hpp\n */\n\n\
-    #pragma once\n\n#include \"../base.hpp\"\n\nvector<int> Zalgorithm(const string\
-    \ &s){\n    int n=s.size();\n    vector<int> z(n);\n    z[0]=n;\n    int i=1,j=0;\n\
-    \    while(i<n){\n        while(i+j<n&&s[j]==s[i+j]) ++j;\n        z[i]=j;\n \
-    \       if (j==0){++i; continue;}\n        int k=1;\n        while(i+k<n&&k+z[k]<j)\
-    \ z[i+k]=z[k],++k;\n        i+=k,j-=k;\n    }\n    return z;\n}\n\nvector<int>\
-    \ LCP(const string &s,const string &t){\n    vector<int> Z=Zalgorithm(t+s);\n\
-    \    for (int &i:Z) i=min(i,(int)t.size());\n    return vector<int>(Z.begin()+t.size(),Z.end());\n\
-    }\n\ntemplate<typename T>\nvector<int> Zalgorithm(const T &s){\n    int n=s.size();\n\
-    \    vector<int> z(n);\n    z[0]=n;\n    int i=1,j=0;\n    while(i<n){\n     \
-    \   while(i+j<n&&s[j]==s[i+j]) ++j;\n        z[i]=j;\n        if (j==0){++i; continue;}\n\
-    \        int k=1;\n        while(i+k<n&&k+z[k]<j) z[i+k]=z[k],++k;\n        i+=k,j-=k;\n\
-    \    }\n    return z;\n}\n\ntemplate<typename T>\nvector<int> LCP(const T &s,const\
-    \ T &t){\n    T u(s);\n    u.insert(u.begin(),t.begin(),t.end());\n    vector<int>\
-    \ Z=Zalgorithm(u);\n    for (int &i:Z) i=min(i,(int)t.size());\n    return vector<int>(Z.begin()+t.size(),Z.end());\n\
-    }"
+    #pragma once\n\n#include \"../base.hpp\"\n\ntemplate<typename T>\nvector<int>\
+    \ Z_Algorithm(const T &s){\n    int n=s.size();\n    vector<int> z(n);\n    z[0]=n;\n\
+    \    for (int i=1,j=0;i<n;){\n        while(i+j<n&&s[j]==s[i+j]) ++j;\n      \
+    \  z[i]=j;\n        if (j==0){++i; continue;}\n        int k=1;\n        while(i+k<n&&k+z[k]<j)\
+    \ z[i+k]=z[k],++k;\n        i+=k; j-=k;\n    }\n    return z;\n}\n\ntemplate<typename\
+    \ T>\nvector<int> LCP(const T &s,const T &t){\n    T u(s);\n    u.insert(u.begin(),t.begin(),t.end());\n\
+    \    vector<int> z=Z_Algorithm(u);\n    for (int &i:z) i=min(i,(int)t.size());\n\
+    \    return vector<int>(z.begin()+t.size(),z.end());\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: string/Z_algorithm.hpp
   requiredBy: []
-  timestamp: '2020-09-10 15:23:12+09:00'
+  timestamp: '2020-10-04 22:03:25+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: string/Z_algorithm.hpp
