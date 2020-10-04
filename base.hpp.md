@@ -175,6 +175,9 @@ data:
     path: polynomial/Kitamasa.hpp
     title: Kitamasa
   - icon: ':heavy_check_mark:'
+    path: polynomial/StirlingSecond.hpp
+    title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
+  - icon: ':heavy_check_mark:'
     path: polynomial/lagrange_interpolation.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - icon: ':warning:'
@@ -197,7 +200,7 @@ data:
     title: Trie
   - icon: ':warning:'
     path: string/Z_algorithm.hpp
-    title: Z Algorithm
+    title: Z-Algorithm
   - icon: ':warning:'
     path: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
     title: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
@@ -527,6 +530,9 @@ data:
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
+    title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/suffixarray.test.cpp
     title: test/yosupo/suffixarray.test.cpp
   - icon: ':heavy_check_mark:'
@@ -636,6 +642,7 @@ data:
   - polynomial/lagrange_interpolation.hpp
   - polynomial/FormalPowerSeries.hpp
   - polynomial/Kitamasa.hpp
+  - polynomial/StirlingSecond.hpp
   - tree/HeavyLightDecomposition.hpp
   - tree/EulerTourforVertex.hpp
   - tree/LowestCommonAncestor.hpp
@@ -811,6 +818,7 @@ data:
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/scc.test.cpp
+  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yosupo/suffixarray.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/tree_diameter.test.cpp

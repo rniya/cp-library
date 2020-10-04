@@ -201,6 +201,9 @@ data:
       path: polynomial/Kitamasa.hpp
       title: Kitamasa
     - icon: ':heavy_check_mark:'
+      path: polynomial/StirlingSecond.hpp
+      title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
+    - icon: ':heavy_check_mark:'
       path: polynomial/lagrange_interpolation.hpp
       title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - name: string
@@ -225,7 +228,7 @@ data:
       title: Trie
     - icon: ':warning:'
       path: string/Z_algorithm.hpp
-      title: Z Algorithm
+      title: Z-Algorithm
   - name: test/aoj
     pages:
     - icon: ':warning:'
@@ -571,6 +574,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq.test.cpp
       title: test/yosupo/staticrmq.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
+      title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/suffixarray.test.cpp
       title: test/yosupo/suffixarray.test.cpp

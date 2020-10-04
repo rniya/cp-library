@@ -73,6 +73,9 @@ data:
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
+    title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
   - icon: ':heavy_check_mark:'
@@ -163,6 +166,7 @@ data:
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
 documentation_of: modulo/modint.hpp

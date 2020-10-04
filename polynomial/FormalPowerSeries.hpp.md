@@ -4,7 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: polynomial/StirlingSecond.hpp
+    title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
@@ -18,6 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
+    title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
@@ -101,7 +107,8 @@ data:
   - base.hpp
   isVerificationFile: false
   path: polynomial/FormalPowerSeries.hpp
-  requiredBy: []
+  requiredBy:
+  - polynomial/StirlingSecond.hpp
   timestamp: '2020-09-22 12:07:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -109,6 +116,7 @@ data:
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
 documentation_of: polynomial/FormalPowerSeries.hpp
 layout: document
