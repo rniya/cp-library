@@ -1,5 +1,5 @@
 /**
- * @brief Z-Algorithm
+ * @brief Z Algorithm
  * @docs docs/string/Z_Algorithm.md
  */
 
