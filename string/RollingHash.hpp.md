@@ -27,9 +27,9 @@ data:
     \ string/RollingHash.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\n * @brief Rolling Hash\n * @docs docs/string/RollingHash.md\n */\n\n\
     #pragma once\n\n#include \"../base.hpp\"\n\nclass RollingHash{\n    using u64=uint64_t;\n\
-    \    using u128=__uint128_t;\n    static const uint64_t mod=(1ULL<<61)-1;\n  \
-    \  const u64 base;\n    vector<u64> hash,power;\n    static inline u64 add(u64\
-    \ a,u64 b){\n        if ((a+=b)>=mod) a-=mod;\n        return a;\n    }\n    static\
+    \    using u128=__uint128_t;\n    static const u64 mod=(1ULL<<61)-1;\n    const\
+    \ u64 base;\n    vector<u64> hash,power;\n    static inline u64 add(u64 a,u64\
+    \ b){\n        if ((a+=b)>=mod) a-=mod;\n        return a;\n    }\n    static\
     \ inline u64 mul(u64 a,u64 b){\n        u128 c=(u128)a*b;\n        return add(c>>61,c&mod);\n\
     \    }\npublic:\n    static inline u64 generate_base(){\n        mt19937_64 mt(chrono::steady_clock::now().time_since_epoch().count());\n\
     \        uniform_int_distribution<u64> rand(2,RollingHash::mod-1);\n        return\
@@ -49,7 +49,7 @@ data:
   isVerificationFile: false
   path: string/RollingHash.hpp
   requiredBy: []
-  timestamp: '2020-10-05 01:15:31+09:00'
+  timestamp: '2020-10-05 01:26:18+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_14_B.test.cpp
