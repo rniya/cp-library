@@ -1,5 +1,6 @@
 /**
  * @brief modint
+ * @docs docs/modulo/modint.md
  */
 
 #pragma once
