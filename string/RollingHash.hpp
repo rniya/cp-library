@@ -10,7 +10,7 @@
 class RollingHash{
     using u64=uint64_t;
     using u128=__uint128_t;
-    static const uint64_t mod=(1ULL<<61)-1;
+    static const u64 mod=(1ULL<<61)-1;
     const u64 base;
     vector<u64> hash,power;
     static inline u64 add(u64 a,u64 b){
