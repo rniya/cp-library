@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_14_B.test.cpp
     title: test/aoj/ALDS1_14_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/430.test.cpp
+    title: test/yukicoder/430.test.cpp
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -38,16 +41,19 @@ data:
     \    }\n    int lcp(int a,int b) const {\n        int len=min(hash.size()-a,hash.size()-b);\n\
     \        int lb=0,ub=len;\n        while (ub-lb>1){\n            int mid=(lb+ub)>>1;\n\
     \            (query(a,a+mid)==query(b,b+mid)?lb:ub)=mid;\n        }\n        return\
-    \ lb;\n    }\n};"
+    \ lb;\n    }\n    u64 get(const string &t){\n        u64 res=0;\n        for (int\
+    \ i=0;i<t.size();++i) res=add(mul(res,base),t[i]);\n        return res;\n    }\n\
+    };"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: string/RollingHash.hpp
   requiredBy: []
-  timestamp: '2020-10-05 00:36:46+09:00'
+  timestamp: '2020-10-05 01:15:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_14_B.test.cpp
+  - test/yukicoder/430.test.cpp
 documentation_of: string/RollingHash.hpp
 layout: document
 redirect_from:
@@ -56,7 +62,9 @@ redirect_from:
 title: Rolling Hash
 ---
 ## 概要
-$\mod 2^{61}-1$で基数は$\left[2,2^{61}-1\right)$の乱数によるRolling Hash.
+$\bmod 2^{61}-1$で基数は$\left[2,2^{61}-1\right)$の乱数によるRolling Hash.
+
+[Codeforces Round #542 [Alex Lopashev Thanks-Round] (Div. 1) C. Morse Code](https://codeforces.com/contest/1129/problem/C) $\bmod$の値が小さいとかなりの確率で衝突し, hash値を2つもとうとするとTLEにハマるので, このRolling Hashが有効.
 
 ## 計算量
 
