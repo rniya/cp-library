@@ -25,20 +25,20 @@ int main(){
     vector<long long> ans(Q);
     long long inv=0; int sum=0;
     auto add_left=[&](int idx){
-        inv+=BIT.sum0(A[idx]-1);
-        ++sum; BIT.add0(A[idx],1);
+        inv+=BIT.query(0,A[idx]);
+        ++sum; BIT.add(A[idx],1);
     };
     auto add_right=[&](int idx){
-        inv+=sum-BIT.sum0(A[idx]);
-        ++sum; BIT.add0(A[idx],1);
+        inv+=BIT.query(A[idx]+1,n);
+        ++sum; BIT.add(A[idx],1);
     };
     auto del_left=[&](int idx){
-        inv-=BIT.sum0(A[idx]-1);
-        --sum; BIT.add0(A[idx],-1);
+        inv-=BIT.query(0,A[idx]);
+        --sum; BIT.add(A[idx],-1);
     };
     auto del_right=[&](int idx){
-        inv-=sum-BIT.sum0(A[idx]);
-        --sum; BIT.add0(A[idx],-1);
+        inv-=BIT.query(A[idx]+1,n);
+        --sum; BIT.add(A[idx],-1);
     };
     auto rem=[&](int idx){
         ans[idx]=inv;

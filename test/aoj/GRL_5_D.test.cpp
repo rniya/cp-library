@@ -20,8 +20,8 @@ int main(){
 
     ET.build();
     BinaryIndexedTree<int> BIT(2*n);
-    auto f=[&](int l,int r){return BIT.query0(l,r);};
-    auto g=[&](int k,int w){BIT.add0(k,w);};
+    auto f=[&](int l,int r){return BIT.query(l,r);};
+    auto g=[&](int k,int w){BIT.add(k,w);};
 
     int q; cin >> q;
     for (;q--;){

@@ -8,11 +8,11 @@ int main(){
     ios::sync_with_stdio(false);
     int n,q; cin >> n >> q;
 
-    BinaryIndexedTree<int> BIT(n+1);
+    BinaryIndexedTree<int> BIT(n);
 
     for (;q--;){
         int c,x,y; cin >> c >> x >> y;
-        if (!c) BIT.add(x,y);
-        else cout << BIT.query(x,y+1) << '\n';
+        if (!c) BIT.add(--x,y);
+        else cout << BIT.query(--x,y) << '\n';
     }
 }
