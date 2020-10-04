@@ -9,6 +9,12 @@ data:
   - name: combinatorics
     pages:
     - icon: ':heavy_check_mark:'
+      path: combinatorics/BellNumber.hpp
+      title: "\u30D9\u30EB\u6570"
+    - icon: ':heavy_check_mark:'
+      path: combinatorics/PartitionTable.hpp
+      title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
+    - icon: ':heavy_check_mark:'
       path: combinatorics/combination.hpp
       title: combination
   - name: convolution
@@ -338,6 +344,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_F.test.cpp
       title: test/aoj/DPL_5_F.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DPL_5_G.test.cpp
+      title: test/aoj/DPL_5_G.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DPL_5_I.test.cpp
+      title: test/aoj/DPL_5_I.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DPL_5_J.test.cpp
+      title: test/aoj/DPL_5_J.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DPL_5_L.test.cpp
+      title: test/aoj/DPL_5_L.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_1_A.test.cpp
       title: test/aoj/DSL_1_A.test.cpp

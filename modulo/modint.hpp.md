@@ -34,6 +34,18 @@ data:
     path: test/aoj/DPL_5_F.test.cpp
     title: test/aoj/DPL_5_F.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/DPL_5_G.test.cpp
+    title: test/aoj/DPL_5_G.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DPL_5_I.test.cpp
+    title: test/aoj/DPL_5_I.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DPL_5_J.test.cpp
+    title: test/aoj/DPL_5_J.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DPL_5_L.test.cpp
+    title: test/aoj/DPL_5_L.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
   - icon: ':heavy_check_mark:'
@@ -132,9 +144,13 @@ data:
   verifiedWith:
   - test/aoj/DPL_5_C.test.cpp
   - test/aoj/DPL_5_D.test.cpp
+  - test/aoj/DPL_5_I.test.cpp
+  - test/aoj/DPL_5_L.test.cpp
   - test/aoj/DPL_5_E.test.cpp
   - test/aoj/DPL_5_B.test.cpp
+  - test/aoj/DPL_5_J.test.cpp
   - test/aoj/DPL_5_A.test.cpp
+  - test/aoj/DPL_5_G.test.cpp
   - test/aoj/DPL_5_F.test.cpp
   - test/yukicoder/3046.test.cpp
   - test/yukicoder/1068.test.cpp

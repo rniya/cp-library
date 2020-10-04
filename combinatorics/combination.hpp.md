@@ -21,6 +21,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_F.test.cpp
     title: test/aoj/DPL_5_F.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DPL_5_G.test.cpp
+    title: test/aoj/DPL_5_G.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DPL_5_I.test.cpp
+    title: test/aoj/DPL_5_I.test.cpp
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -55,8 +61,10 @@ data:
   verifiedWith:
   - test/aoj/DPL_5_C.test.cpp
   - test/aoj/DPL_5_D.test.cpp
+  - test/aoj/DPL_5_I.test.cpp
   - test/aoj/DPL_5_E.test.cpp
   - test/aoj/DPL_5_B.test.cpp
+  - test/aoj/DPL_5_G.test.cpp
   - test/aoj/DPL_5_F.test.cpp
 documentation_of: combinatorics/combination.hpp
 layout: document
