@@ -95,6 +95,7 @@
 "test/yosupo/two_sat.test.cpp": "2020-09-12 21:38:24 +0900",
 "test/yosupo/unionfind.test.cpp": "2020-09-12 20:51:23 +0900",
 "test/yosupo/vertex_add_path_sum.test.cpp": "2020-09-12 20:51:23 +0900",
+"test/yosupo/zalgorithm.test.cpp": "2020-10-04 23:19:35 +0900",
 "test/yukicoder/1050.test.cpp": "2020-09-22 13:03:14 +0900",
 "test/yukicoder/1068.test.cpp": "2020-09-22 14:07:12 +0900",
 "test/yukicoder/206.test.cpp": "2020-09-13 02:46:40 +0900",
