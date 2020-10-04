@@ -87,6 +87,7 @@
 "test/yosupo/static_range_inversions_query.test.cpp": "2020-10-04 19:20:27 +0900",
 "test/yosupo/static_range_sum.test.cpp": "2020-09-12 20:51:23 +0900",
 "test/yosupo/staticrmq.test.cpp": "2020-09-12 20:51:23 +0900",
+"test/yosupo/stirling_number_of_the_second_kind.test.cpp": "2020-10-04 23:03:50 +0900",
 "test/yosupo/suffixarray.test.cpp": "2020-09-13 14:01:02 +0900",
 "test/yosupo/sum_of_floor_of_linear.test.cpp": "2020-09-12 20:51:23 +0900",
 "test/yosupo/tree_diameter.test.cpp": "2020-09-12 20:51:23 +0900",
