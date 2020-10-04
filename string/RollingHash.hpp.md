@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -23,28 +23,28 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ string/RollingHash.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\n * @brief Rolling Hash\n * @docs docs/string/RollingHash.md\n */\n\n\
-    #pragma once\n\n#include \"../base.hpp\"\n\nstruct RollingHash{\n    static const\
-    \ int B1=1007,B2=2009;\n    static const int mod1=1000000007,mod2=1000000009;\n\
-    \    vector<long long> hash1,hash2,po1,po2;\n    RollingHash(const vector<long\
-    \ long> &vs){init(vs);}\n    RollingHash(const string &S){\n        vector<long\
-    \ long> vs;\n        for (char c:S) vs.emplace_back(c);\n        init(vs);\n \
-    \   }\n    void init(vector<long long> vs){\n        int n=vs.size();\n      \
-    \  hash1.assign(n+1,0);\n        hash2.assign(n+1,0);\n        po1.assign(n+1,1);\n\
-    \        po2.assign(n+1,1);\n        for (int i=0;i<n;++i){\n            hash1[i+1]=(hash1[i]*B1+vs[i])%mod1;\n\
-    \            hash2[i+1]=(hash2[i]*B2+vs[i])%mod2;\n            po1[i+1]=po1[i]*B1%mod1;\n\
-    \            po2[i+1]=po2[i]*B2%mod2;\n        }\n    }\n    inline pair<long\
-    \ long,long long> get(int l,int r) const {\n        long long res1=hash1[r]+mod1-hash1[l]*po1[r-l]%mod1\n\
-    \                ,res2=hash2[r]+mod2-hash2[l]*po2[r-l]%mod2;\n        return {res1>=mod1?res1-mod1:res1,res2>=mod2?res2-mod2:res2};\n\
-    \    }\n    inline int lcp(int a,int b) const {\n        int len=min((int)hash1.size()-a,(int)hash1.size()-b);\n\
-    \        int lb=0,ub=len;\n        while(ub-lb>1){\n            int mid=(lb+ub)>>1;\n\
-    \            (get(a,a+mid)==get(b,b+mid)?lb:ub)=mid;\n        }\n        return\
+    #pragma once\n\n#include \"../base.hpp\"\n\nclass RollingHash{\n    using u64=uint64_t;\n\
+    \    using u128=__uint128_t;\n    static const uint64_t mod=(1ULL<<61)-1;\n  \
+    \  const u64 base;\n    vector<u64> hash,power;\n    static inline u64 add(u64\
+    \ a,u64 b){\n        if ((a+=b)>=mod) a-=mod;\n        return a;\n    }\n    static\
+    \ inline u64 mul(u64 a,u64 b){\n        u128 c=(u128)a*b;\n        return add(c>>61,c&mod);\n\
+    \    }\npublic:\n    static inline u64 generate_base(){\n        mt19937_64 mt(chrono::steady_clock::now().time_since_epoch().count());\n\
+    \        uniform_int_distribution<u64> rand(2,RollingHash::mod-1);\n        return\
+    \ rand(mt);\n    }\n    template<typename T>\n    RollingHash(const T &s,u64 base):base(base){\n\
+    \        int n=s.size();\n        hash.assign(n+1,0);\n        power.assign(n+1,0);\n\
+    \        power[0]=1;\n        for (int i=0;i<n;++i){\n            hash[i+1]=add(mul(hash[i],base),s[i]);\n\
+    \            power[i+1]=mul(power[i],base);\n        }\n    }\n    u64 query(int\
+    \ l,int r) const {\n        return add(hash[r],mod-mul(hash[l],power[r-l]));\n\
+    \    }\n    int lcp(int a,int b) const {\n        int len=min(hash.size()-a,hash.size()-b);\n\
+    \        int lb=0,ub=len;\n        while (ub-lb>1){\n            int mid=(lb+ub)>>1;\n\
+    \            (query(a,a+mid)==query(b,b+mid)?lb:ub)=mid;\n        }\n        return\
     \ lb;\n    }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: string/RollingHash.hpp
   requiredBy: []
-  timestamp: '2020-09-11 16:00:32+09:00'
+  timestamp: '2020-10-05 00:36:46+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_14_B.test.cpp
@@ -56,5 +56,9 @@ redirect_from:
 title: Rolling Hash
 ---
 ## 概要
+$\mod 2^{61}-1$で基数は$\left[2,2^{61}-1\right)$の乱数によるRolling Hash.
 
 ## 計算量
+
+## 参照
+[安全で爆速なRollingHashの話](https://qiita.com/keymoon/items/11fac5627672a6d6a9f6)

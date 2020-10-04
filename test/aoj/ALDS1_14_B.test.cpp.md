@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -28,16 +28,17 @@ data:
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../string/RollingHash.hpp\"\n\n\
     int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S,T;\
-    \ cin >> S >> T;\n\n    RollingHash rh1(S),rh2(T);\n    int s=S.size(),t=T.size();\n\
-    \n    for (int i=0;i+t<=s;++i){\n        if (rh1.get(i,i+t)==rh2.get(0,t)){\n\
-    \            cout << i << '\\n';\n        }\n    }\n}"
+    \ cin >> S >> T;\n\n    uint64_t base=RollingHash::generate_base();\n    RollingHash\
+    \ RH1(S,base),RH2(T,base);\n    int s=S.size(),t=T.size();\n\n    for (int i=0;i+t<=s;++i){\n\
+    \        if (RH1.query(i,i+t)==RH2.query(0,t)){\n            cout << i << '\\\
+    n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
   - string/RollingHash.hpp
   isVerificationFile: true
   path: test/aoj/ALDS1_14_B.test.cpp
   requiredBy: []
-  timestamp: '2020-09-13 14:01:02+09:00'
+  timestamp: '2020-10-05 00:36:46+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1_14_B.test.cpp

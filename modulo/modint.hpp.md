@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':warning:'
@@ -66,29 +66,29 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1068.test.cpp
     title: test/yukicoder/1068.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/modulo/modint.md
     document_title: modint
@@ -144,7 +144,7 @@ data:
   - convolution/NumberTheoreticTransform.hpp
   - convolution/ArbitaryModConvolution.hpp
   timestamp: '2020-10-04 23:28:24+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DPL_5_C.test.cpp
   - test/aoj/DPL_5_D.test.cpp

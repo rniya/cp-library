@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
   _extendedRequiredBy: []
