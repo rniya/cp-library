@@ -6,11 +6,11 @@ data:
     title: base.hpp
   _extendedRequiredBy:
   - icon: ':warning:'
-    path: test/atcoder/dp_z.cpp
-    title: test/atcoder/dp_z.cpp
-  - icon: ':warning:'
     path: test/atcoder/colopl2018_final_c.cpp
     title: test/atcoder/colopl2018_final_c.cpp
+  - icon: ':warning:'
+    path: test/atcoder/dp_z.cpp
+    title: test/atcoder/dp_z.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
@@ -18,12 +18,11 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/datastructure/ConvexHullTrick.md
     document_title: Convex Hull Trick
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 70, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir).decode()\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 191, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\

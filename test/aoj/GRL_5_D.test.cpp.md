@@ -20,7 +20,7 @@ data:
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_D
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 70, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir).decode()\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 191, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 399, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
@@ -36,8 +36,8 @@ data:
     \ ET(n);\n    for (int i=0;i<n;++i){\n        int k; cin >> k;\n        for (;k--;){\n\
     \            int c; cin >> c;\n            ET.add_edge(i,c);\n        }\n    }\n\
     \n    ET.build();\n    BinaryIndexedTree<int> BIT(2*n);\n    auto f=[&](int l,int\
-    \ r){return BIT.query0(l,r);};\n    auto g=[&](int k,int w){BIT.add0(k,w);};\n\
-    \n    int q; cin >> q;\n    for (;q--;){\n        int t; cin >> t;\n        if\
+    \ r){return BIT.query(l,r);};\n    auto g=[&](int k,int w){BIT.add(k,w);};\n\n\
+    \    int q; cin >> q;\n    for (;q--;){\n        int t; cin >> t;\n        if\
     \ (!t){\n            int v,w; cin >> v >> w;\n            ET.update(v,w,g);\n\
     \        } else {\n            int u; cin >> u;\n            cout << ET.query<int>(u,f)\
     \ << '\\n';\n        }\n    }\n}"
@@ -48,7 +48,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_D.test.cpp
   requiredBy: []
-  timestamp: '2020-09-10 12:32:51+09:00'
+  timestamp: '2020-10-04 19:20:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_D.test.cpp

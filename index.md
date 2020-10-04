@@ -8,7 +8,7 @@ data:
       title: base.hpp
   - name: combinatorics
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: combinatorics/combination.hpp
       title: combination
   - name: convolution
@@ -320,6 +320,24 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_14_D.test.cpp
       title: test/aoj/ALDS1_14_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DPL_5_A.test.cpp
+      title: test/aoj/DPL_5_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DPL_5_B.test.cpp
+      title: test/aoj/DPL_5_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DPL_5_C.test.cpp
+      title: test/aoj/DPL_5_C.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DPL_5_D.test.cpp
+      title: test/aoj/DPL_5_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DPL_5_E.test.cpp
+      title: test/aoj/DPL_5_E.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DPL_5_F.test.cpp
+      title: test/aoj/DPL_5_F.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_1_A.test.cpp
       title: test/aoj/DSL_1_A.test.cpp

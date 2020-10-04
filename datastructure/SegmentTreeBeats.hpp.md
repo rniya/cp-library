@@ -7,41 +7,40 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
-    title: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-    title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
-    title: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-    title: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
+    title: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
+    title: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
+    title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
+    title: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
     title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/datastructure/LazySegmentTree.md
     document_title: Segment Tree Beats
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 70, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir).decode()\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 191, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
