@@ -50,4 +50,9 @@ public:
         }
         return lb;
     }
+    u64 get(const string &t){
+        u64 res=0;
+        for (int i=0;i<t.size();++i) res=add(mul(res,base),t[i]);
+        return res;
+    }
 };
