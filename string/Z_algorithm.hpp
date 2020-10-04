@@ -1,6 +1,6 @@
 /**
  * @brief Z-Algorithm
- * @docs docs/string/Z_algorithm.hpp
+ * @docs docs/string/Z_Algorithm.md
  */
 
 #pragma once
