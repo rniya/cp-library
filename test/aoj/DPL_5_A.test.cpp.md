@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -24,7 +24,7 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ modulo/modint.hpp: line 5: #pragma once found in a non-first line\n"
+    \ modulo/modint.hpp: line 6: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n\nusing\
     \ mint=modint<1000000007>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
@@ -35,7 +35,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_A.test.cpp
   requiredBy: []
-  timestamp: '2020-10-04 19:20:27+09:00'
+  timestamp: '2020-10-04 23:28:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_A.test.cpp

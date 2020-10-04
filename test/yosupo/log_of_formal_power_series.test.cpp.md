@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   _extendedRequiredBy: []
@@ -30,7 +30,7 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ modulo/modint.hpp: line 5: #pragma once found in a non-first line\n"
+    \ modulo/modint.hpp: line 6: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include\
     \ \"../../convolution/NumberTheoreticTransform.hpp\"\n#include \"../../polynomial/FormalPowerSeries.hpp\"\
@@ -49,7 +49,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/log_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2020-09-22 14:07:12+09:00'
+  timestamp: '2020-10-04 23:28:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/log_of_formal_power_series.test.cpp

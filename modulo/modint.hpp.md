@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':warning:'
@@ -66,30 +66,31 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1068.test.cpp
     title: test/yukicoder/1068.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
+    _deprecated_at_docs: docs/modulo/modint.md
     document_title: modint
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -98,18 +99,18 @@ data:
     , line 191, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ modulo/modint.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "/**\n * @brief modint\n */\n\n#pragma once\n\n#include \"../base.hpp\"\n\n\
-    template<uint32_t mod> class modint{\n    using i64=int64_t;\n    using u32=uint32_t;\n\
-    \    using u64=uint64_t;\npublic:\n    u32 v;\n    constexpr modint(const i64\
-    \ x=0) noexcept :v(x<0?mod-1-(-(x+1)%mod):x%mod){}\n    constexpr u32 &value()\
-    \ noexcept {return v;}\n    constexpr const u32 &value() const noexcept {return\
-    \ v;}\n    constexpr modint operator+(const modint &rhs) const noexcept {return\
-    \ modint(*this)+=rhs;}\n    constexpr modint operator-(const modint &rhs) const\
-    \ noexcept {return modint(*this)-=rhs;}\n    constexpr modint operator*(const\
-    \ modint &rhs) const noexcept {return modint(*this)*=rhs;}\n    constexpr modint\
-    \ operator/(const modint &rhs) const noexcept {return modint(*this)/=rhs;}\n \
-    \   constexpr modint &operator+=(const modint &rhs) noexcept {\n        v+=rhs.v;\n\
+    \ modulo/modint.hpp: line 6: #pragma once found in a non-first line\n"
+  code: "/**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\n\n#pragma once\n\
+    \n#include \"../base.hpp\"\n\ntemplate<uint32_t mod> class modint{\n    using\
+    \ i64=int64_t;\n    using u32=uint32_t;\n    using u64=uint64_t;\npublic:\n  \
+    \  u32 v;\n    constexpr modint(const i64 x=0) noexcept :v(x<0?mod-1-(-(x+1)%mod):x%mod){}\n\
+    \    constexpr u32 &value() noexcept {return v;}\n    constexpr const u32 &value()\
+    \ const noexcept {return v;}\n    constexpr modint operator+(const modint &rhs)\
+    \ const noexcept {return modint(*this)+=rhs;}\n    constexpr modint operator-(const\
+    \ modint &rhs) const noexcept {return modint(*this)-=rhs;}\n    constexpr modint\
+    \ operator*(const modint &rhs) const noexcept {return modint(*this)*=rhs;}\n \
+    \   constexpr modint operator/(const modint &rhs) const noexcept {return modint(*this)/=rhs;}\n\
+    \    constexpr modint &operator+=(const modint &rhs) noexcept {\n        v+=rhs.v;\n\
     \        if (v>=mod) v-=mod;\n        return *this;\n    }\n    constexpr modint\
     \ &operator-=(const modint &rhs) noexcept {\n        if (v<rhs.v) v+=mod;\n  \
     \      v-=rhs.v;\n        return *this;\n    }\n    constexpr modint &operator*=(const\
@@ -142,8 +143,8 @@ data:
   - test/atcoder/tdpc_fibonacci.cpp
   - convolution/NumberTheoreticTransform.hpp
   - convolution/ArbitaryModConvolution.hpp
-  timestamp: '2020-09-22 13:03:14+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2020-10-04 23:28:24+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DPL_5_C.test.cpp
   - test/aoj/DPL_5_D.test.cpp
@@ -176,3 +177,11 @@ redirect_from:
 - /library/modulo/modint.hpp.html
 title: modint
 ---
+## 概要
+- 各種演算子(`operator++, operator--, operator==, `等)に対応
+- `std::cin, std::cout`への対応
+- 負数に対応したコンストラクタ
+- 内部を32bit符号なし整数で保存
+
+## 参照
+[modint 構造体を使ってみませんか？ (C++)](https://noshi91.hatenablog.com/entry/2019/03/31/174006)

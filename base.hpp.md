@@ -11,13 +11,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: combinatorics/combination.hpp
     title: combination
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':heavy_check_mark:'
     path: convolution/FastFourierTransform.hpp
     title: Fast Fourier Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
@@ -35,7 +35,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/DualSegmentTree.hpp
     title: Dual Segment Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: datastructure/LazySegmentTree.hpp
     title: Lazy Segment Tree
   - icon: ':warning:'
@@ -50,7 +50,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/Slide_Min.hpp
     title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
   - icon: ':heavy_check_mark:'
@@ -132,7 +132,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: linearalgebra/Matrix.hpp
     title: Matrix
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: linearalgebra/SquareMatrix.hpp
     title: Square Matrix
   - icon: ':warning:'
@@ -162,22 +162,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: modulo/dynamic_modint.hpp
     title: "\u5B9F\u884C\u6642 modint"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   - icon: ':heavy_check_mark:'
     path: other/Mo.hpp
     title: Mo's Algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   - icon: ':warning:'
     path: polynomial/Kitamasa.hpp
     title: Kitamasa
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: polynomial/StirlingSecond.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: polynomial/lagrange_interpolation.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - icon: ':warning:'
@@ -502,10 +502,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -529,7 +529,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -556,16 +556,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/zalgorithm.test.cpp
     title: test/yosupo/zalgorithm.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1068.test.cpp
     title: test/yukicoder/1068.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/206.test.cpp
     title: test/yukicoder/206.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
   - icon: ':heavy_check_mark:'
@@ -574,14 +574,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/583.test.cpp
     title: test/yukicoder/583.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n\n#include <bits/stdc++.h>\nusing namespace\
@@ -731,7 +731,7 @@ data:
   - graph/BellmanFord.hpp
   - graph/BipartiteGraph.hpp
   timestamp: '2020-09-09 23:15:02+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_I.test.cpp
