@@ -16,7 +16,7 @@ class BinaryIndexedTree{
     }
 public:
     int n;
-    vector<int> dat;
+    vector<T> dat;
     BinaryIndexedTree(int n):n(n+1),dat(n+1,0){}
     void add(int i,const T &x){
         for (++i;i<=n;i+=(i&-i)) dat[i]+=x;
@@ -34,4 +34,5 @@ public:
         return pos;
     }
     int upper_bound(T x) const {return lower_bound(x+1);}
+    T operator[](int i){return query(i,i+1);}
 };
