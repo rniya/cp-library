@@ -208,6 +208,9 @@ data:
       title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - name: string
     pages:
+    - icon: ':heavy_check_mark:'
+      path: string/AhoCorasick.hpp
+      title: Aho Corasick
     - icon: ':warning:'
       path: string/Kunth_Morris_Pratt.hpp
       title: "Knuth Moriss Pratt (KMP\u6CD5)"
@@ -223,7 +226,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/SuffixArray.hpp
       title: Suffix Array
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: string/Trie.hpp
       title: Trie
     - icon: ':heavy_check_mark:'
@@ -610,11 +613,17 @@ data:
       path: test/yukicoder/1068.test.cpp
       title: test/yukicoder/1068.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1269.test.cpp
+      title: test/yukicoder/1269.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/206.test.cpp
       title: test/yukicoder/206.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/3046.test.cpp
       title: test/yukicoder/3046.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/430.AhoCorasick.test.cpp
+      title: test/yukicoder/430.AhoCorasick.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/430.test.cpp
       title: test/yukicoder/430.test.cpp
