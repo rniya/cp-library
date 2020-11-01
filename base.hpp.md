@@ -59,6 +59,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/UnionFind.hpp
     title: UnionFind
+  - icon: ':warning:'
+    path: datastructure/UnionFindUndo.hpp
+    title: "UnionFind (Undo\u53EF\u80FD)"
   - icon: ':heavy_check_mark:'
     path: datastructure/WeightedUnionFind.hpp
     title: Weighted UnionFind
@@ -246,6 +249,9 @@ data:
   - icon: ':warning:'
     path: test/codeforces/1404_E.cpp
     title: test/codeforces/1404_E.cpp
+  - icon: ':warning:'
+    path: test/codeforces/1444_C.cpp
+    title: test/codeforces/1444_C.cpp
   - icon: ':heavy_check_mark:'
     path: tree/CentroidDecomposition.hpp
     title: Centroid Decomposition
@@ -677,6 +683,7 @@ data:
   - test/atcoder/arc039_d.cpp
   - test/atcoder/tenka1_2016_final_c.cpp
   - test/atcoder/ukuku09_d.cpp
+  - test/codeforces/1444_C.cpp
   - test/codeforces/1404_E.cpp
   - test/codeforces/1179_C.cpp
   - test/codeforces/1361_C.cpp
@@ -694,6 +701,7 @@ data:
   - combinatorics/PartitionTable.hpp
   - combinatorics/combination.hpp
   - datastructure/SegmentTree.hpp
+  - datastructure/UnionFindUndo.hpp
   - datastructure/Slide_Min.hpp
   - datastructure/UnionFind.hpp
   - datastructure/CumulativeSum2D.hpp

@@ -69,6 +69,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/UnionFind.hpp
       title: UnionFind
+    - icon: ':warning:'
+      path: datastructure/UnionFindUndo.hpp
+      title: "UnionFind (Undo\u53EF\u80FD)"
     - icon: ':heavy_check_mark:'
       path: datastructure/WeightedUnionFind.hpp
       title: Weighted UnionFind
@@ -280,6 +283,9 @@ data:
     - icon: ':warning:'
       path: test/codeforces/1404_E.cpp
       title: test/codeforces/1404_E.cpp
+    - icon: ':warning:'
+      path: test/codeforces/1444_C.cpp
+      title: test/codeforces/1444_C.cpp
   - name: tree
     pages:
     - icon: ':heavy_check_mark:'
