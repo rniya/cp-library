@@ -69,7 +69,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/UnionFind.hpp
       title: UnionFind
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/UnionFindUndo.hpp
       title: "UnionFind (Undo\u53EF\u80FD)"
     - icon: ':heavy_check_mark:'
@@ -547,6 +547,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/number_of_substrings.test.cpp
       title: test/yosupo/number_of_substrings.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
+      title: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum.test.cpp
       title: test/yosupo/point_add_range_sum.test.cpp

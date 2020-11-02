@@ -59,7 +59,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/UnionFind.hpp
     title: UnionFind
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/UnionFindUndo.hpp
     title: "UnionFind (Undo\u53EF\u80FD)"
   - icon: ':heavy_check_mark:'
@@ -503,6 +503,9 @@ data:
     path: test/yosupo/number_of_substrings.test.cpp
     title: test/yosupo/number_of_substrings.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
+    title: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum.test.cpp
     title: test/yosupo/point_add_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -836,6 +839,7 @@ data:
   - test/yosupo/point_add_range_sum.test.cpp
   - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/number_of_substrings.test.cpp
   - test/yosupo/tree_diameter.test.cpp
