@@ -11,13 +11,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: combinatorics/combination.hpp
     title: combination
-  - icon: ':x:'
+  - icon: ':question:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: convolution/FastFourierTransform.hpp
     title: Fast Fourier Transform
-  - icon: ':x:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':question:'
@@ -59,7 +59,7 @@ data:
   - icon: ':question:'
     path: datastructure/UnionFind.hpp
     title: UnionFind
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/UnionFindUndo.hpp
     title: "UnionFind (Undo\u53EF\u80FD)"
   - icon: ':heavy_check_mark:'
@@ -171,7 +171,7 @@ data:
   - icon: ':x:'
     path: other/Mo.hpp
     title: Mo's Algorithm
-  - icon: ':x:'
+  - icon: ':question:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   - icon: ':warning:'
@@ -189,7 +189,7 @@ data:
   - icon: ':warning:'
     path: string/Kunth_Morris_Pratt.hpp
     title: "Knuth Moriss Pratt (KMP\u6CD5)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: string/LongestCommonPrefixArray.hpp
     title: Longest Common Prefix Array
   - icon: ':warning:'
@@ -252,7 +252,7 @@ data:
   - icon: ':warning:'
     path: test/codeforces/1444_C.cpp
     title: test/codeforces/1444_C.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/CentroidDecomposition.hpp
     title: Centroid Decomposition
   - icon: ':heavy_check_mark:'
@@ -264,7 +264,7 @@ data:
   - icon: ':question:'
     path: tree/HeavyLightDecomposition.hpp
     title: Heavy Light Decomposition
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/LowestCommonAncestor.hpp
     title: Lowest Common Ancestor
   - icon: ':question:'
@@ -478,40 +478,40 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/associative_array.test.cpp
     title: test/yosupo/associative_array.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/frequency_table_of_tree_distance.test.cpp
     title: test/yosupo/frequency_table_of_tree_distance.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca.test.cpp
     title: test/yosupo/lca.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/number_of_substrings.test.cpp
     title: test/yosupo/number_of_substrings.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
     title: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum.test.cpp
     title: test/yosupo/point_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':x:'

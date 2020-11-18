@@ -9,11 +9,11 @@ data:
     path: test/codeforces/1444_C.cpp
     title: test/codeforces/1444_C.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
     title: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/datastructure/UnionFindUndo.md
     document_title: "UnionFind (Undo\u53EF\u80FD)"
@@ -45,7 +45,7 @@ data:
   requiredBy:
   - test/codeforces/1444_C.cpp
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
 documentation_of: datastructure/UnionFindUndo.hpp
@@ -56,5 +56,17 @@ redirect_from:
 title: "UnionFind (Undo\u53EF\u80FD)"
 ---
 ## 概要
+経路圧縮せずにマージテクにより集合を管理する過程を保持することでrollbackを可能にしたUnionFind.
+- `root(x)`：$x$の集合の根を返す.
+- `merge(x,y)`：$x$と$y$の属する集合をマージする.
+- `undo()`：直前のマージを巻き戻す.
+- `snapshot()`：それまでのマージ過程を保存する.
+- `rollback()`：直前に`snapshot()`された時間まで状態をrollbackする.
+- `same(x,y)`：現時点で$x$と$y$が同じ集合にいるかどうか判定する.
+- `size(x)`：$x$の属する集合の大きさを返す.
 
 ## 計算量
+クエリあたり$O(\log n)$
+
+## 参照
+[Mo's algorithm とその上位互換の話](https://snuke.hatenablog.com/entry/2016/07/01/000000)
