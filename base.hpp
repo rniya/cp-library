@@ -2,12 +2,15 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+const long long MOD=1000000007;
+// const long long MOD=998244353;
 #define LOCAL
 #pragma region Macros
 typedef long long ll;
+typedef __int128_t i128;
+typedef unsigned int uint;
+typedef unsigned long long ull;
 #define ALL(x) (x).begin(),(x).end()
-const long long MOD=1000000007;
-// const long long MOD=998244353;
 const int INF=1e9;
 const long long IINF=1e18;
 const int dx[4]={1,0,-1,0},dy[4]={0,1,0,-1};
@@ -30,13 +33,32 @@ ostream &operator<<(ostream &os,const pair<T,U> &p){
     os << '(' << p.first << ',' << p.second << ')';
     return os;
 }
+template<typename T,typename U,typename V>
+ostream&operator<<(ostream &os,const tuple<T,U,V> &t){
+    os << '(' << get<0>(t) << ',' << get<1>(t) << ',' << get<2>(t) << ')';
+    return os;
+}
+template<typename T,typename U,typename V,typename W>
+ostream&operator<<(ostream &os,const tuple<T,U,V,W> &t){
+    os << '(' << get<0>(t) << ',' << get<1>(t) << ',' << get<2>(t) << ',' << get<3>(t) << ')';
+    return os;
+}
 template<typename T,typename U>
 ostream &operator<<(ostream &os,const map<T,U> &m){
     os << '{';
-    for (auto itr=m.begin();itr!=m.end();++itr){
+    for (auto itr=m.begin();itr!=m.end();){
         os << '(' << itr->first << ',' << itr->second << ')';
         if (++itr!=m.end()) os << ',';
-        --itr;
+    }
+    os << '}';
+    return os;
+}
+template<typename T,typename U>
+ostream &operator<<(ostream &os,const unordered_map<T,U> &m){
+    os << '{';
+    for (auto itr=m.begin();itr!=m.end();){
+        os << '(' << itr->first << ',' << itr->second << ')';
+        if (++itr!=m.end()) os << ',';
     }
     os << '}';
     return os;
@@ -44,12 +66,38 @@ ostream &operator<<(ostream &os,const map<T,U> &m){
 template<typename T>
 ostream &operator<<(ostream &os,const set<T> &s){
     os << '{';
-    for (auto itr=s.begin();itr!=s.end();++itr){
+    for (auto itr=s.begin();itr!=s.end();){
         os << *itr;
         if (++itr!=s.end()) os << ',';
-        --itr;
     }
     os << '}';
+    return os;
+}
+template<typename T>
+ostream &operator<<(ostream &os,const multiset<T> &s){
+    os << '{';
+    for (auto itr=s.begin();itr!=s.end();){
+        os << *itr;
+        if (++itr!=s.end()) os << ',';
+    }
+    os << '}';
+    return os;
+}
+template<typename T>
+ostream &operator<<(ostream &os,const unordered_set<T> &s){
+    os << '{';
+    for (auto itr=s.begin();itr!=s.end();){
+        os << *itr;
+        if (++itr!=s.end()) os << ',';
+    }
+    os << '}';
+    return os;
+}
+template<typename T>
+ostream &operator<<(ostream &os,const deque<T> &v){
+    for (int i=0;i<v.size();++i){
+        os << v[i] << (i+1==v.size()?"": " ");
+    }
     return os;
 }
 
