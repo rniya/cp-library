@@ -92,7 +92,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/BellmanFord.hpp
     title: Bellman Ford
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/BipartiteGraph.hpp
     title: "2\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
@@ -283,7 +283,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2871.test.cpp
     title: test/aoj/2871.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/2885.test.cpp
     title: test/aoj/2885.test.cpp
   - icon: ':heavy_check_mark:'
@@ -608,7 +608,7 @@ data:
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n\n#include <bits/stdc++.h>\nusing namespace\
@@ -796,7 +796,7 @@ data:
   - linearalgebra/SquareMatrix.hpp
   - geometry/geometry.hpp
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/665.test.cpp
   - test/yukicoder/1050.test.cpp

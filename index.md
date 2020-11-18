@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -108,7 +108,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/BellmanFord.hpp
       title: Bellman Ford
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/BipartiteGraph.hpp
       title: "2\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
     - icon: ':heavy_check_mark:'
@@ -321,7 +321,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/2871.test.cpp
       title: test/aoj/2871.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/2885.test.cpp
       title: test/aoj/2885.test.cpp
     - icon: ':heavy_check_mark:'

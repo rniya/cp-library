@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/2885.test.cpp
     title: test/aoj/2885.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/BipartiteGraph.md
     document_title: "2\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
@@ -39,7 +39,7 @@ data:
   path: graph/BipartiteGraph.hpp
   requiredBy: []
   timestamp: '2020-11-18 22:21:32+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2885.test.cpp
 documentation_of: graph/BipartiteGraph.hpp
