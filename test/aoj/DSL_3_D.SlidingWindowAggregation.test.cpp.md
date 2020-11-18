@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -10,8 +10,10 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.0/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -35,16 +37,16 @@ data:
   dependsOn:
   - base.hpp
   - datastructure/SlidingWindowAggregation.hpp
-  isVerificationFile: false
-  path: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
+  isVerificationFile: true
+  path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2020-11-18 22:21:32+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
+documentation_of: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
 layout: document
 redirect_from:
-- /library/test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
-- /library/test/aoj/DSL_3_D.SlidingWindowAggregation.cpp.html
-title: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
+- /verify/test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
+- /verify/test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp.html
+title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
 ---

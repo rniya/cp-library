@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
-    title: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
+    title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
@@ -43,11 +43,11 @@ data:
   - base.hpp
   isVerificationFile: false
   path: datastructure/SlidingWindowAggregation.hpp
-  requiredBy:
-  - test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
+  requiredBy: []
   timestamp: '2020-11-18 12:14:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
 documentation_of: datastructure/SlidingWindowAggregation.hpp
 layout: document

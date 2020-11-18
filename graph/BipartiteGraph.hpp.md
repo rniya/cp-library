@@ -1,13 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/2885.test.cpp
+    title: test/aoj/2885.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/graph/BipartiteGraph.md
     document_title: "2\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
@@ -28,15 +31,17 @@ data:
     \ return false;\n            if (color[u]<0&&!dfs(u,c^1,r)) return false;\n  \
     \      }\n        return true;\n    }\n    bool build(){\n        for (int v=0;v<G.size();++v){\n\
     \            if (color[v]<0&&!dfs(v,0,v)){\n                return false;\n  \
-    \          }\n        }\n        return true;\n    }\n};"
+    \          }\n        }\n        return true;\n    }\n    int operator[](int v){return\
+    \ color[v];}\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: graph/BipartiteGraph.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2020-11-18 22:21:32+09:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/aoj/2885.test.cpp
 documentation_of: graph/BipartiteGraph.hpp
 layout: document
 redirect_from:

@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -108,7 +108,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/BellmanFord.hpp
       title: Bellman Ford
-    - icon: ':warning:'
+    - icon: ':x:'
       path: graph/BipartiteGraph.hpp
       title: "2\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
     - icon: ':heavy_check_mark:'
@@ -235,11 +235,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/Z_Algorithm.hpp
       title: Z-Algorithm
-  - name: test/aoj
-    pages:
-    - icon: ':warning:'
-      path: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
-      title: test/aoj/DSL_3_D.SlidingWindowAggregation.cpp
   - name: test/atcoder
     pages:
     - icon: ':warning:'
@@ -326,6 +321,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/2871.test.cpp
       title: test/aoj/2871.test.cpp
+    - icon: ':x:'
+      path: test/aoj/2885.test.cpp
+      title: test/aoj/2885.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/2891.test.cpp
       title: test/aoj/2891.test.cpp
@@ -428,6 +426,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_I.test.cpp
       title: test/aoj/DSL_2_I.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
+      title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_3_D.test.cpp
       title: test/aoj/DSL_3_D.test.cpp
