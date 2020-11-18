@@ -36,6 +36,7 @@
 "test/aoj/DSL_2_H.test.cpp": "2020-11-18 12:14:00 +0900",
 "test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp": "2020-11-18 12:14:00 +0900",
 "test/aoj/DSL_2_I.test.cpp": "2020-11-18 12:14:00 +0900",
+"test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp": "2020-11-18 22:21:32 +0900",
 "test/aoj/DSL_3_D.test.cpp": "2020-11-18 12:14:00 +0900",
 "test/aoj/DSL_5_B.test.cpp": "2020-11-18 12:14:00 +0900",
 "test/aoj/GRL_1_A.test.cpp": "2020-11-18 12:14:00 +0900",
