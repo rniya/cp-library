@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: tree/LowestCommonAncestor.hpp
     title: Lowest Common Ancestor
   _extendedRequiredBy: []

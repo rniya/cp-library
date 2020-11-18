@@ -9,14 +9,14 @@ data:
     path: test/atcoder/arc039_d.cpp
     title: test/atcoder/arc039_d.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_C.test.cpp
     title: test/aoj/GRL_5_C.test.cpp
   - icon: ':x:'
     path: test/yosupo/lca.test.cpp
     title: test/yosupo/lca.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/tree/LowestCommonAncestor.md
     document_title: Lowest Common Ancestor
@@ -52,7 +52,7 @@ data:
   requiredBy:
   - test/atcoder/arc039_d.cpp
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/GRL_5_C.test.cpp
   - test/yosupo/lca.test.cpp

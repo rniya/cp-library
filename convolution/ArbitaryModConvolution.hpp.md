@@ -70,8 +70,14 @@ redirect_from:
 title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
 ---
 ## 概要
+$1000000007$などのNTT-frinedlyでないような$\bmod$に対する畳み込みを行う.
+
+NTT-frinedlyな3つの素数$167772161,469762049,754974721$についてそれぞれ畳み込み, 元の$\bmod$での余りをChinese Remainder Theoremによって復元する.
+
+長さ$n$の2つの列を畳み込んだときの要素の最大値は$n\times\left(2^{31}-1\right)$であり, これが3つの素数の積よりも小さくなる必要があるため, おおよそ$n<2^{22}$である必要があるが困ることはほぼない.
 
 ## 計算量
+$O(n\log n)$
 
 ## 参照
 [任意modでの畳み込み演算をO(n log(n))で](https://math314.hateblo.jp/entry/2015/05/07/014908)
