@@ -1,4 +1,4 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/challenges/search/titles/2885"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/2885"
 
 #include "../../base.hpp"
 #include "../../graph/BipartiteGraph.hpp"
