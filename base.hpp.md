@@ -373,10 +373,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_G.test.cpp
     title: test/aoj/DSL_2_G.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
   - icon: ':x:'
