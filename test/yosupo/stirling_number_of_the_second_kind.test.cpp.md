@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   - icon: ':heavy_check_mark:'

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -39,11 +39,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1270.test.cpp
     title: test/yukicoder/1270.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/datastructure/LazySegmentTree.md
     document_title: Lazy Segment Tree
@@ -110,7 +110,7 @@ data:
   requiredBy:
   - test/codeforces/1179_C.cpp
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1270.test.cpp
   - test/aoj/DSL_2_F.test.cpp

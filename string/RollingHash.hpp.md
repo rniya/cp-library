@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -9,11 +9,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_14_B.test.cpp
     title: test/aoj/ALDS1_14_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/430.test.cpp
     title: test/yukicoder/430.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/string/RollingHash.md
     document_title: Rolling Hash
@@ -50,7 +50,7 @@ data:
   path: string/RollingHash.hpp
   requiredBy: []
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/430.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
@@ -66,7 +66,10 @@ $\bmod 2^{61}-1$で基数は$\left[2,2^{61}-1\right)$の乱数によるRolling H
 
 [Codeforces Round #542 [Alex Lopashev Thanks-Round] (Div. 1) C. Morse Code](https://codeforces.com/contest/1129/problem/C) $\bmod$の値が小さいとかなりの確率で衝突し, hash値を2つもとうとするとTLEにハマるので, このRolling Hashが有効.
 
-## 計算量
+- `generate_base()`：基数を生成する. 2つ以上の文字列に対しては同じ基数を用いねばならないので注意.
+- `query(l,r)`：$[l,r)$のhash値を返す. 計算量は$O(1)$.
+- `lcp(a,b)`：$a$文字目を$b$文字目を始点としたLongest Common Prefixの長さを返す. 計算量は$O(\log n)$
+- `get(t)`：文字列$t$のhash値を返す. 計算量は$O(|t|)$.
 
 ## 参照
 [安全で爆速なRollingHashの話](https://qiita.com/keymoon/items/11fac5627672a6d6a9f6)

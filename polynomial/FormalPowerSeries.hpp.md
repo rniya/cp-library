@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -24,11 +24,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/polynomial/FormalPowerSeries.hpp
     document_title: Formal Power Series
@@ -110,7 +110,7 @@ data:
   requiredBy:
   - polynomial/StirlingSecond.hpp
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/3046.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp

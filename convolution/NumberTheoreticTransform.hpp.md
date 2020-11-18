@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   _extendedVerifiedWith:
@@ -36,11 +36,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1068.test.cpp
     title: test/yukicoder/1068.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/convolution/NumberTheoreticTransform.md
     document_title: Number Theoretic Transform
@@ -92,7 +92,7 @@ data:
   requiredBy:
   - convolution/ArbitaryModConvolution.hpp
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1068.test.cpp
   - test/yukicoder/3046.test.cpp
