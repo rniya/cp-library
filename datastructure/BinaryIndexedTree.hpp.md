@@ -12,9 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_D.test.cpp
     title: test/aoj/GRL_5_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/static_range_inversions_query.test.cpp
     title: test/yosupo/static_range_inversions_query.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/1270.test.cpp
+    title: test/yukicoder/1270.test.cpp
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -49,6 +52,7 @@ data:
   timestamp: '2020-11-18 12:14:00+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/yukicoder/1270.test.cpp
   - test/aoj/DSL_2_B.test.cpp
   - test/aoj/GRL_5_D.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp

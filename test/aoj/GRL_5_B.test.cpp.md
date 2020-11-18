@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/TreeDiameter.hpp
     title: Tree Diameter
   _extendedRequiredBy: []

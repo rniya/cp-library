@@ -23,7 +23,7 @@ data:
   - icon: ':question:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexed Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/BinaryTrie.hpp
     title: Binary Trie
   - icon: ':x:'
@@ -41,22 +41,22 @@ data:
   - icon: ':warning:'
     path: datastructure/PartiallyPersistentUnionFind.hpp
     title: Partially Persistent UnionFind
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTreeBeats.hpp
     title: Segment Tree Beats
   - icon: ':heavy_check_mark:'
     path: datastructure/Slide_Min.hpp
     title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/SparseTable.hpp
     title: Sparse table
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/UnionFind.hpp
     title: UnionFind
   - icon: ':heavy_check_mark:'
@@ -98,7 +98,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/CycleDetection.hpp
     title: Cycle Detection
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/Dijkstra.hpp
     title: Dijkstra
   - icon: ':x:'
@@ -114,16 +114,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/Prim.hpp
     title: Prim
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/StronglyConnectedComponents.hpp
     title: Strongly Connected Components
   - icon: ':heavy_check_mark:'
     path: graph/TopologicalSort.hpp
     title: Topological Sort
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/TwoEdgeConnectedComponents.hpp
     title: Two Edge Connected Components
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/TwoSatisfiability.hpp
     title: 2-SAT
   - icon: ':heavy_check_mark:'
@@ -135,7 +135,7 @@ data:
   - icon: ':x:'
     path: linearalgebra/Matrix.hpp
     title: Matrix
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: linearalgebra/SquareMatrix.hpp
     title: Square Matrix
   - icon: ':warning:'
@@ -147,7 +147,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/extgcd.hpp
     title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/floor_sum.hpp
     title: Sum of Floor of Linear
   - icon: ':warning:'
@@ -168,7 +168,7 @@ data:
   - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':x:'
+  - icon: ':question:'
     path: other/Mo.hpp
     title: Mo's Algorithm
   - icon: ':question:'
@@ -177,7 +177,7 @@ data:
   - icon: ':warning:'
     path: polynomial/Kitamasa.hpp
     title: Kitamasa
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/StirlingSecond.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
   - icon: ':x:'
@@ -198,13 +198,13 @@ data:
   - icon: ':question:'
     path: string/RollingHash.hpp
     title: Rolling Hash
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: string/SuffixArray.hpp
     title: Suffix Array
   - icon: ':x:'
     path: string/Trie.hpp
     title: Trie
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: string/Z_Algorithm.hpp
     title: Z-Algorithm
   - icon: ':warning:'
@@ -261,19 +261,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: tree/EulerTourforVertex.hpp
     title: "Euler Tour (\u90E8\u5206\u6728\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/HeavyLightDecomposition.hpp
     title: Heavy Light Decomposition
   - icon: ':heavy_check_mark:'
     path: tree/LowestCommonAncestor.hpp
     title: Lowest Common Ancestor
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/TreeDiameter.hpp
     title: Tree Diameter
   - icon: ':warning:'
     path: util/ZobristHash.hpp
     title: Zobrist Hash
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: util/compress.hpp
     title: compress
   _extendedVerifiedWith:
@@ -514,69 +514,72 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
     title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/set_xor_min.test.cpp
     title: test/yosupo/set_xor_min.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/static_range_inversions_query.test.cpp
     title: test/yosupo/static_range_inversions_query.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/static_range_sum.test.cpp
     title: test/yosupo/static_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/suffixarray.test.cpp
     title: test/yosupo/suffixarray.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sum_of_floor_of_linear.test.cpp
     title: test/yosupo/sum_of_floor_of_linear.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/two_edge_connected_components.test.cpp
     title: test/yosupo/two_edge_connected_components.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/two_sat.test.cpp
     title: test/yosupo/two_sat.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/vertex_add_path_sum.test.cpp
     title: test/yosupo/vertex_add_path_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/zalgorithm.test.cpp
     title: test/yosupo/zalgorithm.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1068.test.cpp
     title: test/yukicoder/1068.test.cpp
   - icon: ':x:'
     path: test/yukicoder/1269.test.cpp
     title: test/yukicoder/1269.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/1270.test.cpp
+    title: test/yukicoder/1270.test.cpp
   - icon: ':x:'
     path: test/yukicoder/206.test.cpp
     title: test/yukicoder/206.test.cpp
@@ -804,6 +807,7 @@ data:
   - test/yukicoder/952.test.cpp
   - test/yukicoder/430.test.cpp
   - test/yukicoder/1269.test.cpp
+  - test/yukicoder/1270.test.cpp
   - test/aoj/GRL_5_C.test.cpp
   - test/aoj/DSL_2_F.test.cpp
   - test/aoj/DPL_5_C.test.cpp

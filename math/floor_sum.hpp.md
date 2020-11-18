@@ -6,11 +6,11 @@ data:
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sum_of_floor_of_linear.test.cpp
     title: test/yosupo/sum_of_floor_of_linear.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Sum of Floor of Linear
     links: []
@@ -34,7 +34,7 @@ data:
   path: math/floor_sum.hpp
   requiredBy: []
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/sum_of_floor_of_linear.test.cpp
 documentation_of: math/floor_sum.hpp

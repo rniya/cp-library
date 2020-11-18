@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: datastructure/LazySegmentTree.hpp
     title: Lazy Segment Tree
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/HeavyLightDecomposition.hpp
     title: Heavy Light Decomposition
   _extendedRequiredBy: []

@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: string/SuffixArray.hpp
     title: Suffix Array
   _extendedRequiredBy: []

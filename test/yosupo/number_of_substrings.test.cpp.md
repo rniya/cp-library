@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/LongestCommonPrefixArray.hpp
     title: Longest Common Prefix Array
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: string/SuffixArray.hpp
     title: Suffix Array
   _extendedRequiredBy: []

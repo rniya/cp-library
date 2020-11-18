@@ -12,11 +12,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_B.test.cpp
     title: test/aoj/GRL_5_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/tree/TreeDiameter.md
     document_title: Tree Diameter
@@ -52,7 +52,7 @@ data:
   path: tree/TreeDiameter.hpp
   requiredBy: []
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_5_B.test.cpp
   - test/aoj/GRL_5_A.test.cpp

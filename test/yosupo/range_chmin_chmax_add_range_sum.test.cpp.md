@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTreeBeats.hpp
     title: Segment Tree Beats
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
@@ -43,7 +43,7 @@ data:
   path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   requiredBy: []
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
 layout: document
