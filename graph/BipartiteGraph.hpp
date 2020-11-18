@@ -31,4 +31,5 @@ struct BipartiteGraph{
         }
         return true;
     }
+    int operator[](int v){return color[v];}
 };
