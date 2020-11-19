@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: polynomial/StirlingSecond.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
   _extendedVerifiedWith:
@@ -21,14 +21,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/polynomial/FormalPowerSeries.hpp
     document_title: Formal Power Series
@@ -102,22 +102,35 @@ data:
     \            return res;\n        }\n        return *this;\n    }\n    Poly pow_mod(long\
     \ long k,const Poly &mod) const {\n        Poly x(*this),res={M(1)};\n       \
     \ while (k>0){\n            if (k&1) res=res*x%mod;\n            x=x*x%mod; k>>=1;\n\
-    \        }\n        return res;\n    }\n};"
+    \        }\n        return res;\n    }\n    Poly linear_mul(const M &a,const M\
+    \ &b){\n        Poly res(this->size()+1);\n        for (int i=0;i<this->size()+1;++i){\n\
+    \            res[i]=(i-1>=0?(*this)[i-1]*a:M(0))+(i<this->size()?(*this)[i]*b:M(0));\n\
+    \        }\n        return res;\n    }\n    Poly linear_div(const M &a,const M\
+    \ &b){\n        Poly res(this->size()-1);\n        M inv_b=M(1)/b;\n        for\
+    \ (int i=0;i+1<this->size();++i){\n            res[i]=((*this)[i]-(i-1>=0?res[i-1]*a:M(0)))*inv_b;\n\
+    \        }\n        return res;\n    }\n    Poly sparse_mul(const M &c,const M\
+    \ &d){\n        Poly res(*this);\n        res.resize(this->size()+d,M(0));\n \
+    \       for (int i=0;i<this->size();++i){\n            res[i+d]+=(*this)[i]*c;\n\
+    \        }\n        return res;\n    }\n    Poly sparse_div(const M &c,const M\
+    \ &d){\n        Poly res(*this);\n        for (int i=0;i<res.size()-d;++i){\n\
+    \            res[i+d]-=res[i]*c;\n        }\n        return res;\n    }\n    M\
+    \ operator()(const M &x) const {\n        M res=0,power=1;\n        for (int i=0;i<this->size();++i,power*=x){\n\
+    \            res+=(*this)[i]*power;\n        }\n        return res;\n    }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: polynomial/FormalPowerSeries.hpp
   requiredBy:
   - polynomial/StirlingSecond.hpp
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2020-11-19 21:51:12+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/3046.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
 documentation_of: polynomial/FormalPowerSeries.hpp
 layout: document
 redirect_from:

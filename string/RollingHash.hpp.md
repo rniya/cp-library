@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -78,4 +78,4 @@ $\bmod 2^{61}-1$で基数は$\left[2,2^{61}-1\right)$の乱数によるRolling H
 - `get(t)`：$O(|t|)$
 
 ## 参照
-[安全で爆速なRollingHashの話](https://qiita.com/keymoon/items/11fac5627672a6d6a9f6)
+[安全で爆速なRollingHashの話 - Qiita](https://qiita.com/keymoon/items/11fac5627672a6d6a9f6)

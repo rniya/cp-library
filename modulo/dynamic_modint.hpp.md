@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/526.test.cpp
     title: test/yukicoder/526.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "\u5B9F\u884C\u6642 modint"
     links: []
@@ -46,24 +46,25 @@ data:
     \ v=0; return *this;}\n    dynamic_modint &operator--(){if (v==0) v=get_mod();\
     \ return --v,*this;}\n    dynamic_modint operator++(int){dynamic_modint t=*this;\
     \ return ++*this,t;}\n    dynamic_modint operator--(int){dynamic_modint t=*this;\
-    \ return --*this,t;}\n    template<class T> friend dynamic_modint operator+(T\
-    \ x,dynamic_modint y){return dynamic_modint(x)+y;}\n    template<class T> friend\
-    \ dynamic_modint operator-(T x,dynamic_modint y){return dynamic_modint(x)-y;}\n\
-    \    template<class T> friend dynamic_modint operator*(T x,dynamic_modint y){return\
-    \ dynamic_modint(x)*y;}\n    template<class T> friend dynamic_modint operator/(T\
-    \ x,dynamic_modint y){return dynamic_modint(x)/y;}\n    bool operator==(const\
-    \ dynamic_modint &rhs){return v==rhs.v;}\n    bool operator!=(const dynamic_modint\
-    \ &rhs){return v!=rhs.v;}\n    bool operator!(){return !v;}\n    friend istream\
-    \ &operator>>(istream &s,dynamic_modint &rhs){\n        i64 v; rhs=dynamic_modint{(s>>v,v)};\
-    \ return s;\n    }\n    friend ostream &operator<<(ostream &s,const dynamic_modint\
-    \ &rhs){\n        return s<<rhs.v;\n    }\n};"
+    \ return --*this,t;}\n    dynamic_modint operator-(){return dynamic_modint(get_mod()-v);}\n\
+    \    template<class T> friend dynamic_modint operator+(T x,dynamic_modint y){return\
+    \ dynamic_modint(x)+y;}\n    template<class T> friend dynamic_modint operator-(T\
+    \ x,dynamic_modint y){return dynamic_modint(x)-y;}\n    template<class T> friend\
+    \ dynamic_modint operator*(T x,dynamic_modint y){return dynamic_modint(x)*y;}\n\
+    \    template<class T> friend dynamic_modint operator/(T x,dynamic_modint y){return\
+    \ dynamic_modint(x)/y;}\n    bool operator==(const dynamic_modint &rhs){return\
+    \ v==rhs.v;}\n    bool operator!=(const dynamic_modint &rhs){return v!=rhs.v;}\n\
+    \    bool operator!(){return !v;}\n    friend istream &operator>>(istream &s,dynamic_modint\
+    \ &rhs){\n        i64 v; rhs=dynamic_modint{(s>>v,v)}; return s;\n    }\n    friend\
+    \ ostream &operator<<(ostream &s,const dynamic_modint &rhs){\n        return s<<rhs.v;\n\
+    \    }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: modulo/dynamic_modint.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2020-11-19 21:51:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/526.test.cpp
 documentation_of: modulo/dynamic_modint.hpp

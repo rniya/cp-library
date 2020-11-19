@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -46,7 +46,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/convolution_mod_1000000007.test.cpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-11-19 21:51:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/convolution_mod_1000000007.test.cpp

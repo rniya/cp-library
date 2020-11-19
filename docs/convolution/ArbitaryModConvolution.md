@@ -9,4 +9,4 @@ NTT-frinedlyな3つの素数$167772161,469762049,754974721$についてそれぞ
 $O(n\log n)$
 
 ## 参照
-[任意modでの畳み込み演算をO(n log(n))で](https://math314.hateblo.jp/entry/2015/05/07/014908)
+[任意modでの畳み込み演算をO(n log(n))で - math314のブログ](https://math314.hateblo.jp/entry/2015/05/07/014908)

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -40,8 +40,8 @@ data:
   timestamp: '2020-11-18 12:14:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DPL_5_L.test.cpp
   - test/aoj/DPL_5_J.test.cpp
+  - test/aoj/DPL_5_L.test.cpp
 documentation_of: combinatorics/PartitionTable.hpp
 layout: document
 redirect_from:
@@ -62,4 +62,4 @@ $$P\left(n,k\right)=P\left(n,k-1\right)+P\left(n-k,k\right)$$
 $O\left(nk\right)$
 
 ## 参照
-[「写像12相」を総整理！ 〜 数え上げ問題の学びの宝庫 〜](https://qiita.com/drken/items/f2ea4b58b0d21621bd51)
+[「写像12相」を総整理！ 〜 数え上げ問題の学びの宝庫 〜 - Qiita](https://qiita.com/drken/items/f2ea4b58b0d21621bd51)

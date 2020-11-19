@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -15,11 +15,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/convolution/ArbitaryModConvolution.md
     document_title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
@@ -57,8 +57,8 @@ data:
   isVerificationFile: false
   path: convolution/ArbitaryModConvolution.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2020-11-19 21:51:12+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/3046.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
@@ -80,4 +80,4 @@ NTT-frinedlyな3つの素数$167772161,469762049,754974721$についてそれぞ
 $O(n\log n)$
 
 ## 参照
-[任意modでの畳み込み演算をO(n log(n))で](https://math314.hateblo.jp/entry/2015/05/07/014908)
+[任意modでの畳み込み演算をO(n log(n))で - math314のブログ](https://math314.hateblo.jp/entry/2015/05/07/014908)

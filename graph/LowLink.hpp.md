@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -48,8 +48,8 @@ data:
   timestamp: '2020-11-18 12:14:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_3_A.test.cpp
   - test/aoj/GRL_3_B.test.cpp
+  - test/aoj/GRL_3_A.test.cpp
 documentation_of: graph/LowLink.hpp
 layout: document
 redirect_from:

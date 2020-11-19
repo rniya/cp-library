@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -65,8 +65,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_14_D.test.cpp
-  - test/yosupo/number_of_substrings.test.cpp
   - test/yosupo/suffixarray.test.cpp
+  - test/yosupo/number_of_substrings.test.cpp
 documentation_of: string/SuffixArray.hpp
 layout: document
 redirect_from:

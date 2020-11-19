@@ -1,25 +1,25 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: polynomial/StirlingSecond.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind
@@ -52,8 +52,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2020-11-19 21:51:12+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/stirling_number_of_the_second_kind.test.cpp
 layout: document

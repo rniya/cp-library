@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   _extendedRequiredBy: []
@@ -49,7 +49,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/pow_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-11-19 21:51:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/pow_of_formal_power_series.test.cpp
