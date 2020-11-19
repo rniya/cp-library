@@ -1,17 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/526.test.cpp
     title: test/yukicoder/526.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/modulo/modint.md
     document_title: "\u5B9F\u884C\u6642 modint"
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.0/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -20,19 +21,19 @@ data:
     , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.0/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ modulo/dynamic_modint.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "/**\n * @brief \u5B9F\u884C\u6642 modint\n */\n\n#pragma once\n\n#include\
-    \ \"../base.hpp\"\n\nclass dynamic_modint{\n    using i64=int64_t;\n    using\
-    \ u32=uint32_t;\n    using u64=uint64_t;\n    static u32 &mod(){\n        static\
-    \ u32 mod_=0;\n        return mod_;\n    }\npublic:\n    u32 v;\n    static void\
-    \ set_mod(const u32 x){\n        assert(x<(u32(1)<<31));\n        mod()=x;\n \
-    \   }\n    static u32 get_mod(){return mod();}\n    dynamic_modint(const i64 x=0):v(x<0?get_mod()-1-(-(x+1)%get_mod()):x%get_mod()){}\n\
-    \    u32 &value() noexcept {return v;}\n    const u32 &value() const noexcept\
-    \ {return v;}\n    dynamic_modint operator+(const dynamic_modint &rhs) const {return\
-    \ dynamic_modint(*this)+=rhs;}\n    dynamic_modint operator-(const dynamic_modint\
-    \ &rhs) const {return dynamic_modint(*this)-=rhs;}\n    dynamic_modint operator*(const\
-    \ dynamic_modint &rhs) const {return dynamic_modint(*this)*=rhs;}\n    dynamic_modint\
-    \ operator/(const dynamic_modint &rhs) const {return dynamic_modint(*this)/=rhs;}\n\
+    \ modulo/dynamic_modint.hpp: line 6: #pragma once found in a non-first line\n"
+  code: "/**\n * @brief \u5B9F\u884C\u6642 modint\n * @docs docs/modulo/modint.md\n\
+    \ */\n\n#pragma once\n\n#include \"../base.hpp\"\n\nclass dynamic_modint{\n  \
+    \  using i64=int64_t;\n    using u32=uint32_t;\n    using u64=uint64_t;\n    static\
+    \ u32 &mod(){\n        static u32 mod_=0;\n        return mod_;\n    }\npublic:\n\
+    \    u32 v;\n    static void set_mod(const u32 x){\n        assert(x<(u32(1)<<31));\n\
+    \        mod()=x;\n    }\n    static u32 get_mod(){return mod();}\n    dynamic_modint(const\
+    \ i64 x=0):v(x<0?get_mod()-1-(-(x+1)%get_mod()):x%get_mod()){}\n    u32 &value()\
+    \ noexcept {return v;}\n    const u32 &value() const noexcept {return v;}\n  \
+    \  dynamic_modint operator+(const dynamic_modint &rhs) const {return dynamic_modint(*this)+=rhs;}\n\
+    \    dynamic_modint operator-(const dynamic_modint &rhs) const {return dynamic_modint(*this)-=rhs;}\n\
+    \    dynamic_modint operator*(const dynamic_modint &rhs) const {return dynamic_modint(*this)*=rhs;}\n\
+    \    dynamic_modint operator/(const dynamic_modint &rhs) const {return dynamic_modint(*this)/=rhs;}\n\
     \    dynamic_modint &operator+=(const dynamic_modint &rhs){\n        v+=rhs.v;\n\
     \        if (v>=get_mod()) v-=get_mod();\n        return *this;\n    }\n    dynamic_modint\
     \ &operator-=(const dynamic_modint &rhs){\n        if (v<rhs.v) v+=get_mod();\n\
@@ -63,8 +64,8 @@ data:
   isVerificationFile: false
   path: modulo/dynamic_modint.hpp
   requiredBy: []
-  timestamp: '2020-11-19 21:51:12+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2020-11-19 22:07:32+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/526.test.cpp
 documentation_of: modulo/dynamic_modint.hpp
@@ -74,3 +75,11 @@ redirect_from:
 - /library/modulo/dynamic_modint.hpp.html
 title: "\u5B9F\u884C\u6642 modint"
 ---
+## 概要
+- 各種演算子(`operator++, operator--, operator-(), operator==, `等)に対応
+- `std::cin, std::cout`への対応
+- 負数に対応したコンストラクタ
+- 内部を32bit符号なし整数で保存
+
+## 参照
+[modint 構造体を使ってみませんか？ (C++) - noshi91のメモ](https://noshi91.hatenablog.com/entry/2019/03/31/174006)

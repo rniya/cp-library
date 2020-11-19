@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/StirlingSecond.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
   _extendedVerifiedWith:
@@ -21,16 +21,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/polynomial/FormalPowerSeries.hpp
+    _deprecated_at_docs: docs/polynomial/FormalPowerSeries.md
     document_title: Formal Power Series
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.0/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -41,7 +41,7 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ polynomial/FormalPowerSeries.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
-  code: "/**\n * @brief Formal Power Series\n * @docs docs/polynomial/FormalPowerSeries.hpp\n\
+  code: "/**\n * @brief Formal Power Series\n * @docs docs/polynomial/FormalPowerSeries.md\n\
     \ */\n\n#pragma once\n\n#include \"../base.hpp\"\n\ntemplate<typename M>\nstruct\
     \ FormalPowerSeries:vector<M>{\n    using vector<M>::vector;\n    using Poly=FormalPowerSeries;\n\
     \    using MUL=function<Poly(Poly,Poly)>;\n    static MUL &get_mul(){static MUL\
@@ -122,8 +122,8 @@ data:
   path: polynomial/FormalPowerSeries.hpp
   requiredBy:
   - polynomial/StirlingSecond.hpp
-  timestamp: '2020-11-19 21:51:12+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2020-11-19 22:07:32+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/3046.test.cpp
   - test/yosupo/stirling_number_of_the_second_kind.test.cpp
@@ -138,3 +138,40 @@ redirect_from:
 - /library/polynomial/FormalPowerSeries.hpp.html
 title: Formal Power Series
 ---
+## 概要
+形式的冪級数(Formal POwer Series)に関する諸演算を扱う.
+- `operator+`：$P(x)+Q(x)$
+- `operator-`：$P(x)-Q(x)$
+- `operator*`：$P(x)Q(x)$
+- `operator/`：$P(x)/Q(x)$
+- `operator%`：$P(x)\%Q(x)$
+- `operator<<(deg)`：$P(x)*x^{\deg}$
+- `operator>>(deg)`：$P(x)/x^{\deg}$
+- `diff()`：$P'(x)$
+- `integral()`：$\int P(x)\mathrm{d}{x}$
+- `inv()`：$1/P(x)$
+- `log()`：$\log(P(x))=\int \frac{P'(x)}{P(x)}\mathrm{d}x$
+- `sqrt()`：$\sqrt{P(x)}$
+- `exp()`：$\exp(P(x))$
+- `pow(k)`：$(P(x))^k$
+- `pow_mod(k,mod)`：$(P(x))^k\%Q(x)$
+- `linear_mul(a,b)`：$P(x)(ax+b)$
+- `linear_div(a,b)`：$P(x)/(ax+b)$
+- `sparse_mul(c,d)`：$P(x)(1+cx^d)$
+- `sparse_div(c,d)`：$P(x)/(1+cx^d)$
+- `operator(x)`：$P(x)$に実際に$x$を代入した際の値を返す.
+
+## 計算量
+- $P(x)+Q(x),P(x)-Q(x),P(x)*x^{\deg},P(x)/x^{\deg}$：$O(n)$
+- $P(x)Q(x),P(x)/Q(x),P(x)\%Q(x)$：$O(n\log n)$
+- $P'(x),\int P(x)\mathrm{d}{x}$：$O(n)$
+- $1/P(x)$：$O(n\log n)$
+- $\log(P(x))$：$O(n\log n)$
+- $\sqrt{P(x)}$：$O(n\log n)$
+- $\exp(P(x))$：$O(n\log n)$
+- $(P(x))^k$：$O(n\log n)$
+- $P(x)(ax+b),P(x)/(ax+b)$：$O(n)$
+- $P(x)(1+cx^d),P(x)/(1+cx^d)$：$O(n+d)$
+
+## 参照
+[Operations on Formal Power Series - Codeforces](https://codeforces.com/blog/entry/56422)
