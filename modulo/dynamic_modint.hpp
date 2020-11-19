@@ -1,5 +1,6 @@
 /**
  * @brief 実行時 modint
+ * @docs docs/modulo/modint.md
  */
 
 #pragma once

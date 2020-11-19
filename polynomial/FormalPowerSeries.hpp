@@ -1,6 +1,6 @@
 /**
  * @brief Formal Power Series
- * @docs docs/polynomial/FormalPowerSeries.hpp
+ * @docs docs/polynomial/FormalPowerSeries.md
  */
 
 #pragma once
