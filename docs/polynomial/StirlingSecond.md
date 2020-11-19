@@ -11,4 +11,4 @@ $$S\left(n,k\right)=\sum_{i=0}^k a_ib_{k-i}$$
 $O\left(n\log{n}\right)$
 
 ## 参照
-[FFT (NTT) 関連](https://min-25.hatenablog.com/entry/2015/04/07/160154)
+[FFT (NTT) 関連 - memo](https://min-25.hatenablog.com/entry/2015/04/07/160154)

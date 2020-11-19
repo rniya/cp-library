@@ -154,4 +154,41 @@ struct FormalPowerSeries:vector<M>{
         }
         return res;
     }
+    Poly linear_mul(const M &a,const M &b){
+        Poly res(this->size()+1);
+        for (int i=0;i<this->size()+1;++i){
+            res[i]=(i-1>=0?(*this)[i-1]*a:M(0))+(i<this->size()?(*this)[i]*b:M(0));
+        }
+        return res;
+    }
+    Poly linear_div(const M &a,const M &b){
+        Poly res(this->size()-1);
+        M inv_b=M(1)/b;
+        for (int i=0;i+1<this->size();++i){
+            res[i]=((*this)[i]-(i-1>=0?res[i-1]*a:M(0)))*inv_b;
+        }
+        return res;
+    }
+    Poly sparse_mul(const M &c,const M &d){
+        Poly res(*this);
+        res.resize(this->size()+d,M(0));
+        for (int i=0;i<this->size();++i){
+            res[i+d]+=(*this)[i]*c;
+        }
+        return res;
+    }
+    Poly sparse_div(const M &c,const M &d){
+        Poly res(*this);
+        for (int i=0;i<res.size()-d;++i){
+            res[i+d]-=res[i]*c;
+        }
+        return res;
+    }
+    M operator()(const M &x) const {
+        M res=0,power=1;
+        for (int i=0;i<this->size();++i,power*=x){
+            res+=(*this)[i]*power;
+        }
+        return res;
+    }
 };

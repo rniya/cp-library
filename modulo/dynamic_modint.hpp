@@ -57,6 +57,7 @@ public:
     dynamic_modint &operator--(){if (v==0) v=get_mod(); return --v,*this;}
     dynamic_modint operator++(int){dynamic_modint t=*this; return ++*this,t;}
     dynamic_modint operator--(int){dynamic_modint t=*this; return --*this,t;}
+    dynamic_modint operator-(){return dynamic_modint(get_mod()-v);}
     template<class T> friend dynamic_modint operator+(T x,dynamic_modint y){return dynamic_modint(x)+y;}
     template<class T> friend dynamic_modint operator-(T x,dynamic_modint y){return dynamic_modint(x)-y;}
     template<class T> friend dynamic_modint operator*(T x,dynamic_modint y){return dynamic_modint(x)*y;}

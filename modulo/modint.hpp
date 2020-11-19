@@ -49,6 +49,7 @@ public:
     constexpr modint &operator--() noexcept {if (v==0) v=mod; return --v,*this;}
     constexpr modint operator++(int) noexcept {modint t=*this; return ++*this,t;}
     constexpr modint operator--(int) noexcept {modint t=*this; return --*this,t;}
+    constexpr modint operator-() const noexcept {return modint(mod-v);}
     template<class T> friend constexpr modint operator+(T x,modint y) noexcept {return modint(x)+y;}
     template<class T> friend constexpr modint operator-(T x,modint y) noexcept {return modint(x)-y;}
     template<class T> friend constexpr modint operator*(T x,modint y) noexcept {return modint(x)*y;}
