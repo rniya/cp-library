@@ -36,7 +36,7 @@ data:
     \ */\n\n#pragma once\n\n#include \"../base.hpp\"\n\ntemplate<typename T>\nclass\
     \ BinaryIndexedTree{\n    T sum(int i){\n        T res=T();\n        for (;i>0;i-=(i&-i))\
     \ res+=dat[i];\n        return res;\n    }\npublic:\n    int n;\n    vector<T>\
-    \ dat;\n    BinaryIndexedTree(int n):n(n+1),dat(n+1,0){}\n    void add(int i,const\
+    \ dat;\n    BinaryIndexedTree(int n_):n(n_+1),dat(n+1,0){}\n    void add(int i,const\
     \ T &x){\n        for (++i;i<=n;i+=(i&-i)) dat[i]+=x;\n    }\n    T query(int\
     \ l,int r){return sum(r)-sum(l);}\n    int lower_bound(T x) const {\n        if\
     \ (x<=0) return 0;\n        int pos=0,k=1;\n        while (k<n) k<<=1;\n     \
@@ -49,7 +49,7 @@ data:
   isVerificationFile: false
   path: datastructure/BinaryIndexedTree.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-11-22 15:46:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1270.test.cpp

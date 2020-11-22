@@ -1,5 +1,5 @@
 ## 概要
-形式的冪級数(Formal POwer Series)に関する諸演算を扱う.
+形式的冪級数(Formal Power Series)に関する諸演算を扱う.
 - `operator+`：$P(x)+Q(x)$
 - `operator-`：$P(x)-Q(x)$
 - `operator*`：$P(x)Q(x)$

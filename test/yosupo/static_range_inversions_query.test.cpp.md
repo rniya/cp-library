@@ -39,8 +39,8 @@ data:
     \n    Mo mo(N);\n    for (int i=0;i<Q;++i){\n        int l,r; cin >> l >> r;\n\
     \        mo.insert(l,r);\n    }\n\n    map<int,int> mp=compress(A);\n    for (int\
     \ i=0;i<N;++i) A[i]=mp[A[i]];\n    int n=mp.size();\n    BinaryIndexedTree<int>\
-    \ BIT(n+1);\n    vector<long long> ans(Q);\n    long long inv=0; int sum=0;\n\
-    \    auto add_left=[&](int idx){\n        inv+=BIT.query(0,A[idx]);\n        ++sum;\
+    \ BIT(n);\n    vector<long long> ans(Q);\n    long long inv=0; int sum=0;\n  \
+    \  auto add_left=[&](int idx){\n        inv+=BIT.query(0,A[idx]);\n        ++sum;\
     \ BIT.add(A[idx],1);\n    };\n    auto add_right=[&](int idx){\n        inv+=BIT.query(A[idx]+1,n);\n\
     \        ++sum; BIT.add(A[idx],1);\n    };\n    auto del_left=[&](int idx){\n\
     \        inv-=BIT.query(0,A[idx]);\n        --sum; BIT.add(A[idx],-1);\n    };\n\
@@ -56,7 +56,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-11-22 15:46:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp

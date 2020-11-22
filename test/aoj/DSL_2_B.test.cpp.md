@@ -38,7 +38,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_2_B.test.cpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-11-22 15:46:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_2_B.test.cpp
