@@ -21,7 +21,7 @@ int main(){
     map<int,int> mp=compress(A);
     for (int i=0;i<N;++i) A[i]=mp[A[i]];
     int n=mp.size();
-    BinaryIndexedTree<int> BIT(n+1);
+    BinaryIndexedTree<int> BIT(n);
     vector<long long> ans(Q);
     long long inv=0; int sum=0;
     auto add_left=[&](int idx){

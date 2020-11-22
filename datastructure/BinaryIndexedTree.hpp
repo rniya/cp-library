@@ -17,7 +17,7 @@ class BinaryIndexedTree{
 public:
     int n;
     vector<T> dat;
-    BinaryIndexedTree(int n):n(n+1),dat(n+1,0){}
+    BinaryIndexedTree(int n_):n(n_+1),dat(n+1,0){}
     void add(int i,const T &x){
         for (++i;i<=n;i+=(i&-i)) dat[i]+=x;
     }

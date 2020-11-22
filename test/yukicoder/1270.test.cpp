@@ -13,7 +13,7 @@ int main(){
     for (int i=0;i<N;++i) cin >> a[i],--a[i];
 
     vector<int> left(N+1,0),right(N+1,0);
-    BinaryIndexedTree<int> BIT1(N+1),BIT2(N+1);
+    BinaryIndexedTree<int> BIT1(N),BIT2(N);
     for (int i=0;i<N;++i){
         left[i+1]=left[i]+BIT1.query(a[i]+1,N);
         BIT1.add(a[i],1);
@@ -31,7 +31,7 @@ int main(){
         ans[i]+=left[l[i]]+right[r[i]];
     }
 
-    BinaryIndexedTree<int> BIT3(N+1),BIT4(N+1);
+    BinaryIndexedTree<int> BIT3(N),BIT4(N);
     int inv=0;
     auto f=[](int a,int b){return min(a,b);};
     auto g=[](int a,int b){return a+b;};
