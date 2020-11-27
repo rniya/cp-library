@@ -27,4 +27,5 @@ struct UnionFind{
     bool same(int x, int y){return root(x)==root(y);}
     int size(int x){return rank[root(x)];}
     int count(){return num;}
+    int operator[](int x){return root(x);}
 };

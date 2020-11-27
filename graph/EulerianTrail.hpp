@@ -1,5 +1,5 @@
 /**
- * @brief オイラーグラフ・準オイラーグラフの構築
+ * @brief オイラー路・準オイラー路の構築
  * @docs docs/graph/EulerianTrail.md
  */
 
@@ -8,23 +8,7 @@
 #include "../base.hpp"
 
 template<bool directed>
-struct EulerianTrail{
-    vector<vector<pair<int,int>>> G;
-    vector<vector<int>> BG;
-    vector<pair<int,int>> es;
-    vector<int> used,visited,deg;
-    EulerianTrail(int n):G(n),BG(n),visited(n,0),deg(n,0){}
-    void add_edge(int u,int v){
-        int m=es.size();
-        es.emplace_back(u,v);
-        used.emplace_back(0);
-        BG[u].emplace_back(v);
-        BG[v].emplace_back(u);
-        G[u].emplace_back(v,m);
-        ++deg[u];
-        if (directed) --deg[v];
-        else G[v].emplace_back(u,m),++deg[v];
-    }
+class EulerianTrail{
     void dfs(int v,int &s,int &t,int &check){
         visited[v]=1;
         if (directed){
@@ -65,6 +49,23 @@ struct EulerianTrail{
         ord.pop_back();
         reverse(ord.begin(),ord.end());
         return ord;
+    }
+public:
+    vector<vector<pair<int,int>>> G;
+    vector<vector<int>> BG;
+    vector<pair<int,int>> es;
+    vector<int> used,visited,deg;
+    EulerianTrail(int n):G(n),BG(n),visited(n,0),deg(n,0){}
+    void add_edge(int u,int v){
+        int m=es.size();
+        es.emplace_back(u,v);
+        used.emplace_back(0);
+        BG[u].emplace_back(v);
+        BG[v].emplace_back(u);
+        G[u].emplace_back(v,m);
+        ++deg[u];
+        if (directed) --deg[v];
+        else G[v].emplace_back(u,m),++deg[v];
     }
     vector<vector<int>> build(){
         for (int i=0;i<G.size();++i){
