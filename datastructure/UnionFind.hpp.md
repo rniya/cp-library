@@ -33,13 +33,14 @@ data:
     \       x=root(x); y=root(y);\n        if (x==y) return false;\n        if (rank[x]<rank[y])\
     \ swap(x,y);\n        par[y]=x;\n        rank[x]+=rank[y];\n        --num;\n \
     \       return true;\n    }\n    bool same(int x, int y){return root(x)==root(y);}\n\
-    \    int size(int x){return rank[root(x)];}\n    int count(){return num;}\n};"
+    \    int size(int x){return rank[root(x)];}\n    int count(){return num;}\n  \
+    \  int operator[](int x){return root(x);}\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: datastructure/UnionFind.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-11-27 23:15:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_1_A.test.cpp

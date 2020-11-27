@@ -103,8 +103,8 @@ data:
     title: Dijkstra
   - icon: ':heavy_check_mark:'
     path: graph/EulerianTrail.hpp
-    title: "\u30AA\u30A4\u30E9\u30FC\u30B0\u30E9\u30D5\u30FB\u6E96\u30AA\u30A4\u30E9\
-      \u30FC\u30B0\u30E9\u30D5\u306E\u69CB\u7BC9"
+    title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u30FB\u6E96\u30AA\u30A4\u30E9\u30FC\u8DEF\
+      \u306E\u69CB\u7BC9"
   - icon: ':heavy_check_mark:'
     path: graph/Kruskal.hpp
     title: Kruskal
