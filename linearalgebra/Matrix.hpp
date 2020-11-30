@@ -7,134 +7,92 @@
 
 #include "../base.hpp"
 
-template<class K>
+template<class T>
 struct Matrix{
-    vector<vector<K>> dat;
-    Matrix(size_t r,size_t c):dat(r,vector<K>(c,K())){}
-    Matrix(size_t n):dat(n,vector<K>(n,K())){}
-    Matrix(vector<vector<K>> dat):dat(dat){}
-    size_t size() const{return dat.size();}
-    vector<K> &operator[](int i){return dat[i];}
-    const vector<K> &operator[](int i) const{return dat[i];}
+    vector<vector<T>> A;
+    Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}
+    Matrix(size_t n):A(n,vector<T>(n,0)){}
+    size_t height() const {return A.size();}
+    size_t width() const {return A[0].size();}
+    inline const vector<T> &operator[](int i) const {return A[i];}
+    inline vector<T> &operator[](int i){return A[i];}
     static Matrix I(size_t n){
         Matrix res(n);
-        for (int i=0;i<n;++i) res[i][i]=K(1);
+        for (int i=0;i<n;++i) res[i][i]=1;
         return res;
     }
+    Matrix operator+(const Matrix &B) const {return Matrix(*this)+=B;}
+    Matrix operator-(const Matrix &B) const {return Matrix(*this)-=B;}
+    Matrix operator*(const Matrix &B) const {return Matrix(*this)*=B;}
+    Matrix operator^(const long long k) const {return Matrix(*this)^=k;}
     Matrix &operator+=(const Matrix &B){
-        for (int i=0;i<dat.size();++i)
-            for (int j=0;j<dat[0].size();++j)
+        size_t n=height(),m=width();
+        assert(n==B.height()&&m==B.width());
+        for (int i=0;i<n;++i){
+            for (int j=0;j<m;++j){
                 (*this)[i][j]+=B[i][j];
-        return (*this);
-    }
-    Matrix operator+(const Matrix &B) const{
-        return Matrix(*this)+=B;
+            }
+        }
+        return *this;
     }
     Matrix &operator-=(const Matrix &B){
-        for (int i=0;i<dat.size();++i)
-            for (int j=0;j<dat[0].size();++j)
+        size_t n=height(),m=width();
+        assert(n==B.height()&&m==B.width());
+        for (int i=0;i<n;++i){
+            for (int j=0;j<m;++j){
                 (*this)[i][j]-=B[i][j];
-        return (*this);
-    }
-    Matrix operator-(const Matrix &B) const{
-        return Matrix(*this)-=B;
+            }
+        }
+        return *this;
     }
     Matrix &operator*=(const Matrix &B){
-        vector<vector<K>> res(dat.size(),vector<K>(B[0].size(),K()));
-        for (int i=0;i<dat.size();++i)
-            for (int j=0;j<B[0].size();++j)
-                for (int k=0;k<B.size();++k)
-                    res[i][j]+=(*this)[i][k]*B[k][j];
-        dat.swap(res);
-        return (*this);
-    }
-    Matrix operator*(const Matrix &B) const{
-        return Matrix(*this)*=B;
-    }
-    Matrix &operator^=(long long k){
-        Matrix res=Matrix::I(size());
-        while(k){
-            if (k&1LL) res*=*this;
-            *this*=*this; k>>=1LL;
-        }
-        dat.swap(res.dat);
-        return (*this);
-    }
-    Matrix operator^(long long k) const{
-        return Matrix(*this)^=k;
-    }
-    static Matrix Gauss_Jordan(const Matrix &A,const Matrix &B){
-        int n=A.size(),l=B[0].size();
-        Matrix C(n,n+l);
+        size_t n=height(),m=B.width(),l=width();
+        assert(l==B.height());
+        vector<vector<T>> C(n,vector<T>(m,0));
         for (int i=0;i<n;++i){
-            for (int j=0;j<n;++j)
-                C[i][j]=A[i][j];
-            for (int j=0;j<l;++j)
-                C[i][j+n]=B[i][j];
-        }
-        for (int i=0;i<n;++i){
-            int p=i;
-            for (int j=i;j<n;++j){
-                if (abs(C[p][i])<abs(C[j][i])) p=j;
-            }
-            swap(C[i],C[p]);
-            if (abs(C[i][i])<1e-9) return Matrix(0,0);
-            for (int j=i+1;j<n+l;++j) C[i][j]/=C[i][i];
-            for (int j=0;j<n;++j){
-                if (i!=j) for (int k=i+1;k<n+l;++k){
-                    C[j][k]-=C[j][i]*C[i][k];
+            for (int j=0;j<m;++j){
+                for (int k=0;k<l;++k){
+                    C[i][j]+=(*this)[i][k]*B[k][j];
                 }
             }
         }
-        Matrix res(n,l);
-        for (int i=0;i<n;++i)
-            for (int j=0;j<n;++j)
-                res[i][j]=C[i][j+n];
-        return res;
+        A.swap(C);
+        return *this;
     }
-    Matrix inv() const{
-        Matrix res=I(size());
-        return Gauss_Jordan(*this,res);
+    Matrix &operator^=(long long k){
+        Matrix res=Matrix::I(height());
+        while (k>0){
+            if (k&1) res*=*this;
+            *this*=*this; k>>=1LL;
+        }
+        A.swap(res.A);
+        return *this;
     }
-    K determinant() const{
-        Matrix A(dat);
-        K res(1);
-        int n=size();
-        for (int i=0;i<n;++i){
-            int p=i;
-            for (int j=i;j<n;++j){
-                if (abs(A[p][i])<abs(A[j][i])) p=j;
+    T determinant(){
+        Matrix B(*this);
+        T res=1;
+        for (int i=0;i<width();++i){
+            int pivot=-1;
+            for (int j=i;j<height();++j){
+                if (B[j][i]!=0){
+                    pivot=j;
+                }
             }
-            if (i!=p) swap(A[i],A[p]),res=-res;
-            if (abs(A[i][i])<1e-9) return K(0);
-            res*=A[i][i];
-            for (int j=i+1;j<n;++j) A[i][j]/=A[i][i];
-            for (int j=i+1;j<n;++j)
-                for (int k=i+1;k<n;++k)
-                    A[j][k]-=A[j][i]*A[i][k];
+            if (pivot<0) return 0;
+            if (pivot!=i){
+                res*=-1;
+                swap(B[i],B[pivot]);
+            }
+            res*=B[i][i];
+            T v=T(1)/B[i][i];
+            for (int j=0;j<width();++j) B[i][j]*=v;
+            for (int j=i+1;j<height();++j){
+                T w=B[j][i];
+                for (int k=0;k<width();++k){
+                    B[j][k]-=B[i][k]*w;
+                }
+            }
         }
-        return res;
-    }
-    //sum_{k=0}^{n-1} x^k
-    static K geometric_sum(K x,long long n){
-        Matrix A(2);
-        A[0][0]=x; A[0][1]=0;
-        A[1][0]=1; A[1][1]=1;
-        return (A^n)[1][0];
-    }
-    //sum_{k=0}^{n-1} A^k
-    Matrix powsum(long long k) const{
-        int n=size();
-        Matrix B(n<<1),res(n);
-        for (int i=0;i<n;++i){
-            for (int j=0;j<n;++j)
-                B[i][j]=dat[i][j];
-            B[i+n][i]=B[i+n][i+n]=K(1);
-        }
-        B^=k;
-        for (int i=0;i<n;++i)
-            for (int j=0;j<n;++j)
-                res[i][j]=B[i+n][j];
         return res;
     }
 };
