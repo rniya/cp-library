@@ -503,6 +503,9 @@ data:
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/matrix_det.test.cpp
+    title: test/yosupo/matrix_det.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/number_of_substrings.test.cpp
     title: test/yosupo/number_of_substrings.test.cpp
   - icon: ':heavy_check_mark:'
@@ -912,6 +915,7 @@ data:
   - test/yosupo/lca.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/associative_array.test.cpp
+  - test/yosupo/matrix_det.test.cpp
   - test/yosupo/static_range_sum.test.cpp
 documentation_of: base.hpp
 layout: document

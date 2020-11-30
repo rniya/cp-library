@@ -61,6 +61,9 @@ data:
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/matrix_det.test.cpp
+    title: test/yosupo/matrix_det.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -175,6 +178,7 @@ data:
   - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
+  - test/yosupo/matrix_det.test.cpp
 documentation_of: modulo/modint.hpp
 layout: document
 redirect_from:
