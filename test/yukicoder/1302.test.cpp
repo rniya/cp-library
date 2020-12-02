@@ -24,5 +24,6 @@ int main(){
     FPS a(N);
     for (int i=0;i<N;++i) a[i]=(i+1)*COM.finv(i);
     mint ans=a.pow(N)[N-2]*COM.fac(N-2)/mint(N).pow(N-2);
+
     cout << ans << '\n';
 }
