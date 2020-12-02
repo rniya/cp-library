@@ -28,6 +28,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: convolution/NumberTheoreticTransform.hpp
       title: Number Theoretic Transform
+    - icon: ':heavy_check_mark:'
+      path: convolution/XORconvolution.hpp
+      title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
   - name: datastructure
     pages:
     - icon: ':heavy_check_mark:'
@@ -625,6 +628,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1068.test.cpp
       title: test/yukicoder/1068.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1240.test.cpp
+      title: test/yukicoder/1240.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1269.test.cpp
       title: test/yukicoder/1269.test.cpp

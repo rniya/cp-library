@@ -21,6 +21,9 @@ data:
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
+    path: convolution/XORconvolution.hpp
+    title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
+  - icon: ':heavy_check_mark:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexed Tree
   - icon: ':heavy_check_mark:'
@@ -581,6 +584,9 @@ data:
     path: test/yukicoder/1068.test.cpp
     title: test/yukicoder/1068.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1240.test.cpp
+    title: test/yukicoder/1240.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1269.test.cpp
     title: test/yukicoder/1269.test.cpp
   - icon: ':heavy_check_mark:'
@@ -761,6 +767,7 @@ data:
   - string/AhoCorasick.hpp
   - string/RollingHash.hpp
   - string/Z_Algorithm.hpp
+  - convolution/XORconvolution.hpp
   - convolution/FastFourierTransform.hpp
   - convolution/ArbitaryModConvolution.hpp
   - convolution/NumberTheoreticTransform.hpp
@@ -817,6 +824,7 @@ data:
   - test/yukicoder/430.test.cpp
   - test/yukicoder/526.test.cpp
   - test/yukicoder/1068.test.cpp
+  - test/yukicoder/1240.test.cpp
   - test/aoj/NTL_1_B.test.cpp
   - test/aoj/GRL_6_B.PrimalDual.test.cpp
   - test/aoj/DPL_5_C.test.cpp
