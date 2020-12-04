@@ -106,6 +106,7 @@
 "test/yukicoder/1269.test.cpp": "2020-11-19 21:51:12 +0900",
 "test/yukicoder/1270.test.cpp": "2020-11-22 15:46:49 +0900",
 "test/yukicoder/1301.test.cpp": "2020-11-28 11:50:47 +0900",
+"test/yukicoder/1307.test.cpp": "2020-12-04 23:38:49 +0900",
 "test/yukicoder/206.test.cpp": "2020-11-18 12:14:00 +0900",
 "test/yukicoder/3046.test.cpp": "2020-11-19 22:07:32 +0900",
 "test/yukicoder/430.AhoCorasick.test.cpp": "2020-11-18 12:14:00 +0900",
@@ -113,5 +114,6 @@
 "test/yukicoder/526.test.cpp": "2020-12-01 01:23:29 +0900",
 "test/yukicoder/583.test.cpp": "2020-11-27 23:15:34 +0900",
 "test/yukicoder/665.test.cpp": "2020-11-19 21:51:12 +0900",
+"test/yukicoder/931.test.cpp": "2020-12-04 23:38:49 +0900",
 "test/yukicoder/952.test.cpp": "2020-11-18 12:14:00 +0900"
 }
