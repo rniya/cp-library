@@ -56,13 +56,13 @@ data:
   isVerificationFile: false
   path: string/Trie.hpp
   requiredBy:
-  - test/atcoder/tenka1_2016_final_c.cpp
   - string/AhoCorasick.hpp
+  - test/atcoder/tenka1_2016_final_c.cpp
   timestamp: '2020-11-18 12:14:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/430.AhoCorasick.test.cpp
   - test/yukicoder/1269.test.cpp
+  - test/yukicoder/430.AhoCorasick.test.cpp
 documentation_of: string/Trie.hpp
 layout: document
 redirect_from:

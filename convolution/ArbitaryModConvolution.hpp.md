@@ -60,8 +60,8 @@ data:
   timestamp: '2020-11-19 21:51:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/3046.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
+  - test/yukicoder/3046.test.cpp
 documentation_of: convolution/ArbitaryModConvolution.hpp
 layout: document
 redirect_from:

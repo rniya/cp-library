@@ -40,8 +40,8 @@ data:
   timestamp: '2020-11-18 12:14:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DPL_5_J.test.cpp
   - test/aoj/DPL_5_L.test.cpp
+  - test/aoj/DPL_5_J.test.cpp
 documentation_of: combinatorics/PartitionTable.hpp
 layout: document
 redirect_from:

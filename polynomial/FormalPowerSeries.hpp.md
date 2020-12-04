@@ -125,12 +125,12 @@ data:
   timestamp: '2020-11-19 22:07:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/3046.test.cpp
-  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yukicoder/3046.test.cpp
 documentation_of: polynomial/FormalPowerSeries.hpp
 layout: document
 redirect_from:

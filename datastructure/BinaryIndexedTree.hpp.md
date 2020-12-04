@@ -52,10 +52,10 @@ data:
   timestamp: '2020-11-22 15:46:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/static_range_inversions_query.test.cpp
   - test/yukicoder/1270.test.cpp
   - test/aoj/DSL_2_B.test.cpp
   - test/aoj/GRL_5_D.test.cpp
-  - test/yosupo/static_range_inversions_query.test.cpp
 documentation_of: datastructure/BinaryIndexedTree.hpp
 layout: document
 redirect_from:

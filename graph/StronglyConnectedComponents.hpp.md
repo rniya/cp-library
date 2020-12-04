@@ -59,9 +59,9 @@ data:
   timestamp: '2020-11-18 12:14:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_3_C.test.cpp
   - test/yosupo/scc.test.cpp
   - test/yosupo/two_sat.test.cpp
+  - test/aoj/GRL_3_C.test.cpp
 documentation_of: graph/StronglyConnectedComponents.hpp
 layout: document
 redirect_from:

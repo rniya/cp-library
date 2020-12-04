@@ -48,8 +48,8 @@ data:
   timestamp: '2020-11-18 12:14:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/1270.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
+  - test/yukicoder/1270.test.cpp
 documentation_of: other/Mo.hpp
 layout: document
 redirect_from:

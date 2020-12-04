@@ -54,9 +54,9 @@ data:
   timestamp: '2020-11-18 12:14:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_5_B.test.cpp
-  - test/aoj/GRL_5_A.test.cpp
   - test/yosupo/tree_diameter.test.cpp
+  - test/aoj/GRL_5_A.test.cpp
+  - test/aoj/GRL_5_B.test.cpp
 documentation_of: tree/TreeDiameter.hpp
 layout: document
 redirect_from:

@@ -39,6 +39,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/931.test.cpp
+    title: test/yukicoder/931.test.cpp
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -94,15 +97,16 @@ data:
   timestamp: '2020-11-19 21:51:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
+  - test/yosupo/convolution_mod.test.cpp
+  - test/yosupo/convolution_mod_1000000007.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yukicoder/931.test.cpp
   - test/yukicoder/3046.test.cpp
   - test/yukicoder/1068.test.cpp
-  - test/yosupo/convolution_mod.test.cpp
-  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/convolution_mod_1000000007.test.cpp
 documentation_of: convolution/NumberTheoreticTransform.hpp
 layout: document
 redirect_from:
@@ -111,5 +115,13 @@ redirect_from:
 title: Number Theoretic Transform
 ---
 ## 概要
+剰余環$\mathbb{Z}/p\mathbb{Z}$上でFFTを行う. このとき, $p$としてはNTT-friendlyな素数($998244353,1012924417,924844033$など)である必要がある.
+
+## 問題例
+[AGC047 C Product Modulo](https://atcoder.jp/contests/agc047/tasks/agc047_c)
+一般に素数$P$について, 添字の剰余環$\mathbb{Z}/P\mathbb{Z}$における積での畳み込み, すなわち,
+$$c_k=\sum_{i\times j\bmod P=k}a_ib_j$$
+が計算できる. 具体的には, $P$の原子根$r$が取れて, $\mathbb{Z}/P\mathbb{Z}$の乗法群と$\mathbb{Z}/(P-1)\mathbb{Z}$が同型であることから, 各添字を$r$を底とした離散対数に変換して, その上でNTTを施した後に解を復元すれば良い. [これ](https://yukicoder.me/problems/no/931)が類題.
 
 ## 計算量
+$O(n\log n)$

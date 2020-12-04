@@ -60,8 +60,8 @@ data:
   isVerificationFile: false
   path: datastructure/ConvexHullTrick.hpp
   requiredBy:
-  - test/atcoder/colopl2018_final_c.cpp
   - test/atcoder/dp_z.cpp
+  - test/atcoder/colopl2018_final_c.cpp
   timestamp: '2020-11-18 12:14:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
