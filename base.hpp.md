@@ -17,6 +17,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: convolution/FastFourierTransform.hpp
     title: Fast Fourier Transform
+  - icon: ':warning:'
+    path: convolution/FastZetaMobiusTransform_Subset.hpp
+    title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\u63DB\
+      (\u4E0B\u4F4D\u96C6\u5408)"
+  - icon: ':warning:'
+    path: convolution/FastZetaMobiusTransform_Superset.hpp
+    title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\u63DB\
+      (\u4E0A\u4F4D\u96C6\u5408)"
   - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
@@ -755,7 +763,9 @@ data:
   - combinatorics/combination.hpp
   - combinatorics/BellNumber.hpp
   - convolution/NumberTheoreticTransform.hpp
+  - convolution/FastZetaMobiusTransform_Superset.hpp
   - convolution/FastFourierTransform.hpp
+  - convolution/FastZetaMobiusTransform_Subset.hpp
   - convolution/XORconvolution.hpp
   - convolution/ArbitaryModConvolution.hpp
   - tree/HeavyLightDecomposition.hpp
