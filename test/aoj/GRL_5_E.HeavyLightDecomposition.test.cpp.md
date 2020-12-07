@@ -52,7 +52,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-12-08 01:05:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp

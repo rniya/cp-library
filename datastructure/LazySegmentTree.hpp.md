@@ -92,9 +92,9 @@ data:
     \ return find_subtree(1,check,L,false);\n            return -1;\n        }\n \
     \       thrust(a+n);\n        int b=n;\n        for (int l=a+n,r=b+n;l<r;l>>=1,r>>=1){\n\
     \            if (l&1){\n                Monoid nxt=f(L,reflect(l));\n        \
-    \        if (check(nxt)) return ffind_subtree(l,check,L,false);\n            \
-    \    L=nxt; ++l;\n            }\n        }\n        return -1;\n    }\n    //\
-    \ max i s.t. f(seg[i],...,seg[b-2],seg[b-1]) satisfy \"check\"\n    template<typename\
+    \        if (check(nxt)) return find_subtree(l,check,L,false);\n             \
+    \   L=nxt; ++l;\n            }\n        }\n        return -1;\n    }\n    // max\
+    \ i s.t. f(seg[i],...,seg[b-2],seg[b-1]) satisfy \"check\"\n    template<typename\
     \ C>\n    int find_last(int b,const C &check){\n        Monoid R=id0;\n      \
     \  if (b>=n){\n            if (check(f(reflect(1),R))) return find_subtree(1,check,R,true);\n\
     \            return -1;\n        }\n        thrust(b+n-1);\n        int a=n;\n\
@@ -109,7 +109,7 @@ data:
   path: datastructure/LazySegmentTree.hpp
   requiredBy:
   - test/codeforces/1179_C.cpp
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-12-08 01:05:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/range_affine_range_sum.test.cpp
