@@ -95,7 +95,7 @@ struct LazySegmentTree{
         for (int l=a+n,r=b+n;l<r;l>>=1,r>>=1){
             if (l&1){
                 Monoid nxt=f(L,reflect(l));
-                if (check(nxt)) return ffind_subtree(l,check,L,false);
+                if (check(nxt)) return find_subtree(l,check,L,false);
                 L=nxt; ++l;
             }
         }
