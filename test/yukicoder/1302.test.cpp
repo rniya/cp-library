@@ -4,7 +4,7 @@
 #include "../../modulo/modint.hpp"
 #include "../../convolution/NumberTheoreticTransform.hpp"
 #include "../../polynomial/FormalPowerSeries.hpp"
-#include "../../conbinatorics/combination.hpp"
+#include "../../combinatorics/combination.hpp"
 
 using mint=modint<998244353>;
 using FPS=FormalPowerSeries<mint>;
