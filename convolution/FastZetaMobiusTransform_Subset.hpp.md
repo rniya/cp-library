@@ -5,9 +5,12 @@ data:
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1289.test.cpp
+    title: test/yukicoder/1289.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/convolution/FastZetaMobiusTransform.md
     document_title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\
@@ -36,8 +39,9 @@ data:
   path: convolution/FastZetaMobiusTransform_Subset.hpp
   requiredBy: []
   timestamp: '2020-12-05 18:17:09+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/1289.test.cpp
 documentation_of: convolution/FastZetaMobiusTransform_Subset.hpp
 layout: document
 redirect_from:

@@ -25,7 +25,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: convolution/FastFourierTransform.hpp
       title: Fast Fourier Transform
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: convolution/FastZetaMobiusTransform_Subset.hpp
       title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\u63DB\
         (\u4E0B\u4F4D\u96C6\u5408)"
@@ -648,6 +648,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1288.test.cpp
       title: test/yukicoder/1288.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1289.test.cpp
+      title: test/yukicoder/1289.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1301.test.cpp
       title: test/yukicoder/1301.test.cpp
