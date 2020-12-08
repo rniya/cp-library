@@ -10,6 +10,9 @@ data:
     path: test/aoj/GRL_6_B.PrimalDual.test.cpp
     title: test/aoj/GRL_6_B.PrimalDual.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1288.test.cpp
+    title: test/yukicoder/1288.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1301.test.cpp
     title: test/yukicoder/1301.test.cpp
   _pathExtension: hpp
@@ -70,6 +73,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1301.test.cpp
+  - test/yukicoder/1288.test.cpp
   - test/aoj/GRL_6_B.PrimalDual.test.cpp
 documentation_of: flow/PrimalDual.hpp
 layout: document
