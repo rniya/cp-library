@@ -279,6 +279,12 @@ data:
     path: tree/TreeDiameter.hpp
     title: Tree Diameter
   - icon: ':warning:'
+    path: util/RandomNumberGenerator_32.hpp
+    title: "\u4E71\u6570\u751F\u6210\u5668(32bit)"
+  - icon: ':warning:'
+    path: util/RandomNumberGenerator_64.hpp
+    title: "\u4E71\u6570\u751F\u6210\u5668(64bit)"
+  - icon: ':warning:'
     path: util/ZobristHash.hpp
     title: Zobrist Hash
   - icon: ':heavy_check_mark:'
@@ -741,6 +747,8 @@ data:
   path: base.hpp
   requiredBy:
   - util/ZobristHash.hpp
+  - util/RandomNumberGenerator_64.hpp
+  - util/RandomNumberGenerator_32.hpp
   - util/compress.hpp
   - linearalgebra/Matrix.hpp
   - linearalgebra/SquareMatrix.hpp
