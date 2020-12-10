@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -314,6 +314,9 @@ data:
       title: Tree Diameter
   - name: util
     pages:
+    - icon: ':x:'
+      path: util/Dice.hpp
+      title: "\u30B5\u30A4\u30B3\u30ED"
     - icon: ':warning:'
       path: util/RandomNumberGenerator_32.hpp
       title: "\u4E71\u6570\u751F\u6210\u5668(32bit)"
@@ -329,6 +332,9 @@ data:
   verificationCategories:
   - name: test/aoj
     pages:
+    - icon: ':x:'
+      path: test/aoj/1181.test.cpp
+      title: test/aoj/1181.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/2313.test.cpp
       title: test/aoj/2313.test.cpp

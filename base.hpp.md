@@ -278,6 +278,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tree/TreeDiameter.hpp
     title: Tree Diameter
+  - icon: ':x:'
+    path: util/Dice.hpp
+    title: "\u30B5\u30A4\u30B3\u30ED"
   - icon: ':warning:'
     path: util/RandomNumberGenerator_32.hpp
     title: "\u4E71\u6570\u751F\u6210\u5668(32bit)"
@@ -291,6 +294,9 @@ data:
     path: util/compress.hpp
     title: compress
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/1181.test.cpp
+    title: test/aoj/1181.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/2313.test.cpp
     title: test/aoj/2313.test.cpp
@@ -649,7 +655,7 @@ data:
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n\n#include <bits/stdc++.h>\nusing namespace\
@@ -748,6 +754,7 @@ data:
   requiredBy:
   - util/ZobristHash.hpp
   - util/RandomNumberGenerator_64.hpp
+  - util/Dice.hpp
   - util/RandomNumberGenerator_32.hpp
   - util/compress.hpp
   - linearalgebra/Matrix.hpp
@@ -842,7 +849,7 @@ data:
   - test/codeforces/1444_C.cpp
   - test/codeforces/1179_C.cpp
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/frequency_table_of_tree_distance.test.cpp
   - test/yosupo/shortest_path.test.cpp
@@ -943,6 +950,7 @@ data:
   - test/aoj/2667.test.cpp
   - test/aoj/DSL_2_E.DualSegmentTree.test.cpp
   - test/aoj/GRL_5_C.test.cpp
+  - test/aoj/1181.test.cpp
   - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
   - test/aoj/GRL_6_B.test.cpp
   - test/aoj/DPL_5_C.test.cpp
