@@ -1,11 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/bitwise_xor_convolution.test.cpp
+    title: test/yosupo/bitwise_xor_convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1240.test.cpp
     title: test/yukicoder/1240.test.cpp
@@ -42,6 +45,7 @@ data:
   timestamp: '2020-12-02 22:02:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yukicoder/1240.test.cpp
 documentation_of: convolution/XORconvolution.hpp
 layout: document

@@ -5,6 +5,9 @@ data:
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
+    path: convolution/XORconvolution.hpp
+    title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
+  - icon: ':heavy_check_mark:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -13,9 +16,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_A
+    PROBLEM: https://judge.yosupo.jp/problem/bitwise_xor_convolution
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_A
+    - https://judge.yosupo.jp/problem/bitwise_xor_convolution
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
@@ -25,23 +28,27 @@ data:
     , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ modulo/modint.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_A\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n\nusing\
-    \ mint=modint<1000000007>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int n,k; cin >> n >> k;\n\n    cout << mint(k).pow(n) << '\\n';\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_xor_convolution\"\
+    \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include\
+    \ \"../../convolution/XORconvolution.hpp\"\n\nusing mint=modint<998244353>;\n\n\
+    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N; cin\
+    \ >> N;\n    vector<mint> a(1<<N),b(1<<N);\n    for (int i=0;i<(1<<N);++i) cin\
+    \ >> a[i];\n    for (int i=0;i<(1<<N);++i) cin >> b[i];\n\n    vector<mint> c=XOR_convolution(a,b);\n\
+    \    for (int i=0;i<(1<<N);++i) cout << c[i] << (i+1==(1<<N)?'\\n':' ');\n}"
   dependsOn:
   - base.hpp
   - modulo/modint.hpp
+  - convolution/XORconvolution.hpp
   isVerificationFile: true
-  path: test/aoj/DPL_5_A.test.cpp
+  path: test/yosupo/bitwise_xor_convolution.test.cpp
   requiredBy: []
-  timestamp: '2020-11-19 21:51:12+09:00'
+  timestamp: '2020-12-17 20:12:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/DPL_5_A.test.cpp
+documentation_of: test/yosupo/bitwise_xor_convolution.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/DPL_5_A.test.cpp
-- /verify/test/aoj/DPL_5_A.test.cpp.html
-title: test/aoj/DPL_5_A.test.cpp
+- /verify/test/yosupo/bitwise_xor_convolution.test.cpp
+- /verify/test/yosupo/bitwise_xor_convolution.test.cpp.html
+title: test/yosupo/bitwise_xor_convolution.test.cpp
 ---

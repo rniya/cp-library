@@ -278,7 +278,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tree/TreeDiameter.hpp
     title: Tree Diameter
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: util/Dice.hpp
     title: "\u30B5\u30A4\u30B3\u30ED"
   - icon: ':warning:'
@@ -294,7 +294,7 @@ data:
     path: util/compress.hpp
     title: compress
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/1181.test.cpp
     title: test/aoj/1181.test.cpp
   - icon: ':heavy_check_mark:'
@@ -508,6 +508,9 @@ data:
     path: test/yosupo/bipartitematching.test.cpp
     title: test/yosupo/bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/bitwise_xor_convolution.test.cpp
+    title: test/yosupo/bitwise_xor_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
   - icon: ':heavy_check_mark:'
@@ -658,7 +661,7 @@ data:
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n\n#include <bits/stdc++.h>\nusing namespace\
@@ -852,7 +855,7 @@ data:
   - math/modpow.hpp
   - other/Mo.hpp
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/two_sat.test.cpp
   - test/yosupo/bipartitematching.test.cpp
@@ -880,6 +883,7 @@ data:
   - test/yosupo/shortest_path.test.cpp
   - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/frequency_table_of_tree_distance.test.cpp
+  - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
