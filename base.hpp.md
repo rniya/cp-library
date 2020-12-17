@@ -298,6 +298,9 @@ data:
     path: test/aoj/1181.test.cpp
     title: test/aoj/1181.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/1370.test.cpp
+    title: test/aoj/1370.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/2313.test.cpp
     title: test/aoj/2313.test.cpp
   - icon: ':heavy_check_mark:'
@@ -918,6 +921,7 @@ data:
   - test/aoj/NTL_1_E.test.cpp
   - test/aoj/DSL_2_H.test.cpp
   - test/aoj/2885.test.cpp
+  - test/aoj/1370.test.cpp
   - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   - test/aoj/ALDS1_14_D.test.cpp
   - test/aoj/DPL_5_L.test.cpp

@@ -7,6 +7,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/aoj/1370.test.cpp
+    title: test/aoj/1370.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_14_B.test.cpp
     title: test/aoj/ALDS1_14_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -31,27 +34,30 @@ data:
     \ u64 base;\n    vector<u64> hash,power;\n    static inline u64 add(u64 a,u64\
     \ b){\n        if ((a+=b)>=mod) a-=mod;\n        return a;\n    }\n    static\
     \ inline u64 mul(u64 a,u64 b){\n        u128 c=(u128)a*b;\n        return add(c>>61,c&mod);\n\
-    \    }\npublic:\n    static inline u64 generate_base(){\n        mt19937_64 mt(chrono::steady_clock::now().time_since_epoch().count());\n\
-    \        uniform_int_distribution<u64> rand(2,RollingHash::mod-1);\n        return\
-    \ rand(mt);\n    }\n    template<typename T>\n    RollingHash(const T &s,u64 base):base(base){\n\
-    \        int n=s.size();\n        hash.assign(n+1,0);\n        power.assign(n+1,0);\n\
-    \        power[0]=1;\n        for (int i=0;i<n;++i){\n            hash[i+1]=add(mul(hash[i],base),s[i]);\n\
+    \    }\n\npublic:\n    static inline u64 generate_base(){\n        mt19937_64\
+    \ mt(chrono::steady_clock::now().time_since_epoch().count());\n        uniform_int_distribution<u64>\
+    \ rand(2,RollingHash::mod-1);\n        return rand(mt);\n    }\n    RollingHash(u64\
+    \ base=generate_base()):base(base){}\n    template<typename T>\n    RollingHash(const\
+    \ T &s,u64 base=generate_base()):base(base){\n        int n=s.size();\n      \
+    \  hash.assign(n+1,0);\n        power.assign(n+1,0);\n        power[0]=1;\n  \
+    \      for (int i=0;i<n;++i){\n            hash[i+1]=add(mul(hash[i],base),s[i]);\n\
     \            power[i+1]=mul(power[i],base);\n        }\n    }\n    u64 query(int\
     \ l,int r) const {\n        return add(hash[r],mod-mul(hash[l],power[r-l]));\n\
     \    }\n    int lcp(int a,int b) const {\n        int len=min(hash.size()-a,hash.size()-b);\n\
     \        int lb=0,ub=len;\n        while (ub-lb>1){\n            int mid=(lb+ub)>>1;\n\
     \            (query(a,a+mid)==query(b,b+mid)?lb:ub)=mid;\n        }\n        return\
-    \ lb;\n    }\n    u64 get(const string &t){\n        u64 res=0;\n        for (int\
-    \ i=0;i<t.size();++i) res=add(mul(res,base),t[i]);\n        return res;\n    }\n\
-    };"
+    \ lb;\n    }\n    template<typename T>\n    u64 get(const T &t){\n        u64\
+    \ res=0;\n        for (int i=0;i<t.size();++i) res=add(mul(res,base),t[i]);\n\
+    \        return res;\n    }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: string/RollingHash.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-12-17 22:12:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/1370.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
   - test/yukicoder/430.test.cpp
 documentation_of: string/RollingHash.hpp
