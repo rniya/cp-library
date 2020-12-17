@@ -21,10 +21,10 @@ data:
     _deprecated_at_docs: docs/flow/PrimalDual.md
     document_title: Primal Dual
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.0/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.0/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.0/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ flow/PrimalDual.hpp: line 6: #pragma once found in a non-first line\n"
@@ -72,9 +72,9 @@ data:
   timestamp: '2020-11-18 12:14:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/1301.test.cpp
-  - test/yukicoder/1288.test.cpp
   - test/aoj/GRL_6_B.PrimalDual.test.cpp
+  - test/yukicoder/1288.test.cpp
+  - test/yukicoder/1301.test.cpp
 documentation_of: flow/PrimalDual.hpp
 layout: document
 redirect_from:
@@ -84,6 +84,7 @@ title: Primal Dual
 ---
 ## 概要
 最小費用流を計算する.
+
 - `add_edge(from,to,cap,cost)`：$from$から$to$への容量$cap$, 費用$cost$の辺を追加する.
 - `get_edge(i)`：$i$番目に追加した辺の{始点, 終点, 容量, 実際に流れている量, 費用}の情報を返す.
 - `edges()`：全ての辺の情報を返す.

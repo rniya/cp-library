@@ -548,6 +548,9 @@ data:
       path: test/yosupo/associative_array.test.cpp
       title: test/yosupo/associative_array.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/bipartitematching.test.cpp
+      title: test/yosupo/bipartitematching.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod.test.cpp
       title: test/yosupo/convolution_mod.test.cpp
     - icon: ':heavy_check_mark:'
