@@ -38,7 +38,7 @@ int main(){
             HLD.update_path(0,v,[&](int l,int r){seg.update(l,r,w);},true);
         } else {
             int u; cin >> u;
-            cout << HLD.query(0,u,0LL,[&](int l,int r){return seg.query(l,r).a;},h) << '\n';
+            cout << HLD.query_path(0,u,0LL,[&](int l,int r){return seg.query(l,r).a;},h) << '\n';
         }
     }
 }

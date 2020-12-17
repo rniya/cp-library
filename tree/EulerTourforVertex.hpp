@@ -17,6 +17,7 @@ class EulerTourforVertex{
         }
         rs[v]=time;
     }
+
 public:
     vector<vector<int>> G;
     EulerTourforVertex(int n):ls(n),rs(n),G(n){}

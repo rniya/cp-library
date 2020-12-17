@@ -26,6 +26,7 @@ class HeavyLightDecomposition{
             dfs_hld(u,c,times);
         }
     }
+
 public:
     vector<vector<int>> G;
     vector<int> vid,head,sub,par,dep,type;
@@ -43,6 +44,7 @@ public:
             dfs_hld(r,c++,times);
         }
     }
+    int idx(int u){return vid[u];}
     int lca(int u,int v){
         for (;;v=par[head[v]]){
             if (vid[u]>vid[v]) swap(u,v);
@@ -66,7 +68,7 @@ public:
         f(vid[u]+edge,vid[u]+sub[u]);
     }
     template<typename T,typename Q,typename F>
-    T query(int u,int v,const T &id,const Q &q,const F &f,bool edge=false){
+    T query_path(int u,int v,const T &id,const Q &q,const F &f,bool edge=false){
         T l=id,r=id;
         for (;;v=par[head[v]]){
             if (vid[u]>vid[v]) swap(u,v),swap(l,r);
@@ -74,5 +76,9 @@ public:
             l=f(l,q(vid[head[v]],vid[v]+1));
         }
         return f(r,f(l,q(vid[u]+edge,vid[v]+1)));
+    }
+    template<typename T,typename Q>
+    T query_sub(int u,const Q &q,bool edge=false){
+        return q(vid[u]+edge,vid[u]+sub[u]);
     }
 };

@@ -19,3 +19,12 @@ vector<int> Manacher(const string &s){
     }
     return res;
 }
+
+vector<int> PalindromeTable(const string &s){
+    int n=s.size();
+    string t(n*2+1,'$');
+    for (int i=0;i<n;++i) t[i*2+1]=s[i];
+    vector<int> v=Manacher(t),res;
+    for (int i=1;i<n*2;++i) res.emplace_back(v[i]-1);
+    return res;
+}

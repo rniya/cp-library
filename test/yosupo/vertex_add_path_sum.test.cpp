@@ -20,16 +20,17 @@ int main(){
 
     auto f=[](long long a,long long b){return a+b;};
     SegmentTree<long long> seg(N,f,0);
-    for (int i=0;i<N;++i) HLD.update_path(i,i,[&](int l,int r){seg.update(l,a[i]);});
+    for (int i=0;i<N;++i) seg.update(HLD.idx(i),a[i]);
 
     for (;Q--;){
         int t; cin >> t;
         if (!t){
             int p; long long x; cin >> p >> x;
-            HLD.update_path(p,p,[&](int l,int r){seg.update(l,seg[l]+x);});
+            int i=HLD.idx(p);
+            seg.update(i,seg[i]+x);
         } else {
             int u,v; cin >> u >> v;
-            cout << HLD.query(u,v,0LL,[&](int l,int r){return seg.query(l,r);},f) << '\n';
+            cout << HLD.query_path(u,v,0LL,[&](int l,int r){return seg.query(l,r);},f) << '\n';
         }
     }
 }

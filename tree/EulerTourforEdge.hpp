@@ -20,6 +20,7 @@ class EulerTourforEdge{
             btm.emplace_back(u);
         }
     }
+
 public:
     vector<vector<int>> G;
     EulerTourforEdge(int n):

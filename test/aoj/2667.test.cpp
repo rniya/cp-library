@@ -31,7 +31,7 @@ int main(){
         int t; cin >> t;
         if (!t){
             int u,v; cin >> u >> v;
-            cout << HLD.query(u,v,0LL,[&](int l,int r){return seg.query(l,r).a;},h,true) << '\n';
+            cout << HLD.query_path(u,v,0LL,[&](int l,int r){return seg.query(l,r).a;},h,true) << '\n';
         } else {
             int v; long long x; cin >> v >> x;
             HLD.update_sub(v,[&](int l,int r){seg.update(l,r,x);},true);
