@@ -21,14 +21,16 @@ class RollingHash{
         u128 c=(u128)a*b;
         return add(c>>61,c&mod);
     }
+
 public:
     static inline u64 generate_base(){
         mt19937_64 mt(chrono::steady_clock::now().time_since_epoch().count());
         uniform_int_distribution<u64> rand(2,RollingHash::mod-1);
         return rand(mt);
     }
+    RollingHash(u64 base=generate_base()):base(base){}
     template<typename T>
-    RollingHash(const T &s,u64 base):base(base){
+    RollingHash(const T &s,u64 base=generate_base()):base(base){
         int n=s.size();
         hash.assign(n+1,0);
         power.assign(n+1,0);
@@ -50,7 +52,8 @@ public:
         }
         return lb;
     }
-    u64 get(const string &t){
+    template<typename T>
+    u64 get(const T &t){
         u64 res=0;
         for (int i=0;i<t.size();++i) res=add(mul(res,base),t[i]);
         return res;
