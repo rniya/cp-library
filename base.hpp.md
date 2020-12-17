@@ -203,7 +203,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/LongestCommonPrefixArray.hpp
     title: Longest Common Prefix Array
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: string/Manacher.hpp
     title: Manacher
   - icon: ':heavy_check_mark:'
@@ -517,6 +517,9 @@ data:
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/enumerate_palindromes.test.cpp
+    title: test/yosupo/enumerate_palindromes.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -600,6 +603,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/vertex_add_path_sum.test.cpp
     title: test/yosupo/vertex_add_path_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/vertex_add_subtree_sum.test.cpp
+    title: test/yosupo/vertex_add_subtree_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/zalgorithm.test.cpp
     title: test/yosupo/zalgorithm.test.cpp
@@ -858,12 +864,14 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/two_sat.test.cpp
+  - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/bipartitematching.test.cpp
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
   - test/yosupo/associative_array.test.cpp
   - test/yosupo/static_range_sum.test.cpp
+  - test/yosupo/enumerate_palindromes.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/aplusb.test.cpp
   - test/yosupo/suffixarray.test.cpp

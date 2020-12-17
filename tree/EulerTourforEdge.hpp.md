@@ -28,7 +28,7 @@ data:
     \ void dfs(int v,int p,int d){\n        dep[v]=d;\n        for (int u:G[v]){\n\
     \            if (u==p) continue;\n            ds[u]=btm.size();\n            btm.emplace_back(u);\n\
     \            dfs(u,v,d+1);\n            us[u]=btm.size();\n            btm.emplace_back(u);\n\
-    \        }\n    }\npublic:\n    vector<vector<int>> G;\n    EulerTourforEdge(int\
+    \        }\n    }\n\npublic:\n    vector<vector<int>> G;\n    EulerTourforEdge(int\
     \ n):\n        ds(n),us(n),dep(n),G(n){}\n    void add_edge(int u,int v){\n  \
     \      G[u].emplace_back(v);\n        G[v].emplace_back(u);\n    }\n    void build(int\
     \ r=0){\n        btm.clear();\n        ds[r]=btm.size(); btm.emplace_back(r);\n\
@@ -46,7 +46,7 @@ data:
   isVerificationFile: false
   path: tree/EulerTourforEdge.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-12-17 21:12:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_5_D.test.cpp

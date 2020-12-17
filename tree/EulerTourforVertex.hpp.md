@@ -27,7 +27,7 @@ data:
     \u4F5C)\n * @docs dosc/tree/EulerTourforVertex.md\n */\n\n#pragma once\n\n#include\
     \ \"../base.hpp\"\n\nclass EulerTourforVertex{\n    vector<int> ls,rs;\n    int\
     \ time;\n    void dfs(int v,int p){\n        ls[v]=time++;\n        for (int u:G[v]){\n\
-    \            if (u!=p) dfs(u,v);\n        }\n        rs[v]=time;\n    }\npublic:\n\
+    \            if (u!=p) dfs(u,v);\n        }\n        rs[v]=time;\n    }\n\npublic:\n\
     \    vector<vector<int>> G;\n    EulerTourforVertex(int n):ls(n),rs(n),G(n){}\n\
     \    void add_edge(int u,int v){\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n\
     \    }\n    void build(int r=0){\n        time=0; dfs(r,-1);\n    }\n    int idx(int\
@@ -38,7 +38,7 @@ data:
   isVerificationFile: false
   path: tree/EulerTourforVertex.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-12-17 21:12:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2871.test.cpp

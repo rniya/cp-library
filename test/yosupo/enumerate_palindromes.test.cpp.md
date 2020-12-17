@@ -5,17 +5,17 @@ data:
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
-    path: tree/HeavyLightDecomposition.hpp
-    title: Heavy Light Decomposition
+    path: string/Manacher.hpp
+    title: Manacher
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C
+    PROBLEM: https://judge.yosupo.jp/problem/enumerate_palindromes
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C
+    - https://judge.yosupo.jp/problem/enumerate_palindromes
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
@@ -24,29 +24,25 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 310, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ tree/HeavyLightDecomposition.hpp: line 6: #pragma once found in a non-first\
-    \ line\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C\"\n\n\
-    #include \"../../base.hpp\"\n#include \"../../tree/HeavyLightDecomposition.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\
-    \ cin >> n;\n\n    HeavyLightDecomposition HLD(n);\n    for (int i=0;i<n;++i){\n\
-    \        int k; cin >> k;\n        for (;k--;){\n            int c; cin >> c;\n\
-    \            HLD.add_edge(i,c);\n        }\n    }\n    HLD.build();\n\n    int\
-    \ q; cin >> q;\n    for (;q--;){\n        int u,v; cin >> u >> v;\n        cout\
-    \ << HLD.lca(u,v) << '\\n';\n    }\n}"
+    \ string/Manacher.hpp: line 6: #pragma once found in a non-first line\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
+    \n\n#include \"../../base.hpp\"\n#include \"../../string/Manacher.hpp\"\n\nint\
+    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S; cin\
+    \ >> S;\n\n    vector<int> ans=PalindromeTable(S);\n    for (int i=0;i<ans.size();++i)\
+    \ cout << ans[i] << (i+1==ans.size()?'\\n':' ');\n}"
   dependsOn:
   - base.hpp
-  - tree/HeavyLightDecomposition.hpp
+  - string/Manacher.hpp
   isVerificationFile: true
-  path: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+  path: test/yosupo/enumerate_palindromes.test.cpp
   requiredBy: []
   timestamp: '2020-12-17 21:12:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+documentation_of: test/yosupo/enumerate_palindromes.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
-- /verify/test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp.html
-title: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+- /verify/test/yosupo/enumerate_palindromes.test.cpp
+- /verify/test/yosupo/enumerate_palindromes.test.cpp.html
+title: test/yosupo/enumerate_palindromes.test.cpp
 ---

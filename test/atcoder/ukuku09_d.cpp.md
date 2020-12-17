@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: string/Manacher.hpp
     title: Manacher
   _extendedRequiredBy: []
@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/ukuku09_d.cpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-12-17 21:12:28+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/ukuku09_d.cpp

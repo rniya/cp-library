@@ -43,7 +43,7 @@ data:
     \n    int q; cin >> q;\n    for (;q--;){\n        int t; cin >> t;\n        if\
     \ (!t){\n            int v; long long w; cin >> v >> w;\n            HLD.update_path(0,v,[&](int\
     \ l,int r){seg.update(l,r,w);},true);\n        } else {\n            int u; cin\
-    \ >> u;\n            cout << HLD.query(0,u,0LL,[&](int l,int r){return seg.query(l,r).a;},h)\
+    \ >> u;\n            cout << HLD.query_path(0,u,0LL,[&](int l,int r){return seg.query(l,r).a;},h)\
     \ << '\\n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
@@ -52,7 +52,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   requiredBy: []
-  timestamp: '2020-12-08 01:05:43+09:00'
+  timestamp: '2020-12-17 21:12:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp

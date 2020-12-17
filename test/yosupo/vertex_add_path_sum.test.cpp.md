@@ -36,12 +36,11 @@ data:
     \ HLD(N);\n    for (int i=0;i<N-1;++i){\n        int u,v; cin >> u >> v;\n   \
     \     HLD.add_edge(u,v);\n    }\n    HLD.build();\n\n    auto f=[](long long a,long\
     \ long b){return a+b;};\n    SegmentTree<long long> seg(N,f,0);\n    for (int\
-    \ i=0;i<N;++i) HLD.update_path(i,i,[&](int l,int r){seg.update(l,a[i]);});\n\n\
-    \    for (;Q--;){\n        int t; cin >> t;\n        if (!t){\n            int\
-    \ p; long long x; cin >> p >> x;\n            HLD.update_path(p,p,[&](int l,int\
-    \ r){seg.update(l,seg[l]+x);});\n        } else {\n            int u,v; cin >>\
-    \ u >> v;\n            cout << HLD.query(u,v,0LL,[&](int l,int r){return seg.query(l,r);},f)\
-    \ << '\\n';\n        }\n    }\n}"
+    \ i=0;i<N;++i) seg.update(HLD.idx(i),a[i]);\n\n    for (;Q--;){\n        int t;\
+    \ cin >> t;\n        if (!t){\n            int p; long long x; cin >> p >> x;\n\
+    \            int i=HLD.idx(p);\n            seg.update(i,seg[i]+x);\n        }\
+    \ else {\n            int u,v; cin >> u >> v;\n            cout << HLD.query_path(u,v,0LL,[&](int\
+    \ l,int r){return seg.query(l,r);},f) << '\\n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/SegmentTree.hpp
@@ -49,7 +48,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-12-17 21:12:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/vertex_add_path_sum.test.cpp

@@ -18,6 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/vertex_add_path_sum.test.cpp
     title: test/yosupo/vertex_add_path_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/vertex_add_subtree_sum.test.cpp
+    title: test/yosupo/vertex_add_subtree_sum.test.cpp
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -40,33 +43,36 @@ data:
     \ void dfs_hld(int v,int c,int &times){\n        vid[v]=times++; type[v]=c;\n\
     \        for (int u:G[v]){\n            if (u==par[v]) continue;\n           \
     \ head[u]=(u==G[v][0]?head[v]:u);\n            dfs_hld(u,c,times);\n        }\n\
-    \    }\npublic:\n    vector<vector<int>> G;\n    vector<int> vid,head,sub,par,dep,type;\n\
+    \    }\n\npublic:\n    vector<vector<int>> G;\n    vector<int> vid,head,sub,par,dep,type;\n\
     \    HeavyLightDecomposition(int n):\n        G(n),vid(n,-1),head(n),sub(n,1),par(n,-1),dep(n,0),type(n){}\n\
     \    void add_edge(int u,int v){\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n\
     \    }\n    void build(vector<int> rs={0}){\n        int c=0,times=0;\n      \
     \  for (int r:rs){\n            dfs_sz(r);\n            head[r]=r;\n         \
-    \   dfs_hld(r,c++,times);\n        }\n    }\n    int lca(int u,int v){\n     \
-    \   for (;;v=par[head[v]]){\n            if (vid[u]>vid[v]) swap(u,v);\n     \
-    \       if (head[u]==head[v]) return u;\n        }\n    }\n    int distance(int\
-    \ u,int v){\n        return dep[u]+dep[v]-2*dep[lca(u,v)];\n    }\n    template<typename\
-    \ F>\n    void update_path(int u,int v,const F &f,bool edge=false){\n        for\
-    \ (;;v=par[head[v]]){\n            if (vid[u]>vid[v]) swap(u,v);\n           \
-    \ if (head[u]==head[v]) break;\n            f(vid[head[v]],vid[v]+1);\n      \
-    \  }\n        f(vid[u]+edge,vid[v]+1);\n    }\n    template<typename F>\n    void\
-    \ update_sub(int u,const F &f,bool edge=false){\n        f(vid[u]+edge,vid[u]+sub[u]);\n\
-    \    }\n    template<typename T,typename Q,typename F>\n    T query(int u,int\
+    \   dfs_hld(r,c++,times);\n        }\n    }\n    int idx(int u){return vid[u];}\n\
+    \    int lca(int u,int v){\n        for (;;v=par[head[v]]){\n            if (vid[u]>vid[v])\
+    \ swap(u,v);\n            if (head[u]==head[v]) return u;\n        }\n    }\n\
+    \    int distance(int u,int v){\n        return dep[u]+dep[v]-2*dep[lca(u,v)];\n\
+    \    }\n    template<typename F>\n    void update_path(int u,int v,const F &f,bool\
+    \ edge=false){\n        for (;;v=par[head[v]]){\n            if (vid[u]>vid[v])\
+    \ swap(u,v);\n            if (head[u]==head[v]) break;\n            f(vid[head[v]],vid[v]+1);\n\
+    \        }\n        f(vid[u]+edge,vid[v]+1);\n    }\n    template<typename F>\n\
+    \    void update_sub(int u,const F &f,bool edge=false){\n        f(vid[u]+edge,vid[u]+sub[u]);\n\
+    \    }\n    template<typename T,typename Q,typename F>\n    T query_path(int u,int\
     \ v,const T &id,const Q &q,const F &f,bool edge=false){\n        T l=id,r=id;\n\
     \        for (;;v=par[head[v]]){\n            if (vid[u]>vid[v]) swap(u,v),swap(l,r);\n\
     \            if (head[u]==head[v]) break;\n            l=f(l,q(vid[head[v]],vid[v]+1));\n\
-    \        }\n        return f(r,f(l,q(vid[u]+edge,vid[v]+1)));\n    }\n};"
+    \        }\n        return f(r,f(l,q(vid[u]+edge,vid[v]+1)));\n    }\n    template<typename\
+    \ T,typename Q>\n    T query_sub(int u,const Q &q,bool edge=false){\n        return\
+    \ q(vid[u]+edge,vid[u]+sub[u]);\n    }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: tree/HeavyLightDecomposition.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-12-17 21:12:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/vertex_add_path_sum.test.cpp
   - test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
   - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp

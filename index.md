@@ -231,7 +231,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/LongestCommonPrefixArray.hpp
       title: Longest Common Prefix Array
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: string/Manacher.hpp
       title: Manacher
     - icon: ':heavy_check_mark:'
@@ -560,6 +560,9 @@ data:
       path: test/yosupo/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution_mod_1000000007.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/enumerate_palindromes.test.cpp
+      title: test/yosupo/enumerate_palindromes.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/exp_of_formal_power_series.test.cpp
       title: test/yosupo/exp_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -643,6 +646,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/vertex_add_path_sum.test.cpp
       title: test/yosupo/vertex_add_path_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/vertex_add_subtree_sum.test.cpp
+      title: test/yosupo/vertex_add_subtree_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/zalgorithm.test.cpp
       title: test/yosupo/zalgorithm.test.cpp

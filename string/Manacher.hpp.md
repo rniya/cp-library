@@ -8,9 +8,12 @@ data:
   - icon: ':warning:'
     path: test/atcoder/ukuku09_d.cpp
     title: test/atcoder/ukuku09_d.cpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/enumerate_palindromes.test.cpp
+    title: test/yosupo/enumerate_palindromes.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/string/Manacher.md
     document_title: Manacher
@@ -27,16 +30,20 @@ data:
     \    int n=s.size();\n    vector<int> res(n);\n    for (int i=0,j=0;i<n;){\n \
     \       while(i-j>=0&&i+j<n&&s[i-j]==s[i+j]) ++j;\n        res[i]=j;\n       \
     \ int k=1;\n        while(i-k>=0&&i+k<n&&k+res[i-k]<j) res[i+k]=res[i-k],++k;\n\
-    \        i+=k,j-=k;\n    }\n    return res;\n}"
+    \        i+=k,j-=k;\n    }\n    return res;\n}\n\nvector<int> PalindromeTable(const\
+    \ string &s){\n    int n=s.size();\n    string t(n*2+1,'$');\n    for (int i=0;i<n;++i)\
+    \ t[i*2+1]=s[i];\n    vector<int> v=Manacher(t),res;\n    for (int i=1;i<n*2;++i)\
+    \ res.emplace_back(v[i]-1);\n    return res;\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: string/Manacher.hpp
   requiredBy:
   - test/atcoder/ukuku09_d.cpp
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2020-12-17 21:12:28+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/enumerate_palindromes.test.cpp
 documentation_of: string/Manacher.hpp
 layout: document
 redirect_from:
