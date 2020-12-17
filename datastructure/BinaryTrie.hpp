@@ -46,6 +46,7 @@ class BinaryTrie{
         bool f=(val>>(T)b)&(T)1;
         return (f&&node->ch[0]?node->ch[0]->cnt:0)+count_lower(node->ch[f],val,b-1);
     }
+
 public:
     BinaryTrie():root(nullptr){}
     int size() const {return root?root->cnt:0;}

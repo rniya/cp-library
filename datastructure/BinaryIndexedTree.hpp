@@ -14,6 +14,7 @@ class BinaryIndexedTree{
         for (;i>0;i-=(i&-i)) res+=dat[i];
         return res;
     }
+
 public:
     int n;
     vector<T> dat;

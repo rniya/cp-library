@@ -50,6 +50,7 @@ class EulerianTrail{
         reverse(ord.begin(),ord.end());
         return ord;
     }
+
 public:
     vector<vector<pair<int,int>>> G;
     vector<vector<int>> BG;

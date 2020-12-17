@@ -165,6 +165,7 @@ class SegmentTreeBeats{
         T vr=query_sum(a,b,(k<<1)+2,(l+r)>>1,r);
         return vl+vr;
     }
+
 public:
     SegmentTreeBeats(int n_){init(n_);}
     void init(int n_){

@@ -25,6 +25,7 @@ class CentroidDecomposition{
         }
         return v;
     }
+
 public:
     CentroidDecomposition(int n):G(n),sub(n),centroid(n){}
     void add_edge(int u,int v){
