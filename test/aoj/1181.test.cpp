@@ -1,4 +1,4 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/challenges/search/titles/1181"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/1181"
 
 #include "../../base.hpp"
 #include "../../util/Dice.hpp"
