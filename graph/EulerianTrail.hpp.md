@@ -43,16 +43,17 @@ data:
     \ G[v].pop_back();\n                if (used[e.second]) continue;\n          \
     \      used[e.second]=1;\n                st.emplace(e);\n            }\n    \
     \    }\n        ord.pop_back();\n        reverse(ord.begin(),ord.end());\n   \
-    \     return ord;\n    }\npublic:\n    vector<vector<pair<int,int>>> G;\n    vector<vector<int>>\
-    \ BG;\n    vector<pair<int,int>> es;\n    vector<int> used,visited,deg;\n    EulerianTrail(int\
-    \ n):G(n),BG(n),visited(n,0),deg(n,0){}\n    void add_edge(int u,int v){\n   \
-    \     int m=es.size();\n        es.emplace_back(u,v);\n        used.emplace_back(0);\n\
-    \        BG[u].emplace_back(v);\n        BG[v].emplace_back(u);\n        G[u].emplace_back(v,m);\n\
-    \        ++deg[u];\n        if (directed) --deg[v];\n        else G[v].emplace_back(u,m),++deg[v];\n\
-    \    }\n    vector<vector<int>> build(){\n        for (int i=0;i<G.size();++i){\n\
-    \            if (directed&&deg[i]!=0) return {};\n            if (!directed&&(deg[i]&1))\
-    \ return {};\n        }\n        vector<vector<int>> res;\n        for (int i=0;i<G.size();++i){\n\
-    \            if (G[i].empty()||visited[i]) continue;\n            res.emplace_back(go(i));\n\
+    \     return ord;\n    }\n\npublic:\n    vector<vector<pair<int,int>>> G;\n  \
+    \  vector<vector<int>> BG;\n    vector<pair<int,int>> es;\n    vector<int> used,visited,deg;\n\
+    \    EulerianTrail(int n):G(n),BG(n),visited(n,0),deg(n,0){}\n    void add_edge(int\
+    \ u,int v){\n        int m=es.size();\n        es.emplace_back(u,v);\n       \
+    \ used.emplace_back(0);\n        BG[u].emplace_back(v);\n        BG[v].emplace_back(u);\n\
+    \        G[u].emplace_back(v,m);\n        ++deg[u];\n        if (directed) --deg[v];\n\
+    \        else G[v].emplace_back(u,m),++deg[v];\n    }\n    vector<vector<int>>\
+    \ build(){\n        for (int i=0;i<G.size();++i){\n            if (directed&&deg[i]!=0)\
+    \ return {};\n            if (!directed&&(deg[i]&1)) return {};\n        }\n \
+    \       vector<vector<int>> res;\n        for (int i=0;i<G.size();++i){\n    \
+    \        if (G[i].empty()||visited[i]) continue;\n            res.emplace_back(go(i));\n\
     \        }\n        return res;\n    }\n    vector<vector<int>> build_semi(){\n\
     \        vector<vector<int>> res;\n        for (int i=0;i<G.size();++i){\n   \
     \         if (visited[i]) continue;\n            int s=-1,t=-1,check=1;\n    \
@@ -65,7 +66,7 @@ data:
   path: graph/EulerianTrail.hpp
   requiredBy:
   - test/codeforces/1361_C.cpp
-  timestamp: '2020-11-27 23:15:34+09:00'
+  timestamp: '2020-12-17 20:40:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/583.test.cpp

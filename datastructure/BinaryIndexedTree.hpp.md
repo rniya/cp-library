@@ -35,7 +35,7 @@ data:
   code: "/**\n * @brief Binary Indexed Tree\n * @docs docs/datastructure/BinaryIndexedTree.md\n\
     \ */\n\n#pragma once\n\n#include \"../base.hpp\"\n\ntemplate<typename T>\nclass\
     \ BinaryIndexedTree{\n    T sum(int i){\n        T res=T();\n        for (;i>0;i-=(i&-i))\
-    \ res+=dat[i];\n        return res;\n    }\npublic:\n    int n;\n    vector<T>\
+    \ res+=dat[i];\n        return res;\n    }\n\npublic:\n    int n;\n    vector<T>\
     \ dat;\n    BinaryIndexedTree(int n_):n(n_+1),dat(n+1,0){}\n    void add(int i,const\
     \ T &x){\n        for (++i;i<=n;i+=(i&-i)) dat[i]+=x;\n    }\n    T query(int\
     \ l,int r){return sum(r)-sum(l);}\n    int lower_bound(T x) const {\n        if\
@@ -49,7 +49,7 @@ data:
   isVerificationFile: false
   path: datastructure/BinaryIndexedTree.hpp
   requiredBy: []
-  timestamp: '2020-11-22 15:46:49+09:00'
+  timestamp: '2020-12-17 20:40:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/static_range_inversions_query.test.cpp

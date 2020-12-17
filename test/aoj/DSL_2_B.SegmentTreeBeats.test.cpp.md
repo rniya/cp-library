@@ -39,7 +39,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-12-17 20:40:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp

@@ -29,7 +29,7 @@ data:
     \ continue;\n            sub[v]+=dfs(u,v);\n        }\n        return sub[v];\n\
     \    }\n    inline int find(int v,int p,int mid){\n        for (int u:G[v]){\n\
     \            if (u==p||centroid[u]) continue;\n            if (sub[u]>mid) return\
-    \ find(u,v,mid);\n        }\n        return v;\n    }\npublic:\n    CentroidDecomposition(int\
+    \ find(u,v,mid);\n        }\n        return v;\n    }\n\npublic:\n    CentroidDecomposition(int\
     \ n):G(n),sub(n),centroid(n){}\n    void add_edge(int u,int v){\n        G[u].emplace_back(v);\n\
     \        G[v].emplace_back(u);\n    }\n    int build(int r){return find(r,-1,dfs(r,-1)>>1);}\n\
     \    void disable(int v){centroid[v]=true;}\n    void enable(int v){centroid[v]=false;}\n\
@@ -40,7 +40,7 @@ data:
   isVerificationFile: false
   path: tree/CentroidDecomposition.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-12-17 20:40:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/frequency_table_of_tree_distance.test.cpp

@@ -39,7 +39,7 @@ data:
     \ m=node->ch[0]?node->ch[0]->cnt:0;\n        return k<m?get(node->ch[0],k,b-1):get(node->ch[1],k-m,b-1)|(T)1<<(T)b;\n\
     \    }\n    int count_lower(Node *node,T val,int b=MAX_LOG-1){\n        if (!node||b<0)\
     \ return 0;\n        bool f=(val>>(T)b)&(T)1;\n        return (f&&node->ch[0]?node->ch[0]->cnt:0)+count_lower(node->ch[f],val,b-1);\n\
-    \    }\npublic:\n    BinaryTrie():root(nullptr){}\n    int size() const {return\
+    \    }\n\npublic:\n    BinaryTrie():root(nullptr){}\n    int size() const {return\
     \ root?root->cnt:0;}\n    bool empty() const {return !root;}\n    void insert(T\
     \ val){root=add(root,val);}\n    void erase(T val){root=sub(root,val);}\n    T\
     \ max_element(T bias=0) const {return get_min(root,~bias);}\n    T min_element(T\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: false
   path: datastructure/BinaryTrie.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2020-12-17 20:40:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/set_xor_min.test.cpp
