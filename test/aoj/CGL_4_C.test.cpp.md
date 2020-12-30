@@ -1,18 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: geometry
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
+    ERROR: '0.000001'
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_C
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_C
@@ -26,10 +27,10 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ geometry/geometry.hpp: line 6: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_C\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\n\n\
-    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    cout << fixed\
-    \ << setprecision(10);\n    int n; cin >> n;\n    Polygon g(n); cin >> g;\n  \
-    \  int q; cin >> q;\n    for (;q--;){\n        Line l; cin >> l;\n        cout\
+    \n#define ERROR 0.000001\n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\
+    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    cout <<\
+    \ fixed << setprecision(10);\n    int n; cin >> n;\n    Polygon g(n); cin >> g;\n\
+    \    int q; cin >> q;\n    for (;q--;){\n        Line l; cin >> l;\n        cout\
     \ << area(convex_cut(g,l)) << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
@@ -37,8 +38,8 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_4_C.test.cpp
   requiredBy: []
-  timestamp: '2020-12-30 21:10:47+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-12-30 22:13:38+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_4_C.test.cpp
 layout: document
