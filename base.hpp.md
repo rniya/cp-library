@@ -97,7 +97,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: flow/ProjectSelectionProblem.hpp
     title: Project Selection Problem
-  - icon: ':warning:'
+  - icon: ':question:'
     path: geometry/geometry.hpp
     title: geometry
   - icon: ':heavy_check_mark:'
@@ -324,6 +324,63 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_14_D.test.cpp
     title: test/aoj/ALDS1_14_D.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_1_A.test.cpp
+    title: test/aoj/CGL_1_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_1_B.test.cpp
+    title: test/aoj/CGL_1_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_1_C.test.cpp
+    title: test/aoj/CGL_1_C.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_2_A.test.cpp
+    title: test/aoj/CGL_2_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_2_B.test.cpp
+    title: test/aoj/CGL_2_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_2_C.test.cpp
+    title: test/aoj/CGL_2_C.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_2_D.test.cpp
+    title: test/aoj/CGL_2_D.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_3_A.test.cpp
+    title: test/aoj/CGL_3_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_3_B.test.cpp
+    title: test/aoj/CGL_3_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_3_C.test.cpp
+    title: test/aoj/CGL_3_C.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_4_A.test.cpp
+    title: test/aoj/CGL_4_A.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL_4_B.test.cpp
+    title: test/aoj/CGL_4_B.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL_4_C.test.cpp
+    title: test/aoj/CGL_4_C.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_7_A.test.cpp
+    title: test/aoj/CGL_7_A.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL_7_C.test.cpp
+    title: test/aoj/CGL_7_C.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL_7_D.test.cpp
+    title: test/aoj/CGL_7_D.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL_7_E.test.cpp
+    title: test/aoj/CGL_7_E.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL_7_F.test.cpp
+    title: test/aoj/CGL_7_F.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL_7_G.test.cpp
+    title: test/aoj/CGL_7_G.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_A.test.cpp
     title: test/aoj/DPL_5_A.test.cpp
@@ -670,7 +727,7 @@ data:
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n\n#include <bits/stdc++.h>\nusing namespace\
@@ -864,7 +921,7 @@ data:
   - math/modpow.hpp
   - other/Mo.hpp
   timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/two_sat.test.cpp
   - test/yosupo/vertex_add_subtree_sum.test.cpp
@@ -910,9 +967,12 @@ data:
   - test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
   - test/aoj/DPL_5_D.test.cpp
   - test/aoj/DSL_2_D.DualSegmentTree.test.cpp
+  - test/aoj/CGL_2_B.test.cpp
+  - test/aoj/CGL_7_G.test.cpp
   - test/aoj/DSL_1_B.test.cpp
   - test/aoj/DPL_5_C.test.cpp
   - test/aoj/DSL_2_F.test.cpp
+  - test/aoj/CGL_1_A.test.cpp
   - test/aoj/DSL_2_E.DualSegmentTree.test.cpp
   - test/aoj/DSL_2_G.test.cpp
   - test/aoj/DPL_5_A.test.cpp
@@ -920,17 +980,22 @@ data:
   - test/aoj/2903.test.cpp
   - test/aoj/NTL_1_E.test.cpp
   - test/aoj/DSL_2_H.test.cpp
+  - test/aoj/CGL_4_A.test.cpp
   - test/aoj/2885.test.cpp
   - test/aoj/1370.test.cpp
   - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   - test/aoj/ALDS1_14_D.test.cpp
+  - test/aoj/CGL_3_A.test.cpp
   - test/aoj/DPL_5_L.test.cpp
   - test/aoj/GRL_1_A.test.cpp
+  - test/aoj/CGL_2_A.test.cpp
+  - test/aoj/CGL_1_C.test.cpp
   - test/aoj/GRL_3_B.test.cpp
   - test/aoj/DPL_5_J.test.cpp
   - test/aoj/GRL_6_B.test.cpp
   - test/aoj/2871.test.cpp
   - test/aoj/DSL_2_D.test.cpp
+  - test/aoj/CGL_2_D.test.cpp
   - test/aoj/GRL_5_B.test.cpp
   - test/aoj/DPL_5_G.test.cpp
   - test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
@@ -938,24 +1003,33 @@ data:
   - test/aoj/GRL_7_A.HopcroftKarp.test.cpp
   - test/aoj/GRL_7_A.test.cpp
   - test/aoj/DSL_2_E.test.cpp
+  - test/aoj/CGL_4_B.test.cpp
   - test/aoj/NTL_1_D.test.cpp
+  - test/aoj/CGL_7_A.test.cpp
   - test/aoj/1181.test.cpp
+  - test/aoj/CGL_3_B.test.cpp
   - test/aoj/GRL_6_B.PrimalDual.test.cpp
+  - test/aoj/CGL_7_C.test.cpp
   - test/aoj/GRL_4_B.test.cpp
   - test/aoj/GRL_3_A.test.cpp
   - test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+  - test/aoj/CGL_1_B.test.cpp
   - test/aoj/DSL_3_D.test.cpp
   - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
   - test/aoj/GRL_2_A.Prim.test.cpp
   - test/aoj/2313.test.cpp
   - test/aoj/GRL_1_B.test.cpp
+  - test/aoj/CGL_2_C.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
   - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/CGL_3_C.test.cpp
   - test/aoj/GRL_5_A.test.cpp
   - test/aoj/GRL_3_C.test.cpp
   - test/aoj/GRL_6_A.DInic.test.cpp
   - test/aoj/GRL_4_A.test.cpp
   - test/aoj/DSL_2_I.test.cpp
+  - test/aoj/CGL_7_F.test.cpp
+  - test/aoj/CGL_4_C.test.cpp
   - test/aoj/GRL_2_A.test.cpp
   - test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
   - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
@@ -963,12 +1037,14 @@ data:
   - test/aoj/2891.test.cpp
   - test/aoj/GRL_6_A.test.cpp
   - test/aoj/DPL_5_B.test.cpp
+  - test/aoj/CGL_7_E.test.cpp
   - test/aoj/2667.test.cpp
   - test/aoj/DPL_5_F.test.cpp
   - test/aoj/GRL_5_C.test.cpp
   - test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_A.test.cpp
   - test/aoj/DPL_5_I.test.cpp
+  - test/aoj/CGL_7_D.test.cpp
   - test/aoj/DSL_1_A.test.cpp
   - test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
   - test/aoj/NTL_1_B.test.cpp
