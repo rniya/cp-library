@@ -125,6 +125,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/Prim.hpp
     title: Prim
+  - icon: ':warning:'
+    path: graph/RangeEdgeGraph.hpp
+    title: graph/RangeEdgeGraph.hpp
   - icon: ':heavy_check_mark:'
     path: graph/StronglyConnectedComponents.hpp
     title: Strongly Connected Components
@@ -239,6 +242,9 @@ data:
   - icon: ':warning:'
     path: test/atcoder/dp_z.cpp
     title: test/atcoder/dp_z.cpp
+  - icon: ':warning:'
+    path: test/atcoder/nikkei2019_2_qual_d.cpp
+    title: test/atcoder/nikkei2019_2_qual_d.cpp
   - icon: ':warning:'
     path: test/atcoder/tdpc_fibonacci.cpp
     title: test/atcoder/tdpc_fibonacci.cpp
@@ -874,6 +880,7 @@ data:
   - string/Z_Algorithm.hpp
   - graph/LowLink.hpp
   - graph/Prim.hpp
+  - graph/RangeEdgeGraph.hpp
   - graph/StronglyConnectedComponents.hpp
   - graph/Kruskal.hpp
   - graph/TwoSatisfiability.hpp
@@ -894,6 +901,7 @@ data:
   - test/atcoder/dp_z.cpp
   - test/atcoder/arc085_c.cpp
   - test/atcoder/colopl2018_final_c.cpp
+  - test/atcoder/nikkei2019_2_qual_d.cpp
   - test/atcoder/tdpc_fibonacci.cpp
   - test/atcoder/arc039_d.cpp
   - test/atcoder/abc137_e.cpp

@@ -141,6 +141,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/Prim.hpp
       title: Prim
+    - icon: ':warning:'
+      path: graph/RangeEdgeGraph.hpp
+      title: graph/RangeEdgeGraph.hpp
     - icon: ':heavy_check_mark:'
       path: graph/StronglyConnectedComponents.hpp
       title: Strongly Connected Components
@@ -269,6 +272,9 @@ data:
     - icon: ':warning:'
       path: test/atcoder/dp_z.cpp
       title: test/atcoder/dp_z.cpp
+    - icon: ':warning:'
+      path: test/atcoder/nikkei2019_2_qual_d.cpp
+      title: test/atcoder/nikkei2019_2_qual_d.cpp
     - icon: ':warning:'
       path: test/atcoder/tdpc_fibonacci.cpp
       title: test/atcoder/tdpc_fibonacci.cpp
