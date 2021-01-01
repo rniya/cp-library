@@ -1,5 +1,5 @@
 /**
- * @brief
+ * @brief 区間に辺を張るグラフ
  * @docs docs/graph/RangeEdgeGraph.md
  */
 
