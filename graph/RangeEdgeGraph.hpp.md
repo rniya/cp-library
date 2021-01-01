@@ -13,6 +13,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/graph/RangeEdgeGraph.md
+    document_title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
@@ -21,11 +22,12 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/RangeEdgeGraph.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\n * @brief\n * @docs docs/graph/RangeEdgeGraph.md\n */\n\n#pragma once\n\
-    \n#include \"../base.hpp\"\n\ntemplate<typename T>\nclass RangeEdgeGraph{\n  \
-    \  struct edge{\n        int to; T cost;\n        edge(int to,T cost):to(to),cost(cost){}\n\
-    \        bool operator<(const edge &rhs) const {return cost>rhs.cost;}\n    };\n\
-    \    int n;\n    vector<vector<edge>> G;\n    void add_edge(int u,int v,T cost){G[(3*n<=u?u-2*n:u)].emplace_back(v,cost);}\n\
+  code: "/**\n * @brief \u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5\
+    \n * @docs docs/graph/RangeEdgeGraph.md\n */\n\n#pragma once\n\n#include \"../base.hpp\"\
+    \n\ntemplate<typename T>\nclass RangeEdgeGraph{\n    struct edge{\n        int\
+    \ to; T cost;\n        edge(int to,T cost):to(to),cost(cost){}\n        bool operator<(const\
+    \ edge &rhs) const {return cost>rhs.cost;}\n    };\n    int n;\n    vector<vector<edge>>\
+    \ G;\n    void add_edge(int u,int v,T cost){G[(3*n<=u?u-2*n:u)].emplace_back(v,cost);}\n\
     \npublic:\n    RangeEdgeGraph(int n):n(n),G(3*n){\n        for (int i=1;i<n;++i){\n\
     \            int l=i<<1|0,r=i<<1|1;\n            add_edge(i,l,0);\n          \
     \  add_edge(i,r,0);\n            add_edge(l+2*n,i+2*n,0);\n            add_edge(r+2*n,i+2*n,0);\n\
@@ -48,7 +50,7 @@ data:
   path: graph/RangeEdgeGraph.hpp
   requiredBy:
   - test/atcoder/nikkei2019_2_qual_d.cpp
-  timestamp: '2020-12-31 12:31:12+09:00'
+  timestamp: '2021-01-02 00:35:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/RangeEdgeGraph.hpp
@@ -56,7 +58,7 @@ layout: document
 redirect_from:
 - /library/graph/RangeEdgeGraph.hpp
 - /library/graph/RangeEdgeGraph.hpp.html
-title: graph/RangeEdgeGraph.hpp
+title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
 ---
 ## 概要
 区間から区間に辺が伸びるようなグラフ上での最短路を計算する. Segment Treeの構造を利用して頂点数$3n+q$, 辺数$4n+q\log n$のグラフを構成している.

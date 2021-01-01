@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':warning:'
     path: graph/RangeEdgeGraph.hpp
-    title: graph/RangeEdgeGraph.hpp
+    title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
@@ -36,7 +36,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/nikkei2019_2_qual_d.cpp
   requiredBy: []
-  timestamp: '2020-12-31 12:31:12+09:00'
+  timestamp: '2021-01-02 00:35:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/nikkei2019_2_qual_d.cpp
