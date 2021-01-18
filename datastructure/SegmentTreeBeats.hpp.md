@@ -1,40 +1,40 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
     title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/datastructure/LazySegmentTree.md
     document_title: Segment Tree Beats
@@ -134,17 +134,17 @@ data:
   isVerificationFile: false
   path: datastructure/SegmentTreeBeats.hpp
   requiredBy: []
-  timestamp: '2020-12-17 20:40:05+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
-  - test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
 documentation_of: datastructure/SegmentTreeBeats.hpp
 layout: document

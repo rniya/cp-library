@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -9,11 +9,11 @@ data:
     path: test/codeforces/1361_C.cpp
     title: test/codeforces/1361_C.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/583.test.cpp
     title: test/yukicoder/583.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/graph/EulerianTrail.md
     document_title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u30FB\u6E96\u30AA\u30A4\u30E9\u30FC\
@@ -66,8 +66,8 @@ data:
   path: graph/EulerianTrail.hpp
   requiredBy:
   - test/codeforces/1361_C.cpp
-  timestamp: '2020-12-17 20:40:05+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/583.test.cpp
 documentation_of: graph/EulerianTrail.hpp

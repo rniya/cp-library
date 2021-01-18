@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -9,20 +9,20 @@ data:
     path: test/atcoder/ukuku09_d.cpp
     title: test/atcoder/ukuku09_d.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_A.test.cpp
     title: test/aoj/DSL_2_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/point_add_range_sum.test.cpp
     title: test/yosupo/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/vertex_add_path_sum.test.cpp
     title: test/yosupo/vertex_add_path_sum.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/datastructure/SegmentTree.md
     document_title: Segment Tree
@@ -72,12 +72,12 @@ data:
   path: datastructure/SegmentTree.hpp
   requiredBy:
   - test/atcoder/ukuku09_d.cpp
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/point_add_range_sum.test.cpp
   - test/yosupo/vertex_add_path_sum.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
+  - test/yosupo/point_add_range_sum.test.cpp
   - test/aoj/DSL_2_A.test.cpp
 documentation_of: datastructure/SegmentTree.hpp
 layout: document

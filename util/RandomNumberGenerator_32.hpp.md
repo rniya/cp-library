@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -31,7 +31,7 @@ data:
   isVerificationFile: false
   path: util/RandomNumberGenerator_32.hpp
   requiredBy: []
-  timestamp: '2020-12-09 21:28:43+09:00'
+  timestamp: '2021-01-19 00:11:31+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: util/RandomNumberGenerator_32.hpp

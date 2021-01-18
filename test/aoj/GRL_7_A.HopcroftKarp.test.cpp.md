@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: flow/HopcroftKarp.hpp
     title: Hopcroft Karp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_7_A
@@ -37,8 +37,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
   requiredBy: []
-  timestamp: '2020-12-17 19:09:45+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
 layout: document

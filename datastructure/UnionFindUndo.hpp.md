@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -9,11 +9,11 @@ data:
     path: test/codeforces/1444_C.cpp
     title: test/codeforces/1444_C.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
     title: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/datastructure/UnionFindUndo.md
     document_title: "UnionFind (Undo\u53EF\u80FD)"
@@ -44,8 +44,8 @@ data:
   path: datastructure/UnionFindUndo.hpp
   requiredBy:
   - test/codeforces/1444_C.cpp
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
 documentation_of: datastructure/UnionFindUndo.hpp

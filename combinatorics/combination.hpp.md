@@ -1,37 +1,37 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_B.test.cpp
     title: test/aoj/DPL_5_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_C.test.cpp
     title: test/aoj/DPL_5_C.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_D.test.cpp
     title: test/aoj/DPL_5_D.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_F.test.cpp
     title: test/aoj/DPL_5_F.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_G.test.cpp
     title: test/aoj/DPL_5_G.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_I.test.cpp
     title: test/aoj/DPL_5_I.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1302.test.cpp
     title: test/yukicoder/1302.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: '@docs/combinatorics/combination.md'
     document_title: combination
@@ -59,16 +59,16 @@ data:
   isVerificationFile: false
   path: combinatorics/combination.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
+  - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/DPL_5_G.test.cpp
   - test/aoj/DPL_5_D.test.cpp
   - test/aoj/DPL_5_C.test.cpp
-  - test/aoj/DPL_5_G.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
-  - test/aoj/DPL_5_B.test.cpp
-  - test/aoj/DPL_5_F.test.cpp
   - test/aoj/DPL_5_I.test.cpp
+  - test/aoj/DPL_5_F.test.cpp
+  - test/aoj/DPL_5_B.test.cpp
   - test/yukicoder/1302.test.cpp
 documentation_of: combinatorics/combination.hpp
 layout: document

@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
     title: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/bipartitematching.test.cpp
     title: test/yosupo/bipartitematching.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/flow/HopcroftKarp.md
     document_title: Hopcroft Karp
@@ -76,8 +76,8 @@ data:
   isVerificationFile: false
   path: flow/HopcroftKarp.hpp
   requiredBy: []
-  timestamp: '2020-12-17 19:09:45+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/bipartitematching.test.cpp
   - test/aoj/GRL_7_A.HopcroftKarp.test.cpp

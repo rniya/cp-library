@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -12,11 +12,11 @@ data:
     path: test/atcoder/dp_z.cpp
     title: test/atcoder/dp_z.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/datastructure/ConvexHullTrick.md
     document_title: Convex Hull Trick
@@ -60,10 +60,10 @@ data:
   isVerificationFile: false
   path: datastructure/ConvexHullTrick.hpp
   requiredBy:
-  - test/atcoder/dp_z.cpp
   - test/atcoder/colopl2018_final_c.cpp
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  - test/atcoder/dp_z.cpp
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/952.test.cpp
 documentation_of: datastructure/ConvexHullTrick.hpp

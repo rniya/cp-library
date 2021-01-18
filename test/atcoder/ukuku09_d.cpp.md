@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: string/Manacher.hpp
     title: Manacher
   _extendedRequiredBy: []
@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/ukuku09_d.cpp
   requiredBy: []
-  timestamp: '2020-12-17 21:12:28+09:00'
+  timestamp: '2021-01-19 00:11:31+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/ukuku09_d.cpp

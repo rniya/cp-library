@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -9,11 +9,11 @@ data:
     path: test/atcoder/ukuku09_d.cpp
     title: test/atcoder/ukuku09_d.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/enumerate_palindromes.test.cpp
     title: test/yosupo/enumerate_palindromes.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/string/Manacher.md
     document_title: Manacher
@@ -40,8 +40,8 @@ data:
   path: string/Manacher.hpp
   requiredBy:
   - test/atcoder/ukuku09_d.cpp
-  timestamp: '2020-12-17 21:12:28+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/enumerate_palindromes.test.cpp
 documentation_of: string/Manacher.hpp

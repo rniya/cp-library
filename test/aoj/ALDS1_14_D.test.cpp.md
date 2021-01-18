@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: string/SuffixArray.hpp
     title: Suffix Array
   _extendedRequiredBy: []
@@ -36,7 +36,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1_14_D.test.cpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
+  timestamp: '2021-01-19 00:11:31+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1_14_D.test.cpp

@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_D.DualSegmentTree.test.cpp
     title: test/aoj/DSL_2_D.DualSegmentTree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_E.DualSegmentTree.test.cpp
     title: test/aoj/DSL_2_E.DualSegmentTree.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/datastructure/DualSegmentTree.hpp
     document_title: Dual Segment Tree
@@ -47,11 +47,11 @@ data:
   isVerificationFile: false
   path: datastructure/DualSegmentTree.hpp
   requiredBy: []
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/aoj/DSL_2_D.DualSegmentTree.test.cpp
   - test/aoj/DSL_2_E.DualSegmentTree.test.cpp
+  - test/aoj/DSL_2_D.DualSegmentTree.test.cpp
 documentation_of: datastructure/DualSegmentTree.hpp
 layout: document
 redirect_from:

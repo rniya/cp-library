@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -21,11 +21,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2903.test.cpp
     title: test/aoj/2903.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL_6_A.DInic.test.cpp
     title: test/aoj/GRL_6_A.DInic.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/flow/Dinic.md
     document_title: Dinic
@@ -83,8 +83,8 @@ data:
   - flow/ProjectSelectionProblem.hpp
   - test/codeforces/1404_E.cpp
   - test/atcoder/arc085_c.cpp
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/2903.test.cpp
   - test/aoj/2313.test.cpp

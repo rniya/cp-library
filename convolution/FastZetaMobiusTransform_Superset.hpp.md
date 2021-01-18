@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -35,7 +35,7 @@ data:
   isVerificationFile: false
   path: convolution/FastZetaMobiusTransform_Superset.hpp
   requiredBy: []
-  timestamp: '2020-12-05 18:17:09+09:00'
+  timestamp: '2021-01-19 00:11:31+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: convolution/FastZetaMobiusTransform_Superset.hpp

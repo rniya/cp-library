@@ -1,25 +1,25 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: string/AhoCorasick.hpp
     title: Aho Corasick
   - icon: ':warning:'
     path: test/atcoder/tenka1_2016_final_c.cpp
     title: test/atcoder/tenka1_2016_final_c.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1269.test.cpp
     title: test/yukicoder/1269.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/430.AhoCorasick.test.cpp
     title: test/yukicoder/430.AhoCorasick.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/string/Trie.md
     document_title: Trie
@@ -58,11 +58,11 @@ data:
   requiredBy:
   - string/AhoCorasick.hpp
   - test/atcoder/tenka1_2016_final_c.cpp
-  timestamp: '2020-11-18 12:14:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yukicoder/430.AhoCorasick.test.cpp
   - test/yukicoder/1269.test.cpp
+  - test/yukicoder/430.AhoCorasick.test.cpp
 documentation_of: string/Trie.hpp
 layout: document
 redirect_from:

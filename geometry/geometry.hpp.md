@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -36,35 +36,35 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_3_C.test.cpp
     title: test/aoj/CGL_3_C.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_4_A.test.cpp
     title: test/aoj/CGL_4_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_4_B.test.cpp
     title: test/aoj/CGL_4_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_4_C.test.cpp
     title: test/aoj/CGL_4_C.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_7_A.test.cpp
     title: test/aoj/CGL_7_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_7_C.test.cpp
     title: test/aoj/CGL_7_C.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_7_D.test.cpp
     title: test/aoj/CGL_7_D.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_7_E.test.cpp
     title: test/aoj/CGL_7_E.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_7_F.test.cpp
     title: test/aoj/CGL_7_F.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_7_G.test.cpp
     title: test/aoj/CGL_7_G.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/geometry/geometry.md
     document_title: geometry
@@ -235,28 +235,28 @@ data:
   isVerificationFile: false
   path: geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2020-12-30 21:10:47+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/aoj/CGL_2_B.test.cpp
-  - test/aoj/CGL_7_G.test.cpp
-  - test/aoj/CGL_1_A.test.cpp
-  - test/aoj/CGL_4_A.test.cpp
-  - test/aoj/CGL_3_A.test.cpp
-  - test/aoj/CGL_2_A.test.cpp
-  - test/aoj/CGL_1_C.test.cpp
-  - test/aoj/CGL_2_D.test.cpp
-  - test/aoj/CGL_4_B.test.cpp
-  - test/aoj/CGL_7_A.test.cpp
-  - test/aoj/CGL_3_B.test.cpp
-  - test/aoj/CGL_7_C.test.cpp
   - test/aoj/CGL_1_B.test.cpp
   - test/aoj/CGL_2_C.test.cpp
   - test/aoj/CGL_3_C.test.cpp
-  - test/aoj/CGL_7_F.test.cpp
-  - test/aoj/CGL_4_C.test.cpp
   - test/aoj/CGL_7_E.test.cpp
+  - test/aoj/CGL_2_B.test.cpp
+  - test/aoj/CGL_7_A.test.cpp
+  - test/aoj/CGL_3_B.test.cpp
+  - test/aoj/CGL_4_A.test.cpp
+  - test/aoj/CGL_3_A.test.cpp
+  - test/aoj/CGL_1_C.test.cpp
+  - test/aoj/CGL_4_C.test.cpp
   - test/aoj/CGL_7_D.test.cpp
+  - test/aoj/CGL_7_F.test.cpp
+  - test/aoj/CGL_7_C.test.cpp
+  - test/aoj/CGL_7_G.test.cpp
+  - test/aoj/CGL_1_A.test.cpp
+  - test/aoj/CGL_2_A.test.cpp
+  - test/aoj/CGL_2_D.test.cpp
+  - test/aoj/CGL_4_B.test.cpp
 documentation_of: geometry/geometry.hpp
 layout: document
 redirect_from:

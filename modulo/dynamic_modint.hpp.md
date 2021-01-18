@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/526.test.cpp
     title: test/yukicoder/526.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/modulo/modint.md
     document_title: "\u5B9F\u884C\u6642 modint"
@@ -64,8 +64,8 @@ data:
   isVerificationFile: false
   path: modulo/dynamic_modint.hpp
   requiredBy: []
-  timestamp: '2020-11-19 22:07:32+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-19 00:11:31+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/526.test.cpp
 documentation_of: modulo/dynamic_modint.hpp
