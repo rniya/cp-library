@@ -2,10 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: combinatorics/BellNumber.hpp
     title: "\u30D9\u30EB\u6570"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: combinatorics/PartitionTable.hpp
     title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
   - icon: ':question:'
@@ -31,7 +31,7 @@ data:
   - icon: ':x:'
     path: convolution/XORconvolution.hpp
     title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexed Tree
   - icon: ':x:'
@@ -40,10 +40,10 @@ data:
   - icon: ':x:'
     path: datastructure/ConvexHullTrick.hpp
     title: Convex Hull Trick
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/CumulativeSum2D.hpp
     title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/DualSegmentTree.hpp
     title: Dual Segment Tree
   - icon: ':question:'
@@ -52,28 +52,28 @@ data:
   - icon: ':warning:'
     path: datastructure/PartiallyPersistentUnionFind.hpp
     title: Partially Persistent UnionFind
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/SegmentTreeBeats.hpp
     title: Segment Tree Beats
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/Slide_Min.hpp
     title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
   - icon: ':x:'
     path: datastructure/SparseTable.hpp
     title: Sparse table
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/UnionFind.hpp
     title: UnionFind
   - icon: ':x:'
     path: datastructure/UnionFindUndo.hpp
     title: "UnionFind (Undo\u53EF\u80FD)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/WeightedUnionFind.hpp
     title: Weighted UnionFind
   - icon: ':x:'
@@ -100,7 +100,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: geometry
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/BellmanFord.hpp
     title: Bellman Ford
   - icon: ':heavy_check_mark:'
@@ -109,20 +109,20 @@ data:
   - icon: ':question:'
     path: graph/CycleDetection.hpp
     title: Cycle Detection
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/Dijkstra.hpp
     title: Dijkstra
   - icon: ':x:'
     path: graph/EulerianTrail.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u30FB\u6E96\u30AA\u30A4\u30E9\u30FC\u8DEF\
       \u306E\u69CB\u7BC9"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/Kruskal.hpp
     title: Kruskal
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/LowLink.hpp
     title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/Prim.hpp
     title: Prim
   - icon: ':warning:'
@@ -140,7 +140,7 @@ data:
   - icon: ':x:'
     path: graph/TwoSatisfiability.hpp
     title: 2-SAT
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/WarshallFloyd.hpp
     title: Warshall Floyd
   - icon: ':warning:'
@@ -393,115 +393,115 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_B.test.cpp
     title: test/aoj/DPL_5_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_C.test.cpp
     title: test/aoj/DPL_5_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_D.test.cpp
     title: test/aoj/DPL_5_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_F.test.cpp
     title: test/aoj/DPL_5_F.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_G.test.cpp
     title: test/aoj/DPL_5_G.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_I.test.cpp
     title: test/aoj/DPL_5_I.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_J.test.cpp
     title: test/aoj/DPL_5_J.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_L.test.cpp
     title: test/aoj/DPL_5_L.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_1_A.test.cpp
     title: test/aoj/DSL_1_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_1_B.test.cpp
     title: test/aoj/DSL_1_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_A.test.cpp
     title: test/aoj/DSL_2_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_B.test.cpp
     title: test/aoj/DSL_2_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_D.DualSegmentTree.test.cpp
     title: test/aoj/DSL_2_D.DualSegmentTree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_D.test.cpp
     title: test/aoj/DSL_2_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_E.DualSegmentTree.test.cpp
     title: test/aoj/DSL_2_E.DualSegmentTree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_E.test.cpp
     title: test/aoj/DSL_2_E.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_F.test.cpp
     title: test/aoj/DSL_2_F.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_G.test.cpp
     title: test/aoj/DSL_2_G.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_H.test.cpp
     title: test/aoj/DSL_2_H.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_I.test.cpp
     title: test/aoj/DSL_2_I.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
     title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_3_D.test.cpp
     title: test/aoj/DSL_3_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_5_B.test.cpp
     title: test/aoj/DSL_5_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_1_A.test.cpp
     title: test/aoj/GRL_1_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_1_B.test.cpp
     title: test/aoj/GRL_1_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_1_C.test.cpp
     title: test/aoj/GRL_1_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_2_A.Prim.test.cpp
     title: test/aoj/GRL_2_A.Prim.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_2_A.test.cpp
     title: test/aoj/GRL_2_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_3_A.test.cpp
     title: test/aoj/GRL_3_A.test.cpp
   - icon: ':x:'

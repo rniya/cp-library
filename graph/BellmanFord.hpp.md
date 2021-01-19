@@ -12,11 +12,11 @@ data:
     path: test/atcoder/abc137_e.cpp
     title: test/atcoder/abc137_e.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_1_B.test.cpp
     title: test/aoj/GRL_1_B.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/BellmanFord.md
     document_title: Bellman Ford
@@ -55,7 +55,7 @@ data:
   - test/atcoder/abc137_e.cpp
   - test/atcoder/abc061_d.cpp
   timestamp: '2021-01-19 13:16:33+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_1_B.test.cpp
 documentation_of: graph/BellmanFord.hpp
