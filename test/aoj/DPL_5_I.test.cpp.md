@@ -72,7 +72,7 @@ data:
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"modulo/modint.hpp\"\n\n\
-    /**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\n\ntemplate <uint32_t\
+    /**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
     \ mod> class modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n \
     \   using u64 = uint64_t;\n\npublic:\n    u32 v;\n    constexpr modint(const i64\
     \ x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr\
@@ -142,7 +142,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_I.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 13:51:17+09:00'
+  timestamp: '2021-01-19 15:22:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_I.test.cpp

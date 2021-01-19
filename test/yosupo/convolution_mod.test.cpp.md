@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':question:'
@@ -13,7 +13,7 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/convolution_mod
@@ -73,8 +73,8 @@ data:
     \    return false;\n}\ntemplate <class T1, class T2> inline bool chmax(T1& a,\
     \ T2 b) {\n    if (a < b) {\n        a = b;\n        return true;\n    }\n   \
     \ return false;\n}\n#line 3 \"modulo/modint.hpp\"\n\n/**\n * @brief modint\n *\
-    \ @docs docs/modulo/modint.md\n */\n\ntemplate <uint32_t mod> class modint {\n\
-    \    using i64 = int64_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\
+    \ @docs docs/modulo/modint.md\n */\ntemplate <uint32_t mod> class modint {\n \
+    \   using i64 = int64_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\
     \npublic:\n    u32 v;\n    constexpr modint(const i64 x = 0) noexcept : v(x <\
     \ 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& value() noexcept\
     \ { return v; }\n    constexpr const u32& value() const noexcept { return v; }\n\
@@ -165,8 +165,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/convolution_mod.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 13:51:17+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-19 15:22:36+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/convolution_mod.test.cpp
 layout: document

@@ -11,10 +11,10 @@ data:
   - icon: ':question:'
     path: combinatorics/combination.hpp
     title: combination
-  - icon: ':question:'
+  - icon: ':x:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: convolution/FastFourierTransform.hpp
     title: Fast Fourier Transform
   - icon: ':x:'
@@ -25,7 +25,7 @@ data:
     path: convolution/FastZetaMobiusTransform_Superset.hpp
     title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\u63DB\
       (\u4E0A\u4F4D\u96C6\u5408)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':question:'
@@ -185,7 +185,7 @@ data:
   - icon: ':x:'
     path: other/Mo.hpp
     title: Mo's Algorithm
-  - icon: ':question:'
+  - icon: ':x:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   - icon: ':x:'
@@ -203,7 +203,7 @@ data:
   - icon: ':x:'
     path: string/LongestCommonPrefixArray.hpp
     title: Longest Common Prefix Array
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: string/Manacher.hpp
     title: Manacher
   - icon: ':question:'
@@ -263,7 +263,7 @@ data:
   - icon: ':warning:'
     path: test/codeforces/1444_C.cpp
     title: test/codeforces/1444_C.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: tree/CentroidDecomposition.hpp
     title: Centroid Decomposition
   - icon: ':heavy_check_mark:'
@@ -573,19 +573,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/bitwise_xor_convolution.test.cpp
     title: test/yosupo/bitwise_xor_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/enumerate_palindromes.test.cpp
     title: test/yosupo/enumerate_palindromes.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/frequency_table_of_tree_distance.test.cpp
     title: test/yosupo/frequency_table_of_tree_distance.test.cpp
   - icon: ':x:'

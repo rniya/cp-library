@@ -5,10 +5,10 @@ data:
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':x:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':warning:'
@@ -48,13 +48,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/bitwise_xor_convolution.test.cpp
     title: test/yosupo/bitwise_xor_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
   - icon: ':x:'
@@ -163,7 +163,7 @@ data:
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"modulo/modint.hpp\"\n\n\
-    /**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\n\ntemplate <uint32_t\
+    /**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
     \ mod> class modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n \
     \   using u64 = uint64_t;\n\npublic:\n    u32 v;\n    constexpr modint(const i64\
     \ x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr\
@@ -203,7 +203,7 @@ data:
     \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
     \ rhs) noexcept { return s << rhs.v; }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief modint\n * @docs\
-    \ docs/modulo/modint.md\n */\n\ntemplate <uint32_t mod> class modint {\n    using\
+    \ docs/modulo/modint.md\n */\ntemplate <uint32_t mod> class modint {\n    using\
     \ i64 = int64_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\npublic:\n\
     \    u32 v;\n    constexpr modint(const i64 x = 0) noexcept : v(x < 0 ? mod -\
     \ 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& value() noexcept { return\
@@ -249,7 +249,7 @@ data:
   - convolution/ArbitaryModConvolution.hpp
   - convolution/NumberTheoreticTransform.hpp
   - test/atcoder/tdpc_fibonacci.cpp
-  timestamp: '2021-01-19 13:16:33+09:00'
+  timestamp: '2021-01-19 15:22:36+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/queue_operate_all_composite.test.cpp

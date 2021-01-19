@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':question:'
@@ -12,14 +12,14 @@ data:
     title: modint
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
   - icon: ':x:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/convolution/ArbitaryModConvolution.md
     document_title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
@@ -77,7 +77,7 @@ data:
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"modulo/modint.hpp\"\n\n\
-    /**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\n\ntemplate <uint32_t\
+    /**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
     \ mod> class modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n \
     \   using u64 = uint64_t;\n\npublic:\n    u32 v;\n    constexpr modint(const i64\
     \ x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr\
@@ -169,7 +169,7 @@ data:
     \      int v0 = c0[i].v;\n        int v1 = (inv0 * (c1[i] - v0)).v;\n        int\
     \ v2 = (inv0inv1 * (c2[i] - v0) - inv1 * v1).v;\n        res[i] = v0 + m0 * v1\
     \ + m0m1 * v2;\n    }\n    return res;\n}\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n#include \"../convolution/NumberTheoreticTransform.hpp\"\
+  code: "#pragma once\n#include \"../base.hpp\"\n#include \"NumberTheoreticTransform.hpp\"\
     \n#include \"../modulo/modint.hpp\"\n\n/**\n * @brief Arbirary Mod Convolution\
     \ (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)\n * @docs docs/convolution/ArbitaryModConvolution.md\n\
     \ */\ntemplate <typename M> vector<M> ArbitaryModConvolution(const vector<M>&\
@@ -196,8 +196,8 @@ data:
   isVerificationFile: false
   path: convolution/ArbitaryModConvolution.hpp
   requiredBy: []
-  timestamp: '2021-01-19 13:51:17+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2021-01-19 15:22:36+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yukicoder/3046.test.cpp

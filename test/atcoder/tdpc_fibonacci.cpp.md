@@ -87,7 +87,7 @@ data:
     \ 1]));\n            if (~n & 1) continue;\n            res = merge(res, pcs[i]);\n\
     \        }\n        K ans = K(0);\n        for (int i = 1; i <= k; i++) ans +=\
     \ res[i] * A[i - 1];\n        return ans;\n    }\n};\n#line 3 \"modulo/modint.hpp\"\
-    \n\n/**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\n\ntemplate <uint32_t\
+    \n\n/**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
     \ mod> class modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n \
     \   using u64 = uint64_t;\n\npublic:\n    u32 v;\n    constexpr modint(const i64\
     \ x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr\
@@ -142,7 +142,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/tdpc_fibonacci.cpp
   requiredBy: []
-  timestamp: '2021-01-19 14:56:35+09:00'
+  timestamp: '2021-01-19 15:22:36+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/tdpc_fibonacci.cpp

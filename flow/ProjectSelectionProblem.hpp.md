@@ -135,8 +135,8 @@ data:
     \    sum += z;\n        int w = D.add_vertex();\n        x_true_loss(w, z);\n\
     \        x_false_y_true_loss(w, x, inf);\n        x_false_y_true_loss(w, y, inf);\n\
     \    }\n    T build() { return D.max_flow(s, t) - sum; }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n#include \"../flow/Dinic.hpp\"\n\n\
-    /**\n * @brief Project Selection Problem\n * @docs docs/flow/ProjectSelectionProblem.md\n\
+  code: "#pragma once\n#include \"../base.hpp\"\n#include \"Dinic.hpp\"\n\n/**\n *\
+    \ @brief Project Selection Problem\n * @docs docs/flow/ProjectSelectionProblem.md\n\
     \ */\ntemplate <typename T> struct ProjectSelectionProblem {\n    int s, t;\n\
     \    T sum = 0;\n    const T inf = numeric_limits<T>::max() / 2;\n    Dinic<T,\
     \ true> D;\n    ProjectSelectionProblem(int n) : s(n), t(n + 1), D(n + 2) {}\n\
@@ -160,7 +160,7 @@ data:
   requiredBy:
   - test/codeforces/1404_E.cpp
   - test/atcoder/arc085_c.cpp
-  timestamp: '2021-01-19 14:11:46+09:00'
+  timestamp: '2021-01-19 15:22:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp

@@ -68,7 +68,7 @@ data:
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"modulo/dynamic_modint.hpp\"\
     \n\n/**\n * @brief \u5B9F\u884C\u6642 modint\n * @docs docs/modulo/modint.md\n\
-    \ */\n\nclass dynamic_modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n\
+    \ */\nclass dynamic_modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n\
     \    using u64 = uint64_t;\n    static u32& mod() {\n        static u32 mod_ =\
     \ 0;\n        return mod_;\n    }\n\npublic:\n    u32 v;\n    static void set_mod(const\
     \ u32 x) {\n        assert(x < (u32(1) << 31));\n        mod() = x;\n    }\n \
@@ -109,7 +109,7 @@ data:
     \  }\n    friend ostream& operator<<(ostream& s, const dynamic_modint& rhs) {\
     \ return s << rhs.v; }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u5B9F\u884C\u6642\
-    \ modint\n * @docs docs/modulo/modint.md\n */\n\nclass dynamic_modint {\n    using\
+    \ modint\n * @docs docs/modulo/modint.md\n */\nclass dynamic_modint {\n    using\
     \ i64 = int64_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n    static\
     \ u32& mod() {\n        static u32 mod_ = 0;\n        return mod_;\n    }\n\n\
     public:\n    u32 v;\n    static void set_mod(const u32 x) {\n        assert(x\
@@ -154,7 +154,7 @@ data:
   isVerificationFile: false
   path: modulo/dynamic_modint.hpp
   requiredBy: []
-  timestamp: '2021-01-19 13:16:33+09:00'
+  timestamp: '2021-01-19 15:22:36+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/526.test.cpp

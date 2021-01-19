@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   _extendedRequiredBy: []
@@ -162,7 +162,7 @@ data:
     \ 0; i <= n; i++) {\n        T inv = T(1) / prod;\n        a[i] = T(i).pow(n)\
     \ * inv;\n        b[i] = T(1) * inv;\n        if (i & 1) b[i] *= -1;\n       \
     \ prod *= i + 1;\n    }\n    return (a * b).pre(n + 1);\n}\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n#include \"../polynomial/FormalPowerSeries.hpp\"\
+  code: "#pragma once\n#include \"../base.hpp\"\n#include \"FormalPowerSeries.hpp\"\
     \n\n/**\n * @brief \u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\n *\
     \ @docs docs/polynomial/StirlingSecond.md\n */\ntemplate <typename T> FormalPowerSeries<T>\
     \ StirlingSecond(int n) {\n    FormalPowerSeries<T> a(n + 1), b(n + 1);\n    T\
@@ -176,7 +176,7 @@ data:
   isVerificationFile: false
   path: polynomial/StirlingSecond.hpp
   requiredBy: []
-  timestamp: '2021-01-19 14:32:12+09:00'
+  timestamp: '2021-01-19 15:22:36+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/stirling_number_of_the_second_kind.test.cpp
