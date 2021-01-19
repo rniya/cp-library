@@ -5,15 +5,16 @@
 #include "../../base.hpp"
 #include "../../datastructure/ConvexHullTrick.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int N; cin >> N;
+    int N;
+    cin >> N;
     vector<long long> a(N);
-    for (int i=0;i<N;++i) cin >> a[i];
+    for (int i = 0; i < N; i++) cin >> a[i];
 
     ConvexHullTrick<long long> CHT;
 
-    for (long long i=0;i<N;++i) CHT.add(-2*i,a[i]+i*i);
-    for (long long i=0;i<N;++i) cout << CHT.query_monotone_inc(i)+i*i << '\n';
+    for (long long i = 0; i < N; i++) CHT.add(-2 * i, a[i] + i * i);
+    for (long long i = 0; i < N; i++) cout << CHT.query_monotone_inc(i) + i * i << '\n';
 }

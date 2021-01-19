@@ -5,18 +5,20 @@
 #include "../../base.hpp"
 #include "../../graph/BellmanFord.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int N,M,P; cin >> N >> M >> P;
+    int N, M, P;
+    cin >> N >> M >> P;
 
     BellmanFord<int> BF(N);
-    for (int i=0;i<M;++i){
-        int A,B,C; cin >> A >> B >> C;
-        BF.add_edge(--A,--B,P-C);
+    for (int i = 0; i < M; i++) {
+        int A, B, C;
+        cin >> A >> B >> C;
+        BF.add_edge(--A, --B, P - C);
     }
 
     int neg;
-    int ans=BF.shortest_path(0,N-1,neg);
-    cout << (neg?-1:max(0,-ans)) << '\n';
+    int ans = BF.shortest_path(0, N - 1, neg);
+    cout << (neg ? -1 : max(0, -ans)) << '\n';
 }
