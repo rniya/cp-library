@@ -1,5 +1,4 @@
 #pragma once
-
 #include <bits/stdc++.h>
 using namespace std;
 const long long MOD = 1000000007;
@@ -9,7 +8,6 @@ const long long IINF = 1e18;
 const int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};
 const char dir[4] = {'D', 'R', 'U', 'L'};
 #define LOCAL
-#pragma region Macros
 typedef long long ll;
 typedef __int128_t i128;
 typedef unsigned int uint;
@@ -123,4 +121,3 @@ template <class T1, class T2> inline bool chmax(T1& a, T2 b) {
     }
     return false;
 }
-#pragma endregion
