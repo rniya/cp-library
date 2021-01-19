@@ -3,7 +3,7 @@
 
 /**
  * @brief Cycle Detection
- * @docs docs/graph/CycleDetection.hpp
+ * @docs docs/graph/CycleDetection.md
  */
 template <bool directed> struct CycleDetection {
     vector<vector<int>> G;

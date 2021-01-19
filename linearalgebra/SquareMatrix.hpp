@@ -3,7 +3,7 @@
 
 /**
  * @brief Square Matrix
- * @docs docs/linearalgebra/Squarematrix.md
+ * @docs docs/linearalgebra/SquareMatrix.md
  */
 template <class T, size_t N> struct SquareMatrix {
     array<array<T, N>, N> A;

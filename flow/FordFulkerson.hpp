@@ -3,7 +3,7 @@
 
 /**
  * @brief Ford Fulkerson
- * @docs docs/flow/FordFulkerson.hpp
+ * @docs docs/flow/FordFulkerson.md
  */
 template <typename T, bool directed> struct FordFulkerson {
     struct edge {

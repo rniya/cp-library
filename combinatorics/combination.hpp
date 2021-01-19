@@ -3,7 +3,7 @@
 
 /**
  * @brief combination
- * @docs @docs/combinatorics/combination.md
+ * @docs docs/combinatorics/combination.md
  */
 template <class M> struct Combination {
     vector<M> _fac, _inv, _finv;

@@ -12,7 +12,7 @@ int main() {
     cin >> N >> M;
 
     BellmanFord<long long> BF(N);
-    for (int i = 0; i < M; ++i) {
+    for (int i = 0; i < M; i++) {
         int a, b, c;
         cin >> a >> b >> c;
         BF.add_edge(--a, --b, -c);

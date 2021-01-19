@@ -3,7 +3,7 @@
 
 /**
  * @brief Suffix Array
- * @docs docs/string/SuffixArray.hpp
+ * @docs docs/string/SuffixArray.md
  */
 struct SuffixArray {
     string s;

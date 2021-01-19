@@ -3,7 +3,7 @@
 
 /**
  * @brief Dual Segment Tree
- * @docs docs/datastructure/DualSegmentTree.hpp
+ * @docs docs/datastructure/DualSegmentTree.md
  */
 template <typename OperatorMonoid> struct DualSegmentTree {
     typedef function<OperatorMonoid(OperatorMonoid, OperatorMonoid)> H;

@@ -4,7 +4,7 @@
 
 /**
  * @brief 2-SAT
- * @docs docs/graph/TwoSatisfiability
+ * @docs docs/graph/TwoSatisfiability.md
  */
 struct TwoSatisfiability {
     int n;

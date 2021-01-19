@@ -3,7 +3,7 @@
 
 /**
  * @brief Euler Tour (部分木に対する操作)
- * @docs dosc/tree/EulerTourforVertex.md
+ * @docs docs/tree/EulerTourforVertex.md
  */
 class EulerTourforVertex {
     vector<int> ls, rs;
