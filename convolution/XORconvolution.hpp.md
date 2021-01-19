@@ -9,11 +9,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/bitwise_xor_convolution.test.cpp
     title: test/yosupo/bitwise_xor_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1240.test.cpp
     title: test/yukicoder/1240.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/convolution/XORconvolution.md
     document_title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
@@ -103,7 +103,7 @@ data:
   path: convolution/XORconvolution.hpp
   requiredBy: []
   timestamp: '2021-01-19 13:51:17+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yukicoder/1240.test.cpp

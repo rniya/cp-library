@@ -69,7 +69,7 @@ data:
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"flow/FordFulkerson.hpp\"\
-    \n\n/**\n * @brief Ford Fulkerson\n * @docs docs/flow/FordFulkerson.hpp\n */\n\
+    \n\n/**\n * @brief Ford Fulkerson\n * @docs docs/flow/FordFulkerson.md\n */\n\
     template <typename T, bool directed> struct FordFulkerson {\n    struct edge {\n\
     \        int to, rev;\n        T cap;\n        edge(int to, T cap, int rev) :\
     \ to(to), cap(cap), rev(rev) {}\n    };\n    vector<vector<edge>> G;\n    vector<pair<int,\
@@ -109,7 +109,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_6_A.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 14:11:46+09:00'
+  timestamp: '2021-01-19 16:17:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_A.test.cpp

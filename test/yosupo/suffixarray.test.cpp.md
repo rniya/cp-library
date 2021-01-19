@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: string/SuffixArray.hpp
     title: Suffix Array
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/suffixarray
@@ -69,7 +69,7 @@ data:
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"string/SuffixArray.hpp\"\
-    \n\n/**\n * @brief Suffix Array\n * @docs docs/string/SuffixArray.hpp\n */\nstruct\
+    \n\n/**\n * @brief Suffix Array\n * @docs docs/string/SuffixArray.md\n */\nstruct\
     \ SuffixArray {\n    string s;\n    vector<int> SA;\n    SuffixArray(const string&\
     \ S) : s(S) {\n        int n = s.size();\n        s.push_back('$');\n        SA.resize(n\
     \ + 1);\n        iota(SA.begin(), SA.end(), 0);\n        sort(SA.begin(), SA.end(),\
@@ -111,8 +111,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/suffixarray.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:22:36+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-01-19 16:17:32+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/suffixarray.test.cpp
 layout: document

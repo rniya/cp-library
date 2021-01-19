@@ -70,7 +70,7 @@ data:
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"datastructure/DualSegmentTree.hpp\"\
-    \n\n/**\n * @brief Dual Segment Tree\n * @docs docs/datastructure/DualSegmentTree.hpp\n\
+    \n\n/**\n * @brief Dual Segment Tree\n * @docs docs/datastructure/DualSegmentTree.md\n\
     \ */\ntemplate <typename OperatorMonoid> struct DualSegmentTree {\n    typedef\
     \ function<OperatorMonoid(OperatorMonoid, OperatorMonoid)> H;\n    int n, hi;\n\
     \    H h;\n    OperatorMonoid id1;\n    vector<OperatorMonoid> laz;\n    DualSegmentTree(int\
@@ -108,7 +108,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_2_E.DualSegmentTree.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 14:04:24+09:00'
+  timestamp: '2021-01-19 16:17:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_2_E.DualSegmentTree.test.cpp

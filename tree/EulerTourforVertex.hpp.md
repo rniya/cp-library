@@ -12,7 +12,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: dosc/tree/EulerTourforVertex.md
+    _deprecated_at_docs: docs/tree/EulerTourforVertex.md
     document_title: "Euler Tour (\u90E8\u5206\u6728\u306B\u5BFE\u3059\u308B\u64CD\u4F5C\
       )"
     links: []
@@ -69,7 +69,7 @@ data:
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"tree/EulerTourforVertex.hpp\"\
     \n\n/**\n * @brief Euler Tour (\u90E8\u5206\u6728\u306B\u5BFE\u3059\u308B\u64CD\
-    \u4F5C)\n * @docs dosc/tree/EulerTourforVertex.md\n */\nclass EulerTourforVertex\
+    \u4F5C)\n * @docs docs/tree/EulerTourforVertex.md\n */\nclass EulerTourforVertex\
     \ {\n    vector<int> ls, rs;\n    int time;\n    void dfs(int v, int p) {\n  \
     \      ls[v] = time++;\n        for (int u : G[v]) {\n            if (u != p)\
     \ dfs(u, v);\n        }\n        rs[v] = time;\n    }\n\npublic:\n    vector<vector<int>>\
@@ -79,7 +79,7 @@ data:
     \    }\n    int idx(int v) { return ls[v]; }\n    template <typename F> void exec(int\
     \ v, F f) { f(ls[v], rs[v]); }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Euler Tour (\u90E8\
-    \u5206\u6728\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)\n * @docs dosc/tree/EulerTourforVertex.md\n\
+    \u5206\u6728\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)\n * @docs docs/tree/EulerTourforVertex.md\n\
     \ */\nclass EulerTourforVertex {\n    vector<int> ls, rs;\n    int time;\n   \
     \ void dfs(int v, int p) {\n        ls[v] = time++;\n        for (int u : G[v])\
     \ {\n            if (u != p) dfs(u, v);\n        }\n        rs[v] = time;\n  \
@@ -93,7 +93,7 @@ data:
   isVerificationFile: false
   path: tree/EulerTourforVertex.hpp
   requiredBy: []
-  timestamp: '2021-01-19 15:22:36+09:00'
+  timestamp: '2021-01-19 16:17:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2871.test.cpp
@@ -104,3 +104,6 @@ redirect_from:
 - /library/tree/EulerTourforVertex.hpp.html
 title: "Euler Tour (\u90E8\u5206\u6728\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)"
 ---
+## 概要
+
+## 計算量

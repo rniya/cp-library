@@ -6,13 +6,13 @@ data:
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/linearalgebra/Squarematrix.md
+    _deprecated_at_docs: docs/linearalgebra/SquareMatrix.md
     document_title: Square Matrix
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -67,7 +67,7 @@ data:
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"linearalgebra/SquareMatrix.hpp\"\
-    \n\n/**\n * @brief Square Matrix\n * @docs docs/linearalgebra/Squarematrix.md\n\
+    \n\n/**\n * @brief Square Matrix\n * @docs docs/linearalgebra/SquareMatrix.md\n\
     \ */\ntemplate <class T, size_t N> struct SquareMatrix {\n    array<array<T, N>,\
     \ N> A;\n    SquareMatrix() = default;\n    size_t size() { return N; }\n    inline\
     \ const array<T, N>& operator[](int i) const { return A[i]; }\n    inline array<T,\
@@ -95,7 +95,7 @@ data:
     \ (k & 1) res *= *this;\n            *this *= *this;\n            k >>= 1LL;\n\
     \        }\n        A.swap(res.A);\n        return *this;\n    }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Square Matrix\n\
-    \ * @docs docs/linearalgebra/Squarematrix.md\n */\ntemplate <class T, size_t N>\
+    \ * @docs docs/linearalgebra/SquareMatrix.md\n */\ntemplate <class T, size_t N>\
     \ struct SquareMatrix {\n    array<array<T, N>, N> A;\n    SquareMatrix() = default;\n\
     \    size_t size() { return N; }\n    inline const array<T, N>& operator[](int\
     \ i) const { return A[i]; }\n    inline array<T, N>& operator[](int i) { return\
@@ -126,8 +126,8 @@ data:
   isVerificationFile: false
   path: linearalgebra/SquareMatrix.hpp
   requiredBy: []
-  timestamp: '2021-01-19 14:18:22+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-01-19 16:17:32+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1050.test.cpp
 documentation_of: linearalgebra/SquareMatrix.hpp
@@ -137,3 +137,6 @@ redirect_from:
 - /library/linearalgebra/SquareMatrix.hpp.html
 title: Square Matrix
 ---
+## 概要
+
+## 計算量

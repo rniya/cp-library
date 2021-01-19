@@ -15,13 +15,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/number_of_substrings.test.cpp
     title: test/yosupo/number_of_substrings.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/suffixarray.test.cpp
     title: test/yosupo/suffixarray.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/string/SuffixArray.hpp
+    _deprecated_at_docs: docs/string/SuffixArray.md
     document_title: Suffix Array
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -76,7 +76,7 @@ data:
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"string/SuffixArray.hpp\"\
-    \n\n/**\n * @brief Suffix Array\n * @docs docs/string/SuffixArray.hpp\n */\nstruct\
+    \n\n/**\n * @brief Suffix Array\n * @docs docs/string/SuffixArray.md\n */\nstruct\
     \ SuffixArray {\n    string s;\n    vector<int> SA;\n    SuffixArray(const string&\
     \ S) : s(S) {\n        int n = s.size();\n        s.push_back('$');\n        SA.resize(n\
     \ + 1);\n        iota(SA.begin(), SA.end(), 0);\n        sort(SA.begin(), SA.end(),\
@@ -105,7 +105,7 @@ data:
     \        return p.second - p.first;\n    }\n    int operator[](int i) const {\
     \ return SA[i]; }\n    int size() const { return s.size(); }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Suffix Array\n *\
-    \ @docs docs/string/SuffixArray.hpp\n */\nstruct SuffixArray {\n    string s;\n\
+    \ @docs docs/string/SuffixArray.md\n */\nstruct SuffixArray {\n    string s;\n\
     \    vector<int> SA;\n    SuffixArray(const string& S) : s(S) {\n        int n\
     \ = s.size();\n        s.push_back('$');\n        SA.resize(n + 1);\n        iota(SA.begin(),\
     \ SA.end(), 0);\n        sort(SA.begin(), SA.end(), [&](int a, int b) { return\
@@ -139,8 +139,8 @@ data:
   path: string/SuffixArray.hpp
   requiredBy:
   - string/LongestCommonPrefixArray.hpp
-  timestamp: '2021-01-19 15:22:36+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2021-01-19 16:17:32+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/number_of_substrings.test.cpp
   - test/yosupo/suffixarray.test.cpp
@@ -152,3 +152,6 @@ redirect_from:
 - /library/string/SuffixArray.hpp.html
 title: Suffix Array
 ---
+## 概要
+
+## 計算量

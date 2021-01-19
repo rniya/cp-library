@@ -4,18 +4,18 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/StronglyConnectedComponents.hpp
     title: Strongly Connected Components
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/two_sat.test.cpp
     title: test/yosupo/two_sat.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/TwoSatisfiability
+    _deprecated_at_docs: docs/graph/TwoSatisfiability.md
     document_title: 2-SAT
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -90,7 +90,7 @@ data:
     \            sort(T[i].begin(), T[i].end());\n            T[i].erase(unique(T[i].begin(),\
     \ T[i].end()), T[i].end());\n        }\n        return k;\n    }\n    int operator[](int\
     \ i) const { return cmp[i]; }\n};\n#line 4 \"graph/TwoSatisfiability.hpp\"\n\n\
-    /**\n * @brief 2-SAT\n * @docs docs/graph/TwoSatisfiability\n */\nstruct TwoSatisfiability\
+    /**\n * @brief 2-SAT\n * @docs docs/graph/TwoSatisfiability.md\n */\nstruct TwoSatisfiability\
     \ {\n    int n;\n    StronglyConnectedComponents SCC;\n    TwoSatisfiability(int\
     \ n) : n(n), SCC(n * 2) {}\n    int neg(int v) { return (n + v) % (n * 2); }\n\
     \    void add_if(int u, int v) {\n        SCC.add_edge(u, v);\n        SCC.add_edge(neg(v),\
@@ -102,8 +102,8 @@ data:
     \         res[i] = SCC[i] > SCC[n + i];\n        }\n        return res;\n    }\n\
     };\n"
   code: "#pragma once\n#include \"../base.hpp\"\n#include \"StronglyConnectedComponents.hpp\"\
-    \n\n/**\n * @brief 2-SAT\n * @docs docs/graph/TwoSatisfiability\n */\nstruct TwoSatisfiability\
-    \ {\n    int n;\n    StronglyConnectedComponents SCC;\n    TwoSatisfiability(int\
+    \n\n/**\n * @brief 2-SAT\n * @docs docs/graph/TwoSatisfiability.md\n */\nstruct\
+    \ TwoSatisfiability {\n    int n;\n    StronglyConnectedComponents SCC;\n    TwoSatisfiability(int\
     \ n) : n(n), SCC(n * 2) {}\n    int neg(int v) { return (n + v) % (n * 2); }\n\
     \    void add_if(int u, int v) {\n        SCC.add_edge(u, v);\n        SCC.add_edge(neg(v),\
     \ neg(u));\n    }\n    void add_or(int u, int v) { add_if(neg(u), v); }\n    void\
@@ -119,8 +119,8 @@ data:
   isVerificationFile: false
   path: graph/TwoSatisfiability.hpp
   requiredBy: []
-  timestamp: '2021-01-19 15:36:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-01-19 16:17:32+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/two_sat.test.cpp
 documentation_of: graph/TwoSatisfiability.hpp
@@ -130,3 +130,6 @@ redirect_from:
 - /library/graph/TwoSatisfiability.hpp.html
 title: 2-SAT
 ---
+## 概要
+
+## 計算量

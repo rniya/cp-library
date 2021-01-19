@@ -4,16 +4,16 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/StronglyConnectedComponents.hpp
     title: Strongly Connected Components
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/TwoSatisfiability.hpp
     title: 2-SAT
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/two_sat
@@ -92,7 +92,7 @@ data:
     \            sort(T[i].begin(), T[i].end());\n            T[i].erase(unique(T[i].begin(),\
     \ T[i].end()), T[i].end());\n        }\n        return k;\n    }\n    int operator[](int\
     \ i) const { return cmp[i]; }\n};\n#line 4 \"graph/TwoSatisfiability.hpp\"\n\n\
-    /**\n * @brief 2-SAT\n * @docs docs/graph/TwoSatisfiability\n */\nstruct TwoSatisfiability\
+    /**\n * @brief 2-SAT\n * @docs docs/graph/TwoSatisfiability.md\n */\nstruct TwoSatisfiability\
     \ {\n    int n;\n    StronglyConnectedComponents SCC;\n    TwoSatisfiability(int\
     \ n) : n(n), SCC(n * 2) {}\n    int neg(int v) { return (n + v) % (n * 2); }\n\
     \    void add_if(int u, int v) {\n        SCC.add_edge(u, v);\n        SCC.add_edge(neg(v),\
@@ -127,8 +127,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/two_sat.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:36:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-01-19 16:17:32+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/two_sat.test.cpp
 layout: document

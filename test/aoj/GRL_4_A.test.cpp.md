@@ -69,7 +69,7 @@ data:
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"graph/CycleDetection.hpp\"\
-    \n\n/**\n * @brief Cycle Detection\n * @docs docs/graph/CycleDetection.hpp\n */\n\
+    \n\n/**\n * @brief Cycle Detection\n * @docs docs/graph/CycleDetection.md\n */\n\
     template <bool directed> struct CycleDetection {\n    vector<vector<int>> G;\n\
     \    vector<int> seen, finished;\n    stack<int> hist;\n    int pos;\n    CycleDetection(int\
     \ n) : G(n), seen(n, 0), finished(n, 0), pos(-1) {}\n    void add_edge(int u,\
@@ -100,7 +100,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_4_A.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:36:15+09:00'
+  timestamp: '2021-01-19 16:17:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_4_A.test.cpp

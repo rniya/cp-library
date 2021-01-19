@@ -5,21 +5,21 @@ data:
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: string/AhoCorasick.hpp
     title: Aho Corasick
   - icon: ':warning:'
     path: test/atcoder/tenka1_2016_final_c.cpp
     title: test/atcoder/tenka1_2016_final_c.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1269.test.cpp
     title: test/yukicoder/1269.test.cpp
   - icon: ':x:'
     path: test/yukicoder/430.AhoCorasick.test.cpp
     title: test/yukicoder/430.AhoCorasick.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/string/Trie.md
     document_title: Trie
@@ -125,7 +125,7 @@ data:
   - string/AhoCorasick.hpp
   - test/atcoder/tenka1_2016_final_c.cpp
   timestamp: '2021-01-19 15:22:36+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1269.test.cpp
   - test/yukicoder/430.AhoCorasick.test.cpp

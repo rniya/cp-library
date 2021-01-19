@@ -90,7 +90,7 @@ data:
     \    return build(s, neg_loop)[t];\n    }\n};\n#line 7 \"test/atcoder/abc061_d.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
     \ M;\n    cin >> N >> M;\n\n    BellmanFord<long long> BF(N);\n    for (int i\
-    \ = 0; i < M; ++i) {\n        int a, b, c;\n        cin >> a >> b >> c;\n    \
+    \ = 0; i < M; i++) {\n        int a, b, c;\n        cin >> a >> b >> c;\n    \
     \    BF.add_edge(--a, --b, -c);\n    }\n\n    int neg;\n    long long ans = BF.shortest_path(0,\
     \ N - 1, neg);\n    if (neg)\n        cout << \"inf\" << '\\n';\n    else\n  \
     \      cout << -ans << '\\n';\n}\n"
@@ -98,7 +98,7 @@ data:
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/BellmanFord.hpp\"\n\n\
     int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, M;\n\
     \    cin >> N >> M;\n\n    BellmanFord<long long> BF(N);\n    for (int i = 0;\
-    \ i < M; ++i) {\n        int a, b, c;\n        cin >> a >> b >> c;\n        BF.add_edge(--a,\
+    \ i < M; i++) {\n        int a, b, c;\n        cin >> a >> b >> c;\n        BF.add_edge(--a,\
     \ --b, -c);\n    }\n\n    int neg;\n    long long ans = BF.shortest_path(0, N\
     \ - 1, neg);\n    if (neg)\n        cout << \"inf\" << '\\n';\n    else\n    \
     \    cout << -ans << '\\n';\n}"
@@ -108,7 +108,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/abc061_d.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:53:48+09:00'
+  timestamp: '2021-01-19 16:17:32+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/abc061_d.cpp

@@ -15,7 +15,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/datastructure/DualSegmentTree.hpp
+    _deprecated_at_docs: docs/datastructure/DualSegmentTree.md
     document_title: Dual Segment Tree
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -70,7 +70,7 @@ data:
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"datastructure/DualSegmentTree.hpp\"\
-    \n\n/**\n * @brief Dual Segment Tree\n * @docs docs/datastructure/DualSegmentTree.hpp\n\
+    \n\n/**\n * @brief Dual Segment Tree\n * @docs docs/datastructure/DualSegmentTree.md\n\
     \ */\ntemplate <typename OperatorMonoid> struct DualSegmentTree {\n    typedef\
     \ function<OperatorMonoid(OperatorMonoid, OperatorMonoid)> H;\n    int n, hi;\n\
     \    H h;\n    OperatorMonoid id1;\n    vector<OperatorMonoid> laz;\n    DualSegmentTree(int\
@@ -89,7 +89,7 @@ data:
     \ operator[](int k) {\n        thrust(k += n);\n        return laz[k];\n    }\n\
     };\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Dual Segment Tree\n\
-    \ * @docs docs/datastructure/DualSegmentTree.hpp\n */\ntemplate <typename OperatorMonoid>\
+    \ * @docs docs/datastructure/DualSegmentTree.md\n */\ntemplate <typename OperatorMonoid>\
     \ struct DualSegmentTree {\n    typedef function<OperatorMonoid(OperatorMonoid,\
     \ OperatorMonoid)> H;\n    int n, hi;\n    H h;\n    OperatorMonoid id1;\n   \
     \ vector<OperatorMonoid> laz;\n    DualSegmentTree(int n_, H h, OperatorMonoid\
@@ -111,7 +111,7 @@ data:
   isVerificationFile: false
   path: datastructure/DualSegmentTree.hpp
   requiredBy: []
-  timestamp: '2021-01-19 14:04:24+09:00'
+  timestamp: '2021-01-19 16:17:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_2_E.DualSegmentTree.test.cpp
@@ -123,3 +123,6 @@ redirect_from:
 - /library/datastructure/DualSegmentTree.hpp.html
 title: Dual Segment Tree
 ---
+## 概要
+
+## 計算量
