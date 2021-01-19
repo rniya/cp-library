@@ -112,13 +112,13 @@ data:
     \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
     \ rhs) noexcept { return s << rhs.v; }\n};\n#line 3 \"combinatorics/PartitionTable.hpp\"\
     \n\n/**\n * @brief \u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB\n * @docs docs/combinatorics/PartitionTable.md\n\
-    \ */\n\ntemplate <typename T> vector<vector<T>> partition_table(int n, int k)\
-    \ {\n    vector<vector<T>> dp(n + 1, vector<T>(k + 1));\n    dp[0][0] = 1;\n \
-    \   for (int i = 0; i <= n; i++) {\n        for (int j = 1; j <= k; j++) {\n \
-    \           dp[i][j] = dp[i][j - 1] + (i - j >= 0 ? dp[i - j][j] : 0);\n     \
-    \   }\n    }\n    return dp;\n}\n#line 6 \"test/aoj/DPL_5_L.test.cpp\"\n\nusing\
-    \ mint=modint<1000000007>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int n,k; cin >> n >> k;\n\n    cout << (n-k>=0?partition_table<mint>(n-k,k)[n-k][k]:0)\
+    \ */\ntemplate <typename T> vector<vector<T>> partition_table(int n, int k) {\n\
+    \    vector<vector<T>> dp(n + 1, vector<T>(k + 1));\n    dp[0][0] = 1;\n    for\
+    \ (int i = 0; i <= n; i++) {\n        for (int j = 1; j <= k; j++) {\n       \
+    \     dp[i][j] = dp[i][j - 1] + (i - j >= 0 ? dp[i - j][j] : 0);\n        }\n\
+    \    }\n    return dp;\n}\n#line 6 \"test/aoj/DPL_5_L.test.cpp\"\n\nusing mint=modint<1000000007>;\n\
+    \nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,k;\
+    \ cin >> n >> k;\n\n    cout << (n-k>=0?partition_table<mint>(n-k,k)[n-k][k]:0)\
     \ << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_L\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include\
@@ -133,7 +133,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_L.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 13:29:09+09:00'
+  timestamp: '2021-01-19 13:51:17+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_L.test.cpp

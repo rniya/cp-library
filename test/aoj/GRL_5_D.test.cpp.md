@@ -7,13 +7,13 @@ data:
   - icon: ':question:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexed Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/EulerTourforEdge.hpp
     title: "Euler Tour (\u30D1\u30B9\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_D
@@ -27,8 +27,7 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ datastructure/BinaryIndexedTree.hpp: line 6: #pragma once found in a non-first\
-    \ line\n"
+    \ tree/EulerTourforEdge.hpp: line 6: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_D\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/BinaryIndexedTree.hpp\"\
     \n#include \"../../tree/EulerTourforEdge.hpp\"\n\nint main(){\n    cin.tie(0);\n\
@@ -48,8 +47,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_D.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 13:16:33+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-01-19 13:51:17+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_D.test.cpp
 layout: document

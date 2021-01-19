@@ -33,8 +33,7 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ convolution/NumberTheoreticTransform.hpp: line 6: #pragma once found in a non-first\
-    \ line\n"
+    \ polynomial/StirlingSecond.hpp: line 6: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include\
     \ \"../../convolution/NumberTheoreticTransform.hpp\"\n#include \"../../polynomial/StirlingSecond.hpp\"\
@@ -53,7 +52,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 13:16:33+09:00'
+  timestamp: '2021-01-19 13:51:17+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/stirling_number_of_the_second_kind.test.cpp

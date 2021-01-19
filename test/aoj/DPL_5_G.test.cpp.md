@@ -115,7 +115,7 @@ data:
     \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
     \ rhs) noexcept { return s << rhs.v; }\n};\n#line 3 \"combinatorics/combination.hpp\"\
     \n\n/**\n * @brief combination\n * @docs @docs/combinatorics/combination.md\n\
-    \ */\n\ntemplate <class M> struct Combination {\n    vector<M> _fac, _inv, _finv;\n\
+    \ */\ntemplate <class M> struct Combination {\n    vector<M> _fac, _inv, _finv;\n\
     \    Combination(int n) : _fac(n + 1), _inv(n + 1), _finv(n + 1) {\n        _fac[0]\
     \ = _finv[n] = _inv[0] = 1;\n        for (int i = 1; i <= n; i++) _fac[i] = _fac[i\
     \ - 1] * i;\n        _finv[n] /= _fac[n];\n        for (int i = n - 1; i >= 0;\
@@ -127,7 +127,7 @@ data:
     \ int r) const {\n        if (n < 0 || r < 0 || n < r) return 0;\n        return\
     \ _fac[n] * _finv[r] * _finv[n - r];\n    }\n};\n#line 3 \"combinatorics/BellNumber.hpp\"\
     \n\n/**\n * @brief \u30D9\u30EB\u6570\n * @docs docs/combinatorics/BellNumber.md\n\
-    \ */\n\ntemplate <typename T> T bell_number(int n, int k) {\n    if (n == 0) return\
+    \ */\ntemplate <typename T> T bell_number(int n, int k) {\n    if (n == 0) return\
     \ 1;\n    k = min(k, n);\n    Combination<T> COM(k);\n    vector<T> sum(k + 1);\n\
     \    sum[0] = 1;\n    for (int i = 1; i <= k; i++) {\n        if (i & 1)\n   \
     \         sum[i] = sum[i - 1] - COM.finv(i);\n        else\n            sum[i]\
@@ -150,7 +150,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_G.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 13:29:09+09:00'
+  timestamp: '2021-01-19 13:51:17+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_G.test.cpp

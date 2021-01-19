@@ -68,7 +68,7 @@ data:
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"combinatorics/BellNumber.hpp\"\
     \n\n/**\n * @brief \u30D9\u30EB\u6570\n * @docs docs/combinatorics/BellNumber.md\n\
-    \ */\n\ntemplate <typename T> T bell_number(int n, int k) {\n    if (n == 0) return\
+    \ */\ntemplate <typename T> T bell_number(int n, int k) {\n    if (n == 0) return\
     \ 1;\n    k = min(k, n);\n    Combination<T> COM(k);\n    vector<T> sum(k + 1);\n\
     \    sum[0] = 1;\n    for (int i = 1; i <= k; i++) {\n        if (i & 1)\n   \
     \         sum[i] = sum[i - 1] - COM.finv(i);\n        else\n            sum[i]\
@@ -76,7 +76,7 @@ data:
     \ k; i++) {\n        res += T(i).pow(n) * COM.finv(i) * sum[k - i];\n    }\n \
     \   return res;\n}\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u30D9\u30EB\u6570\
-    \n * @docs docs/combinatorics/BellNumber.md\n */\n\ntemplate <typename T> T bell_number(int\
+    \n * @docs docs/combinatorics/BellNumber.md\n */\ntemplate <typename T> T bell_number(int\
     \ n, int k) {\n    if (n == 0) return 1;\n    k = min(k, n);\n    Combination<T>\
     \ COM(k);\n    vector<T> sum(k + 1);\n    sum[0] = 1;\n    for (int i = 1; i <=\
     \ k; i++) {\n        if (i & 1)\n            sum[i] = sum[i - 1] - COM.finv(i);\n\
@@ -88,7 +88,7 @@ data:
   isVerificationFile: false
   path: combinatorics/BellNumber.hpp
   requiredBy: []
-  timestamp: '2021-01-19 13:29:09+09:00'
+  timestamp: '2021-01-19 13:51:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DPL_5_G.test.cpp

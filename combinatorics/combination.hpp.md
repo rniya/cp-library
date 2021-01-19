@@ -89,7 +89,7 @@ data:
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"combinatorics/combination.hpp\"\
     \n\n/**\n * @brief combination\n * @docs @docs/combinatorics/combination.md\n\
-    \ */\n\ntemplate <class M> struct Combination {\n    vector<M> _fac, _inv, _finv;\n\
+    \ */\ntemplate <class M> struct Combination {\n    vector<M> _fac, _inv, _finv;\n\
     \    Combination(int n) : _fac(n + 1), _inv(n + 1), _finv(n + 1) {\n        _fac[0]\
     \ = _finv[n] = _inv[0] = 1;\n        for (int i = 1; i <= n; i++) _fac[i] = _fac[i\
     \ - 1] * i;\n        _finv[n] /= _fac[n];\n        for (int i = n - 1; i >= 0;\
@@ -101,7 +101,7 @@ data:
     \ int r) const {\n        if (n < 0 || r < 0 || n < r) return 0;\n        return\
     \ _fac[n] * _finv[r] * _finv[n - r];\n    }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief combination\n *\
-    \ @docs @docs/combinatorics/combination.md\n */\n\ntemplate <class M> struct Combination\
+    \ @docs @docs/combinatorics/combination.md\n */\ntemplate <class M> struct Combination\
     \ {\n    vector<M> _fac, _inv, _finv;\n    Combination(int n) : _fac(n + 1), _inv(n\
     \ + 1), _finv(n + 1) {\n        _fac[0] = _finv[n] = _inv[0] = 1;\n        for\
     \ (int i = 1; i <= n; i++) _fac[i] = _fac[i - 1] * i;\n        _finv[n] /= _fac[n];\n\
@@ -118,7 +118,7 @@ data:
   isVerificationFile: false
   path: combinatorics/combination.hpp
   requiredBy: []
-  timestamp: '2021-01-19 13:29:09+09:00'
+  timestamp: '2021-01-19 13:51:17+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DPL_5_E.test.cpp

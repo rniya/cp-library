@@ -21,11 +21,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2903.test.cpp
     title: test/aoj/2903.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_6_A.DInic.test.cpp
     title: test/aoj/GRL_6_A.DInic.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/flow/Dinic.md
     document_title: Dinic
@@ -84,7 +84,7 @@ data:
   - test/codeforces/1404_E.cpp
   - test/atcoder/arc085_c.cpp
   timestamp: '2021-01-19 13:16:33+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp
   - test/aoj/2313.test.cpp

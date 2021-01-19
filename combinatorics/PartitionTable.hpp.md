@@ -71,24 +71,23 @@ data:
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"combinatorics/PartitionTable.hpp\"\
     \n\n/**\n * @brief \u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB\n * @docs docs/combinatorics/PartitionTable.md\n\
-    \ */\n\ntemplate <typename T> vector<vector<T>> partition_table(int n, int k)\
-    \ {\n    vector<vector<T>> dp(n + 1, vector<T>(k + 1));\n    dp[0][0] = 1;\n \
-    \   for (int i = 0; i <= n; i++) {\n        for (int j = 1; j <= k; j++) {\n \
-    \           dp[i][j] = dp[i][j - 1] + (i - j >= 0 ? dp[i - j][j] : 0);\n     \
-    \   }\n    }\n    return dp;\n}\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u5206\u5272\u6570\
-    \u30C6\u30FC\u30D6\u30EB\n * @docs docs/combinatorics/PartitionTable.md\n */\n\
-    \ntemplate <typename T> vector<vector<T>> partition_table(int n, int k) {\n  \
-    \  vector<vector<T>> dp(n + 1, vector<T>(k + 1));\n    dp[0][0] = 1;\n    for\
+    \ */\ntemplate <typename T> vector<vector<T>> partition_table(int n, int k) {\n\
+    \    vector<vector<T>> dp(n + 1, vector<T>(k + 1));\n    dp[0][0] = 1;\n    for\
     \ (int i = 0; i <= n; i++) {\n        for (int j = 1; j <= k; j++) {\n       \
     \     dp[i][j] = dp[i][j - 1] + (i - j >= 0 ? dp[i - j][j] : 0);\n        }\n\
-    \    }\n    return dp;\n}"
+    \    }\n    return dp;\n}\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u5206\u5272\u6570\
+    \u30C6\u30FC\u30D6\u30EB\n * @docs docs/combinatorics/PartitionTable.md\n */\n\
+    template <typename T> vector<vector<T>> partition_table(int n, int k) {\n    vector<vector<T>>\
+    \ dp(n + 1, vector<T>(k + 1));\n    dp[0][0] = 1;\n    for (int i = 0; i <= n;\
+    \ i++) {\n        for (int j = 1; j <= k; j++) {\n            dp[i][j] = dp[i][j\
+    \ - 1] + (i - j >= 0 ? dp[i - j][j] : 0);\n        }\n    }\n    return dp;\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: combinatorics/PartitionTable.hpp
   requiredBy: []
-  timestamp: '2021-01-19 13:29:09+09:00'
+  timestamp: '2021-01-19 13:51:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DPL_5_L.test.cpp

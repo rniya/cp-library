@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/LowLink.hpp
     title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
   _extendedRequiredBy: []
