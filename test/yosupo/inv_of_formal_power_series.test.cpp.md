@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':x:'
+  - icon: ':question:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   _extendedRequiredBy: []

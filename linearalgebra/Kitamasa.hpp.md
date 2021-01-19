@@ -4,7 +4,10 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/atcoder/tdpc_fibonacci.cpp
+    title: test/atcoder/tdpc_fibonacci.cpp
   _extendedVerifiedWith: []
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
@@ -101,7 +104,8 @@ data:
   - base.hpp
   isVerificationFile: false
   path: linearalgebra/Kitamasa.hpp
-  requiredBy: []
+  requiredBy:
+  - test/atcoder/tdpc_fibonacci.cpp
   timestamp: '2021-01-19 14:18:22+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

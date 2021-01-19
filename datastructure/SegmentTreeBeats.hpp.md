@@ -24,10 +24,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
   - icon: ':x:'

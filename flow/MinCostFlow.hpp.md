@@ -6,11 +6,11 @@ data:
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_6_B.test.cpp
     title: test/aoj/GRL_6_B.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/flow/MinCostFlow.md
     document_title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
@@ -140,7 +140,7 @@ data:
   path: flow/MinCostFlow.hpp
   requiredBy: []
   timestamp: '2021-01-19 14:11:46+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_6_B.test.cpp
 documentation_of: flow/MinCostFlow.hpp

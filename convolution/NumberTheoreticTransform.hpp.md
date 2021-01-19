@@ -8,17 +8,17 @@ data:
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
   - icon: ':x:'
@@ -46,7 +46,7 @@ data:
     path: test/yukicoder/931.test.cpp
     title: test/yukicoder/931.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/convolution/NumberTheoreticTransform.md
     document_title: Number Theoretic Transform
@@ -221,7 +221,7 @@ data:
   requiredBy:
   - convolution/ArbitaryModConvolution.hpp
   timestamp: '2021-01-19 13:51:17+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/convolution_mod.test.cpp

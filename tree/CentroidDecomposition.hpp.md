@@ -6,11 +6,11 @@ data:
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/frequency_table_of_tree_distance.test.cpp
     title: test/yosupo/frequency_table_of_tree_distance.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/tree/CentroidDecomposition.md
     document_title: Centroid Decomposition
@@ -41,7 +41,7 @@ data:
   path: tree/CentroidDecomposition.hpp
   requiredBy: []
   timestamp: '2021-01-19 13:16:33+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/frequency_table_of_tree_distance.test.cpp
 documentation_of: tree/CentroidDecomposition.hpp

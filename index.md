@@ -19,10 +19,10 @@ data:
       title: combination
   - name: convolution
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: convolution/ArbitaryModConvolution.hpp
       title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: convolution/FastFourierTransform.hpp
       title: Fast Fourier Transform
     - icon: ':x:'
@@ -33,10 +33,10 @@ data:
       path: convolution/FastZetaMobiusTransform_Superset.hpp
       title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\u63DB\
         (\u4E0A\u4F4D\u96C6\u5408)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: convolution/NumberTheoreticTransform.hpp
       title: Number Theoretic Transform
-    - icon: ':x:'
+    - icon: ':question:'
       path: convolution/XORconvolution.hpp
       title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
   - name: datastructure
@@ -50,7 +50,7 @@ data:
     - icon: ':x:'
       path: datastructure/ConvexHullTrick.hpp
       title: Convex Hull Trick
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/CumulativeSum2D.hpp
       title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
     - icon: ':heavy_check_mark:'
@@ -68,10 +68,10 @@ data:
     - icon: ':question:'
       path: datastructure/SegmentTreeBeats.hpp
       title: Segment Tree Beats
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/Slide_Min.hpp
       title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
-    - icon: ':x:'
+    - icon: ':question:'
       path: datastructure/SlidingWindowAggregation.hpp
       title: Sliding Window Aggregation (SWAG)
     - icon: ':x:'
@@ -88,22 +88,22 @@ data:
       title: Weighted UnionFind
   - name: flow
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: flow/BipartiteMatching.hpp
       title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: flow/Dinic.hpp
       title: Dinic
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: flow/FordFulkerson.hpp
       title: Ford Fulkerson
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: flow/HopcroftKarp.hpp
       title: Hopcroft Karp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: flow/MinCostFlow.hpp
       title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
-    - icon: ':x:'
+    - icon: ':question:'
       path: flow/PrimalDual.hpp
       title: Primal Dual
     - icon: ':heavy_check_mark:'
@@ -175,10 +175,10 @@ data:
     - icon: ':warning:'
       path: math/divisor.hpp
       title: "\u7D04\u6570\u5217\u6319"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/euler_phi.hpp
       title: "Euler\u306E\u03C6\u95A2\u6570"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/extgcd.hpp
       title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
     - icon: ':x:'
@@ -187,10 +187,10 @@ data:
     - icon: ':warning:'
       path: math/is_prime.hpp
       title: "\u7D20\u6570\u5224\u5B9A"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/modpow.hpp
       title: "\u7E70\u308A\u8FD4\u30572\u4E57\u6CD5"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/prime_factor.hpp
       title: "\u7D20\u56E0\u6570\u5206\u89E3"
     - icon: ':warning:'
@@ -211,7 +211,7 @@ data:
       title: Mo's Algorithm
   - name: polynomial
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: polynomial/FormalPowerSeries.hpp
       title: Formal Power Series
     - icon: ':x:'
@@ -231,7 +231,7 @@ data:
     - icon: ':x:'
       path: string/LongestCommonPrefixArray.hpp
       title: Longest Common Prefix Array
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: string/Manacher.hpp
       title: Manacher
     - icon: ':question:'
@@ -297,7 +297,7 @@ data:
       title: test/codeforces/1444_C.cpp
   - name: tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tree/CentroidDecomposition.hpp
       title: Centroid Decomposition
     - icon: ':heavy_check_mark:'
@@ -497,28 +497,28 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_G.test.cpp
       title: test/aoj/DSL_2_G.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_H.test.cpp
       title: test/aoj/DSL_2_H.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_I.test.cpp
       title: test/aoj/DSL_2_I.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
       title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_3_D.test.cpp
       title: test/aoj/DSL_3_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_5_B.test.cpp
       title: test/aoj/DSL_5_B.test.cpp
     - icon: ':heavy_check_mark:'
@@ -566,37 +566,37 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_D.test.cpp
       title: test/aoj/GRL_5_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
       title: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_A.DInic.test.cpp
       title: test/aoj/GRL_6_A.DInic.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_A.test.cpp
       title: test/aoj/GRL_6_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_B.PrimalDual.test.cpp
       title: test/aoj/GRL_6_B.PrimalDual.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_B.test.cpp
       title: test/aoj/GRL_6_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
       title: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_7_A.test.cpp
       title: test/aoj/GRL_7_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_A.test.cpp
       title: test/aoj/NTL_1_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_B.test.cpp
       title: test/aoj/NTL_1_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_D.test.cpp
       title: test/aoj/NTL_1_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_E.test.cpp
       title: test/aoj/NTL_1_E.test.cpp
     - icon: ':heavy_check_mark:'
@@ -610,25 +610,25 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/associative_array.test.cpp
       title: test/yosupo/associative_array.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/bipartitematching.test.cpp
       title: test/yosupo/bipartitematching.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/bitwise_xor_convolution.test.cpp
       title: test/yosupo/bitwise_xor_convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod.test.cpp
       title: test/yosupo/convolution_mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution_mod_1000000007.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/enumerate_palindromes.test.cpp
       title: test/yosupo/enumerate_palindromes.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/exp_of_formal_power_series.test.cpp
       title: test/yosupo/exp_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/frequency_table_of_tree_distance.test.cpp
       title: test/yosupo/frequency_table_of_tree_distance.test.cpp
     - icon: ':x:'

@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: flow/Dinic.hpp
     title: Dinic
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A
@@ -129,7 +129,7 @@ data:
   path: test/aoj/GRL_6_A.DInic.test.cpp
   requiredBy: []
   timestamp: '2021-01-19 14:11:46+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_A.DInic.test.cpp
 layout: document
