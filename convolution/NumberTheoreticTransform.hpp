@@ -6,7 +6,6 @@
  * @brief Number Theoretic Transform
  * @docs docs/convolution/NumberTheoreticTransform.md
  */
-
 template <int mod> struct NumberTheoreticTransform {
     using Mint = modint<mod>;
     vector<Mint> roots;

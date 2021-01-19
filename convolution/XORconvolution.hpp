@@ -5,7 +5,6 @@
  * @brief 添字XOR畳み込み
  * @docs docs/convolution/XORconvolution.md
  */
-
 template <typename T> void fwt(vector<T>& f) {
     int n = f.size();
     for (int i = 1; i < n; i <<= 1) {

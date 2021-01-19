@@ -5,7 +5,6 @@
  * @brief combination
  * @docs @docs/combinatorics/combination.md
  */
-
 template <class M> struct Combination {
     vector<M> _fac, _inv, _finv;
     Combination(int n) : _fac(n + 1), _inv(n + 1), _finv(n + 1) {

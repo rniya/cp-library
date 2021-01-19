@@ -7,7 +7,6 @@
  * @brief Arbirary Mod Convolution (任意mod畳み込み)
  * @docs docs/convolution/ArbitaryModConvolution.md
  */
-
 template <typename M> vector<M> ArbitaryModConvolution(const vector<M>& a, const vector<M>& b) {
     int n = a.size(), m = b.size();
     static constexpr int mod0 = 167772161, mod1 = 469762049, mod2 = 754974721;

@@ -5,7 +5,6 @@
  * @brief ベル数
  * @docs docs/combinatorics/BellNumber.md
  */
-
 template <typename T> T bell_number(int n, int k) {
     if (n == 0) return 1;
     k = min(k, n);

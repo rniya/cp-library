@@ -5,7 +5,6 @@
  * @brief Fast Fourier Transform
  * @docs docs/convolution/FastFourierTransform.md
  */
-
 namespace FastFourierTransform {
 struct Complex {
     double x, y;
