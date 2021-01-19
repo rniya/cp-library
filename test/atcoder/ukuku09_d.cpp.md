@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/ukuku09_d.cpp
   requiredBy: []
-  timestamp: '2021-01-19 13:16:33+09:00'
+  timestamp: '2021-01-19 14:04:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/ukuku09_d.cpp

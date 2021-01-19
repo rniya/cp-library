@@ -16,16 +16,79 @@ data:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_B
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_B
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
-    \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ datastructure/WeightedUnionFind.hpp: line 6: #pragma once found in a non-first\
-    \ line\n"
+  bundledCode: "#line 1 \"test/aoj/DSL_1_B.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_B\"\
+    \n\n#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\nconst\
+    \ long long MOD = 1000000007;\n// const long long MOD=998244353;\nconst int INF\
+    \ = 1e9;\nconst long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4]\
+    \ = {0, 1, 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\n#define LOCAL\n\
+    typedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\n\
+    typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
+    \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
+    \ : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
+    \ os, const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n      \
+    \  os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
+    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const pair<T,\
+    \ U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
+    }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
+    \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
+    \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
+    \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
+    \ V, W>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t) << ',' << get<2>(t)\
+    \ << ',' << get<3>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
+    \ U> ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os << '{';\n\
+    \    for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
+    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
+    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
+    \ operator<<(ostream& os, const unordered_map<T, U>& m) {\n    os << '{';\n  \
+    \  for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
+    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
+    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
+    \ os, const set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
+    \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
+    \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
+    \ os, const multiset<T>& s) {\n    os << '{';\n    for (auto itr = s.begin();\
+    \ itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os <<\
+    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
+    \ operator<<(ostream& os, const unordered_set<T>& s) {\n    os << '{';\n    for\
+    \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
+    \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
+    \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
+    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
+    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
+    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
+    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    }\n#ifdef LOCAL\n#define debug(...)                                          \
+    \                         \\\n    cerr << \" \";                             \
+    \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
+    \ << __LINE__ << \":\" << __FUNCTION__ << \"]\" << '\\n'; \\\n    cerr << \" \"\
+    ;                                                                     \\\n   \
+    \ debug_out(__VA_ARGS__)\n#else\n#define debug(...) 42\n#endif\n\ntemplate <typename\
+    \ T> T gcd(T x, T y) { return y != 0 ? gcd(y, x % y) : x; }\ntemplate <typename\
+    \ T> T lcm(T x, T y) { return x / gcd(x, y) * y; }\n\ntemplate <class T1, class\
+    \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
+    \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
+    \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"datastructure/WeightedUnionFind.hpp\"\
+    \n\n/**\n * @brief Weighted UnionFind\n * @docs docs/datastructure/WeightedUnionFind.md\n\
+    \ */\ntemplate <typename Abel> struct WeightedUnionFind {\n    int num;\n    vector<int>\
+    \ par, rank;\n    vector<Abel> diff_weight;\n    WeightedUnionFind(int n, Abel\
+    \ id = 0) : num(n), par(n), rank(n, 1), diff_weight(n, Abel(0)) {\n        iota(par.begin(),\
+    \ par.end(), 0);\n    }\n    int root(int x) {\n        if (x == par[x]) return\
+    \ x;\n        int t = root(par[x]);\n        diff_weight[x] += diff_weight[par[x]];\n\
+    \        return par[x] = t;\n    }\n    bool merge(int x, int y, Abel w) {\n \
+    \       w += weight(x), w -= weight(y);\n        x = root(x), y = root(y);\n \
+    \       if (x == y) return false;\n        if (rank[x] < rank[y]) swap(x, y),\
+    \ w = -w;\n        par[y] = x;\n        rank[x] += rank[y];\n        diff_weight[y]\
+    \ = w;\n        num--;\n        return true;\n    }\n    Abel weight(int x) {\n\
+    \        root(x);\n        return diff_weight[x];\n    }\n    Abel diff(int x,\
+    \ int y) { return weight(y) - weight(x); }\n    bool same(int x, int y) { return\
+    \ root(x) == root(y); }\n    int size(int x) { return rank[root(x)]; }\n    int\
+    \ count() { return num; }\n};\n#line 5 \"test/aoj/DSL_1_B.test.cpp\"\n\nint main(){\n\
+    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,q; cin >> n >> q;\n\
+    \n    WeightedUnionFind<int> UF(n);\n\n    for (;q--;){\n        int c,x,y,z;\
+    \ cin >> c >> x >> y;\n        if (!c){\n            cin >> z;\n            UF.merge(x,y,z);\n\
+    \        } else {\n            if (UF.same(x,y)) cout << UF.diff(x,y) << '\\n';\n\
+    \            else cout << '?' << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/WeightedUnionFind.hpp\"\
     \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,q;\
@@ -40,7 +103,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 13:16:33+09:00'
+  timestamp: '2021-01-19 14:04:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_1_B.test.cpp

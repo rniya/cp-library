@@ -11,9 +11,6 @@ data:
   - icon: ':x:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':warning:'
-    path: test/atcoder/tdpc_fibonacci.cpp
-    title: test/atcoder/tdpc_fibonacci.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_A.test.cpp
@@ -248,7 +245,6 @@ data:
   requiredBy:
   - convolution/ArbitaryModConvolution.hpp
   - convolution/NumberTheoreticTransform.hpp
-  - test/atcoder/tdpc_fibonacci.cpp
   timestamp: '2021-01-19 13:16:33+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:

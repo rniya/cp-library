@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/euler_phi.hpp
     title: "Euler\u306E\u03C6\u95A2\u6570"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_D
@@ -68,16 +68,17 @@ data:
     \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#line 1 \"math/euler_phi.hpp\"\n\
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"math/euler_phi.hpp\"\n\n\
     /**\n * @brief Euler\u306E\u03C6\u95A2\u6570\n * @docs docs/math/euler_phi.md\n\
-    \ */\n\n#line 7 \"math/euler_phi.hpp\"\n\ntemplate<typename T>\nT euler_phi(T\
-    \ n){\n    T res=n;\n    for (T i=2;i*i<=n;++i) if (n%i==0){\n        res-=res/i;\n\
-    \        while (n%i==0) n/=i;\n    }\n    if (n!=1) res-=res/n;\n    return res;\n\
-    }\nvector<int> euler_phi_table(int n){\n    vector<int> euler(n+1);\n    iota(euler.begin(),euler.end(),0);\n\
-    \    for (int i=2;i<=n;++i) if (euler[i]==i){\n        for (int j=i;j<=n;j+=i)\
-    \ euler[j]-=euler[j]/i;\n    }\n    return euler;\n};\n#line 5 \"test/aoj/NTL_1_D.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\
-    \ cin >> n;\n\n    cout << euler_phi(n) << '\\n';\n}\n"
+    \ */\ntemplate <typename T> T euler_phi(T n) {\n    T res = n;\n    for (T i =\
+    \ 2; i * i <= n; i++)\n        if (n % i == 0) {\n            res -= res / i;\n\
+    \            while (n % i == 0) n /= i;\n        }\n    if (n != 1) res -= res\
+    \ / n;\n    return res;\n}\nvector<int> euler_phi_table(int n) {\n    vector<int>\
+    \ euler(n + 1);\n    iota(euler.begin(), euler.end(), 0);\n    for (int i = 2;\
+    \ i <= n; i++)\n        if (euler[i] == i) {\n            for (int j = i; j <=\
+    \ n; j += i) euler[j] -= euler[j] / i;\n        }\n    return euler;\n};\n#line\
+    \ 5 \"test/aoj/NTL_1_D.test.cpp\"\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int n; cin >> n;\n\n    cout << euler_phi(n) << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_D\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../math/euler_phi.hpp\"\n\nint\
     \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n; cin >>\
@@ -88,8 +89,8 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL_1_D.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 13:16:33+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-19 14:23:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_D.test.cpp
 layout: document

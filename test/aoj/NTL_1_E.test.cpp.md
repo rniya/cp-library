@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/extgcd.hpp
     title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_E
@@ -68,11 +68,11 @@ data:
     \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#line 1 \"math/extgcd.hpp\"\n/**\n\
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"math/extgcd.hpp\"\n\n/**\n\
     \ * @brief \u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5\
-    \n */\n\n#line 6 \"math/extgcd.hpp\"\n\ntemplate<typename T> T extgcd(T a,T b,T\
-    \ &x,T &y){\n    T d=a;\n    if (b!=0){\n        d=extgcd(b,a%b,y,x);\n      \
-    \  y-=(a/b)*x;\n    } else x=1,y=0;\n    return d;\n}\n#line 5 \"test/aoj/NTL_1_E.test.cpp\"\
+    \n */\ntemplate <typename T> T extgcd(T a, T b, T& x, T& y) {\n    T d = a;\n\
+    \    if (b != 0) {\n        d = extgcd(b, a % b, y, x);\n        y -= (a / b)\
+    \ * x;\n    } else\n        x = 1, y = 0;\n    return d;\n}\n#line 5 \"test/aoj/NTL_1_E.test.cpp\"\
     \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int a,b,x,y;\
     \ cin >> a >> b;\n\n    extgcd(a,b,x,y);\n    cout << x << ' ' << y << '\\n';\n\
     }\n"
@@ -86,8 +86,8 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL_1_E.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 13:16:33+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-19 14:23:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_E.test.cpp
 layout: document

@@ -56,7 +56,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 13:51:17+09:00'
+  timestamp: '2021-01-19 14:32:12+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp

@@ -1,15 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':question:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':question:'
-    path: modulo/modint.hpp
-    title: modint
-  - icon: ':warning:'
-    path: polynomial/Kitamasa.hpp
-    title: Kitamasa
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
@@ -23,23 +14,20 @@ data:
     , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
-    \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ polynomial/Kitamasa.hpp: line 6: #pragma once found in a non-first line\n"
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../polynomial/Kitamasa.hpp:\
+    \ line -1: no such header\n"
   code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/tdpc/tasks/tdpc_fibonacci\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include\
     \ \"../../polynomial/Kitamasa.hpp\"\n\nusing mint=modint<1000000007>;\n\nint main(){\n\
     \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int K,N; cin >> K >> N;\n\
     \n    vector<mint> A(K,1);\n    Kitamasa<mint> Ki(A);\n\n    cout << Ki.calc(A,--N)\
     \ << endl;\n}"
-  dependsOn:
-  - base.hpp
-  - modulo/modint.hpp
-  - polynomial/Kitamasa.hpp
+  dependsOn: []
   isVerificationFile: false
   path: test/atcoder/tdpc_fibonacci.cpp
   requiredBy: []
-  timestamp: '2021-01-19 13:16:33+09:00'
+  timestamp: '1970-01-01 00:00:00+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/tdpc_fibonacci.cpp
