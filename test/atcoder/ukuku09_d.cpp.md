@@ -70,22 +70,12 @@ data:
     \ a, T2 b) {\n    if (a > b) {\n        a = b;\n        return true;\n    }\n\
     \    return false;\n}\ntemplate <class T1, class T2> inline bool chmax(T1& a,\
     \ T2 b) {\n    if (a < b) {\n        a = b;\n        return true;\n    }\n   \
-    \ return false;\n}\n#line 3 \"string/Manacher.hpp\"\n\n/**\n * @brief Manacher\n\
-    \ * @docs docs/string/Manacher.md\n */\nvector<int> Manacher(const string& s)\
-    \ {\n    int n = s.size();\n    vector<int> res(n);\n    for (int i = 0, j = 0;\
-    \ i < n;) {\n        while (i - j >= 0 && i + j < n && s[i - j] == s[i + j]) j++;\n\
-    \        res[i] = j;\n        int k = 1;\n        while (i - k >= 0 && i + k <\
-    \ n && k + res[i - k] < j) res[i + k] = res[i - k], k++;\n        i += k, j -=\
-    \ k;\n    }\n    return res;\n}\n\nvector<int> PalindromeTable(const string& s)\
-    \ {\n    int n = s.size();\n    string t(n * 2 + 1, '$');\n    for (int i = 0;\
-    \ i < n; i++) t[i * 2 + 1] = s[i];\n    vector<int> v = Manacher(t), res;\n  \
-    \  for (int i = 1; i < n * 2; i++) res.emplace_back(v[i] - 1);\n    return res;\n\
-    }\n#line 3 \"datastructure/SegmentTree.hpp\"\n\n/**\n * @brief Segment Tree\n\
-    \ * @docs docs/datastructure/SegmentTree.md\n */\ntemplate <typename Monoid> struct\
-    \ SegmentTree {\n    typedef function<Monoid(Monoid, Monoid)> F;\n    int n;\n\
-    \    F f;\n    Monoid id;\n    vector<Monoid> dat;\n    SegmentTree(int n_, F\
-    \ f, Monoid id) : f(f), id(id) { init(n_); }\n    void init(int n_) {\n      \
-    \  n = 1;\n        while (n < n_) n <<= 1;\n        dat.assign(n << 1, id);\n\
+    \ return false;\n}\n#line 3 \"datastructure/SegmentTree.hpp\"\n\n/**\n * @brief\
+    \ Segment Tree\n * @docs docs/datastructure/SegmentTree.md\n */\ntemplate <typename\
+    \ Monoid> struct SegmentTree {\n    typedef function<Monoid(Monoid, Monoid)> F;\n\
+    \    int n;\n    F f;\n    Monoid id;\n    vector<Monoid> dat;\n    SegmentTree(int\
+    \ n_, F f, Monoid id) : f(f), id(id) { init(n_); }\n    void init(int n_) {\n\
+    \        n = 1;\n        while (n < n_) n <<= 1;\n        dat.assign(n << 1, id);\n\
     \    }\n    void build(const vector<Monoid>& v) {\n        for (int i = 0; i <\
     \ v.size(); i++) dat[i + n] = v[i];\n        for (int i = n - 1; i; i--) dat[i]\
     \ = f(dat[i << 1 | 0], dat[i << 1 | 1]);\n    }\n    void update(int k, Monoid\
@@ -115,32 +105,44 @@ data:
     \ r >>= 1) {\n            if (r & 1) {\n                Monoid nxt = f(dat[--r],\
     \ R);\n                if (check(nxt)) return find_subtree(r, check, R, true);\n\
     \                R = nxt;\n            }\n        }\n        return -1;\n    }\n\
-    \    Monoid operator[](int i) { return dat[i + n]; }\n};\n#line 8 \"test/atcoder/ukuku09_d.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q;\
-    \ string S; cin >> N >> Q >> S;\n\n    vector<int> v=Manacher(S);\n    SegmentTree<int>\
-    \ seg(N,[](int a,int b){return max(a,b);},0);\n    seg.build(v);\n\n    for (;Q--;){\n\
-    \        int l,r; cin >> l >> r; --l;\n        int lb=0,ub=(r-l+1)/2+1;\n    \
-    \    while(ub-lb>1){\n            int mid=(lb+ub)>>1;\n            int x=seg.query(l+mid-1,r-mid+1);\n\
-    \            (mid<=x?lb:ub)=mid;\n        }\n        cout << lb*2-1 << '\\n';\n\
-    \    }\n}\n"
+    \    Monoid operator[](int i) { return dat[i + n]; }\n};\n#line 3 \"string/Manacher.hpp\"\
+    \n\n/**\n * @brief Manacher\n * @docs docs/string/Manacher.md\n */\nvector<int>\
+    \ Manacher(const string& s) {\n    int n = s.size();\n    vector<int> res(n);\n\
+    \    for (int i = 0, j = 0; i < n;) {\n        while (i - j >= 0 && i + j < n\
+    \ && s[i - j] == s[i + j]) j++;\n        res[i] = j;\n        int k = 1;\n   \
+    \     while (i - k >= 0 && i + k < n && k + res[i - k] < j) res[i + k] = res[i\
+    \ - k], k++;\n        i += k, j -= k;\n    }\n    return res;\n}\n\nvector<int>\
+    \ PalindromeTable(const string& s) {\n    int n = s.size();\n    string t(n *\
+    \ 2 + 1, '$');\n    for (int i = 0; i < n; i++) t[i * 2 + 1] = s[i];\n    vector<int>\
+    \ v = Manacher(t), res;\n    for (int i = 1; i < n * 2; i++) res.emplace_back(v[i]\
+    \ - 1);\n    return res;\n}\n#line 8 \"test/atcoder/ukuku09_d.cpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n    string\
+    \ S;\n    cin >> N >> Q >> S;\n\n    vector<int> v = Manacher(S);\n    SegmentTree<int>\
+    \ seg(\n        N, [](int a, int b) { return max(a, b); }, 0);\n    seg.build(v);\n\
+    \n    for (; Q--;) {\n        int l, r;\n        cin >> l >> r;\n        --l;\n\
+    \        int lb = 0, ub = (r - l + 1) / 2 + 1;\n        while (ub - lb > 1) {\n\
+    \            int mid = (lb + ub) >> 1;\n            int x = seg.query(l + mid\
+    \ - 1, r - mid + 1);\n            (mid <= x ? lb : ub) = mid;\n        }\n   \
+    \     cout << lb * 2 - 1 << '\\n';\n    }\n}\n"
   code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/ukuku09/tasks/ukuku09_d\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../string/Manacher.hpp\"\n#include\
-    \ \"../../datastructure/SegmentTree.hpp\"\n\nint main(){\n    cin.tie(0);\n  \
-    \  ios::sync_with_stdio(false);\n    int N,Q; string S; cin >> N >> Q >> S;\n\n\
-    \    vector<int> v=Manacher(S);\n    SegmentTree<int> seg(N,[](int a,int b){return\
-    \ max(a,b);},0);\n    seg.build(v);\n\n    for (;Q--;){\n        int l,r; cin\
-    \ >> l >> r; --l;\n        int lb=0,ub=(r-l+1)/2+1;\n        while(ub-lb>1){\n\
-    \            int mid=(lb+ub)>>1;\n            int x=seg.query(l+mid-1,r-mid+1);\n\
-    \            (mid<=x?lb:ub)=mid;\n        }\n        cout << lb*2-1 << '\\n';\n\
-    \    }\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/SegmentTree.hpp\"\
+    \n#include \"../../string/Manacher.hpp\"\n\nint main() {\n    cin.tie(0);\n  \
+    \  ios::sync_with_stdio(false);\n    int N, Q;\n    string S;\n    cin >> N >>\
+    \ Q >> S;\n\n    vector<int> v = Manacher(S);\n    SegmentTree<int> seg(\n   \
+    \     N, [](int a, int b) { return max(a, b); }, 0);\n    seg.build(v);\n\n  \
+    \  for (; Q--;) {\n        int l, r;\n        cin >> l >> r;\n        --l;\n \
+    \       int lb = 0, ub = (r - l + 1) / 2 + 1;\n        while (ub - lb > 1) {\n\
+    \            int mid = (lb + ub) >> 1;\n            int x = seg.query(l + mid\
+    \ - 1, r - mid + 1);\n            (mid <= x ? lb : ub) = mid;\n        }\n   \
+    \     cout << lb * 2 - 1 << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
-  - string/Manacher.hpp
   - datastructure/SegmentTree.hpp
+  - string/Manacher.hpp
   isVerificationFile: false
   path: test/atcoder/ukuku09_d.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:22:36+09:00'
+  timestamp: '2021-01-19 15:53:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/ukuku09_d.cpp

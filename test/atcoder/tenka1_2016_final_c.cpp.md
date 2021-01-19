@@ -88,30 +88,33 @@ data:
     \ s[i]);\n            if (node < 0) return;\n            for (auto& idx : Nodes[node].idxs)\
     \ f(idx);\n        }\n    }\n    int size() { return Nodes.size(); };\n    vector<int>\
     \ idxs(int node) { return Nodes[node].idxs; }\n};\n#line 7 \"test/atcoder/tenka1_2016_final_c.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
-    \ S; int M; cin >> S >> M;\n    vector<string> P(M);\n    vector<int> W(M);\n\
-    \    for (int i=0;i<M;++i) cin >> P[i];\n    for (int i=0;i<M;++i) cin >> W[i];\n\
-    \n    Trie<26> trie([](char c){return c-'a';});\n    for (int i=0;i<M;++i) trie.add(P[i],i);\n\
-    \    int n=S.size();\n    vector<int> dp(n+1,0);\n\n    for (int i=0;i<n;++i){\n\
-    \        dp[i+1]=max(dp[i+1],dp[i]);\n        auto f=[&](int idx){\n         \
-    \   dp[i+P[idx].size()]=max(dp[i+P[idx].size()],dp[i]+W[idx]);\n        };\n \
-    \       trie.query(S,f,i);\n    }\n    cout << dp[n] << '\\n';\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
+    \ S;\n    int M;\n    cin >> S >> M;\n    vector<string> P(M);\n    vector<int>\
+    \ W(M);\n    for (int i = 0; i < M; i++) cin >> P[i];\n    for (int i = 0; i <\
+    \ M; i++) cin >> W[i];\n\n    Trie<26> trie([](char c) { return c - 'a'; });\n\
+    \    for (int i = 0; i < M; i++) trie.add(P[i], i);\n    int n = S.size();\n \
+    \   vector<int> dp(n + 1, 0);\n\n    for (int i = 0; i < n; i++) {\n        dp[i\
+    \ + 1] = max(dp[i + 1], dp[i]);\n        auto f = [&](int idx) { dp[i + P[idx].size()]\
+    \ = max(dp[i + P[idx].size()], dp[i] + W[idx]); };\n        trie.query(S, f, i);\n\
+    \    }\n    cout << dp[n] << '\\n';\n}\n"
   code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/tenka1-2016-final-open/tasks/tenka1_2016_final_c\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../string/Trie.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S; int M; cin >>\
-    \ S >> M;\n    vector<string> P(M);\n    vector<int> W(M);\n    for (int i=0;i<M;++i)\
-    \ cin >> P[i];\n    for (int i=0;i<M;++i) cin >> W[i];\n\n    Trie<26> trie([](char\
-    \ c){return c-'a';});\n    for (int i=0;i<M;++i) trie.add(P[i],i);\n    int n=S.size();\n\
-    \    vector<int> dp(n+1,0);\n\n    for (int i=0;i<n;++i){\n        dp[i+1]=max(dp[i+1],dp[i]);\n\
-    \        auto f=[&](int idx){\n            dp[i+P[idx].size()]=max(dp[i+P[idx].size()],dp[i]+W[idx]);\n\
-    \        };\n        trie.query(S,f,i);\n    }\n    cout << dp[n] << '\\n';\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../string/Trie.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S;\n    int\
+    \ M;\n    cin >> S >> M;\n    vector<string> P(M);\n    vector<int> W(M);\n  \
+    \  for (int i = 0; i < M; i++) cin >> P[i];\n    for (int i = 0; i < M; i++) cin\
+    \ >> W[i];\n\n    Trie<26> trie([](char c) { return c - 'a'; });\n    for (int\
+    \ i = 0; i < M; i++) trie.add(P[i], i);\n    int n = S.size();\n    vector<int>\
+    \ dp(n + 1, 0);\n\n    for (int i = 0; i < n; i++) {\n        dp[i + 1] = max(dp[i\
+    \ + 1], dp[i]);\n        auto f = [&](int idx) { dp[i + P[idx].size()] = max(dp[i\
+    \ + P[idx].size()], dp[i] + W[idx]); };\n        trie.query(S, f, i);\n    }\n\
+    \    cout << dp[n] << '\\n';\n}"
   dependsOn:
   - base.hpp
   - string/Trie.hpp
   isVerificationFile: false
   path: test/atcoder/tenka1_2016_final_c.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:22:36+09:00'
+  timestamp: '2021-01-19 15:53:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/tenka1_2016_final_c.cpp

@@ -82,31 +82,33 @@ data:
     \ x, int y) { return root(t, x) == root(t, y); }\n    int size(int t, int x) {\n\
     \        x = root(t, x);\n        return -prev(lower_bound(Size[x].begin(), Size[x].end(),\
     \ make_pair(t, 0)))->second;\n    }\n    int count() { return num; }\n};\n#line\
-    \ 7 \"test/atcoder/agc002_d.cpp\"\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int N,M; cin >> N >> M;\n\n    PartiallyPersistentUnionFind UF(N);\n\n  \
-    \  for (int i=0;i<M;++i){\n        int a,b; cin >> a >> b;\n        UF.merge(--a,--b);\n\
-    \    }\n\n    int Q; cin >> Q;\n    for (;Q--;){\n        int x,y,z; cin >> x\
-    \ >> y >> z; --x,--y;\n        int lb=0,ub=M+1;\n        while(ub-lb>1){\n   \
-    \         int mid=(ub+lb)>>1;\n            int s=UF.size(mid,x);\n           \
-    \ if (!UF.same(mid,x,y)) s+=UF.size(mid,y);\n            (s>=z?ub:lb)=mid;\n \
-    \       }\n        cout << ub << '\\n';\n    }\n}\n"
+    \ 7 \"test/atcoder/agc002_d.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int N, M;\n    cin >> N >> M;\n\n    PartiallyPersistentUnionFind UF(N);\n\
+    \n    for (int i = 0; i < M; i++) {\n        int a, b;\n        cin >> a >> b;\n\
+    \        UF.merge(--a, --b);\n    }\n\n    int Q;\n    cin >> Q;\n    for (; Q--;)\
+    \ {\n        int x, y, z;\n        cin >> x >> y >> z;\n        --x, --y;\n  \
+    \      int lb = 0, ub = M + 1;\n        while (ub - lb > 1) {\n            int\
+    \ mid = (ub + lb) >> 1;\n            int s = UF.size(mid, x);\n            if\
+    \ (!UF.same(mid, x, y)) s += UF.size(mid, y);\n            (s >= z ? ub : lb)\
+    \ = mid;\n        }\n        cout << ub << '\\n';\n    }\n}\n"
   code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/agc002/tasks/agc002_d\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/PartiallyPersistentUnionFind.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,M;\
-    \ cin >> N >> M;\n\n    PartiallyPersistentUnionFind UF(N);\n\n    for (int i=0;i<M;++i){\n\
-    \        int a,b; cin >> a >> b;\n        UF.merge(--a,--b);\n    }\n\n    int\
-    \ Q; cin >> Q;\n    for (;Q--;){\n        int x,y,z; cin >> x >> y >> z; --x,--y;\n\
-    \        int lb=0,ub=M+1;\n        while(ub-lb>1){\n            int mid=(ub+lb)>>1;\n\
-    \            int s=UF.size(mid,x);\n            if (!UF.same(mid,x,y)) s+=UF.size(mid,y);\n\
-    \            (s>=z?ub:lb)=mid;\n        }\n        cout << ub << '\\n';\n    }\n\
-    }"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ M;\n    cin >> N >> M;\n\n    PartiallyPersistentUnionFind UF(N);\n\n    for\
+    \ (int i = 0; i < M; i++) {\n        int a, b;\n        cin >> a >> b;\n     \
+    \   UF.merge(--a, --b);\n    }\n\n    int Q;\n    cin >> Q;\n    for (; Q--;)\
+    \ {\n        int x, y, z;\n        cin >> x >> y >> z;\n        --x, --y;\n  \
+    \      int lb = 0, ub = M + 1;\n        while (ub - lb > 1) {\n            int\
+    \ mid = (ub + lb) >> 1;\n            int s = UF.size(mid, x);\n            if\
+    \ (!UF.same(mid, x, y)) s += UF.size(mid, y);\n            (s >= z ? ub : lb)\
+    \ = mid;\n        }\n        cout << ub << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/PartiallyPersistentUnionFind.hpp
   isVerificationFile: false
   path: test/atcoder/agc002_d.cpp
   requiredBy: []
-  timestamp: '2021-01-19 14:04:24+09:00'
+  timestamp: '2021-01-19 15:53:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/agc002_d.cpp

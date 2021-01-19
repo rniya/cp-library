@@ -113,26 +113,28 @@ data:
     \ 0; --k) {\n            if (par[k][u] != par[k][v]) {\n                u = par[k][u];\n\
     \                v = par[k][v];\n            }\n        }\n        return par[0][u];\n\
     \    }\n    int distance(int u, int v) { return dep[u] + dep[v] - dep[lca(u, v)]\
-    \ * 2; }\n};\n#line 8 \"test/atcoder/arc039_d.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N,M; cin >> N >> M;\n\n    TwoEdgeConnectedComponents\
-    \ TECC(N);\n    for (int i=0;i<M;++i){\n        int X,Y; cin >> X >> Y;\n    \
-    \    TECC.add_edge(--X,--Y);\n    }\n    int n=TECC.build();\n\n    LowestCommonAncestor\
-    \ LCA(n);\n    for (int v=0;v<n;++v){\n        for (int u:TECC.T[v]){\n      \
-    \      if (v<u) LCA.add_edge(v,u);\n        }\n    }\n    LCA.build();\n\n   \
-    \ int Q; cin >> Q;\n    for (;Q--;){\n        int A,B,C; cin >> A >> B >> C;\n\
-    \        A=TECC[--A],B=TECC[--B],C=TECC[--C];\n        cout << (LCA.distance(A,C)==LCA.distance(A,B)+LCA.distance(B,C)?\"\
-    OK\":\"NG\") << '\\n';\n    }\n}\n"
+    \ * 2; }\n};\n#line 8 \"test/atcoder/arc039_d.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N, M;\n    cin >> N >> M;\n\n    TwoEdgeConnectedComponents\
+    \ TECC(N);\n    for (int i = 0; i < M; i++) {\n        int X, Y;\n        cin\
+    \ >> X >> Y;\n        TECC.add_edge(--X, --Y);\n    }\n    int n = TECC.build();\n\
+    \n    LowestCommonAncestor LCA(n);\n    for (int v = 0; v < n; v++) {\n      \
+    \  for (int u : TECC.T[v]) {\n            if (v < u) LCA.add_edge(v, u);\n   \
+    \     }\n    }\n    LCA.build();\n\n    int Q;\n    cin >> Q;\n    for (; Q--;)\
+    \ {\n        int A, B, C;\n        cin >> A >> B >> C;\n        A = TECC[--A],\
+    \ B = TECC[--B], C = TECC[--C];\n        cout << (LCA.distance(A, C) == LCA.distance(A,\
+    \ B) + LCA.distance(B, C) ? \"OK\" : \"NG\") << '\\n';\n    }\n}\n"
   code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/arc039/tasks/arc039_d\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/TwoEdgeConnectedComponents.hpp\"\
-    \n#include \"../../tree/LowestCommonAncestor.hpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N,M; cin >> N >> M;\n\n    TwoEdgeConnectedComponents\
-    \ TECC(N);\n    for (int i=0;i<M;++i){\n        int X,Y; cin >> X >> Y;\n    \
-    \    TECC.add_edge(--X,--Y);\n    }\n    int n=TECC.build();\n\n    LowestCommonAncestor\
-    \ LCA(n);\n    for (int v=0;v<n;++v){\n        for (int u:TECC.T[v]){\n      \
-    \      if (v<u) LCA.add_edge(v,u);\n        }\n    }\n    LCA.build();\n\n   \
-    \ int Q; cin >> Q;\n    for (;Q--;){\n        int A,B,C; cin >> A >> B >> C;\n\
-    \        A=TECC[--A],B=TECC[--B],C=TECC[--C];\n        cout << (LCA.distance(A,C)==LCA.distance(A,B)+LCA.distance(B,C)?\"\
-    OK\":\"NG\") << '\\n';\n    }\n}"
+    \n#include \"../../tree/LowestCommonAncestor.hpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N, M;\n    cin >> N >> M;\n\n    TwoEdgeConnectedComponents\
+    \ TECC(N);\n    for (int i = 0; i < M; i++) {\n        int X, Y;\n        cin\
+    \ >> X >> Y;\n        TECC.add_edge(--X, --Y);\n    }\n    int n = TECC.build();\n\
+    \n    LowestCommonAncestor LCA(n);\n    for (int v = 0; v < n; v++) {\n      \
+    \  for (int u : TECC.T[v]) {\n            if (v < u) LCA.add_edge(v, u);\n   \
+    \     }\n    }\n    LCA.build();\n\n    int Q;\n    cin >> Q;\n    for (; Q--;)\
+    \ {\n        int A, B, C;\n        cin >> A >> B >> C;\n        A = TECC[--A],\
+    \ B = TECC[--B], C = TECC[--C];\n        cout << (LCA.distance(A, C) == LCA.distance(A,\
+    \ B) + LCA.distance(B, C) ? \"OK\" : \"NG\") << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - graph/TwoEdgeConnectedComponents.hpp
@@ -140,7 +142,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/arc039_d.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:36:15+09:00'
+  timestamp: '2021-01-19 15:53:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/arc039_d.cpp

@@ -94,25 +94,25 @@ data:
     \ = dp[v] + e.cost;\n                    pq.emplace(u, dp[u]);\n             \
     \   }\n            }\n        }\n        vector<T> res(dp.begin() + n, dp.begin()\
     \ + 2 * n);\n        return res;\n    }\n};\n#line 7 \"test/atcoder/nikkei2019_2_qual_d.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,M;\
-    \ cin >> N >> M;\n\n    RangeEdgeGraph<long long> REG(N);\n    for (;M--;){\n\
-    \        int L,R,C; cin >> L >> R >> C; --L;\n        REG.add_edge(L,R,L,R,C);\n\
-    \    }\n\n    long long ans=REG.build(0)[N-1];\n    cout << (ans>1e15?-1:ans)\
-    \ << '\\n';\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ M;\n    cin >> N >> M;\n\n    RangeEdgeGraph<long long> REG(N);\n    for (;\
+    \ M--;) {\n        int L, R, C;\n        cin >> L >> R >> C;\n        --L;\n \
+    \       REG.add_edge(L, R, L, R, C);\n    }\n\n    long long ans = REG.build(0)[N\
+    \ - 1];\n    cout << (ans > 1e15 ? -1 : ans) << '\\n';\n}\n"
   code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/nikkei2019-2-qual/tasks/nikkei2019_2_qual_d\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/RangeEdgeGraph.hpp\"\n\
-    \nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,M;\
-    \ cin >> N >> M;\n\n    RangeEdgeGraph<long long> REG(N);\n    for (;M--;){\n\
-    \        int L,R,C; cin >> L >> R >> C; --L;\n        REG.add_edge(L,R,L,R,C);\n\
-    \    }\n\n    long long ans=REG.build(0)[N-1];\n    cout << (ans>1e15?-1:ans)\
-    \ << '\\n';\n}"
+    \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ M;\n    cin >> N >> M;\n\n    RangeEdgeGraph<long long> REG(N);\n    for (;\
+    \ M--;) {\n        int L, R, C;\n        cin >> L >> R >> C;\n        --L;\n \
+    \       REG.add_edge(L, R, L, R, C);\n    }\n\n    long long ans = REG.build(0)[N\
+    \ - 1];\n    cout << (ans > 1e15 ? -1 : ans) << '\\n';\n}"
   dependsOn:
   - base.hpp
   - graph/RangeEdgeGraph.hpp
   isVerificationFile: false
   path: test/atcoder/nikkei2019_2_qual_d.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:36:15+09:00'
+  timestamp: '2021-01-19 15:53:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/nikkei2019_2_qual_d.cpp

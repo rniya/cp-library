@@ -129,19 +129,21 @@ data:
     \ x, int y, T z) {\n        sum += z;\n        int w = D.add_vertex();\n     \
     \   x_true_loss(w, z);\n        x_false_y_true_loss(w, x, inf);\n        x_false_y_true_loss(w,\
     \ y, inf);\n    }\n    T build() { return D.max_flow(s, t) - sum; }\n};\n#line\
-    \ 7 \"test/atcoder/arc085_c.cpp\"\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    const long long inf=1e18;\n    int N; cin >> N;\n\n    ProjectSelectionProblem<long\
-    \ long> PSP(N);\n    for (int i=1;i<=N;++i){\n        int a; cin >> a;\n     \
-    \   if (a>0) PSP.x_false_profit(i-1,a);\n        else PSP.x_false_loss(i-1,-a);\n\
-    \        for (int j=2*i;j<=N;j+=i){\n            PSP.x_true_y_false_loss(i-1,j-1,inf);\n\
+    \ 7 \"test/atcoder/arc085_c.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    const long long inf = 1e18;\n    int N;\n    cin >> N;\n\n    ProjectSelectionProblem<long\
+    \ long> PSP(N);\n    for (int i = 1; i <= N; i++) {\n        int a;\n        cin\
+    \ >> a;\n        if (a > 0)\n            PSP.x_false_profit(i - 1, a);\n     \
+    \   else\n            PSP.x_false_loss(i - 1, -a);\n        for (int j = 2 * i;\
+    \ j <= N; j += i) {\n            PSP.x_true_y_false_loss(i - 1, j - 1, inf);\n\
     \        }\n    }\n\n    cout << -PSP.build() << '\\n';\n}\n"
   code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/arc085/tasks/arc085_c\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../flow/ProjectSelectionProblem.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    const\
-    \ long long inf=1e18;\n    int N; cin >> N;\n\n    ProjectSelectionProblem<long\
-    \ long> PSP(N);\n    for (int i=1;i<=N;++i){\n        int a; cin >> a;\n     \
-    \   if (a>0) PSP.x_false_profit(i-1,a);\n        else PSP.x_false_loss(i-1,-a);\n\
-    \        for (int j=2*i;j<=N;j+=i){\n            PSP.x_true_y_false_loss(i-1,j-1,inf);\n\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    const\
+    \ long long inf = 1e18;\n    int N;\n    cin >> N;\n\n    ProjectSelectionProblem<long\
+    \ long> PSP(N);\n    for (int i = 1; i <= N; i++) {\n        int a;\n        cin\
+    \ >> a;\n        if (a > 0)\n            PSP.x_false_profit(i - 1, a);\n     \
+    \   else\n            PSP.x_false_loss(i - 1, -a);\n        for (int j = 2 * i;\
+    \ j <= N; j += i) {\n            PSP.x_true_y_false_loss(i - 1, j - 1, inf);\n\
     \        }\n    }\n\n    cout << -PSP.build() << '\\n';\n}"
   dependsOn:
   - base.hpp
@@ -150,7 +152,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/arc085_c.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:22:36+09:00'
+  timestamp: '2021-01-19 15:53:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/arc085_c.cpp

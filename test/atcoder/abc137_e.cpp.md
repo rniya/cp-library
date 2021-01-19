@@ -88,25 +88,25 @@ data:
     \        for (int i = 0; i < n; i++) {\n            fill(check.begin(), check.end(),\
     \ 0);\n            dfs(i);\n            reach[i] = check[t];\n        }\n    \
     \    return build(s, neg_loop)[t];\n    }\n};\n#line 7 \"test/atcoder/abc137_e.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,M,P;\
-    \ cin >> N >> M >> P;\n\n    BellmanFord<int> BF(N);\n    for (int i=0;i<M;++i){\n\
-    \        int A,B,C; cin >> A >> B >> C;\n        BF.add_edge(--A,--B,P-C);\n \
-    \   }\n\n    int neg;\n    int ans=BF.shortest_path(0,N-1,neg);\n    cout << (neg?-1:max(0,-ans))\
-    \ << '\\n';\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ M, P;\n    cin >> N >> M >> P;\n\n    BellmanFord<int> BF(N);\n    for (int\
+    \ i = 0; i < M; i++) {\n        int A, B, C;\n        cin >> A >> B >> C;\n  \
+    \      BF.add_edge(--A, --B, P - C);\n    }\n\n    int neg;\n    int ans = BF.shortest_path(0,\
+    \ N - 1, neg);\n    cout << (neg ? -1 : max(0, -ans)) << '\\n';\n}\n"
   code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/abc137/tasks/abc137_e\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/BellmanFord.hpp\"\n\n\
-    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,M,P;\
-    \ cin >> N >> M >> P;\n\n    BellmanFord<int> BF(N);\n    for (int i=0;i<M;++i){\n\
-    \        int A,B,C; cin >> A >> B >> C;\n        BF.add_edge(--A,--B,P-C);\n \
-    \   }\n\n    int neg;\n    int ans=BF.shortest_path(0,N-1,neg);\n    cout << (neg?-1:max(0,-ans))\
-    \ << '\\n';\n}"
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, M,\
+    \ P;\n    cin >> N >> M >> P;\n\n    BellmanFord<int> BF(N);\n    for (int i =\
+    \ 0; i < M; i++) {\n        int A, B, C;\n        cin >> A >> B >> C;\n      \
+    \  BF.add_edge(--A, --B, P - C);\n    }\n\n    int neg;\n    int ans = BF.shortest_path(0,\
+    \ N - 1, neg);\n    cout << (neg ? -1 : max(0, -ans)) << '\\n';\n}"
   dependsOn:
   - base.hpp
   - graph/BellmanFord.hpp
   isVerificationFile: false
   path: test/atcoder/abc137_e.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:36:15+09:00'
+  timestamp: '2021-01-19 15:53:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/abc137_e.cpp

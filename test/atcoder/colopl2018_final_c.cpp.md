@@ -97,25 +97,26 @@ data:
     \ x));\n    }\n    T query_monotone_dec(T x) {\n        while (Lines.size() >=\
     \ 2 && f(Lines.back(), x) >= f(Lines[Lines.size() - 2], x)) Lines.pop_back();\n\
     \        return (isMin ? f(Lines.back(), x) : -f(Lines.back(), x));\n    }\n};\n\
-    #line 7 \"test/atcoder/colopl2018_final_c.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N; cin >> N;\n    vector<long long>\
-    \ a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\n    ConvexHullTrick<long long>\
-    \ CHT;\n\n    for (long long i=0;i<N;++i) CHT.add(-2*i,a[i]+i*i);\n    for (long\
-    \ long i=0;i<N;++i) cout << CHT.query_monotone_inc(i)+i*i << '\\n';\n}\n"
+    #line 7 \"test/atcoder/colopl2018_final_c.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N;\n    cin >> N;\n    vector<long\
+    \ long> a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\n    ConvexHullTrick<long\
+    \ long> CHT;\n\n    for (long long i = 0; i < N; i++) CHT.add(-2 * i, a[i] + i\
+    \ * i);\n    for (long long i = 0; i < N; i++) cout << CHT.query_monotone_inc(i)\
+    \ + i * i << '\\n';\n}\n"
   code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/colopl2018-final-open/tasks/colopl2018_final_c\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/ConvexHullTrick.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\
-    \ cin >> N;\n    vector<long long> a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\
-    \n    ConvexHullTrick<long long> CHT;\n\n    for (long long i=0;i<N;++i) CHT.add(-2*i,a[i]+i*i);\n\
-    \    for (long long i=0;i<N;++i) cout << CHT.query_monotone_inc(i)+i*i << '\\\
-    n';\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\n\
+    \    cin >> N;\n    vector<long long> a(N);\n    for (int i = 0; i < N; i++) cin\
+    \ >> a[i];\n\n    ConvexHullTrick<long long> CHT;\n\n    for (long long i = 0;\
+    \ i < N; i++) CHT.add(-2 * i, a[i] + i * i);\n    for (long long i = 0; i < N;\
+    \ i++) cout << CHT.query_monotone_inc(i) + i * i << '\\n';\n}"
   dependsOn:
   - base.hpp
   - datastructure/ConvexHullTrick.hpp
   isVerificationFile: false
   path: test/atcoder/colopl2018_final_c.cpp
   requiredBy: []
-  timestamp: '2021-01-19 14:04:24+09:00'
+  timestamp: '2021-01-19 15:53:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/colopl2018_final_c.cpp
