@@ -109,7 +109,7 @@ data:
   path: datastructure/LazySegmentTree.hpp
   requiredBy:
   - test/codeforces/1179_C.cpp
-  timestamp: '2021-01-19 00:11:31+09:00'
+  timestamp: '2021-01-19 13:16:33+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/range_affine_range_sum.test.cpp

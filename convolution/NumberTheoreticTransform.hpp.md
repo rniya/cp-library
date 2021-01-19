@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy:
@@ -97,7 +97,7 @@ data:
   path: convolution/NumberTheoreticTransform.hpp
   requiredBy:
   - convolution/ArbitaryModConvolution.hpp
-  timestamp: '2021-01-19 00:11:31+09:00'
+  timestamp: '2021-01-19 13:16:33+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/pow_of_formal_power_series.test.cpp

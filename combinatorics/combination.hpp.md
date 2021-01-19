@@ -6,7 +6,7 @@ data:
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_B.test.cpp
     title: test/aoj/DPL_5_B.test.cpp
   - icon: ':x:'
@@ -31,7 +31,7 @@ data:
     path: test/yukicoder/1302.test.cpp
     title: test/yukicoder/1302.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: '@docs/combinatorics/combination.md'
     document_title: combination
@@ -59,8 +59,8 @@ data:
   isVerificationFile: false
   path: combinatorics/combination.hpp
   requiredBy: []
-  timestamp: '2021-01-19 00:11:31+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-01-19 13:16:33+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DPL_5_E.test.cpp
   - test/aoj/DPL_5_G.test.cpp

@@ -40,7 +40,7 @@ data:
   path: string/Manacher.hpp
   requiredBy:
   - test/atcoder/ukuku09_d.cpp
-  timestamp: '2021-01-19 00:11:31+09:00'
+  timestamp: '2021-01-19 13:16:33+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/enumerate_palindromes.test.cpp

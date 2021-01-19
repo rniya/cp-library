@@ -57,7 +57,7 @@ data:
   requiredBy:
   - test/codeforces/1404_E.cpp
   - test/atcoder/arc085_c.cpp
-  timestamp: '2021-01-19 00:11:31+09:00'
+  timestamp: '2021-01-19 13:16:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp

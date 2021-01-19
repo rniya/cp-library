@@ -8,7 +8,7 @@ data:
   - icon: ':x:'
     path: combinatorics/PartitionTable.hpp
     title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
-  - icon: ':x:'
+  - icon: ':question:'
     path: combinatorics/combination.hpp
     title: combination
   - icon: ':x:'
@@ -97,7 +97,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: flow/ProjectSelectionProblem.hpp
     title: Project Selection Problem
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: geometry
   - icon: ':x:'
@@ -179,7 +179,7 @@ data:
   - icon: ':x:'
     path: modulo/dynamic_modint.hpp
     title: "\u5B9F\u884C\u6642 modint"
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   - icon: ':x:'
@@ -360,37 +360,37 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_3_C.test.cpp
     title: test/aoj/CGL_3_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_4_A.test.cpp
     title: test/aoj/CGL_4_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_4_B.test.cpp
     title: test/aoj/CGL_4_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_4_C.test.cpp
     title: test/aoj/CGL_4_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_A.test.cpp
     title: test/aoj/CGL_7_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_C.test.cpp
     title: test/aoj/CGL_7_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_D.test.cpp
     title: test/aoj/CGL_7_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_E.test.cpp
     title: test/aoj/CGL_7_E.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_F.test.cpp
     title: test/aoj/CGL_7_F.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_G.test.cpp
     title: test/aoj/CGL_7_G.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_A.test.cpp
     title: test/aoj/DPL_5_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_B.test.cpp
     title: test/aoj/DPL_5_B.test.cpp
   - icon: ':x:'
@@ -736,66 +736,14 @@ data:
   _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"base.hpp\"\n\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\nconst long long MOD = 1000000007;\n// const long long MOD=998244353;\n\
-    const int INF = 1e9;\nconst long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1,\
-    \ 0}, dy[4] = {0, 1, 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\n#define\
-    \ LOCAL\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\n\
-    typedef unsigned int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(),\
-    \ (x).end()\n\ntemplate <typename T> istream& operator>>(istream& is, vector<T>&\
-    \ v) {\n    for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T>\
-    \ ostream& operator<<(ostream& os, const vector<T>& v) {\n    for (int i = 0;\
-    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
-    );\n    }\n    return os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream&\
-    \ os, const pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n\
-    \    return os;\n}\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
-    \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
-    \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
-    \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
-    \ V, W>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t) << ',' << get<2>(t)\
-    \ << ',' << get<3>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
-    \ U> ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os << '{';\n\
-    \    for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const unordered_map<T, U>& m) {\n    os << '{';\n  \
-    \  for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
-    \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
-    \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const multiset<T>& s) {\n    os << '{';\n    for (auto itr = s.begin();\
-    \ itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os <<\
-    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
-    \ operator<<(ostream& os, const unordered_set<T>& s) {\n    os << '{';\n    for\
-    \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
-    \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
-    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
-    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
-    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
-    }\n#ifdef LOCAL\n#define debug(...)                                          \
-    \                         \\\n    cerr << \" \";                             \
-    \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
-    \ << __LINE__ << \":\" << __FUNCTION__ << \"]\" << '\\n'; \\\n    cerr << \" \"\
-    ;                                                                     \\\n   \
-    \ debug_out(__VA_ARGS__)\n#else\n#define debug(...) 42\n#endif\n\ntemplate <typename\
-    \ T> T gcd(T x, T y) { return y != 0 ? gcd(y, x % y) : x; }\ntemplate <typename\
-    \ T> T lcm(T x, T y) { return x / gcd(x, y) * y; }\n\ntemplate <class T1, class\
-    \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
-    \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
-    \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#pragma endregion\n"
-  code: "#pragma once\n\n#include <bits/stdc++.h>\nusing namespace std;\nconst long\
-    \ long MOD = 1000000007;\n// const long long MOD=998244353;\nconst int INF = 1e9;\n\
-    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
-    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\n#define LOCAL\n#pragma region\
-    \ Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int\
-    \ uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
-    \ntemplate <typename T> istream& operator>>(istream& is, vector<T>& v) {\n   \
-    \ for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
+  bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
+    const long long MOD = 1000000007;\n// const long long MOD=998244353;\nconst int\
+    \ INF = 1e9;\nconst long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4]\
+    \ = {0, 1, 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\n#define LOCAL\n\
+    typedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\n\
+    typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
+    \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
+    \ : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
     \ os, const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n      \
     \  os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
     }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const pair<T,\
@@ -839,7 +787,59 @@ data:
     \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#pragma endregion"
+    \ return true;\n    }\n    return false;\n}\n"
+  code: "#pragma once\n#include <bits/stdc++.h>\nusing namespace std;\nconst long\
+    \ long MOD = 1000000007;\n// const long long MOD=998244353;\nconst int INF = 1e9;\n\
+    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
+    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\n#define LOCAL\ntypedef long\
+    \ long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\ntypedef unsigned\
+    \ long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate <typename\
+    \ T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x : v) is >>\
+    \ x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream& os,\
+    \ const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n        os\
+    \ << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n}\ntemplate\
+    \ <typename T, typename U> ostream& operator<<(ostream& os, const pair<T, U>&\
+    \ p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
+    }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
+    \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
+    \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
+    \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
+    \ V, W>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t) << ',' << get<2>(t)\
+    \ << ',' << get<3>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
+    \ U> ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os << '{';\n\
+    \    for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
+    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
+    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
+    \ operator<<(ostream& os, const unordered_map<T, U>& m) {\n    os << '{';\n  \
+    \  for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
+    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
+    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
+    \ os, const set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
+    \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
+    \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
+    \ os, const multiset<T>& s) {\n    os << '{';\n    for (auto itr = s.begin();\
+    \ itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os <<\
+    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
+    \ operator<<(ostream& os, const unordered_set<T>& s) {\n    os << '{';\n    for\
+    \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
+    \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
+    \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
+    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
+    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
+    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
+    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    }\n#ifdef LOCAL\n#define debug(...)                                          \
+    \                         \\\n    cerr << \" \";                             \
+    \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
+    \ << __LINE__ << \":\" << __FUNCTION__ << \"]\" << '\\n'; \\\n    cerr << \" \"\
+    ;                                                                     \\\n   \
+    \ debug_out(__VA_ARGS__)\n#else\n#define debug(...) 42\n#endif\n\ntemplate <typename\
+    \ T> T gcd(T x, T y) { return y != 0 ? gcd(y, x % y) : x; }\ntemplate <typename\
+    \ T> T lcm(T x, T y) { return x / gcd(x, y) * y; }\n\ntemplate <class T1, class\
+    \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
+    \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
+    \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
+    \ return true;\n    }\n    return false;\n}"
   dependsOn: []
   isVerificationFile: false
   path: base.hpp
@@ -942,7 +942,7 @@ data:
   - polynomial/lagrange_interpolation.hpp
   - polynomial/StirlingSecond.hpp
   - polynomial/Kitamasa.hpp
-  timestamp: '2021-01-19 00:11:31+09:00'
+  timestamp: '2021-01-19 13:16:33+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/queue_operate_all_composite.test.cpp

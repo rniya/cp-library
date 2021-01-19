@@ -54,7 +54,7 @@ data:
   requiredBy:
   - test/atcoder/abc137_e.cpp
   - test/atcoder/abc061_d.cpp
-  timestamp: '2021-01-19 00:11:31+09:00'
+  timestamp: '2021-01-19 13:16:33+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/GRL_1_B.test.cpp

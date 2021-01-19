@@ -43,7 +43,7 @@ data:
   path: polynomial/Kitamasa.hpp
   requiredBy:
   - test/atcoder/tdpc_fibonacci.cpp
-  timestamp: '2021-01-19 00:11:31+09:00'
+  timestamp: '2021-01-19 13:16:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: polynomial/Kitamasa.hpp

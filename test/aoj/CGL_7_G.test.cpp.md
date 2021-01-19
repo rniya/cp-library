@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: geometry
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: '0.000001'
@@ -38,8 +38,8 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_7_G.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 00:11:31+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-01-19 13:16:33+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_7_G.test.cpp
 layout: document

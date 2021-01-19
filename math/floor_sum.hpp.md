@@ -33,7 +33,7 @@ data:
   isVerificationFile: false
   path: math/floor_sum.hpp
   requiredBy: []
-  timestamp: '2021-01-19 00:11:31+09:00'
+  timestamp: '2021-01-19 13:16:33+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/sum_of_floor_of_linear.test.cpp

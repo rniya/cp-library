@@ -54,7 +54,7 @@ data:
   isVerificationFile: false
   path: datastructure/BinaryTrie.hpp
   requiredBy: []
-  timestamp: '2021-01-19 00:11:31+09:00'
+  timestamp: '2021-01-19 13:16:33+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/set_xor_min.test.cpp

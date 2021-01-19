@@ -125,7 +125,7 @@ data:
   path: polynomial/FormalPowerSeries.hpp
   requiredBy:
   - polynomial/StirlingSecond.hpp
-  timestamp: '2021-01-19 00:11:31+09:00'
+  timestamp: '2021-01-19 13:16:33+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/pow_of_formal_power_series.test.cpp
