@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -105,3 +105,6 @@ redirect_from:
 - /library/string/Z_Algorithm.hpp.html
 title: Z-Algorithm
 ---
+## 概要
+
+## 計算量

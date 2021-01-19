@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: combinatorics/BellNumber.hpp
     title: "\u30D9\u30EB\u6570"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: combinatorics/combination.hpp
     title: combination
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []

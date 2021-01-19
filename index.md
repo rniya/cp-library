@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -14,18 +14,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: combinatorics/PartitionTable.hpp
       title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: combinatorics/combination.hpp
       title: combination
   - name: convolution
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: convolution/ArbitaryModConvolution.hpp
       title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: convolution/FastFourierTransform.hpp
       title: Fast Fourier Transform
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: convolution/FastZetaMobiusTransform_Subset.hpp
       title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\u63DB\
         (\u4E0B\u4F4D\u96C6\u5408)"
@@ -33,7 +33,7 @@ data:
       path: convolution/FastZetaMobiusTransform_Superset.hpp
       title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\u63DB\
         (\u4E0A\u4F4D\u96C6\u5408)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: convolution/NumberTheoreticTransform.hpp
       title: Number Theoretic Transform
     - icon: ':heavy_check_mark:'
@@ -47,7 +47,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/BinaryTrie.hpp
       title: Binary Trie
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/ConvexHullTrick.hpp
       title: Convex Hull Trick
     - icon: ':heavy_check_mark:'
@@ -103,7 +103,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/MinCostFlow.hpp
       title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: flow/PrimalDual.hpp
       title: Primal Dual
     - icon: ':heavy_check_mark:'
@@ -128,7 +128,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/Dijkstra.hpp
       title: Dijkstra
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/EulerianTrail.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u30FB\u6E96\u30AA\u30A4\u30E9\u30FC\u8DEF\
         \u306E\u69CB\u7BC9"
@@ -164,7 +164,7 @@ data:
     - icon: ':warning:'
       path: linearalgebra/Kitamasa.hpp
       title: Kitamasa
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: linearalgebra/Matrix.hpp
       title: Matrix
     - icon: ':heavy_check_mark:'
@@ -198,10 +198,10 @@ data:
       title: "osa_k\u6CD5"
   - name: modulo
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: modulo/dynamic_modint.hpp
       title: "\u5B9F\u884C\u6642 modint"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: modulo/modint.hpp
       title: modint
   - name: other
@@ -211,22 +211,22 @@ data:
       title: Mo's Algorithm
   - name: polynomial
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: polynomial/FormalPowerSeries.hpp
       title: Formal Power Series
     - icon: ':heavy_check_mark:'
       path: polynomial/StirlingSecond.hpp
       title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: polynomial/lagrange_interpolation.hpp
       title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - name: string
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: string/AhoCorasick.hpp
       title: Aho Corasick
     - icon: ':warning:'
-      path: string/Kunth_Morris_Pratt.hpp
+      path: string/Knuth_Morris_Pratt.hpp
       title: "Knuth Moriss Pratt (KMP\u6CD5)"
     - icon: ':heavy_check_mark:'
       path: string/LongestCommonPrefixArray.hpp
@@ -234,13 +234,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/Manacher.hpp
       title: Manacher
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: string/RollingHash.hpp
       title: Rolling Hash
     - icon: ':heavy_check_mark:'
       path: string/SuffixArray.hpp
       title: Suffix Array
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: string/Trie.hpp
       title: Trie
     - icon: ':heavy_check_mark:'
@@ -732,46 +732,46 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1270.test.cpp
       title: test/yukicoder/1270.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1288.test.cpp
       title: test/yukicoder/1288.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1289.test.cpp
       title: test/yukicoder/1289.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1301.test.cpp
       title: test/yukicoder/1301.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1302.test.cpp
       title: test/yukicoder/1302.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1307.test.cpp
       title: test/yukicoder/1307.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/206.test.cpp
       title: test/yukicoder/206.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/3046.test.cpp
       title: test/yukicoder/3046.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/430.AhoCorasick.test.cpp
       title: test/yukicoder/430.AhoCorasick.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/430.test.cpp
       title: test/yukicoder/430.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/526.test.cpp
       title: test/yukicoder/526.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/583.test.cpp
       title: test/yukicoder/583.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/665.test.cpp
       title: test/yukicoder/665.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/931.test.cpp
       title: test/yukicoder/931.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/952.test.cpp
       title: test/yukicoder/952.test.cpp
 layout: toppage

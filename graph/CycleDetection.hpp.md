@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -117,3 +117,6 @@ redirect_from:
 - /library/graph/CycleDetection.hpp.html
 title: Cycle Detection
 ---
+## 概要
+
+## 計算量

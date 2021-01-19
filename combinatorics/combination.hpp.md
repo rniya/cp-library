@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -27,11 +27,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_I.test.cpp
     title: test/aoj/DPL_5_I.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1302.test.cpp
     title: test/yukicoder/1302.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/combinatorics/combination.md
     document_title: combination
@@ -119,7 +119,7 @@ data:
   path: combinatorics/combination.hpp
   requiredBy: []
   timestamp: '2021-01-19 16:17:32+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DPL_5_E.test.cpp
   - test/aoj/DPL_5_G.test.cpp
@@ -136,3 +136,6 @@ redirect_from:
 - /library/combinatorics/combination.hpp.html
 title: combination
 ---
+## 概要
+
+## 計算量

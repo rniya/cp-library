@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -63,7 +63,7 @@ data:
     \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#line 3 \"string/Kunth_Morris_Pratt.hpp\"\
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"string/Knuth_Morris_Pratt.hpp\"\
     \n\n/**\n * @brief Knuth Moriss Pratt (KMP\u6CD5)\n * @docs docs/string/Knuth_Morris_Pratt.md\n\
     \ */\nstruct Knuth_Morris_Pratt {\n    string s;\n    int n;\n    vector<int>\
     \ kmp;\n    Knuth_Morris_Pratt(const string& s) : s(s) { build(); }\n    void\
@@ -94,16 +94,16 @@ data:
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: string/Kunth_Morris_Pratt.hpp
+  path: string/Knuth_Morris_Pratt.hpp
   requiredBy: []
-  timestamp: '2021-01-19 15:22:36+09:00'
+  timestamp: '2021-01-19 16:35:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: string/Kunth_Morris_Pratt.hpp
+documentation_of: string/Knuth_Morris_Pratt.hpp
 layout: document
 redirect_from:
-- /library/string/Kunth_Morris_Pratt.hpp
-- /library/string/Kunth_Morris_Pratt.hpp.html
+- /library/string/Knuth_Morris_Pratt.hpp
+- /library/string/Knuth_Morris_Pratt.hpp.html
 title: "Knuth Moriss Pratt (KMP\u6CD5)"
 ---
 ## 概要

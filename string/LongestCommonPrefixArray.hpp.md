@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -154,3 +154,6 @@ redirect_from:
 - /library/string/LongestCommonPrefixArray.hpp.html
 title: Longest Common Prefix Array
 ---
+## 概要
+
+## 計算量
