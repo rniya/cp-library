@@ -1,22 +1,19 @@
+#pragma once
+#include "../base.hpp"
+
 /**
  * @brief スライド最小値
  * @docs docs/datastructure/Slide_Min.md
  */
-
-#pragma once
-
-#include "../base.hpp"
-
-template<typename T>
-vector<T> Slide_Min(const vector<T> &v,int k){
+template <typename T> vector<T> Slide_Min(const vector<T>& v, int k) {
     deque<int> deq;
     vector<T> res;
-    for (int i=0;i<v.size();++i){
-        while(!deq.empty()&&v[deq.back()]>=v[i]) deq.pop_back();
+    for (int i = 0; i < v.size(); i++) {
+        while (!deq.empty() && v[deq.back()] >= v[i]) deq.pop_back();
         deq.push_back(i);
-        if (i-k+1>=0){
+        if (i - k + 1 >= 0) {
             res.push_back(v[deq.front()]);
-            if (deq.front()==i-k+1) deq.pop_front();
+            if (deq.front() == i - k + 1) deq.pop_front();
         }
     }
     return res;
