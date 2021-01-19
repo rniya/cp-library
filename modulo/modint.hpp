@@ -5,7 +5,6 @@
  * @brief modint
  * @docs docs/modulo/modint.md
  */
-
 template <uint32_t mod> class modint {
     using i64 = int64_t;
     using u32 = uint32_t;

@@ -5,7 +5,6 @@
  * @brief 実行時 modint
  * @docs docs/modulo/modint.md
  */
-
 class dynamic_modint {
     using i64 = int64_t;
     using u32 = uint32_t;

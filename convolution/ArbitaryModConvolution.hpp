@@ -1,6 +1,6 @@
 #pragma once
 #include "../base.hpp"
-#include "../convolution/NumberTheoreticTransform.hpp"
+#include "NumberTheoreticTransform.hpp"
 #include "../modulo/modint.hpp"
 
 /**

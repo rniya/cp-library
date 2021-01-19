@@ -1,6 +1,6 @@
 #pragma once
 #include "../base.hpp"
-#include "../polynomial/FormalPowerSeries.hpp"
+#include "FormalPowerSeries.hpp"
 
 /**
  * @brief 第2種スターリング数

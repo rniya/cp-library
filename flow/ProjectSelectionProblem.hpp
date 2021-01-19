@@ -1,6 +1,6 @@
 #pragma once
 #include "../base.hpp"
-#include "../flow/Dinic.hpp"
+#include "Dinic.hpp"
 
 /**
  * @brief Project Selection Problem
