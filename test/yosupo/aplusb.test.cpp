@@ -2,10 +2,11 @@
 
 #include "../../base.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int A,B; cin >> A >> B;
+    int A, B;
+    cin >> A >> B;
 
-    cout << A+B << '\n';
+    cout << A + B << '\n';
 }

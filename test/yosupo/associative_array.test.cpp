@@ -2,17 +2,22 @@
 
 #include "../../base.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int Q; cin >> Q;
+    int Q;
+    cin >> Q;
 
-    map<long long,long long> a;
-    for (;Q--;){
-        int t; long long k; cin >> t >> k;
-        if (!t){
-            long long v; cin >> v;
-            a[k]=v;
-        } else cout << a[k] << '\n';
+    map<long long, long long> a;
+    for (; Q--;) {
+        int t;
+        long long k;
+        cin >> t >> k;
+        if (!t) {
+            long long v;
+            cin >> v;
+            a[k] = v;
+        } else
+            cout << a[k] << '\n';
     }
 }

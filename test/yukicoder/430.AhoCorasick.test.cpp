@@ -3,14 +3,17 @@
 #include "../../base.hpp"
 #include "../../string/AhoCorasick.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    string S; int M; cin >> S >> M;
+    string S;
+    int M;
+    cin >> S >> M;
 
-    AhoCorasick<26> AHO([](char c){return c-'A';});
-    for (;M--;){
-        string C; cin >> C;
+    AhoCorasick<26> AHO([](char c) { return c - 'A'; });
+    for (; M--;) {
+        string C;
+        cin >> C;
         AHO.add(C);
     }
     AHO.build();
