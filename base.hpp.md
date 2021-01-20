@@ -8,16 +8,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: combinatorics/PartitionTable.hpp
     title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: combinatorics/combination.hpp
     title: combination
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/FastFourierTransform.hpp
     title: Fast Fourier Transform
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: convolution/FastZetaMobiusTransform_Subset.hpp
     title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\u63DB\
       (\u4E0B\u4F4D\u96C6\u5408)"
@@ -28,13 +28,13 @@ data:
   - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/XORconvolution.hpp
     title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
   - icon: ':question:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexed Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/BinaryTrie.hpp
     title: Binary Trie
   - icon: ':x:'
@@ -52,7 +52,7 @@ data:
   - icon: ':warning:'
     path: datastructure/PartiallyPersistentUnionFind.hpp
     title: Partially Persistent UnionFind
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
   - icon: ':heavy_check_mark:'
@@ -64,10 +64,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/SparseTable.hpp
     title: Sparse table
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/UnionFind.hpp
     title: UnionFind
   - icon: ':heavy_check_mark:'
@@ -91,7 +91,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: flow/MinCostFlow.hpp
     title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: flow/PrimalDual.hpp
     title: Primal Dual
   - icon: ':heavy_check_mark:'
@@ -109,7 +109,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/CycleDetection.hpp
     title: Cycle Detection
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/Dijkstra.hpp
     title: Dijkstra
   - icon: ':x:'
@@ -128,16 +128,16 @@ data:
   - icon: ':warning:'
     path: graph/RangeEdgeGraph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/StronglyConnectedComponents.hpp
     title: Strongly Connected Components
   - icon: ':heavy_check_mark:'
     path: graph/TopologicalSort.hpp
     title: Topological Sort
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/TwoEdgeConnectedComponents.hpp
     title: Two Edge Connected Components
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/TwoSatisfiability.hpp
     title: 2-SAT
   - icon: ':heavy_check_mark:'
@@ -149,7 +149,7 @@ data:
   - icon: ':question:'
     path: linearalgebra/Matrix.hpp
     title: Matrix
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: linearalgebra/SquareMatrix.hpp
     title: Square Matrix
   - icon: ':warning:'
@@ -161,7 +161,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/extgcd.hpp
     title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/floor_sum.hpp
     title: Sum of Floor of Linear
   - icon: ':warning:'
@@ -182,19 +182,19 @@ data:
   - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':x:'
+  - icon: ':question:'
     path: other/Mo.hpp
     title: Mo's Algorithm
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/StirlingSecond.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
   - icon: ':x:'
     path: polynomial/lagrange_interpolation.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
-  - icon: ':x:'
+  - icon: ':question:'
     path: string/AhoCorasick.hpp
     title: Aho Corasick
   - icon: ':warning:'
@@ -209,13 +209,13 @@ data:
   - icon: ':question:'
     path: string/RollingHash.hpp
     title: Rolling Hash
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: string/SuffixArray.hpp
     title: Suffix Array
-  - icon: ':x:'
+  - icon: ':question:'
     path: string/Trie.hpp
     title: Trie
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: string/Z_Algorithm.hpp
     title: Z-Algorithm
   - icon: ':warning:'
@@ -272,13 +272,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: tree/EulerTourforVertex.hpp
     title: "Euler Tour (\u90E8\u5206\u6728\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/HeavyLightDecomposition.hpp
     title: Heavy Light Decomposition
   - icon: ':heavy_check_mark:'
     path: tree/LowestCommonAncestor.hpp
     title: Lowest Common Ancestor
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/TreeDiameter.hpp
     title: Tree Diameter
   - icon: ':heavy_check_mark:'
@@ -293,7 +293,7 @@ data:
   - icon: ':warning:'
     path: util/ZobristHash.hpp
     title: Zobrist Hash
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: util/compress.hpp
     title: compress
   _extendedVerifiedWith:
@@ -627,58 +627,58 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/set_xor_min.test.cpp
     title: test/yosupo/set_xor_min.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/static_range_inversions_query.test.cpp
     title: test/yosupo/static_range_inversions_query.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/static_range_sum.test.cpp
     title: test/yosupo/static_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/suffixarray.test.cpp
     title: test/yosupo/suffixarray.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sum_of_floor_of_linear.test.cpp
     title: test/yosupo/sum_of_floor_of_linear.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/two_edge_connected_components.test.cpp
     title: test/yosupo/two_edge_connected_components.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/two_sat.test.cpp
     title: test/yosupo/two_sat.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/vertex_add_path_sum.test.cpp
     title: test/yosupo/vertex_add_path_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/vertex_add_subtree_sum.test.cpp
     title: test/yosupo/vertex_add_subtree_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/zalgorithm.test.cpp
     title: test/yosupo/zalgorithm.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1068.test.cpp
     title: test/yukicoder/1068.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1240.test.cpp
     title: test/yukicoder/1240.test.cpp
   - icon: ':x:'
@@ -687,28 +687,28 @@ data:
   - icon: ':x:'
     path: test/yukicoder/1270.test.cpp
     title: test/yukicoder/1270.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1288.test.cpp
     title: test/yukicoder/1288.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1289.test.cpp
     title: test/yukicoder/1289.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1301.test.cpp
     title: test/yukicoder/1301.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1302.test.cpp
     title: test/yukicoder/1302.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1307.test.cpp
     title: test/yukicoder/1307.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/206.test.cpp
     title: test/yukicoder/206.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/430.AhoCorasick.test.cpp
     title: test/yukicoder/430.AhoCorasick.test.cpp
   - icon: ':x:'

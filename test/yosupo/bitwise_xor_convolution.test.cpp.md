@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/XORconvolution.hpp
     title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
   - icon: ':question:'

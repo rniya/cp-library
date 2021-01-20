@@ -9,14 +9,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/frequency_table_of_tree_distance.test.cpp
     title: test/yosupo/frequency_table_of_tree_distance.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1307.test.cpp
     title: test/yukicoder/1307.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/206.test.cpp
     title: test/yukicoder/206.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/convolution/FastFourierTransform.md
     document_title: Fast Fourier Transform
@@ -155,7 +155,7 @@ data:
   path: convolution/FastFourierTransform.hpp
   requiredBy: []
   timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/frequency_table_of_tree_distance.test.cpp
   - test/yukicoder/206.test.cpp

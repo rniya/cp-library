@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: flow/PrimalDual.hpp
     title: Primal Dual
   _extendedRequiredBy: []

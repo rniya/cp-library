@@ -10,7 +10,7 @@ data:
   - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   _extendedRequiredBy: []
