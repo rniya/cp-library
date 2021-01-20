@@ -86,28 +86,31 @@ data:
     \ int t, int& neg_loop) {\n        for (int i = 0; i < n; i++) {\n           \
     \ fill(check.begin(), check.end(), 0);\n            dfs(i);\n            reach[i]\
     \ = check[t];\n        }\n        return build(s, neg_loop)[t];\n    }\n};\n#line\
-    \ 5 \"test/aoj/GRL_1_B.test.cpp\"\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int V,E,r; cin >> V >> E >> r;\n\n    BellmanFord<int> BF(V);\n\n    for\
-    \ (int i=0;i<E;++i){\n        int s,t,d; cin >> s >> t >> d;\n        BF.add_edge(s,t,d);\n\
-    \    }\n\n    int neg;\n    vector<int> ans=BF.build(r,neg);\n    if (neg){cout\
-    \ << \"NEGATIVE CYCLE\" << '\\n'; return 0;}\n    for (int i=0;i<V;++i){\n   \
-    \     if (ans[i]>1e9) cout << \"INF\" << '\\n';\n        else cout << ans[i] <<\
-    \ '\\n';\n    }\n}\n"
+    \ 5 \"test/aoj/GRL_1_B.test.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int V, E, r;\n    cin >> V >> E >> r;\n\n    BellmanFord<int> BF(V);\n\n\
+    \    for (int i = 0; i < E; i++) {\n        int s, t, d;\n        cin >> s >>\
+    \ t >> d;\n        BF.add_edge(s, t, d);\n    }\n\n    int neg;\n    vector<int>\
+    \ ans = BF.build(r, neg);\n    if (neg) {\n        cout << \"NEGATIVE CYCLE\"\
+    \ << '\\n';\n        return 0;\n    }\n    for (int i = 0; i < V; i++) {\n   \
+    \     if (ans[i] > 1e9)\n            cout << \"INF\" << '\\n';\n        else\n\
+    \            cout << ans[i] << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/BellmanFord.hpp\"\n\n\
-    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E,r;\
-    \ cin >> V >> E >> r;\n\n    BellmanFord<int> BF(V);\n\n    for (int i=0;i<E;++i){\n\
-    \        int s,t,d; cin >> s >> t >> d;\n        BF.add_edge(s,t,d);\n    }\n\n\
-    \    int neg;\n    vector<int> ans=BF.build(r,neg);\n    if (neg){cout << \"NEGATIVE\
-    \ CYCLE\" << '\\n'; return 0;}\n    for (int i=0;i<V;++i){\n        if (ans[i]>1e9)\
-    \ cout << \"INF\" << '\\n';\n        else cout << ans[i] << '\\n';\n    }\n}"
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E,\
+    \ r;\n    cin >> V >> E >> r;\n\n    BellmanFord<int> BF(V);\n\n    for (int i\
+    \ = 0; i < E; i++) {\n        int s, t, d;\n        cin >> s >> t >> d;\n    \
+    \    BF.add_edge(s, t, d);\n    }\n\n    int neg;\n    vector<int> ans = BF.build(r,\
+    \ neg);\n    if (neg) {\n        cout << \"NEGATIVE CYCLE\" << '\\n';\n      \
+    \  return 0;\n    }\n    for (int i = 0; i < V; i++) {\n        if (ans[i] > 1e9)\n\
+    \            cout << \"INF\" << '\\n';\n        else\n            cout << ans[i]\
+    \ << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - graph/BellmanFord.hpp
   isVerificationFile: true
   path: test/aoj/GRL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_1_B.test.cpp

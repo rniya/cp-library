@@ -84,27 +84,29 @@ data:
     \ 0; --k) {\n            if (par[k][u] != par[k][v]) {\n                u = par[k][u];\n\
     \                v = par[k][v];\n            }\n        }\n        return par[0][u];\n\
     \    }\n    int distance(int u, int v) { return dep[u] + dep[v] - dep[lca(u, v)]\
-    \ * 2; }\n};\n#line 5 \"test/aoj/GRL_5_C.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int n; cin >> n;\n\n    LowestCommonAncestor\
-    \ LCA(n);\n    for (int i=0;i<n;++i){\n        int k; cin >> k;\n        for (;k--;){\n\
-    \            int c; cin >> c;\n            LCA.add_edge(i,c);\n        }\n   \
-    \ }\n    LCA.build();\n\n    int q; cin >> q;\n    for (;q--;){\n        int u,v;\
-    \ cin >> u >> v;\n        cout << LCA.lca(u,v) << '\\n';\n    }\n}\n"
+    \ * 2; }\n};\n#line 5 \"test/aoj/GRL_5_C.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int n;\n    cin >> n;\n\n    LowestCommonAncestor\
+    \ LCA(n);\n    for (int i = 0; i < n; i++) {\n        int k;\n        cin >> k;\n\
+    \        for (; k--;) {\n            int c;\n            cin >> c;\n         \
+    \   LCA.add_edge(i, c);\n        }\n    }\n    LCA.build();\n\n    int q;\n  \
+    \  cin >> q;\n    for (; q--;) {\n        int u, v;\n        cin >> u >> v;\n\
+    \        cout << LCA.lca(u, v) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C\"\n\n\
     #include \"../../base.hpp\"\n#include \"../../tree/LowestCommonAncestor.hpp\"\n\
-    \nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n; cin\
-    \ >> n;\n\n    LowestCommonAncestor LCA(n);\n    for (int i=0;i<n;++i){\n    \
-    \    int k; cin >> k;\n        for (;k--;){\n            int c; cin >> c;\n  \
-    \          LCA.add_edge(i,c);\n        }\n    }\n    LCA.build();\n\n    int q;\
-    \ cin >> q;\n    for (;q--;){\n        int u,v; cin >> u >> v;\n        cout <<\
-    \ LCA.lca(u,v) << '\\n';\n    }\n}"
+    \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\n\
+    \    cin >> n;\n\n    LowestCommonAncestor LCA(n);\n    for (int i = 0; i < n;\
+    \ i++) {\n        int k;\n        cin >> k;\n        for (; k--;) {\n        \
+    \    int c;\n            cin >> c;\n            LCA.add_edge(i, c);\n        }\n\
+    \    }\n    LCA.build();\n\n    int q;\n    cin >> q;\n    for (; q--;) {\n  \
+    \      int u, v;\n        cin >> u >> v;\n        cout << LCA.lca(u, v) << '\\\
+    n';\n    }\n}"
   dependsOn:
   - base.hpp
   - tree/LowestCommonAncestor.hpp
   isVerificationFile: true
   path: test/aoj/GRL_5_C.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_C.test.cpp

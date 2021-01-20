@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_2_A
@@ -101,24 +101,28 @@ data:
     \ R);\n                if (check(nxt)) return find_subtree(r, check, R, true);\n\
     \                R = nxt;\n            }\n        }\n        return -1;\n    }\n\
     \    Monoid operator[](int i) { return dat[i + n]; }\n};\n#line 5 \"test/aoj/DSL_2_A.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,q;\
-    \ cin >> n >> q;\n\n    SegmentTree<int> seg(n,[](int a,int b){return min(a,b);},INT_MAX);\n\
-    \n    for (;q--;){\n        int c,x,y; cin >> c >> x >> y;\n        if (!c) seg.update(x,y);\n\
-    \        else cout << seg.query(x,y+1) << '\\n';\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,\
+    \ q;\n    cin >> n >> q;\n\n    SegmentTree<int> seg(\n        n, [](int a, int\
+    \ b) { return min(a, b); }, INT_MAX);\n\n    for (; q--;) {\n        int c, x,\
+    \ y;\n        cin >> c >> x >> y;\n        if (!c)\n            seg.update(x,\
+    \ y);\n        else\n            cout << seg.query(x, y + 1) << '\\n';\n    }\n\
+    }\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_2_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/SegmentTree.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,q;\
-    \ cin >> n >> q;\n\n    SegmentTree<int> seg(n,[](int a,int b){return min(a,b);},INT_MAX);\n\
-    \n    for (;q--;){\n        int c,x,y; cin >> c >> x >> y;\n        if (!c) seg.update(x,y);\n\
-    \        else cout << seg.query(x,y+1) << '\\n';\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,\
+    \ q;\n    cin >> n >> q;\n\n    SegmentTree<int> seg(\n        n, [](int a, int\
+    \ b) { return min(a, b); }, INT_MAX);\n\n    for (; q--;) {\n        int c, x,\
+    \ y;\n        cin >> c >> x >> y;\n        if (!c)\n            seg.update(x,\
+    \ y);\n        else\n            cout << seg.query(x, y + 1) << '\\n';\n    }\n\
+    }"
   dependsOn:
   - base.hpp
   - datastructure/SegmentTree.hpp
   isVerificationFile: true
   path: test/aoj/DSL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 11:24:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL_2_A.test.cpp
 layout: document

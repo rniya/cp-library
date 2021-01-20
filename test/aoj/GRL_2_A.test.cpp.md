@@ -87,23 +87,24 @@ data:
     \ e.to);\n            }\n        }\n        return res;\n    }\n    vector<int>\
     \ restore(T& c) {\n        int m = es.size();\n        vector<int> res(m);\n \
     \       for (int i = 0; i < m; i++) res[es[i].id] = es[i].used;\n        return\
-    \ res;\n    }\n};\n#line 5 \"test/aoj/GRL_2_A.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int V,E; cin >> V >> E;\n\n    Kruskal<int>\
-    \ K(V);\n\n    for (int i=0;i<E;++i){\n        int s,t,w; cin >> s >> t >> w;\n\
-    \        K.add_edge(s,t,w);\n    }\n\n    cout << K.build() << '\\n';\n}\n"
+    \ res;\n    }\n};\n#line 5 \"test/aoj/GRL_2_A.test.cpp\"\n\nint main() {\n   \
+    \ cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin >> V >>\
+    \ E;\n\n    Kruskal<int> K(V);\n\n    for (int i = 0; i < E; i++) {\n        int\
+    \ s, t, w;\n        cin >> s >> t >> w;\n        K.add_edge(s, t, w);\n    }\n\
+    \n    cout << K.build() << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../graph/Kruskal.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E; cin >> V >> E;\n\
-    \n    Kruskal<int> K(V);\n\n    for (int i=0;i<E;++i){\n        int s,t,w; cin\
-    \ >> s >> t >> w;\n        K.add_edge(s,t,w);\n    }\n\n    cout << K.build()\
-    \ << '\\n';\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../graph/Kruskal.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
+    \ >> V >> E;\n\n    Kruskal<int> K(V);\n\n    for (int i = 0; i < E; i++) {\n\
+    \        int s, t, w;\n        cin >> s >> t >> w;\n        K.add_edge(s, t, w);\n\
+    \    }\n\n    cout << K.build() << '\\n';\n}"
   dependsOn:
   - base.hpp
   - graph/Kruskal.hpp
   isVerificationFile: true
   path: test/aoj/GRL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_2_A.test.cpp

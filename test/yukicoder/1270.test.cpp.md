@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexed Tree
   - icon: ':question:'

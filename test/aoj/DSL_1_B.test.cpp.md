@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: datastructure/WeightedUnionFind.hpp
     title: Weighted UnionFind
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_B
@@ -80,28 +80,29 @@ data:
     \        root(x);\n        return diff_weight[x];\n    }\n    Abel diff(int x,\
     \ int y) { return weight(y) - weight(x); }\n    bool same(int x, int y) { return\
     \ root(x) == root(y); }\n    int size(int x) { return rank[root(x)]; }\n    int\
-    \ count() { return num; }\n};\n#line 5 \"test/aoj/DSL_1_B.test.cpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,q; cin >> n >> q;\n\
-    \n    WeightedUnionFind<int> UF(n);\n\n    for (;q--;){\n        int c,x,y,z;\
-    \ cin >> c >> x >> y;\n        if (!c){\n            cin >> z;\n            UF.merge(x,y,z);\n\
-    \        } else {\n            if (UF.same(x,y)) cout << UF.diff(x,y) << '\\n';\n\
-    \            else cout << '?' << '\\n';\n        }\n    }\n}\n"
+    \ count() { return num; }\n};\n#line 5 \"test/aoj/DSL_1_B.test.cpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n, q;\n    cin\
+    \ >> n >> q;\n\n    WeightedUnionFind<int> UF(n);\n\n    for (; q--;) {\n    \
+    \    int c, x, y, z;\n        cin >> c >> x >> y;\n        if (!c) {\n       \
+    \     cin >> z;\n            UF.merge(x, y, z);\n        } else {\n          \
+    \  if (UF.same(x, y))\n                cout << UF.diff(x, y) << '\\n';\n     \
+    \       else\n                cout << '?' << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/WeightedUnionFind.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,q;\
-    \ cin >> n >> q;\n\n    WeightedUnionFind<int> UF(n);\n\n    for (;q--;){\n  \
-    \      int c,x,y,z; cin >> c >> x >> y;\n        if (!c){\n            cin >>\
-    \ z;\n            UF.merge(x,y,z);\n        } else {\n            if (UF.same(x,y))\
-    \ cout << UF.diff(x,y) << '\\n';\n            else cout << '?' << '\\n';\n   \
-    \     }\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,\
+    \ q;\n    cin >> n >> q;\n\n    WeightedUnionFind<int> UF(n);\n\n    for (; q--;)\
+    \ {\n        int c, x, y, z;\n        cin >> c >> x >> y;\n        if (!c) {\n\
+    \            cin >> z;\n            UF.merge(x, y, z);\n        } else {\n   \
+    \         if (UF.same(x, y))\n                cout << UF.diff(x, y) << '\\n';\n\
+    \            else\n                cout << '?' << '\\n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/WeightedUnionFind.hpp
   isVerificationFile: true
   path: test/aoj/DSL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 11:24:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL_1_B.test.cpp
 layout: document

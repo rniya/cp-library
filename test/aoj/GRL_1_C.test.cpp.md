@@ -72,34 +72,37 @@ data:
     \ < n; i++) {\n            for (int j = 0; j < n; j++) {\n                if (d[i][k]\
     \ == id || d[k][j] == id) continue;\n                d[i][j] = min(d[i][j], d[i][k]\
     \ + d[k][j]);\n            }\n        }\n    }\n}\n#line 5 \"test/aoj/GRL_1_C.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    const\
-    \ long long inf=1e18;\n    int V,E; cin >> V >> E;\n    vector<vector<long long>>\
-    \ ans(V,vector<long long>(V,inf));\n    for (int i=0;i<V;++i) ans[i][i]=0;\n \
-    \   for (int i=0;i<E;++i){\n        int s,t,d; cin >> s >> t >> d;\n        ans[s][t]=d;\n\
-    \    }\n\n    Warshall_Floyd(ans,inf);\n    for (int i=0;i<V;++i){\n        if\
-    \ (ans[i][i]<0){\n            cout << \"NEGATIVE CYCLE\" << '\\n';\n         \
-    \   return 0;\n        }\n    }\n    for (int i=0;i<V;++i){\n        for (int\
-    \ j=0;j<V;++j){\n            if (ans[i][j]==inf) cout << \"INF\";\n          \
-    \  else cout << ans[i][j];\n            cout << (j+1==V?'\\n':' ');\n        }\n\
-    \    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    const\
+    \ long long inf = 1e18;\n    int V, E;\n    cin >> V >> E;\n    vector<vector<long\
+    \ long>> ans(V, vector<long long>(V, inf));\n    for (int i = 0; i < V; i++) ans[i][i]\
+    \ = 0;\n    for (int i = 0; i < E; i++) {\n        int s, t, d;\n        cin >>\
+    \ s >> t >> d;\n        ans[s][t] = d;\n    }\n\n    Warshall_Floyd(ans, inf);\n\
+    \    for (int i = 0; i < V; i++) {\n        if (ans[i][i] < 0) {\n           \
+    \ cout << \"NEGATIVE CYCLE\" << '\\n';\n            return 0;\n        }\n   \
+    \ }\n    for (int i = 0; i < V; i++) {\n        for (int j = 0; j < V; j++) {\n\
+    \            if (ans[i][j] == inf)\n                cout << \"INF\";\n       \
+    \     else\n                cout << ans[i][j];\n            cout << (j + 1 ==\
+    \ V ? '\\n' : ' ');\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/WarshallFloyd.hpp\"\n\n\
-    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    const long\
-    \ long inf=1e18;\n    int V,E; cin >> V >> E;\n    vector<vector<long long>> ans(V,vector<long\
-    \ long>(V,inf));\n    for (int i=0;i<V;++i) ans[i][i]=0;\n    for (int i=0;i<E;++i){\n\
-    \        int s,t,d; cin >> s >> t >> d;\n        ans[s][t]=d;\n    }\n\n    Warshall_Floyd(ans,inf);\n\
-    \    for (int i=0;i<V;++i){\n        if (ans[i][i]<0){\n            cout << \"\
-    NEGATIVE CYCLE\" << '\\n';\n            return 0;\n        }\n    }\n    for (int\
-    \ i=0;i<V;++i){\n        for (int j=0;j<V;++j){\n            if (ans[i][j]==inf)\
-    \ cout << \"INF\";\n            else cout << ans[i][j];\n            cout << (j+1==V?'\\\
-    n':' ');\n        }\n    }\n}"
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    const long\
+    \ long inf = 1e18;\n    int V, E;\n    cin >> V >> E;\n    vector<vector<long\
+    \ long>> ans(V, vector<long long>(V, inf));\n    for (int i = 0; i < V; i++) ans[i][i]\
+    \ = 0;\n    for (int i = 0; i < E; i++) {\n        int s, t, d;\n        cin >>\
+    \ s >> t >> d;\n        ans[s][t] = d;\n    }\n\n    Warshall_Floyd(ans, inf);\n\
+    \    for (int i = 0; i < V; i++) {\n        if (ans[i][i] < 0) {\n           \
+    \ cout << \"NEGATIVE CYCLE\" << '\\n';\n            return 0;\n        }\n   \
+    \ }\n    for (int i = 0; i < V; i++) {\n        for (int j = 0; j < V; j++) {\n\
+    \            if (ans[i][j] == inf)\n                cout << \"INF\";\n       \
+    \     else\n                cout << ans[i][j];\n            cout << (j + 1 ==\
+    \ V ? '\\n' : ' ');\n        }\n    }\n}"
   dependsOn:
   - base.hpp
   - graph/WarshallFloyd.hpp
   isVerificationFile: true
   path: test/aoj/GRL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_1_C.test.cpp

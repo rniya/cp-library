@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: geometry/geometry.hpp
     title: geometry
   _extendedRequiredBy: []
@@ -248,29 +248,31 @@ data:
     \        if (ccw(l.a, l.b, cur) != CLOCKWISE) res.emplace_back(cur);\n       \
     \ if (ccw(l.a, l.b, cur) * ccw(l.a, l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur,\
     \ nxt), l));\n    }\n    return res;\n}\n#line 5 \"test/aoj/CGL_1_C.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Point\
-    \ p_0,p_1; cin >> p_0 >> p_1;\n    int q; cin >> q;\n    for (;q--;){\n      \
-    \  Point p_2; cin >> p_2;\n        int res=ccw(p_0,p_1,p_2);\n        if (res==1)\
-    \ cout << \"COUNTER_CLOCKWISE\" << '\\n';\n        else if (res==-1) cout << \"\
-    CLOCKWISE\" << '\\n';\n        else if (res==2) cout << \"ONLINE_BACK\" << '\\\
-    n';\n        else if (res==-2) cout << \"ONLINE_FRONT\" << '\\n';\n        else\
-    \ cout << \"ON_SEGMENT\" << '\\n';\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Point\
+    \ p_0, p_1;\n    cin >> p_0 >> p_1;\n    int q;\n    cin >> q;\n    for (; q--;)\
+    \ {\n        Point p_2;\n        cin >> p_2;\n        int res = ccw(p_0, p_1,\
+    \ p_2);\n        if (res == 1)\n            cout << \"COUNTER_CLOCKWISE\" << '\\\
+    n';\n        else if (res == -1)\n            cout << \"CLOCKWISE\" << '\\n';\n\
+    \        else if (res == 2)\n            cout << \"ONLINE_BACK\" << '\\n';\n \
+    \       else if (res == -2)\n            cout << \"ONLINE_FRONT\" << '\\n';\n\
+    \        else\n            cout << \"ON_SEGMENT\" << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\n\n\
-    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Point p_0,p_1;\
-    \ cin >> p_0 >> p_1;\n    int q; cin >> q;\n    for (;q--;){\n        Point p_2;\
-    \ cin >> p_2;\n        int res=ccw(p_0,p_1,p_2);\n        if (res==1) cout <<\
-    \ \"COUNTER_CLOCKWISE\" << '\\n';\n        else if (res==-1) cout << \"CLOCKWISE\"\
-    \ << '\\n';\n        else if (res==2) cout << \"ONLINE_BACK\" << '\\n';\n    \
-    \    else if (res==-2) cout << \"ONLINE_FRONT\" << '\\n';\n        else cout <<\
-    \ \"ON_SEGMENT\" << '\\n';\n    }\n}"
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Point p_0,\
+    \ p_1;\n    cin >> p_0 >> p_1;\n    int q;\n    cin >> q;\n    for (; q--;) {\n\
+    \        Point p_2;\n        cin >> p_2;\n        int res = ccw(p_0, p_1, p_2);\n\
+    \        if (res == 1)\n            cout << \"COUNTER_CLOCKWISE\" << '\\n';\n\
+    \        else if (res == -1)\n            cout << \"CLOCKWISE\" << '\\n';\n  \
+    \      else if (res == 2)\n            cout << \"ONLINE_BACK\" << '\\n';\n   \
+    \     else if (res == -2)\n            cout << \"ONLINE_FRONT\" << '\\n';\n  \
+    \      else\n            cout << \"ON_SEGMENT\" << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - geometry/geometry.hpp
   isVerificationFile: true
   path: test/aoj/CGL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_1_C.test.cpp

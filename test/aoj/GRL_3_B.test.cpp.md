@@ -82,28 +82,30 @@ data:
     \ u);\n        }\n        is_articulation |= (p < 0 && cnt > 1);\n        if (is_articulation)\
     \ articulation.emplace_back(v);\n    }\n    void build() {\n        for (int v\
     \ = 0; v < n; v++) {\n            if (ord[v] < 0) dfs(v, -1);\n        }\n   \
-    \ }\n};\n#line 5 \"test/aoj/GRL_3_B.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int V,E; cin >> V >> E;\n\n    LowLink\
-    \ L(V);\n    for (int i=0;i<E;++i){\n        int s,t; cin >> s >> t;\n       \
-    \ L.add_edge(s,t);\n    }\n\n    L.build();\n    vector<pair<int,int>> ans=L.bridge;\n\
-    \    for (auto &e:ans){\n        if (e.second<e.first){\n            swap(e.first,e.second);\n\
-    \        }\n    }\n\n    sort(ans.begin(),ans.end());\n    for (auto e:ans) cout\
-    \ << e.first << ' ' << e.second << '\\n';\n}\n"
+    \ }\n};\n#line 5 \"test/aoj/GRL_3_B.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int V, E;\n    cin >> V >> E;\n\n    LowLink\
+    \ L(V);\n    for (int i = 0; i < E; i++) {\n        int s, t;\n        cin >>\
+    \ s >> t;\n        L.add_edge(s, t);\n    }\n\n    L.build();\n    vector<pair<int,\
+    \ int>> ans = L.bridge;\n    for (auto& e : ans) {\n        if (e.second < e.first)\
+    \ {\n            swap(e.first, e.second);\n        }\n    }\n\n    sort(ans.begin(),\
+    \ ans.end());\n    for (auto e : ans) cout << e.first << ' ' << e.second << '\\\
+    n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../graph/LowLink.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E; cin >> V >> E;\n\
-    \n    LowLink L(V);\n    for (int i=0;i<E;++i){\n        int s,t; cin >> s >>\
-    \ t;\n        L.add_edge(s,t);\n    }\n\n    L.build();\n    vector<pair<int,int>>\
-    \ ans=L.bridge;\n    for (auto &e:ans){\n        if (e.second<e.first){\n    \
-    \        swap(e.first,e.second);\n        }\n    }\n\n    sort(ans.begin(),ans.end());\n\
-    \    for (auto e:ans) cout << e.first << ' ' << e.second << '\\n';\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../graph/LowLink.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
+    \ >> V >> E;\n\n    LowLink L(V);\n    for (int i = 0; i < E; i++) {\n       \
+    \ int s, t;\n        cin >> s >> t;\n        L.add_edge(s, t);\n    }\n\n    L.build();\n\
+    \    vector<pair<int, int>> ans = L.bridge;\n    for (auto& e : ans) {\n     \
+    \   if (e.second < e.first) {\n            swap(e.first, e.second);\n        }\n\
+    \    }\n\n    sort(ans.begin(), ans.end());\n    for (auto e : ans) cout << e.first\
+    \ << ' ' << e.second << '\\n';\n}"
   dependsOn:
   - base.hpp
   - graph/LowLink.hpp
   isVerificationFile: true
   path: test/aoj/GRL_3_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_3_B.test.cpp

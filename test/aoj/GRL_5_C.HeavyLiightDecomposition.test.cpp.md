@@ -100,27 +100,29 @@ data:
     \ f(l, q(vid[u] + edge, vid[v] + 1)));\n    }\n    template <typename T, typename\
     \ Q> T query_sub(int u, const Q& q, bool edge = false) {\n        return q(vid[u]\
     \ + edge, vid[u] + sub[u]);\n    }\n};\n#line 5 \"test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\
-    \ cin >> n;\n\n    HeavyLightDecomposition HLD(n);\n    for (int i=0;i<n;++i){\n\
-    \        int k; cin >> k;\n        for (;k--;){\n            int c; cin >> c;\n\
-    \            HLD.add_edge(i,c);\n        }\n    }\n    HLD.build();\n\n    int\
-    \ q; cin >> q;\n    for (;q--;){\n        int u,v; cin >> u >> v;\n        cout\
-    \ << HLD.lca(u,v) << '\\n';\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\n\
+    \    cin >> n;\n\n    HeavyLightDecomposition HLD(n);\n    for (int i = 0; i <\
+    \ n; i++) {\n        int k;\n        cin >> k;\n        for (; k--;) {\n     \
+    \       int c;\n            cin >> c;\n            HLD.add_edge(i, c);\n     \
+    \   }\n    }\n    HLD.build();\n\n    int q;\n    cin >> q;\n    for (; q--;)\
+    \ {\n        int u, v;\n        cin >> u >> v;\n        cout << HLD.lca(u, v)\
+    \ << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C\"\n\n\
     #include \"../../base.hpp\"\n#include \"../../tree/HeavyLightDecomposition.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\
-    \ cin >> n;\n\n    HeavyLightDecomposition HLD(n);\n    for (int i=0;i<n;++i){\n\
-    \        int k; cin >> k;\n        for (;k--;){\n            int c; cin >> c;\n\
-    \            HLD.add_edge(i,c);\n        }\n    }\n    HLD.build();\n\n    int\
-    \ q; cin >> q;\n    for (;q--;){\n        int u,v; cin >> u >> v;\n        cout\
-    \ << HLD.lca(u,v) << '\\n';\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\n\
+    \    cin >> n;\n\n    HeavyLightDecomposition HLD(n);\n    for (int i = 0; i <\
+    \ n; i++) {\n        int k;\n        cin >> k;\n        for (; k--;) {\n     \
+    \       int c;\n            cin >> c;\n            HLD.add_edge(i, c);\n     \
+    \   }\n    }\n    HLD.build();\n\n    int q;\n    cin >> q;\n    for (; q--;)\
+    \ {\n        int u, v;\n        cin >> u >> v;\n        cout << HLD.lca(u, v)\
+    \ << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - tree/HeavyLightDecomposition.hpp
   isVerificationFile: true
   path: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp

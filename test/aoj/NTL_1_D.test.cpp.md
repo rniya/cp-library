@@ -74,19 +74,19 @@ data:
     \ euler(n + 1);\n    iota(euler.begin(), euler.end(), 0);\n    for (int i = 2;\
     \ i <= n; i++)\n        if (euler[i] == i) {\n            for (int j = i; j <=\
     \ n; j += i) euler[j] -= euler[j] / i;\n        }\n    return euler;\n};\n#line\
-    \ 5 \"test/aoj/NTL_1_D.test.cpp\"\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int n; cin >> n;\n\n    cout << euler_phi(n) << '\\n';\n}\n"
+    \ 5 \"test/aoj/NTL_1_D.test.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int n;\n    cin >> n;\n\n    cout << euler_phi(n) << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_D\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../math/euler_phi.hpp\"\n\nint\
-    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n; cin >>\
-    \ n;\n\n    cout << euler_phi(n) << '\\n';\n}"
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\n  \
+    \  cin >> n;\n\n    cout << euler_phi(n) << '\\n';\n}"
   dependsOn:
   - base.hpp
   - math/euler_phi.hpp
   isVerificationFile: true
   path: test/aoj/NTL_1_D.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_D.test.cpp

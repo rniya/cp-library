@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: geometry/geometry.hpp
     title: geometry
   _extendedRequiredBy: []
@@ -248,23 +248,25 @@ data:
     \        if (ccw(l.a, l.b, cur) != CLOCKWISE) res.emplace_back(cur);\n       \
     \ if (ccw(l.a, l.b, cur) * ccw(l.a, l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur,\
     \ nxt), l));\n    }\n    return res;\n}\n#line 5 \"test/aoj/CGL_2_A.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int q;\
-    \ cin >> q;\n    for (;q--;){\n        Line s_1,s_2; cin >> s_1 >> s_2;\n    \
-    \    if (parallel(s_1,s_2)) cout << 2 << '\\n';\n        else if (orthogonal(s_1,s_2))\
-    \ cout << 1 << '\\n';\n        else cout << 0 << '\\n';\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int q;\n\
+    \    cin >> q;\n    for (; q--;) {\n        Line s_1, s_2;\n        cin >> s_1\
+    \ >> s_2;\n        if (parallel(s_1, s_2))\n            cout << 2 << '\\n';\n\
+    \        else if (orthogonal(s_1, s_2))\n            cout << 1 << '\\n';\n   \
+    \     else\n            cout << 0 << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\n\n\
-    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int q; cin\
-    \ >> q;\n    for (;q--;){\n        Line s_1,s_2; cin >> s_1 >> s_2;\n        if\
-    \ (parallel(s_1,s_2)) cout << 2 << '\\n';\n        else if (orthogonal(s_1,s_2))\
-    \ cout << 1 << '\\n';\n        else cout << 0 << '\\n';\n    }\n}"
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int q;\n\
+    \    cin >> q;\n    for (; q--;) {\n        Line s_1, s_2;\n        cin >> s_1\
+    \ >> s_2;\n        if (parallel(s_1, s_2))\n            cout << 2 << '\\n';\n\
+    \        else if (orthogonal(s_1, s_2))\n            cout << 1 << '\\n';\n   \
+    \     else\n            cout << 0 << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - geometry/geometry.hpp
   isVerificationFile: true
   path: test/aoj/CGL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_2_A.test.cpp

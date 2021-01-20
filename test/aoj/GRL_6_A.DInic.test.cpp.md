@@ -109,23 +109,23 @@ data:
     \              if (e.cap > 0 && !res[e.to]) {\n                    res[e.to] =\
     \ true;\n                    que.emplace(e.to);\n                }\n         \
     \   }\n        }\n        return res;\n    }\n};\n#line 5 \"test/aoj/GRL_6_A.DInic.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E;\
-    \ cin >> V >> E;\n\n    Dinic<int,true> D(V);\n\n    for (int i=0;i<E;++i){\n\
-    \        int u,v,c; cin >> u >> v >> c;\n        D.add_edge(u,v,c);\n    }\n\n\
-    \    cout << D.max_flow(0,V-1) << '\\n';\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
+    \ E;\n    cin >> V >> E;\n\n    Dinic<int, true> D(V);\n\n    for (int i = 0;\
+    \ i < E; i++) {\n        int u, v, c;\n        cin >> u >> v >> c;\n        D.add_edge(u,\
+    \ v, c);\n    }\n\n    cout << D.max_flow(0, V - 1) << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../flow/Dinic.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E; cin >> V >> E;\n\
-    \n    Dinic<int,true> D(V);\n\n    for (int i=0;i<E;++i){\n        int u,v,c;\
-    \ cin >> u >> v >> c;\n        D.add_edge(u,v,c);\n    }\n\n    cout << D.max_flow(0,V-1)\
-    \ << '\\n';\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../flow/Dinic.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
+    \ >> V >> E;\n\n    Dinic<int, true> D(V);\n\n    for (int i = 0; i < E; i++)\
+    \ {\n        int u, v, c;\n        cin >> u >> v >> c;\n        D.add_edge(u,\
+    \ v, c);\n    }\n\n    cout << D.max_flow(0, V - 1) << '\\n';\n}"
   dependsOn:
   - base.hpp
   - flow/Dinic.hpp
   isVerificationFile: true
   path: test/aoj/GRL_6_A.DInic.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_A.DInic.test.cpp

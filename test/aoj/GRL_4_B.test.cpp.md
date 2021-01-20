@@ -75,23 +75,25 @@ data:
     \     for (int i = 0; i < G.size(); i++) {\n            if (!seen[i]) dfs(i);\n\
     \        }\n        reverse(order.begin(), order.end());\n        return order;\n\
     \    }\n    int operator[](int i) { return order[i]; }\n};\n#line 5 \"test/aoj/GRL_4_B.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E;\
-    \ cin >> V >> E;\n\n    TopologicalSort TS(V);\n    for (int i=0;i<E;++i){\n \
-    \       int s,t; cin >> s >> t;\n        TS.add_edge(s,t);\n    }\n\n    vector<int>\
-    \ ans=TS.build();\n    for (int v:ans) cout << v << '\\n';\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
+    \ E;\n    cin >> V >> E;\n\n    TopologicalSort TS(V);\n    for (int i = 0; i\
+    \ < E; i++) {\n        int s, t;\n        cin >> s >> t;\n        TS.add_edge(s,\
+    \ t);\n    }\n\n    vector<int> ans = TS.build();\n    for (int v : ans) cout\
+    \ << v << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/TopologicalSort.hpp\"\n\
-    \nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E;\
-    \ cin >> V >> E;\n\n    TopologicalSort TS(V);\n    for (int i=0;i<E;++i){\n \
-    \       int s,t; cin >> s >> t;\n        TS.add_edge(s,t);\n    }\n\n    vector<int>\
-    \ ans=TS.build();\n    for (int v:ans) cout << v << '\\n';\n}"
+    \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
+    \ E;\n    cin >> V >> E;\n\n    TopologicalSort TS(V);\n    for (int i = 0; i\
+    \ < E; i++) {\n        int s, t;\n        cin >> s >> t;\n        TS.add_edge(s,\
+    \ t);\n    }\n\n    vector<int> ans = TS.build();\n    for (int v : ans) cout\
+    \ << v << '\\n';\n}"
   dependsOn:
   - base.hpp
   - graph/TopologicalSort.hpp
   isVerificationFile: true
   path: test/aoj/GRL_4_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_4_B.test.cpp

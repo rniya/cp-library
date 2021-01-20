@@ -4,10 +4,10 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
-  - icon: ':question:'
+  - icon: ':x:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []

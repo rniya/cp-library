@@ -72,24 +72,24 @@ data:
     \ {\n        while (!deq.empty() && v[deq.back()] >= v[i]) deq.pop_back();\n \
     \       deq.push_back(i);\n        if (i - k + 1 >= 0) {\n            res.push_back(v[deq.front()]);\n\
     \            if (deq.front() == i - k + 1) deq.pop_front();\n        }\n    }\n\
-    \    return res;\n}\n#line 5 \"test/aoj/DSL_3_D.test.cpp\"\n\nint main(){\n  \
-    \  cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,L; cin >> N >> L;\n\
-    \    vector<int> a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\n    vector<int>\
-    \ ans=Slide_Min(a,L);\n    for (int i=0;i<N-L+1;++i) cout << ans[i] << (i==N-L?'\\\
-    n':' ');\n}\n"
+    \    return res;\n}\n#line 5 \"test/aoj/DSL_3_D.test.cpp\"\n\nint main() {\n \
+    \   cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, L;\n    cin >> N\
+    \ >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\
+    \n    vector<int> ans = Slide_Min(a, L);\n    for (int i = 0; i < N - L + 1; i++)\
+    \ cout << ans[i] << (i == N - L ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/Slide_Min.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,L;\
-    \ cin >> N >> L;\n    vector<int> a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\
-    \n    vector<int> ans=Slide_Min(a,L);\n    for (int i=0;i<N-L+1;++i) cout << ans[i]\
-    \ << (i==N-L?'\\n':' ');\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ L;\n    cin >> N >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
+    \ cin >> a[i];\n\n    vector<int> ans = Slide_Min(a, L);\n    for (int i = 0;\
+    \ i < N - L + 1; i++) cout << ans[i] << (i == N - L ? '\\n' : ' ');\n}"
   dependsOn:
   - base.hpp
   - datastructure/Slide_Min.hpp
   isVerificationFile: true
   path: test/aoj/DSL_3_D.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL_3_D.test.cpp

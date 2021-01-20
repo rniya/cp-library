@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D
@@ -80,28 +80,29 @@ data:
     \ calc);\n                back_stack.pop();\n            }\n        }\n      \
     \  front_stack.pop();\n    }\n    Monoid fold() { return f(front_stack.top().second,\
     \ back_stack.top().second); }\n};\n#line 5 \"test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,L;\
-    \ cin >> N >> L;\n    vector<int> a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\
-    \n    SlidingWindowAggregation<int> SWAG([](int a,int b){return min(a,b);},INT_MAX);\n\
-    \n    for (int i=0;i<L-1;++i) SWAG.push(a[i]);\n    for (int i=L-1;i<N;++i){\n\
-    \        SWAG.push(a[i]);\n        cout << SWAG.fold() << (i+1==N?'\\n':' ');\n\
-    \        SWAG.pop();\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ L;\n    cin >> N >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
+    \ cin >> a[i];\n\n    SlidingWindowAggregation<int> SWAG([](int a, int b) { return\
+    \ min(a, b); }, INT_MAX);\n\n    for (int i = 0; i < L - 1; i++) SWAG.push(a[i]);\n\
+    \    for (int i = L - 1; i < N; i++) {\n        SWAG.push(a[i]);\n        cout\
+    \ << SWAG.fold() << (i + 1 == N ? '\\n' : ' ');\n        SWAG.pop();\n    }\n\
+    }\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/SlidingWindowAggregation.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,L;\
-    \ cin >> N >> L;\n    vector<int> a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\
-    \n    SlidingWindowAggregation<int> SWAG([](int a,int b){return min(a,b);},INT_MAX);\n\
-    \n    for (int i=0;i<L-1;++i) SWAG.push(a[i]);\n    for (int i=L-1;i<N;++i){\n\
-    \        SWAG.push(a[i]);\n        cout << SWAG.fold() << (i+1==N?'\\n':' ');\n\
-    \        SWAG.pop();\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ L;\n    cin >> N >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
+    \ cin >> a[i];\n\n    SlidingWindowAggregation<int> SWAG([](int a, int b) { return\
+    \ min(a, b); }, INT_MAX);\n\n    for (int i = 0; i < L - 1; i++) SWAG.push(a[i]);\n\
+    \    for (int i = L - 1; i < N; i++) {\n        SWAG.push(a[i]);\n        cout\
+    \ << SWAG.fold() << (i + 1 == N ? '\\n' : ' ');\n        SWAG.pop();\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/SlidingWindowAggregation.hpp
   isVerificationFile: true
   path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 11:24:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
 layout: document

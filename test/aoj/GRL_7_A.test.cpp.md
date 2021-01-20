@@ -83,23 +83,24 @@ data:
     \    return dfs(v);\n    }\n    int disable(int v) {\n        alive[v] = 0;\n\
     \        if (match[v] < 0) return 0;\n        match[v] = -1;\n        match[match[v]]\
     \ = -1;\n        time++;\n        int res = dfs(match[v]);\n        return res\
-    \ - 1;\n    }\n};\n#line 5 \"test/aoj/GRL_7_A.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int X,Y,E; cin >> X >> Y >> E;\n\n    BipartiteMatching\
-    \ BM(X+Y);\n    for (int i=0;i<E;++i){\n        int x,y; cin >> x >> y;\n    \
-    \    BM.add_edge(x,y+X);\n    }\n\n    cout << BM.build() << '\\n';\n}\n"
+    \ - 1;\n    }\n};\n#line 5 \"test/aoj/GRL_7_A.test.cpp\"\n\nint main() {\n   \
+    \ cin.tie(0);\n    ios::sync_with_stdio(false);\n    int X, Y, E;\n    cin >>\
+    \ X >> Y >> E;\n\n    BipartiteMatching BM(X + Y);\n    for (int i = 0; i < E;\
+    \ i++) {\n        int x, y;\n        cin >> x >> y;\n        BM.add_edge(x, y\
+    \ + X);\n    }\n\n    cout << BM.build() << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/7/GRL_7_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../flow/BipartiteMatching.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int X,Y,E;\
-    \ cin >> X >> Y >> E;\n\n    BipartiteMatching BM(X+Y);\n    for (int i=0;i<E;++i){\n\
-    \        int x,y; cin >> x >> y;\n        BM.add_edge(x,y+X);\n    }\n\n    cout\
-    \ << BM.build() << '\\n';\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int X,\
+    \ Y, E;\n    cin >> X >> Y >> E;\n\n    BipartiteMatching BM(X + Y);\n    for\
+    \ (int i = 0; i < E; i++) {\n        int x, y;\n        cin >> x >> y;\n     \
+    \   BM.add_edge(x, y + X);\n    }\n\n    cout << BM.build() << '\\n';\n}"
   dependsOn:
   - base.hpp
   - flow/BipartiteMatching.hpp
   isVerificationFile: true
   path: test/aoj/GRL_7_A.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_7_A.test.cpp

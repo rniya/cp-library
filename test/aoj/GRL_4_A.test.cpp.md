@@ -81,23 +81,24 @@ data:
     \        vector<int> res;\n        while (!hist.empty()) {\n            int t\
     \ = hist.top();\n            hist.pop();\n            res.emplace_back(t);\n \
     \           if (t == pos) break;\n        }\n        return res;\n    }\n};\n\
-    #line 5 \"test/aoj/GRL_4_A.test.cpp\"\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int V,E; cin >> V >> E;\n\n    CycleDetection<true> CD(V);\n    for (int\
-    \ i=0;i<E;++i){\n        int s,t; cin >> s >> t;\n        CD.add_edge(s,t);\n\
-    \    }\n\n    cout << (CD.build().empty()?0:1) << '\\n';\n}\n"
+    #line 5 \"test/aoj/GRL_4_A.test.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int V, E;\n    cin >> V >> E;\n\n    CycleDetection<true> CD(V);\n    for\
+    \ (int i = 0; i < E; i++) {\n        int s, t;\n        cin >> s >> t;\n     \
+    \   CD.add_edge(s, t);\n    }\n\n    cout << (CD.build().empty() ? 0 : 1) << '\\\
+    n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/CycleDetection.hpp\"\n\
-    \nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E;\
-    \ cin >> V >> E;\n\n    CycleDetection<true> CD(V);\n    for (int i=0;i<E;++i){\n\
-    \        int s,t; cin >> s >> t;\n        CD.add_edge(s,t);\n    }\n\n    cout\
-    \ << (CD.build().empty()?0:1) << '\\n';\n}"
+    \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
+    \ E;\n    cin >> V >> E;\n\n    CycleDetection<true> CD(V);\n    for (int i =\
+    \ 0; i < E; i++) {\n        int s, t;\n        cin >> s >> t;\n        CD.add_edge(s,\
+    \ t);\n    }\n\n    cout << (CD.build().empty() ? 0 : 1) << '\\n';\n}"
   dependsOn:
   - base.hpp
   - graph/CycleDetection.hpp
   isVerificationFile: true
   path: test/aoj/GRL_4_A.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_4_A.test.cpp

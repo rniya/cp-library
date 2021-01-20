@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: datastructure/SegmentTreeBeats.hpp
     title: Segment Tree Beats
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_A
@@ -167,26 +167,28 @@ data:
     \ query_max(int a, int b) { return query_max(a, b, 0, 0, n); }\n    T query_sum(int\
     \ a, int b) { return query_sum(a, b, 0, 0, n); }\n    T operator[](int i) { return\
     \ query_sum(i, i + 1); }\n};\n#line 5 \"test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,q;\
-    \ cin >> n >> q;\n\n    SegmentTreeBeats<int> seg(n);\n    vector<int> v(n,INT_MAX);\n\
-    \    seg.build(v);\n\n    for (;q--;){\n        int c,x,y; cin >> c >> x >> y;\n\
-    \        if (!c) seg.update_val(x,x+1,y);\n        else cout << seg.query_min(x,y+1)\
-    \ << '\\n';\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,\
+    \ q;\n    cin >> n >> q;\n\n    SegmentTreeBeats<int> seg(n);\n    vector<int>\
+    \ v(n, INT_MAX);\n    seg.build(v);\n\n    for (; q--;) {\n        int c, x, y;\n\
+    \        cin >> c >> x >> y;\n        if (!c)\n            seg.update_val(x, x\
+    \ + 1, y);\n        else\n            cout << seg.query_min(x, y + 1) << '\\n';\n\
+    \    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/SegmentTreeBeats.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,q;\
-    \ cin >> n >> q;\n\n    SegmentTreeBeats<int> seg(n);\n    vector<int> v(n,INT_MAX);\n\
-    \    seg.build(v);\n\n    for (;q--;){\n        int c,x,y; cin >> c >> x >> y;\n\
-    \        if (!c) seg.update_val(x,x+1,y);\n        else cout << seg.query_min(x,y+1)\
-    \ << '\\n';\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,\
+    \ q;\n    cin >> n >> q;\n\n    SegmentTreeBeats<int> seg(n);\n    vector<int>\
+    \ v(n, INT_MAX);\n    seg.build(v);\n\n    for (; q--;) {\n        int c, x, y;\n\
+    \        cin >> c >> x >> y;\n        if (!c)\n            seg.update_val(x, x\
+    \ + 1, y);\n        else\n            cout << seg.query_min(x, y + 1) << '\\n';\n\
+    \    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/SegmentTreeBeats.hpp
   isVerificationFile: true
   path: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 11:24:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
 layout: document

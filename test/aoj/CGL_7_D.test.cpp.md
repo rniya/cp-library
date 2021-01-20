@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: geometry/geometry.hpp
     title: geometry
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: '0.000001'
@@ -249,24 +249,24 @@ data:
     \        if (ccw(l.a, l.b, cur) != CLOCKWISE) res.emplace_back(cur);\n       \
     \ if (ccw(l.a, l.b, cur) * ccw(l.a, l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur,\
     \ nxt), l));\n    }\n    return res;\n}\n#line 6 \"test/aoj/CGL_7_D.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Circle\
-    \ c; cin >> c;\n    int q; cin >> q;\n    for (;q--;){\n        Line l; cin >>\
-    \ l;\n        auto res=crosspoint(c,l);\n        cout << res.first << ' ' << res.second\
-    \ << '\\n';\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Circle\
+    \ c;\n    cin >> c;\n    int q;\n    cin >> q;\n    for (; q--;) {\n        Line\
+    \ l;\n        cin >> l;\n        auto res = crosspoint(c, l);\n        cout <<\
+    \ res.first << ' ' << res.second << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_D\"\
     \n#define ERROR 0.000001\n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Circle\
-    \ c; cin >> c;\n    int q; cin >> q;\n    for (;q--;){\n        Line l; cin >>\
-    \ l;\n        auto res=crosspoint(c,l);\n        cout << res.first << ' ' << res.second\
-    \ << '\\n';\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Circle\
+    \ c;\n    cin >> c;\n    int q;\n    cin >> q;\n    for (; q--;) {\n        Line\
+    \ l;\n        cin >> l;\n        auto res = crosspoint(c, l);\n        cout <<\
+    \ res.first << ' ' << res.second << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - geometry/geometry.hpp
   isVerificationFile: true
   path: test/aoj/CGL_7_D.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 11:24:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/CGL_7_D.test.cpp
 layout: document

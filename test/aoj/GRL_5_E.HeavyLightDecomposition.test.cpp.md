@@ -156,36 +156,42 @@ data:
     \ f(l, q(vid[u] + edge, vid[v] + 1)));\n    }\n    template <typename T, typename\
     \ Q> T query_sub(int u, const Q& q, bool edge = false) {\n        return q(vid[u]\
     \ + edge, vid[u] + sub[u]);\n    }\n};\n#line 6 \"test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\
-    \ cin >> n;\n\n    HeavyLightDecomposition HLD(n);\n    for (int i=0;i<n;++i){\n\
-    \        int k; cin >> k;\n        for (;k--;){\n            int c; cin >> c;\n\
-    \            HLD.add_edge(i,c);\n        }\n    }\n    HLD.build();\n\n    struct\
-    \ node{\n        long long a; int b;\n        node(long long a,int b):a(a),b(b){}\n\
-    \    };\n    auto f=[](node a,node b){return node(a.a+b.a,a.b+b.b);};\n    auto\
-    \ g=[](node a,long long x){return node(a.a+x*a.b,a.b);};\n    auto h=[](long long\
-    \ a,long long b){return a+b;};\n    LazySegmentTree<node,long long> seg(n,f,g,h,node(0,0),0);\n\
-    \    vector<node> v(n,node(0,1));\n    seg.build(v);\n\n    int q; cin >> q;\n\
-    \    for (;q--;){\n        int t; cin >> t;\n        if (!t){\n            int\
-    \ v; long long w; cin >> v >> w;\n            HLD.update_path(0,v,[&](int l,int\
-    \ r){seg.update(l,r,w);},true);\n        } else {\n            int u; cin >> u;\n\
-    \            cout << HLD.query_path(0,u,0LL,[&](int l,int r){return seg.query(l,r).a;},h)\
-    \ << '\\n';\n        }\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\n\
+    \    cin >> n;\n\n    HeavyLightDecomposition HLD(n);\n    for (int i = 0; i <\
+    \ n; i++) {\n        int k;\n        cin >> k;\n        for (; k--;) {\n     \
+    \       int c;\n            cin >> c;\n            HLD.add_edge(i, c);\n     \
+    \   }\n    }\n    HLD.build();\n\n    struct node {\n        long long a;\n  \
+    \      int b;\n        node(long long a, int b) : a(a), b(b) {}\n    };\n    auto\
+    \ f = [](node a, node b) { return node(a.a + b.a, a.b + b.b); };\n    auto g =\
+    \ [](node a, long long x) { return node(a.a + x * a.b, a.b); };\n    auto h =\
+    \ [](long long a, long long b) { return a + b; };\n    LazySegmentTree<node, long\
+    \ long> seg(n, f, g, h, node(0, 0), 0);\n    vector<node> v(n, node(0, 1));\n\
+    \    seg.build(v);\n\n    int q;\n    cin >> q;\n    for (; q--;) {\n        int\
+    \ t;\n        cin >> t;\n        if (!t) {\n            int v;\n            long\
+    \ long w;\n            cin >> v >> w;\n            HLD.update_path(\n        \
+    \        0, v, [&](int l, int r) { seg.update(l, r, w); }, true);\n        } else\
+    \ {\n            int u;\n            cin >> u;\n            cout << HLD.query_path(\n\
+    \                        0, u, 0LL, [&](int l, int r) { return seg.query(l, r).a;\
+    \ }, h)\n                 << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_E\"\n\n\
     #include \"../../base.hpp\"\n#include \"../../datastructure/LazySegmentTree.hpp\"\
-    \n#include \"../../tree/HeavyLightDecomposition.hpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int n; cin >> n;\n\n    HeavyLightDecomposition\
-    \ HLD(n);\n    for (int i=0;i<n;++i){\n        int k; cin >> k;\n        for (;k--;){\n\
-    \            int c; cin >> c;\n            HLD.add_edge(i,c);\n        }\n   \
-    \ }\n    HLD.build();\n\n    struct node{\n        long long a; int b;\n     \
-    \   node(long long a,int b):a(a),b(b){}\n    };\n    auto f=[](node a,node b){return\
-    \ node(a.a+b.a,a.b+b.b);};\n    auto g=[](node a,long long x){return node(a.a+x*a.b,a.b);};\n\
-    \    auto h=[](long long a,long long b){return a+b;};\n    LazySegmentTree<node,long\
-    \ long> seg(n,f,g,h,node(0,0),0);\n    vector<node> v(n,node(0,1));\n    seg.build(v);\n\
-    \n    int q; cin >> q;\n    for (;q--;){\n        int t; cin >> t;\n        if\
-    \ (!t){\n            int v; long long w; cin >> v >> w;\n            HLD.update_path(0,v,[&](int\
-    \ l,int r){seg.update(l,r,w);},true);\n        } else {\n            int u; cin\
-    \ >> u;\n            cout << HLD.query_path(0,u,0LL,[&](int l,int r){return seg.query(l,r).a;},h)\
-    \ << '\\n';\n        }\n    }\n}"
+    \n#include \"../../tree/HeavyLightDecomposition.hpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int n;\n    cin >> n;\n\n    HeavyLightDecomposition\
+    \ HLD(n);\n    for (int i = 0; i < n; i++) {\n        int k;\n        cin >> k;\n\
+    \        for (; k--;) {\n            int c;\n            cin >> c;\n         \
+    \   HLD.add_edge(i, c);\n        }\n    }\n    HLD.build();\n\n    struct node\
+    \ {\n        long long a;\n        int b;\n        node(long long a, int b) :\
+    \ a(a), b(b) {}\n    };\n    auto f = [](node a, node b) { return node(a.a + b.a,\
+    \ a.b + b.b); };\n    auto g = [](node a, long long x) { return node(a.a + x *\
+    \ a.b, a.b); };\n    auto h = [](long long a, long long b) { return a + b; };\n\
+    \    LazySegmentTree<node, long long> seg(n, f, g, h, node(0, 0), 0);\n    vector<node>\
+    \ v(n, node(0, 1));\n    seg.build(v);\n\n    int q;\n    cin >> q;\n    for (;\
+    \ q--;) {\n        int t;\n        cin >> t;\n        if (!t) {\n            int\
+    \ v;\n            long long w;\n            cin >> v >> w;\n            HLD.update_path(\n\
+    \                0, v, [&](int l, int r) { seg.update(l, r, w); }, true);\n  \
+    \      } else {\n            int u;\n            cin >> u;\n            cout <<\
+    \ HLD.query_path(\n                        0, u, 0LL, [&](int l, int r) { return\
+    \ seg.query(l, r).a; }, h)\n                 << '\\n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/LazySegmentTree.hpp
@@ -193,7 +199,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp

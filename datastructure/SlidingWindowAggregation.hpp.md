@@ -6,14 +6,14 @@ data:
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
     title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   - icon: ':x:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/datastructure/SlidingWindowAggregation.md
     document_title: Sliding Window Aggregation (SWAG)
@@ -99,7 +99,7 @@ data:
   path: datastructure/SlidingWindowAggregation.hpp
   requiredBy: []
   timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/queue_operate_all_composite.test.cpp
   - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp

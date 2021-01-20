@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: datastructure/SegmentTreeBeats.hpp
     title: Segment Tree Beats
   _extendedRequiredBy: []

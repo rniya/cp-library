@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: geometry/geometry.hpp
     title: geometry
   _extendedRequiredBy: []
@@ -248,20 +248,21 @@ data:
     \        if (ccw(l.a, l.b, cur) != CLOCKWISE) res.emplace_back(cur);\n       \
     \ if (ccw(l.a, l.b, cur) * ccw(l.a, l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur,\
     \ nxt), l));\n    }\n    return res;\n}\n#line 5 \"test/aoj/CGL_7_A.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Circle\
-    \ c_1,c_2; cin >> c_1 >> c_2;\n    cout << count_tangent(c_1,c_2) << '\\n';\n\
-    }\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Circle\
+    \ c_1, c_2;\n    cin >> c_1 >> c_2;\n    cout << count_tangent(c_1, c_2) << '\\\
+    n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\n\n\
-    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Circle c_1,c_2;\
-    \ cin >> c_1 >> c_2;\n    cout << count_tangent(c_1,c_2) << '\\n';\n}"
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Circle c_1,\
+    \ c_2;\n    cin >> c_1 >> c_2;\n    cout << count_tangent(c_1, c_2) << '\\n';\n\
+    }"
   dependsOn:
   - base.hpp
   - geometry/geometry.hpp
   isVerificationFile: true
   path: test/aoj/CGL_7_A.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_7_A.test.cpp

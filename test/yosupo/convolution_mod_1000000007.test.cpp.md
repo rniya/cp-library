@@ -10,7 +10,7 @@ data:
   - icon: ':x:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':question:'
+  - icon: ':x:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []

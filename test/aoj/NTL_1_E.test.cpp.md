@@ -70,20 +70,21 @@ data:
     \n */\ntemplate <typename T> T extgcd(T a, T b, T& x, T& y) {\n    T d = a;\n\
     \    if (b != 0) {\n        d = extgcd(b, a % b, y, x);\n        y -= (a / b)\
     \ * x;\n    } else\n        x = 1, y = 0;\n    return d;\n}\n#line 5 \"test/aoj/NTL_1_E.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int a,b,x,y;\
-    \ cin >> a >> b;\n\n    extgcd(a,b,x,y);\n    cout << x << ' ' << y << '\\n';\n\
-    }\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int a,\
+    \ b, x, y;\n    cin >> a >> b;\n\n    extgcd(a, b, x, y);\n    cout << x << '\
+    \ ' << y << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_E\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../math/extgcd.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int a,b,x,y; cin >> a\
-    \ >> b;\n\n    extgcd(a,b,x,y);\n    cout << x << ' ' << y << '\\n';\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../math/extgcd.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int a, b, x, y;\n\
+    \    cin >> a >> b;\n\n    extgcd(a, b, x, y);\n    cout << x << ' ' << y << '\\\
+    n';\n}"
   dependsOn:
   - base.hpp
   - math/extgcd.hpp
   isVerificationFile: true
   path: test/aoj/NTL_1_E.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_E.test.cpp

@@ -4,16 +4,16 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: combinatorics/combination.hpp
     title: combination
-  - icon: ':question:'
+  - icon: ':x:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_B
@@ -68,8 +68,20 @@ data:
     \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#line 3 \"modulo/modint.hpp\"\n\n\
-    /**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"combinatorics/combination.hpp\"\
+    \n\n/**\n * @brief combination\n * @docs docs/combinatorics/combination.md\n */\n\
+    template <class M> struct Combination {\n    vector<M> _fac, _inv, _finv;\n  \
+    \  Combination(int n) : _fac(n + 1), _inv(n + 1), _finv(n + 1) {\n        _fac[0]\
+    \ = _finv[n] = _inv[0] = 1;\n        for (int i = 1; i <= n; i++) _fac[i] = _fac[i\
+    \ - 1] * i;\n        _finv[n] /= _fac[n];\n        for (int i = n - 1; i >= 0;\
+    \ i--) _finv[i] = _finv[i + 1] * (i + 1);\n        for (int i = 1; i <= n; i++)\
+    \ _inv[i] = _finv[i] * _fac[i - 1];\n    }\n    M fac(int k) const { return _fac[k];\
+    \ }\n    M finv(int k) const { return _finv[k]; }\n    M inv(int k) const { return\
+    \ _inv[k]; }\n    M P(int n, int r) const {\n        if (n < 0 || r < 0 || n <\
+    \ r) return 0;\n        return _fac[n] * _finv[n - r];\n    }\n    M C(int n,\
+    \ int r) const {\n        if (n < 0 || r < 0 || n < r) return 0;\n        return\
+    \ _fac[n] * _finv[r] * _finv[n - r];\n    }\n};\n#line 3 \"modulo/modint.hpp\"\
+    \n\n/**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
     \ mod> class modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n \
     \   using u64 = uint64_t;\n\npublic:\n    u32 v;\n    constexpr modint(const i64\
     \ x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr\
@@ -107,37 +119,25 @@ data:
     \ noexcept { return !v; }\n    friend istream& operator>>(istream& s, modint&\
     \ rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n      \
     \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
-    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 3 \"combinatorics/combination.hpp\"\
-    \n\n/**\n * @brief combination\n * @docs docs/combinatorics/combination.md\n */\n\
-    template <class M> struct Combination {\n    vector<M> _fac, _inv, _finv;\n  \
-    \  Combination(int n) : _fac(n + 1), _inv(n + 1), _finv(n + 1) {\n        _fac[0]\
-    \ = _finv[n] = _inv[0] = 1;\n        for (int i = 1; i <= n; i++) _fac[i] = _fac[i\
-    \ - 1] * i;\n        _finv[n] /= _fac[n];\n        for (int i = n - 1; i >= 0;\
-    \ i--) _finv[i] = _finv[i + 1] * (i + 1);\n        for (int i = 1; i <= n; i++)\
-    \ _inv[i] = _finv[i] * _fac[i - 1];\n    }\n    M fac(int k) const { return _fac[k];\
-    \ }\n    M finv(int k) const { return _finv[k]; }\n    M inv(int k) const { return\
-    \ _inv[k]; }\n    M P(int n, int r) const {\n        if (n < 0 || r < 0 || n <\
-    \ r) return 0;\n        return _fac[n] * _finv[n - r];\n    }\n    M C(int n,\
-    \ int r) const {\n        if (n < 0 || r < 0 || n < r) return 0;\n        return\
-    \ _fac[n] * _finv[r] * _finv[n - r];\n    }\n};\n#line 6 \"test/aoj/DPL_5_B.test.cpp\"\
-    \n\nusing mint=modint<1000000007>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    Combination<mint> COM(1010);\n    int n,k; cin >> n >> k;\n\n    cout <<\
-    \ COM.P(k,n) << '\\n';\n}\n"
+    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 6 \"test/aoj/DPL_5_B.test.cpp\"\
+    \n\nusing mint = modint<1000000007>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    Combination<mint> COM(1010);\n    int n, k;\n    cin >> n >> k;\n\n    cout\
+    \ << COM.P(k, n) << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_B\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include\
-    \ \"../../combinatorics/combination.hpp\"\n\nusing mint=modint<1000000007>;\n\n\
-    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Combination<mint>\
-    \ COM(1010);\n    int n,k; cin >> n >> k;\n\n    cout << COM.P(k,n) << '\\n';\n\
-    }"
+    \n\n#include \"../../base.hpp\"\n#include \"../../combinatorics/combination.hpp\"\
+    \n#include \"../../modulo/modint.hpp\"\n\nusing mint = modint<1000000007>;\n\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Combination<mint>\
+    \ COM(1010);\n    int n, k;\n    cin >> n >> k;\n\n    cout << COM.P(k, n) <<\
+    \ '\\n';\n}"
   dependsOn:
   - base.hpp
-  - modulo/modint.hpp
   - combinatorics/combination.hpp
+  - modulo/modint.hpp
   isVerificationFile: true
   path: test/aoj/DPL_5_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 11:24:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_B.test.cpp
 layout: document

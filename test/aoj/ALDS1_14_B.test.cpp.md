@@ -87,25 +87,26 @@ data:
     \ == query(b, b + mid) ? lb : ub) = mid;\n        }\n        return lb;\n    }\n\
     \    template <typename T> u64 get(const T& t) {\n        u64 res = 0;\n     \
     \   for (int i = 0; i < t.size(); i++) res = add(mul(res, base), t[i]);\n    \
-    \    return res;\n    }\n};\n#line 5 \"test/aoj/ALDS1_14_B.test.cpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S,T; cin >> S >>\
-    \ T;\n\n    uint64_t base=RollingHash::generate_base();\n    RollingHash RH1(S,base),RH2(T,base);\n\
-    \    int s=S.size(),t=T.size();\n\n    for (int i=0;i+t<=s;++i){\n        if (RH1.query(i,i+t)==RH2.query(0,t)){\n\
-    \            cout << i << '\\n';\n        }\n    }\n}\n"
+    \    return res;\n    }\n};\n#line 5 \"test/aoj/ALDS1_14_B.test.cpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S, T;\n   \
+    \ cin >> S >> T;\n\n    uint64_t base = RollingHash::generate_base();\n    RollingHash\
+    \ RH1(S, base), RH2(T, base);\n    int s = S.size(), t = T.size();\n\n    for\
+    \ (int i = 0; i + t <= s; i++) {\n        if (RH1.query(i, i + t) == RH2.query(0,\
+    \ t)) {\n            cout << i << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../string/RollingHash.hpp\"\n\n\
-    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S,T;\
-    \ cin >> S >> T;\n\n    uint64_t base=RollingHash::generate_base();\n    RollingHash\
-    \ RH1(S,base),RH2(T,base);\n    int s=S.size(),t=T.size();\n\n    for (int i=0;i+t<=s;++i){\n\
-    \        if (RH1.query(i,i+t)==RH2.query(0,t)){\n            cout << i << '\\\
-    n';\n        }\n    }\n}"
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S,\
+    \ T;\n    cin >> S >> T;\n\n    uint64_t base = RollingHash::generate_base();\n\
+    \    RollingHash RH1(S, base), RH2(T, base);\n    int s = S.size(), t = T.size();\n\
+    \n    for (int i = 0; i + t <= s; i++) {\n        if (RH1.query(i, i + t) == RH2.query(0,\
+    \ t)) {\n            cout << i << '\\n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
   - string/RollingHash.hpp
   isVerificationFile: true
   path: test/aoj/ALDS1_14_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1_14_B.test.cpp

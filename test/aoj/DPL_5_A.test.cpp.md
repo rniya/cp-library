@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_A
@@ -105,20 +105,20 @@ data:
     \ rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n      \
     \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
     \ rhs) noexcept { return s << rhs.v; }\n};\n#line 5 \"test/aoj/DPL_5_A.test.cpp\"\
-    \n\nusing mint=modint<1000000007>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int n,k; cin >> n >> k;\n\n    cout << mint(k).pow(n) << '\\n';\n}\n"
+    \n\nusing mint = modint<1000000007>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int n, k;\n    cin >> n >> k;\n\n    cout << mint(k).pow(n) << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n\nusing\
-    \ mint=modint<1000000007>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int n,k; cin >> n >> k;\n\n    cout << mint(k).pow(n) << '\\n';\n}"
+    \ mint = modint<1000000007>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int n, k;\n    cin >> n >> k;\n\n    cout << mint(k).pow(n) << '\\n';\n}"
   dependsOn:
   - base.hpp
   - modulo/modint.hpp
   isVerificationFile: true
   path: test/aoj/DPL_5_A.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 11:24:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_A.test.cpp
 layout: document

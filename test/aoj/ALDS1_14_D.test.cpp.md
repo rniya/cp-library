@@ -94,22 +94,23 @@ data:
     \    }\n    int count(string& t) {\n        pair<int, int> p = lower_upper_bound(t);\n\
     \        return p.second - p.first;\n    }\n    int operator[](int i) const {\
     \ return SA[i]; }\n    int size() const { return s.size(); }\n};\n#line 5 \"test/aoj/ALDS1_14_D.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
-    \ T; int Q; cin >> T >> Q;\n\n    SuffixArray SA(T);\n\n    for (;Q--;){\n   \
-    \     string P; cin >> P;\n        cout << (SA.count(P)>0) << '\\n';\n    }\n\
-    }\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
+    \ T;\n    int Q;\n    cin >> T >> Q;\n\n    SuffixArray SA(T);\n\n    for (; Q--;)\
+    \ {\n        string P;\n        cin >> P;\n        cout << (SA.count(P) > 0) <<\
+    \ '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_D\"\n\
     \n#include \"../../base.hpp\"\n#include \"../../string/SuffixArray.hpp\"\n\nint\
-    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string T; int\
-    \ Q; cin >> T >> Q;\n\n    SuffixArray SA(T);\n\n    for (;Q--;){\n        string\
-    \ P; cin >> P;\n        cout << (SA.count(P)>0) << '\\n';\n    }\n}"
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string T;\n\
+    \    int Q;\n    cin >> T >> Q;\n\n    SuffixArray SA(T);\n\n    for (; Q--;)\
+    \ {\n        string P;\n        cin >> P;\n        cout << (SA.count(P) > 0) <<\
+    \ '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - string/SuffixArray.hpp
   isVerificationFile: true
   path: test/aoj/ALDS1_14_D.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1_14_D.test.cpp

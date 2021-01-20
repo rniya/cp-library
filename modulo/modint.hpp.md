@@ -15,34 +15,34 @@ data:
     path: test/atcoder/tdpc_fibonacci.cpp
     title: test/atcoder/tdpc_fibonacci.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_A.test.cpp
     title: test/aoj/DPL_5_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_B.test.cpp
     title: test/aoj/DPL_5_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_C.test.cpp
     title: test/aoj/DPL_5_C.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_D.test.cpp
     title: test/aoj/DPL_5_D.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_F.test.cpp
     title: test/aoj/DPL_5_F.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_G.test.cpp
     title: test/aoj/DPL_5_G.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_I.test.cpp
     title: test/aoj/DPL_5_I.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_J.test.cpp
     title: test/aoj/DPL_5_J.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_L.test.cpp
     title: test/aoj/DPL_5_L.test.cpp
   - icon: ':x:'
@@ -106,7 +106,7 @@ data:
     path: test/yukicoder/931.test.cpp
     title: test/yukicoder/931.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/modulo/modint.md
     document_title: modint
@@ -247,7 +247,7 @@ data:
   - convolution/NumberTheoreticTransform.hpp
   - test/atcoder/tdpc_fibonacci.cpp
   timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/queue_operate_all_composite.test.cpp
   - test/yosupo/matrix_det.test.cpp

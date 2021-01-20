@@ -75,29 +75,31 @@ data:
     \ dat[i + 1][j] + dat[i][j + 1] - dat[i][j];\n            }\n        }\n    }\n\
     \    T query(int sx, int gx, int sy, int gy) {  // [sx,gx),[sy,gy)\n        return\
     \ dat[gx][gy] - dat[sx][gy] - dat[gx][sy] + dat[sx][sy];\n    }\n};\n#line 5 \"\
-    test/aoj/DSL_5_B.test.cpp\"\n\nconst int MAX_X=1010;\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N; cin >> N;\n    vector<vector<int>>\
-    \ v(MAX_X,vector<int>(MAX_X,0));\n    for (;N--;){\n        int a,b,c,d; cin >>\
-    \ a >> b >> c >> d;\n        ++v[a][b]; ++v[c][d]; --v[a][d]; --v[c][b];\n   \
-    \ }\n\n    CumulativeSum2D<int> CS(v);\n    int ans=0;\n    for (int i=0;i<MAX_X;++i){\n\
-    \        for (int j=0;j<MAX_X;++j){\n            ans=max(ans,CS.query(0,i,0,j));\n\
-    \        }\n    }\n\n    cout << ans << '\\n';\n}\n"
+    test/aoj/DSL_5_B.test.cpp\"\n\nconst int MAX_X = 1010;\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N;\n    cin >> N;\n    vector<vector<int>>\
+    \ v(MAX_X, vector<int>(MAX_X, 0));\n    for (; N--;) {\n        int a, b, c, d;\n\
+    \        cin >> a >> b >> c >> d;\n        ++v[a][b];\n        ++v[c][d];\n  \
+    \      --v[a][d];\n        --v[c][b];\n    }\n\n    CumulativeSum2D<int> CS(v);\n\
+    \    int ans = 0;\n    for (int i = 0; i < MAX_X; i++) {\n        for (int j =\
+    \ 0; j < MAX_X; j++) {\n            ans = max(ans, CS.query(0, i, 0, j));\n  \
+    \      }\n    }\n\n    cout << ans << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/5/DSL_5_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/CumulativeSum2D.hpp\"\
-    \n\nconst int MAX_X=1010;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int N; cin >> N;\n    vector<vector<int>> v(MAX_X,vector<int>(MAX_X,0));\n\
-    \    for (;N--;){\n        int a,b,c,d; cin >> a >> b >> c >> d;\n        ++v[a][b];\
-    \ ++v[c][d]; --v[a][d]; --v[c][b];\n    }\n\n    CumulativeSum2D<int> CS(v);\n\
-    \    int ans=0;\n    for (int i=0;i<MAX_X;++i){\n        for (int j=0;j<MAX_X;++j){\n\
-    \            ans=max(ans,CS.query(0,i,0,j));\n        }\n    }\n\n    cout <<\
-    \ ans << '\\n';\n}"
+    \n\nconst int MAX_X = 1010;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int N;\n    cin >> N;\n    vector<vector<int>> v(MAX_X, vector<int>(MAX_X,\
+    \ 0));\n    for (; N--;) {\n        int a, b, c, d;\n        cin >> a >> b >>\
+    \ c >> d;\n        ++v[a][b];\n        ++v[c][d];\n        --v[a][d];\n      \
+    \  --v[c][b];\n    }\n\n    CumulativeSum2D<int> CS(v);\n    int ans = 0;\n  \
+    \  for (int i = 0; i < MAX_X; i++) {\n        for (int j = 0; j < MAX_X; j++)\
+    \ {\n            ans = max(ans, CS.query(0, i, 0, j));\n        }\n    }\n\n \
+    \   cout << ans << '\\n';\n}"
   dependsOn:
   - base.hpp
   - datastructure/CumulativeSum2D.hpp
   isVerificationFile: true
   path: test/aoj/DSL_5_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL_5_B.test.cpp

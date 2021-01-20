@@ -98,24 +98,26 @@ data:
     \  res += dist[t] * d;\n            for (int v = t; v != s; v = prevv[v]) {\n\
     \                edge& e = G[prevv[v]][preve[v]];\n                e.cap -= d;\n\
     \                G[v][e.rev].cap += d;\n            }\n        }\n        return\
-    \ res;\n    }\n};\n#line 5 \"test/aoj/GRL_6_B.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int V,E,F; cin >> V >> E >> F;\n\n    MinCostFlow<int,int>\
-    \ MCF(V);\n\n    for (int i=0;i<E;++i){\n        int u,v,c,d; cin >> u >> v >>\
-    \ c >> d;\n        MCF.add_edge(u,v,c,d);\n    }\n\n    cout << MCF.min_cost_flow(0,V-1,F)\
-    \ << '\\n';\n}\n"
+    \ res;\n    }\n};\n#line 5 \"test/aoj/GRL_6_B.test.cpp\"\n\nint main() {\n   \
+    \ cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E, F;\n    cin >>\
+    \ V >> E >> F;\n\n    MinCostFlow<int, int> MCF(V);\n\n    for (int i = 0; i <\
+    \ E; i++) {\n        int u, v, c, d;\n        cin >> u >> v >> c >> d;\n     \
+    \   MCF.add_edge(u, v, c, d);\n    }\n\n    cout << MCF.min_cost_flow(0, V - 1,\
+    \ F) << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../flow/MinCostFlow.hpp\"\n\nint\
-    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E,F; cin\
-    \ >> V >> E >> F;\n\n    MinCostFlow<int,int> MCF(V);\n\n    for (int i=0;i<E;++i){\n\
-    \        int u,v,c,d; cin >> u >> v >> c >> d;\n        MCF.add_edge(u,v,c,d);\n\
-    \    }\n\n    cout << MCF.min_cost_flow(0,V-1,F) << '\\n';\n}"
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E, F;\n\
+    \    cin >> V >> E >> F;\n\n    MinCostFlow<int, int> MCF(V);\n\n    for (int\
+    \ i = 0; i < E; i++) {\n        int u, v, c, d;\n        cin >> u >> v >> c >>\
+    \ d;\n        MCF.add_edge(u, v, c, d);\n    }\n\n    cout << MCF.min_cost_flow(0,\
+    \ V - 1, F) << '\\n';\n}"
   dependsOn:
   - base.hpp
   - flow/MinCostFlow.hpp
   isVerificationFile: true
   path: test/aoj/GRL_6_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_B.test.cpp

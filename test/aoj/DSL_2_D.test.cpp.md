@@ -10,7 +10,7 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_2_D
@@ -118,31 +118,32 @@ data:
     \      Monoid nxt = f(reflect(--r), R);\n                if (check(nxt)) return\
     \ find_subtree(r, check, R, true);\n                R = nxt;\n            }\n\
     \        }\n        return -1;\n    }\n    Monoid operator[](int i) { return query(i,\
-    \ i + 1); }\n};\n#line 5 \"test/aoj/DSL_2_D.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int n,q; cin >> n >> q;\n\n    auto f=[](int\
-    \ a,int b){return min(a,b);};\n    auto g=[](int a,int b){return (~b?b:a);};\n\
-    \    auto h=[](int a,int b){return b;};\n    LazySegmentTree<int,int> seg(n,f,g,h,INT_MAX,-1);\n\
-    \n    for (;q--;){\n        int c,s,t,x,i; cin >> c;\n        if (!c){\n     \
-    \       cin >> s >> t >> x;\n            seg.update(s,t+1,x);\n        } else\
-    \ {\n            cin >> i;\n            cout << seg[i] << '\\n';\n        }\n\
-    \    }\n}\n"
+    \ i + 1); }\n};\n#line 5 \"test/aoj/DSL_2_D.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int n, q;\n    cin >> n >> q;\n\n    auto\
+    \ f = [](int a, int b) { return min(a, b); };\n    auto g = [](int a, int b) {\
+    \ return (~b ? b : a); };\n    auto h = [](int a, int b) { return b; };\n    LazySegmentTree<int,\
+    \ int> seg(n, f, g, h, INT_MAX, -1);\n\n    for (; q--;) {\n        int c, s,\
+    \ t, x, i;\n        cin >> c;\n        if (!c) {\n            cin >> s >> t >>\
+    \ x;\n            seg.update(s, t + 1, x);\n        } else {\n            cin\
+    \ >> i;\n            cout << seg[i] << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_2_D\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/LazySegmentTree.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,q;\
-    \ cin >> n >> q;\n\n    auto f=[](int a,int b){return min(a,b);};\n    auto g=[](int\
-    \ a,int b){return (~b?b:a);};\n    auto h=[](int a,int b){return b;};\n    LazySegmentTree<int,int>\
-    \ seg(n,f,g,h,INT_MAX,-1);\n\n    for (;q--;){\n        int c,s,t,x,i; cin >>\
-    \ c;\n        if (!c){\n            cin >> s >> t >> x;\n            seg.update(s,t+1,x);\n\
-    \        } else {\n            cin >> i;\n            cout << seg[i] << '\\n';\n\
-    \        }\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,\
+    \ q;\n    cin >> n >> q;\n\n    auto f = [](int a, int b) { return min(a, b);\
+    \ };\n    auto g = [](int a, int b) { return (~b ? b : a); };\n    auto h = [](int\
+    \ a, int b) { return b; };\n    LazySegmentTree<int, int> seg(n, f, g, h, INT_MAX,\
+    \ -1);\n\n    for (; q--;) {\n        int c, s, t, x, i;\n        cin >> c;\n\
+    \        if (!c) {\n            cin >> s >> t >> x;\n            seg.update(s,\
+    \ t + 1, x);\n        } else {\n            cin >> i;\n            cout << seg[i]\
+    \ << '\\n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/LazySegmentTree.hpp
   isVerificationFile: true
   path: test/aoj/DSL_2_D.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 11:24:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL_2_D.test.cpp
 layout: document

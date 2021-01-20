@@ -6,35 +6,35 @@ data:
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
   - icon: ':x:'
     path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
     title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/datastructure/LazySegmentTree.md
     document_title: Segment Tree Beats
@@ -294,7 +294,7 @@ data:
   path: datastructure/SegmentTreeBeats.hpp
   requiredBy: []
   timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp

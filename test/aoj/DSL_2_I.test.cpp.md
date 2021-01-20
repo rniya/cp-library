@@ -10,7 +10,7 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_I
@@ -118,36 +118,39 @@ data:
     \      Monoid nxt = f(reflect(--r), R);\n                if (check(nxt)) return\
     \ find_subtree(r, check, R, true);\n                R = nxt;\n            }\n\
     \        }\n        return -1;\n    }\n    Monoid operator[](int i) { return query(i,\
-    \ i + 1); }\n};\n#line 5 \"test/aoj/DSL_2_I.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    const int inf=1<<30;\n    int n,q; cin\
-    \ >> n >> q;\n\n    struct node{\n        long long a; int b;\n        node(long\
-    \ long a,int b):a(a),b(b){}\n    };\n    auto f=[](node a,node b){return node(a.a+b.a,a.b+b.b);};\n\
-    \    auto g=[](node a,long long x){return node(x!=inf?x*a.b:a.a,a.b);};\n    auto\
-    \ h=[](long long a,long long b){return b;};\n    LazySegmentTree<node,long long>\
-    \ seg(n,f,g,h,node(0,0),inf);\n    vector<node> v(n,node(0,1));\n    seg.build(v);\n\
-    \n    for (;q--;){\n        int c,s,t,x; cin >> c >> s >> t;\n        if (!c){\n\
-    \            cin >> x;\n            seg.update(s,t+1,x);\n        } else cout\
-    \ << seg.query(s,t+1).a << '\\n';\n    }\n}\n"
+    \ i + 1); }\n};\n#line 5 \"test/aoj/DSL_2_I.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    const int inf = 1 << 30;\n    int n, q;\n\
+    \    cin >> n >> q;\n\n    struct node {\n        long long a;\n        int b;\n\
+    \        node(long long a, int b) : a(a), b(b) {}\n    };\n    auto f = [](node\
+    \ a, node b) { return node(a.a + b.a, a.b + b.b); };\n    auto g = [](node a,\
+    \ long long x) { return node(x != inf ? x * a.b : a.a, a.b); };\n    auto h =\
+    \ [](long long a, long long b) { return b; };\n    LazySegmentTree<node, long\
+    \ long> seg(n, f, g, h, node(0, 0), inf);\n    vector<node> v(n, node(0, 1));\n\
+    \    seg.build(v);\n\n    for (; q--;) {\n        int c, s, t, x;\n        cin\
+    \ >> c >> s >> t;\n        if (!c) {\n            cin >> x;\n            seg.update(s,\
+    \ t + 1, x);\n        } else\n            cout << seg.query(s, t + 1).a << '\\\
+    n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_I\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/LazySegmentTree.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    const\
-    \ int inf=1<<30;\n    int n,q; cin >> n >> q;\n\n    struct node{\n        long\
-    \ long a; int b;\n        node(long long a,int b):a(a),b(b){}\n    };\n    auto\
-    \ f=[](node a,node b){return node(a.a+b.a,a.b+b.b);};\n    auto g=[](node a,long\
-    \ long x){return node(x!=inf?x*a.b:a.a,a.b);};\n    auto h=[](long long a,long\
-    \ long b){return b;};\n    LazySegmentTree<node,long long> seg(n,f,g,h,node(0,0),inf);\n\
-    \    vector<node> v(n,node(0,1));\n    seg.build(v);\n\n    for (;q--;){\n   \
-    \     int c,s,t,x; cin >> c >> s >> t;\n        if (!c){\n            cin >> x;\n\
-    \            seg.update(s,t+1,x);\n        } else cout << seg.query(s,t+1).a <<\
-    \ '\\n';\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    const\
+    \ int inf = 1 << 30;\n    int n, q;\n    cin >> n >> q;\n\n    struct node {\n\
+    \        long long a;\n        int b;\n        node(long long a, int b) : a(a),\
+    \ b(b) {}\n    };\n    auto f = [](node a, node b) { return node(a.a + b.a, a.b\
+    \ + b.b); };\n    auto g = [](node a, long long x) { return node(x != inf ? x\
+    \ * a.b : a.a, a.b); };\n    auto h = [](long long a, long long b) { return b;\
+    \ };\n    LazySegmentTree<node, long long> seg(n, f, g, h, node(0, 0), inf);\n\
+    \    vector<node> v(n, node(0, 1));\n    seg.build(v);\n\n    for (; q--;) {\n\
+    \        int c, s, t, x;\n        cin >> c >> s >> t;\n        if (!c) {\n   \
+    \         cin >> x;\n            seg.update(s, t + 1, x);\n        } else\n  \
+    \          cout << seg.query(s, t + 1).a << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/LazySegmentTree.hpp
   isVerificationFile: true
   path: test/aoj/DSL_2_I.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 11:24:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL_2_I.test.cpp
 layout: document

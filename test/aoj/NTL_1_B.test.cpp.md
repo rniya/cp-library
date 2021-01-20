@@ -71,19 +71,20 @@ data:
     \ {\n        if (n & 1LL) res = res * x % mod;\n        x = x * x % mod;\n   \
     \     n >>= 1LL;\n    }\n    return res;\n}\nlong long modinv(long long x, long\
     \ long p) { return modpow(x, p - 2, p); }\n#line 5 \"test/aoj/NTL_1_B.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    long long\
-    \ m,n; cin >> m >> n;\n\n    cout << modpow(m,n,1000000007) << '\\n';\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    long\
+    \ long m, n;\n    cin >> m >> n;\n\n    cout << modpow(m, n, 1000000007) << '\\\
+    n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_B\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../math/modpow.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    long long m,n; cin >>\
-    \ m >> n;\n\n    cout << modpow(m,n,1000000007) << '\\n';\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../math/modpow.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    long long m, n;\n\
+    \    cin >> m >> n;\n\n    cout << modpow(m, n, 1000000007) << '\\n';\n}"
   dependsOn:
   - base.hpp
   - math/modpow.hpp
   isVerificationFile: true
   path: test/aoj/NTL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_B.test.cpp

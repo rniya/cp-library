@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: datastructure/LazySegmentTree.hpp
     title: Lazy Segment Tree
-  - icon: ':question:'
+  - icon: ':x:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []

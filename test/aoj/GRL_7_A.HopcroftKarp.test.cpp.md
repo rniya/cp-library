@@ -119,23 +119,23 @@ data:
     \ (int i = 0; i < m; i++) {\n            if (~match_r[i]) continue;\n        \
     \    if (rG[i].empty()) return {};\n            res.emplace_back(rG[i][0], i);\n\
     \        }\n        return res;\n    }\n};\n#line 5 \"test/aoj/GRL_7_A.HopcroftKarp.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int X,Y,E;\
-    \ cin >> X >> Y >> E;\n\n    HopcroftKarp HK(X,Y);\n    for (int i=0;i<E;++i){\n\
-    \        int x,y; cin >> x >> y;\n        HK.add_edge(x,y);\n    }\n\n    cout\
-    \ << HK.max_matching().size() << '\\n';\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int X,\
+    \ Y, E;\n    cin >> X >> Y >> E;\n\n    HopcroftKarp HK(X, Y);\n    for (int i\
+    \ = 0; i < E; i++) {\n        int x, y;\n        cin >> x >> y;\n        HK.add_edge(x,\
+    \ y);\n    }\n\n    cout << HK.max_matching().size() << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_7_A\"\n\n\
-    #include \"../../base.hpp\"\n#include \"../../flow/HopcroftKarp.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int X,Y,E; cin >> X >>\
-    \ Y >> E;\n\n    HopcroftKarp HK(X,Y);\n    for (int i=0;i<E;++i){\n        int\
-    \ x,y; cin >> x >> y;\n        HK.add_edge(x,y);\n    }\n\n    cout << HK.max_matching().size()\
-    \ << '\\n';\n}"
+    #include \"../../base.hpp\"\n#include \"../../flow/HopcroftKarp.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int X, Y, E;\n   \
+    \ cin >> X >> Y >> E;\n\n    HopcroftKarp HK(X, Y);\n    for (int i = 0; i < E;\
+    \ i++) {\n        int x, y;\n        cin >> x >> y;\n        HK.add_edge(x, y);\n\
+    \    }\n\n    cout << HK.max_matching().size() << '\\n';\n}"
   dependsOn:
   - base.hpp
   - flow/HopcroftKarp.hpp
   isVerificationFile: true
   path: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_7_A.HopcroftKarp.test.cpp

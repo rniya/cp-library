@@ -76,24 +76,24 @@ data:
     \            if (used[p.second]) continue;\n            used[p.second] = true;\n\
     \            res += p.first;\n            for (auto e : G[p.second]) {\n     \
     \           pq.emplace(e.second, e.first);\n            }\n        }\n       \
-    \ return res;\n    }\n};\n#line 5 \"test/aoj/GRL_2_A.Prim.test.cpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E; cin >> V >> E;\n\
-    \n    Prim<int> P(V);\n\n    for (int i=0;i<E;++i){\n        int s,t,w; cin >>\
-    \ s >> t >> w;\n        P.add_edge(s,t,w);\n    }\n\n    cout << P.build() <<\
-    \ '\\n';\n}\n"
+    \ return res;\n    }\n};\n#line 5 \"test/aoj/GRL_2_A.Prim.test.cpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
+    \ >> V >> E;\n\n    Prim<int> P(V);\n\n    for (int i = 0; i < E; i++) {\n   \
+    \     int s, t, w;\n        cin >> s >> t >> w;\n        P.add_edge(s, t, w);\n\
+    \    }\n\n    cout << P.build() << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../graph/Prim.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E; cin >> V >> E;\n\
-    \n    Prim<int> P(V);\n\n    for (int i=0;i<E;++i){\n        int s,t,w; cin >>\
-    \ s >> t >> w;\n        P.add_edge(s,t,w);\n    }\n\n    cout << P.build() <<\
-    \ '\\n';\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../graph/Prim.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
+    \ >> V >> E;\n\n    Prim<int> P(V);\n\n    for (int i = 0; i < E; i++) {\n   \
+    \     int s, t, w;\n        cin >> s >> t >> w;\n        P.add_edge(s, t, w);\n\
+    \    }\n\n    cout << P.build() << '\\n';\n}"
   dependsOn:
   - base.hpp
   - graph/Prim.hpp
   isVerificationFile: true
   path: test/aoj/GRL_2_A.Prim.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_2_A.Prim.test.cpp

@@ -86,25 +86,27 @@ data:
     \            sort(T[i].begin(), T[i].end());\n            T[i].erase(unique(T[i].begin(),\
     \ T[i].end()), T[i].end());\n        }\n        return k;\n    }\n    int operator[](int\
     \ i) const { return cmp[i]; }\n};\n#line 5 \"test/aoj/GRL_3_C.test.cpp\"\n\nint\
-    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E; cin\
-    \ >> V >> E;\n\n    StronglyConnectedComponents SCC(V);\n    for (int i=0;i<E;++i){\n\
-    \        int s,t; cin >> s >> t;\n        SCC.add_edge(s,t);\n    }\n    SCC.build();\n\
-    \n    int Q; cin >> Q;\n    for (;Q--;){\n        int u,v; cin >> u >> v;\n  \
-    \      cout << (SCC[u]==SCC[v]) << '\\n';\n    }\n}\n"
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n\
+    \    cin >> V >> E;\n\n    StronglyConnectedComponents SCC(V);\n    for (int i\
+    \ = 0; i < E; i++) {\n        int s, t;\n        cin >> s >> t;\n        SCC.add_edge(s,\
+    \ t);\n    }\n    SCC.build();\n\n    int Q;\n    cin >> Q;\n    for (; Q--;)\
+    \ {\n        int u, v;\n        cin >> u >> v;\n        cout << (SCC[u] == SCC[v])\
+    \ << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_C\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/StronglyConnectedComponents.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E;\
-    \ cin >> V >> E;\n\n    StronglyConnectedComponents SCC(V);\n    for (int i=0;i<E;++i){\n\
-    \        int s,t; cin >> s >> t;\n        SCC.add_edge(s,t);\n    }\n    SCC.build();\n\
-    \n    int Q; cin >> Q;\n    for (;Q--;){\n        int u,v; cin >> u >> v;\n  \
-    \      cout << (SCC[u]==SCC[v]) << '\\n';\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
+    \ E;\n    cin >> V >> E;\n\n    StronglyConnectedComponents SCC(V);\n    for (int\
+    \ i = 0; i < E; i++) {\n        int s, t;\n        cin >> s >> t;\n        SCC.add_edge(s,\
+    \ t);\n    }\n    SCC.build();\n\n    int Q;\n    cin >> Q;\n    for (; Q--;)\
+    \ {\n        int u, v;\n        cin >> u >> v;\n        cout << (SCC[u] == SCC[v])\
+    \ << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - graph/StronglyConnectedComponents.hpp
   isVerificationFile: true
   path: test/aoj/GRL_3_C.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_3_C.test.cpp

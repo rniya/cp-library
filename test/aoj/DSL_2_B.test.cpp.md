@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexed Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B
@@ -78,25 +78,26 @@ data:
     \ + k] < x) {\n                x -= dat[pos + k];\n                pos += k;\n\
     \            }\n        }\n        return pos;\n    }\n    int upper_bound(T x)\
     \ const { return lower_bound(x + 1); }\n    T operator[](int i) { return query(i,\
-    \ i + 1); }\n};\n#line 5 \"test/aoj/DSL_2_B.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int n,q; cin >> n >> q;\n\n    BinaryIndexedTree<int>\
-    \ BIT(n);\n\n    for (;q--;){\n        int c,x,y; cin >> c >> x >> y;\n      \
-    \  if (!c) BIT.add(--x,y);\n        else cout << BIT.query(--x,y) << '\\n';\n\
-    \    }\n}\n"
+    \ i + 1); }\n};\n#line 5 \"test/aoj/DSL_2_B.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int n, q;\n    cin >> n >> q;\n\n    BinaryIndexedTree<int>\
+    \ BIT(n);\n\n    for (; q--;) {\n        int c, x, y;\n        cin >> c >> x >>\
+    \ y;\n        if (!c)\n            BIT.add(--x, y);\n        else\n          \
+    \  cout << BIT.query(--x, y) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B\"\n\n\
     #include \"../../base.hpp\"\n#include \"../../datastructure/BinaryIndexedTree.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,q;\
-    \ cin >> n >> q;\n\n    BinaryIndexedTree<int> BIT(n);\n\n    for (;q--;){\n \
-    \       int c,x,y; cin >> c >> x >> y;\n        if (!c) BIT.add(--x,y);\n    \
-    \    else cout << BIT.query(--x,y) << '\\n';\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,\
+    \ q;\n    cin >> n >> q;\n\n    BinaryIndexedTree<int> BIT(n);\n\n    for (; q--;)\
+    \ {\n        int c, x, y;\n        cin >> c >> x >> y;\n        if (!c)\n    \
+    \        BIT.add(--x, y);\n        else\n            cout << BIT.query(--x, y)\
+    \ << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/BinaryIndexedTree.hpp
   isVerificationFile: true
   path: test/aoj/DSL_2_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 11:24:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL_2_B.test.cpp
 layout: document

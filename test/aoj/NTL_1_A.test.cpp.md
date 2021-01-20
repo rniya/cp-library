@@ -70,23 +70,24 @@ data:
     \ map<T, int> prime_factor(T n) {\n    map<T, int> res;\n    for (T i = 2; i *\
     \ i <= n; i++) {\n        while (n % i == 0) {\n            res[i]++;\n      \
     \      n /= i;\n        }\n    }\n    if (n != 1) res[n] = 1;\n    return res;\n\
-    }\n#line 5 \"test/aoj/NTL_1_A.test.cpp\"\n\nint main(){\n    cin.tie(0);\n   \
-    \ ios::sync_with_stdio(false);\n    int n; cin >> n;\n\n    map<int,int> ans=prime_factor(n);\n\
-    \    cout << n << ':';\n    for (auto p:ans){\n        for (int i=0;i<p.second;++i){\n\
-    \            cout << ' ' << p.first;\n        }\n    }\n    cout << '\\n';\n}\n"
+    }\n#line 5 \"test/aoj/NTL_1_A.test.cpp\"\n\nint main() {\n    cin.tie(0);\n  \
+    \  ios::sync_with_stdio(false);\n    int n;\n    cin >> n;\n\n    map<int, int>\
+    \ ans = prime_factor(n);\n    cout << n << ':';\n    for (auto p : ans) {\n  \
+    \      for (int i = 0; i < p.second; i++) {\n            cout << ' ' << p.first;\n\
+    \        }\n    }\n    cout << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../math/prime_factor.hpp\"\n\n\
-    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n; cin\
-    \ >> n;\n\n    map<int,int> ans=prime_factor(n);\n    cout << n << ':';\n    for\
-    \ (auto p:ans){\n        for (int i=0;i<p.second;++i){\n            cout << '\
-    \ ' << p.first;\n        }\n    }\n    cout << '\\n';\n}"
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\n\
+    \    cin >> n;\n\n    map<int, int> ans = prime_factor(n);\n    cout << n << ':';\n\
+    \    for (auto p : ans) {\n        for (int i = 0; i < p.second; i++) {\n    \
+    \        cout << ' ' << p.first;\n        }\n    }\n    cout << '\\n';\n}"
   dependsOn:
   - base.hpp
   - math/prime_factor.hpp
   isVerificationFile: true
   path: test/aoj/NTL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_A.test.cpp

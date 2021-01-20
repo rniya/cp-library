@@ -89,24 +89,25 @@ data:
     \ used.end(), 0);\n            T f = dfs(s, t, lim);\n            if (f == 0)\
     \ break;\n            flow += f;\n            lim -= f;\n        }\n        return\
     \ flow;\n    }\n    T max_flow(int s, int t) { return max_flow(s, t, numeric_limits<T>::max());\
-    \ }\n};\n#line 5 \"test/aoj/GRL_6_A.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int V,E; cin >> V >> E;\n\n    FordFulkerson<int,true>\
-    \ FF(V);\n\n    for (int i=0;i<E;++i){\n        int u,v,c; cin >> u >> v >> c;\n\
-    \        FF.add_edge(u,v,c);\n    }\n\n    cout << FF.max_flow(0,V-1) << '\\n';\n\
-    }\n"
+    \ }\n};\n#line 5 \"test/aoj/GRL_6_A.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int V, E;\n    cin >> V >> E;\n\n    FordFulkerson<int,\
+    \ true> FF(V);\n\n    for (int i = 0; i < E; i++) {\n        int u, v, c;\n  \
+    \      cin >> u >> v >> c;\n        FF.add_edge(u, v, c);\n    }\n\n    cout <<\
+    \ FF.max_flow(0, V - 1) << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../flow/FordFulkerson.hpp\"\n\n\
-    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,E; cin\
-    \ >> V >> E;\n\n    FordFulkerson<int,true> FF(V);\n\n    for (int i=0;i<E;++i){\n\
-    \        int u,v,c; cin >> u >> v >> c;\n        FF.add_edge(u,v,c);\n    }\n\n\
-    \    cout << FF.max_flow(0,V-1) << '\\n';\n}"
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n\
+    \    cin >> V >> E;\n\n    FordFulkerson<int, true> FF(V);\n\n    for (int i =\
+    \ 0; i < E; i++) {\n        int u, v, c;\n        cin >> u >> v >> c;\n      \
+    \  FF.add_edge(u, v, c);\n    }\n\n    cout << FF.max_flow(0, V - 1) << '\\n';\n\
+    }"
   dependsOn:
   - base.hpp
   - flow/FordFulkerson.hpp
   isVerificationFile: true
   path: test/aoj/GRL_6_A.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:24:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_A.test.cpp
