@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: string/Manacher.hpp
     title: Manacher
   _extendedRequiredBy: []

@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   _extendedRequiredBy: []

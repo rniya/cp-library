@@ -6,14 +6,14 @@ data:
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/bitwise_xor_convolution.test.cpp
     title: test/yosupo/bitwise_xor_convolution.test.cpp
   - icon: ':x:'
     path: test/yukicoder/1240.test.cpp
     title: test/yukicoder/1240.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/convolution/XORconvolution.md
     document_title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
@@ -100,7 +100,7 @@ data:
   path: convolution/XORconvolution.hpp
   requiredBy: []
   timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yukicoder/1240.test.cpp

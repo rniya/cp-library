@@ -9,7 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_B.test.cpp
     title: test/aoj/DSL_2_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_D.test.cpp
     title: test/aoj/GRL_5_D.test.cpp
   - icon: ':x:'

@@ -9,11 +9,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2891.test.cpp
     title: test/aoj/2891.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_4_A.test.cpp
     title: test/aoj/GRL_4_A.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/CycleDetection.md
     document_title: Cycle Detection
@@ -103,7 +103,7 @@ data:
   path: graph/CycleDetection.hpp
   requiredBy: []
   timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2891.test.cpp
   - test/aoj/GRL_4_A.test.cpp

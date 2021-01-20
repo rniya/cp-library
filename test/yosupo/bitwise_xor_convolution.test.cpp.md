@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: convolution/XORconvolution.hpp
     title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
   - icon: ':question:'
@@ -13,7 +13,7 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/bitwise_xor_convolution
@@ -144,7 +144,7 @@ data:
   path: test/yosupo/bitwise_xor_convolution.test.cpp
   requiredBy: []
   timestamp: '2021-01-20 11:11:13+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/bitwise_xor_convolution.test.cpp
 layout: document

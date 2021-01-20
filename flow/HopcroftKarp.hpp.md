@@ -6,14 +6,14 @@ data:
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
     title: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/bipartitematching.test.cpp
     title: test/yosupo/bipartitematching.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/flow/HopcroftKarp.md
     document_title: Hopcroft Karp
@@ -178,7 +178,7 @@ data:
   path: flow/HopcroftKarp.hpp
   requiredBy: []
   timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/bipartitematching.test.cpp
   - test/aoj/GRL_7_A.HopcroftKarp.test.cpp

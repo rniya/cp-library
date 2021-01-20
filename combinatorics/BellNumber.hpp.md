@@ -6,11 +6,11 @@ data:
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_G.test.cpp
     title: test/aoj/DPL_5_G.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/combinatorics/BellNumber.md
     document_title: "\u30D9\u30EB\u6570"
@@ -86,7 +86,7 @@ data:
   path: combinatorics/BellNumber.hpp
   requiredBy: []
   timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DPL_5_G.test.cpp
 documentation_of: combinatorics/BellNumber.hpp
