@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: graph/TwoEdgeConnectedComponents.hpp
     title: Two Edge Connected Components
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: tree/LowestCommonAncestor.hpp
     title: Lowest Common Ancestor
   _extendedRequiredBy: []

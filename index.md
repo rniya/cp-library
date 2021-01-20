@@ -22,7 +22,7 @@ data:
     - icon: ':question:'
       path: convolution/ArbitaryModConvolution.hpp
       title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: convolution/FastFourierTransform.hpp
       title: Fast Fourier Transform
     - icon: ':x:'
@@ -65,13 +65,13 @@ data:
     - icon: ':question:'
       path: datastructure/SegmentTree.hpp
       title: Segment Tree
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/SegmentTreeBeats.hpp
       title: Segment Tree Beats
     - icon: ':heavy_check_mark:'
       path: datastructure/Slide_Min.hpp
       title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/SlidingWindowAggregation.hpp
       title: Sliding Window Aggregation (SWAG)
     - icon: ':x:'
@@ -80,7 +80,7 @@ data:
     - icon: ':question:'
       path: datastructure/UnionFind.hpp
       title: UnionFind
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/UnionFindUndo.hpp
       title: "UnionFind (Undo\u53EF\u80FD)"
     - icon: ':heavy_check_mark:'
@@ -164,7 +164,7 @@ data:
     - icon: ':warning:'
       path: linearalgebra/Kitamasa.hpp
       title: Kitamasa
-    - icon: ':x:'
+    - icon: ':question:'
       path: linearalgebra/Matrix.hpp
       title: Matrix
     - icon: ':x:'
@@ -228,7 +228,7 @@ data:
     - icon: ':warning:'
       path: string/Knuth_Morris_Pratt.hpp
       title: "Knuth Moriss Pratt (KMP\u6CD5)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: string/LongestCommonPrefixArray.hpp
       title: Longest Common Prefix Array
     - icon: ':heavy_check_mark:'
@@ -297,7 +297,7 @@ data:
       title: test/codeforces/1444_C.cpp
   - name: tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tree/CentroidDecomposition.hpp
       title: Centroid Decomposition
     - icon: ':heavy_check_mark:'
@@ -309,7 +309,7 @@ data:
     - icon: ':question:'
       path: tree/HeavyLightDecomposition.hpp
       title: Heavy Light Decomposition
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: tree/LowestCommonAncestor.hpp
       title: Lowest Common Ancestor
     - icon: ':question:'
@@ -628,46 +628,46 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/exp_of_formal_power_series.test.cpp
       title: test/yosupo/exp_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/frequency_table_of_tree_distance.test.cpp
       title: test/yosupo/frequency_table_of_tree_distance.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/inv_of_formal_power_series.test.cpp
       title: test/yosupo/inv_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/lca.test.cpp
       title: test/yosupo/lca.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/log_of_formal_power_series.test.cpp
       title: test/yosupo/log_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_det.test.cpp
       title: test/yosupo/matrix_det.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/number_of_substrings.test.cpp
       title: test/yosupo/number_of_substrings.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
       title: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum.test.cpp
       title: test/yosupo/point_add_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/queue_operate_all_composite.test.cpp
       title: test/yosupo/queue_operate_all_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/range_affine_range_sum.test.cpp
       title: test/yosupo/range_affine_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
       title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp
     - icon: ':x:'

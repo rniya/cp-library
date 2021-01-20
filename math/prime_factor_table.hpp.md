@@ -88,5 +88,7 @@ redirect_from:
 title: "osa_k\u6CD5"
 ---
 ## 概要
+$n$を素因数分解する.
 
 ## 計算量
+$O(\sqrt{n})$
