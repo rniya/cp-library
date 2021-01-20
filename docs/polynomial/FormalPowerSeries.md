@@ -15,10 +15,10 @@
 - `exp()`：$\exp(P(x))$
 - `pow(k)`：$(P(x))^k$
 - `pow_mod(k,mod)`：$(P(x))^k\%Q(x)$
-- `linear_mul(a,b)`：$P(x)(ax+b)$
-- `linear_div(a,b)`：$P(x)/(ax+b)$
-- `sparse_mul(c,d)`：$P(x)(1+cx^d)$
-- `sparse_div(c,d)`：$P(x)/(1+cx^d)$
+- `linear_mul(a, b)`：$P(x)(ax+b)$
+- `linear_div(a, b)`：$P(x)/(ax+b)$
+- `sparse_mul(c, d)`：$P(x)(1+cx^d)$
+- `sparse_div(c, d)`：$P(x)/(1+cx^d)$
 - `operator(x)`：$P(x)$に実際に$x$を代入した際の値を返す.
 
 ## 計算量

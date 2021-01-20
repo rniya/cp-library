@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   - icon: ':x:'

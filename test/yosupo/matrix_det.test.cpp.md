@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: linearalgebra/Matrix.hpp
     title: Matrix
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []

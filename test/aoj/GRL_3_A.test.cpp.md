@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/LowLink.hpp
     title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_A
@@ -102,7 +102,7 @@ data:
   path: test/aoj/GRL_3_A.test.cpp
   requiredBy: []
   timestamp: '2021-01-20 11:24:35+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_3_A.test.cpp
 layout: document

@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: convolution/XORconvolution.hpp
     title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []

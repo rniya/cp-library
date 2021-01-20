@@ -170,14 +170,14 @@ title: Project Selection Problem
 ---
 ## 概要
 Project Selection Problem, いわゆる燃やす埋める問題を解く際の補助ライブラリ.
-- `x_false_loss(x,z)`：$x$が$0$のときに$z$失う
-- `x_false_profit(x,z)`：$x$が$0$のときに$z$得る
-- `x_true_loss(x,z)`：$x$が$1$のときに$z$失う
-- `x_true_profit(x,z)`：$x$が$1$のときに$z$得る
-- `x_false_y_true_loss(x,y,z)`：$x$が$0$かつ$y$が$1$のときに$z$失う
-- `x_true_y_false_loss(x,y,z)`：$x$が$1$かつ$y$が$0$のときに$z$失う
-- `x_true_y_true_profit(x,y,z)`：$x$が$1$かつ$y$が$1$のときに$z$得る
-- `x_false_y_false_profit(x,y,z)`：$x$が$0$かつ$y$が$0$のときに$z$得る
+- `x_false_loss(x, z)`：$x$が$0$のときに$z$失う
+- `x_false_profit(x, z)`：$x$が$0$のときに$z$得る
+- `x_true_loss(x, z)`：$x$が$1$のときに$z$失う
+- `x_true_profit(x, z)`：$x$が$1$のときに$z$得る
+- `x_false_y_true_loss(x, y, z)`：$x$が$0$かつ$y$が$1$のときに$z$失う
+- `x_true_y_false_loss(x, y, z)`：$x$が$1$かつ$y$が$0$のときに$z$失う
+- `x_true_y_true_profit(x, y, z)`：$x$が$1$かつ$y$が$1$のときに$z$得る
+- `x_false_y_false_profit(x, y, z)`：$x$が$0$かつ$y$が$0$のときに$z$得る
 
 といった条件に対応している. 一般にこれ以外の条件に対応する際には$2$部グラフなどの制約が必要になる.
 

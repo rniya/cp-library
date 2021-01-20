@@ -7,10 +7,10 @@ data:
   - icon: ':x:'
     path: combinatorics/BellNumber.hpp
     title: "\u30D9\u30EB\u6570"
-  - icon: ':x:'
+  - icon: ':question:'
     path: combinatorics/combination.hpp
     title: combination
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
