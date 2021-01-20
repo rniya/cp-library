@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: geometry/geometry.hpp
     title: geometry
   _extendedRequiredBy: []
@@ -19,11 +19,8 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_B
   bundledCode: "#line 1 \"test/aoj/CGL_4_B.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_B\"\
     \n#define ERROR 0.000001\n\n#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing\
-    \ namespace std;\nconst long long MOD = 1000000007;\n// const long long MOD=998244353;\n\
-    const int INF = 1e9;\nconst long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1,\
-    \ 0}, dy[4] = {0, 1, 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\n#define\
-    \ LOCAL\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int\
-    \ uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
+    \ namespace std;\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned\
+    \ int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
     \ntemplate <typename T> istream& operator>>(istream& is, vector<T>& v) {\n   \
     \ for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
     \ os, const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n      \
@@ -266,7 +263,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_4_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 14:18:22+09:00'
+  timestamp: '2021-01-20 10:53:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_4_B.test.cpp

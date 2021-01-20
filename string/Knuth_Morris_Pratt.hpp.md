@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -13,9 +13,6 @@ data:
     document_title: "Knuth Moriss Pratt (KMP\u6CD5)"
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
-    const long long MOD = 1000000007;\n// const long long MOD=998244353;\nconst int\
-    \ INF = 1e9;\nconst long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4]\
-    \ = {0, 1, 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\n#define LOCAL\n\
     typedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\n\
     typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
     \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
@@ -96,7 +93,7 @@ data:
   isVerificationFile: false
   path: string/Knuth_Morris_Pratt.hpp
   requiredBy: []
-  timestamp: '2021-01-19 16:35:33+09:00'
+  timestamp: '2021-01-20 10:53:49+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: string/Knuth_Morris_Pratt.hpp

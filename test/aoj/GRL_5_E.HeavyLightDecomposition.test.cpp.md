@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: datastructure/LazySegmentTree.hpp
     title: Lazy Segment Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: tree/HeavyLightDecomposition.hpp
     title: Heavy Light Decomposition
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_E
@@ -21,63 +21,60 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_E
   bundledCode: "#line 1 \"test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp\"\n#define\
     \ PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_E\"\n\n#line 2 \"\
-    base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\nconst long long MOD\
-    \ = 1000000007;\n// const long long MOD=998244353;\nconst int INF = 1e9;\nconst\
-    \ long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};\n\
-    const char dir[4] = {'D', 'R', 'U', 'L'};\n#define LOCAL\ntypedef long long ll;\n\
-    typedef __int128_t i128;\ntypedef unsigned int uint;\ntypedef unsigned long long\
-    \ ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate <typename T> istream&\
-    \ operator>>(istream& is, vector<T>& v) {\n    for (T& x : v) is >> x;\n    return\
-    \ is;\n}\ntemplate <typename T> ostream& operator<<(ostream& os, const vector<T>&\
-    \ v) {\n    for (int i = 0; i < v.size(); i++) {\n        os << v[i] << (i + 1\
-    \ == v.size() ? \"\" : \" \");\n    }\n    return os;\n}\ntemplate <typename T,\
-    \ typename U> ostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os\
-    \ << '(' << p.first << ',' << p.second << ')';\n    return os;\n}\ntemplate <typename\
-    \ T, typename U, typename V> ostream& operator<<(ostream& os, const tuple<T, U,\
-    \ V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t) << ',' << get<2>(t)\
-    \ << ')';\n    return os;\n}\ntemplate <typename T, typename U, typename V, typename\
-    \ W> ostream& operator<<(ostream& os, const tuple<T, U, V, W>& t) {\n    os <<\
-    \ '(' << get<0>(t) << ',' << get<1>(t) << ',' << get<2>(t) << ',' << get<3>(t)\
-    \ << ')';\n    return os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream&\
-    \ os, const map<T, U>& m) {\n    os << '{';\n    for (auto itr = m.begin(); itr\
-    \ != m.end();) {\n        os << '(' << itr->first << ',' << itr->second << ')';\n\
-    \        if (++itr != m.end()) os << ',';\n    }\n    os << '}';\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const unordered_map<T,\
-    \ U>& m) {\n    os << '{';\n    for (auto itr = m.begin(); itr != m.end();) {\n\
-    \        os << '(' << itr->first << ',' << itr->second << ')';\n        if (++itr\
-    \ != m.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const set<T>& s) {\n    os << '{';\n   \
-    \ for (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n       \
-    \ if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\n\
-    template <typename T> ostream& operator<<(ostream& os, const multiset<T>& s) {\n\
-    \    os << '{';\n    for (auto itr = s.begin(); itr != s.end();) {\n        os\
-    \ << *itr;\n        if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n\
-    \    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream& os, const\
-    \ unordered_set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
+    base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long\
+    \ ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\ntypedef unsigned\
+    \ long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate <typename\
+    \ T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x : v) is >>\
+    \ x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream& os,\
+    \ const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n        os\
+    \ << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n}\ntemplate\
+    \ <typename T, typename U> ostream& operator<<(ostream& os, const pair<T, U>&\
+    \ p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
+    }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
+    \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
+    \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
+    \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
+    \ V, W>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t) << ',' << get<2>(t)\
+    \ << ',' << get<3>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
+    \ U> ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os << '{';\n\
+    \    for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
+    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
+    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
+    \ operator<<(ostream& os, const unordered_map<T, U>& m) {\n    os << '{';\n  \
+    \  for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
+    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
+    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
+    \ os, const set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
     \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
     \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const deque<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n       \
-    \ os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n}\n\
-    \nvoid debug_out() { cerr << '\\n'; }\ntemplate <class Head, class... Tail> void\
-    \ debug_out(Head&& head, Tail&&... tail) {\n    cerr << head;\n    if (sizeof...(Tail)\
-    \ > 0) cerr << \", \";\n    debug_out(move(tail)...);\n}\n#ifdef LOCAL\n#define\
-    \ debug(...)                                                                 \
-    \  \\\n    cerr << \" \";                                                    \
-    \                 \\\n    cerr << #__VA_ARGS__ << \" :[\" << __LINE__ << \":\"\
-    \ << __FUNCTION__ << \"]\" << '\\n'; \\\n    cerr << \" \";                  \
-    \                                                   \\\n    debug_out(__VA_ARGS__)\n\
-    #else\n#define debug(...) 42\n#endif\n\ntemplate <typename T> T gcd(T x, T y)\
-    \ { return y != 0 ? gcd(y, x % y) : x; }\ntemplate <typename T> T lcm(T x, T y)\
-    \ { return x / gcd(x, y) * y; }\n\ntemplate <class T1, class T2> inline bool chmin(T1&\
-    \ a, T2 b) {\n    if (a > b) {\n        a = b;\n        return true;\n    }\n\
-    \    return false;\n}\ntemplate <class T1, class T2> inline bool chmax(T1& a,\
-    \ T2 b) {\n    if (a < b) {\n        a = b;\n        return true;\n    }\n   \
-    \ return false;\n}\n#line 3 \"datastructure/LazySegmentTree.hpp\"\n\n/**\n * @brief\
-    \ Lazy Segment Tree\n * @docs docs/datastructure/LazySegmentTree.md\n */\ntemplate\
-    \ <typename Monoid, typename OperatorMonoid> struct LazySegmentTree {\n    typedef\
-    \ function<Monoid(Monoid, Monoid)> F;\n    typedef function<Monoid(Monoid, OperatorMonoid)>\
-    \ G;\n    typedef function<OperatorMonoid(OperatorMonoid, OperatorMonoid)> H;\n\
-    \    int n, hi;\n    F f;\n    G g;\n    H h;\n    Monoid id0;\n    OperatorMonoid\
+    \ os, const multiset<T>& s) {\n    os << '{';\n    for (auto itr = s.begin();\
+    \ itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os <<\
+    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
+    \ operator<<(ostream& os, const unordered_set<T>& s) {\n    os << '{';\n    for\
+    \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
+    \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
+    \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
+    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
+    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
+    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
+    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    }\n#ifdef LOCAL\n#define debug(...)                                          \
+    \                         \\\n    cerr << \" \";                             \
+    \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
+    \ << __LINE__ << \":\" << __FUNCTION__ << \"]\" << '\\n'; \\\n    cerr << \" \"\
+    ;                                                                     \\\n   \
+    \ debug_out(__VA_ARGS__)\n#else\n#define debug(...) 42\n#endif\n\ntemplate <typename\
+    \ T> T gcd(T x, T y) { return y != 0 ? gcd(y, x % y) : x; }\ntemplate <typename\
+    \ T> T lcm(T x, T y) { return x / gcd(x, y) * y; }\n\ntemplate <class T1, class\
+    \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
+    \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
+    \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"datastructure/LazySegmentTree.hpp\"\
+    \n\n/**\n * @brief Lazy Segment Tree\n * @docs docs/datastructure/LazySegmentTree.md\n\
+    \ */\ntemplate <typename Monoid, typename OperatorMonoid> struct LazySegmentTree\
+    \ {\n    typedef function<Monoid(Monoid, Monoid)> F;\n    typedef function<Monoid(Monoid,\
+    \ OperatorMonoid)> G;\n    typedef function<OperatorMonoid(OperatorMonoid, OperatorMonoid)>\
+    \ H;\n    int n, hi;\n    F f;\n    G g;\n    H h;\n    Monoid id0;\n    OperatorMonoid\
     \ id1;\n    vector<Monoid> dat;\n    vector<OperatorMonoid> laz;\n    LazySegmentTree(int\
     \ n_, F f, G g, H h, Monoid id0, OperatorMonoid id1) : f(f), g(g), h(h), id0(id0),\
     \ id1(id1) {\n        init(n_);\n    }\n    void init(int n_) {\n        n = 1,\
@@ -196,8 +193,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:22:36+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 10:53:49+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
 layout: document

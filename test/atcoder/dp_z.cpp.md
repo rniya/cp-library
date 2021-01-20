@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: datastructure/ConvexHullTrick.hpp
     title: Convex Hull Trick
   _extendedRequiredBy: []
@@ -16,10 +16,7 @@ data:
     - https://atcoder.jp/contests/dp/tasks/dp_z
   bundledCode: "#line 1 \"test/atcoder/dp_z.cpp\"\n#define IGNORE\n\n#define PROBLEM\
     \ \"https://atcoder.jp/contests/dp/tasks/dp_z\"\n\n#line 2 \"base.hpp\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\nconst long long MOD = 1000000007;\n//\
-    \ const long long MOD=998244353;\nconst int INF = 1e9;\nconst long long IINF =\
-    \ 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};\nconst char dir[4]\
-    \ = {'D', 'R', 'U', 'L'};\n#define LOCAL\ntypedef long long ll;\ntypedef __int128_t\
+    \ <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef __int128_t\
     \ i128;\ntypedef unsigned int uint;\ntypedef unsigned long long ull;\n#define\
     \ ALL(x) (x).begin(), (x).end()\n\ntemplate <typename T> istream& operator>>(istream&\
     \ is, vector<T>& v) {\n    for (T& x : v) is >> x;\n    return is;\n}\ntemplate\
@@ -118,7 +115,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/dp_z.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:53:48+09:00'
+  timestamp: '2021-01-20 10:53:49+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/dp_z.cpp

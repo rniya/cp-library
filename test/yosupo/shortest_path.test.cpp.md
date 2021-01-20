@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/Dijkstra.hpp
     title: Dijkstra
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/shortest_path
@@ -18,10 +18,7 @@ data:
     - https://judge.yosupo.jp/problem/shortest_path
   bundledCode: "#line 1 \"test/yosupo/shortest_path.test.cpp\"\n#define PROBLEM \"\
     https://judge.yosupo.jp/problem/shortest_path\"\n\n#line 2 \"base.hpp\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\nconst long long MOD = 1000000007;\n//\
-    \ const long long MOD=998244353;\nconst int INF = 1e9;\nconst long long IINF =\
-    \ 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};\nconst char dir[4]\
-    \ = {'D', 'R', 'U', 'L'};\n#define LOCAL\ntypedef long long ll;\ntypedef __int128_t\
+    \ <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef __int128_t\
     \ i128;\ntypedef unsigned int uint;\ntypedef unsigned long long ull;\n#define\
     \ ALL(x) (x).begin(), (x).end()\n\ntemplate <typename T> istream& operator>>(istream&\
     \ is, vector<T>& v) {\n    for (T& x : v) is >> x;\n    return is;\n}\ntemplate\
@@ -111,8 +108,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 15:36:15+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 10:53:49+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/shortest_path.test.cpp
 layout: document

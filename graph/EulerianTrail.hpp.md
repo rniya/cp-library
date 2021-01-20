@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -9,20 +9,17 @@ data:
     path: test/codeforces/1361_C.cpp
     title: test/codeforces/1361_C.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/583.test.cpp
     title: test/yukicoder/583.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/graph/EulerianTrail.md
     document_title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u30FB\u6E96\u30AA\u30A4\u30E9\u30FC\
       \u8DEF\u306E\u69CB\u7BC9"
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
-    const long long MOD = 1000000007;\n// const long long MOD=998244353;\nconst int\
-    \ INF = 1e9;\nconst long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4]\
-    \ = {0, 1, 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\n#define LOCAL\n\
     typedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\n\
     typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
     \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
@@ -154,8 +151,8 @@ data:
   path: graph/EulerianTrail.hpp
   requiredBy:
   - test/codeforces/1361_C.cpp
-  timestamp: '2021-01-19 15:36:15+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-20 10:53:49+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/583.test.cpp
 documentation_of: graph/EulerianTrail.hpp

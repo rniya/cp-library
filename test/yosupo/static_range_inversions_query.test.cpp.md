@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexed Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: other/Mo.hpp
     title: Mo's Algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: util/compress.hpp
     title: compress
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -24,12 +24,9 @@ data:
     - https://judge.yosupo.jp/problem/static_range_inversions_query
   bundledCode: "#line 1 \"test/yosupo/static_range_inversions_query.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\n\n\
-    #line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\nconst long\
-    \ long MOD = 1000000007;\n// const long long MOD=998244353;\nconst int INF = 1e9;\n\
-    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
-    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\n#define LOCAL\ntypedef long\
-    \ long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\ntypedef unsigned\
-    \ long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate <typename\
+    #line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef\
+    \ long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\ntypedef\
+    \ unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate <typename\
     \ T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x : v) is >>\
     \ x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream& os,\
     \ const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n        os\
@@ -148,8 +145,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 14:56:35+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-01-20 10:53:49+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp
 layout: document

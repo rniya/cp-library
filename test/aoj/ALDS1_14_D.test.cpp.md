@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: string/SuffixArray.hpp
     title: Suffix Array
   _extendedRequiredBy: []
@@ -17,18 +17,15 @@ data:
     links:
     - https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_D
   bundledCode: "#line 1 \"test/aoj/ALDS1_14_D.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_D\"\
-    \n\n#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\nconst\
-    \ long long MOD = 1000000007;\n// const long long MOD=998244353;\nconst int INF\
-    \ = 1e9;\nconst long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4]\
-    \ = {0, 1, 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\n#define LOCAL\n\
-    typedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\n\
-    typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
-    \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
-    \ : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n      \
-    \  os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const pair<T,\
-    \ U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
+    \n\n#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef\
+    \ long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\ntypedef\
+    \ unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate <typename\
+    \ T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x : v) is >>\
+    \ x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream& os,\
+    \ const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n        os\
+    \ << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n}\ntemplate\
+    \ <typename T, typename U> ostream& operator<<(ostream& os, const pair<T, U>&\
+    \ p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
     }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
     \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
     \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
@@ -112,7 +109,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1_14_D.test.cpp
   requiredBy: []
-  timestamp: '2021-01-19 16:17:32+09:00'
+  timestamp: '2021-01-20 10:53:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1_14_D.test.cpp

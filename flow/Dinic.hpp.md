@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -21,19 +21,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2903.test.cpp
     title: test/aoj/2903.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL_6_A.DInic.test.cpp
     title: test/aoj/GRL_6_A.DInic.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/flow/Dinic.md
     document_title: Dinic
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
-    const long long MOD = 1000000007;\n// const long long MOD=998244353;\nconst int\
-    \ INF = 1e9;\nconst long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4]\
-    \ = {0, 1, 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\n#define LOCAL\n\
     typedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\n\
     typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
     \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
@@ -176,8 +173,8 @@ data:
   - flow/ProjectSelectionProblem.hpp
   - test/codeforces/1404_E.cpp
   - test/atcoder/arc085_c.cpp
-  timestamp: '2021-01-19 14:11:46+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-01-20 10:53:49+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/2903.test.cpp
   - test/aoj/2313.test.cpp
