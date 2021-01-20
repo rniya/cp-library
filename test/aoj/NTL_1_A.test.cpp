@@ -3,15 +3,16 @@
 #include "../../base.hpp"
 #include "../../math/prime_factor.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int n; cin >> n;
+    int n;
+    cin >> n;
 
-    map<int,int> ans=prime_factor(n);
+    map<int, int> ans = prime_factor(n);
     cout << n << ':';
-    for (auto p:ans){
-        for (int i=0;i<p.second;++i){
+    for (auto p : ans) {
+        for (int i = 0; i < p.second; i++) {
             cout << ' ' << p.first;
         }
     }

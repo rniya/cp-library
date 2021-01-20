@@ -3,10 +3,11 @@
 #include "../../base.hpp"
 #include "../../math/euler_phi.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int n; cin >> n;
+    int n;
+    cin >> n;
 
     cout << euler_phi(n) << '\n';
 }

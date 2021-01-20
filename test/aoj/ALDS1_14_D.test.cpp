@@ -3,15 +3,18 @@
 #include "../../base.hpp"
 #include "../../string/SuffixArray.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    string T; int Q; cin >> T >> Q;
+    string T;
+    int Q;
+    cin >> T >> Q;
 
     SuffixArray SA(T);
 
-    for (;Q--;){
-        string P; cin >> P;
-        cout << (SA.count(P)>0) << '\n';
+    for (; Q--;) {
+        string P;
+        cin >> P;
+        cout << (SA.count(P) > 0) << '\n';
     }
 }

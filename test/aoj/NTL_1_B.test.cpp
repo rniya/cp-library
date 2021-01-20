@@ -3,10 +3,11 @@
 #include "../../base.hpp"
 #include "../../math/modpow.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    long long m,n; cin >> m >> n;
+    long long m, n;
+    cin >> m >> n;
 
-    cout << modpow(m,n,1000000007) << '\n';
+    cout << modpow(m, n, 1000000007) << '\n';
 }

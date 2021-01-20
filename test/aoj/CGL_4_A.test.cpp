@@ -3,13 +3,15 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
     cout << fixed << setprecision(0);
-    int n; cin >> n;
-    Polygon P(n); cin >> P;
-    auto res=convex_hull(P,true);
+    int n;
+    cin >> n;
+    Polygon P(n);
+    cin >> P;
+    auto res = convex_hull(P, true);
     cout << res.size() << '\n';
-    for (auto p:res) cout << p.x << ' ' << p.y << '\n';
+    for (auto p : res) cout << p.x << ' ' << p.y << '\n';
 }

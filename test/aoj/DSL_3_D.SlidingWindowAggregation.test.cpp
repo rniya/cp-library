@@ -3,19 +3,20 @@
 #include "../../base.hpp"
 #include "../../datastructure/SlidingWindowAggregation.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int N,L; cin >> N >> L;
+    int N, L;
+    cin >> N >> L;
     vector<int> a(N);
-    for (int i=0;i<N;++i) cin >> a[i];
+    for (int i = 0; i < N; i++) cin >> a[i];
 
-    SlidingWindowAggregation<int> SWAG([](int a,int b){return min(a,b);},INT_MAX);
+    SlidingWindowAggregation<int> SWAG([](int a, int b) { return min(a, b); }, INT_MAX);
 
-    for (int i=0;i<L-1;++i) SWAG.push(a[i]);
-    for (int i=L-1;i<N;++i){
+    for (int i = 0; i < L - 1; i++) SWAG.push(a[i]);
+    for (int i = L - 1; i < N; i++) {
         SWAG.push(a[i]);
-        cout << SWAG.fold() << (i+1==N?'\n':' ');
+        cout << SWAG.fold() << (i + 1 == N ? '\n' : ' ');
         SWAG.pop();
     }
 }

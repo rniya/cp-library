@@ -4,10 +4,11 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    Point p_1,p_2,p_3; cin >> p_1 >> p_2 >> p_3;
-    auto res=circumcenter(p_1,p_2,p_3);
+    Point p_1, p_2, p_3;
+    cin >> p_1 >> p_2 >> p_3;
+    auto res = circumcenter(p_1, p_2, p_3);
     cout << res << '\n';
 }

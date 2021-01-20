@@ -3,15 +3,17 @@
 #include "../../base.hpp"
 #include "../../tree/TreeDiameter.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int n; cin >> n;
+    int n;
+    cin >> n;
 
     TreeDiameter<int> TD(n);
-    for (int i=0;i<n-1;++i){
-        int s,t,w; cin >> s >> t >> w;
-        TD.add_edge(s,t,w);
+    for (int i = 0; i < n - 1; i++) {
+        int s, t, w;
+        cin >> s >> t >> w;
+        TD.add_edge(s, t, w);
     }
 
     cout << TD.build() << '\n';

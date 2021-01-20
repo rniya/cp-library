@@ -3,17 +3,19 @@
 #include "../../base.hpp"
 #include "../../flow/FordFulkerson.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int V,E; cin >> V >> E;
+    int V, E;
+    cin >> V >> E;
 
-    FordFulkerson<int,true> FF(V);
+    FordFulkerson<int, true> FF(V);
 
-    for (int i=0;i<E;++i){
-        int u,v,c; cin >> u >> v >> c;
-        FF.add_edge(u,v,c);
+    for (int i = 0; i < E; i++) {
+        int u, v, c;
+        cin >> u >> v >> c;
+        FF.add_edge(u, v, c);
     }
 
-    cout << FF.max_flow(0,V-1) << '\n';
+    cout << FF.max_flow(0, V - 1) << '\n';
 }

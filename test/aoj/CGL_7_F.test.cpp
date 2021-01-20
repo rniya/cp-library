@@ -4,10 +4,12 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    Point p; Circle c; cin >> p >> c;
-    auto res=tangent(c,p);
+    Point p;
+    Circle c;
+    cin >> p >> c;
+    auto res = tangent(c, p);
     cout << res.first << '\n' << res.second << '\n';
 }

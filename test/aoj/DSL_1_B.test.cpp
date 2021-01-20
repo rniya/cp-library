@@ -3,21 +3,25 @@
 #include "../../base.hpp"
 #include "../../datastructure/WeightedUnionFind.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int n,q; cin >> n >> q;
+    int n, q;
+    cin >> n >> q;
 
     WeightedUnionFind<int> UF(n);
 
-    for (;q--;){
-        int c,x,y,z; cin >> c >> x >> y;
-        if (!c){
+    for (; q--;) {
+        int c, x, y, z;
+        cin >> c >> x >> y;
+        if (!c) {
             cin >> z;
-            UF.merge(x,y,z);
+            UF.merge(x, y, z);
         } else {
-            if (UF.same(x,y)) cout << UF.diff(x,y) << '\n';
-            else cout << '?' << '\n';
+            if (UF.same(x, y))
+                cout << UF.diff(x, y) << '\n';
+            else
+                cout << '?' << '\n';
         }
     }
 }

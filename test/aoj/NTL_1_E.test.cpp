@@ -3,11 +3,12 @@
 #include "../../base.hpp"
 #include "../../math/extgcd.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int a,b,x,y; cin >> a >> b;
+    int a, b, x, y;
+    cin >> a >> b;
 
-    extgcd(a,b,x,y);
+    extgcd(a, b, x, y);
     cout << x << ' ' << y << '\n';
 }

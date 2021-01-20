@@ -3,23 +3,30 @@
 #include "../../base.hpp"
 #include "../../graph/BellmanFord.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int V,E,r; cin >> V >> E >> r;
+    int V, E, r;
+    cin >> V >> E >> r;
 
     BellmanFord<int> BF(V);
 
-    for (int i=0;i<E;++i){
-        int s,t,d; cin >> s >> t >> d;
-        BF.add_edge(s,t,d);
+    for (int i = 0; i < E; i++) {
+        int s, t, d;
+        cin >> s >> t >> d;
+        BF.add_edge(s, t, d);
     }
 
     int neg;
-    vector<int> ans=BF.build(r,neg);
-    if (neg){cout << "NEGATIVE CYCLE" << '\n'; return 0;}
-    for (int i=0;i<V;++i){
-        if (ans[i]>1e9) cout << "INF" << '\n';
-        else cout << ans[i] << '\n';
+    vector<int> ans = BF.build(r, neg);
+    if (neg) {
+        cout << "NEGATIVE CYCLE" << '\n';
+        return 0;
+    }
+    for (int i = 0; i < V; i++) {
+        if (ans[i] > 1e9)
+            cout << "INF" << '\n';
+        else
+            cout << ans[i] << '\n';
     }
 }

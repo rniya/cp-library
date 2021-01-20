@@ -4,10 +4,11 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    Circle c_1,c_2; cin >> c_1 >> c_2;
-    auto res=crosspoint(c_1,c_2);
+    Circle c_1, c_2;
+    cin >> c_1 >> c_2;
+    auto res = crosspoint(c_1, c_2);
     cout << res.first << ' ' << res.second << '\n';
 }

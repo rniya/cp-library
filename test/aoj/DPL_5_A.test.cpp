@@ -3,12 +3,13 @@
 #include "../../base.hpp"
 #include "../../modulo/modint.hpp"
 
-using mint=modint<1000000007>;
+using mint = modint<1000000007>;
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int n,k; cin >> n >> k;
+    int n, k;
+    cin >> n >> k;
 
     cout << mint(k).pow(n) << '\n';
 }

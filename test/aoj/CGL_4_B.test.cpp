@@ -4,11 +4,13 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
     cout << fixed << setprecision(10);
-    int n; cin >> n;
-    Polygon g(n); cin >> g;
+    int n;
+    cin >> n;
+    Polygon g(n);
+    cin >> g;
     cout << convex_diameter(g) << '\n';
 }

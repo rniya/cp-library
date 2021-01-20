@@ -4,12 +4,13 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    Circle c_1,c_2; cin >> c_1 >> c_2;
+    Circle c_1, c_2;
+    cin >> c_1 >> c_2;
     vector<Point> res;
-    for (auto l:common_tangent(c_1,c_2)) res.emplace_back(contain(c_1,l.a)?l.a:l.b);
-    sort(res.begin(),res.end());
-    for (auto p:res) cout << p << '\n';
+    for (auto l : common_tangent(c_1, c_2)) res.emplace_back(contain(c_1, l.a) ? l.a : l.b);
+    sort(res.begin(), res.end());
+    for (auto p : res) cout << p << '\n';
 }

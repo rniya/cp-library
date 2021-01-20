@@ -3,17 +3,19 @@
 #include "../../base.hpp"
 #include "../../flow/MinCostFlow.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int V,E,F; cin >> V >> E >> F;
+    int V, E, F;
+    cin >> V >> E >> F;
 
-    MinCostFlow<int,int> MCF(V);
+    MinCostFlow<int, int> MCF(V);
 
-    for (int i=0;i<E;++i){
-        int u,v,c,d; cin >> u >> v >> c >> d;
-        MCF.add_edge(u,v,c,d);
+    for (int i = 0; i < E; i++) {
+        int u, v, c, d;
+        cin >> u >> v >> c >> d;
+        MCF.add_edge(u, v, c, d);
     }
 
-    cout << MCF.min_cost_flow(0,V-1,F) << '\n';
+    cout << MCF.min_cost_flow(0, V - 1, F) << '\n';
 }

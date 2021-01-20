@@ -3,22 +3,26 @@
 #include "../../base.hpp"
 #include "../../datastructure/SegmentTreeBeats.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int n,q; cin >> n >> q;
+    int n, q;
+    cin >> n >> q;
 
     SegmentTreeBeats<int> seg(n);
-    vector<int> v(n,INT_MAX);
+    vector<int> v(n, INT_MAX);
     seg.build(v);
 
-    for (;q--;){
-        int c; cin >> c;
-        if (!c){
-            int s,t,x; cin >> s >> t >> x;
-            seg.update_val(s,t+1,x);
+    for (; q--;) {
+        int c;
+        cin >> c;
+        if (!c) {
+            int s, t, x;
+            cin >> s >> t >> x;
+            seg.update_val(s, t + 1, x);
         } else {
-            int i; cin >> i;
+            int i;
+            cin >> i;
             cout << seg[i] << '\n';
         }
     }

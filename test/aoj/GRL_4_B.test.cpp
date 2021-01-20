@@ -3,17 +3,19 @@
 #include "../../base.hpp"
 #include "../../graph/TopologicalSort.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int V,E; cin >> V >> E;
+    int V, E;
+    cin >> V >> E;
 
     TopologicalSort TS(V);
-    for (int i=0;i<E;++i){
-        int s,t; cin >> s >> t;
-        TS.add_edge(s,t);
+    for (int i = 0; i < E; i++) {
+        int s, t;
+        cin >> s >> t;
+        TS.add_edge(s, t);
     }
 
-    vector<int> ans=TS.build();
-    for (int v:ans) cout << v << '\n';
+    vector<int> ans = TS.build();
+    for (int v : ans) cout << v << '\n';
 }

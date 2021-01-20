@@ -4,34 +4,41 @@
 #include "../../datastructure/BinaryIndexedTree.hpp"
 #include "../../tree/EulerTourforEdge.hpp"
 
-int main(){
+int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    int n; cin >> n;
+    int n;
+    cin >> n;
 
     EulerTourforEdge ET(n);
-    for (int i=0;i<n;++i){
-        int k; cin >> k;
-        for (;k--;){
-            int c; cin >> c;
-            ET.add_edge(i,c);
+    for (int i = 0; i < n; i++) {
+        int k;
+        cin >> k;
+        for (; k--;) {
+            int c;
+            cin >> c;
+            ET.add_edge(i, c);
         }
     }
 
     ET.build();
-    BinaryIndexedTree<int> BIT(2*n);
-    auto f=[&](int l,int r){return BIT.query(l,r);};
-    auto g=[&](int k,int w){BIT.add(k,w);};
+    BinaryIndexedTree<int> BIT(2 * n);
+    auto f = [&](int l, int r) { return BIT.query(l, r); };
+    auto g = [&](int k, int w) { BIT.add(k, w); };
 
-    int q; cin >> q;
-    for (;q--;){
-        int t; cin >> t;
-        if (!t){
-            int v,w; cin >> v >> w;
-            ET.update(v,w,g);
+    int q;
+    cin >> q;
+    for (; q--;) {
+        int t;
+        cin >> t;
+        if (!t) {
+            int v, w;
+            cin >> v >> w;
+            ET.update(v, w, g);
         } else {
-            int u; cin >> u;
-            cout << ET.query<int>(u,f) << '\n';
+            int u;
+            cin >> u;
+            cout << ET.query<int>(u, f) << '\n';
         }
     }
 }
