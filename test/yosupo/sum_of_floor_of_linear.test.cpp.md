@@ -74,22 +74,22 @@ data:
     \    long long y_max = (a * n + b) / m, x_max = y_max * m - b;\n    if (y_max\
     \ == 0) return ans;\n    ans += (n - (x_max + a - 1) / a) * y_max;\n    ans +=\
     \ floor_sum(y_max, a, m, (a - x_max % a) % a);\n    return ans;\n}\n#line 5 \"\
-    test/yosupo/sum_of_floor_of_linear.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int T; cin >> T;\n\n    for (;T--;){\n\
-    \        int N,M,A,B; cin >> N >> M >> A >> B;\n        cout << floor_sum(N,M,A,B)\
-    \ << '\\n';\n    }\n}\n"
+    test/yosupo/sum_of_floor_of_linear.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int T;\n    cin >> T;\n\n    for (; T--;)\
+    \ {\n        int N, M, A, B;\n        cin >> N >> M >> A >> B;\n        cout <<\
+    \ floor_sum(N, M, A, B) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sum_of_floor_of_linear\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../math/floor_sum.hpp\"\n\nint\
-    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int T; cin >>\
-    \ T;\n\n    for (;T--;){\n        int N,M,A,B; cin >> N >> M >> A >> B;\n    \
-    \    cout << floor_sum(N,M,A,B) << '\\n';\n    }\n}"
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int T;\n  \
+    \  cin >> T;\n\n    for (; T--;) {\n        int N, M, A, B;\n        cin >> N\
+    \ >> M >> A >> B;\n        cout << floor_sum(N, M, A, B) << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - math/floor_sum.hpp
   isVerificationFile: true
   path: test/yosupo/sum_of_floor_of_linear.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/sum_of_floor_of_linear.test.cpp

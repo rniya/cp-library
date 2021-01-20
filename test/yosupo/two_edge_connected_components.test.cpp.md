@@ -91,27 +91,27 @@ data:
     \ {\n            int u = cmp[e.first], v = cmp[e.second];\n            T[u].emplace_back(v);\n\
     \            T[v].emplace_back(u);\n        }\n        return k;\n    }\n    int\
     \ operator[](int i) const { return cmp[i]; }\n};\n#line 5 \"test/yosupo/two_edge_connected_components.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,M;\
-    \ cin >> N >> M;\n\n    TwoEdgeConnectedComponents TECC(N);\n    for (int i=0;i<M;++i){\n\
-    \        int a,b; cin >> a >> b;\n        TECC.add_edge(a,b);\n    }\n\n    int\
-    \ K=TECC.build();\n    cout << K << '\\n';\n    for (int i=0;i<K;++i){\n     \
-    \   cout << TECC.C[i].size();\n        for (int v:TECC.C[i]) cout << ' ' << v;\n\
-    \        cout << '\\n';\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ M;\n    cin >> N >> M;\n\n    TwoEdgeConnectedComponents TECC(N);\n    for (int\
+    \ i = 0; i < M; i++) {\n        int a, b;\n        cin >> a >> b;\n        TECC.add_edge(a,\
+    \ b);\n    }\n\n    int K = TECC.build();\n    cout << K << '\\n';\n    for (int\
+    \ i = 0; i < K; i++) {\n        cout << TECC.C[i].size();\n        for (int v\
+    \ : TECC.C[i]) cout << ' ' << v;\n        cout << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/two_edge_connected_components\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/TwoEdgeConnectedComponents.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,M;\
-    \ cin >> N >> M;\n\n    TwoEdgeConnectedComponents TECC(N);\n    for (int i=0;i<M;++i){\n\
-    \        int a,b; cin >> a >> b;\n        TECC.add_edge(a,b);\n    }\n\n    int\
-    \ K=TECC.build();\n    cout << K << '\\n';\n    for (int i=0;i<K;++i){\n     \
-    \   cout << TECC.C[i].size();\n        for (int v:TECC.C[i]) cout << ' ' << v;\n\
-    \        cout << '\\n';\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ M;\n    cin >> N >> M;\n\n    TwoEdgeConnectedComponents TECC(N);\n    for (int\
+    \ i = 0; i < M; i++) {\n        int a, b;\n        cin >> a >> b;\n        TECC.add_edge(a,\
+    \ b);\n    }\n\n    int K = TECC.build();\n    cout << K << '\\n';\n    for (int\
+    \ i = 0; i < K; i++) {\n        cout << TECC.C[i].size();\n        for (int v\
+    \ : TECC.C[i]) cout << ' ' << v;\n        cout << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - graph/TwoEdgeConnectedComponents.hpp
   isVerificationFile: true
   path: test/yosupo/two_edge_connected_components.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/two_edge_connected_components.test.cpp

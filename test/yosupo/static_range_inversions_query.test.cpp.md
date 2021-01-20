@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexed Tree
   - icon: ':x:'
@@ -72,12 +72,8 @@ data:
     \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#line 3 \"util/compress.hpp\"\n\n\
-    /**\n * @brief compress\n */\ntemplate <typename T> map<T, int> compress(vector<T>\
-    \ v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(), v.end()),\
-    \ v.end());\n    map<T, int> res;\n    for (int i = 0; i < v.size(); i++) res[v[i]]\
-    \ = i;\n    return res;\n}\n#line 3 \"datastructure/BinaryIndexedTree.hpp\"\n\n\
-    /**\n * @brief Binary Indexed Tree\n * @docs docs/datastructure/BinaryIndexedTree.md\n\
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"datastructure/BinaryIndexedTree.hpp\"\
+    \n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/datastructure/BinaryIndexedTree.md\n\
     \ */\ntemplate <typename T> class BinaryIndexedTree {\n    T sum(int i) {\n  \
     \      T res = T();\n        for (; i > 0; i -= (i & -i)) res += dat[i];\n   \
     \     return res;\n    }\n\npublic:\n    int n;\n    vector<T> dat;\n    BinaryIndexedTree(int\
@@ -105,47 +101,55 @@ data:
     \ del_left(l++);\n            while (r > right[idx]) del_right(--r);\n       \
     \     rem(idx);\n        }\n    }\n    template <typename ADD, typename DEL, typename\
     \ REM> void build(const ADD& add, const DEL& del, const REM& rem) {\n        build(add,\
-    \ add, del, del, rem);\n    }\n};\n#line 7 \"test/yosupo/static_range_inversions_query.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q;\
-    \ cin >> N >> Q;\n    vector<int> A(N);\n    for (int i=0;i<N;++i) cin >> A[i];\n\
-    \n    Mo mo(N);\n    for (int i=0;i<Q;++i){\n        int l,r; cin >> l >> r;\n\
-    \        mo.insert(l,r);\n    }\n\n    map<int,int> mp=compress(A);\n    for (int\
-    \ i=0;i<N;++i) A[i]=mp[A[i]];\n    int n=mp.size();\n    BinaryIndexedTree<int>\
-    \ BIT(n);\n    vector<long long> ans(Q);\n    long long inv=0; int sum=0;\n  \
-    \  auto add_left=[&](int idx){\n        inv+=BIT.query(0,A[idx]);\n        ++sum;\
-    \ BIT.add(A[idx],1);\n    };\n    auto add_right=[&](int idx){\n        inv+=BIT.query(A[idx]+1,n);\n\
-    \        ++sum; BIT.add(A[idx],1);\n    };\n    auto del_left=[&](int idx){\n\
-    \        inv-=BIT.query(0,A[idx]);\n        --sum; BIT.add(A[idx],-1);\n    };\n\
-    \    auto del_right=[&](int idx){\n        inv-=BIT.query(A[idx]+1,n);\n     \
-    \   --sum; BIT.add(A[idx],-1);\n    };\n    auto rem=[&](int idx){\n        ans[idx]=inv;\n\
-    \    };\n\n    mo.build(add_left,add_right,del_left,del_right,rem);\n\n    for\
-    \ (int i=0;i<Q;++i) cout << ans[i] << '\\n';\n}\n"
+    \ add, del, del, rem);\n    }\n};\n#line 3 \"util/compress.hpp\"\n\n/**\n * @brief\
+    \ compress\n */\ntemplate <typename T> map<T, int> compress(vector<T> v) {\n \
+    \   sort(v.begin(), v.end());\n    v.erase(unique(v.begin(), v.end()), v.end());\n\
+    \    map<T, int> res;\n    for (int i = 0; i < v.size(); i++) res[v[i]] = i;\n\
+    \    return res;\n}\n#line 7 \"test/yosupo/static_range_inversions_query.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ Q;\n    cin >> N >> Q;\n    vector<int> A(N);\n    for (int i = 0; i < N; i++)\
+    \ cin >> A[i];\n\n    Mo mo(N);\n    for (int i = 0; i < Q; i++) {\n        int\
+    \ l, r;\n        cin >> l >> r;\n        mo.insert(l, r);\n    }\n\n    map<int,\
+    \ int> mp = compress(A);\n    for (int i = 0; i < N; i++) A[i] = mp[A[i]];\n \
+    \   int n = mp.size();\n    BinaryIndexedTree<int> BIT(n);\n    vector<long long>\
+    \ ans(Q);\n    long long inv = 0;\n    int sum = 0;\n    auto add_left = [&](int\
+    \ idx) {\n        inv += BIT.query(0, A[idx]);\n        sum++;\n        BIT.add(A[idx],\
+    \ 1);\n    };\n    auto add_right = [&](int idx) {\n        inv += BIT.query(A[idx]\
+    \ + 1, n);\n        sum++;\n        BIT.add(A[idx], 1);\n    };\n    auto del_left\
+    \ = [&](int idx) {\n        inv -= BIT.query(0, A[idx]);\n        sum--;\n   \
+    \     BIT.add(A[idx], -1);\n    };\n    auto del_right = [&](int idx) {\n    \
+    \    inv -= BIT.query(A[idx] + 1, n);\n        sum--;\n        BIT.add(A[idx],\
+    \ -1);\n    };\n    auto rem = [&](int idx) { ans[idx] = inv; };\n\n    mo.build(add_left,\
+    \ add_right, del_left, del_right, rem);\n\n    for (int i = 0; i < Q; i++) cout\
+    \ << ans[i] << '\\n';\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../util/compress.hpp\"\n#include\
-    \ \"../../datastructure/BinaryIndexedTree.hpp\"\n#include \"../../other/Mo.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q;\
-    \ cin >> N >> Q;\n    vector<int> A(N);\n    for (int i=0;i<N;++i) cin >> A[i];\n\
-    \n    Mo mo(N);\n    for (int i=0;i<Q;++i){\n        int l,r; cin >> l >> r;\n\
-    \        mo.insert(l,r);\n    }\n\n    map<int,int> mp=compress(A);\n    for (int\
-    \ i=0;i<N;++i) A[i]=mp[A[i]];\n    int n=mp.size();\n    BinaryIndexedTree<int>\
-    \ BIT(n);\n    vector<long long> ans(Q);\n    long long inv=0; int sum=0;\n  \
-    \  auto add_left=[&](int idx){\n        inv+=BIT.query(0,A[idx]);\n        ++sum;\
-    \ BIT.add(A[idx],1);\n    };\n    auto add_right=[&](int idx){\n        inv+=BIT.query(A[idx]+1,n);\n\
-    \        ++sum; BIT.add(A[idx],1);\n    };\n    auto del_left=[&](int idx){\n\
-    \        inv-=BIT.query(0,A[idx]);\n        --sum; BIT.add(A[idx],-1);\n    };\n\
-    \    auto del_right=[&](int idx){\n        inv-=BIT.query(A[idx]+1,n);\n     \
-    \   --sum; BIT.add(A[idx],-1);\n    };\n    auto rem=[&](int idx){\n        ans[idx]=inv;\n\
-    \    };\n\n    mo.build(add_left,add_right,del_left,del_right,rem);\n\n    for\
-    \ (int i=0;i<Q;++i) cout << ans[i] << '\\n';\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/BinaryIndexedTree.hpp\"\
+    \n#include \"../../other/Mo.hpp\"\n#include \"../../util/compress.hpp\"\n\nint\
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n\
+    \    cin >> N >> Q;\n    vector<int> A(N);\n    for (int i = 0; i < N; i++) cin\
+    \ >> A[i];\n\n    Mo mo(N);\n    for (int i = 0; i < Q; i++) {\n        int l,\
+    \ r;\n        cin >> l >> r;\n        mo.insert(l, r);\n    }\n\n    map<int,\
+    \ int> mp = compress(A);\n    for (int i = 0; i < N; i++) A[i] = mp[A[i]];\n \
+    \   int n = mp.size();\n    BinaryIndexedTree<int> BIT(n);\n    vector<long long>\
+    \ ans(Q);\n    long long inv = 0;\n    int sum = 0;\n    auto add_left = [&](int\
+    \ idx) {\n        inv += BIT.query(0, A[idx]);\n        sum++;\n        BIT.add(A[idx],\
+    \ 1);\n    };\n    auto add_right = [&](int idx) {\n        inv += BIT.query(A[idx]\
+    \ + 1, n);\n        sum++;\n        BIT.add(A[idx], 1);\n    };\n    auto del_left\
+    \ = [&](int idx) {\n        inv -= BIT.query(0, A[idx]);\n        sum--;\n   \
+    \     BIT.add(A[idx], -1);\n    };\n    auto del_right = [&](int idx) {\n    \
+    \    inv -= BIT.query(A[idx] + 1, n);\n        sum--;\n        BIT.add(A[idx],\
+    \ -1);\n    };\n    auto rem = [&](int idx) { ans[idx] = inv; };\n\n    mo.build(add_left,\
+    \ add_right, del_left, del_right, rem);\n\n    for (int i = 0; i < Q; i++) cout\
+    \ << ans[i] << '\\n';\n}"
   dependsOn:
   - base.hpp
-  - util/compress.hpp
   - datastructure/BinaryIndexedTree.hpp
   - other/Mo.hpp
+  - util/compress.hpp
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp

@@ -64,22 +64,23 @@ data:
     \    return false;\n}\ntemplate <class T1, class T2> inline bool chmax(T1& a,\
     \ T2 b) {\n    if (a < b) {\n        a = b;\n        return true;\n    }\n   \
     \ return false;\n}\n#line 4 \"test/yosupo/associative_array.test.cpp\"\n\nint\
-    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int Q; cin >>\
-    \ Q;\n\n    map<long long,long long> a;\n    for (;Q--;){\n        int t; long\
-    \ long k; cin >> t >> k;\n        if (!t){\n            long long v; cin >> v;\n\
-    \            a[k]=v;\n        } else cout << a[k] << '\\n';\n    }\n}\n"
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int Q;\n  \
+    \  cin >> Q;\n\n    map<long long, long long> a;\n    for (; Q--;) {\n       \
+    \ int t;\n        long long k;\n        cin >> t >> k;\n        if (!t) {\n  \
+    \          long long v;\n            cin >> v;\n            a[k] = v;\n      \
+    \  } else\n            cout << a[k] << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/associative_array\"\n\n\
-    #include \"../../base.hpp\"\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int Q; cin >> Q;\n\n    map<long long,long long> a;\n    for (;Q--;){\n \
-    \       int t; long long k; cin >> t >> k;\n        if (!t){\n            long\
-    \ long v; cin >> v;\n            a[k]=v;\n        } else cout << a[k] << '\\n';\n\
-    \    }\n}"
+    #include \"../../base.hpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int Q;\n    cin >> Q;\n\n    map<long long, long long> a;\n    for (; Q--;)\
+    \ {\n        int t;\n        long long k;\n        cin >> t >> k;\n        if\
+    \ (!t) {\n            long long v;\n            cin >> v;\n            a[k] =\
+    \ v;\n        } else\n            cout << a[k] << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: true
   path: test/yosupo/associative_array.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/associative_array.test.cpp

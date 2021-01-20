@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexed Tree
   - icon: ':question:'
@@ -69,7 +69,20 @@ data:
     \ a, T2 b) {\n    if (a > b) {\n        a = b;\n        return true;\n    }\n\
     \    return false;\n}\ntemplate <class T1, class T2> inline bool chmax(T1& a,\
     \ T2 b) {\n    if (a < b) {\n        a = b;\n        return true;\n    }\n   \
-    \ return false;\n}\n#line 3 \"tree/HeavyLightDecomposition.hpp\"\n\n/**\n * @brief\
+    \ return false;\n}\n#line 3 \"datastructure/BinaryIndexedTree.hpp\"\n\n/**\n *\
+    \ @brief Binary Indexed Tree\n * @docs docs/datastructure/BinaryIndexedTree.md\n\
+    \ */\ntemplate <typename T> class BinaryIndexedTree {\n    T sum(int i) {\n  \
+    \      T res = T();\n        for (; i > 0; i -= (i & -i)) res += dat[i];\n   \
+    \     return res;\n    }\n\npublic:\n    int n;\n    vector<T> dat;\n    BinaryIndexedTree(int\
+    \ n_) : n(n_ + 1), dat(n + 1, 0) {}\n    void add(int i, const T& x) {\n     \
+    \   for (++i; i <= n; i += (i & -i)) dat[i] += x;\n    }\n    T query(int l, int\
+    \ r) { return sum(r) - sum(l); }\n    int lower_bound(T x) const {\n        if\
+    \ (x <= 0) return 0;\n        int pos = 0, k = 1;\n        while (k < n) k <<=\
+    \ 1;\n        for (; k > 0; k >>= 1) {\n            if (pos + k <= n && dat[pos\
+    \ + k] < x) {\n                x -= dat[pos + k];\n                pos += k;\n\
+    \            }\n        }\n        return pos;\n    }\n    int upper_bound(T x)\
+    \ const { return lower_bound(x + 1); }\n    T operator[](int i) { return query(i,\
+    \ i + 1); }\n};\n#line 3 \"tree/HeavyLightDecomposition.hpp\"\n\n/**\n * @brief\
     \ Heavy Light Decomposition\n * @docsdocs/tree/HeavyLightDecomposition.md\n */\n\
     class HeavyLightDecomposition {\n    void dfs_sz(int v) {\n        if (G[v].size()\
     \ && G[v][0] == par[v]) swap(G[v][0], G[v].back());\n        for (int& u : G[v])\
@@ -102,49 +115,37 @@ data:
     \      l = f(l, q(vid[head[v]], vid[v] + 1));\n        }\n        return f(r,\
     \ f(l, q(vid[u] + edge, vid[v] + 1)));\n    }\n    template <typename T, typename\
     \ Q> T query_sub(int u, const Q& q, bool edge = false) {\n        return q(vid[u]\
-    \ + edge, vid[u] + sub[u]);\n    }\n};\n#line 3 \"datastructure/BinaryIndexedTree.hpp\"\
-    \n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/datastructure/BinaryIndexedTree.md\n\
-    \ */\ntemplate <typename T> class BinaryIndexedTree {\n    T sum(int i) {\n  \
-    \      T res = T();\n        for (; i > 0; i -= (i & -i)) res += dat[i];\n   \
-    \     return res;\n    }\n\npublic:\n    int n;\n    vector<T> dat;\n    BinaryIndexedTree(int\
-    \ n_) : n(n_ + 1), dat(n + 1, 0) {}\n    void add(int i, const T& x) {\n     \
-    \   for (++i; i <= n; i += (i & -i)) dat[i] += x;\n    }\n    T query(int l, int\
-    \ r) { return sum(r) - sum(l); }\n    int lower_bound(T x) const {\n        if\
-    \ (x <= 0) return 0;\n        int pos = 0, k = 1;\n        while (k < n) k <<=\
-    \ 1;\n        for (; k > 0; k >>= 1) {\n            if (pos + k <= n && dat[pos\
-    \ + k] < x) {\n                x -= dat[pos + k];\n                pos += k;\n\
-    \            }\n        }\n        return pos;\n    }\n    int upper_bound(T x)\
-    \ const { return lower_bound(x + 1); }\n    T operator[](int i) { return query(i,\
-    \ i + 1); }\n};\n#line 6 \"test/yosupo/vertex_add_subtree_sum.test.cpp\"\n\nint\
-    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q; cin\
-    \ >> N >> Q;\n    vector<int> a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\n\
-    \    HeavyLightDecomposition HLD(N);\n    for (int i=1;i<N;++i){\n        int\
-    \ p; cin >> p;\n        HLD.add_edge(p,i);\n    }\n    HLD.build();\n\n    BinaryIndexedTree<long\
-    \ long> BIT(N);\n    for (int i=0;i<N;++i) BIT.add(HLD.idx(i),a[i]);\n\n    for\
-    \ (;Q--;){\n        int t,u; cin >> t >> u;\n        if (!t){\n            int\
-    \ x; cin >> x;\n            BIT.add(HLD.idx(u),x);\n        } else {\n       \
-    \     cout << HLD.query_sub<long long>(u,[&](int l,int r){return BIT.query(l,r);})\
-    \ << '\\n';\n        }\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../tree/HeavyLightDecomposition.hpp\"\
-    \n#include \"../../datastructure/BinaryIndexedTree.hpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N,Q; cin >> N >> Q;\n    vector<int>\
-    \ a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\n    HeavyLightDecomposition\
-    \ HLD(N);\n    for (int i=1;i<N;++i){\n        int p; cin >> p;\n        HLD.add_edge(p,i);\n\
+    \ + edge, vid[u] + sub[u]);\n    }\n};\n#line 6 \"test/yosupo/vertex_add_subtree_sum.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ Q;\n    cin >> N >> Q;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
+    \ cin >> a[i];\n\n    HeavyLightDecomposition HLD(N);\n    for (int i = 1; i <\
+    \ N; i++) {\n        int p;\n        cin >> p;\n        HLD.add_edge(p, i);\n\
     \    }\n    HLD.build();\n\n    BinaryIndexedTree<long long> BIT(N);\n    for\
-    \ (int i=0;i<N;++i) BIT.add(HLD.idx(i),a[i]);\n\n    for (;Q--;){\n        int\
-    \ t,u; cin >> t >> u;\n        if (!t){\n            int x; cin >> x;\n      \
-    \      BIT.add(HLD.idx(u),x);\n        } else {\n            cout << HLD.query_sub<long\
-    \ long>(u,[&](int l,int r){return BIT.query(l,r);}) << '\\n';\n        }\n   \
-    \ }\n}"
+    \ (int i = 0; i < N; i++) BIT.add(HLD.idx(i), a[i]);\n\n    for (; Q--;) {\n \
+    \       int t, u;\n        cin >> t >> u;\n        if (!t) {\n            int\
+    \ x;\n            cin >> x;\n            BIT.add(HLD.idx(u), x);\n        } else\
+    \ {\n            cout << HLD.query_sub<long long>(u, [&](int l, int r) { return\
+    \ BIT.query(l, r); }) << '\\n';\n        }\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\
+    \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/BinaryIndexedTree.hpp\"\
+    \n#include \"../../tree/HeavyLightDecomposition.hpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N, Q;\n    cin >> N >> Q;\n    vector<int>\
+    \ a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\n    HeavyLightDecomposition\
+    \ HLD(N);\n    for (int i = 1; i < N; i++) {\n        int p;\n        cin >> p;\n\
+    \        HLD.add_edge(p, i);\n    }\n    HLD.build();\n\n    BinaryIndexedTree<long\
+    \ long> BIT(N);\n    for (int i = 0; i < N; i++) BIT.add(HLD.idx(i), a[i]);\n\n\
+    \    for (; Q--;) {\n        int t, u;\n        cin >> t >> u;\n        if (!t)\
+    \ {\n            int x;\n            cin >> x;\n            BIT.add(HLD.idx(u),\
+    \ x);\n        } else {\n            cout << HLD.query_sub<long long>(u, [&](int\
+    \ l, int r) { return BIT.query(l, r); }) << '\\n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
-  - tree/HeavyLightDecomposition.hpp
   - datastructure/BinaryIndexedTree.hpp
+  - tree/HeavyLightDecomposition.hpp
   isVerificationFile: true
   path: test/yosupo/vertex_add_subtree_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/vertex_add_subtree_sum.test.cpp

@@ -85,27 +85,29 @@ data:
     \ farthest() {\n        int t = endPoints().second;\n        auto ds = dp;\n \
     \       auto dt = distance(t);\n        for (int i = 0; i < ds.size(); i++) ds[i]\
     \ = max(ds[i], dt[i]);\n        return ds;\n    }\n};\n#line 5 \"test/yosupo/tree_diameter.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\
-    \ cin >> N;\n\n    TreeDiameter<long long> TD(N);\n    for (int i=0;i<N-1;++i){\n\
-    \        int a,b; long long c; cin >> a >> b >> c;\n        TD.add_edge(a,b,c);\n\
-    \    }\n\n    long long X=TD.build();\n    vector<int> ans=TD.restore();\n   \
-    \ int Y=ans.size();\n    cout << X << ' ' << Y << '\\n';\n    for (int i=0;i<Y;++i)\
-    \ cout << ans[i] << (i+1==Y?'\\n':' ');\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\n\
+    \    cin >> N;\n\n    TreeDiameter<long long> TD(N);\n    for (int i = 0; i <\
+    \ N - 1; i++) {\n        int a, b;\n        long long c;\n        cin >> a >>\
+    \ b >> c;\n        TD.add_edge(a, b, c);\n    }\n\n    long long X = TD.build();\n\
+    \    vector<int> ans = TD.restore();\n    int Y = ans.size();\n    cout << X <<\
+    \ ' ' << Y << '\\n';\n    for (int i = 0; i < Y; i++) cout << ans[i] << (i + 1\
+    \ == Y ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n\n#include\
-    \ \"../../base.hpp\"\n#include \"../../tree/TreeDiameter.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N; cin >> N;\n\n \
-    \   TreeDiameter<long long> TD(N);\n    for (int i=0;i<N-1;++i){\n        int\
-    \ a,b; long long c; cin >> a >> b >> c;\n        TD.add_edge(a,b,c);\n    }\n\n\
-    \    long long X=TD.build();\n    vector<int> ans=TD.restore();\n    int Y=ans.size();\n\
-    \    cout << X << ' ' << Y << '\\n';\n    for (int i=0;i<Y;++i) cout << ans[i]\
-    \ << (i+1==Y?'\\n':' ');\n}"
+    \ \"../../base.hpp\"\n#include \"../../tree/TreeDiameter.hpp\"\n\nint main() {\n\
+    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\n    cin >> N;\n\
+    \n    TreeDiameter<long long> TD(N);\n    for (int i = 0; i < N - 1; i++) {\n\
+    \        int a, b;\n        long long c;\n        cin >> a >> b >> c;\n      \
+    \  TD.add_edge(a, b, c);\n    }\n\n    long long X = TD.build();\n    vector<int>\
+    \ ans = TD.restore();\n    int Y = ans.size();\n    cout << X << ' ' << Y << '\\\
+    n';\n    for (int i = 0; i < Y; i++) cout << ans[i] << (i + 1 == Y ? '\\n' : '\
+    \ ');\n}"
   dependsOn:
   - base.hpp
   - tree/TreeDiameter.hpp
   isVerificationFile: true
   path: test/yosupo/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/tree_diameter.test.cpp

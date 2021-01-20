@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   - icon: ':x:'
@@ -232,33 +232,34 @@ data:
     \ res;\n    }\n    M operator()(const M& x) const {\n        M res = 0, power\
     \ = 1;\n        for (int i = 0; i < this->size(); i++, power *= x) {\n       \
     \     res += (*this)[i] * power;\n        }\n        return res;\n    }\n};\n\
-    #line 7 \"test/yosupo/pow_of_formal_power_series.test.cpp\"\n\nusing mint=modint<998244353>;\n\
-    using FPS=FormalPowerSeries<mint>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    NumberTheoreticTransform<998244353> NTT;\n    auto mul=[&](const FPS::Poly\
-    \ &a,const FPS::Poly &b){\n        auto res=NTT.multiply(a,b);\n        return\
-    \ FPS::Poly(res.begin(),res.end());\n    };\n    FPS::set_mul(mul);\n\n    int\
-    \ N,M; cin >> N >> M;\n    FPS a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\
-    \    FPS b=a.pow(M);\n    for (int i=0;i<N;++i) cout << b[i] << (i+1==N?'\\n':'\
-    \ ');\n}\n"
+    #line 7 \"test/yosupo/pow_of_formal_power_series.test.cpp\"\n\nusing mint = modint<998244353>;\n\
+    using FPS = FormalPowerSeries<mint>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    NumberTheoreticTransform<998244353> NTT;\n    auto mul = [&](const FPS::Poly&\
+    \ a, const FPS::Poly& b) {\n        auto res = NTT.multiply(a, b);\n        return\
+    \ FPS::Poly(res.begin(), res.end());\n    };\n    FPS::set_mul(mul);\n\n    int\
+    \ N, M;\n    cin >> N >> M;\n    FPS a(N);\n    for (int i = 0; i < N; i++) cin\
+    \ >> a[i];\n    FPS b = a.pow(M);\n    for (int i = 0; i < N; i++) cout << b[i]\
+    \ << (i + 1 == N ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include\
-    \ \"../../convolution/NumberTheoreticTransform.hpp\"\n#include \"../../polynomial/FormalPowerSeries.hpp\"\
-    \n\nusing mint=modint<998244353>;\nusing FPS=FormalPowerSeries<mint>;\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    NumberTheoreticTransform<998244353>\
-    \ NTT;\n    auto mul=[&](const FPS::Poly &a,const FPS::Poly &b){\n        auto\
-    \ res=NTT.multiply(a,b);\n        return FPS::Poly(res.begin(),res.end());\n \
-    \   };\n    FPS::set_mul(mul);\n\n    int N,M; cin >> N >> M;\n    FPS a(N);\n\
-    \    for (int i=0;i<N;++i) cin >> a[i];\n    FPS b=a.pow(M);\n    for (int i=0;i<N;++i)\
-    \ cout << b[i] << (i+1==N?'\\n':' ');\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../convolution/NumberTheoreticTransform.hpp\"\
+    \n#include \"../../modulo/modint.hpp\"\n#include \"../../polynomial/FormalPowerSeries.hpp\"\
+    \n\nusing mint = modint<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    NumberTheoreticTransform<998244353>\
+    \ NTT;\n    auto mul = [&](const FPS::Poly& a, const FPS::Poly& b) {\n       \
+    \ auto res = NTT.multiply(a, b);\n        return FPS::Poly(res.begin(), res.end());\n\
+    \    };\n    FPS::set_mul(mul);\n\n    int N, M;\n    cin >> N >> M;\n    FPS\
+    \ a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n    FPS b = a.pow(M);\n\
+    \    for (int i = 0; i < N; i++) cout << b[i] << (i + 1 == N ? '\\n' : ' ');\n\
+    }"
   dependsOn:
   - base.hpp
-  - modulo/modint.hpp
   - convolution/NumberTheoreticTransform.hpp
+  - modulo/modint.hpp
   - polynomial/FormalPowerSeries.hpp
   isVerificationFile: true
   path: test/yosupo/pow_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/pow_of_formal_power_series.test.cpp

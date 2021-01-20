@@ -96,28 +96,28 @@ data:
     \ count(T val) const {\n        if (!root) return 0;\n        Node* node = root;\n\
     \        for (int i = MAX_LOG - 1; i >= 0; i--) {\n            node = node->ch[(val\
     \ >> (T)i) & (T)1];\n            if (!node) return 0;\n        }\n        return\
-    \ node->cnt;\n    }\n};\n#line 5 \"test/yosupo/set_xor_min.test.cpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int Q; cin >> Q;\n\n \
-    \   BinaryTrie<int,30> BT;\n\n    for (;Q--;){\n        int t,x; cin >> t >> x;\n\
-    \        if (t==0){\n            if (BT.count(x)) continue;\n            BT.insert(x);\n\
-    \        } else if (t==1){\n            if (!BT.count(x)) continue;\n        \
-    \    BT.erase(x);\n        } else cout << (BT.min_element(x)^x) << '\\n';\n  \
-    \  }\n}\n"
+    \ node->cnt;\n    }\n};\n#line 5 \"test/yosupo/set_xor_min.test.cpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int Q;\n    cin >>\
+    \ Q;\n\n    BinaryTrie<int, 30> BT;\n\n    for (; Q--;) {\n        int t, x;\n\
+    \        cin >> t >> x;\n        if (t == 0) {\n            if (BT.count(x)) continue;\n\
+    \            BT.insert(x);\n        } else if (t == 1) {\n            if (!BT.count(x))\
+    \ continue;\n            BT.erase(x);\n        } else\n            cout << (BT.min_element(x)\
+    \ ^ x) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/set_xor_min\"\n\n#include\
-    \ \"../../base.hpp\"\n#include \"../../datastructure/BinaryTrie.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int Q; cin >> Q;\n\n \
-    \   BinaryTrie<int,30> BT;\n\n    for (;Q--;){\n        int t,x; cin >> t >> x;\n\
-    \        if (t==0){\n            if (BT.count(x)) continue;\n            BT.insert(x);\n\
-    \        } else if (t==1){\n            if (!BT.count(x)) continue;\n        \
-    \    BT.erase(x);\n        } else cout << (BT.min_element(x)^x) << '\\n';\n  \
-    \  }\n}"
+    \ \"../../base.hpp\"\n#include \"../../datastructure/BinaryTrie.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int Q;\n    cin >>\
+    \ Q;\n\n    BinaryTrie<int, 30> BT;\n\n    for (; Q--;) {\n        int t, x;\n\
+    \        cin >> t >> x;\n        if (t == 0) {\n            if (BT.count(x)) continue;\n\
+    \            BT.insert(x);\n        } else if (t == 1) {\n            if (!BT.count(x))\
+    \ continue;\n            BT.erase(x);\n        } else\n            cout << (BT.min_element(x)\
+    \ ^ x) << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/BinaryTrie.hpp
   isVerificationFile: true
   path: test/yosupo/set_xor_min.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/set_xor_min.test.cpp

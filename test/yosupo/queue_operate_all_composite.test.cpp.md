@@ -4,10 +4,10 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -69,46 +69,7 @@ data:
     \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#line 3 \"modulo/modint.hpp\"\n\n\
-    /**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
-    \ mod> class modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n \
-    \   using u64 = uint64_t;\n\npublic:\n    u32 v;\n    constexpr modint(const i64\
-    \ x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr\
-    \ u32& value() noexcept { return v; }\n    constexpr const u32& value() const\
-    \ noexcept { return v; }\n    constexpr modint operator+(const modint& rhs) const\
-    \ noexcept { return modint(*this) += rhs; }\n    constexpr modint operator-(const\
-    \ modint& rhs) const noexcept { return modint(*this) -= rhs; }\n    constexpr\
-    \ modint operator*(const modint& rhs) const noexcept { return modint(*this) *=\
-    \ rhs; }\n    constexpr modint operator/(const modint& rhs) const noexcept { return\
-    \ modint(*this) /= rhs; }\n    constexpr modint& operator+=(const modint& rhs)\
-    \ noexcept {\n        v += rhs.v;\n        if (v >= mod) v -= mod;\n        return\
-    \ *this;\n    }\n    constexpr modint& operator-=(const modint& rhs) noexcept\
-    \ {\n        if (v < rhs.v) v += mod;\n        v -= rhs.v;\n        return *this;\n\
-    \    }\n    constexpr modint& operator*=(const modint& rhs) noexcept {\n     \
-    \   v = (u64)v * rhs.v % mod;\n        return *this;\n    }\n    constexpr modint&\
-    \ operator/=(const modint& rhs) noexcept { return *this *= rhs.pow(mod - 2); }\n\
-    \    constexpr modint pow(u64 exp) const noexcept {\n        modint self(*this),\
-    \ res(1);\n        while (exp > 0) {\n            if (exp & 1) res *= self;\n\
-    \            self *= self;\n            exp >>= 1;\n        }\n        return\
-    \ res;\n    }\n    constexpr modint& operator++() noexcept {\n        if (++v\
-    \ == mod) v = 0;\n        return *this;\n    }\n    constexpr modint& operator--()\
-    \ noexcept {\n        if (v == 0) v = mod;\n        return --v, *this;\n    }\n\
-    \    constexpr modint operator++(int) noexcept {\n        modint t = *this;\n\
-    \        return ++*this, t;\n    }\n    constexpr modint operator--(int) noexcept\
-    \ {\n        modint t = *this;\n        return --*this, t;\n    }\n    constexpr\
-    \ modint operator-() const noexcept { return modint(mod - v); }\n    template\
-    \ <class T> friend constexpr modint operator+(T x, modint y) noexcept { return\
-    \ modint(x) + y; }\n    template <class T> friend constexpr modint operator-(T\
-    \ x, modint y) noexcept { return modint(x) - y; }\n    template <class T> friend\
-    \ constexpr modint operator*(T x, modint y) noexcept { return modint(x) * y; }\n\
-    \    template <class T> friend constexpr modint operator/(T x, modint y) noexcept\
-    \ { return modint(x) / y; }\n    constexpr bool operator==(const modint& rhs)\
-    \ const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const modint&\
-    \ rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!() const\
-    \ noexcept { return !v; }\n    friend istream& operator>>(istream& s, modint&\
-    \ rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n      \
-    \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
-    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 3 \"datastructure/SlidingWindowAggregation.hpp\"\
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"datastructure/SlidingWindowAggregation.hpp\"\
     \n\n/**\n * @brief Sliding Window Aggregation (SWAG)\n * @docs docs/datastructure/SlidingWindowAggregation.md\n\
     \ */\ntemplate <typename Monoid> struct SlidingWindowAggregation {\n    typedef\
     \ function<Monoid(Monoid, Monoid)> F;\n    stack<pair<Monoid, Monoid>> front_stack,\
@@ -121,35 +82,75 @@ data:
     \ calc = f(t, front_stack.top().second);\n                front_stack.emplace(t,\
     \ calc);\n                back_stack.pop();\n            }\n        }\n      \
     \  front_stack.pop();\n    }\n    Monoid fold() { return f(front_stack.top().second,\
-    \ back_stack.top().second); }\n};\n#line 6 \"test/yosupo/queue_operate_all_composite.test.cpp\"\
-    \n\nusing mint=modint<998244353>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    struct node{\n        mint a,b;\n        node(mint a,mint b):a(a),b(b){}\n\
-    \    };\n    auto f=[](node a,node b){return node(a.a*b.a,a.b*b.a+b.b);};\n  \
-    \  SlidingWindowAggregation<node> SWAG(f,node(1,0));\n\n    int Q; cin >> Q;\n\
-    \    for (;Q--;){\n        int t; cin >> t;\n        if (t==0){\n            int\
-    \ a,b; cin >> a >> b;\n            SWAG.push(node(a,b));\n        } else if (t==1){\n\
-    \            SWAG.pop();\n        } else {\n            int x; cin >> x;\n   \
-    \         node ans=SWAG.fold();\n            cout << ans.a*x+ans.b << '\\n';\n\
-    \        }\n    }\n}\n"
+    \ back_stack.top().second); }\n};\n#line 3 \"modulo/modint.hpp\"\n\n/**\n * @brief\
+    \ modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t mod> class modint\
+    \ {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\
+    \npublic:\n    u32 v;\n    constexpr modint(const i64 x = 0) noexcept : v(x <\
+    \ 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& value() noexcept\
+    \ { return v; }\n    constexpr const u32& value() const noexcept { return v; }\n\
+    \    constexpr modint operator+(const modint& rhs) const noexcept { return modint(*this)\
+    \ += rhs; }\n    constexpr modint operator-(const modint& rhs) const noexcept\
+    \ { return modint(*this) -= rhs; }\n    constexpr modint operator*(const modint&\
+    \ rhs) const noexcept { return modint(*this) *= rhs; }\n    constexpr modint operator/(const\
+    \ modint& rhs) const noexcept { return modint(*this) /= rhs; }\n    constexpr\
+    \ modint& operator+=(const modint& rhs) noexcept {\n        v += rhs.v;\n    \
+    \    if (v >= mod) v -= mod;\n        return *this;\n    }\n    constexpr modint&\
+    \ operator-=(const modint& rhs) noexcept {\n        if (v < rhs.v) v += mod;\n\
+    \        v -= rhs.v;\n        return *this;\n    }\n    constexpr modint& operator*=(const\
+    \ modint& rhs) noexcept {\n        v = (u64)v * rhs.v % mod;\n        return *this;\n\
+    \    }\n    constexpr modint& operator/=(const modint& rhs) noexcept { return\
+    \ *this *= rhs.pow(mod - 2); }\n    constexpr modint pow(u64 exp) const noexcept\
+    \ {\n        modint self(*this), res(1);\n        while (exp > 0) {\n        \
+    \    if (exp & 1) res *= self;\n            self *= self;\n            exp >>=\
+    \ 1;\n        }\n        return res;\n    }\n    constexpr modint& operator++()\
+    \ noexcept {\n        if (++v == mod) v = 0;\n        return *this;\n    }\n \
+    \   constexpr modint& operator--() noexcept {\n        if (v == 0) v = mod;\n\
+    \        return --v, *this;\n    }\n    constexpr modint operator++(int) noexcept\
+    \ {\n        modint t = *this;\n        return ++*this, t;\n    }\n    constexpr\
+    \ modint operator--(int) noexcept {\n        modint t = *this;\n        return\
+    \ --*this, t;\n    }\n    constexpr modint operator-() const noexcept { return\
+    \ modint(mod - v); }\n    template <class T> friend constexpr modint operator+(T\
+    \ x, modint y) noexcept { return modint(x) + y; }\n    template <class T> friend\
+    \ constexpr modint operator-(T x, modint y) noexcept { return modint(x) - y; }\n\
+    \    template <class T> friend constexpr modint operator*(T x, modint y) noexcept\
+    \ { return modint(x) * y; }\n    template <class T> friend constexpr modint operator/(T\
+    \ x, modint y) noexcept { return modint(x) / y; }\n    constexpr bool operator==(const\
+    \ modint& rhs) const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const\
+    \ modint& rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!()\
+    \ const noexcept { return !v; }\n    friend istream& operator>>(istream& s, modint&\
+    \ rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n      \
+    \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
+    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 6 \"test/yosupo/queue_operate_all_composite.test.cpp\"\
+    \n\nusing mint = modint<998244353>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    struct node {\n        mint a, b;\n        node(mint a, mint b) : a(a), b(b)\
+    \ {}\n    };\n    auto f = [](node a, node b) { return node(a.a * b.a, a.b * b.a\
+    \ + b.b); };\n    SlidingWindowAggregation<node> SWAG(f, node(1, 0));\n\n    int\
+    \ Q;\n    cin >> Q;\n    for (; Q--;) {\n        int t;\n        cin >> t;\n \
+    \       if (t == 0) {\n            int a, b;\n            cin >> a >> b;\n   \
+    \         SWAG.push(node(a, b));\n        } else if (t == 1) {\n            SWAG.pop();\n\
+    \        } else {\n            int x;\n            cin >> x;\n            node\
+    \ ans = SWAG.fold();\n            cout << ans.a * x + ans.b << '\\n';\n      \
+    \  }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/queue_operate_all_composite\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include\
-    \ \"../../datastructure/SlidingWindowAggregation.hpp\"\n\nusing mint=modint<998244353>;\n\
-    \nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    struct node{\n\
-    \        mint a,b;\n        node(mint a,mint b):a(a),b(b){}\n    };\n    auto\
-    \ f=[](node a,node b){return node(a.a*b.a,a.b*b.a+b.b);};\n    SlidingWindowAggregation<node>\
-    \ SWAG(f,node(1,0));\n\n    int Q; cin >> Q;\n    for (;Q--;){\n        int t;\
-    \ cin >> t;\n        if (t==0){\n            int a,b; cin >> a >> b;\n       \
-    \     SWAG.push(node(a,b));\n        } else if (t==1){\n            SWAG.pop();\n\
-    \        } else {\n            int x; cin >> x;\n            node ans=SWAG.fold();\n\
-    \            cout << ans.a*x+ans.b << '\\n';\n        }\n    }\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/SlidingWindowAggregation.hpp\"\
+    \n#include \"../../modulo/modint.hpp\"\n\nusing mint = modint<998244353>;\n\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    struct node\
+    \ {\n        mint a, b;\n        node(mint a, mint b) : a(a), b(b) {}\n    };\n\
+    \    auto f = [](node a, node b) { return node(a.a * b.a, a.b * b.a + b.b); };\n\
+    \    SlidingWindowAggregation<node> SWAG(f, node(1, 0));\n\n    int Q;\n    cin\
+    \ >> Q;\n    for (; Q--;) {\n        int t;\n        cin >> t;\n        if (t\
+    \ == 0) {\n            int a, b;\n            cin >> a >> b;\n            SWAG.push(node(a,\
+    \ b));\n        } else if (t == 1) {\n            SWAG.pop();\n        } else\
+    \ {\n            int x;\n            cin >> x;\n            node ans = SWAG.fold();\n\
+    \            cout << ans.a * x + ans.b << '\\n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
-  - modulo/modint.hpp
   - datastructure/SlidingWindowAggregation.hpp
+  - modulo/modint.hpp
   isVerificationFile: true
   path: test/yosupo/queue_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/queue_operate_all_composite.test.cpp

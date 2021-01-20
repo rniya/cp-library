@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -142,27 +142,29 @@ data:
     \ Mint(a[i]);\n        for (int i = 0; i < b.size(); i++) B[i] = Mint(b[i]);\n\
     \        vector<Mint> C = multiply(A, B);\n        vector<int> res(C.size());\n\
     \        for (int i = 0; i < C.size(); i++) res[i] = C[i].v;\n        return res;\n\
-    \    }\n};\n#line 6 \"test/yosupo/convolution_mod.test.cpp\"\n\nusing mint=modint<998244353>;\n\
-    \nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,M;\
-    \ cin >> N >> M;\n    vector<mint> a(N),b(M);\n    for (int i=0;i<N;++i) cin >>\
-    \ a[i];\n    for (int i=0;i<M;++i) cin >> b[i];\n\n    NumberTheoreticTransform<998244353>\
-    \ NTT;\n    vector<mint> c=NTT.multiply(a,b);\n\n    for (int i=0;i<N+M-1;++i)\
-    \ cout << c[i] << (i==N+M-2?'\\n':' ');\n}\n"
+    \    }\n};\n#line 6 \"test/yosupo/convolution_mod.test.cpp\"\n\nusing mint = modint<998244353>;\n\
+    \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ M;\n    cin >> N >> M;\n    vector<mint> a(N), b(M);\n    for (int i = 0; i\
+    \ < N; i++) cin >> a[i];\n    for (int i = 0; i < M; i++) cin >> b[i];\n\n   \
+    \ NumberTheoreticTransform<998244353> NTT;\n    vector<mint> c = NTT.multiply(a,\
+    \ b);\n\n    for (int i = 0; i < N + M - 1; i++) cout << c[i] << (i == N + M -\
+    \ 2 ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod\"\n\n#include\
-    \ \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include \"../../convolution/NumberTheoreticTransform.hpp\"\
-    \n\nusing mint=modint<998244353>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int N,M; cin >> N >> M;\n    vector<mint> a(N),b(M);\n    for (int i=0;i<N;++i)\
-    \ cin >> a[i];\n    for (int i=0;i<M;++i) cin >> b[i];\n\n    NumberTheoreticTransform<998244353>\
-    \ NTT;\n    vector<mint> c=NTT.multiply(a,b);\n\n    for (int i=0;i<N+M-1;++i)\
-    \ cout << c[i] << (i==N+M-2?'\\n':' ');\n}"
+    \ \"../../base.hpp\"\n#include \"../../convolution/NumberTheoreticTransform.hpp\"\
+    \n#include \"../../modulo/modint.hpp\"\n\nusing mint = modint<998244353>;\n\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, M;\n\
+    \    cin >> N >> M;\n    vector<mint> a(N), b(M);\n    for (int i = 0; i < N;\
+    \ i++) cin >> a[i];\n    for (int i = 0; i < M; i++) cin >> b[i];\n\n    NumberTheoreticTransform<998244353>\
+    \ NTT;\n    vector<mint> c = NTT.multiply(a, b);\n\n    for (int i = 0; i < N\
+    \ + M - 1; i++) cout << c[i] << (i == N + M - 2 ? '\\n' : ' ');\n}"
   dependsOn:
   - base.hpp
-  - modulo/modint.hpp
   - convolution/NumberTheoreticTransform.hpp
+  - modulo/modint.hpp
   isVerificationFile: true
   path: test/yosupo/convolution_mod.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/convolution_mod.test.cpp

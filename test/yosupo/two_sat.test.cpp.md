@@ -99,24 +99,26 @@ data:
     \ build() {\n        SCC.build();\n        vector<int> res(n);\n        for (int\
     \ i = 0; i < n; i++) {\n            if (SCC[i] == SCC[n + i]) return {};\n   \
     \         res[i] = SCC[i] > SCC[n + i];\n        }\n        return res;\n    }\n\
-    };\n#line 6 \"test/yosupo/two_sat.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    string p,cnf; cin >> p >> cnf;\n    int\
-    \ N,M; cin >> N >> M;\n\n    TwoSatisfiability TS(N+1);\n    for (int i=0;i<M;++i){\n\
-    \        int a,b,c; cin >> a >> b >> c;\n        TS.add_or((a<0?TS.neg(-a):a),(b<0?TS.neg(-b):b));\n\
-    \    }\n\n    vector<int> ans=TS.build();\n    if (ans.empty()){cout << \"s UNSATISFIABLE\"\
-    \ << '\\n'; return 0;}\n    cout << \"s SATISFIABLE\" << '\\n';\n    cout << \"\
-    v \";\n    for (int i=1;i<=N;++i) cout << (ans[i]?i:-i) << ' ';\n    cout << \"\
-    0\\n\";\n}\n"
+    };\n#line 6 \"test/yosupo/two_sat.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    string p, cnf;\n    cin >> p >> cnf;\n\
+    \    int N, M;\n    cin >> N >> M;\n\n    TwoSatisfiability TS(N + 1);\n    for\
+    \ (int i = 0; i < M; i++) {\n        int a, b, c;\n        cin >> a >> b >> c;\n\
+    \        TS.add_or((a < 0 ? TS.neg(-a) : a), (b < 0 ? TS.neg(-b) : b));\n    }\n\
+    \n    vector<int> ans = TS.build();\n    if (ans.empty()) {\n        cout << \"\
+    s UNSATISFIABLE\" << '\\n';\n        return 0;\n    }\n    cout << \"s SATISFIABLE\"\
+    \ << '\\n';\n    cout << \"v \";\n    for (int i = 1; i <= N; i++) cout << (ans[i]\
+    \ ? i : -i) << ' ';\n    cout << \"0\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/two_sat\"\n\n#include \"\
     ../../base.hpp\"\n#include \"../../graph/StronglyConnectedComponents.hpp\"\n#include\
-    \ \"../../graph/TwoSatisfiability.hpp\"\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    string p,cnf; cin >> p >> cnf;\n    int N,M; cin >> N >> M;\n\n    TwoSatisfiability\
-    \ TS(N+1);\n    for (int i=0;i<M;++i){\n        int a,b,c; cin >> a >> b >> c;\n\
-    \        TS.add_or((a<0?TS.neg(-a):a),(b<0?TS.neg(-b):b));\n    }\n\n    vector<int>\
-    \ ans=TS.build();\n    if (ans.empty()){cout << \"s UNSATISFIABLE\" << '\\n';\
-    \ return 0;}\n    cout << \"s SATISFIABLE\" << '\\n';\n    cout << \"v \";\n \
-    \   for (int i=1;i<=N;++i) cout << (ans[i]?i:-i) << ' ';\n    cout << \"0\\n\"\
-    ;\n}"
+    \ \"../../graph/TwoSatisfiability.hpp\"\n\nint main() {\n    cin.tie(0);\n   \
+    \ ios::sync_with_stdio(false);\n    string p, cnf;\n    cin >> p >> cnf;\n   \
+    \ int N, M;\n    cin >> N >> M;\n\n    TwoSatisfiability TS(N + 1);\n    for (int\
+    \ i = 0; i < M; i++) {\n        int a, b, c;\n        cin >> a >> b >> c;\n  \
+    \      TS.add_or((a < 0 ? TS.neg(-a) : a), (b < 0 ? TS.neg(-b) : b));\n    }\n\
+    \n    vector<int> ans = TS.build();\n    if (ans.empty()) {\n        cout << \"\
+    s UNSATISFIABLE\" << '\\n';\n        return 0;\n    }\n    cout << \"s SATISFIABLE\"\
+    \ << '\\n';\n    cout << \"v \";\n    for (int i = 1; i <= N; i++) cout << (ans[i]\
+    \ ? i : -i) << ' ';\n    cout << \"0\\n\";\n}"
   dependsOn:
   - base.hpp
   - graph/StronglyConnectedComponents.hpp
@@ -124,7 +126,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/two_sat.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/two_sat.test.cpp

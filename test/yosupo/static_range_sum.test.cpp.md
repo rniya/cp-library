@@ -63,24 +63,25 @@ data:
     \ a, T2 b) {\n    if (a > b) {\n        a = b;\n        return true;\n    }\n\
     \    return false;\n}\ntemplate <class T1, class T2> inline bool chmax(T1& a,\
     \ T2 b) {\n    if (a < b) {\n        a = b;\n        return true;\n    }\n   \
-    \ return false;\n}\n#line 4 \"test/yosupo/static_range_sum.test.cpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q; cin >> N >> Q;\n\
-    \    vector<int> a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\n    vector<long\
-    \ long> sum(N+1,0);\n    for (int i=0;i<N;++i) sum[i+1]=sum[i]+a[i];\n\n    for\
-    \ (;Q--;){\n        int l,r; cin >> l >> r;\n        cout << sum[r]-sum[l] <<\
-    \ '\\n';\n    }\n}\n"
+    \ return false;\n}\n#line 4 \"test/yosupo/static_range_sum.test.cpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n    cin\
+    \ >> N >> Q;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\
+    \n    vector<long long> sum(N + 1, 0);\n    for (int i = 0; i < N; i++) sum[i\
+    \ + 1] = sum[i] + a[i];\n\n    for (; Q--;) {\n        int l, r;\n        cin\
+    \ >> l >> r;\n        cout << sum[r] - sum[l] << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n\n\
-    #include \"../../base.hpp\"\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int N,Q; cin >> N >> Q;\n    vector<int> a(N);\n    for (int i=0;i<N;++i)\
-    \ cin >> a[i];\n\n    vector<long long> sum(N+1,0);\n    for (int i=0;i<N;++i)\
-    \ sum[i+1]=sum[i]+a[i];\n\n    for (;Q--;){\n        int l,r; cin >> l >> r;\n\
-    \        cout << sum[r]-sum[l] << '\\n';\n    }\n}"
+    #include \"../../base.hpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int N, Q;\n    cin >> N >> Q;\n    vector<int> a(N);\n    for (int i = 0;\
+    \ i < N; i++) cin >> a[i];\n\n    vector<long long> sum(N + 1, 0);\n    for (int\
+    \ i = 0; i < N; i++) sum[i + 1] = sum[i] + a[i];\n\n    for (; Q--;) {\n     \
+    \   int l, r;\n        cin >> l >> r;\n        cout << sum[r] - sum[l] << '\\\
+    n';\n    }\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: true
   path: test/yosupo/static_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/static_range_sum.test.cpp

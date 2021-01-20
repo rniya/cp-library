@@ -76,22 +76,23 @@ data:
     \ {\n    int n = s.size();\n    string t(n * 2 + 1, '$');\n    for (int i = 0;\
     \ i < n; i++) t[i * 2 + 1] = s[i];\n    vector<int> v = Manacher(t), res;\n  \
     \  for (int i = 1; i < n * 2; i++) res.emplace_back(v[i] - 1);\n    return res;\n\
-    }\n#line 5 \"test/yosupo/enumerate_palindromes.test.cpp\"\n\nint main(){\n   \
-    \ cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S; cin >> S;\n\n \
-    \   vector<int> ans=PalindromeTable(S);\n    for (int i=0;i<ans.size();++i) cout\
-    \ << ans[i] << (i+1==ans.size()?'\\n':' ');\n}\n"
+    }\n#line 5 \"test/yosupo/enumerate_palindromes.test.cpp\"\n\nint main() {\n  \
+    \  cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S;\n    cin >> S;\n\
+    \n    vector<int> ans = PalindromeTable(S);\n    for (int i = 0; i < ans.size();\
+    \ i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../string/Manacher.hpp\"\n\nint\
-    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S; cin\
-    \ >> S;\n\n    vector<int> ans=PalindromeTable(S);\n    for (int i=0;i<ans.size();++i)\
-    \ cout << ans[i] << (i+1==ans.size()?'\\n':' ');\n}"
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S;\n\
+    \    cin >> S;\n\n    vector<int> ans = PalindromeTable(S);\n    for (int i =\
+    \ 0; i < ans.size(); i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n\
+    }"
   dependsOn:
   - base.hpp
   - string/Manacher.hpp
   isVerificationFile: true
   path: test/yosupo/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/enumerate_palindromes.test.cpp

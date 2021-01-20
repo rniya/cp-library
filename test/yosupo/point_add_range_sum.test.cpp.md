@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
   _extendedRequiredBy: []
@@ -102,29 +102,31 @@ data:
     \ R);\n                if (check(nxt)) return find_subtree(r, check, R, true);\n\
     \                R = nxt;\n            }\n        }\n        return -1;\n    }\n\
     \    Monoid operator[](int i) { return dat[i + n]; }\n};\n#line 5 \"test/yosupo/point_add_range_sum.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q;\
-    \ cin >> N >> Q;\n    vector<long long> a(N);\n    for (int i=0;i<N;++i) cin >>\
-    \ a[i];\n\n    SegmentTree<long long> seg(N,[](long long a,long long b){return\
-    \ a+b;},0);\n    seg.build(a);\n\n    for (;Q--;){\n        int t; cin >> t;\n\
-    \        if (!t){\n            int p,x; cin >> p >> x;\n            seg.update(p,seg[p]+x);\n\
-    \        } else {\n            int l,r; cin >> l >> r;\n            cout << seg.query(l,r)\
-    \ << '\\n';\n        }\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ Q;\n    cin >> N >> Q;\n    vector<long long> a(N);\n    for (int i = 0; i <\
+    \ N; i++) cin >> a[i];\n\n    SegmentTree<long long> seg(\n        N, [](long\
+    \ long a, long long b) { return a + b; }, 0);\n    seg.build(a);\n\n    for (;\
+    \ Q--;) {\n        int t;\n        cin >> t;\n        if (!t) {\n            int\
+    \ p, x;\n            cin >> p >> x;\n            seg.update(p, seg[p] + x);\n\
+    \        } else {\n            int l, r;\n            cin >> l >> r;\n       \
+    \     cout << seg.query(l, r) << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
     \n#include \"../../base.hpp\"\n#include \"../../datastructure/SegmentTree.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q;\
-    \ cin >> N >> Q;\n    vector<long long> a(N);\n    for (int i=0;i<N;++i) cin >>\
-    \ a[i];\n\n    SegmentTree<long long> seg(N,[](long long a,long long b){return\
-    \ a+b;},0);\n    seg.build(a);\n\n    for (;Q--;){\n        int t; cin >> t;\n\
-    \        if (!t){\n            int p,x; cin >> p >> x;\n            seg.update(p,seg[p]+x);\n\
-    \        } else {\n            int l,r; cin >> l >> r;\n            cout << seg.query(l,r)\
-    \ << '\\n';\n        }\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ Q;\n    cin >> N >> Q;\n    vector<long long> a(N);\n    for (int i = 0; i <\
+    \ N; i++) cin >> a[i];\n\n    SegmentTree<long long> seg(\n        N, [](long\
+    \ long a, long long b) { return a + b; }, 0);\n    seg.build(a);\n\n    for (;\
+    \ Q--;) {\n        int t;\n        cin >> t;\n        if (!t) {\n            int\
+    \ p, x;\n            cin >> p >> x;\n            seg.update(p, seg[p] + x);\n\
+    \        } else {\n            int l, r;\n            cin >> l >> r;\n       \
+    \     cout << seg.query(l, r) << '\\n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/SegmentTree.hpp
   isVerificationFile: true
   path: test/yosupo/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/point_add_range_sum.test.cpp

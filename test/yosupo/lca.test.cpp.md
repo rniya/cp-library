@@ -84,24 +84,26 @@ data:
     \ 0; --k) {\n            if (par[k][u] != par[k][v]) {\n                u = par[k][u];\n\
     \                v = par[k][v];\n            }\n        }\n        return par[0][u];\n\
     \    }\n    int distance(int u, int v) { return dep[u] + dep[v] - dep[lca(u, v)]\
-    \ * 2; }\n};\n#line 5 \"test/yosupo/lca.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N,Q; cin >> N >> Q;\n\n    LowestCommonAncestor\
-    \ LCA(N);\n    for (int i=1;i<N;++i){\n        int p; cin >> p;\n        LCA.add_edge(p,i);\n\
-    \    }\n    LCA.build();\n\n    for (;Q--;){\n        int u,v; cin >> u >> v;\n\
-    \        cout << LCA.lca(u,v) << '\\n';\n    }\n}\n"
+    \ * 2; }\n};\n#line 5 \"test/yosupo/lca.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N, Q;\n    cin >> N >> Q;\n\n    LowestCommonAncestor\
+    \ LCA(N);\n    for (int i = 1; i < N; i++) {\n        int p;\n        cin >> p;\n\
+    \        LCA.add_edge(p, i);\n    }\n    LCA.build();\n\n    for (; Q--;) {\n\
+    \        int u, v;\n        cin >> u >> v;\n        cout << LCA.lca(u, v) << '\\\
+    n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n\n#include \"../../base.hpp\"\
-    \n#include \"../../tree/LowestCommonAncestor.hpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N,Q; cin >> N >> Q;\n\n    LowestCommonAncestor\
-    \ LCA(N);\n    for (int i=1;i<N;++i){\n        int p; cin >> p;\n        LCA.add_edge(p,i);\n\
-    \    }\n    LCA.build();\n\n    for (;Q--;){\n        int u,v; cin >> u >> v;\n\
-    \        cout << LCA.lca(u,v) << '\\n';\n    }\n}"
+    \n#include \"../../tree/LowestCommonAncestor.hpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N, Q;\n    cin >> N >> Q;\n\n    LowestCommonAncestor\
+    \ LCA(N);\n    for (int i = 1; i < N; i++) {\n        int p;\n        cin >> p;\n\
+    \        LCA.add_edge(p, i);\n    }\n    LCA.build();\n\n    for (; Q--;) {\n\
+    \        int u, v;\n        cin >> u >> v;\n        cout << LCA.lca(u, v) << '\\\
+    n';\n    }\n}"
   dependsOn:
   - base.hpp
   - tree/LowestCommonAncestor.hpp
   isVerificationFile: true
   path: test/yosupo/lca.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/lca.test.cpp

@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: linearalgebra/Matrix.hpp
     title: Matrix
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -68,46 +68,7 @@ data:
     \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#line 3 \"modulo/modint.hpp\"\n\n\
-    /**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
-    \ mod> class modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n \
-    \   using u64 = uint64_t;\n\npublic:\n    u32 v;\n    constexpr modint(const i64\
-    \ x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr\
-    \ u32& value() noexcept { return v; }\n    constexpr const u32& value() const\
-    \ noexcept { return v; }\n    constexpr modint operator+(const modint& rhs) const\
-    \ noexcept { return modint(*this) += rhs; }\n    constexpr modint operator-(const\
-    \ modint& rhs) const noexcept { return modint(*this) -= rhs; }\n    constexpr\
-    \ modint operator*(const modint& rhs) const noexcept { return modint(*this) *=\
-    \ rhs; }\n    constexpr modint operator/(const modint& rhs) const noexcept { return\
-    \ modint(*this) /= rhs; }\n    constexpr modint& operator+=(const modint& rhs)\
-    \ noexcept {\n        v += rhs.v;\n        if (v >= mod) v -= mod;\n        return\
-    \ *this;\n    }\n    constexpr modint& operator-=(const modint& rhs) noexcept\
-    \ {\n        if (v < rhs.v) v += mod;\n        v -= rhs.v;\n        return *this;\n\
-    \    }\n    constexpr modint& operator*=(const modint& rhs) noexcept {\n     \
-    \   v = (u64)v * rhs.v % mod;\n        return *this;\n    }\n    constexpr modint&\
-    \ operator/=(const modint& rhs) noexcept { return *this *= rhs.pow(mod - 2); }\n\
-    \    constexpr modint pow(u64 exp) const noexcept {\n        modint self(*this),\
-    \ res(1);\n        while (exp > 0) {\n            if (exp & 1) res *= self;\n\
-    \            self *= self;\n            exp >>= 1;\n        }\n        return\
-    \ res;\n    }\n    constexpr modint& operator++() noexcept {\n        if (++v\
-    \ == mod) v = 0;\n        return *this;\n    }\n    constexpr modint& operator--()\
-    \ noexcept {\n        if (v == 0) v = mod;\n        return --v, *this;\n    }\n\
-    \    constexpr modint operator++(int) noexcept {\n        modint t = *this;\n\
-    \        return ++*this, t;\n    }\n    constexpr modint operator--(int) noexcept\
-    \ {\n        modint t = *this;\n        return --*this, t;\n    }\n    constexpr\
-    \ modint operator-() const noexcept { return modint(mod - v); }\n    template\
-    \ <class T> friend constexpr modint operator+(T x, modint y) noexcept { return\
-    \ modint(x) + y; }\n    template <class T> friend constexpr modint operator-(T\
-    \ x, modint y) noexcept { return modint(x) - y; }\n    template <class T> friend\
-    \ constexpr modint operator*(T x, modint y) noexcept { return modint(x) * y; }\n\
-    \    template <class T> friend constexpr modint operator/(T x, modint y) noexcept\
-    \ { return modint(x) / y; }\n    constexpr bool operator==(const modint& rhs)\
-    \ const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const modint&\
-    \ rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!() const\
-    \ noexcept { return !v; }\n    friend istream& operator>>(istream& s, modint&\
-    \ rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n      \
-    \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
-    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 3 \"linearalgebra/Matrix.hpp\"\
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"linearalgebra/Matrix.hpp\"\
     \n\n/**\n * @brief Matrix\n * @docs docs/linearalgebra/Matrix.md\n */\ntemplate\
     \ <class T> struct Matrix {\n    vector<vector<T>> A;\n    Matrix(size_t n, size_t\
     \ m) : A(n, vector<T>(m, 0)) {}\n    Matrix(size_t n) : A(n, vector<T>(n, 0))\
@@ -148,25 +109,64 @@ data:
     \ height(); j++) {\n                T w = B[j][i];\n                for (int k\
     \ = 0; k < width(); k++) {\n                    B[j][k] -= B[i][k] * w;\n    \
     \            }\n            }\n        }\n        return res;\n    }\n};\n#line\
-    \ 6 \"test/yosupo/matrix_det.test.cpp\"\n\nusing mint=modint<998244353>;\n\nint\
-    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N; cin >>\
-    \ N;\n    Matrix<mint> a(N);\n    for (int i=0;i<N;++i){\n        for (int j=0;j<N;++j){\n\
-    \            cin >> a[i][j];\n        }\n    }\n\n    cout << a.determinant()\
-    \ << '\\n';\n}\n"
+    \ 3 \"modulo/modint.hpp\"\n\n/**\n * @brief modint\n * @docs docs/modulo/modint.md\n\
+    \ */\ntemplate <uint32_t mod> class modint {\n    using i64 = int64_t;\n    using\
+    \ u32 = uint32_t;\n    using u64 = uint64_t;\n\npublic:\n    u32 v;\n    constexpr\
+    \ modint(const i64 x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x\
+    \ % mod) {}\n    constexpr u32& value() noexcept { return v; }\n    constexpr\
+    \ const u32& value() const noexcept { return v; }\n    constexpr modint operator+(const\
+    \ modint& rhs) const noexcept { return modint(*this) += rhs; }\n    constexpr\
+    \ modint operator-(const modint& rhs) const noexcept { return modint(*this) -=\
+    \ rhs; }\n    constexpr modint operator*(const modint& rhs) const noexcept { return\
+    \ modint(*this) *= rhs; }\n    constexpr modint operator/(const modint& rhs) const\
+    \ noexcept { return modint(*this) /= rhs; }\n    constexpr modint& operator+=(const\
+    \ modint& rhs) noexcept {\n        v += rhs.v;\n        if (v >= mod) v -= mod;\n\
+    \        return *this;\n    }\n    constexpr modint& operator-=(const modint&\
+    \ rhs) noexcept {\n        if (v < rhs.v) v += mod;\n        v -= rhs.v;\n   \
+    \     return *this;\n    }\n    constexpr modint& operator*=(const modint& rhs)\
+    \ noexcept {\n        v = (u64)v * rhs.v % mod;\n        return *this;\n    }\n\
+    \    constexpr modint& operator/=(const modint& rhs) noexcept { return *this *=\
+    \ rhs.pow(mod - 2); }\n    constexpr modint pow(u64 exp) const noexcept {\n  \
+    \      modint self(*this), res(1);\n        while (exp > 0) {\n            if\
+    \ (exp & 1) res *= self;\n            self *= self;\n            exp >>= 1;\n\
+    \        }\n        return res;\n    }\n    constexpr modint& operator++() noexcept\
+    \ {\n        if (++v == mod) v = 0;\n        return *this;\n    }\n    constexpr\
+    \ modint& operator--() noexcept {\n        if (v == 0) v = mod;\n        return\
+    \ --v, *this;\n    }\n    constexpr modint operator++(int) noexcept {\n      \
+    \  modint t = *this;\n        return ++*this, t;\n    }\n    constexpr modint\
+    \ operator--(int) noexcept {\n        modint t = *this;\n        return --*this,\
+    \ t;\n    }\n    constexpr modint operator-() const noexcept { return modint(mod\
+    \ - v); }\n    template <class T> friend constexpr modint operator+(T x, modint\
+    \ y) noexcept { return modint(x) + y; }\n    template <class T> friend constexpr\
+    \ modint operator-(T x, modint y) noexcept { return modint(x) - y; }\n    template\
+    \ <class T> friend constexpr modint operator*(T x, modint y) noexcept { return\
+    \ modint(x) * y; }\n    template <class T> friend constexpr modint operator/(T\
+    \ x, modint y) noexcept { return modint(x) / y; }\n    constexpr bool operator==(const\
+    \ modint& rhs) const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const\
+    \ modint& rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!()\
+    \ const noexcept { return !v; }\n    friend istream& operator>>(istream& s, modint&\
+    \ rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n      \
+    \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
+    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 6 \"test/yosupo/matrix_det.test.cpp\"\
+    \n\nusing mint = modint<998244353>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int N;\n    cin >> N;\n    Matrix<mint> a(N);\n    for (int i = 0; i < N;\
+    \ i++) {\n        for (int j = 0; j < N; j++) {\n            cin >> a[i][j];\n\
+    \        }\n    }\n\n    cout << a.determinant() << '\\n';\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n\n#include\
-    \ \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include \"../../linearalgebra/Matrix.hpp\"\
-    \n\nusing mint=modint<998244353>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int N; cin >> N;\n    Matrix<mint> a(N);\n    for (int i=0;i<N;++i){\n  \
-    \      for (int j=0;j<N;++j){\n            cin >> a[i][j];\n        }\n    }\n\
-    \n    cout << a.determinant() << '\\n';\n}"
+    \ \"../../base.hpp\"\n#include \"../../linearalgebra/Matrix.hpp\"\n#include \"\
+    ../../modulo/modint.hpp\"\n\nusing mint = modint<998244353>;\n\nint main() {\n\
+    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\n    cin >> N;\n\
+    \    Matrix<mint> a(N);\n    for (int i = 0; i < N; i++) {\n        for (int j\
+    \ = 0; j < N; j++) {\n            cin >> a[i][j];\n        }\n    }\n\n    cout\
+    \ << a.determinant() << '\\n';\n}"
   dependsOn:
   - base.hpp
-  - modulo/modint.hpp
   - linearalgebra/Matrix.hpp
+  - modulo/modint.hpp
   isVerificationFile: true
   path: test/yosupo/matrix_det.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/matrix_det.test.cpp

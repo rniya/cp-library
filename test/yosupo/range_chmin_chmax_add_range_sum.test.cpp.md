@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/SegmentTreeBeats.hpp
     title: Segment Tree Beats
   _extendedRequiredBy: []
@@ -167,31 +167,33 @@ data:
     \ query_max(int a, int b) { return query_max(a, b, 0, 0, n); }\n    T query_sum(int\
     \ a, int b) { return query_sum(a, b, 0, 0, n); }\n    T operator[](int i) { return\
     \ query_sum(i, i + 1); }\n};\n#line 5 \"test/yosupo/range_chmin_chmax_add_range_sum.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q;\
-    \ cin >> N >> Q;\n    vector<long long> a(N);\n    for (int i=0;i<N;++i) cin >>\
-    \ a[i];\n\n    SegmentTreeBeats<long long> seg(N);\n    seg.build(a);\n\n    for\
-    \ (;Q--;){\n        int t,l,r; long long b; cin >> t >> l >> r;\n        if (t==0){\n\
-    \            cin >> b;\n            seg.update_min(l,r,b);\n        } else if\
-    \ (t==1){\n            cin >> b;\n            seg.update_max(l,r,b);\n       \
-    \ } else if (t==2){\n            cin >> b;\n            seg.update_add(l,r,b);\n\
-    \        } else cout << seg.query_sum(l,r) << '\\n';\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ Q;\n    cin >> N >> Q;\n    vector<long long> a(N);\n    for (int i = 0; i <\
+    \ N; i++) cin >> a[i];\n\n    SegmentTreeBeats<long long> seg(N);\n    seg.build(a);\n\
+    \n    for (; Q--;) {\n        int t, l, r;\n        long long b;\n        cin\
+    \ >> t >> l >> r;\n        if (t == 0) {\n            cin >> b;\n            seg.update_min(l,\
+    \ r, b);\n        } else if (t == 1) {\n            cin >> b;\n            seg.update_max(l,\
+    \ r, b);\n        } else if (t == 2) {\n            cin >> b;\n            seg.update_add(l,\
+    \ r, b);\n        } else\n            cout << seg.query_sum(l, r) << '\\n';\n\
+    \    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/SegmentTreeBeats.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q;\
-    \ cin >> N >> Q;\n    vector<long long> a(N);\n    for (int i=0;i<N;++i) cin >>\
-    \ a[i];\n\n    SegmentTreeBeats<long long> seg(N);\n    seg.build(a);\n\n    for\
-    \ (;Q--;){\n        int t,l,r; long long b; cin >> t >> l >> r;\n        if (t==0){\n\
-    \            cin >> b;\n            seg.update_min(l,r,b);\n        } else if\
-    \ (t==1){\n            cin >> b;\n            seg.update_max(l,r,b);\n       \
-    \ } else if (t==2){\n            cin >> b;\n            seg.update_add(l,r,b);\n\
-    \        } else cout << seg.query_sum(l,r) << '\\n';\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ Q;\n    cin >> N >> Q;\n    vector<long long> a(N);\n    for (int i = 0; i <\
+    \ N; i++) cin >> a[i];\n\n    SegmentTreeBeats<long long> seg(N);\n    seg.build(a);\n\
+    \n    for (; Q--;) {\n        int t, l, r;\n        long long b;\n        cin\
+    \ >> t >> l >> r;\n        if (t == 0) {\n            cin >> b;\n            seg.update_min(l,\
+    \ r, b);\n        } else if (t == 1) {\n            cin >> b;\n            seg.update_max(l,\
+    \ r, b);\n        } else if (t == 2) {\n            cin >> b;\n            seg.update_add(l,\
+    \ r, b);\n        } else\n            cout << seg.query_sum(l, r) << '\\n';\n\
+    \    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/SegmentTreeBeats.hpp
   isVerificationFile: true
   path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp

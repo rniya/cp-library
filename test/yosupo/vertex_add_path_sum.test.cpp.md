@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
   - icon: ':question:'
@@ -138,29 +138,34 @@ data:
     \ f(l, q(vid[u] + edge, vid[v] + 1)));\n    }\n    template <typename T, typename\
     \ Q> T query_sub(int u, const Q& q, bool edge = false) {\n        return q(vid[u]\
     \ + edge, vid[u] + sub[u]);\n    }\n};\n#line 6 \"test/yosupo/vertex_add_path_sum.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q;\
-    \ cin >> N >> Q;\n    vector<long long> a(N);\n    for (int i=0;i<N;++i) cin >>\
-    \ a[i];\n\n    HeavyLightDecomposition HLD(N);\n    for (int i=0;i<N-1;++i){\n\
-    \        int u,v; cin >> u >> v;\n        HLD.add_edge(u,v);\n    }\n    HLD.build();\n\
-    \n    auto f=[](long long a,long long b){return a+b;};\n    SegmentTree<long long>\
-    \ seg(N,f,0);\n    for (int i=0;i<N;++i) seg.update(HLD.idx(i),a[i]);\n\n    for\
-    \ (;Q--;){\n        int t; cin >> t;\n        if (!t){\n            int p; long\
-    \ long x; cin >> p >> x;\n            int i=HLD.idx(p);\n            seg.update(i,seg[i]+x);\n\
-    \        } else {\n            int u,v; cin >> u >> v;\n            cout << HLD.query_path(u,v,0LL,[&](int\
-    \ l,int r){return seg.query(l,r);},f) << '\\n';\n        }\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ Q;\n    cin >> N >> Q;\n    vector<long long> a(N);\n    for (int i = 0; i <\
+    \ N; i++) cin >> a[i];\n\n    HeavyLightDecomposition HLD(N);\n    for (int i\
+    \ = 0; i < N - 1; i++) {\n        int u, v;\n        cin >> u >> v;\n        HLD.add_edge(u,\
+    \ v);\n    }\n    HLD.build();\n\n    auto f = [](long long a, long long b) {\
+    \ return a + b; };\n    SegmentTree<long long> seg(N, f, 0);\n    for (int i =\
+    \ 0; i < N; i++) seg.update(HLD.idx(i), a[i]);\n\n    for (; Q--;) {\n       \
+    \ int t;\n        cin >> t;\n        if (!t) {\n            int p;\n         \
+    \   long long x;\n            cin >> p >> x;\n            int i = HLD.idx(p);\n\
+    \            seg.update(i, seg[i] + x);\n        } else {\n            int u,\
+    \ v;\n            cin >> u >> v;\n            cout << HLD.query_path(\n      \
+    \                  u, v, 0LL, [&](int l, int r) { return seg.query(l, r); }, f)\n\
+    \                 << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n\
     \n#include \"../../base.hpp\"\n#include \"../../datastructure/SegmentTree.hpp\"\
-    \n#include \"../../tree/HeavyLightDecomposition.hpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N,Q; cin >> N >> Q;\n    vector<long\
-    \ long> a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\n    HeavyLightDecomposition\
-    \ HLD(N);\n    for (int i=0;i<N-1;++i){\n        int u,v; cin >> u >> v;\n   \
-    \     HLD.add_edge(u,v);\n    }\n    HLD.build();\n\n    auto f=[](long long a,long\
-    \ long b){return a+b;};\n    SegmentTree<long long> seg(N,f,0);\n    for (int\
-    \ i=0;i<N;++i) seg.update(HLD.idx(i),a[i]);\n\n    for (;Q--;){\n        int t;\
-    \ cin >> t;\n        if (!t){\n            int p; long long x; cin >> p >> x;\n\
-    \            int i=HLD.idx(p);\n            seg.update(i,seg[i]+x);\n        }\
-    \ else {\n            int u,v; cin >> u >> v;\n            cout << HLD.query_path(u,v,0LL,[&](int\
-    \ l,int r){return seg.query(l,r);},f) << '\\n';\n        }\n    }\n}"
+    \n#include \"../../tree/HeavyLightDecomposition.hpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N, Q;\n    cin >> N >> Q;\n    vector<long\
+    \ long> a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\n    HeavyLightDecomposition\
+    \ HLD(N);\n    for (int i = 0; i < N - 1; i++) {\n        int u, v;\n        cin\
+    \ >> u >> v;\n        HLD.add_edge(u, v);\n    }\n    HLD.build();\n\n    auto\
+    \ f = [](long long a, long long b) { return a + b; };\n    SegmentTree<long long>\
+    \ seg(N, f, 0);\n    for (int i = 0; i < N; i++) seg.update(HLD.idx(i), a[i]);\n\
+    \n    for (; Q--;) {\n        int t;\n        cin >> t;\n        if (!t) {\n \
+    \           int p;\n            long long x;\n            cin >> p >> x;\n   \
+    \         int i = HLD.idx(p);\n            seg.update(i, seg[i] + x);\n      \
+    \  } else {\n            int u, v;\n            cin >> u >> v;\n            cout\
+    \ << HLD.query_path(\n                        u, v, 0LL, [&](int l, int r) { return\
+    \ seg.query(l, r); }, f)\n                 << '\\n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/SegmentTree.hpp
@@ -168,7 +173,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/vertex_add_path_sum.test.cpp

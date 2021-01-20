@@ -76,22 +76,22 @@ data:
     \ T> vector<int> LCP(const T& s, const T& t) {\n    T u(s);\n    u.insert(u.begin(),\
     \ t.begin(), t.end());\n    vector<int> z = Z_Algorithm(u);\n    for (int& i :\
     \ z) i = min(i, (int)t.size());\n    return vector<int>(z.begin() + t.size(),\
-    \ z.end());\n}\n#line 5 \"test/yosupo/zalgorithm.test.cpp\"\n\nint main(){\n \
-    \   cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S; cin >> S;\n \
-    \   vector<int> ans=Z_Algorithm(S);\n\n    for (int i=0;i<ans.size();++i) cout\
-    \ << ans[i] << (i+1==ans.size()?'\\n':' ');\n}\n"
+    \ z.end());\n}\n#line 5 \"test/yosupo/zalgorithm.test.cpp\"\n\nint main() {\n\
+    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S;\n    cin >>\
+    \ S;\n    vector<int> ans = Z_Algorithm(S);\n\n    for (int i = 0; i < ans.size();\
+    \ i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n\n#include\
-    \ \"../../base.hpp\"\n#include \"../../string/Z_Algorithm.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S; cin >> S;\n\
-    \    vector<int> ans=Z_Algorithm(S);\n\n    for (int i=0;i<ans.size();++i) cout\
-    \ << ans[i] << (i+1==ans.size()?'\\n':' ');\n}"
+    \ \"../../base.hpp\"\n#include \"../../string/Z_Algorithm.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S;\n    cin\
+    \ >> S;\n    vector<int> ans = Z_Algorithm(S);\n\n    for (int i = 0; i < ans.size();\
+    \ i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n}"
   dependsOn:
   - base.hpp
   - string/Z_Algorithm.hpp
   isVerificationFile: true
   path: test/yosupo/zalgorithm.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/zalgorithm.test.cpp

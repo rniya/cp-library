@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: datastructure/LazySegmentTree.hpp
     title: Lazy Segment Tree
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -69,50 +69,12 @@ data:
     \ a, T2 b) {\n    if (a > b) {\n        a = b;\n        return true;\n    }\n\
     \    return false;\n}\ntemplate <class T1, class T2> inline bool chmax(T1& a,\
     \ T2 b) {\n    if (a < b) {\n        a = b;\n        return true;\n    }\n   \
-    \ return false;\n}\n#line 3 \"modulo/modint.hpp\"\n\n/**\n * @brief modint\n *\
-    \ @docs docs/modulo/modint.md\n */\ntemplate <uint32_t mod> class modint {\n \
-    \   using i64 = int64_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\
-    \npublic:\n    u32 v;\n    constexpr modint(const i64 x = 0) noexcept : v(x <\
-    \ 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& value() noexcept\
-    \ { return v; }\n    constexpr const u32& value() const noexcept { return v; }\n\
-    \    constexpr modint operator+(const modint& rhs) const noexcept { return modint(*this)\
-    \ += rhs; }\n    constexpr modint operator-(const modint& rhs) const noexcept\
-    \ { return modint(*this) -= rhs; }\n    constexpr modint operator*(const modint&\
-    \ rhs) const noexcept { return modint(*this) *= rhs; }\n    constexpr modint operator/(const\
-    \ modint& rhs) const noexcept { return modint(*this) /= rhs; }\n    constexpr\
-    \ modint& operator+=(const modint& rhs) noexcept {\n        v += rhs.v;\n    \
-    \    if (v >= mod) v -= mod;\n        return *this;\n    }\n    constexpr modint&\
-    \ operator-=(const modint& rhs) noexcept {\n        if (v < rhs.v) v += mod;\n\
-    \        v -= rhs.v;\n        return *this;\n    }\n    constexpr modint& operator*=(const\
-    \ modint& rhs) noexcept {\n        v = (u64)v * rhs.v % mod;\n        return *this;\n\
-    \    }\n    constexpr modint& operator/=(const modint& rhs) noexcept { return\
-    \ *this *= rhs.pow(mod - 2); }\n    constexpr modint pow(u64 exp) const noexcept\
-    \ {\n        modint self(*this), res(1);\n        while (exp > 0) {\n        \
-    \    if (exp & 1) res *= self;\n            self *= self;\n            exp >>=\
-    \ 1;\n        }\n        return res;\n    }\n    constexpr modint& operator++()\
-    \ noexcept {\n        if (++v == mod) v = 0;\n        return *this;\n    }\n \
-    \   constexpr modint& operator--() noexcept {\n        if (v == 0) v = mod;\n\
-    \        return --v, *this;\n    }\n    constexpr modint operator++(int) noexcept\
-    \ {\n        modint t = *this;\n        return ++*this, t;\n    }\n    constexpr\
-    \ modint operator--(int) noexcept {\n        modint t = *this;\n        return\
-    \ --*this, t;\n    }\n    constexpr modint operator-() const noexcept { return\
-    \ modint(mod - v); }\n    template <class T> friend constexpr modint operator+(T\
-    \ x, modint y) noexcept { return modint(x) + y; }\n    template <class T> friend\
-    \ constexpr modint operator-(T x, modint y) noexcept { return modint(x) - y; }\n\
-    \    template <class T> friend constexpr modint operator*(T x, modint y) noexcept\
-    \ { return modint(x) * y; }\n    template <class T> friend constexpr modint operator/(T\
-    \ x, modint y) noexcept { return modint(x) / y; }\n    constexpr bool operator==(const\
-    \ modint& rhs) const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const\
-    \ modint& rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!()\
-    \ const noexcept { return !v; }\n    friend istream& operator>>(istream& s, modint&\
-    \ rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n      \
-    \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
-    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 3 \"datastructure/LazySegmentTree.hpp\"\
-    \n\n/**\n * @brief Lazy Segment Tree\n * @docs docs/datastructure/LazySegmentTree.md\n\
-    \ */\ntemplate <typename Monoid, typename OperatorMonoid> struct LazySegmentTree\
-    \ {\n    typedef function<Monoid(Monoid, Monoid)> F;\n    typedef function<Monoid(Monoid,\
-    \ OperatorMonoid)> G;\n    typedef function<OperatorMonoid(OperatorMonoid, OperatorMonoid)>\
-    \ H;\n    int n, hi;\n    F f;\n    G g;\n    H h;\n    Monoid id0;\n    OperatorMonoid\
+    \ return false;\n}\n#line 3 \"datastructure/LazySegmentTree.hpp\"\n\n/**\n * @brief\
+    \ Lazy Segment Tree\n * @docs docs/datastructure/LazySegmentTree.md\n */\ntemplate\
+    \ <typename Monoid, typename OperatorMonoid> struct LazySegmentTree {\n    typedef\
+    \ function<Monoid(Monoid, Monoid)> F;\n    typedef function<Monoid(Monoid, OperatorMonoid)>\
+    \ G;\n    typedef function<OperatorMonoid(OperatorMonoid, OperatorMonoid)> H;\n\
+    \    int n, hi;\n    F f;\n    G g;\n    H h;\n    Monoid id0;\n    OperatorMonoid\
     \ id1;\n    vector<Monoid> dat;\n    vector<OperatorMonoid> laz;\n    LazySegmentTree(int\
     \ n_, F f, G g, H h, Monoid id0, OperatorMonoid id1) : f(f), g(g), h(h), id0(id0),\
     \ id1(id1) {\n        init(n_);\n    }\n    void init(int n_) {\n        n = 1,\
@@ -160,43 +122,86 @@ data:
     \      Monoid nxt = f(reflect(--r), R);\n                if (check(nxt)) return\
     \ find_subtree(r, check, R, true);\n                R = nxt;\n            }\n\
     \        }\n        return -1;\n    }\n    Monoid operator[](int i) { return query(i,\
-    \ i + 1); }\n};\n#line 6 \"test/yosupo/range_affine_range_sum.test.cpp\"\n\nusing\
-    \ mint=modint<998244353>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int N,Q; cin >> N >> Q;\n    vector<mint> a(N);\n    for (int i=0;i<N;++i)\
-    \ cin >> a[i];\n\n    struct node{\n        mint sum; int a;\n        node(mint\
-    \ sum,int a):sum(sum),a(a){}\n    };\n    struct add{\n        mint b,c;\n   \
-    \     add(mint b,mint c):b(b),c(c){}\n        const bool operator==(const add\
-    \ &rhs){\n            return b==rhs.b&&c==rhs.c;\n        }\n    };\n    auto\
-    \ f=[](node a,node b){return node(a.sum+b.sum,a.a+b.a);};\n    auto g=[](node\
-    \ a,add x){return node(a.sum*x.b+x.c*a.a,a.a);};\n    auto h=[](add a,add b){return\
-    \ add(a.b*b.b,a.c*b.b+b.c);};\n    LazySegmentTree<node,add> seg(N,f,g,h,node(0,0),add(1,0));\n\
-    \    vector<node> v;\n    for (int i=0;i<N;++i) v.emplace_back(a[i],1);\n    seg.build(v);\n\
-    \n    for (;Q--;){\n        int t,l,r; cin >> t >> l >> r;\n        if (!t){\n\
-    \            mint b,c; cin >> b >> c;\n            seg.update(l,r,add(b,c));\n\
-    \        } else cout << seg.query(l,r).sum << '\\n';\n    }\n}\n"
+    \ i + 1); }\n};\n#line 3 \"modulo/modint.hpp\"\n\n/**\n * @brief modint\n * @docs\
+    \ docs/modulo/modint.md\n */\ntemplate <uint32_t mod> class modint {\n    using\
+    \ i64 = int64_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\npublic:\n\
+    \    u32 v;\n    constexpr modint(const i64 x = 0) noexcept : v(x < 0 ? mod -\
+    \ 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& value() noexcept { return\
+    \ v; }\n    constexpr const u32& value() const noexcept { return v; }\n    constexpr\
+    \ modint operator+(const modint& rhs) const noexcept { return modint(*this) +=\
+    \ rhs; }\n    constexpr modint operator-(const modint& rhs) const noexcept { return\
+    \ modint(*this) -= rhs; }\n    constexpr modint operator*(const modint& rhs) const\
+    \ noexcept { return modint(*this) *= rhs; }\n    constexpr modint operator/(const\
+    \ modint& rhs) const noexcept { return modint(*this) /= rhs; }\n    constexpr\
+    \ modint& operator+=(const modint& rhs) noexcept {\n        v += rhs.v;\n    \
+    \    if (v >= mod) v -= mod;\n        return *this;\n    }\n    constexpr modint&\
+    \ operator-=(const modint& rhs) noexcept {\n        if (v < rhs.v) v += mod;\n\
+    \        v -= rhs.v;\n        return *this;\n    }\n    constexpr modint& operator*=(const\
+    \ modint& rhs) noexcept {\n        v = (u64)v * rhs.v % mod;\n        return *this;\n\
+    \    }\n    constexpr modint& operator/=(const modint& rhs) noexcept { return\
+    \ *this *= rhs.pow(mod - 2); }\n    constexpr modint pow(u64 exp) const noexcept\
+    \ {\n        modint self(*this), res(1);\n        while (exp > 0) {\n        \
+    \    if (exp & 1) res *= self;\n            self *= self;\n            exp >>=\
+    \ 1;\n        }\n        return res;\n    }\n    constexpr modint& operator++()\
+    \ noexcept {\n        if (++v == mod) v = 0;\n        return *this;\n    }\n \
+    \   constexpr modint& operator--() noexcept {\n        if (v == 0) v = mod;\n\
+    \        return --v, *this;\n    }\n    constexpr modint operator++(int) noexcept\
+    \ {\n        modint t = *this;\n        return ++*this, t;\n    }\n    constexpr\
+    \ modint operator--(int) noexcept {\n        modint t = *this;\n        return\
+    \ --*this, t;\n    }\n    constexpr modint operator-() const noexcept { return\
+    \ modint(mod - v); }\n    template <class T> friend constexpr modint operator+(T\
+    \ x, modint y) noexcept { return modint(x) + y; }\n    template <class T> friend\
+    \ constexpr modint operator-(T x, modint y) noexcept { return modint(x) - y; }\n\
+    \    template <class T> friend constexpr modint operator*(T x, modint y) noexcept\
+    \ { return modint(x) * y; }\n    template <class T> friend constexpr modint operator/(T\
+    \ x, modint y) noexcept { return modint(x) / y; }\n    constexpr bool operator==(const\
+    \ modint& rhs) const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const\
+    \ modint& rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!()\
+    \ const noexcept { return !v; }\n    friend istream& operator>>(istream& s, modint&\
+    \ rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n      \
+    \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
+    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 6 \"test/yosupo/range_affine_range_sum.test.cpp\"\
+    \n\nusing mint = modint<998244353>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int N, Q;\n    cin >> N >> Q;\n    vector<mint> a(N);\n    for (int i = 0;\
+    \ i < N; i++) cin >> a[i];\n\n    struct node {\n        mint sum;\n        int\
+    \ a;\n        node(mint sum, int a) : sum(sum), a(a) {}\n    };\n    struct add\
+    \ {\n        mint b, c;\n        add(mint b, mint c) : b(b), c(c) {}\n       \
+    \ const bool operator==(const add& rhs) { return b == rhs.b && c == rhs.c; }\n\
+    \    };\n    auto f = [](node a, node b) { return node(a.sum + b.sum, a.a + b.a);\
+    \ };\n    auto g = [](node a, add x) { return node(a.sum * x.b + x.c * a.a, a.a);\
+    \ };\n    auto h = [](add a, add b) { return add(a.b * b.b, a.c * b.b + b.c);\
+    \ };\n    LazySegmentTree<node, add> seg(N, f, g, h, node(0, 0), add(1, 0));\n\
+    \    vector<node> v;\n    for (int i = 0; i < N; i++) v.emplace_back(a[i], 1);\n\
+    \    seg.build(v);\n\n    for (; Q--;) {\n        int t, l, r;\n        cin >>\
+    \ t >> l >> r;\n        if (!t) {\n            mint b, c;\n            cin >>\
+    \ b >> c;\n            seg.update(l, r, add(b, c));\n        } else\n        \
+    \    cout << seg.query(l, r).sum << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include\
-    \ \"../../datastructure/LazySegmentTree.hpp\"\n\nusing mint=modint<998244353>;\n\
-    \nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q;\
-    \ cin >> N >> Q;\n    vector<mint> a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\
-    \n    struct node{\n        mint sum; int a;\n        node(mint sum,int a):sum(sum),a(a){}\n\
-    \    };\n    struct add{\n        mint b,c;\n        add(mint b,mint c):b(b),c(c){}\n\
-    \        const bool operator==(const add &rhs){\n            return b==rhs.b&&c==rhs.c;\n\
-    \        }\n    };\n    auto f=[](node a,node b){return node(a.sum+b.sum,a.a+b.a);};\n\
-    \    auto g=[](node a,add x){return node(a.sum*x.b+x.c*a.a,a.a);};\n    auto h=[](add\
-    \ a,add b){return add(a.b*b.b,a.c*b.b+b.c);};\n    LazySegmentTree<node,add> seg(N,f,g,h,node(0,0),add(1,0));\n\
-    \    vector<node> v;\n    for (int i=0;i<N;++i) v.emplace_back(a[i],1);\n    seg.build(v);\n\
-    \n    for (;Q--;){\n        int t,l,r; cin >> t >> l >> r;\n        if (!t){\n\
-    \            mint b,c; cin >> b >> c;\n            seg.update(l,r,add(b,c));\n\
-    \        } else cout << seg.query(l,r).sum << '\\n';\n    }\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/LazySegmentTree.hpp\"\
+    \n#include \"../../modulo/modint.hpp\"\n\nusing mint = modint<998244353>;\n\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n\
+    \    cin >> N >> Q;\n    vector<mint> a(N);\n    for (int i = 0; i < N; i++) cin\
+    \ >> a[i];\n\n    struct node {\n        mint sum;\n        int a;\n        node(mint\
+    \ sum, int a) : sum(sum), a(a) {}\n    };\n    struct add {\n        mint b, c;\n\
+    \        add(mint b, mint c) : b(b), c(c) {}\n        const bool operator==(const\
+    \ add& rhs) { return b == rhs.b && c == rhs.c; }\n    };\n    auto f = [](node\
+    \ a, node b) { return node(a.sum + b.sum, a.a + b.a); };\n    auto g = [](node\
+    \ a, add x) { return node(a.sum * x.b + x.c * a.a, a.a); };\n    auto h = [](add\
+    \ a, add b) { return add(a.b * b.b, a.c * b.b + b.c); };\n    LazySegmentTree<node,\
+    \ add> seg(N, f, g, h, node(0, 0), add(1, 0));\n    vector<node> v;\n    for (int\
+    \ i = 0; i < N; i++) v.emplace_back(a[i], 1);\n    seg.build(v);\n\n    for (;\
+    \ Q--;) {\n        int t, l, r;\n        cin >> t >> l >> r;\n        if (!t)\
+    \ {\n            mint b, c;\n            cin >> b >> c;\n            seg.update(l,\
+    \ r, add(b, c));\n        } else\n            cout << seg.query(l, r).sum << '\\\
+    n';\n    }\n}"
   dependsOn:
   - base.hpp
-  - modulo/modint.hpp
   - datastructure/LazySegmentTree.hpp
+  - modulo/modint.hpp
   isVerificationFile: true
   path: test/yosupo/range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/range_affine_range_sum.test.cpp

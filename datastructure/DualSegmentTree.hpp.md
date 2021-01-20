@@ -6,14 +6,14 @@ data:
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_D.DualSegmentTree.test.cpp
     title: test/aoj/DSL_2_D.DualSegmentTree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_E.DualSegmentTree.test.cpp
     title: test/aoj/DSL_2_E.DualSegmentTree.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/datastructure/DualSegmentTree.md
     document_title: Dual Segment Tree
@@ -109,7 +109,7 @@ data:
   path: datastructure/DualSegmentTree.hpp
   requiredBy: []
   timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_2_E.DualSegmentTree.test.cpp
   - test/aoj/DSL_2_D.DualSegmentTree.test.cpp

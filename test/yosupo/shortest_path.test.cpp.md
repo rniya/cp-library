@@ -85,30 +85,31 @@ data:
     \        if (pre[t] < 0) return res;\n        while (~t) {\n            res.emplace_back(t);\n\
     \            t = pre[t];\n        }\n        reverse(res.begin(), res.end());\n\
     \        return res;\n    }\n    T operator[](int to) { return dp[to]; }\n};\n\
-    #line 5 \"test/yosupo/shortest_path.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N,M,s,t; cin >> N >> M >> s >> t;\n\
-    \n    Dijkstra<long long> D(N);\n    for (int i=0;i<M;++i){\n        int a,b,c;\
-    \ cin >> a >> b >> c;\n        D.add_edge(a,b,c);\n    }\n\n    D.build(s);\n\
-    \    vector<int> ans=D.restore(t);\n    if (ans.empty()){cout << -1 << '\\n';\
-    \ return 0;}\n    cout << D[t] << ' ' << ans.size()-1 << '\\n';\n    for (int\
-    \ i=0;i+1<ans.size();++i){\n        cout << ans[i] << ' ' << ans[i+1] << '\\n';\n\
-    \    }\n}\n"
+    #line 5 \"test/yosupo/shortest_path.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N, M, s, t;\n    cin >> N >> M >> s\
+    \ >> t;\n\n    Dijkstra<long long> D(N);\n    for (int i = 0; i < M; i++) {\n\
+    \        int a, b, c;\n        cin >> a >> b >> c;\n        D.add_edge(a, b, c);\n\
+    \    }\n\n    D.build(s);\n    vector<int> ans = D.restore(t);\n    if (ans.empty())\
+    \ {\n        cout << -1 << '\\n';\n        return 0;\n    }\n    cout << D[t]\
+    \ << ' ' << ans.size() - 1 << '\\n';\n    for (int i = 0; i + 1 < ans.size();\
+    \ i++) {\n        cout << ans[i] << ' ' << ans[i + 1] << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n\n#include\
-    \ \"../../base.hpp\"\n#include \"../../graph/Dijkstra.hpp\"\n\nint main(){\n \
-    \   cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,M,s,t; cin >> N >>\
-    \ M >> s >> t;\n\n    Dijkstra<long long> D(N);\n    for (int i=0;i<M;++i){\n\
-    \        int a,b,c; cin >> a >> b >> c;\n        D.add_edge(a,b,c);\n    }\n\n\
-    \    D.build(s);\n    vector<int> ans=D.restore(t);\n    if (ans.empty()){cout\
-    \ << -1 << '\\n'; return 0;}\n    cout << D[t] << ' ' << ans.size()-1 << '\\n';\n\
-    \    for (int i=0;i+1<ans.size();++i){\n        cout << ans[i] << ' ' << ans[i+1]\
-    \ << '\\n';\n    }\n}"
+    \ \"../../base.hpp\"\n#include \"../../graph/Dijkstra.hpp\"\n\nint main() {\n\
+    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, M, s, t;\n    cin\
+    \ >> N >> M >> s >> t;\n\n    Dijkstra<long long> D(N);\n    for (int i = 0; i\
+    \ < M; i++) {\n        int a, b, c;\n        cin >> a >> b >> c;\n        D.add_edge(a,\
+    \ b, c);\n    }\n\n    D.build(s);\n    vector<int> ans = D.restore(t);\n    if\
+    \ (ans.empty()) {\n        cout << -1 << '\\n';\n        return 0;\n    }\n  \
+    \  cout << D[t] << ' ' << ans.size() - 1 << '\\n';\n    for (int i = 0; i + 1\
+    \ < ans.size(); i++) {\n        cout << ans[i] << ' ' << ans[i + 1] << '\\n';\n\
+    \    }\n}"
   dependsOn:
   - base.hpp
   - graph/Dijkstra.hpp
   isVerificationFile: true
   path: test/yosupo/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/shortest_path.test.cpp

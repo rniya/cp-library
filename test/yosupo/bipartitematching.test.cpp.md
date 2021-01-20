@@ -119,25 +119,25 @@ data:
     \ (int i = 0; i < m; i++) {\n            if (~match_r[i]) continue;\n        \
     \    if (rG[i].empty()) return {};\n            res.emplace_back(rG[i][0], i);\n\
     \        }\n        return res;\n    }\n};\n#line 5 \"test/yosupo/bipartitematching.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int L,R,M;\
-    \ cin >> L >> R >> M;\n\n    HopcroftKarp HK(L,R);\n    for (;M--;){\n       \
-    \ int a,b; cin >> a >> b;\n        HK.add_edge(a,b);\n    }\n\n    auto ans=HK.max_matching();\n\
-    \    cout << ans.size() << '\\n';\n    for (auto p:ans) cout << p.first << ' '\
-    \ << p.second << '\\n';\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int L,\
+    \ R, M;\n    cin >> L >> R >> M;\n\n    HopcroftKarp HK(L, R);\n    for (; M--;)\
+    \ {\n        int a, b;\n        cin >> a >> b;\n        HK.add_edge(a, b);\n \
+    \   }\n\n    auto ans = HK.max_matching();\n    cout << ans.size() << '\\n';\n\
+    \    for (auto p : ans) cout << p.first << ' ' << p.second << '\\n';\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bipartitematching\"\n\n\
-    #include \"../../base.hpp\"\n#include \"../../flow/HopcroftKarp.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int L,R,M; cin >> L >>\
-    \ R >> M;\n\n    HopcroftKarp HK(L,R);\n    for (;M--;){\n        int a,b; cin\
-    \ >> a >> b;\n        HK.add_edge(a,b);\n    }\n\n    auto ans=HK.max_matching();\n\
-    \    cout << ans.size() << '\\n';\n    for (auto p:ans) cout << p.first << ' '\
-    \ << p.second << '\\n';\n}"
+    #include \"../../base.hpp\"\n#include \"../../flow/HopcroftKarp.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int L, R, M;\n   \
+    \ cin >> L >> R >> M;\n\n    HopcroftKarp HK(L, R);\n    for (; M--;) {\n    \
+    \    int a, b;\n        cin >> a >> b;\n        HK.add_edge(a, b);\n    }\n\n\
+    \    auto ans = HK.max_matching();\n    cout << ans.size() << '\\n';\n    for\
+    \ (auto p : ans) cout << p.first << ' ' << p.second << '\\n';\n}"
   dependsOn:
   - base.hpp
   - flow/HopcroftKarp.hpp
   isVerificationFile: true
   path: test/yosupo/bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/bipartitematching.test.cpp

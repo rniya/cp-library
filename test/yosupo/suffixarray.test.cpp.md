@@ -94,21 +94,21 @@ data:
     \    }\n    int count(string& t) {\n        pair<int, int> p = lower_upper_bound(t);\n\
     \        return p.second - p.first;\n    }\n    int operator[](int i) const {\
     \ return SA[i]; }\n    int size() const { return s.size(); }\n};\n#line 5 \"test/yosupo/suffixarray.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
-    \ S; cin >> S;\n\n    SuffixArray SA(S);\n\n    for (int i=0;i<S.size();++i) cout\
-    \ << SA[i+1] << (i+1==S.size()?'\\n':' ');\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
+    \ S;\n    cin >> S;\n\n    SuffixArray SA(S);\n\n    for (int i = 0; i < S.size();\
+    \ i++) cout << SA[i + 1] << (i + 1 == S.size() ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/suffixarray\"\n\n#include\
-    \ \"../../base.hpp\"\n#include \"../../string/SuffixArray.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S; cin >> S;\n\n\
-    \    SuffixArray SA(S);\n\n    for (int i=0;i<S.size();++i) cout << SA[i+1] <<\
-    \ (i+1==S.size()?'\\n':' ');\n}"
+    \ \"../../base.hpp\"\n#include \"../../string/SuffixArray.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S;\n    cin\
+    \ >> S;\n\n    SuffixArray SA(S);\n\n    for (int i = 0; i < S.size(); i++) cout\
+    \ << SA[i + 1] << (i + 1 == S.size() ? '\\n' : ' ');\n}"
   dependsOn:
   - base.hpp
   - string/SuffixArray.hpp
   isVerificationFile: true
   path: test/yosupo/suffixarray.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/suffixarray.test.cpp

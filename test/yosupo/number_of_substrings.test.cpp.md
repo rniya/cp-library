@@ -117,16 +117,17 @@ data:
     \ dat[d][b - (1 << d)]);\n    }\n    // longest common prefix of s[a...] and s[b...]\n\
     \    int lcp(int a, int b) { return query(rank[a], rank[b]); }\n    int operator[](int\
     \ i) const { return LCP[i]; }\n    int size() const { return LCP.size(); }\n};\n\
-    #line 5 \"test/yosupo/number_of_substrings.test.cpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    string S; cin >> S;\n    int N=S.size();\n\
-    \n    LongestCommonPrefixArray LCP(S);\n\n    long long ans=0;\n    for (int i=0;i<N;++i){\n\
-    \        ans+=N-LCP.SA[i+1]-LCP[i];\n    }\n\n    cout << ans << '\\n';\n}\n"
+    #line 5 \"test/yosupo/number_of_substrings.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    string S;\n    cin >> S;\n    int N = S.size();\n\
+    \n    LongestCommonPrefixArray LCP(S);\n\n    long long ans = 0;\n    for (int\
+    \ i = 0; i < N; i++) {\n        ans += N - LCP.SA[i + 1] - LCP[i];\n    }\n\n\
+    \    cout << ans << '\\n';\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/number_of_substrings\"\n\
     \n#include \"../../base.hpp\"\n#include \"../../string/LongestCommonPrefixArray.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
-    \ S; cin >> S;\n    int N=S.size();\n\n    LongestCommonPrefixArray LCP(S);\n\n\
-    \    long long ans=0;\n    for (int i=0;i<N;++i){\n        ans+=N-LCP.SA[i+1]-LCP[i];\n\
-    \    }\n\n    cout << ans << '\\n';\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
+    \ S;\n    cin >> S;\n    int N = S.size();\n\n    LongestCommonPrefixArray LCP(S);\n\
+    \n    long long ans = 0;\n    for (int i = 0; i < N; i++) {\n        ans += N\
+    \ - LCP.SA[i + 1] - LCP[i];\n    }\n\n    cout << ans << '\\n';\n}"
   dependsOn:
   - base.hpp
   - string/LongestCommonPrefixArray.hpp
@@ -134,7 +135,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/number_of_substrings.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/number_of_substrings.test.cpp

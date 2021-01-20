@@ -4,10 +4,10 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -69,8 +69,43 @@ data:
     \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#line 3 \"modulo/modint.hpp\"\n\n\
-    /**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"datastructure/SegmentTree.hpp\"\
+    \n\n/**\n * @brief Segment Tree\n * @docs docs/datastructure/SegmentTree.md\n\
+    \ */\ntemplate <typename Monoid> struct SegmentTree {\n    typedef function<Monoid(Monoid,\
+    \ Monoid)> F;\n    int n;\n    F f;\n    Monoid id;\n    vector<Monoid> dat;\n\
+    \    SegmentTree(int n_, F f, Monoid id) : f(f), id(id) { init(n_); }\n    void\
+    \ init(int n_) {\n        n = 1;\n        while (n < n_) n <<= 1;\n        dat.assign(n\
+    \ << 1, id);\n    }\n    void build(const vector<Monoid>& v) {\n        for (int\
+    \ i = 0; i < v.size(); i++) dat[i + n] = v[i];\n        for (int i = n - 1; i;\
+    \ i--) dat[i] = f(dat[i << 1 | 0], dat[i << 1 | 1]);\n    }\n    void update(int\
+    \ k, Monoid x) {\n        dat[k += n] = x;\n        while (k >>= 1) dat[k] = f(dat[k\
+    \ << 1 | 0], dat[k << 1 | 1]);\n    }\n    Monoid query(int a, int b) {\n    \
+    \    if (a >= b) return id;\n        Monoid vl = id, vr = id;\n        for (int\
+    \ l = a + n, r = b + n; l < r; l >>= 1, r >>= 1) {\n            if (l & 1) vl\
+    \ = f(vl, dat[l++]);\n            if (r & 1) vr = f(dat[--r], vr);\n        }\n\
+    \        return f(vl, vr);\n    }\n    template <typename C> int find_subtree(int\
+    \ k, const C& check, Monoid& M, bool type) {\n        while (k < n) {\n      \
+    \      Monoid nxt = type ? f(dat[k << 1 | type], M) : f(M, dat[k << 1 | type]);\n\
+    \            if (check(nxt))\n                k = k << 1 | type;\n           \
+    \ else\n                M = nxt, k = k << 1 | (type ^ 1);\n        }\n       \
+    \ return k - n;\n    }\n    // min i s.t. f(seg[a],seg[a+1],...,seg[i]) satisfy\
+    \ \"check\"\n    template <typename C> int find_first(int a, const C& check) {\n\
+    \        Monoid L = id;\n        if (a <= 0) {\n            if (check(f(L, dat[1])))\
+    \ return find_subtree(1, check, L, false);\n            return -1;\n        }\n\
+    \        int b = n;\n        for (int l = a + n, r = b + n; l < r; l >>= 1, r\
+    \ >>= 1) {\n            if (l & 1) {\n                Monoid nxt = f(L, dat[l]);\n\
+    \                if (check(nxt)) return find_subtree(l, check, L, false);\n  \
+    \              L = nxt;\n                l++;\n            }\n        }\n    \
+    \    return -1;\n    }\n    // max i s.t. f(seg[i],...,seg[b-2],seg[b-1]) satisfy\
+    \ \"check\"\n    template <typename C> int find_last(int b, const C& check) {\n\
+    \        Monoid R = id;\n        if (b >= n) {\n            if (check(f(dat[1],\
+    \ R))) return find_subtree(1, check, R, true);\n            return -1;\n     \
+    \   }\n        int a = n;\n        for (int l = a, r = b + n; l < r; l >>= 1,\
+    \ r >>= 1) {\n            if (r & 1) {\n                Monoid nxt = f(dat[--r],\
+    \ R);\n                if (check(nxt)) return find_subtree(r, check, R, true);\n\
+    \                R = nxt;\n            }\n        }\n        return -1;\n    }\n\
+    \    Monoid operator[](int i) { return dat[i + n]; }\n};\n#line 3 \"modulo/modint.hpp\"\
+    \n\n/**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
     \ mod> class modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n \
     \   using u64 = uint64_t;\n\npublic:\n    u32 v;\n    constexpr modint(const i64\
     \ x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr\
@@ -108,73 +143,42 @@ data:
     \ noexcept { return !v; }\n    friend istream& operator>>(istream& s, modint&\
     \ rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n      \
     \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
-    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 3 \"datastructure/SegmentTree.hpp\"\
-    \n\n/**\n * @brief Segment Tree\n * @docs docs/datastructure/SegmentTree.md\n\
-    \ */\ntemplate <typename Monoid> struct SegmentTree {\n    typedef function<Monoid(Monoid,\
-    \ Monoid)> F;\n    int n;\n    F f;\n    Monoid id;\n    vector<Monoid> dat;\n\
-    \    SegmentTree(int n_, F f, Monoid id) : f(f), id(id) { init(n_); }\n    void\
-    \ init(int n_) {\n        n = 1;\n        while (n < n_) n <<= 1;\n        dat.assign(n\
-    \ << 1, id);\n    }\n    void build(const vector<Monoid>& v) {\n        for (int\
-    \ i = 0; i < v.size(); i++) dat[i + n] = v[i];\n        for (int i = n - 1; i;\
-    \ i--) dat[i] = f(dat[i << 1 | 0], dat[i << 1 | 1]);\n    }\n    void update(int\
-    \ k, Monoid x) {\n        dat[k += n] = x;\n        while (k >>= 1) dat[k] = f(dat[k\
-    \ << 1 | 0], dat[k << 1 | 1]);\n    }\n    Monoid query(int a, int b) {\n    \
-    \    if (a >= b) return id;\n        Monoid vl = id, vr = id;\n        for (int\
-    \ l = a + n, r = b + n; l < r; l >>= 1, r >>= 1) {\n            if (l & 1) vl\
-    \ = f(vl, dat[l++]);\n            if (r & 1) vr = f(dat[--r], vr);\n        }\n\
-    \        return f(vl, vr);\n    }\n    template <typename C> int find_subtree(int\
-    \ k, const C& check, Monoid& M, bool type) {\n        while (k < n) {\n      \
-    \      Monoid nxt = type ? f(dat[k << 1 | type], M) : f(M, dat[k << 1 | type]);\n\
-    \            if (check(nxt))\n                k = k << 1 | type;\n           \
-    \ else\n                M = nxt, k = k << 1 | (type ^ 1);\n        }\n       \
-    \ return k - n;\n    }\n    // min i s.t. f(seg[a],seg[a+1],...,seg[i]) satisfy\
-    \ \"check\"\n    template <typename C> int find_first(int a, const C& check) {\n\
-    \        Monoid L = id;\n        if (a <= 0) {\n            if (check(f(L, dat[1])))\
-    \ return find_subtree(1, check, L, false);\n            return -1;\n        }\n\
-    \        int b = n;\n        for (int l = a + n, r = b + n; l < r; l >>= 1, r\
-    \ >>= 1) {\n            if (l & 1) {\n                Monoid nxt = f(L, dat[l]);\n\
-    \                if (check(nxt)) return find_subtree(l, check, L, false);\n  \
-    \              L = nxt;\n                l++;\n            }\n        }\n    \
-    \    return -1;\n    }\n    // max i s.t. f(seg[i],...,seg[b-2],seg[b-1]) satisfy\
-    \ \"check\"\n    template <typename C> int find_last(int b, const C& check) {\n\
-    \        Monoid R = id;\n        if (b >= n) {\n            if (check(f(dat[1],\
-    \ R))) return find_subtree(1, check, R, true);\n            return -1;\n     \
-    \   }\n        int a = n;\n        for (int l = a, r = b + n; l < r; l >>= 1,\
-    \ r >>= 1) {\n            if (r & 1) {\n                Monoid nxt = f(dat[--r],\
-    \ R);\n                if (check(nxt)) return find_subtree(r, check, R, true);\n\
-    \                R = nxt;\n            }\n        }\n        return -1;\n    }\n\
-    \    Monoid operator[](int i) { return dat[i + n]; }\n};\n#line 6 \"test/yosupo/point_set_range_composite.test.cpp\"\
-    \n\nusing mint=modint<998244353>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int N,Q; cin >> N >> Q;\n    vector<mint> a(N),b(N);\n    for (int i=0;i<N;++i)\
-    \ cin >> a[i] >> b[i];\n\n    struct node{\n        mint a,b;\n        node (mint\
-    \ a,mint b):a(a),b(b){}\n    };\n    auto f=[](node a,node b){return node(a.a*b.a,a.b*b.a+b.b);};\n\
-    \    SegmentTree<node> seg(N,f,node(1,0));\n    vector<node> v;\n    for (int\
-    \ i=0;i<N;++i) v.emplace_back(a[i],b[i]);\n    seg.build(v);\n\n    for (;Q--;){\n\
-    \        int t; cin >> t;\n        if (!t){\n            int p; mint c,d; cin\
-    \ >> p >> c >> d;\n            seg.update(p,node(c,d));\n        } else {\n  \
-    \          int l,r; mint x; cin >> l >> r >> x;\n            node ans=seg.query(l,r);\n\
-    \            cout << x*ans.a+ans.b << '\\n';\n        }\n    }\n}\n"
+    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 6 \"test/yosupo/point_set_range_composite.test.cpp\"\
+    \n\nusing mint = modint<998244353>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int N, Q;\n    cin >> N >> Q;\n    vector<mint> a(N), b(N);\n    for (int\
+    \ i = 0; i < N; i++) cin >> a[i] >> b[i];\n\n    struct node {\n        mint a,\
+    \ b;\n        node(mint a, mint b) : a(a), b(b) {}\n    };\n    auto f = [](node\
+    \ a, node b) { return node(a.a * b.a, a.b * b.a + b.b); };\n    SegmentTree<node>\
+    \ seg(N, f, node(1, 0));\n    vector<node> v;\n    for (int i = 0; i < N; i++)\
+    \ v.emplace_back(a[i], b[i]);\n    seg.build(v);\n\n    for (; Q--;) {\n     \
+    \   int t;\n        cin >> t;\n        if (!t) {\n            int p;\n       \
+    \     mint c, d;\n            cin >> p >> c >> d;\n            seg.update(p, node(c,\
+    \ d));\n        } else {\n            int l, r;\n            mint x;\n       \
+    \     cin >> l >> r >> x;\n            node ans = seg.query(l, r);\n         \
+    \   cout << x * ans.a + ans.b << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include\
-    \ \"../../datastructure/SegmentTree.hpp\"\n\nusing mint=modint<998244353>;\n\n\
-    int main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q; cin\
-    \ >> N >> Q;\n    vector<mint> a(N),b(N);\n    for (int i=0;i<N;++i) cin >> a[i]\
-    \ >> b[i];\n\n    struct node{\n        mint a,b;\n        node (mint a,mint b):a(a),b(b){}\n\
-    \    };\n    auto f=[](node a,node b){return node(a.a*b.a,a.b*b.a+b.b);};\n  \
-    \  SegmentTree<node> seg(N,f,node(1,0));\n    vector<node> v;\n    for (int i=0;i<N;++i)\
-    \ v.emplace_back(a[i],b[i]);\n    seg.build(v);\n\n    for (;Q--;){\n        int\
-    \ t; cin >> t;\n        if (!t){\n            int p; mint c,d; cin >> p >> c >>\
-    \ d;\n            seg.update(p,node(c,d));\n        } else {\n            int\
-    \ l,r; mint x; cin >> l >> r >> x;\n            node ans=seg.query(l,r);\n   \
-    \         cout << x*ans.a+ans.b << '\\n';\n        }\n    }\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/SegmentTree.hpp\"\
+    \n#include \"../../modulo/modint.hpp\"\n\nusing mint = modint<998244353>;\n\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n\
+    \    cin >> N >> Q;\n    vector<mint> a(N), b(N);\n    for (int i = 0; i < N;\
+    \ i++) cin >> a[i] >> b[i];\n\n    struct node {\n        mint a, b;\n       \
+    \ node(mint a, mint b) : a(a), b(b) {}\n    };\n    auto f = [](node a, node b)\
+    \ { return node(a.a * b.a, a.b * b.a + b.b); };\n    SegmentTree<node> seg(N,\
+    \ f, node(1, 0));\n    vector<node> v;\n    for (int i = 0; i < N; i++) v.emplace_back(a[i],\
+    \ b[i]);\n    seg.build(v);\n\n    for (; Q--;) {\n        int t;\n        cin\
+    \ >> t;\n        if (!t) {\n            int p;\n            mint c, d;\n     \
+    \       cin >> p >> c >> d;\n            seg.update(p, node(c, d));\n        }\
+    \ else {\n            int l, r;\n            mint x;\n            cin >> l >>\
+    \ r >> x;\n            node ans = seg.query(l, r);\n            cout << x * ans.a\
+    \ + ans.b << '\\n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
-  - modulo/modint.hpp
   - datastructure/SegmentTree.hpp
+  - modulo/modint.hpp
   isVerificationFile: true
   path: test/yosupo/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/point_set_range_composite.test.cpp

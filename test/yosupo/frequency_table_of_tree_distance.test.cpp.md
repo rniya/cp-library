@@ -123,41 +123,46 @@ data:
     \ disable(int v) { centroid[v] = true; }\n    void enable(int v) { centroid[v]\
     \ = false; }\n    int alive(int v) { return !centroid[v]; }\n    const vector<int>&\
     \ operator[](int v) const { return G[v]; }\n};\n#line 6 \"test/yosupo/frequency_table_of_tree_distance.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\
-    \ cin >> N;\n\n    CentroidDecomposition CD(N);\n    for (int i=0;i<N-1;++i){\n\
-    \        int a,b; cin >> a >> b;\n        CD.add_edge(a,b);\n    }\n\n    vector<long\
-    \ long> ans(N,0);\n    auto calc=[&](auto self,int v,int p,int d,vector<int> &cnt)->void{\n\
-    \        while(cnt.size()<=d) cnt.emplace_back(0);\n        ++cnt[d];\n      \
-    \  for (int u:CD[v]){\n            if (u==p||!CD.alive(u)) continue;\n       \
-    \     self(self,u,v,d+1,cnt);\n        }\n    };\n    auto dfs=[&](auto self,int\
-    \ v)->void{\n        int c=CD.build(v);\n        CD.disable(c);\n        vector<int>\
-    \ sum{1};\n        for (int u:CD[c]){\n            if (!CD.alive(u)) continue;\n\
-    \            self(self,u);\n            vector<int> cnt;\n            calc(calc,u,c,1,cnt);\n\
-    \            while(sum.size()<cnt.size()) sum.emplace_back(0);\n            for\
-    \ (int i=0;i<cnt.size();++i) sum[i]+=cnt[i];\n            auto mul=FastFourierTransform::multiply(cnt,cnt);\n\
-    \            for (int i=0;i<mul.size();++i) ans[i]-=mul[i];\n        }\n     \
-    \   auto ret=FastFourierTransform::multiply(sum,sum);\n        for (int i=0;i<ret.size();++i)\
-    \ ans[i]+=ret[i];\n        CD.enable(c);\n    };\n\n    dfs(dfs,0);\n    for (int\
-    \ i=1;i<N;++i) cout << ans[i]/2 << (i+1==N?'\\n':' ');\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\n\
+    \    cin >> N;\n\n    CentroidDecomposition CD(N);\n    for (int i = 0; i < N\
+    \ - 1; i++) {\n        int a, b;\n        cin >> a >> b;\n        CD.add_edge(a,\
+    \ b);\n    }\n\n    vector<long long> ans(N, 0);\n    auto calc = [&](auto self,\
+    \ int v, int p, int d, vector<int>& cnt) -> void {\n        while (cnt.size()\
+    \ <= d) cnt.emplace_back(0);\n        cnt[d]++;\n        for (int u : CD[v]) {\n\
+    \            if (u == p || !CD.alive(u)) continue;\n            self(self, u,\
+    \ v, d + 1, cnt);\n        }\n    };\n    auto dfs = [&](auto self, int v) ->\
+    \ void {\n        int c = CD.build(v);\n        CD.disable(c);\n        vector<int>\
+    \ sum{1};\n        for (int u : CD[c]) {\n            if (!CD.alive(u)) continue;\n\
+    \            self(self, u);\n            vector<int> cnt;\n            calc(calc,\
+    \ u, c, 1, cnt);\n            while (sum.size() < cnt.size()) sum.emplace_back(0);\n\
+    \            for (int i = 0; i < cnt.size(); i++) sum[i] += cnt[i];\n        \
+    \    auto mul = FastFourierTransform::multiply(cnt, cnt);\n            for (int\
+    \ i = 0; i < mul.size(); i++) ans[i] -= mul[i];\n        }\n        auto ret =\
+    \ FastFourierTransform::multiply(sum, sum);\n        for (int i = 0; i < ret.size();\
+    \ i++) ans[i] += ret[i];\n        CD.enable(c);\n    };\n\n    dfs(dfs, 0);\n\
+    \    for (int i = 1; i < N; i++) cout << ans[i] / 2 << (i + 1 == N ? '\\n' : '\
+    \ ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/frequency_table_of_tree_distance\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../convolution/FastFourierTransform.hpp\"\
-    \n#include \"../../tree/CentroidDecomposition.hpp\"\n\nint main(){\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N; cin >> N;\n\n    CentroidDecomposition\
-    \ CD(N);\n    for (int i=0;i<N-1;++i){\n        int a,b; cin >> a >> b;\n    \
-    \    CD.add_edge(a,b);\n    }\n\n    vector<long long> ans(N,0);\n    auto calc=[&](auto\
-    \ self,int v,int p,int d,vector<int> &cnt)->void{\n        while(cnt.size()<=d)\
-    \ cnt.emplace_back(0);\n        ++cnt[d];\n        for (int u:CD[v]){\n      \
-    \      if (u==p||!CD.alive(u)) continue;\n            self(self,u,v,d+1,cnt);\n\
-    \        }\n    };\n    auto dfs=[&](auto self,int v)->void{\n        int c=CD.build(v);\n\
-    \        CD.disable(c);\n        vector<int> sum{1};\n        for (int u:CD[c]){\n\
-    \            if (!CD.alive(u)) continue;\n            self(self,u);\n        \
-    \    vector<int> cnt;\n            calc(calc,u,c,1,cnt);\n            while(sum.size()<cnt.size())\
-    \ sum.emplace_back(0);\n            for (int i=0;i<cnt.size();++i) sum[i]+=cnt[i];\n\
-    \            auto mul=FastFourierTransform::multiply(cnt,cnt);\n            for\
-    \ (int i=0;i<mul.size();++i) ans[i]-=mul[i];\n        }\n        auto ret=FastFourierTransform::multiply(sum,sum);\n\
-    \        for (int i=0;i<ret.size();++i) ans[i]+=ret[i];\n        CD.enable(c);\n\
-    \    };\n\n    dfs(dfs,0);\n    for (int i=1;i<N;++i) cout << ans[i]/2 << (i+1==N?'\\\
-    n':' ');\n}"
+    \n#include \"../../tree/CentroidDecomposition.hpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N;\n    cin >> N;\n\n    CentroidDecomposition\
+    \ CD(N);\n    for (int i = 0; i < N - 1; i++) {\n        int a, b;\n        cin\
+    \ >> a >> b;\n        CD.add_edge(a, b);\n    }\n\n    vector<long long> ans(N,\
+    \ 0);\n    auto calc = [&](auto self, int v, int p, int d, vector<int>& cnt) ->\
+    \ void {\n        while (cnt.size() <= d) cnt.emplace_back(0);\n        cnt[d]++;\n\
+    \        for (int u : CD[v]) {\n            if (u == p || !CD.alive(u)) continue;\n\
+    \            self(self, u, v, d + 1, cnt);\n        }\n    };\n    auto dfs =\
+    \ [&](auto self, int v) -> void {\n        int c = CD.build(v);\n        CD.disable(c);\n\
+    \        vector<int> sum{1};\n        for (int u : CD[c]) {\n            if (!CD.alive(u))\
+    \ continue;\n            self(self, u);\n            vector<int> cnt;\n      \
+    \      calc(calc, u, c, 1, cnt);\n            while (sum.size() < cnt.size())\
+    \ sum.emplace_back(0);\n            for (int i = 0; i < cnt.size(); i++) sum[i]\
+    \ += cnt[i];\n            auto mul = FastFourierTransform::multiply(cnt, cnt);\n\
+    \            for (int i = 0; i < mul.size(); i++) ans[i] -= mul[i];\n        }\n\
+    \        auto ret = FastFourierTransform::multiply(sum, sum);\n        for (int\
+    \ i = 0; i < ret.size(); i++) ans[i] += ret[i];\n        CD.enable(c);\n    };\n\
+    \n    dfs(dfs, 0);\n    for (int i = 1; i < N; i++) cout << ans[i] / 2 << (i +\
+    \ 1 == N ? '\\n' : ' ');\n}"
   dependsOn:
   - base.hpp
   - convolution/FastFourierTransform.hpp
@@ -165,7 +170,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/frequency_table_of_tree_distance.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/frequency_table_of_tree_distance.test.cpp

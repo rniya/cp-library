@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: datastructure/UnionFind.hpp
     title: UnionFind
   _extendedRequiredBy: []
@@ -76,23 +76,23 @@ data:
     \    }\n    bool same(int x, int y) { return root(x) == root(y); }\n    int size(int\
     \ x) { return rank[root(x)]; }\n    int count() { return num; }\n    int operator[](int\
     \ x) { return root(x); }\n};\n#line 5 \"test/yosupo/unionfind.test.cpp\"\n\nint\
-    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q; cin\
-    \ >> N >> Q;\n\n    UnionFind UF(N);\n    for (;Q--;){\n        int t,u,v; cin\
-    \ >> t >> u >> v;\n        if (!t) UF.merge(u,v);\n        else cout << UF.same(u,v)\
-    \ << '\\n';\n    }\n}\n"
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n\
+    \    cin >> N >> Q;\n\n    UnionFind UF(N);\n    for (; Q--;) {\n        int t,\
+    \ u, v;\n        cin >> t >> u >> v;\n        if (!t)\n            UF.merge(u,\
+    \ v);\n        else\n            cout << UF.same(u, v) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\n\n#include\
-    \ \"../../base.hpp\"\n#include \"../../datastructure/UnionFind.hpp\"\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q; cin >> N >> Q;\n\
-    \n    UnionFind UF(N);\n    for (;Q--;){\n        int t,u,v; cin >> t >> u >>\
-    \ v;\n        if (!t) UF.merge(u,v);\n        else cout << UF.same(u,v) << '\\\
-    n';\n    }\n}"
+    \ \"../../base.hpp\"\n#include \"../../datastructure/UnionFind.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n    cin\
+    \ >> N >> Q;\n\n    UnionFind UF(N);\n    for (; Q--;) {\n        int t, u, v;\n\
+    \        cin >> t >> u >> v;\n        if (!t)\n            UF.merge(u, v);\n \
+    \       else\n            cout << UF.same(u, v) << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/UnionFind.hpp
   isVerificationFile: true
   path: test/yosupo/unionfind.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/unionfind.test.cpp

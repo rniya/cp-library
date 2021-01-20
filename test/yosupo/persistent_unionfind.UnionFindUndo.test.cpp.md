@@ -80,33 +80,37 @@ data:
     \ hist.pop();\n    }\n    void rollback() {\n        while (!hist.empty()) undo();\n\
     \    }\n    bool same(int x, int y) { return root(x) == root(y); }\n    int size(int\
     \ x) { return -dat[root(x)]; }\n};\n#line 5 \"test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q;\
-    \ cin >> N >> Q;\n    vector<int> t(Q),u(Q),v(Q);\n    vector<vector<int>> G(Q+1);\n\
-    \    for (int i=0;i<Q;++i){\n        int k; cin >> t[i] >> k >> u[i] >> v[i];\n\
-    \        G[++k].emplace_back(i+1);\n    }\n\n    UnionFindUndo UF(N);\n    vector<int>\
-    \ ans(Q,-1);\n    auto dfs=[&](auto self,int cur)->void{\n        if (cur){\n\
-    \            if (!t[cur-1]) UF.merge(u[cur-1],v[cur-1]);\n            else ans[cur-1]=UF.same(u[cur-1],v[cur-1]);\n\
-    \        }\n        for (int nxt:G[cur]) self(self,nxt);\n        if (cur&&!t[cur-1])\
-    \ UF.undo();\n    };\n    dfs(dfs,0);\n    for (int i=0;i<Q;++i){\n        if\
-    \ (~ans[i]){\n            cout << ans[i] << '\\n';\n        }\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ Q;\n    cin >> N >> Q;\n    vector<int> t(Q), u(Q), v(Q);\n    vector<vector<int>>\
+    \ G(Q + 1);\n    for (int i = 0; i < Q; i++) {\n        int k;\n        cin >>\
+    \ t[i] >> k >> u[i] >> v[i];\n        G[++k].emplace_back(i + 1);\n    }\n\n \
+    \   UnionFindUndo UF(N);\n    vector<int> ans(Q, -1);\n    auto dfs = [&](auto\
+    \ self, int cur) -> void {\n        if (cur) {\n            if (!t[cur - 1])\n\
+    \                UF.merge(u[cur - 1], v[cur - 1]);\n            else\n       \
+    \         ans[cur - 1] = UF.same(u[cur - 1], v[cur - 1]);\n        }\n       \
+    \ for (int nxt : G[cur]) self(self, nxt);\n        if (cur && !t[cur - 1]) UF.undo();\n\
+    \    };\n    dfs(dfs, 0);\n    for (int i = 0; i < Q; i++) {\n        if (~ans[i])\
+    \ {\n            cout << ans[i] << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/persistent_unionfind\"\n\
     \n#include \"../../base.hpp\"\n#include \"../../datastructure/UnionFindUndo.hpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q;\
-    \ cin >> N >> Q;\n    vector<int> t(Q),u(Q),v(Q);\n    vector<vector<int>> G(Q+1);\n\
-    \    for (int i=0;i<Q;++i){\n        int k; cin >> t[i] >> k >> u[i] >> v[i];\n\
-    \        G[++k].emplace_back(i+1);\n    }\n\n    UnionFindUndo UF(N);\n    vector<int>\
-    \ ans(Q,-1);\n    auto dfs=[&](auto self,int cur)->void{\n        if (cur){\n\
-    \            if (!t[cur-1]) UF.merge(u[cur-1],v[cur-1]);\n            else ans[cur-1]=UF.same(u[cur-1],v[cur-1]);\n\
-    \        }\n        for (int nxt:G[cur]) self(self,nxt);\n        if (cur&&!t[cur-1])\
-    \ UF.undo();\n    };\n    dfs(dfs,0);\n    for (int i=0;i<Q;++i){\n        if\
-    \ (~ans[i]){\n            cout << ans[i] << '\\n';\n        }\n    }\n}"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ Q;\n    cin >> N >> Q;\n    vector<int> t(Q), u(Q), v(Q);\n    vector<vector<int>>\
+    \ G(Q + 1);\n    for (int i = 0; i < Q; i++) {\n        int k;\n        cin >>\
+    \ t[i] >> k >> u[i] >> v[i];\n        G[++k].emplace_back(i + 1);\n    }\n\n \
+    \   UnionFindUndo UF(N);\n    vector<int> ans(Q, -1);\n    auto dfs = [&](auto\
+    \ self, int cur) -> void {\n        if (cur) {\n            if (!t[cur - 1])\n\
+    \                UF.merge(u[cur - 1], v[cur - 1]);\n            else\n       \
+    \         ans[cur - 1] = UF.same(u[cur - 1], v[cur - 1]);\n        }\n       \
+    \ for (int nxt : G[cur]) self(self, nxt);\n        if (cur && !t[cur - 1]) UF.undo();\n\
+    \    };\n    dfs(dfs, 0);\n    for (int i = 0; i < Q; i++) {\n        if (~ans[i])\
+    \ {\n            cout << ans[i] << '\\n';\n        }\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/UnionFindUndo.hpp
   isVerificationFile: true
   path: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp

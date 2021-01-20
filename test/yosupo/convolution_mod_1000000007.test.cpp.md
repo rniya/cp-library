@@ -10,7 +10,7 @@ data:
   - icon: ':x:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -165,16 +165,18 @@ data:
     \      int v0 = c0[i].v;\n        int v1 = (inv0 * (c1[i] - v0)).v;\n        int\
     \ v2 = (inv0inv1 * (c2[i] - v0) - inv1 * v1).v;\n        res[i] = v0 + m0 * v1\
     \ + m0m1 * v2;\n    }\n    return res;\n}\n#line 5 \"test/yosupo/convolution_mod_1000000007.test.cpp\"\
-    \n\nusing mint=modint<1000000007>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int N,M; cin >> N >> M;\n    vector<mint> a(N),b(M);\n    for (int i=0;i<N;++i)\
-    \ cin >> a[i];\n    for (int i=0;i<M;++i) cin >> b[i];\n\n    vector<mint> c=ArbitaryModConvolution(a,b);\n\
-    \    for (int i=0;i<N+M-1;++i) cout << c[i] << (i==N+M-2?'\\n':' ');\n}\n"
+    \n\nusing mint = modint<1000000007>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int N, M;\n    cin >> N >> M;\n    vector<mint> a(N), b(M);\n    for (int\
+    \ i = 0; i < N; i++) cin >> a[i];\n    for (int i = 0; i < M; i++) cin >> b[i];\n\
+    \n    vector<mint> c = ArbitaryModConvolution(a, b);\n    for (int i = 0; i <\
+    \ N + M - 1; i++) cout << c[i] << (i == N + M - 2 ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod_1000000007\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../convolution/ArbitaryModConvolution.hpp\"\
-    \n\nusing mint=modint<1000000007>;\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int N,M; cin >> N >> M;\n    vector<mint> a(N),b(M);\n    for (int i=0;i<N;++i)\
-    \ cin >> a[i];\n    for (int i=0;i<M;++i) cin >> b[i];\n\n    vector<mint> c=ArbitaryModConvolution(a,b);\n\
-    \    for (int i=0;i<N+M-1;++i) cout << c[i] << (i==N+M-2?'\\n':' ');\n}"
+    \n\nusing mint = modint<1000000007>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int N, M;\n    cin >> N >> M;\n    vector<mint> a(N), b(M);\n    for (int\
+    \ i = 0; i < N; i++) cin >> a[i];\n    for (int i = 0; i < M; i++) cin >> b[i];\n\
+    \n    vector<mint> c = ArbitaryModConvolution(a, b);\n    for (int i = 0; i <\
+    \ N + M - 1; i++) cout << c[i] << (i == N + M - 2 ? '\\n' : ' ');\n}"
   dependsOn:
   - base.hpp
   - convolution/ArbitaryModConvolution.hpp
@@ -183,7 +185,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/convolution_mod_1000000007.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/convolution_mod_1000000007.test.cpp

@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':x:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   - icon: ':x:'
@@ -242,31 +242,32 @@ data:
     \ 0; i <= n; i++) {\n        T inv = T(1) / prod;\n        a[i] = T(i).pow(n)\
     \ * inv;\n        b[i] = T(1) * inv;\n        if (i & 1) b[i] *= -1;\n       \
     \ prod *= i + 1;\n    }\n    return (a * b).pre(n + 1);\n}\n#line 7 \"test/yosupo/stirling_number_of_the_second_kind.test.cpp\"\
-    \n\nusing mint=modint<998244353>;\nusing FPS=FormalPowerSeries<mint>;\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    NumberTheoreticTransform<998244353>\
-    \ NTT;\n    auto mul=[&](const FPS::Poly &a,const FPS::Poly &b){\n        auto\
-    \ res=NTT.multiply(a,b);\n        return FPS::Poly(res.begin(),res.end());\n \
-    \   };\n    FPS::set_mul(mul);\n\n    int N; cin >> N;\n    FPS ans=StirlingSecond<mint>(N);\n\
-    \    for (int i=0;i<=N;++i) cout << ans[i] << (i==N?'\\n':' ');\n}\n"
+    \n\nusing mint = modint<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    NumberTheoreticTransform<998244353>\
+    \ NTT;\n    auto mul = [&](const FPS::Poly& a, const FPS::Poly& b) {\n       \
+    \ auto res = NTT.multiply(a, b);\n        return FPS::Poly(res.begin(), res.end());\n\
+    \    };\n    FPS::set_mul(mul);\n\n    int N;\n    cin >> N;\n    FPS ans = StirlingSecond<mint>(N);\n\
+    \    for (int i = 0; i <= N; i++) cout << ans[i] << (i == N ? '\\n' : ' ');\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../modulo/modint.hpp\"\n#include\
-    \ \"../../convolution/NumberTheoreticTransform.hpp\"\n#include \"../../polynomial/StirlingSecond.hpp\"\
-    \n\nusing mint=modint<998244353>;\nusing FPS=FormalPowerSeries<mint>;\n\nint main(){\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    NumberTheoreticTransform<998244353>\
-    \ NTT;\n    auto mul=[&](const FPS::Poly &a,const FPS::Poly &b){\n        auto\
-    \ res=NTT.multiply(a,b);\n        return FPS::Poly(res.begin(),res.end());\n \
-    \   };\n    FPS::set_mul(mul);\n\n    int N; cin >> N;\n    FPS ans=StirlingSecond<mint>(N);\n\
-    \    for (int i=0;i<=N;++i) cout << ans[i] << (i==N?'\\n':' ');\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../convolution/NumberTheoreticTransform.hpp\"\
+    \n#include \"../../modulo/modint.hpp\"\n#include \"../../polynomial/StirlingSecond.hpp\"\
+    \n\nusing mint = modint<998244353>;\nusing FPS = FormalPowerSeries<mint>;\n\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    NumberTheoreticTransform<998244353>\
+    \ NTT;\n    auto mul = [&](const FPS::Poly& a, const FPS::Poly& b) {\n       \
+    \ auto res = NTT.multiply(a, b);\n        return FPS::Poly(res.begin(), res.end());\n\
+    \    };\n    FPS::set_mul(mul);\n\n    int N;\n    cin >> N;\n    FPS ans = StirlingSecond<mint>(N);\n\
+    \    for (int i = 0; i <= N; i++) cout << ans[i] << (i == N ? '\\n' : ' ');\n}"
   dependsOn:
   - base.hpp
-  - modulo/modint.hpp
   - convolution/NumberTheoreticTransform.hpp
+  - modulo/modint.hpp
   - polynomial/StirlingSecond.hpp
   - polynomial/FormalPowerSeries.hpp
   isVerificationFile: true
   path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/stirling_number_of_the_second_kind.test.cpp

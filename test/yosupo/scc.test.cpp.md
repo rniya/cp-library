@@ -86,27 +86,27 @@ data:
     \            sort(T[i].begin(), T[i].end());\n            T[i].erase(unique(T[i].begin(),\
     \ T[i].end()), T[i].end());\n        }\n        return k;\n    }\n    int operator[](int\
     \ i) const { return cmp[i]; }\n};\n#line 5 \"test/yosupo/scc.test.cpp\"\n\nint\
-    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,M; cin\
-    \ >> N >> M;\n\n    StronglyConnectedComponents SCC(N);\n    for (int i=0;i<M;++i){\n\
-    \        int a,b; cin >> a >> b;\n        SCC.add_edge(a,b);\n    }\n\n    int\
-    \ K=SCC.build();\n    cout << K << '\\n';\n    for (int i=0;i<K;++i){\n      \
-    \  cout << SCC.C[i].size();\n        for (int v:SCC.C[i]) cout << ' ' << v;\n\
-    \        cout << '\\n';\n    }\n}\n"
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, M;\n\
+    \    cin >> N >> M;\n\n    StronglyConnectedComponents SCC(N);\n    for (int i\
+    \ = 0; i < M; i++) {\n        int a, b;\n        cin >> a >> b;\n        SCC.add_edge(a,\
+    \ b);\n    }\n\n    int K = SCC.build();\n    cout << K << '\\n';\n    for (int\
+    \ i = 0; i < K; i++) {\n        cout << SCC.C[i].size();\n        for (int v :\
+    \ SCC.C[i]) cout << ' ' << v;\n        cout << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n\n#include \"../../base.hpp\"\
-    \n#include \"../../graph/StronglyConnectedComponents.hpp\"\n\nint main(){\n  \
-    \  cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,M; cin >> N >> M;\n\
-    \n    StronglyConnectedComponents SCC(N);\n    for (int i=0;i<M;++i){\n      \
-    \  int a,b; cin >> a >> b;\n        SCC.add_edge(a,b);\n    }\n\n    int K=SCC.build();\n\
-    \    cout << K << '\\n';\n    for (int i=0;i<K;++i){\n        cout << SCC.C[i].size();\n\
-    \        for (int v:SCC.C[i]) cout << ' ' << v;\n        cout << '\\n';\n    }\n\
-    }"
+    \n#include \"../../graph/StronglyConnectedComponents.hpp\"\n\nint main() {\n \
+    \   cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, M;\n    cin >> N\
+    \ >> M;\n\n    StronglyConnectedComponents SCC(N);\n    for (int i = 0; i < M;\
+    \ i++) {\n        int a, b;\n        cin >> a >> b;\n        SCC.add_edge(a, b);\n\
+    \    }\n\n    int K = SCC.build();\n    cout << K << '\\n';\n    for (int i =\
+    \ 0; i < K; i++) {\n        cout << SCC.C[i].size();\n        for (int v : SCC.C[i])\
+    \ cout << ' ' << v;\n        cout << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - graph/StronglyConnectedComponents.hpp
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp

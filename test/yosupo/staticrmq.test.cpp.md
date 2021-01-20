@@ -78,25 +78,25 @@ data:
     \ - 1][j], dat[i - 1][min(j + mask, n - 1)]);\n            }\n        }\n    }\n\
     \    T query(int a, int b) {\n        int d = lookup[b - a];\n        return f(dat[d][a],\
     \ dat[d][b - (1 << d)]);\n    }\n};\n#line 5 \"test/yosupo/staticrmq.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q;\
-    \ cin >> N >> Q;\n    vector<int> a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\
-    \n    SparseTable<int> ST([](int a,int b){return min(a,b);});\n    ST.build(a);\n\
-    \n    for (;Q--;){\n        int l,r; cin >> l >> r;\n        cout << ST.query(l,r)\
-    \ << '\\n';\n    }\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ Q;\n    cin >> N >> Q;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
+    \ cin >> a[i];\n\n    SparseTable<int> ST([](int a, int b) { return min(a, b);\
+    \ });\n    ST.build(a);\n\n    for (; Q--;) {\n        int l, r;\n        cin\
+    \ >> l >> r;\n        cout << ST.query(l, r) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n\n#include\
     \ \"../../base.hpp\"\n#include \"../../datastructure/SparseTable.hpp\"\n\nint\
-    \ main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,Q; cin\
-    \ >> N >> Q;\n    vector<int> a(N);\n    for (int i=0;i<N;++i) cin >> a[i];\n\n\
-    \    SparseTable<int> ST([](int a,int b){return min(a,b);});\n    ST.build(a);\n\
-    \n    for (;Q--;){\n        int l,r; cin >> l >> r;\n        cout << ST.query(l,r)\
-    \ << '\\n';\n    }\n}"
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n\
+    \    cin >> N >> Q;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++) cin\
+    \ >> a[i];\n\n    SparseTable<int> ST([](int a, int b) { return min(a, b); });\n\
+    \    ST.build(a);\n\n    for (; Q--;) {\n        int l, r;\n        cin >> l >>\
+    \ r;\n        cout << ST.query(l, r) << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - datastructure/SparseTable.hpp
   isVerificationFile: true
   path: test/yosupo/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/staticrmq.test.cpp

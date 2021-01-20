@@ -63,17 +63,17 @@ data:
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 4 \"test/yosupo/aplusb.test.cpp\"\
-    \n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int A,B;\
-    \ cin >> A >> B;\n\n    cout << A+B << '\\n';\n}\n"
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int A,\
+    \ B;\n    cin >> A >> B;\n\n    cout << A + B << '\\n';\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n\n#include \"\
-    ../../base.hpp\"\n\nint main(){\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int A,B; cin >> A >> B;\n\n    cout << A+B << '\\n';\n}"
+    ../../base.hpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int A, B;\n    cin >> A >> B;\n\n    cout << A + B << '\\n';\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: true
   path: test/yosupo/aplusb.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 11:11:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/aplusb.test.cpp
