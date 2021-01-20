@@ -29,11 +29,11 @@ data:
     typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
     \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
     \ : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n      \
-    \  os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const pair<T,\
-    \ U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
-    }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
+    \ os, const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n \
+    \       os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
+    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
+    \ pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return\
+    \ os;\n}\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
     \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
     \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
     \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
@@ -57,10 +57,10 @@ data:
     \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
     \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
     \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
-    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
-    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
-    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
+    \" : \" \");\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\n\
+    template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)\
+    \ {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
     }\n#ifdef LOCAL\n#define debug(...)                                          \
     \                         \\\n    cerr << \" \";                             \
     \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
@@ -86,7 +86,7 @@ data:
     \ int, int, int> get_edge(int i) {\n        auto e = G[pos[i].first][pos[i].second];\n\
     \        auto re = G[e.to][e.rev];\n        return {pos[i].first, e.to, e.cap\
     \ + re.cap, re.cap};\n    }\n    vector<tuple<int, int, int, int>> edges() {\n\
-    \        vector<tuple<int, int, int, int>> res;\n        for (int i = 0; i < pos.size();\
+    \        vector<tuple<int, int, int, int>> res;\n        for (int i = 0; i < (int)pos.size();\
     \ i++) {\n            res.emplace_back(get_edge(i));\n        }\n        return\
     \ res;\n    }\n    void change_edge(int i, T new_cap, T new_flow) {\n        auto&\
     \ e = G[pos[i].first][pos[i].second];\n        auto& re = G[e.to][e.rev];\n  \
@@ -98,9 +98,9 @@ data:
     \ 0 && level[e.to] < 0) {\n                    level[e.to] = level[v] + 1;\n \
     \                   que.emplace(e.to);\n                }\n            }\n   \
     \     }\n    }\n    T dfs(int v, int t, T f) {\n        if (v == t) return f;\n\
-    \        for (int& i = iter[v]; i < G[v].size(); i++) {\n            auto& e =\
-    \ G[v][i];\n            if (e.cap > 0 && level[v] < level[e.to]) {\n         \
-    \       T d = dfs(e.to, t, min(f, e.cap));\n                if (d <= 0) continue;\n\
+    \        for (int& i = iter[v]; i < (int)G[v].size(); i++) {\n            auto&\
+    \ e = G[v][i];\n            if (e.cap > 0 && level[v] < level[e.to]) {\n     \
+    \           T d = dfs(e.to, t, min(f, e.cap));\n                if (d <= 0) continue;\n\
     \                e.cap -= d;\n                G[e.to][e.rev].cap += d;\n     \
     \           return d;\n            }\n        }\n        return 0;\n    }\n  \
     \  T max_flow(int s, int t, T lim) {\n        T flow = 0;\n        while (lim\
@@ -157,7 +157,7 @@ data:
   requiredBy:
   - test/codeforces/1404_E.cpp
   - test/atcoder/arc085_c.cpp
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp

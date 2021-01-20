@@ -22,11 +22,11 @@ data:
     \ unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate <typename\
     \ T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x : v) is >>\
     \ x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream& os,\
-    \ const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n        os\
-    \ << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n}\ntemplate\
-    \ <typename T, typename U> ostream& operator<<(ostream& os, const pair<T, U>&\
-    \ p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
-    }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
+    \ const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n     \
+    \   os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
+    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
+    \ pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return\
+    \ os;\n}\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
     \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
     \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
     \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
@@ -50,10 +50,10 @@ data:
     \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
     \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
     \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
-    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
-    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
-    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
+    \" : \" \");\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\n\
+    template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)\
+    \ {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
     }\n#ifdef LOCAL\n#define debug(...)                                          \
     \                         \\\n    cerr << \" \";                             \
     \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
@@ -86,12 +86,12 @@ data:
     \ > 1) {\n            int mid = (lb + ub) >> 1;\n            (query(a, a + mid)\
     \ == query(b, b + mid) ? lb : ub) = mid;\n        }\n        return lb;\n    }\n\
     \    template <typename T> u64 get(const T& t) {\n        u64 res = 0;\n     \
-    \   for (int i = 0; i < t.size(); i++) res = add(mul(res, base), t[i]);\n    \
-    \    return res;\n    }\n};\n#line 5 \"test/aoj/ALDS1_14_B.test.cpp\"\n\nint main()\
-    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S, T;\n   \
-    \ cin >> S >> T;\n\n    uint64_t base = RollingHash::generate_base();\n    RollingHash\
-    \ RH1(S, base), RH2(T, base);\n    int s = S.size(), t = T.size();\n\n    for\
-    \ (int i = 0; i + t <= s; i++) {\n        if (RH1.query(i, i + t) == RH2.query(0,\
+    \   for (int i = 0; i < (int)t.size(); i++) res = add(mul(res, base), t[i]);\n\
+    \        return res;\n    }\n};\n#line 5 \"test/aoj/ALDS1_14_B.test.cpp\"\n\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S,\
+    \ T;\n    cin >> S >> T;\n\n    uint64_t base = RollingHash::generate_base();\n\
+    \    RollingHash RH1(S, base), RH2(T, base);\n    int s = S.size(), t = T.size();\n\
+    \n    for (int i = 0; i + t <= s; i++) {\n        if (RH1.query(i, i + t) == RH2.query(0,\
     \ t)) {\n            cout << i << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../string/RollingHash.hpp\"\n\n\
@@ -106,7 +106,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1_14_B.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 11:24:35+09:00'
+  timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1_14_B.test.cpp

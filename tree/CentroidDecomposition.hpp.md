@@ -20,11 +20,11 @@ data:
     typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
     \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
     \ : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n      \
-    \  os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const pair<T,\
-    \ U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
-    }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
+    \ os, const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n \
+    \       os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
+    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
+    \ pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return\
+    \ os;\n}\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
     \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
     \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
     \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
@@ -48,10 +48,10 @@ data:
     \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
     \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
     \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
-    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
-    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
-    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
+    \" : \" \");\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\n\
+    template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)\
+    \ {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
     }\n#ifdef LOCAL\n#define debug(...)                                          \
     \                         \\\n    cerr << \" \";                             \
     \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
@@ -97,7 +97,7 @@ data:
   isVerificationFile: false
   path: tree/CentroidDecomposition.hpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/frequency_table_of_tree_distance.test.cpp

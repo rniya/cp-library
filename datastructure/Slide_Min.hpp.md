@@ -20,11 +20,11 @@ data:
     typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
     \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
     \ : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n      \
-    \  os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const pair<T,\
-    \ U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
-    }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
+    \ os, const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n \
+    \       os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
+    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
+    \ pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return\
+    \ os;\n}\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
     \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
     \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
     \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
@@ -48,10 +48,10 @@ data:
     \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
     \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
     \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
-    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
-    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
-    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
+    \" : \" \");\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\n\
+    template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)\
+    \ {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
     }\n#ifdef LOCAL\n#define debug(...)                                          \
     \                         \\\n    cerr << \" \";                             \
     \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
@@ -66,25 +66,25 @@ data:
     \ return true;\n    }\n    return false;\n}\n#line 3 \"datastructure/Slide_Min.hpp\"\
     \n\n/**\n * @brief \u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024\n * @docs docs/datastructure/Slide_Min.md\n\
     \ */\ntemplate <typename T> vector<T> Slide_Min(const vector<T>& v, int k) {\n\
-    \    deque<int> deq;\n    vector<T> res;\n    for (int i = 0; i < v.size(); i++)\
-    \ {\n        while (!deq.empty() && v[deq.back()] >= v[i]) deq.pop_back();\n \
-    \       deq.push_back(i);\n        if (i - k + 1 >= 0) {\n            res.push_back(v[deq.front()]);\n\
+    \    deque<int> deq;\n    vector<T> res;\n    for (int i = 0; i < (int)v.size();\
+    \ i++) {\n        while (!deq.empty() && v[deq.back()] >= v[i]) deq.pop_back();\n\
+    \        deq.push_back(i);\n        if (i - k + 1 >= 0) {\n            res.push_back(v[deq.front()]);\n\
     \            if (deq.front() == i - k + 1) deq.pop_front();\n        }\n    }\n\
     \    return res;\n}\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u30B9\u30E9\u30A4\
     \u30C9\u6700\u5C0F\u5024\n * @docs docs/datastructure/Slide_Min.md\n */\ntemplate\
     \ <typename T> vector<T> Slide_Min(const vector<T>& v, int k) {\n    deque<int>\
-    \ deq;\n    vector<T> res;\n    for (int i = 0; i < v.size(); i++) {\n       \
-    \ while (!deq.empty() && v[deq.back()] >= v[i]) deq.pop_back();\n        deq.push_back(i);\n\
-    \        if (i - k + 1 >= 0) {\n            res.push_back(v[deq.front()]);\n \
-    \           if (deq.front() == i - k + 1) deq.pop_front();\n        }\n    }\n\
+    \ deq;\n    vector<T> res;\n    for (int i = 0; i < (int)v.size(); i++) {\n  \
+    \      while (!deq.empty() && v[deq.back()] >= v[i]) deq.pop_back();\n       \
+    \ deq.push_back(i);\n        if (i - k + 1 >= 0) {\n            res.push_back(v[deq.front()]);\n\
+    \            if (deq.front() == i - k + 1) deq.pop_front();\n        }\n    }\n\
     \    return res;\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: datastructure/Slide_Min.hpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_3_D.test.cpp

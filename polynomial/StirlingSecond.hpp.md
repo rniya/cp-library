@@ -23,11 +23,11 @@ data:
     typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
     \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
     \ : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n      \
-    \  os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const pair<T,\
-    \ U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
-    }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
+    \ os, const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n \
+    \       os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
+    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
+    \ pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return\
+    \ os;\n}\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
     \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
     \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
     \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
@@ -51,10 +51,10 @@ data:
     \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
     \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
     \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
-    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
-    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
-    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
+    \" : \" \");\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\n\
+    template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)\
+    \ {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
     }\n#ifdef LOCAL\n#define debug(...)                                          \
     \                         \\\n    cerr << \" \";                             \
     \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
@@ -84,15 +84,15 @@ data:
     \ { return Poly(*this) %= p; }\n    Poly& operator+=(const M& v) {\n        if\
     \ (this->empty()) this->resize(1);\n        (*this)[0] += v;\n        return *this;\n\
     \    }\n    Poly& operator+=(const Poly& p) {\n        if (p.size() > this->size())\
-    \ this->resize(p.size());\n        for (int i = 0; i < p.size(); i++) (*this)[i]\
+    \ this->resize(p.size());\n        for (int i = 0; i < (int)p.size(); i++) (*this)[i]\
     \ += p[i];\n        return *this;\n    }\n    Poly& operator-=(const M& v) {\n\
     \        if (this->empty()) this->resize(1);\n        (*this)[0] -= v;\n     \
     \   return *this;\n    }\n    Poly& operator-=(const Poly& p) {\n        if (p.size()\
-    \ > this->size()) this->resize(p.size());\n        for (int i = 0; i < p.size();\
+    \ > this->size()) this->resize(p.size());\n        for (int i = 0; i < (int)p.size();\
     \ i++) (*this)[i] -= p[i];\n        return *this;\n    }\n    Poly& operator*=(const\
-    \ M& v) {\n        for (int i = 0; i < this->size(); i++) (*this)[i] *= v;\n \
-    \       return *this;\n    }\n    Poly& operator*=(const Poly& p) {\n        if\
-    \ (this->empty() || p.empty()) {\n            this->clear();\n            return\
+    \ M& v) {\n        for (int i = 0; i < (int)this->size(); i++) (*this)[i] *= v;\n\
+    \        return *this;\n    }\n    Poly& operator*=(const Poly& p) {\n       \
+    \ if (this->empty() || p.empty()) {\n            this->clear();\n            return\
     \ *this;\n        }\n        assert(get_mul() != nullptr);\n        return *this\
     \ = get_mul()(*this, p);\n    }\n    Poly& operator/=(const Poly& p) {\n     \
     \   if (this->size() < p.size()) {\n            this->clear();\n            return\
@@ -103,21 +103,21 @@ data:
     \       return res;\n    }\n    Poly operator>>(const int deg) {\n        if (this->size()\
     \ <= deg) return {};\n        Poly res(*this);\n        res.erase(res.begin(),\
     \ res.begin() + deg);\n        return res;\n    }\n    Poly operator-() const\
-    \ {\n        Poly res(this->size());\n        for (int i = 0; i < this->size();\
+    \ {\n        Poly res(this->size());\n        for (int i = 0; i < (int)this->size();\
     \ i++) res[i] = -(*this)[i];\n        return res;\n    }\n    Poly rev(int deg\
     \ = -1) const {\n        Poly res(*this);\n        if (~deg) res.resize(deg, M(0));\n\
     \        reverse(res.begin(), res.end());\n        return res;\n    }\n    Poly\
     \ diff() const {\n        Poly res(max(0, (int)this->size() - 1));\n        for\
-    \ (int i = 1; i < this->size(); i++) res[i - 1] = (*this)[i] * M(i);\n       \
-    \ return res;\n    }\n    Poly integral() const {\n        Poly res(this->size()\
-    \ + 1);\n        res[0] = M(0);\n        for (int i = 0; i < this->size(); i++)\
-    \ res[i + 1] = (*this)[i] / M(i + 1);\n        return res;\n    }\n    Poly inv(int\
-    \ deg = -1) const {\n        assert((*this)[0] != M(0));\n        if (deg < 0)\
-    \ deg = this->size();\n        Poly res({M(1) / (*this)[0]});\n        for (int\
-    \ i = 1; i < deg; i <<= 1) {\n            res = (res + res - res * res * pre(i\
-    \ << 1)).pre(i << 1);\n        }\n        return res.pre(deg);\n    }\n    Poly\
-    \ log(int deg = -1) const {\n        assert((*this)[0] == M(1));\n        if (deg\
-    \ < 0) deg = this->size();\n        return (this->diff() * this->inv(deg)).pre(deg\
+    \ (int i = 1; i < (int)this->size(); i++) res[i - 1] = (*this)[i] * M(i);\n  \
+    \      return res;\n    }\n    Poly integral() const {\n        Poly res(this->size()\
+    \ + 1);\n        res[0] = M(0);\n        for (int i = 0; i < (int)this->size();\
+    \ i++) res[i + 1] = (*this)[i] / M(i + 1);\n        return res;\n    }\n    Poly\
+    \ inv(int deg = -1) const {\n        assert((*this)[0] != M(0));\n        if (deg\
+    \ < 0) deg = this->size();\n        Poly res({M(1) / (*this)[0]});\n        for\
+    \ (int i = 1; i < deg; i <<= 1) {\n            res = (res + res - res * res *\
+    \ pre(i << 1)).pre(i << 1);\n        }\n        return res.pre(deg);\n    }\n\
+    \    Poly log(int deg = -1) const {\n        assert((*this)[0] == M(1));\n   \
+    \     if (deg < 0) deg = this->size();\n        return (this->diff() * this->inv(deg)).pre(deg\
     \ - 1).integral();\n    }\n    Poly sqrt(int deg = -1) const {\n        assert((*this)[0]\
     \ == M(1));\n        if (deg == -1) deg = this->size();\n        Poly res({M(1)});\n\
     \        M inv2 = M(1) / M(2);\n        for (int i = 1; i < deg; i <<= 1) {\n\
@@ -127,11 +127,11 @@ data:
     \        for (int i = 1; i < deg; i <<= 1) {\n            res = (res * (pre(i\
     \ << 1) + M(1) - res.log(i << 1))).pre(i << 1);\n        }\n        return res.pre(deg);\n\
     \    }\n    Poly pow(long long k, int deg = -1) const {\n        if (deg < 0)\
-    \ deg = this->size();\n        for (int i = 0; i < this->size(); i++) {\n    \
-    \        if ((*this)[i] == M(0)) continue;\n            if (k * i > deg) return\
+    \ deg = this->size();\n        for (int i = 0; i < (int)this->size(); i++) {\n\
+    \            if ((*this)[i] == M(0)) continue;\n            if (k * i > deg) return\
     \ Poly(deg, M(0));\n            M inv = M(1) / (*this)[i];\n            Poly res\
     \ = (((*this * inv) >> i).log() * k).exp() * (*this)[i].pow(k);\n            res\
-    \ = (res << (i * k)).pre(deg);\n            if (res.size() < deg) res.resize(deg,\
+    \ = (res << (i * k)).pre(deg);\n            if ((int)res.size() < deg) res.resize(deg,\
     \ M(0));\n            return res;\n        }\n        return *this;\n    }\n \
     \   Poly pow_mod(long long k, const Poly& mod) const {\n        Poly x(*this),\
     \ res = {M(1)};\n        while (k > 0) {\n            if (k & 1) res = res * x\
@@ -139,21 +139,21 @@ data:
     \    return res;\n    }\n    Poly linear_mul(const M& a, const M& b) {\n     \
     \   Poly res(this->size() + 1);\n        for (int i = 0; i < this->size() + 1;\
     \ i++) {\n            res[i] = (i - 1 >= 0 ? (*this)[i - 1] * a : M(0)) + (i <\
-    \ this->size() ? (*this)[i] * b : M(0));\n        }\n        return res;\n   \
-    \ }\n    Poly linear_div(const M& a, const M& b) {\n        Poly res(this->size()\
-    \ - 1);\n        M inv_b = M(1) / b;\n        for (int i = 0; i + 1 < this->size();\
+    \ (int)this->size() ? (*this)[i] * b : M(0));\n        }\n        return res;\n\
+    \    }\n    Poly linear_div(const M& a, const M& b) {\n        Poly res(this->size()\
+    \ - 1);\n        M inv_b = M(1) / b;\n        for (int i = 0; i + 1 < (int)this->size();\
     \ i++) {\n            res[i] = ((*this)[i] - (i - 1 >= 0 ? res[i - 1] * a : M(0)))\
     \ * inv_b;\n        }\n        return res;\n    }\n    Poly sparse_mul(const M&\
     \ c, const M& d) {\n        Poly res(*this);\n        res.resize(this->size()\
-    \ + d, M(0));\n        for (int i = 0; i < this->size(); i++) {\n            res[i\
-    \ + d] += (*this)[i] * c;\n        }\n        return res;\n    }\n    Poly sparse_div(const\
-    \ M& c, const M& d) {\n        Poly res(*this);\n        for (int i = 0; i < res.size()\
-    \ - d; i++) {\n            res[i + d] -= res[i] * c;\n        }\n        return\
-    \ res;\n    }\n    M operator()(const M& x) const {\n        M res = 0, power\
-    \ = 1;\n        for (int i = 0; i < this->size(); i++, power *= x) {\n       \
-    \     res += (*this)[i] * power;\n        }\n        return res;\n    }\n};\n\
-    #line 4 \"polynomial/StirlingSecond.hpp\"\n\n/**\n * @brief \u7B2C2\u7A2E\u30B9\
-    \u30BF\u30FC\u30EA\u30F3\u30B0\u6570\n * @docs docs/polynomial/StirlingSecond.md\n\
+    \ + d, M(0));\n        for (int i = 0; i < (int)this->size(); i++) {\n       \
+    \     res[i + d] += (*this)[i] * c;\n        }\n        return res;\n    }\n \
+    \   Poly sparse_div(const M& c, const M& d) {\n        Poly res(*this);\n    \
+    \    for (int i = 0; i < res.size() - d; i++) {\n            res[i + d] -= res[i]\
+    \ * c;\n        }\n        return res;\n    }\n    M operator()(const M& x) const\
+    \ {\n        M res = 0, power = 1;\n        for (int i = 0; i < (int)this->size();\
+    \ i++, power *= x) {\n            res += (*this)[i] * power;\n        }\n    \
+    \    return res;\n    }\n};\n#line 4 \"polynomial/StirlingSecond.hpp\"\n\n/**\n\
+    \ * @brief \u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\n * @docs docs/polynomial/StirlingSecond.md\n\
     \ */\ntemplate <typename T> FormalPowerSeries<T> StirlingSecond(int n) {\n   \
     \ FormalPowerSeries<T> a(n + 1), b(n + 1);\n    T prod = 1;\n    for (int i =\
     \ 0; i <= n; i++) {\n        T inv = T(1) / prod;\n        a[i] = T(i).pow(n)\
@@ -173,7 +173,7 @@ data:
   isVerificationFile: false
   path: polynomial/StirlingSecond.hpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/stirling_number_of_the_second_kind.test.cpp

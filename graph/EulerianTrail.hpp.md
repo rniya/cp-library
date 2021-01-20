@@ -24,11 +24,11 @@ data:
     typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
     \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
     \ : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n      \
-    \  os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const pair<T,\
-    \ U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
-    }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
+    \ os, const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n \
+    \       os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
+    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
+    \ pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return\
+    \ os;\n}\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
     \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
     \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
     \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
@@ -52,10 +52,10 @@ data:
     \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
     \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
     \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
-    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
-    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
-    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
+    \" : \" \");\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\n\
+    template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)\
+    \ {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
     }\n#ifdef LOCAL\n#define debug(...)                                          \
     \                         \\\n    cerr << \" \";                             \
     \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
@@ -95,17 +95,17 @@ data:
     \        BG[v].emplace_back(u);\n        G[u].emplace_back(v, m);\n        deg[u]++;\n\
     \        if (directed)\n            --deg[v];\n        else\n            G[v].emplace_back(u,\
     \ m), deg[v]++;\n    }\n    vector<vector<int>> build() {\n        for (int i\
-    \ = 0; i < G.size(); i++) {\n            if (directed && deg[i] != 0) return {};\n\
-    \            if (!directed && (deg[i] & 1)) return {};\n        }\n        vector<vector<int>>\
-    \ res;\n        for (int i = 0; i < G.size(); i++) {\n            if (G[i].empty()\
-    \ || visited[i]) continue;\n            res.emplace_back(go(i));\n        }\n\
-    \        return res;\n    }\n    vector<vector<int>> build_semi() {\n        vector<vector<int>>\
-    \ res;\n        for (int i = 0; i < G.size(); i++) {\n            if (visited[i])\
-    \ continue;\n            int s = -1, t = -1, check = 1;\n            dfs(i, s,\
-    \ t, check);\n            if (!check) return {};\n            res.emplace_back(go(~s\
-    \ ? s : i));\n            if (res.back().empty()) res.pop_back();\n        }\n\
-    \        return res;\n    }\n    pair<int, int> operator[](int i) { return es[i];\
-    \ }\n};\n"
+    \ = 0; i < (int)G.size(); i++) {\n            if (directed && deg[i] != 0) return\
+    \ {};\n            if (!directed && (deg[i] & 1)) return {};\n        }\n    \
+    \    vector<vector<int>> res;\n        for (int i = 0; i < (int)G.size(); i++)\
+    \ {\n            if (G[i].empty() || visited[i]) continue;\n            res.emplace_back(go(i));\n\
+    \        }\n        return res;\n    }\n    vector<vector<int>> build_semi() {\n\
+    \        vector<vector<int>> res;\n        for (int i = 0; i < (int)G.size();\
+    \ i++) {\n            if (visited[i]) continue;\n            int s = -1, t = -1,\
+    \ check = 1;\n            dfs(i, s, t, check);\n            if (!check) return\
+    \ {};\n            res.emplace_back(go(~s ? s : i));\n            if (res.back().empty())\
+    \ res.pop_back();\n        }\n        return res;\n    }\n    pair<int, int> operator[](int\
+    \ i) { return es[i]; }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u30AA\u30A4\u30E9\
     \u30FC\u8DEF\u30FB\u6E96\u30AA\u30A4\u30E9\u30FC\u8DEF\u306E\u69CB\u7BC9\n * @docs\
     \ docs/graph/EulerianTrail.md\n */\ntemplate <bool directed> class EulerianTrail\
@@ -134,24 +134,24 @@ data:
     \        BG[v].emplace_back(u);\n        G[u].emplace_back(v, m);\n        deg[u]++;\n\
     \        if (directed)\n            --deg[v];\n        else\n            G[v].emplace_back(u,\
     \ m), deg[v]++;\n    }\n    vector<vector<int>> build() {\n        for (int i\
-    \ = 0; i < G.size(); i++) {\n            if (directed && deg[i] != 0) return {};\n\
-    \            if (!directed && (deg[i] & 1)) return {};\n        }\n        vector<vector<int>>\
-    \ res;\n        for (int i = 0; i < G.size(); i++) {\n            if (G[i].empty()\
-    \ || visited[i]) continue;\n            res.emplace_back(go(i));\n        }\n\
-    \        return res;\n    }\n    vector<vector<int>> build_semi() {\n        vector<vector<int>>\
-    \ res;\n        for (int i = 0; i < G.size(); i++) {\n            if (visited[i])\
-    \ continue;\n            int s = -1, t = -1, check = 1;\n            dfs(i, s,\
-    \ t, check);\n            if (!check) return {};\n            res.emplace_back(go(~s\
-    \ ? s : i));\n            if (res.back().empty()) res.pop_back();\n        }\n\
-    \        return res;\n    }\n    pair<int, int> operator[](int i) { return es[i];\
-    \ }\n};"
+    \ = 0; i < (int)G.size(); i++) {\n            if (directed && deg[i] != 0) return\
+    \ {};\n            if (!directed && (deg[i] & 1)) return {};\n        }\n    \
+    \    vector<vector<int>> res;\n        for (int i = 0; i < (int)G.size(); i++)\
+    \ {\n            if (G[i].empty() || visited[i]) continue;\n            res.emplace_back(go(i));\n\
+    \        }\n        return res;\n    }\n    vector<vector<int>> build_semi() {\n\
+    \        vector<vector<int>> res;\n        for (int i = 0; i < (int)G.size();\
+    \ i++) {\n            if (visited[i]) continue;\n            int s = -1, t = -1,\
+    \ check = 1;\n            dfs(i, s, t, check);\n            if (!check) return\
+    \ {};\n            res.emplace_back(go(~s ? s : i));\n            if (res.back().empty())\
+    \ res.pop_back();\n        }\n        return res;\n    }\n    pair<int, int> operator[](int\
+    \ i) { return es[i]; }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: graph/EulerianTrail.hpp
   requiredBy:
   - test/codeforces/1361_C.cpp
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/583.test.cpp

@@ -23,11 +23,11 @@ data:
     typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
     \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
     \ : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n      \
-    \  os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const pair<T,\
-    \ U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
-    }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
+    \ os, const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n \
+    \       os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
+    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
+    \ pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return\
+    \ os;\n}\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
     \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
     \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
     \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
@@ -51,10 +51,10 @@ data:
     \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
     \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
     \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
-    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
-    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
-    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
+    \" : \" \");\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\n\
+    template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)\
+    \ {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
     }\n#ifdef LOCAL\n#define debug(...)                                          \
     \                         \\\n    cerr << \" \";                             \
     \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
@@ -77,11 +77,11 @@ data:
     \          if (seen[u] && !finished[u]) {\n                pos = u;\n        \
     \        return;\n            }\n            dfs(u, v);\n            if (~pos)\
     \ return;\n        }\n        finished[v] = 1;\n        hist.pop();\n    }\n \
-    \   vector<int> build() {\n        for (int v = 0; v < G.size(); v++) {\n    \
-    \        if (!seen[v]) dfs(v, -1);\n            if (~pos) break;\n        }\n\
-    \        vector<int> res;\n        while (!hist.empty()) {\n            int t\
-    \ = hist.top();\n            hist.pop();\n            res.emplace_back(t);\n \
-    \           if (t == pos) break;\n        }\n        return res;\n    }\n};\n"
+    \   vector<int> build() {\n        for (int v = 0; v < (int)G.size(); v++) {\n\
+    \            if (!seen[v]) dfs(v, -1);\n            if (~pos) break;\n       \
+    \ }\n        vector<int> res;\n        while (!hist.empty()) {\n            int\
+    \ t = hist.top();\n            hist.pop();\n            res.emplace_back(t);\n\
+    \            if (t == pos) break;\n        }\n        return res;\n    }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Cycle Detection\n\
     \ * @docs docs/graph/CycleDetection.md\n */\ntemplate <bool directed> struct CycleDetection\
     \ {\n    vector<vector<int>> G;\n    vector<int> seen, finished;\n    stack<int>\
@@ -93,16 +93,17 @@ data:
     \ {\n                pos = u;\n                return;\n            }\n      \
     \      dfs(u, v);\n            if (~pos) return;\n        }\n        finished[v]\
     \ = 1;\n        hist.pop();\n    }\n    vector<int> build() {\n        for (int\
-    \ v = 0; v < G.size(); v++) {\n            if (!seen[v]) dfs(v, -1);\n       \
-    \     if (~pos) break;\n        }\n        vector<int> res;\n        while (!hist.empty())\
-    \ {\n            int t = hist.top();\n            hist.pop();\n            res.emplace_back(t);\n\
-    \            if (t == pos) break;\n        }\n        return res;\n    }\n};"
+    \ v = 0; v < (int)G.size(); v++) {\n            if (!seen[v]) dfs(v, -1);\n  \
+    \          if (~pos) break;\n        }\n        vector<int> res;\n        while\
+    \ (!hist.empty()) {\n            int t = hist.top();\n            hist.pop();\n\
+    \            res.emplace_back(t);\n            if (t == pos) break;\n        }\n\
+    \        return res;\n    }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: graph/CycleDetection.hpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2891.test.cpp

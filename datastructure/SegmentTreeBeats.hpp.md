@@ -44,11 +44,11 @@ data:
     typedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate\
     \ <typename T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x\
     \ : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n      \
-    \  os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const pair<T,\
-    \ U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
-    }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
+    \ os, const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n \
+    \       os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
+    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
+    \ pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return\
+    \ os;\n}\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
     \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
     \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
     \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
@@ -72,10 +72,10 @@ data:
     \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
     \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
     \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
-    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
-    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
-    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
+    \" : \" \");\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\n\
+    template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)\
+    \ {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
     }\n#ifdef LOCAL\n#define debug(...)                                          \
     \                         \\\n    cerr << \" \";                             \
     \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
@@ -175,19 +175,19 @@ data:
     \ + 2, (l + r) >> 1, r);\n        return vl + vr;\n    }\n\npublic:\n    SegmentTreeBeats(int\
     \ n_) { init(n_); }\n    void init(int n_) {\n        n = 1;\n        while (n\
     \ < n_) n <<= 1;\n        Nodes.resize(n << 1);\n    }\n    void build(const vector<T>&\
-    \ v) {\n        for (int i = 0; i < v.size(); i++) {\n            Nodes[i + n\
-    \ - 1].Max = Nodes[i + n - 1].Min = Nodes[i + n - 1].sum = v[i];\n           \
-    \ Nodes[i + n - 1].Max_count = Nodes[i + n - 1].Min_count = Nodes[i + n - 1].len\
-    \ = 1;\n        }\n        for (int i = n - 2; i >= 0; --i) {\n            calc(i);\n\
-    \            Nodes[i].len = Nodes[(i << 1) + 1].len + Nodes[(i << 1) + 2].len;\n\
-    \        }\n    }\n    void update_min(int a, int b, T x) { update_min(a, b, x,\
-    \ 0, 0, n); }\n    void update_max(int a, int b, T x) { update_max(a, b, x, 0,\
-    \ 0, n); }\n    void update_add(int a, int b, T x) { update_add(a, b, x, 0, 0,\
-    \ n); }\n    void update_val(int a, int b, T x) { update_val(a, b, x, 0, 0, n);\
-    \ }\n    T query_min(int a, int b) { return query_min(a, b, 0, 0, n); }\n    T\
-    \ query_max(int a, int b) { return query_max(a, b, 0, 0, n); }\n    T query_sum(int\
-    \ a, int b) { return query_sum(a, b, 0, 0, n); }\n    T operator[](int i) { return\
-    \ query_sum(i, i + 1); }\n};\n"
+    \ v) {\n        for (int i = 0; i < (int)v.size(); i++) {\n            Nodes[i\
+    \ + n - 1].Max = Nodes[i + n - 1].Min = Nodes[i + n - 1].sum = v[i];\n       \
+    \     Nodes[i + n - 1].Max_count = Nodes[i + n - 1].Min_count = Nodes[i + n -\
+    \ 1].len = 1;\n        }\n        for (int i = n - 2; i >= 0; --i) {\n       \
+    \     calc(i);\n            Nodes[i].len = Nodes[(i << 1) + 1].len + Nodes[(i\
+    \ << 1) + 2].len;\n        }\n    }\n    void update_min(int a, int b, T x) {\
+    \ update_min(a, b, x, 0, 0, n); }\n    void update_max(int a, int b, T x) { update_max(a,\
+    \ b, x, 0, 0, n); }\n    void update_add(int a, int b, T x) { update_add(a, b,\
+    \ x, 0, 0, n); }\n    void update_val(int a, int b, T x) { update_val(a, b, x,\
+    \ 0, 0, n); }\n    T query_min(int a, int b) { return query_min(a, b, 0, 0, n);\
+    \ }\n    T query_max(int a, int b) { return query_max(a, b, 0, 0, n); }\n    T\
+    \ query_sum(int a, int b) { return query_sum(a, b, 0, 0, n); }\n    T operator[](int\
+    \ i) { return query_sum(i, i + 1); }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Segment Tree Beats\n\
     \ * @docs docs/datastructure/LazySegmentTree.md\n */\ntemplate <typename T> class\
     \ SegmentTreeBeats {\n    int n;\n    static const T idm = numeric_limits<T>::min();\n\
@@ -275,25 +275,25 @@ data:
     \ + 2, (l + r) >> 1, r);\n        return vl + vr;\n    }\n\npublic:\n    SegmentTreeBeats(int\
     \ n_) { init(n_); }\n    void init(int n_) {\n        n = 1;\n        while (n\
     \ < n_) n <<= 1;\n        Nodes.resize(n << 1);\n    }\n    void build(const vector<T>&\
-    \ v) {\n        for (int i = 0; i < v.size(); i++) {\n            Nodes[i + n\
-    \ - 1].Max = Nodes[i + n - 1].Min = Nodes[i + n - 1].sum = v[i];\n           \
-    \ Nodes[i + n - 1].Max_count = Nodes[i + n - 1].Min_count = Nodes[i + n - 1].len\
-    \ = 1;\n        }\n        for (int i = n - 2; i >= 0; --i) {\n            calc(i);\n\
-    \            Nodes[i].len = Nodes[(i << 1) + 1].len + Nodes[(i << 1) + 2].len;\n\
-    \        }\n    }\n    void update_min(int a, int b, T x) { update_min(a, b, x,\
-    \ 0, 0, n); }\n    void update_max(int a, int b, T x) { update_max(a, b, x, 0,\
-    \ 0, n); }\n    void update_add(int a, int b, T x) { update_add(a, b, x, 0, 0,\
-    \ n); }\n    void update_val(int a, int b, T x) { update_val(a, b, x, 0, 0, n);\
-    \ }\n    T query_min(int a, int b) { return query_min(a, b, 0, 0, n); }\n    T\
-    \ query_max(int a, int b) { return query_max(a, b, 0, 0, n); }\n    T query_sum(int\
-    \ a, int b) { return query_sum(a, b, 0, 0, n); }\n    T operator[](int i) { return\
-    \ query_sum(i, i + 1); }\n};"
+    \ v) {\n        for (int i = 0; i < (int)v.size(); i++) {\n            Nodes[i\
+    \ + n - 1].Max = Nodes[i + n - 1].Min = Nodes[i + n - 1].sum = v[i];\n       \
+    \     Nodes[i + n - 1].Max_count = Nodes[i + n - 1].Min_count = Nodes[i + n -\
+    \ 1].len = 1;\n        }\n        for (int i = n - 2; i >= 0; --i) {\n       \
+    \     calc(i);\n            Nodes[i].len = Nodes[(i << 1) + 1].len + Nodes[(i\
+    \ << 1) + 2].len;\n        }\n    }\n    void update_min(int a, int b, T x) {\
+    \ update_min(a, b, x, 0, 0, n); }\n    void update_max(int a, int b, T x) { update_max(a,\
+    \ b, x, 0, 0, n); }\n    void update_add(int a, int b, T x) { update_add(a, b,\
+    \ x, 0, 0, n); }\n    void update_val(int a, int b, T x) { update_val(a, b, x,\
+    \ 0, 0, n); }\n    T query_min(int a, int b) { return query_min(a, b, 0, 0, n);\
+    \ }\n    T query_max(int a, int b) { return query_max(a, b, 0, 0, n); }\n    T\
+    \ query_sum(int a, int b) { return query_sum(a, b, 0, 0, n); }\n    T operator[](int\
+    \ i) { return query_sum(i, i + 1); }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: datastructure/SegmentTreeBeats.hpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp

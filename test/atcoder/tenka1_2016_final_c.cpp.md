@@ -21,11 +21,11 @@ data:
     \ unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate <typename\
     \ T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x : v) is >>\
     \ x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream& os,\
-    \ const vector<T>& v) {\n    for (int i = 0; i < v.size(); i++) {\n        os\
-    \ << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n}\ntemplate\
-    \ <typename T, typename U> ostream& operator<<(ostream& os, const pair<T, U>&\
-    \ p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
-    }\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
+    \ const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n     \
+    \   os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
+    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
+    \ pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return\
+    \ os;\n}\ntemplate <typename T, typename U, typename V> ostream& operator<<(ostream&\
     \ os, const tuple<T, U, V>& t) {\n    os << '(' << get<0>(t) << ',' << get<1>(t)\
     \ << ',' << get<2>(t) << ')';\n    return os;\n}\ntemplate <typename T, typename\
     \ U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U,\
@@ -49,10 +49,10 @@ data:
     \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
     \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
     \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \" \"\
-    );\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate\
-    \ <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n\
-    \    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
+    \" : \" \");\n    }\n    return os;\n}\n\nvoid debug_out() { cerr << '\\n'; }\n\
+    template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)\
+    \ {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
     }\n#ifdef LOCAL\n#define debug(...)                                          \
     \                         \\\n    cerr << \" \";                             \
     \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
@@ -73,18 +73,19 @@ data:
     \ }\n    inline int& next(int node, int c) { return Nodes[node].nxt[c]; }\n  \
     \  inline int& next(int node, char c) { return next(node, ctoi(c)); }\n    void\
     \ add(const string& s, int x = 0) {\n        int node = 0;\n        for (int i\
-    \ = 0; i < s.size(); i++) {\n            int k = ctoi(s[i]);\n            if (next(node,\
-    \ k) < 0) {\n                next(node, k) = Nodes.size();\n                Nodes.emplace_back(s[i],\
-    \ i + 1);\n            }\n            node = next(node, k);\n        }\n     \
-    \   Nodes[node].idxs.emplace_back(x);\n    }\n    int find(const string& s) {\n\
-    \        int node = 0;\n        for (int i = 0; i < s.size(); i++) {\n       \
-    \     int k = ctoi(s[i]);\n            if (next(node, k) < 0) return -1;\n   \
-    \         node = next(node, k);\n        }\n        return node;\n    }\n    template\
-    \ <typename F> void query(const string& s, const F& f, int l) {\n        int node\
-    \ = 0;\n        for (int i = l; i < s.size(); i++) {\n            node = next(node,\
-    \ s[i]);\n            if (node < 0) return;\n            for (auto& idx : Nodes[node].idxs)\
-    \ f(idx);\n        }\n    }\n    int size() { return Nodes.size(); };\n    vector<int>\
-    \ idxs(int node) { return Nodes[node].idxs; }\n};\n#line 7 \"test/atcoder/tenka1_2016_final_c.cpp\"\
+    \ = 0; i < (int)s.size(); i++) {\n            int k = ctoi(s[i]);\n          \
+    \  if (next(node, k) < 0) {\n                next(node, k) = Nodes.size();\n \
+    \               Nodes.emplace_back(s[i], i + 1);\n            }\n            node\
+    \ = next(node, k);\n        }\n        Nodes[node].idxs.emplace_back(x);\n   \
+    \ }\n    int find(const string& s) {\n        int node = 0;\n        for (int\
+    \ i = 0; i < (int)s.size(); i++) {\n            int k = ctoi(s[i]);\n        \
+    \    if (next(node, k) < 0) return -1;\n            node = next(node, k);\n  \
+    \      }\n        return node;\n    }\n    template <typename F> void query(const\
+    \ string& s, const F& f, int l) {\n        int node = 0;\n        for (int i =\
+    \ l; i < (int)s.size(); i++) {\n            node = next(node, s[i]);\n       \
+    \     if (node < 0) return;\n            for (auto& idx : Nodes[node].idxs) f(idx);\n\
+    \        }\n    }\n    int size() { return Nodes.size(); };\n    vector<int> idxs(int\
+    \ node) { return Nodes[node].idxs; }\n};\n#line 7 \"test/atcoder/tenka1_2016_final_c.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
     \ S;\n    int M;\n    cin >> S >> M;\n    vector<string> P(M);\n    vector<int>\
     \ W(M);\n    for (int i = 0; i < M; i++) cin >> P[i];\n    for (int i = 0; i <\
@@ -111,7 +112,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/tenka1_2016_final_c.cpp
   requiredBy: []
-  timestamp: '2021-01-20 10:53:49+09:00'
+  timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/tenka1_2016_final_c.cpp
