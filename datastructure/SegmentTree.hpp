@@ -18,7 +18,7 @@ template <typename Monoid> struct SegmentTree {
         dat.assign(n << 1, id);
     }
     void build(const vector<Monoid>& v) {
-        for (int i = 0; i < v.size(); i++) dat[i + n] = v[i];
+        for (int i = 0; i < (int)v.size(); i++) dat[i + n] = v[i];
         for (int i = n - 1; i; i--) dat[i] = f(dat[i << 1 | 0], dat[i << 1 | 1]);
     }
     void update(int k, Monoid x) {

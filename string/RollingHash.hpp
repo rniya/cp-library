@@ -49,7 +49,7 @@ public:
     }
     template <typename T> u64 get(const T& t) {
         u64 res = 0;
-        for (int i = 0; i < t.size(); i++) res = add(mul(res, base), t[i]);
+        for (int i = 0; i < (int)t.size(); i++) res = add(mul(res, base), t[i]);
         return res;
     }
 };

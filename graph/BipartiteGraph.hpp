@@ -23,7 +23,7 @@ struct BipartiteGraph {
         return true;
     }
     bool build() {
-        for (int v = 0; v < G.size(); v++) {
+        for (int v = 0; v < (int)G.size(); v++) {
             if (color[v] < 0 && !dfs(v, 0, v)) {
                 return false;
             }

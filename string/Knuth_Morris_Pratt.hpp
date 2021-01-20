@@ -20,7 +20,7 @@ struct Knuth_Morris_Pratt {
     vector<int> KMP() { return kmp; }
     vector<int> next_period() {
         vector<int> np = kmp;
-        for (int i = 1; i < kmp.size(); i++) np[i] = i - np[i];
+        for (int i = 1; i < (int)kmp.size(); i++) np[i] = i - np[i];
         return np;
     }
     vector<int> pattern_match(const string& t) {

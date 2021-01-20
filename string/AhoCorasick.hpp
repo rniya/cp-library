@@ -15,7 +15,7 @@ template <int char_size> struct AhoCorasick : Trie<char_size + 1> {
     void build(bool heavy = true) {
         auto& Nodes = this->Nodes;
         cnt.resize(Nodes.size());
-        for (int i = 0; i < Nodes.size(); i++) {
+        for (int i = 0; i < (int)Nodes.size(); i++) {
             cnt[i] = Nodes[i].idxs.size();
         }
         queue<int> que;

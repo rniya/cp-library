@@ -17,7 +17,7 @@ template <typename Monoid> struct SlidingWindowAggregation {
     void push(const Monoid& x) { back_stack.emplace(x, f(back_stack.top().second, x)); }
     void pop() {
         if (front_stack.size() == 1) {
-            while (1 < back_stack.size()) {
+            while (1 < (int)back_stack.size()) {
                 Monoid t = back_stack.top().first;
                 Monoid calc = f(t, front_stack.top().second);
                 front_stack.emplace(t, calc);

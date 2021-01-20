@@ -52,7 +52,7 @@ template <typename T> struct TreeDiameter {
         int t = endPoints().second;
         auto ds = dp;
         auto dt = distance(t);
-        for (int i = 0; i < ds.size(); i++) ds[i] = max(ds[i], dt[i]);
+        for (int i = 0; i < (int)ds.size(); i++) ds[i] = max(ds[i], dt[i]);
         return ds;
     }
 };

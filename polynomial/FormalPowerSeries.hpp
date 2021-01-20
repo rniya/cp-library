@@ -33,7 +33,7 @@ template <typename M> struct FormalPowerSeries : vector<M> {
     }
     Poly& operator+=(const Poly& p) {
         if (p.size() > this->size()) this->resize(p.size());
-        for (int i = 0; i < p.size(); i++) (*this)[i] += p[i];
+        for (int i = 0; i < (int)p.size(); i++) (*this)[i] += p[i];
         return *this;
     }
     Poly& operator-=(const M& v) {
@@ -43,11 +43,11 @@ template <typename M> struct FormalPowerSeries : vector<M> {
     }
     Poly& operator-=(const Poly& p) {
         if (p.size() > this->size()) this->resize(p.size());
-        for (int i = 0; i < p.size(); i++) (*this)[i] -= p[i];
+        for (int i = 0; i < (int)p.size(); i++) (*this)[i] -= p[i];
         return *this;
     }
     Poly& operator*=(const M& v) {
-        for (int i = 0; i < this->size(); i++) (*this)[i] *= v;
+        for (int i = 0; i < (int)this->size(); i++) (*this)[i] *= v;
         return *this;
     }
     Poly& operator*=(const Poly& p) {
@@ -80,7 +80,7 @@ template <typename M> struct FormalPowerSeries : vector<M> {
     }
     Poly operator-() const {
         Poly res(this->size());
-        for (int i = 0; i < this->size(); i++) res[i] = -(*this)[i];
+        for (int i = 0; i < (int)this->size(); i++) res[i] = -(*this)[i];
         return res;
     }
     Poly rev(int deg = -1) const {
@@ -91,13 +91,13 @@ template <typename M> struct FormalPowerSeries : vector<M> {
     }
     Poly diff() const {
         Poly res(max(0, (int)this->size() - 1));
-        for (int i = 1; i < this->size(); i++) res[i - 1] = (*this)[i] * M(i);
+        for (int i = 1; i < (int)this->size(); i++) res[i - 1] = (*this)[i] * M(i);
         return res;
     }
     Poly integral() const {
         Poly res(this->size() + 1);
         res[0] = M(0);
-        for (int i = 0; i < this->size(); i++) res[i + 1] = (*this)[i] / M(i + 1);
+        for (int i = 0; i < (int)this->size(); i++) res[i + 1] = (*this)[i] / M(i + 1);
         return res;
     }
     Poly inv(int deg = -1) const {
@@ -135,13 +135,13 @@ template <typename M> struct FormalPowerSeries : vector<M> {
     }
     Poly pow(long long k, int deg = -1) const {
         if (deg < 0) deg = this->size();
-        for (int i = 0; i < this->size(); i++) {
+        for (int i = 0; i < (int)this->size(); i++) {
             if ((*this)[i] == M(0)) continue;
             if (k * i > deg) return Poly(deg, M(0));
             M inv = M(1) / (*this)[i];
             Poly res = (((*this * inv) >> i).log() * k).exp() * (*this)[i].pow(k);
             res = (res << (i * k)).pre(deg);
-            if (res.size() < deg) res.resize(deg, M(0));
+            if ((int)res.size() < deg) res.resize(deg, M(0));
             return res;
         }
         return *this;
@@ -158,14 +158,14 @@ template <typename M> struct FormalPowerSeries : vector<M> {
     Poly linear_mul(const M& a, const M& b) {
         Poly res(this->size() + 1);
         for (int i = 0; i < this->size() + 1; i++) {
-            res[i] = (i - 1 >= 0 ? (*this)[i - 1] * a : M(0)) + (i < this->size() ? (*this)[i] * b : M(0));
+            res[i] = (i - 1 >= 0 ? (*this)[i - 1] * a : M(0)) + (i < (int)this->size() ? (*this)[i] * b : M(0));
         }
         return res;
     }
     Poly linear_div(const M& a, const M& b) {
         Poly res(this->size() - 1);
         M inv_b = M(1) / b;
-        for (int i = 0; i + 1 < this->size(); i++) {
+        for (int i = 0; i + 1 < (int)this->size(); i++) {
             res[i] = ((*this)[i] - (i - 1 >= 0 ? res[i - 1] * a : M(0))) * inv_b;
         }
         return res;
@@ -173,7 +173,7 @@ template <typename M> struct FormalPowerSeries : vector<M> {
     Poly sparse_mul(const M& c, const M& d) {
         Poly res(*this);
         res.resize(this->size() + d, M(0));
-        for (int i = 0; i < this->size(); i++) {
+        for (int i = 0; i < (int)this->size(); i++) {
             res[i + d] += (*this)[i] * c;
         }
         return res;
@@ -187,7 +187,7 @@ template <typename M> struct FormalPowerSeries : vector<M> {
     }
     M operator()(const M& x) const {
         M res = 0, power = 1;
-        for (int i = 0; i < this->size(); i++, power *= x) {
+        for (int i = 0; i < (int)this->size(); i++, power *= x) {
             res += (*this)[i] * power;
         }
         return res;

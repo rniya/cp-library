@@ -29,7 +29,7 @@ template <bool directed> struct CycleDetection {
         hist.pop();
     }
     vector<int> build() {
-        for (int v = 0; v < G.size(); v++) {
+        for (int v = 0; v < (int)G.size(); v++) {
             if (!seen[v]) dfs(v, -1);
             if (~pos) break;
         }

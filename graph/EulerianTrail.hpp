@@ -75,12 +75,12 @@ public:
             G[v].emplace_back(u, m), deg[v]++;
     }
     vector<vector<int>> build() {
-        for (int i = 0; i < G.size(); i++) {
+        for (int i = 0; i < (int)G.size(); i++) {
             if (directed && deg[i] != 0) return {};
             if (!directed && (deg[i] & 1)) return {};
         }
         vector<vector<int>> res;
-        for (int i = 0; i < G.size(); i++) {
+        for (int i = 0; i < (int)G.size(); i++) {
             if (G[i].empty() || visited[i]) continue;
             res.emplace_back(go(i));
         }
@@ -88,7 +88,7 @@ public:
     }
     vector<vector<int>> build_semi() {
         vector<vector<int>> res;
-        for (int i = 0; i < G.size(); i++) {
+        for (int i = 0; i < (int)G.size(); i++) {
             if (visited[i]) continue;
             int s = -1, t = -1, check = 1;
             dfs(i, s, t, check);

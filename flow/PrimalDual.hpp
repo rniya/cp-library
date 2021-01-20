@@ -31,7 +31,7 @@ template <typename T, typename E> struct PrimalDual {
     }
     vector<tuple<int, int, int, int, int>> edges() {
         vector<tuple<int, int, int, int, int>> res;
-        for (int i = 0; i < pos.size(); i++) {
+        for (int i = 0; i < (int)pos.size(); i++) {
             res.emplace_back(get_edge(i));
         }
         return res;
@@ -52,7 +52,7 @@ template <typename T, typename E> struct PrimalDual {
             pq.pop();
             int v = p.v;
             if (dist[v] < p.c) continue;
-            for (int i = 0; i < G[v].size(); i++) {
+            for (int i = 0; i < (int)G[v].size(); i++) {
                 auto& e = G[v][i];
                 if (e.cap > 0 && dist[e.to] > dist[v] + e.cost + h[v] - h[e.to]) {
                     dist[e.to] = dist[v] + e.cost + h[v] - h[e.to];
@@ -71,7 +71,7 @@ template <typename T, typename E> struct PrimalDual {
         while (f < lim) {
             dijkstra(s);
             if (dist[t] == inf) break;
-            for (int v = 0; v < G.size(); v++) h[v] += dist[v];
+            for (int v = 0; v < (int)G.size(); v++) h[v] += dist[v];
             T d = lim - f;
             for (int v = t; v != s; v = prevv[v]) {
                 d = min(d, G[prevv[v]][preve[v]].cap);

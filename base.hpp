@@ -12,8 +12,8 @@ template <typename T> istream& operator>>(istream& is, vector<T>& v) {
     return is;
 }
 template <typename T> ostream& operator<<(ostream& os, const vector<T>& v) {
-    for (int i = 0; i < v.size(); i++) {
-        os << v[i] << (i + 1 == v.size() ? "" : " ");
+    for (int i = 0; i < (int)v.size(); i++) {
+        os << v[i] << (i + 1 == (int)v.size() ? "" : " ");
     }
     return os;
 }
@@ -75,8 +75,8 @@ template <typename T> ostream& operator<<(ostream& os, const unordered_set<T>& s
     return os;
 }
 template <typename T> ostream& operator<<(ostream& os, const deque<T>& v) {
-    for (int i = 0; i < v.size(); i++) {
-        os << v[i] << (i + 1 == v.size() ? "" : " ");
+    for (int i = 0; i < (int)v.size(); i++) {
+        os << v[i] << (i + 1 == (int)v.size() ? "" : " ");
     }
     return os;
 }

@@ -31,7 +31,7 @@ template <typename T, typename E> struct MinCostFlow {
     }
     vector<tuple<int, int, int, int, int>> edges() {
         vector<tuple<int, int, int, int, int>> res;
-        for (int i = 0; i < pos.size(); i++) {
+        for (int i = 0; i < (int)pos.size(); i++) {
             res.emplace_back(get_edge(i));
         }
         return res;
@@ -44,9 +44,9 @@ template <typename T, typename E> struct MinCostFlow {
             bool update = true;
             while (update) {
                 update = false;
-                for (int v = 0; v < G.size(); v++) {
+                for (int v = 0; v < (int)G.size(); v++) {
                     if (dist[v] == inf) continue;
-                    for (int i = 0; i < G[v].size(); i++) {
+                    for (int i = 0; i < (int)G[v].size(); i++) {
                         edge& e = G[v][i];
                         if (e.cap > 0 && dist[e.to] > dist[v] + e.cost) {
                             dist[e.to] = dist[v] + e.cost;

@@ -19,7 +19,7 @@ template <int char_size> struct Trie {
     inline int& next(int node, char c) { return next(node, ctoi(c)); }
     void add(const string& s, int x = 0) {
         int node = 0;
-        for (int i = 0; i < s.size(); i++) {
+        for (int i = 0; i < (int)s.size(); i++) {
             int k = ctoi(s[i]);
             if (next(node, k) < 0) {
                 next(node, k) = Nodes.size();
@@ -31,7 +31,7 @@ template <int char_size> struct Trie {
     }
     int find(const string& s) {
         int node = 0;
-        for (int i = 0; i < s.size(); i++) {
+        for (int i = 0; i < (int)s.size(); i++) {
             int k = ctoi(s[i]);
             if (next(node, k) < 0) return -1;
             node = next(node, k);
@@ -40,7 +40,7 @@ template <int char_size> struct Trie {
     }
     template <typename F> void query(const string& s, const F& f, int l) {
         int node = 0;
-        for (int i = l; i < s.size(); i++) {
+        for (int i = l; i < (int)s.size(); i++) {
             node = next(node, s[i]);
             if (node < 0) return;
             for (auto& idx : Nodes[node].idxs) f(idx);

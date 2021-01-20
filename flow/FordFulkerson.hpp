@@ -28,7 +28,7 @@ template <typename T, bool directed> struct FordFulkerson {
     }
     vector<tuple<int, int, int, int>> edges() {
         vector<tuple<int, int, int, int>> res;
-        for (int i = 0; i < pos.size(); i++) {
+        for (int i = 0; i < (int)pos.size(); i++) {
             res.emplace_back(get_edge(i));
         }
         return res;

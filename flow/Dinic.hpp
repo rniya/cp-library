@@ -34,7 +34,7 @@ template <typename T, bool directed> struct Dinic {
     }
     vector<tuple<int, int, int, int>> edges() {
         vector<tuple<int, int, int, int>> res;
-        for (int i = 0; i < pos.size(); i++) {
+        for (int i = 0; i < (int)pos.size(); i++) {
             res.emplace_back(get_edge(i));
         }
         return res;
@@ -63,7 +63,7 @@ template <typename T, bool directed> struct Dinic {
     }
     T dfs(int v, int t, T f) {
         if (v == t) return f;
-        for (int& i = iter[v]; i < G[v].size(); i++) {
+        for (int& i = iter[v]; i < (int)G[v].size(); i++) {
             auto& e = G[v][i];
             if (e.cap > 0 && level[v] < level[e.to]) {
                 T d = dfs(e.to, t, min(f, e.cap));

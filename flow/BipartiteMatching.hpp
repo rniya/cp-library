@@ -29,7 +29,7 @@ struct BipartiteMatching {
     }
     int build() {
         int res = 0;
-        for (int i = 0; i < G.size(); i++) {
+        for (int i = 0; i < (int)G.size(); i++) {
             if (!alive[i]) continue;
             if (~match[i]) continue;
             time++;

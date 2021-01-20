@@ -184,7 +184,7 @@ public:
         Nodes.resize(n << 1);
     }
     void build(const vector<T>& v) {
-        for (int i = 0; i < v.size(); i++) {
+        for (int i = 0; i < (int)v.size(); i++) {
             Nodes[i + n - 1].Max = Nodes[i + n - 1].Min = Nodes[i + n - 1].sum = v[i];
             Nodes[i + n - 1].Max_count = Nodes[i + n - 1].Min_count = Nodes[i + n - 1].len = 1;
         }

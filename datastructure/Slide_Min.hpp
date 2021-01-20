@@ -8,7 +8,7 @@
 template <typename T> vector<T> Slide_Min(const vector<T>& v, int k) {
     deque<int> deq;
     vector<T> res;
-    for (int i = 0; i < v.size(); i++) {
+    for (int i = 0; i < (int)v.size(); i++) {
         while (!deq.empty() && v[deq.back()] >= v[i]) deq.pop_back();
         deq.push_back(i);
         if (i - k + 1 >= 0) {

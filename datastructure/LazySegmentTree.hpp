@@ -27,7 +27,7 @@ template <typename Monoid, typename OperatorMonoid> struct LazySegmentTree {
         laz.assign(n << 1, id1);
     }
     void build(const vector<Monoid>& v) {
-        for (int i = 0; i < v.size(); i++) dat[i + n] = v[i];
+        for (int i = 0; i < (int)v.size(); i++) dat[i + n] = v[i];
         for (int i = n - 1; i; --i) dat[i] = f(dat[i << 1 | 0], dat[i << 1 | 1]);
     }
     inline Monoid reflect(int k) { return laz[k] == id1 ? dat[k] : g(dat[k], laz[k]); }

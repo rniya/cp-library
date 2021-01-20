@@ -18,7 +18,7 @@ struct TopologicalSort {
         order.emplace_back(v);
     }
     vector<int> build() {
-        for (int i = 0; i < G.size(); i++) {
+        for (int i = 0; i < (int)G.size(); i++) {
             if (!seen[i]) dfs(i);
         }
         reverse(order.begin(), order.end());
