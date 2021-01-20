@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: string/Trie.hpp
     title: Trie
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1269.test.cpp
     title: test/yukicoder/1269.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/430.AhoCorasick.test.cpp
     title: test/yukicoder/430.AhoCorasick.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/string/AhoCorasick.md
     document_title: Aho Corasick
@@ -158,7 +158,7 @@ data:
   path: string/AhoCorasick.hpp
   requiredBy: []
   timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1269.test.cpp
   - test/yukicoder/430.AhoCorasick.test.cpp

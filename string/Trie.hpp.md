@@ -1,25 +1,25 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: string/AhoCorasick.hpp
     title: Aho Corasick
   - icon: ':warning:'
     path: test/atcoder/tenka1_2016_final_c.cpp
     title: test/atcoder/tenka1_2016_final_c.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1269.test.cpp
     title: test/yukicoder/1269.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/430.AhoCorasick.test.cpp
     title: test/yukicoder/430.AhoCorasick.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/string/Trie.md
     document_title: Trie
@@ -122,7 +122,7 @@ data:
   - string/AhoCorasick.hpp
   - test/atcoder/tenka1_2016_final_c.cpp
   timestamp: '2021-01-20 10:53:49+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1269.test.cpp
   - test/yukicoder/430.AhoCorasick.test.cpp
