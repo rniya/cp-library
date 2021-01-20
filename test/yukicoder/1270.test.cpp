@@ -5,6 +5,8 @@
 #include "../../datastructure/LazySegmentTree.hpp"
 #include "../../other/Mo.hpp"
 
+const int inf = 1e9;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
@@ -36,7 +38,7 @@ int main() {
     int inv = 0;
     auto f = [](int a, int b) { return min(a, b); };
     auto g = [](int a, int b) { return a + b; };
-    LazySegmentTree<int, int> seg(N, f, g, g, INF, 0);
+    LazySegmentTree<int, int> seg(N, f, g, g, inf, 0);
     vector<int> v(N, 0);
     seg.build(v);
     for (int i = 0; i < N; i++) {

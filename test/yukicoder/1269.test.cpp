@@ -4,7 +4,7 @@
 #include "../../modulo/modint.hpp"
 #include "../../string/AhoCorasick.hpp"
 
-using mint = modint<MOD>;
+using mint = modint<1000000007>;
 
 int main() {
     cin.tie(0);
