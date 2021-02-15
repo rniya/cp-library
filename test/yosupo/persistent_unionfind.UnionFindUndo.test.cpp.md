@@ -9,6 +9,7 @@ data:
     title: "UnionFind (Undo\u53EF\u80FD)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

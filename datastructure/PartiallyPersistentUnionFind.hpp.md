@@ -9,6 +9,7 @@ data:
     path: test/atcoder/agc002_d.cpp
     title: test/atcoder/agc002_d.cpp
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:

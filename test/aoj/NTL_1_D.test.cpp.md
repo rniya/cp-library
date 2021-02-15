@@ -9,6 +9,7 @@ data:
     title: "Euler\u306E\u03C6\u95A2\u6570"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

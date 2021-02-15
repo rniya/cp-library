@@ -21,6 +21,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/vertex_add_subtree_sum.test.cpp
     title: test/yosupo/vertex_add_subtree_sum.test.cpp
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -151,9 +152,9 @@ data:
   verifiedWith:
   - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/vertex_add_path_sum.test.cpp
-  - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
-  - test/aoj/2667.test.cpp
   - test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+  - test/aoj/2667.test.cpp
+  - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
 documentation_of: tree/HeavyLightDecomposition.hpp
 layout: document
 redirect_from:

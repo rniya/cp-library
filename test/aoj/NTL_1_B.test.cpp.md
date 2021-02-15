@@ -9,6 +9,7 @@ data:
     title: "\u7E70\u308A\u8FD4\u30572\u4E57\u6CD5"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

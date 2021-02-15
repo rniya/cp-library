@@ -42,6 +42,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1270.test.cpp
     title: test/yukicoder/1270.test.cpp
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -214,15 +215,15 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/range_affine_range_sum.test.cpp
-  - test/aoj/DSL_2_G.test.cpp
   - test/aoj/DSL_2_H.test.cpp
-  - test/aoj/2871.test.cpp
-  - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
-  - test/aoj/DSL_2_D.test.cpp
   - test/aoj/DSL_2_E.test.cpp
   - test/aoj/2667.test.cpp
-  - test/aoj/DSL_2_I.test.cpp
+  - test/aoj/DSL_2_G.test.cpp
+  - test/aoj/2871.test.cpp
+  - test/aoj/DSL_2_D.test.cpp
+  - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   - test/aoj/DSL_2_F.test.cpp
+  - test/aoj/DSL_2_I.test.cpp
   - test/yukicoder/1270.test.cpp
 documentation_of: datastructure/LazySegmentTree.hpp
 layout: document
@@ -232,5 +233,9 @@ redirect_from:
 title: Lazy Segment Tree
 ---
 ## 概要
+
+## remark
+[Educational Codeforces Round 101 (Rated for Div. 2) F. Power Sockets](https://codeforces.com/contest/1469/problem/F)
+この遅延セグメント木を用いると通らないがAC Libraryのものを用いると問題ない. おそらく単位元が$(0,1)$である影響で木上の二分探索がバグっている.
 
 ## 計算量

@@ -21,6 +21,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1270.test.cpp
     title: test/yukicoder/1270.test.cpp
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -111,8 +112,8 @@ data:
   timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
+  - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/aoj/DSL_2_B.test.cpp
   - test/aoj/GRL_5_D.test.cpp
   - test/yukicoder/1270.test.cpp

@@ -9,6 +9,7 @@ data:
     path: test/atcoder/tdpc_fibonacci.cpp
     title: test/atcoder/tdpc_fibonacci.cpp
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:

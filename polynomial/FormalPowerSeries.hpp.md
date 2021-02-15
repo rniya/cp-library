@@ -30,6 +30,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -267,13 +268,13 @@ data:
   timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yukicoder/1302.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yukicoder/3046.test.cpp
+  - test/yukicoder/1302.test.cpp
 documentation_of: polynomial/FormalPowerSeries.hpp
 layout: document
 redirect_from:

@@ -33,6 +33,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
     title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -297,14 +298,14 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
-  - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
 documentation_of: datastructure/SegmentTreeBeats.hpp
 layout: document
 redirect_from:
@@ -313,5 +314,9 @@ redirect_from:
 title: Segment Tree Beats
 ---
 ## 概要
+
+## remark
+[Educational Codeforces Round 101 (Rated for Div. 2) F. Power Sockets](https://codeforces.com/contest/1469/problem/F)
+この遅延セグメント木を用いると通らないがAC Libraryのものを用いると問題ない. おそらく単位元が$(0,1)$である影響で木上の二分探索がバグっている.
 
 ## 計算量

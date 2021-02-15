@@ -24,6 +24,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_6_A.DInic.test.cpp
     title: test/aoj/GRL_6_A.DInic.test.cpp
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -171,13 +172,13 @@ data:
   path: flow/Dinic.hpp
   requiredBy:
   - flow/ProjectSelectionProblem.hpp
-  - test/codeforces/1404_E.cpp
   - test/atcoder/arc085_c.cpp
+  - test/codeforces/1404_E.cpp
   timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/2903.test.cpp
   - test/aoj/2313.test.cpp
+  - test/aoj/2903.test.cpp
   - test/aoj/GRL_6_A.DInic.test.cpp
 documentation_of: flow/Dinic.hpp
 layout: document

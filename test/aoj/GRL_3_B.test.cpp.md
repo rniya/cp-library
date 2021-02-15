@@ -9,6 +9,7 @@ data:
     title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

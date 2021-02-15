@@ -15,6 +15,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1301.test.cpp
     title: test/yukicoder/1301.test.cpp
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -166,8 +167,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_6_B.PrimalDual.test.cpp
-  - test/yukicoder/1288.test.cpp
   - test/yukicoder/1301.test.cpp
+  - test/yukicoder/1288.test.cpp
 documentation_of: flow/PrimalDual.hpp
 layout: document
 redirect_from:

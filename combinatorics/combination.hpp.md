@@ -30,6 +30,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1302.test.cpp
     title: test/yukicoder/1302.test.cpp
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -118,13 +119,13 @@ data:
   timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DPL_5_E.test.cpp
-  - test/aoj/DPL_5_G.test.cpp
   - test/aoj/DPL_5_D.test.cpp
-  - test/aoj/DPL_5_C.test.cpp
-  - test/aoj/DPL_5_I.test.cpp
-  - test/aoj/DPL_5_F.test.cpp
+  - test/aoj/DPL_5_G.test.cpp
   - test/aoj/DPL_5_B.test.cpp
+  - test/aoj/DPL_5_C.test.cpp
+  - test/aoj/DPL_5_F.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/DPL_5_I.test.cpp
   - test/yukicoder/1302.test.cpp
 documentation_of: combinatorics/combination.hpp
 layout: document

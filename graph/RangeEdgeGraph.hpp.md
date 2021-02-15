@@ -9,6 +9,7 @@ data:
     path: test/atcoder/nikkei2019_2_qual_d.cpp
     title: test/atcoder/nikkei2019_2_qual_d.cpp
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
