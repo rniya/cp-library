@@ -329,6 +329,9 @@ data:
     - icon: ':warning:'
       path: util/ZobristHash.hpp
       title: Zobrist Hash
+    - icon: ':warning:'
+      path: util/binary_conversion.hpp
+      title: "\u6587\u5B57\u5217\u306E2\u9032\u5909\u63DB"
     - icon: ':heavy_check_mark:'
       path: util/compress.hpp
       title: compress
