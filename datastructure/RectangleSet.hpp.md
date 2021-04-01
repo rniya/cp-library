@@ -5,19 +5,13 @@ data:
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_J.test.cpp
-    title: test/aoj/DPL_5_J.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_L.test.cpp
-    title: test/aoj/DPL_5_L.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/combinatorics/PartitionTable.md
-    document_title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
+    _deprecated_at_docs: docs/datastructure/RectangleSet.md
+    document_title: Rectangle Set
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
     typedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\n\
@@ -67,47 +61,56 @@ data:
     \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#line 3 \"combinatorics/PartitionTable.hpp\"\
-    \n\n/**\n * @brief \u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB\n * @docs docs/combinatorics/PartitionTable.md\n\
-    \ */\ntemplate <typename T> vector<vector<T>> partition_table(int n, int k) {\n\
-    \    vector<vector<T>> dp(n + 1, vector<T>(k + 1));\n    dp[0][0] = 1;\n    for\
-    \ (int i = 0; i <= n; i++) {\n        for (int j = 1; j <= k; j++) {\n       \
-    \     dp[i][j] = dp[i][j - 1] + (i - j >= 0 ? dp[i - j][j] : 0);\n        }\n\
-    \    }\n    return dp;\n}\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u5206\u5272\u6570\
-    \u30C6\u30FC\u30D6\u30EB\n * @docs docs/combinatorics/PartitionTable.md\n */\n\
-    template <typename T> vector<vector<T>> partition_table(int n, int k) {\n    vector<vector<T>>\
-    \ dp(n + 1, vector<T>(k + 1));\n    dp[0][0] = 1;\n    for (int i = 0; i <= n;\
-    \ i++) {\n        for (int j = 1; j <= k; j++) {\n            dp[i][j] = dp[i][j\
-    \ - 1] + (i - j >= 0 ? dp[i - j][j] : 0);\n        }\n    }\n    return dp;\n}"
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"datastructure/RectangleSet.hpp\"\
+    \n\n/**\n * @brief Rectangle Set\n * @docs docs/datastructure/RectangleSet.md\n\
+    \ */\ntemplate <typename T> struct RectangleSet {\n    constexpr T inf = numeric_limits<T>::max()\
+    \ / 2;\n    set<pair<T, T>> s;\n    multiset<T> val;\n    RectangleSet() {\n \
+    \       s.emplace(-1, inf);\n        s.emplace(0, 0);\n        val.emplace(0);\n\
+    \    }\n\n    void add(T x, T y) {\n        auto itr = s.lower_bound(make_pair(x,\
+    \ y));\n        bool flag = false;\n        T nx = inf, ny = inf;\n        while\
+    \ (1) {\n            itr = prev(itr);\n            if (y < itr->second) break;\n\
+    \            flag = true;\n            nx = min(nx, itr->first);\n           \
+    \ ny = min(ny, itr->second);\n            val.erase(val.find(itr->first + itr->second));\n\
+    \            itr = s.erase(itr);\n        }\n        if (flag) {\n           \
+    \ s.emplace(nx, y);\n            val.emplace(nx + y);\n            s.emplace(x,\
+    \ ny);\n            val.emplace(x + ny);\n        }\n    }\n    T query() { return\
+    \ *val.begin(); }\n};\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Rectangle Set\n\
+    \ * @docs docs/datastructure/RectangleSet.md\n */\ntemplate <typename T> struct\
+    \ RectangleSet {\n    constexpr T inf = numeric_limits<T>::max() / 2;\n    set<pair<T,\
+    \ T>> s;\n    multiset<T> val;\n    RectangleSet() {\n        s.emplace(-1, inf);\n\
+    \        s.emplace(0, 0);\n        val.emplace(0);\n    }\n\n    void add(T x,\
+    \ T y) {\n        auto itr = s.lower_bound(make_pair(x, y));\n        bool flag\
+    \ = false;\n        T nx = inf, ny = inf;\n        while (1) {\n            itr\
+    \ = prev(itr);\n            if (y < itr->second) break;\n            flag = true;\n\
+    \            nx = min(nx, itr->first);\n            ny = min(ny, itr->second);\n\
+    \            val.erase(val.find(itr->first + itr->second));\n            itr =\
+    \ s.erase(itr);\n        }\n        if (flag) {\n            s.emplace(nx, y);\n\
+    \            val.emplace(nx + y);\n            s.emplace(x, ny);\n           \
+    \ val.emplace(x + ny);\n        }\n    }\n    T query() { return *val.begin();\
+    \ }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: combinatorics/PartitionTable.hpp
+  path: datastructure/RectangleSet.hpp
   requiredBy: []
-  timestamp: '2021-01-20 20:25:59+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/aoj/DPL_5_J.test.cpp
-  - test/aoj/DPL_5_L.test.cpp
-documentation_of: combinatorics/PartitionTable.hpp
+  timestamp: '2021-04-01 10:39:32+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: datastructure/RectangleSet.hpp
 layout: document
 redirect_from:
-- /library/combinatorics/PartitionTable.hpp
-- /library/combinatorics/PartitionTable.hpp.html
-title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
+- /library/datastructure/RectangleSet.hpp
+- /library/datastructure/RectangleSet.hpp.html
+title: Rectangle Set
 ---
 ## 概要
-分割数$P\left(n,k\right)$は$n$の個の区別できない玉を$k$個の区別できない箱に入れる組合せ数, すなわち整数$n$をちょうど$k$個の非負整数の和で表す場合の数を与える. これは,
-1. 分割が$0$を含むとき, 組合せ数は$P\left(n,k-1\right)$に帰着される.
-2. 分割が$0$を含まないとき, $k$個の整数が全て$0$以上なので, それらから$1$ずつ除けば組合せ数は$P\left(n-k,k\right)$に帰着される.
-
-から,
-$$P\left(n,k\right)=P\left(n,k-1\right)+P\left(n-k,k\right)$$
-によって計算できる.
+「$x \geqq a$または$y \geqq b$」という条件を追加して$\min x+y$を計算する.
+- `add(a, b)`:「$x \geqq a$または$y \geqq b$」という条件を追加する.
+- `query()`:その時点での$\min x+y$を返す.
 
 ## 計算量
-$O\left(nk\right)$
+均し$O(n\log n)$
 
-## 参照
-[「写像12相」を総整理！ 〜 数え上げ問題の学びの宝庫 〜 - Qiita](https://qiita.com/drken/items/f2ea4b58b0d21621bd51)
+## 問題例
+[Codeforces Round #230 (Div. 1) D. Three Arrays](https://codeforces.com/contest/392/problem/D)

@@ -62,6 +62,9 @@ data:
     - icon: ':warning:'
       path: datastructure/PartiallyPersistentUnionFind.hpp
       title: Partially Persistent UnionFind
+    - icon: ':warning:'
+      path: datastructure/RectangleSet.hpp
+      title: Rectangle Set
     - icon: ':heavy_check_mark:'
       path: datastructure/SegmentTree.hpp
       title: Segment Tree

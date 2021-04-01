@@ -270,8 +270,8 @@ data:
   verifiedWith:
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yukicoder/3046.test.cpp
   - test/yukicoder/1302.test.cpp

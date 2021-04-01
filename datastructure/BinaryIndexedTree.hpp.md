@@ -114,9 +114,9 @@ data:
   verifiedWith:
   - test/yosupo/static_range_inversions_query.test.cpp
   - test/yosupo/vertex_add_subtree_sum.test.cpp
+  - test/yukicoder/1270.test.cpp
   - test/aoj/DSL_2_B.test.cpp
   - test/aoj/GRL_5_D.test.cpp
-  - test/yukicoder/1270.test.cpp
 documentation_of: datastructure/BinaryIndexedTree.hpp
 layout: document
 redirect_from:
