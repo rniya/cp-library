@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -162,8 +162,8 @@ data:
   timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/1269.test.cpp
   - test/yukicoder/430.AhoCorasick.test.cpp
+  - test/yukicoder/1269.test.cpp
 documentation_of: string/AhoCorasick.hpp
 layout: document
 redirect_from:

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -122,13 +122,13 @@ data:
   isVerificationFile: false
   path: string/Trie.hpp
   requiredBy:
-  - string/AhoCorasick.hpp
   - test/atcoder/tenka1_2016_final_c.cpp
+  - string/AhoCorasick.hpp
   timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/1269.test.cpp
   - test/yukicoder/430.AhoCorasick.test.cpp
+  - test/yukicoder/1269.test.cpp
 documentation_of: string/Trie.hpp
 layout: document
 redirect_from:

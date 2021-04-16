@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -41,7 +41,7 @@ data:
       title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
   - name: datastructure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: datastructure/BinaryIndexedTree.hpp
       title: Binary Indexed Tree
     - icon: ':heavy_check_mark:'
@@ -209,7 +209,7 @@ data:
       title: modint
   - name: other
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: other/Mo.hpp
       title: Mo's Algorithm
   - name: polynomial
@@ -335,7 +335,7 @@ data:
     - icon: ':warning:'
       path: util/binary_conversion.hpp
       title: "\u6587\u5B57\u5217\u306E2\u9032\u5909\u63DB"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: util/compress.hpp
       title: compress
   verificationCategories:
@@ -682,7 +682,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/static_range_inversions_query.test.cpp
       title: test/yosupo/static_range_inversions_query.test.cpp
     - icon: ':heavy_check_mark:'

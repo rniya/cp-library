@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
@@ -135,8 +135,8 @@ data:
   isVerificationFile: false
   path: datastructure/ConvexHullTrick.hpp
   requiredBy:
-  - test/atcoder/dp_z.cpp
   - test/atcoder/colopl2018_final_c.cpp
+  - test/atcoder/dp_z.cpp
   timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

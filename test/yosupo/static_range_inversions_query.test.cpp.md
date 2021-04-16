@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexed Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: other/Mo.hpp
     title: Mo's Algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: util/compress.hpp
     title: compress
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -103,8 +103,8 @@ data:
     \     rem(idx);\n        }\n    }\n    template <typename ADD, typename DEL, typename\
     \ REM> void build(const ADD& add, const DEL& del, const REM& rem) {\n        build(add,\
     \ add, del, del, rem);\n    }\n};\n#line 3 \"util/compress.hpp\"\n\n/**\n * @brief\
-    \ compress\n */\ntemplate <typename T> map<T, int> compress(vector<T> v) {\n \
-    \   sort(v.begin(), v.end());\n    v.erase(unique(v.begin(), v.end()), v.end());\n\
+    \ compress\n */\ntemplate <typename T> map<T, int> compress(vector<T>& v) {\n\
+    \    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(), v.end()), v.end());\n\
     \    map<T, int> res;\n    for (int i = 0; i < v.size(); i++) res[v[i]] = i;\n\
     \    return res;\n}\n#line 7 \"test/yosupo/static_range_inversions_query.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
@@ -150,8 +150,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 20:25:59+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-04-16 18:45:44+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp
 layout: document

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -197,8 +197,8 @@ data:
   timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yukicoder/3046.test.cpp
+  - test/yosupo/convolution_mod_1000000007.test.cpp
 documentation_of: convolution/ArbitaryModConvolution.hpp
 layout: document
 redirect_from:

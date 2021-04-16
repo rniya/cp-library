@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/static_range_inversions_query.test.cpp
     title: test/yosupo/static_range_inversions_query.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: compress
     links: []
@@ -64,12 +64,12 @@ data:
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\n#line 3 \"util/compress.hpp\"\n\n\
-    /**\n * @brief compress\n */\ntemplate <typename T> map<T, int> compress(vector<T>\
+    /**\n * @brief compress\n */\ntemplate <typename T> map<T, int> compress(vector<T>&\
     \ v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(), v.end()),\
     \ v.end());\n    map<T, int> res;\n    for (int i = 0; i < v.size(); i++) res[v[i]]\
     \ = i;\n    return res;\n}\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief compress\n */\n\
-    template <typename T> map<T, int> compress(vector<T> v) {\n    sort(v.begin(),\
+    template <typename T> map<T, int> compress(vector<T>& v) {\n    sort(v.begin(),\
     \ v.end());\n    v.erase(unique(v.begin(), v.end()), v.end());\n    map<T, int>\
     \ res;\n    for (int i = 0; i < v.size(); i++) res[v[i]] = i;\n    return res;\n\
     }"
@@ -78,8 +78,8 @@ data:
   isVerificationFile: false
   path: util/compress.hpp
   requiredBy: []
-  timestamp: '2021-01-20 20:25:59+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-04-16 18:45:44+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/static_range_inversions_query.test.cpp
 documentation_of: util/compress.hpp
