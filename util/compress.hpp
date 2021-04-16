@@ -4,7 +4,7 @@
 /**
  * @brief compress
  */
-template <typename T> map<T, int> compress(vector<T> v) {
+template <typename T> map<T, int> compress(vector<T>& v) {
     sort(v.begin(), v.end());
     v.erase(unique(v.begin(), v.end()), v.end());
     map<T, int> res;
