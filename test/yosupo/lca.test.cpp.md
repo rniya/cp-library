@@ -78,12 +78,15 @@ data:
     \ r = 0) {\n        dfs(r, -1, 0);\n        for (int k = 0; k < h - 1; k++) {\n\
     \            for (int v = 0; v < n; v++) {\n                if (par[k][v] >= 0)\
     \ {\n                    par[k + 1][v] = par[k][par[k][v]];\n                }\n\
-    \            }\n        }\n    }\n    int lca(int u, int v) {\n        if (dep[u]\
-    \ > dep[v]) swap(u, v);\n        for (int k = 0; k < h; k++) {\n            if\
-    \ ((dep[v] - dep[u]) & 1 << k) {\n                v = par[k][v];\n           \
-    \ }\n        }\n        if (u == v) return u;\n        for (int k = h - 1; k >=\
-    \ 0; --k) {\n            if (par[k][u] != par[k][v]) {\n                u = par[k][u];\n\
-    \                v = par[k][v];\n            }\n        }\n        return par[0][u];\n\
+    \            }\n        }\n    }\n    int ancestor(int v, int x) {\n        assert(x\
+    \ <= dep[v]);\n        for (int k = 0; k < h; k++) {\n            if (x >> k &\
+    \ 1) {\n                v = par[k][v];\n            }\n        }\n        return\
+    \ v;\n    }\n    int lca(int u, int v) {\n        if (dep[u] > dep[v]) swap(u,\
+    \ v);\n        for (int k = 0; k < h; k++) {\n            if ((dep[v] - dep[u])\
+    \ & 1 << k) {\n                v = par[k][v];\n            }\n        }\n    \
+    \    if (u == v) return u;\n        for (int k = h - 1; k >= 0; --k) {\n     \
+    \       if (par[k][u] != par[k][v]) {\n                u = par[k][u];\n      \
+    \          v = par[k][v];\n            }\n        }\n        return par[0][u];\n\
     \    }\n    int distance(int u, int v) { return dep[u] + dep[v] - dep[lca(u, v)]\
     \ * 2; }\n};\n#line 5 \"test/yosupo/lca.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
     \    ios::sync_with_stdio(false);\n    int N, Q;\n    cin >> N >> Q;\n\n    LowestCommonAncestor\
@@ -104,7 +107,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/lca.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 20:25:59+09:00'
+  timestamp: '2021-06-03 17:50:00+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lca.test.cpp

@@ -48,6 +48,9 @@ data:
       path: datastructure/BinaryTrie.hpp
       title: Binary Trie
     - icon: ':heavy_check_mark:'
+      path: datastructure/BitMatrix.hpp
+      title: BitMatrix
+    - icon: ':heavy_check_mark:'
       path: datastructure/ConvexHullTrick.hpp
       title: Convex Hull Trick
     - icon: ':heavy_check_mark:'
@@ -774,6 +777,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/665.test.cpp
       title: test/yukicoder/665.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/803.test.cpp
+      title: test/yukicoder/803.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/931.test.cpp
       title: test/yukicoder/931.test.cpp

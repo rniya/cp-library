@@ -109,8 +109,8 @@ data:
   timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yukicoder/1270.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
+  - test/yukicoder/1270.test.cpp
 documentation_of: other/Mo.hpp
 layout: document
 redirect_from:

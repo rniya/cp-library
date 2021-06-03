@@ -300,7 +300,10 @@ data:
     \ (int i = 0; i < n; i++) {\n        Point cur = P[i], nxt = P[(i + 1) % n];\n\
     \        if (ccw(l.a, l.b, cur) != CLOCKWISE) res.emplace_back(cur);\n       \
     \ if (ccw(l.a, l.b, cur) * ccw(l.a, l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur,\
-    \ nxt), l));\n    }\n    return res;\n}\n"
+    \ nxt), l));\n    }\n    return res;\n}\n\nbool argument_sort(const Point& l,\
+    \ const Point& r) {\n    auto la = atan2(l.y, l.x);\n    auto ra = atan2(r.y,\
+    \ r.x);\n    if (abs(la - ra) > 1)\n        return la < ra;\n    else\n      \
+    \  return l.x * r.y > l.y * r.x;\n}\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief geometry\n * @docs\
     \ docs/geometry/geometry.md\n */\nconst double EPS = 1e-8, PI = acos(-1);\ninline\
     \ bool EQ(double a, double b) { return fabs(b - a) < EPS; }\n\nstruct Point {\n\
@@ -482,34 +485,37 @@ data:
     \ (int i = 0; i < n; i++) {\n        Point cur = P[i], nxt = P[(i + 1) % n];\n\
     \        if (ccw(l.a, l.b, cur) != CLOCKWISE) res.emplace_back(cur);\n       \
     \ if (ccw(l.a, l.b, cur) * ccw(l.a, l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur,\
-    \ nxt), l));\n    }\n    return res;\n}"
+    \ nxt), l));\n    }\n    return res;\n}\n\nbool argument_sort(const Point& l,\
+    \ const Point& r) {\n    auto la = atan2(l.y, l.x);\n    auto ra = atan2(r.y,\
+    \ r.x);\n    if (abs(la - ra) > 1)\n        return la < ra;\n    else\n      \
+    \  return l.x * r.y > l.y * r.x;\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2021-01-20 20:25:59+09:00'
+  timestamp: '2021-06-03 17:50:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/CGL_1_C.test.cpp
-  - test/aoj/CGL_3_C.test.cpp
-  - test/aoj/CGL_1_A.test.cpp
-  - test/aoj/CGL_7_F.test.cpp
-  - test/aoj/CGL_7_E.test.cpp
-  - test/aoj/CGL_4_A.test.cpp
-  - test/aoj/CGL_3_B.test.cpp
-  - test/aoj/CGL_2_B.test.cpp
-  - test/aoj/CGL_7_C.test.cpp
-  - test/aoj/CGL_1_B.test.cpp
-  - test/aoj/CGL_4_B.test.cpp
-  - test/aoj/CGL_4_C.test.cpp
   - test/aoj/CGL_2_D.test.cpp
-  - test/aoj/CGL_7_D.test.cpp
-  - test/aoj/CGL_2_A.test.cpp
+  - test/aoj/CGL_7_C.test.cpp
   - test/aoj/CGL_3_A.test.cpp
-  - test/aoj/CGL_7_A.test.cpp
-  - test/aoj/CGL_2_C.test.cpp
   - test/aoj/CGL_7_G.test.cpp
+  - test/aoj/CGL_3_B.test.cpp
+  - test/aoj/CGL_1_C.test.cpp
+  - test/aoj/CGL_1_B.test.cpp
+  - test/aoj/CGL_2_B.test.cpp
+  - test/aoj/CGL_4_C.test.cpp
+  - test/aoj/CGL_4_B.test.cpp
+  - test/aoj/CGL_1_A.test.cpp
+  - test/aoj/CGL_4_A.test.cpp
+  - test/aoj/CGL_7_D.test.cpp
+  - test/aoj/CGL_2_C.test.cpp
+  - test/aoj/CGL_3_C.test.cpp
+  - test/aoj/CGL_2_A.test.cpp
+  - test/aoj/CGL_7_A.test.cpp
+  - test/aoj/CGL_7_E.test.cpp
+  - test/aoj/CGL_7_F.test.cpp
 documentation_of: geometry/geometry.hpp
 layout: document
 redirect_from:

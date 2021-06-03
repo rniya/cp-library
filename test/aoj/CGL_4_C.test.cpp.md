@@ -249,12 +249,14 @@ data:
     \ (int i = 0; i < n; i++) {\n        Point cur = P[i], nxt = P[(i + 1) % n];\n\
     \        if (ccw(l.a, l.b, cur) != CLOCKWISE) res.emplace_back(cur);\n       \
     \ if (ccw(l.a, l.b, cur) * ccw(l.a, l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur,\
-    \ nxt), l));\n    }\n    return res;\n}\n#line 6 \"test/aoj/CGL_4_C.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    cout\
-    \ << fixed << setprecision(10);\n    int n;\n    cin >> n;\n    Polygon g(n);\n\
-    \    cin >> g;\n    int q;\n    cin >> q;\n    for (; q--;) {\n        Line l;\n\
-    \        cin >> l;\n        cout << area(convex_cut(g, l)) << '\\n';\n    }\n\
-    }\n"
+    \ nxt), l));\n    }\n    return res;\n}\n\nbool argument_sort(const Point& l,\
+    \ const Point& r) {\n    auto la = atan2(l.y, l.x);\n    auto ra = atan2(r.y,\
+    \ r.x);\n    if (abs(la - ra) > 1)\n        return la < ra;\n    else\n      \
+    \  return l.x * r.y > l.y * r.x;\n}\n#line 6 \"test/aoj/CGL_4_C.test.cpp\"\n\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    cout << fixed\
+    \ << setprecision(10);\n    int n;\n    cin >> n;\n    Polygon g(n);\n    cin\
+    \ >> g;\n    int q;\n    cin >> q;\n    for (; q--;) {\n        Line l;\n    \
+    \    cin >> l;\n        cout << area(convex_cut(g, l)) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_C\"\
     \n#define ERROR 0.000001\n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    cout\
@@ -267,7 +269,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_4_C.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 20:25:59+09:00'
+  timestamp: '2021-06-03 17:50:00+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_4_C.test.cpp

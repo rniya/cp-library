@@ -158,9 +158,9 @@ data:
   timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/1307.test.cpp
-  - test/yukicoder/206.test.cpp
   - test/yosupo/frequency_table_of_tree_distance.test.cpp
+  - test/yukicoder/206.test.cpp
+  - test/yukicoder/1307.test.cpp
 documentation_of: convolution/FastFourierTransform.hpp
 layout: document
 redirect_from:

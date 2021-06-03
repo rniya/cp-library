@@ -72,7 +72,7 @@ data:
     \        edge(int to, T cost) : to(to), cost(cost) {}\n        bool operator<(const\
     \ edge& e) const { return cost > e.cost; }\n    };\n    vector<vector<edge>> G;\n\
     \    vector<T> dp;\n    vector<int> pre;\n    Dijkstra(int n) : G(n), dp(n), pre(n)\
-    \ {}\n    void add_edge(int u, int v, T c) { G[u].emplace_back(v, c); }\n    void\
+    \ {}\n    void add_edge(int u, int v, T c) { G[u].emplace_back(v, c); }\n    vector<T>\
     \ build(int s) {\n        int n = G.size();\n        fill(dp.begin(), dp.end(),\
     \ numeric_limits<T>::max());\n        fill(pre.begin(), pre.end(), -1);\n    \
     \    priority_queue<edge> pq;\n        dp[s] = 0;\n        pq.emplace(s, dp[s]);\n\
@@ -81,17 +81,17 @@ data:
     \      for (auto e : G[v]) {\n                if (dp[v] + e.cost < dp[e.to]) {\n\
     \                    dp[e.to] = dp[v] + e.cost;\n                    pre[e.to]\
     \ = v;\n                    pq.emplace(e.to, dp[e.to]);\n                }\n \
-    \           }\n        }\n    }\n    vector<int> restore(int t) {\n        vector<int>\
-    \ res;\n        if (pre[t] < 0) return res;\n        while (~t) {\n          \
-    \  res.emplace_back(t);\n            t = pre[t];\n        }\n        reverse(res.begin(),\
-    \ res.end());\n        return res;\n    }\n    T operator[](int to) { return dp[to];\
-    \ }\n};\n#line 5 \"test/aoj/GRL_1_A.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int V, E, r;\n    cin >> V >> E >> r;\n\
-    \n    Dijkstra<long long> D(V);\n    for (int i = 0; i < E; i++) {\n        int\
-    \ s, t, d;\n        cin >> s >> t >> d;\n        D.add_edge(s, t, d);\n    }\n\
-    \n    D.build(r);\n    for (int i = 0; i < V; i++) {\n        if (D[i] > 1e18)\n\
-    \            cout << \"INF\" << '\\n';\n        else\n            cout << D[i]\
-    \ << '\\n';\n    }\n}\n"
+    \           }\n        }\n        return dp;\n    }\n    vector<int> restore(int\
+    \ t) {\n        vector<int> res;\n        if (pre[t] < 0) return res;\n      \
+    \  while (~t) {\n            res.emplace_back(t);\n            t = pre[t];\n \
+    \       }\n        reverse(res.begin(), res.end());\n        return res;\n   \
+    \ }\n    T operator[](int to) { return dp[to]; }\n};\n#line 5 \"test/aoj/GRL_1_A.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
+    \ E, r;\n    cin >> V >> E >> r;\n\n    Dijkstra<long long> D(V);\n    for (int\
+    \ i = 0; i < E; i++) {\n        int s, t, d;\n        cin >> s >> t >> d;\n  \
+    \      D.add_edge(s, t, d);\n    }\n\n    D.build(r);\n    for (int i = 0; i <\
+    \ V; i++) {\n        if (D[i] > 1e18)\n            cout << \"INF\" << '\\n';\n\
+    \        else\n            cout << D[i] << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/Dijkstra.hpp\"\n\nint\
     \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E, r;\n\
@@ -106,7 +106,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2021-01-20 20:25:59+09:00'
+  timestamp: '2021-06-03 17:50:00+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_1_A.test.cpp

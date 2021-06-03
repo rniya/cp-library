@@ -157,8 +157,8 @@ data:
   timestamp: '2021-01-20 20:25:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/526.test.cpp
   - test/yosupo/matrix_det.test.cpp
+  - test/yukicoder/526.test.cpp
 documentation_of: linearalgebra/Matrix.hpp
 layout: document
 redirect_from:
