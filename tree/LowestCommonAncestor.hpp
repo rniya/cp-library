@@ -35,6 +35,15 @@ struct LowestCommonAncestor {
             }
         }
     }
+    int ancestor(int v, int x) {
+        assert(x <= dep[v]);
+        for (int k = 0; k < h; k++) {
+            if (x >> k & 1) {
+                v = par[k][v];
+            }
+        }
+        return v;
+    }
     int lca(int u, int v) {
         if (dep[u] > dep[v]) swap(u, v);
         for (int k = 0; k < h; k++) {

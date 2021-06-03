@@ -17,7 +17,7 @@ template <typename T> struct Dijkstra {
     vector<int> pre;
     Dijkstra(int n) : G(n), dp(n), pre(n) {}
     void add_edge(int u, int v, T c) { G[u].emplace_back(v, c); }
-    void build(int s) {
+    vector<T> build(int s) {
         int n = G.size();
         fill(dp.begin(), dp.end(), numeric_limits<T>::max());
         fill(pre.begin(), pre.end(), -1);
@@ -37,6 +37,7 @@ template <typename T> struct Dijkstra {
                 }
             }
         }
+        return dp;
     }
     vector<int> restore(int t) {
         vector<int> res;

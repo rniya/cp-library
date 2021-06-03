@@ -372,3 +372,12 @@ Polygon convex_cut(const Polygon& P, const Line& l) {
     }
     return res;
 }
+
+bool argument_sort(const Point& l, const Point& r) {
+    auto la = atan2(l.y, l.x);
+    auto ra = atan2(r.y, r.x);
+    if (abs(la - ra) > 1)
+        return la < ra;
+    else
+        return l.x * r.y > l.y * r.x;
+}
