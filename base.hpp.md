@@ -290,7 +290,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tree/TreeDiameter.hpp
     title: Tree Diameter
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: util/Dice.hpp
     title: "\u30B5\u30A4\u30B3\u30ED"
   - icon: ':warning:'
@@ -312,7 +312,7 @@ data:
     path: util/gray_code.hpp
     title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/1181.test.cpp
     title: test/aoj/1181.test.cpp
   - icon: ':heavy_check_mark:'
@@ -747,9 +747,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -805,14 +805,11 @@ data:
     \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
     \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
     \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x + y - 1) / y);\n}\n\ntemplate <class T1, class T2>\
+    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n\nconst int INF = 1e9;\n\
-    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
-    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\nconst long long MOD = 1000000007;\n\
-    // const long long MOD = 998244353;\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n"
   code: "#pragma once\n#include <bits/stdc++.h>\nusing namespace std;\n#pragma region\
     \ Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int\
     \ uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
@@ -866,14 +863,11 @@ data:
     \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
     \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
     \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x + y - 1) / y);\n}\n\ntemplate <class T1, class T2>\
+    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n\nconst int INF = 1e9;\n\
-    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
-    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\nconst long long MOD = 1000000007;\n\
-    // const long long MOD = 998244353;"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion"
   dependsOn: []
   isVerificationFile: false
   path: base.hpp
@@ -980,8 +974,8 @@ data:
   - string/SuffixArray.hpp
   - modulo/dynamic_modint.hpp
   - modulo/modint.hpp
-  timestamp: '2021-07-19 13:35:43+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2021-07-19 14:45:19+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/scc.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp

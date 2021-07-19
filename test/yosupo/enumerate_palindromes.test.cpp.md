@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -72,27 +72,25 @@ data:
     \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
     \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
     \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x + y - 1) / y);\n}\n\ntemplate <class T1, class T2>\
+    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n\nconst int INF = 1e9;\n\
-    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
-    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\nconst long long MOD = 1000000007;\n\
-    // const long long MOD = 998244353;\n#line 3 \"string/Manacher.hpp\"\n\n/**\n\
-    \ * @brief Manacher\n * @docs docs/string/Manacher.md\n */\nvector<int> Manacher(const\
-    \ string& s) {\n    int n = s.size();\n    vector<int> res(n);\n    for (int i\
-    \ = 0, j = 0; i < n;) {\n        while (i - j >= 0 && i + j < n && s[i - j] ==\
-    \ s[i + j]) j++;\n        res[i] = j;\n        int k = 1;\n        while (i -\
-    \ k >= 0 && i + k < n && k + res[i - k] < j) res[i + k] = res[i - k], k++;\n \
-    \       i += k, j -= k;\n    }\n    return res;\n}\n\nvector<int> PalindromeTable(const\
-    \ string& s) {\n    int n = s.size();\n    string t(n * 2 + 1, '$');\n    for\
-    \ (int i = 0; i < n; i++) t[i * 2 + 1] = s[i];\n    vector<int> v = Manacher(t),\
-    \ res;\n    for (int i = 1; i < n * 2; i++) res.emplace_back(v[i] - 1);\n    return\
-    \ res;\n}\n#line 5 \"test/yosupo/enumerate_palindromes.test.cpp\"\n\nint main()\
-    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S;\n    cin\
-    \ >> S;\n\n    vector<int> ans = PalindromeTable(S);\n    for (int i = 0; i <\
-    \ ans.size(); i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"string/Manacher.hpp\"\
+    \n\n/**\n * @brief Manacher\n * @docs docs/string/Manacher.md\n */\nvector<int>\
+    \ Manacher(const string& s) {\n    int n = s.size();\n    vector<int> res(n);\n\
+    \    for (int i = 0, j = 0; i < n;) {\n        while (i - j >= 0 && i + j < n\
+    \ && s[i - j] == s[i + j]) j++;\n        res[i] = j;\n        int k = 1;\n   \
+    \     while (i - k >= 0 && i + k < n && k + res[i - k] < j) res[i + k] = res[i\
+    \ - k], k++;\n        i += k, j -= k;\n    }\n    return res;\n}\n\nvector<int>\
+    \ PalindromeTable(const string& s) {\n    int n = s.size();\n    string t(n *\
+    \ 2 + 1, '$');\n    for (int i = 0; i < n; i++) t[i * 2 + 1] = s[i];\n    vector<int>\
+    \ v = Manacher(t), res;\n    for (int i = 1; i < n * 2; i++) res.emplace_back(v[i]\
+    \ - 1);\n    return res;\n}\n#line 5 \"test/yosupo/enumerate_palindromes.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
+    \ S;\n    cin >> S;\n\n    vector<int> ans = PalindromeTable(S);\n    for (int\
+    \ i = 0; i < ans.size(); i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' :\
+    \ ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../string/Manacher.hpp\"\n\nint\
     \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S;\n\
@@ -105,7 +103,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 13:35:43+09:00'
+  timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/enumerate_palindromes.test.cpp

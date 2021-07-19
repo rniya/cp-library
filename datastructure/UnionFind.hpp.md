@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -72,22 +72,19 @@ data:
     \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
     \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
     \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x + y - 1) / y);\n}\n\ntemplate <class T1, class T2>\
+    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n\nconst int INF = 1e9;\n\
-    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
-    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\nconst long long MOD = 1000000007;\n\
-    // const long long MOD = 998244353;\n#line 3 \"datastructure/UnionFind.hpp\"\n\
-    \n/**\n * @brief UnionFind\n * @docs docs/datastructure/UnionFind.md\n */\nstruct\
-    \ UnionFind {\n    int num;\n    vector<int> par, rank;\n    UnionFind(int n)\
-    \ : num(n), par(n), rank(n, 1) { iota(par.begin(), par.end(), 0); }\n    int root(int\
-    \ x) { return (par[x] == x ? x : par[x] = root(par[x])); }\n    bool merge(int\
-    \ x, int y) {\n        x = root(x);\n        y = root(y);\n        if (x == y)\
-    \ return false;\n        if (rank[x] < rank[y]) swap(x, y);\n        par[y] =\
-    \ x;\n        rank[x] += rank[y];\n        num--;\n        return true;\n    }\n\
-    \    bool same(int x, int y) { return root(x) == root(y); }\n    int size(int\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"datastructure/UnionFind.hpp\"\
+    \n\n/**\n * @brief UnionFind\n * @docs docs/datastructure/UnionFind.md\n */\n\
+    struct UnionFind {\n    int num;\n    vector<int> par, rank;\n    UnionFind(int\
+    \ n) : num(n), par(n), rank(n, 1) { iota(par.begin(), par.end(), 0); }\n    int\
+    \ root(int x) { return (par[x] == x ? x : par[x] = root(par[x])); }\n    bool\
+    \ merge(int x, int y) {\n        x = root(x);\n        y = root(y);\n        if\
+    \ (x == y) return false;\n        if (rank[x] < rank[y]) swap(x, y);\n       \
+    \ par[y] = x;\n        rank[x] += rank[y];\n        num--;\n        return true;\n\
+    \    }\n    bool same(int x, int y) { return root(x) == root(y); }\n    int size(int\
     \ x) { return rank[root(x)]; }\n    int count() { return num; }\n    int operator[](int\
     \ x) { return root(x); }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief UnionFind\n * @docs\
@@ -106,7 +103,7 @@ data:
   isVerificationFile: false
   path: datastructure/UnionFind.hpp
   requiredBy: []
-  timestamp: '2021-07-19 13:35:43+09:00'
+  timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/unionfind.test.cpp

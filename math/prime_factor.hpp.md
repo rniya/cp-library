@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -68,18 +68,16 @@ data:
     \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
     \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
     \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x + y - 1) / y);\n}\n\ntemplate <class T1, class T2>\
+    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n\nconst int INF = 1e9;\n\
-    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
-    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\nconst long long MOD = 1000000007;\n\
-    // const long long MOD = 998244353;\n#line 3 \"math/prime_factor.hpp\"\n\n/**\n\
-    \ * @brief \u7D20\u56E0\u6570\u5206\u89E3\n */\ntemplate <typename T> map<T, int>\
-    \ prime_factor(T n) {\n    map<T, int> res;\n    for (T i = 2; i * i <= n; i++)\
-    \ {\n        while (n % i == 0) {\n            res[i]++;\n            n /= i;\n\
-    \        }\n    }\n    if (n != 1) res[n] = 1;\n    return res;\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"math/prime_factor.hpp\"\
+    \n\n/**\n * @brief \u7D20\u56E0\u6570\u5206\u89E3\n */\ntemplate <typename T>\
+    \ map<T, int> prime_factor(T n) {\n    map<T, int> res;\n    for (T i = 2; i *\
+    \ i <= n; i++) {\n        while (n % i == 0) {\n            res[i]++;\n      \
+    \      n /= i;\n        }\n    }\n    if (n != 1) res[n] = 1;\n    return res;\n\
+    }\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u7D20\u56E0\u6570\
     \u5206\u89E3\n */\ntemplate <typename T> map<T, int> prime_factor(T n) {\n   \
     \ map<T, int> res;\n    for (T i = 2; i * i <= n; i++) {\n        while (n % i\
@@ -90,7 +88,7 @@ data:
   isVerificationFile: false
   path: math/prime_factor.hpp
   requiredBy: []
-  timestamp: '2021-07-19 13:35:43+09:00'
+  timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/NTL_1_A.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -66,14 +66,11 @@ data:
     \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
     \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
     \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x + y - 1) / y);\n}\n\ntemplate <class T1, class T2>\
+    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n\nconst int INF = 1e9;\n\
-    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
-    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\nconst long long MOD = 1000000007;\n\
-    // const long long MOD = 998244353;\n#line 3 \"datastructure/RectangleSet.hpp\"\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"datastructure/RectangleSet.hpp\"\
     \n\n/**\n * @brief Rectangle Set\n * @docs docs/datastructure/RectangleSet.md\n\
     \ */\ntemplate <typename T> struct RectangleSet {\n    constexpr T inf = numeric_limits<T>::max()\
     \ / 2;\n    set<pair<T, T>> s;\n    multiset<T> val;\n    RectangleSet() {\n \
@@ -106,7 +103,7 @@ data:
   isVerificationFile: false
   path: datastructure/RectangleSet.hpp
   requiredBy: []
-  timestamp: '2021-07-19 13:35:43+09:00'
+  timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: datastructure/RectangleSet.hpp

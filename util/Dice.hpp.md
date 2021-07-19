@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/1181.test.cpp
     title: test/aoj/1181.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/util/Dice.md
     document_title: "\u30B5\u30A4\u30B3\u30ED"
@@ -69,32 +69,29 @@ data:
     \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
     \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
     \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x + y - 1) / y);\n}\n\ntemplate <class T1, class T2>\
+    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n\nconst int INF = 1e9;\n\
-    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
-    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\nconst long long MOD = 1000000007;\n\
-    // const long long MOD = 998244353;\n#line 3 \"util/Dice.hpp\"\n\n/**\n * @brief\
-    \ \u30B5\u30A4\u30B3\u30ED\n * @docs docs/util/Dice.md\n */\nstruct Dice {\n \
-    \   int surface[6];\n    int top() { return surface[0]; }\n    int south() { return\
-    \ surface[1]; }\n    int east() { return surface[2]; }\n    int west() { return\
-    \ surface[3]; }\n    int north() { return surface[4]; }\n    int bottom() { return\
-    \ surface[5]; }\n    int operator[](int i) const { return surface[i]; }\n    const\
-    \ int dice[6][6] = {{0, 3, 5, 2, 4, 0}, {4, 0, 1, 6, 0, 3}, {2, 6, 0, 0, 1, 5},\n\
-    \                            {5, 1, 0, 0, 6, 2}, {3, 0, 6, 1, 0, 4}, {0, 4, 2,\
-    \ 5, 3, 0}};\n    const int code[6][4] = {{0, 3, 5, 2}, {0, 2, 5, 3}, {0, 1, 5,\
-    \ 4}, {0, 4, 5, 1}, {1, 2, 4, 3}, {1, 3, 4, 2}};\n    const string direction =\
-    \ \"EWNSRL\";\n    Dice(int TOP, int FRONT) {\n        surface[0] = TOP;\n   \
-    \     surface[1] = FRONT;\n        surface[2] = dice[TOP - 1][FRONT - 1];\n  \
-    \      surface[3] = 7 - surface[2];\n        surface[4] = 7 - surface[1];\n  \
-    \      surface[5] = 7 - surface[0];\n    }\n    void roll(char c) {\n        for\
-    \ (int i = 0; i < 6; i++) {\n            if (direction[i] != c) continue;\n  \
-    \          int tmp = surface[code[i][0]];\n            surface[code[i][0]] = surface[code[i][1]];\n\
-    \            surface[code[i][1]] = surface[code[i][2]];\n            surface[code[i][2]]\
-    \ = surface[code[i][3]];\n            surface[code[i][3]] = tmp;\n        }\n\
-    \    }\n};\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"util/Dice.hpp\"\
+    \n\n/**\n * @brief \u30B5\u30A4\u30B3\u30ED\n * @docs docs/util/Dice.md\n */\n\
+    struct Dice {\n    int surface[6];\n    int top() { return surface[0]; }\n   \
+    \ int south() { return surface[1]; }\n    int east() { return surface[2]; }\n\
+    \    int west() { return surface[3]; }\n    int north() { return surface[4]; }\n\
+    \    int bottom() { return surface[5]; }\n    int operator[](int i) const { return\
+    \ surface[i]; }\n    const int dice[6][6] = {{0, 3, 5, 2, 4, 0}, {4, 0, 1, 6,\
+    \ 0, 3}, {2, 6, 0, 0, 1, 5},\n                            {5, 1, 0, 0, 6, 2},\
+    \ {3, 0, 6, 1, 0, 4}, {0, 4, 2, 5, 3, 0}};\n    const int code[6][4] = {{0, 3,\
+    \ 5, 2}, {0, 2, 5, 3}, {0, 1, 5, 4}, {0, 4, 5, 1}, {1, 2, 4, 3}, {1, 3, 4, 2}};\n\
+    \    const string direction = \"EWNSRL\";\n    Dice(int TOP, int FRONT) {\n  \
+    \      surface[0] = TOP;\n        surface[1] = FRONT;\n        surface[2] = dice[TOP\
+    \ - 1][FRONT - 1];\n        surface[3] = 7 - surface[2];\n        surface[4] =\
+    \ 7 - surface[1];\n        surface[5] = 7 - surface[0];\n    }\n    void roll(char\
+    \ c) {\n        for (int i = 0; i < 6; i++) {\n            if (direction[i] !=\
+    \ c) continue;\n            int tmp = surface[code[i][0]];\n            surface[code[i][0]]\
+    \ = surface[code[i][1]];\n            surface[code[i][1]] = surface[code[i][2]];\n\
+    \            surface[code[i][2]] = surface[code[i][3]];\n            surface[code[i][3]]\
+    \ = tmp;\n        }\n    }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u30B5\u30A4\u30B3\
     \u30ED\n * @docs docs/util/Dice.md\n */\nstruct Dice {\n    int surface[6];\n\
     \    int top() { return surface[0]; }\n    int south() { return surface[1]; }\n\
@@ -119,8 +116,8 @@ data:
   isVerificationFile: false
   path: util/Dice.hpp
   requiredBy: []
-  timestamp: '2021-07-19 13:35:43+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-07-19 14:45:19+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/1181.test.cpp
 documentation_of: util/Dice.hpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -70,39 +70,37 @@ data:
     \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
     \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
     \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x + y - 1) / y);\n}\n\ntemplate <class T1, class T2>\
+    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n\nconst int INF = 1e9;\n\
-    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
-    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\nconst long long MOD = 1000000007;\n\
-    // const long long MOD = 998244353;\n#line 3 \"graph/BellmanFord.hpp\"\n\n/**\n\
-    \ * @brief Bellman Ford\n * @docs docs/graph/BellmanFord.md\n */\ntemplate <typename\
-    \ T> struct BellmanFord {\n    const T inf = numeric_limits<T>::max();\n    struct\
-    \ edge {\n        int u, v;\n        T w;\n        edge(int u, int v, T w) : u(u),\
-    \ v(v), w(w) {}\n    };\n    int n;\n    vector<vector<int>> G;\n    vector<int>\
-    \ check, reach;\n    vector<edge> es;\n    BellmanFord(int n) : n(n), G(n), check(n),\
-    \ reach(n, 1) {}\n    void add_edge(int u, int v, T w) {\n        es.emplace_back(u,\
-    \ v, w);\n        G[u].emplace_back(v);\n    }\n    vector<T> build(int s, int&\
-    \ neg_loop) {\n        vector<T> d(n, inf);\n        d[s] = 0;\n        for (int\
-    \ i = 0; i < n; i++) {\n            bool update = false;\n            for (auto\
-    \ e : es) {\n                if (!reach[e.u] || !reach[e.v] || d[e.u] == inf)\
-    \ continue;\n                if (d[e.u] + e.w < d[e.v]) {\n                  \
-    \  d[e.v] = d[e.u] + e.w;\n                    update = true;\n              \
-    \  }\n            }\n            if (!update) break;\n            if (i == n -\
-    \ 1) {\n                neg_loop = 1;\n                return d;\n           \
-    \ }\n        }\n        neg_loop = 0;\n        return d;\n    }\n    void dfs(int\
-    \ v) {\n        if (check[v]) return;\n        check[v] = 1;\n        for (int\
-    \ u : G[v]) dfs(u);\n    }\n    T shortest_path(int s, int t, int& neg_loop) {\n\
-    \        for (int i = 0; i < n; i++) {\n            fill(check.begin(), check.end(),\
-    \ 0);\n            dfs(i);\n            reach[i] = check[t];\n        }\n    \
-    \    return build(s, neg_loop)[t];\n    }\n};\n#line 7 \"test/atcoder/abc137_e.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
-    \ M, P;\n    cin >> N >> M >> P;\n\n    BellmanFord<int> BF(N);\n    for (int\
-    \ i = 0; i < M; i++) {\n        int A, B, C;\n        cin >> A >> B >> C;\n  \
-    \      BF.add_edge(--A, --B, P - C);\n    }\n\n    int neg;\n    int ans = BF.shortest_path(0,\
-    \ N - 1, neg);\n    cout << (neg ? -1 : max(0, -ans)) << '\\n';\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"graph/BellmanFord.hpp\"\
+    \n\n/**\n * @brief Bellman Ford\n * @docs docs/graph/BellmanFord.md\n */\ntemplate\
+    \ <typename T> struct BellmanFord {\n    const T inf = numeric_limits<T>::max();\n\
+    \    struct edge {\n        int u, v;\n        T w;\n        edge(int u, int v,\
+    \ T w) : u(u), v(v), w(w) {}\n    };\n    int n;\n    vector<vector<int>> G;\n\
+    \    vector<int> check, reach;\n    vector<edge> es;\n    BellmanFord(int n) :\
+    \ n(n), G(n), check(n), reach(n, 1) {}\n    void add_edge(int u, int v, T w) {\n\
+    \        es.emplace_back(u, v, w);\n        G[u].emplace_back(v);\n    }\n   \
+    \ vector<T> build(int s, int& neg_loop) {\n        vector<T> d(n, inf);\n    \
+    \    d[s] = 0;\n        for (int i = 0; i < n; i++) {\n            bool update\
+    \ = false;\n            for (auto e : es) {\n                if (!reach[e.u] ||\
+    \ !reach[e.v] || d[e.u] == inf) continue;\n                if (d[e.u] + e.w <\
+    \ d[e.v]) {\n                    d[e.v] = d[e.u] + e.w;\n                    update\
+    \ = true;\n                }\n            }\n            if (!update) break;\n\
+    \            if (i == n - 1) {\n                neg_loop = 1;\n              \
+    \  return d;\n            }\n        }\n        neg_loop = 0;\n        return\
+    \ d;\n    }\n    void dfs(int v) {\n        if (check[v]) return;\n        check[v]\
+    \ = 1;\n        for (int u : G[v]) dfs(u);\n    }\n    T shortest_path(int s,\
+    \ int t, int& neg_loop) {\n        for (int i = 0; i < n; i++) {\n           \
+    \ fill(check.begin(), check.end(), 0);\n            dfs(i);\n            reach[i]\
+    \ = check[t];\n        }\n        return build(s, neg_loop)[t];\n    }\n};\n#line\
+    \ 7 \"test/atcoder/abc137_e.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int N, M, P;\n    cin >> N >> M >> P;\n\n    BellmanFord<int> BF(N);\n  \
+    \  for (int i = 0; i < M; i++) {\n        int A, B, C;\n        cin >> A >> B\
+    \ >> C;\n        BF.add_edge(--A, --B, P - C);\n    }\n\n    int neg;\n    int\
+    \ ans = BF.shortest_path(0, N - 1, neg);\n    cout << (neg ? -1 : max(0, -ans))\
+    \ << '\\n';\n}\n"
   code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/abc137/tasks/abc137_e\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/BellmanFord.hpp\"\n\n\
     int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, M,\
@@ -116,7 +114,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/abc137_e.cpp
   requiredBy: []
-  timestamp: '2021-07-19 13:35:43+09:00'
+  timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/abc137_e.cpp

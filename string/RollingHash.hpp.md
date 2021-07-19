@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -75,36 +75,33 @@ data:
     \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
     \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
     \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x + y - 1) / y);\n}\n\ntemplate <class T1, class T2>\
+    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n\nconst int INF = 1e9;\n\
-    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
-    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\nconst long long MOD = 1000000007;\n\
-    // const long long MOD = 998244353;\n#line 3 \"string/RollingHash.hpp\"\n\n/**\n\
-    \ * @brief Rolling Hash\n * @docs docs/string/RollingHash.md\n */\nclass RollingHash\
-    \ {\n    using u64 = uint64_t;\n    using u128 = __uint128_t;\n    static const\
-    \ u64 mod = (1ULL << 61) - 1;\n    const u64 base;\n    vector<u64> hash, power;\n\
-    \    static inline u64 add(u64 a, u64 b) {\n        if ((a += b) >= mod) a -=\
-    \ mod;\n        return a;\n    }\n    static inline u64 mul(u64 a, u64 b) {\n\
-    \        u128 c = (u128)a * b;\n        return add(c >> 61, c & mod);\n    }\n\
-    \npublic:\n    static inline u64 generate_base() {\n        mt19937_64 mt(chrono::steady_clock::now().time_since_epoch().count());\n\
-    \        uniform_int_distribution<u64> rand(2, RollingHash::mod - 1);\n      \
-    \  return rand(mt);\n    }\n    RollingHash(u64 base = generate_base()) : base(base)\
-    \ {}\n    template <typename T> RollingHash(const T& s, u64 base = generate_base())\
-    \ : base(base) {\n        int n = s.size();\n        hash.assign(n + 1, 0);\n\
-    \        power.assign(n + 1, 0);\n        power[0] = 1;\n        for (int i =\
-    \ 0; i < n; i++) {\n            hash[i + 1] = add(mul(hash[i], base), s[i]);\n\
-    \            power[i + 1] = mul(power[i], base);\n        }\n    }\n    u64 query(int\
-    \ l, int r) const { return add(hash[r], mod - mul(hash[l], power[r - l])); }\n\
-    \    int lcp(int a, int b) const {\n        int len = min(hash.size() - a, hash.size()\
-    \ - b);\n        int lb = 0, ub = len;\n        while (ub - lb > 1) {\n      \
-    \      int mid = (lb + ub) >> 1;\n            (query(a, a + mid) == query(b, b\
-    \ + mid) ? lb : ub) = mid;\n        }\n        return lb;\n    }\n    template\
-    \ <typename T> u64 get(const T& t) {\n        u64 res = 0;\n        for (int i\
-    \ = 0; i < (int)t.size(); i++) res = add(mul(res, base), t[i]);\n        return\
-    \ res;\n    }\n};\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"string/RollingHash.hpp\"\
+    \n\n/**\n * @brief Rolling Hash\n * @docs docs/string/RollingHash.md\n */\nclass\
+    \ RollingHash {\n    using u64 = uint64_t;\n    using u128 = __uint128_t;\n  \
+    \  static const u64 mod = (1ULL << 61) - 1;\n    const u64 base;\n    vector<u64>\
+    \ hash, power;\n    static inline u64 add(u64 a, u64 b) {\n        if ((a += b)\
+    \ >= mod) a -= mod;\n        return a;\n    }\n    static inline u64 mul(u64 a,\
+    \ u64 b) {\n        u128 c = (u128)a * b;\n        return add(c >> 61, c & mod);\n\
+    \    }\n\npublic:\n    static inline u64 generate_base() {\n        mt19937_64\
+    \ mt(chrono::steady_clock::now().time_since_epoch().count());\n        uniform_int_distribution<u64>\
+    \ rand(2, RollingHash::mod - 1);\n        return rand(mt);\n    }\n    RollingHash(u64\
+    \ base = generate_base()) : base(base) {}\n    template <typename T> RollingHash(const\
+    \ T& s, u64 base = generate_base()) : base(base) {\n        int n = s.size();\n\
+    \        hash.assign(n + 1, 0);\n        power.assign(n + 1, 0);\n        power[0]\
+    \ = 1;\n        for (int i = 0; i < n; i++) {\n            hash[i + 1] = add(mul(hash[i],\
+    \ base), s[i]);\n            power[i + 1] = mul(power[i], base);\n        }\n\
+    \    }\n    u64 query(int l, int r) const { return add(hash[r], mod - mul(hash[l],\
+    \ power[r - l])); }\n    int lcp(int a, int b) const {\n        int len = min(hash.size()\
+    \ - a, hash.size() - b);\n        int lb = 0, ub = len;\n        while (ub - lb\
+    \ > 1) {\n            int mid = (lb + ub) >> 1;\n            (query(a, a + mid)\
+    \ == query(b, b + mid) ? lb : ub) = mid;\n        }\n        return lb;\n    }\n\
+    \    template <typename T> u64 get(const T& t) {\n        u64 res = 0;\n     \
+    \   for (int i = 0; i < (int)t.size(); i++) res = add(mul(res, base), t[i]);\n\
+    \        return res;\n    }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Rolling Hash\n *\
     \ @docs docs/string/RollingHash.md\n */\nclass RollingHash {\n    using u64 =\
     \ uint64_t;\n    using u128 = __uint128_t;\n    static const u64 mod = (1ULL <<\
@@ -133,7 +130,7 @@ data:
   isVerificationFile: false
   path: string/RollingHash.hpp
   requiredBy: []
-  timestamp: '2021-07-19 13:35:43+09:00'
+  timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/430.test.cpp

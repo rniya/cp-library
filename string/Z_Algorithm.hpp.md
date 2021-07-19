@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -69,24 +69,22 @@ data:
     \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
     \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
     \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x + y - 1) / y);\n}\n\ntemplate <class T1, class T2>\
+    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n\nconst int INF = 1e9;\n\
-    const long long IINF = 1e18;\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1,\
-    \ 0, -1};\nconst char dir[4] = {'D', 'R', 'U', 'L'};\nconst long long MOD = 1000000007;\n\
-    // const long long MOD = 998244353;\n#line 3 \"string/Z_Algorithm.hpp\"\n\n/**\n\
-    \ * @brief Z-Algorithm\n * @docs docs/string/Z_Algorithm.md\n */\ntemplate <typename\
-    \ T> vector<int> Z_Algorithm(const T& s) {\n    int n = s.size();\n    vector<int>\
-    \ z(n);\n    z[0] = n;\n    for (int i = 1, j = 0; i < n;) {\n        while (i\
-    \ + j < n && s[j] == s[i + j]) j++;\n        z[i] = j;\n        if (j == 0) {\n\
-    \            i++;\n            continue;\n        }\n        int k = 1;\n    \
-    \    while (i + k < n && k + z[k] < j) z[i + k] = z[k], k++;\n        i += k;\n\
-    \        j -= k;\n    }\n    return z;\n}\n\ntemplate <typename T> vector<int>\
-    \ LCP(const T& s, const T& t) {\n    T u(s);\n    u.insert(u.begin(), t.begin(),\
-    \ t.end());\n    vector<int> z = Z_Algorithm(u);\n    for (int& i : z) i = min(i,\
-    \ (int)t.size());\n    return vector<int>(z.begin() + t.size(), z.end());\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"string/Z_Algorithm.hpp\"\
+    \n\n/**\n * @brief Z-Algorithm\n * @docs docs/string/Z_Algorithm.md\n */\ntemplate\
+    \ <typename T> vector<int> Z_Algorithm(const T& s) {\n    int n = s.size();\n\
+    \    vector<int> z(n);\n    z[0] = n;\n    for (int i = 1, j = 0; i < n;) {\n\
+    \        while (i + j < n && s[j] == s[i + j]) j++;\n        z[i] = j;\n     \
+    \   if (j == 0) {\n            i++;\n            continue;\n        }\n      \
+    \  int k = 1;\n        while (i + k < n && k + z[k] < j) z[i + k] = z[k], k++;\n\
+    \        i += k;\n        j -= k;\n    }\n    return z;\n}\n\ntemplate <typename\
+    \ T> vector<int> LCP(const T& s, const T& t) {\n    T u(s);\n    u.insert(u.begin(),\
+    \ t.begin(), t.end());\n    vector<int> z = Z_Algorithm(u);\n    for (int& i :\
+    \ z) i = min(i, (int)t.size());\n    return vector<int>(z.begin() + t.size(),\
+    \ z.end());\n}\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Z-Algorithm\n *\
     \ @docs docs/string/Z_Algorithm.md\n */\ntemplate <typename T> vector<int> Z_Algorithm(const\
     \ T& s) {\n    int n = s.size();\n    vector<int> z(n);\n    z[0] = n;\n    for\
@@ -103,7 +101,7 @@ data:
   isVerificationFile: false
   path: string/Z_Algorithm.hpp
   requiredBy: []
-  timestamp: '2021-07-19 13:35:43+09:00'
+  timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/zalgorithm.test.cpp
