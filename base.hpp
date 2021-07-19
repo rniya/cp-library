@@ -1,6 +1,7 @@
 #pragma once
 #include <bits/stdc++.h>
 using namespace std;
+#pragma region Macros
 typedef long long ll;
 typedef __int128_t i128;
 typedef unsigned int uint;
@@ -19,14 +20,6 @@ template <typename T> ostream& operator<<(ostream& os, const vector<T>& v) {
 }
 template <typename T, typename U> ostream& operator<<(ostream& os, const pair<T, U>& p) {
     os << '(' << p.first << ',' << p.second << ')';
-    return os;
-}
-template <typename T, typename U, typename V> ostream& operator<<(ostream& os, const tuple<T, U, V>& t) {
-    os << '(' << get<0>(t) << ',' << get<1>(t) << ',' << get<2>(t) << ')';
-    return os;
-}
-template <typename T, typename U, typename V, typename W> ostream& operator<<(ostream& os, const tuple<T, U, V, W>& t) {
-    os << '(' << get<0>(t) << ',' << get<1>(t) << ',' << get<2>(t) << ',' << get<3>(t) << ')';
     return os;
 }
 template <typename T, typename U> ostream& operator<<(ostream& os, const map<T, U>& m) {
@@ -81,6 +74,18 @@ template <typename T> ostream& operator<<(ostream& os, const deque<T>& v) {
     return os;
 }
 
+template <int i, typename T> void print_tuple(ostream&, const T&) {}
+template <int i, typename T, typename H, class... Args> void print_tuple(ostream& os, const T& t) {
+    if (i) os << ',';
+    os << get<i>(t);
+    print_tuple<i + 1, T, Args...>(os, t);
+}
+template <typename... Args> ostream& operator<<(ostream& os, const tuple<Args...>& t) {
+    os << '{';
+    print_tuple<0, tuple<Args...>, Args...>(os, t);
+    return os << '}';
+}
+
 void debug_out() { cerr << '\n'; }
 template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {
     cerr << head;
@@ -100,6 +105,23 @@ template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)
 template <typename T> T gcd(T x, T y) { return y != 0 ? gcd(y, x % y) : x; }
 template <typename T> T lcm(T x, T y) { return x / gcd(x, y) * y; }
 
+int topbit(signed t) { return t == 0 ? -1 : 31 - __builtin_clz(t); }
+int topbit(long long t) { return t == 0 ? -1 : 63 - __builtin_clzll(t); }
+int botbit(signed a) { return a == 0 ? 32 : __builtin_ctz(a); }
+int botbit(long long a) { return a == 0 ? 64 : __builtin_ctzll(a); }
+int popcount(signed t) { return __builtin_popcount(t); }
+int popcount(long long t) { return __builtin_popcountll(t); }
+bool ispow2(int i) { return i && (i & -i) == i; }
+
+template <class T> T ceil(T x, T y) {
+    assert(y >= 1);
+    return (x > 0 ? (x + y - 1) / y : x / y);
+}
+template <class T> T floor(T x, T y) {
+    assert(y >= 1);
+    return (x > 0 ? x / y : (x + y - 1) / y);
+}
+
 template <class T1, class T2> inline bool chmin(T1& a, T2 b) {
     if (a > b) {
         a = b;
@@ -114,3 +136,11 @@ template <class T1, class T2> inline bool chmax(T1& a, T2 b) {
     }
     return false;
 }
+#pragma endregion
+
+const int INF = 1e9;
+const long long IINF = 1e18;
+const int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};
+const char dir[4] = {'D', 'R', 'U', 'L'};
+const long long MOD = 1000000007;
+// const long long MOD = 998244353;

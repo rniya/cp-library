@@ -20,13 +20,15 @@ int main() {
         mo.insert(l, r);
     }
 
-    map<int, int> mp = compress(A);
+    vector<int> B = A;
+    map<int, int> mp = compress(B);
     for (int i = 0; i < N; i++) A[i] = mp[A[i]];
     int n = mp.size();
     BinaryIndexedTree<int> BIT(n);
     vector<long long> ans(Q);
     long long inv = 0;
     int sum = 0;
+
     auto add_left = [&](int idx) {
         inv += BIT.query(0, A[idx]);
         sum++;
