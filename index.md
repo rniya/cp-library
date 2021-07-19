@@ -41,7 +41,7 @@ data:
       title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
   - name: datastructure
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/BinaryIndexedTree.hpp
       title: Binary Indexed Tree
     - icon: ':heavy_check_mark:'
@@ -215,7 +215,7 @@ data:
       title: modint
   - name: other
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: other/Mo.hpp
       title: Mo's Algorithm
   - name: polynomial
@@ -326,7 +326,7 @@ data:
       title: Tree Diameter
   - name: util
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: util/Dice.hpp
       title: "\u30B5\u30A4\u30B3\u30ED"
     - icon: ':warning:'
@@ -341,7 +341,7 @@ data:
     - icon: ':warning:'
       path: util/binary_conversion.hpp
       title: "\u6587\u5B57\u5217\u306E2\u9032\u5909\u63DB"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: util/compress.hpp
       title: compress
     - icon: ':warning:'
@@ -350,7 +350,7 @@ data:
   verificationCategories:
   - name: test/aoj
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/1181.test.cpp
       title: test/aoj/1181.test.cpp
     - icon: ':heavy_check_mark:'
@@ -691,7 +691,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/static_range_inversions_query.test.cpp
       title: test/yosupo/static_range_inversions_query.test.cpp
     - icon: ':heavy_check_mark:'
