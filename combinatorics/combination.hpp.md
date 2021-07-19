@@ -120,13 +120,13 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1302.test.cpp
-  - test/aoj/DPL_5_I.test.cpp
-  - test/aoj/DPL_5_C.test.cpp
   - test/aoj/DPL_5_G.test.cpp
-  - test/aoj/DPL_5_B.test.cpp
-  - test/aoj/DPL_5_F.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
   - test/aoj/DPL_5_D.test.cpp
+  - test/aoj/DPL_5_B.test.cpp
+  - test/aoj/DPL_5_I.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/DPL_5_C.test.cpp
+  - test/aoj/DPL_5_F.test.cpp
 documentation_of: combinatorics/combination.hpp
 layout: document
 redirect_from:

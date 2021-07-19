@@ -78,12 +78,12 @@ data:
     \ != rank && A[i][j]) {\n                    A[i] ^= A[rank];\n              \
     \  }\n            }\n            rank++;\n        }\n        return rank;\n  \
     \  }\n    pair<int, vector<int>> linear_equation(const vector<int>& b) {\n   \
-    \     assert(n == (int)b.size());\n        for (int i = 0; i < n; i++) A[i][m]\
-    \ = b[i];\n        int rank = gauss_jordan(1);\n        for (int i = rank; i <\
-    \ n; i++) {\n            if (A[i][m]) {\n                return {-1, vector<int>{}};\n\
+    \     assert(n == (int)b.size());\n        for (int i = 0; i < n; i++) A[i][m\
+    \ - 1] = b[i];\n        int rank = gauss_jordan(1);\n        for (int i = rank;\
+    \ i < n; i++) {\n            if (A[i][m - 1]) {\n                return {-1, vector<int>{}};\n\
     \            }\n        }\n        vector<int> res(m, 0);\n        for (int i\
-    \ = 0; i < rank; i++) res[i] = A[i][m];\n        return {rank, res};\n    }\n\
-    };\n"
+    \ = 0; i < rank; i++) res[i] = A[i][m - 1];\n        return {rank, res};\n   \
+    \ }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief BitMatrix\n * @docs\
     \ docs/datastructure/BitMatrix.md\n */\ntemplate <size_t MAX_COL> struct BitMatrix\
     \ {\n    int n, m;\n    vector<bitset<MAX_COL>> A;\n    BitMatrix(int n) : n(n),\
@@ -98,17 +98,17 @@ data:
     \          A[i] ^= A[rank];\n                }\n            }\n            rank++;\n\
     \        }\n        return rank;\n    }\n    pair<int, vector<int>> linear_equation(const\
     \ vector<int>& b) {\n        assert(n == (int)b.size());\n        for (int i =\
-    \ 0; i < n; i++) A[i][m] = b[i];\n        int rank = gauss_jordan(1);\n      \
-    \  for (int i = rank; i < n; i++) {\n            if (A[i][m]) {\n            \
-    \    return {-1, vector<int>{}};\n            }\n        }\n        vector<int>\
-    \ res(m, 0);\n        for (int i = 0; i < rank; i++) res[i] = A[i][m];\n     \
-    \   return {rank, res};\n    }\n};\n"
+    \ 0; i < n; i++) A[i][m - 1] = b[i];\n        int rank = gauss_jordan(1);\n  \
+    \      for (int i = rank; i < n; i++) {\n            if (A[i][m - 1]) {\n    \
+    \            return {-1, vector<int>{}};\n            }\n        }\n        vector<int>\
+    \ res(m, 0);\n        for (int i = 0; i < rank; i++) res[i] = A[i][m - 1];\n \
+    \       return {rank, res};\n    }\n};\n"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: datastructure/BitMatrix.hpp
   requiredBy: []
-  timestamp: '2021-06-03 17:50:00+09:00'
+  timestamp: '2021-07-19 13:04:18+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/803.test.cpp
@@ -119,3 +119,13 @@ redirect_from:
 - /library/datastructure/BitMatrix.hpp.html
 title: BitMatrix
 ---
+## 概要
+$\mathbb{F}_2$ 上での掃き出し法を行うためのライブラリ. $\mathbb{F}_2$ に特化させるために内部では `bitset` でデータを保持している.
+- `gauss_jordan(extended)` : 掃き出し法を行い, その結果得られた $\operatorname{rank}$ を返す. `extended` は `linear_equtation(b)` などで最後の行を除外して掃き出す機会があるのでそのための変数.
+- `linear_equation(b)` : $\forall i,\ \otimes_{j=1}^m a_{ij}x_j = b_i$ を満たすような数列 $\{x_j\}_{j=1}^m$ を求める. 解を構成することが不可能な場合には -1 を返す. 行列 $A$ の列方向のサイズには 1 だけ余分をもたせておく必要があることに注意.
+
+## 計算量
+$O\left(\dfrac{n^2m}{64}\right)$
+
+## 問題例
+[yukicoder No.803 Very Limited Xor Subset](https://yukicoder.me/problems/no/803)

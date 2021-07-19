@@ -10,8 +10,8 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/util/RandomNumberGenerator.md
-    document_title: "\u4E71\u6570\u751F\u6210\u5668(64bit)"
+    _deprecated_at_docs: docs/math/quotient_ranges.md
+    document_title: "\u5546\u5217\u6319"
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
     typedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\n\
@@ -61,36 +61,36 @@ data:
     \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#line 3 \"util/RandomNumberGenerator_64.hpp\"\
-    \n\n/**\n * @brief \u4E71\u6570\u751F\u6210\u5668(64bit)\n * @docs docs/util/RandomNumberGenerator.md\n\
-    \ */\nstruct RandomNumberGenerator {\n    mt19937_64 mt;\n    RandomNumberGenerator()\
-    \ : mt(chrono::steady_clock::now().time_since_epoch().count()) {}\n    uint64_t\
-    \ operator()(uint64_t a, uint64_t b) {\n        uniform_int_distribution<uint64_t>\
-    \ dist(a, b - 1);\n        return dist(mt);\n    }\n    uint64_t operator()(uint64_t\
-    \ b) { return (*this)(0, b); }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u4E71\u6570\u751F\
-    \u6210\u5668(64bit)\n * @docs docs/util/RandomNumberGenerator.md\n */\nstruct\
-    \ RandomNumberGenerator {\n    mt19937_64 mt;\n    RandomNumberGenerator() : mt(chrono::steady_clock::now().time_since_epoch().count())\
-    \ {}\n    uint64_t operator()(uint64_t a, uint64_t b) {\n        uniform_int_distribution<uint64_t>\
-    \ dist(a, b - 1);\n        return dist(mt);\n    }\n    uint64_t operator()(uint64_t\
-    \ b) { return (*this)(0, b); }\n};"
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"math/quotient_ranges.hpp\"\
+    \n\n/**\n * @brief \u5546\u5217\u6319\n * @docs docs/math/quotient_ranges.md\n\
+    \ */\ntemplate <typename T> vector<tuple<T, T, T>> quotient_ranges(T n) {\n  \
+    \  vector<tuple<T, T, T>> res;\n    T m = 1;\n    for (; m * m <= n; m++) res.emplace_back(m,\
+    \ m, n / m);\n    for (; m >= 1; m--) {\n        T l = n / (i + 1) + 1, r = n\
+    \ / i;\n        if (l <= r && get<1>(res.back()) < l) res.emplace_back(l, r, n\
+    \ / l);\n    }\n    return res;\n}\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u5546\u5217\u6319\
+    \n * @docs docs/math/quotient_ranges.md\n */\ntemplate <typename T> vector<tuple<T,\
+    \ T, T>> quotient_ranges(T n) {\n    vector<tuple<T, T, T>> res;\n    T m = 1;\n\
+    \    for (; m * m <= n; m++) res.emplace_back(m, m, n / m);\n    for (; m >= 1;\
+    \ m--) {\n        T l = n / (i + 1) + 1, r = n / i;\n        if (l <= r && get<1>(res.back())\
+    \ < l) res.emplace_back(l, r, n / l);\n    }\n    return res;\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: util/RandomNumberGenerator_64.hpp
+  path: math/quotient_ranges.hpp
   requiredBy: []
-  timestamp: '2021-01-20 20:25:59+09:00'
+  timestamp: '2021-07-19 13:04:18+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: util/RandomNumberGenerator_64.hpp
+documentation_of: math/quotient_ranges.hpp
 layout: document
 redirect_from:
-- /library/util/RandomNumberGenerator_64.hpp
-- /library/util/RandomNumberGenerator_64.hpp.html
-title: "\u4E71\u6570\u751F\u6210\u5668(64bit)"
+- /library/math/quotient_ranges.hpp
+- /library/math/quotient_ranges.hpp.html
+title: "\u5546\u5217\u6319"
 ---
 ## 概要
-一様乱数を生成する.
+$n \in \mathbb{N}$ について, 商 $\left\lfloor \frac{n}{i} \right\rfloor$ の種類数は $O(\sqrt{n})$ 程度である. $\left\lfloor \frac{n}{i} \right\rfloor = k \iff i \in [l,r]$ となるとき, 3 数の組 $(l,r,k)$ を $l$ の昇順に列挙する.
 
-## 参照
-[Don't use rand(): a guide to random number generators in C++ - Codeforces](https://codeforces.com/blog/entry/61587)
+## 計算量
+$O(\sqrt{n})$

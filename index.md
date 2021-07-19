@@ -202,6 +202,9 @@ data:
     - icon: ':warning:'
       path: math/prime_factor_table.hpp
       title: "osa_k\u6CD5"
+    - icon: ':warning:'
+      path: math/quotient_ranges.hpp
+      title: "\u5546\u5217\u6319"
   - name: modulo
     pages:
     - icon: ':heavy_check_mark:'
@@ -341,6 +344,9 @@ data:
     - icon: ':x:'
       path: util/compress.hpp
       title: compress
+    - icon: ':warning:'
+      path: util/gray_code.hpp
+      title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"
   verificationCategories:
   - name: test/aoj
     pages:

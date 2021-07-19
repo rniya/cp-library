@@ -92,8 +92,5 @@ title: "\u4E71\u6570\u751F\u6210\u5668(32bit)"
 ## 概要
 一様乱数を生成する.
 
-## 計算量
-$O(1)$
-
 ## 参照
 [Don't use rand(): a guide to random number generators in C++ - Codeforces](https://codeforces.com/blog/entry/61587)

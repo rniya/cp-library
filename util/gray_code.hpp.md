@@ -10,8 +10,8 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/util/RandomNumberGenerator.md
-    document_title: "\u4E71\u6570\u751F\u6210\u5668(64bit)"
+    _deprecated_at_docs: docs/util/gray_code.md
+    document_title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
     typedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\n\
@@ -61,36 +61,34 @@ data:
     \ T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n   \
     \     return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2>\
     \ inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\n#line 3 \"util/RandomNumberGenerator_64.hpp\"\
-    \n\n/**\n * @brief \u4E71\u6570\u751F\u6210\u5668(64bit)\n * @docs docs/util/RandomNumberGenerator.md\n\
-    \ */\nstruct RandomNumberGenerator {\n    mt19937_64 mt;\n    RandomNumberGenerator()\
-    \ : mt(chrono::steady_clock::now().time_since_epoch().count()) {}\n    uint64_t\
-    \ operator()(uint64_t a, uint64_t b) {\n        uniform_int_distribution<uint64_t>\
-    \ dist(a, b - 1);\n        return dist(mt);\n    }\n    uint64_t operator()(uint64_t\
-    \ b) { return (*this)(0, b); }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u4E71\u6570\u751F\
-    \u6210\u5668(64bit)\n * @docs docs/util/RandomNumberGenerator.md\n */\nstruct\
-    \ RandomNumberGenerator {\n    mt19937_64 mt;\n    RandomNumberGenerator() : mt(chrono::steady_clock::now().time_since_epoch().count())\
-    \ {}\n    uint64_t operator()(uint64_t a, uint64_t b) {\n        uniform_int_distribution<uint64_t>\
-    \ dist(a, b - 1);\n        return dist(mt);\n    }\n    uint64_t operator()(uint64_t\
-    \ b) { return (*this)(0, b); }\n};"
+    \ return true;\n    }\n    return false;\n}\n#line 3 \"util/gray_code.hpp\"\n\n\
+    /**\n * @brief \u30B0\u30EC\u30A4\u30B3\u30FC\u30C9\n * @docs docs/util/gray_code.md\n\
+    \ */\nvector<int> gray_code(int n) {\n    vector<int> res(1 << n);\n    for (int\
+    \ i = 0; i < (int)res.size(); i++) res[i] = i ^ (i >> 1);\n    return res;\n}\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u30B0\u30EC\u30A4\
+    \u30B3\u30FC\u30C9\n * @docs docs/util/gray_code.md\n */\nvector<int> gray_code(int\
+    \ n) {\n    vector<int> res(1 << n);\n    for (int i = 0; i < (int)res.size();\
+    \ i++) res[i] = i ^ (i >> 1);\n    return res;\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: util/RandomNumberGenerator_64.hpp
+  path: util/gray_code.hpp
   requiredBy: []
-  timestamp: '2021-01-20 20:25:59+09:00'
+  timestamp: '2021-07-19 13:04:18+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: util/RandomNumberGenerator_64.hpp
+documentation_of: util/gray_code.hpp
 layout: document
 redirect_from:
-- /library/util/RandomNumberGenerator_64.hpp
-- /library/util/RandomNumberGenerator_64.hpp.html
-title: "\u4E71\u6570\u751F\u6210\u5668(64bit)"
+- /library/util/gray_code.hpp
+- /library/util/gray_code.hpp.html
+title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"
 ---
 ## 概要
-一様乱数を生成する.
+Gray Code とは数値の符号化法の一つで, 前後に隣接する符号間のハミング距離が必ず 1 となるという特徴をもつ.
 
-## 参照
-[Don't use rand(): a guide to random number generators in C++ - Codeforces](https://codeforces.com/blog/entry/61587)
+この特徴を生かして, 例えば bit dp や全探索の際に集合の探索順をこの Gray Code になぞらえることで, 更新の際の計算量を改善できることがある.
+
+## 問題例
+[Codeforces Round #733 (Div. 1 + Div. 2, based on VK Cup 2021 - Elimination (Engine) F. Bingo](https://codeforces.com/contest/1530/problem/F)
+包除原理により数え上げることを考える.1 が揃うような行集合及び対角線を固定すれば, 各列集合は独立であるから左から走査していくことで数え上げることができる.この際の計算量は決め打ちする集合が $2^{n+2}$ 個で, 各列で 1 が揃うとしたときの確率の計算に $O(n^2)$ かかるから, 結局 $O((n^2+2n)2^{n+2})$ となる.ここで, 集合の探索順を Gray Code にすれば, 集合が変更される際に各列の確率を $O(n)$ で更新することが可能になり, $O(n2^{n+3})$でこの問題が解くことができる.

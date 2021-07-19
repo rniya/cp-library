@@ -216,15 +216,15 @@ data:
   verifiedWith:
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yukicoder/1270.test.cpp
+  - test/aoj/DSL_2_E.test.cpp
+  - test/aoj/DSL_2_D.test.cpp
+  - test/aoj/DSL_2_G.test.cpp
+  - test/aoj/DSL_2_I.test.cpp
+  - test/aoj/DSL_2_F.test.cpp
+  - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
+  - test/aoj/2667.test.cpp
   - test/aoj/2871.test.cpp
   - test/aoj/DSL_2_H.test.cpp
-  - test/aoj/DSL_2_G.test.cpp
-  - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
-  - test/aoj/DSL_2_D.test.cpp
-  - test/aoj/DSL_2_I.test.cpp
-  - test/aoj/DSL_2_E.test.cpp
-  - test/aoj/DSL_2_F.test.cpp
-  - test/aoj/2667.test.cpp
 documentation_of: datastructure/LazySegmentTree.hpp
 layout: document
 redirect_from:
