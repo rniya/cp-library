@@ -34,15 +34,15 @@ template <size_t MAX_COL> struct BitMatrix {
     }
     pair<int, vector<int>> linear_equation(const vector<int>& b) {
         assert(n == (int)b.size());
-        for (int i = 0; i < n; i++) A[i][m] = b[i];
+        for (int i = 0; i < n; i++) A[i][m - 1] = b[i];
         int rank = gauss_jordan(1);
         for (int i = rank; i < n; i++) {
-            if (A[i][m]) {
+            if (A[i][m - 1]) {
                 return {-1, vector<int>{}};
             }
         }
         vector<int> res(m, 0);
-        for (int i = 0; i < rank; i++) res[i] = A[i][m];
+        for (int i = 0; i < rank; i++) res[i] = A[i][m - 1];
         return {rank, res};
     }
 };
