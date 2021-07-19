@@ -119,7 +119,7 @@ template <class T> T ceil(T x, T y) {
 }
 template <class T> T floor(T x, T y) {
     assert(y >= 1);
-    return (x > 0 ? x / y : (x + y - 1) / y);
+    return (x > 0 ? x / y : (x - y + 1) / y);
 }
 
 template <class T1, class T2> inline bool chmin(T1& a, T2 b) {
@@ -137,10 +137,3 @@ template <class T1, class T2> inline bool chmax(T1& a, T2 b) {
     return false;
 }
 #pragma endregion
-
-const int INF = 1e9;
-const long long IINF = 1e18;
-const int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};
-const char dir[4] = {'D', 'R', 'U', 'L'};
-const long long MOD = 1000000007;
-// const long long MOD = 998244353;
