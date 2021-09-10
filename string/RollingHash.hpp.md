@@ -134,8 +134,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/430.test.cpp
-  - test/aoj/ALDS1_14_B.test.cpp
   - test/aoj/1370.test.cpp
+  - test/aoj/ALDS1_14_B.test.cpp
 documentation_of: string/RollingHash.hpp
 layout: document
 redirect_from:

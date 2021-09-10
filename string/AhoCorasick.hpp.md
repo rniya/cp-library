@@ -171,8 +171,8 @@ data:
   timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/430.AhoCorasick.test.cpp
   - test/yukicoder/1269.test.cpp
+  - test/yukicoder/430.AhoCorasick.test.cpp
 documentation_of: string/AhoCorasick.hpp
 layout: document
 redirect_from:

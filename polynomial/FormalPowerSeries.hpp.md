@@ -277,13 +277,13 @@ data:
   timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yukicoder/1302.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yukicoder/3046.test.cpp
+  - test/yukicoder/1302.test.cpp
 documentation_of: polynomial/FormalPowerSeries.hpp
 layout: document
 redirect_from:
@@ -325,6 +325,9 @@ title: Formal Power Series
 - $(P(x))^k$：$O(n\log n)$
 - $P(x)(ax+b),P(x)/(ax+b)$：$O(n)$
 - $P(x)(1+cx^d),P(x)/(1+cx^d)$：$O(n+d)$
+
+## 問題例
+[Codeforces Round #250 (Div. 1) E. The Child and Binary Tree](https://codeforces.com/contest/438/problem/E)
 
 ## 参照
 [Operations on Formal Power Series - Codeforces](https://codeforces.com/blog/entry/56422)

@@ -167,8 +167,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/point_add_range_sum.test.cpp
-  - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/vertex_add_path_sum.test.cpp
+  - test/yosupo/point_set_range_composite.test.cpp
   - test/aoj/DSL_2_A.test.cpp
 documentation_of: datastructure/SegmentTree.hpp
 layout: document

@@ -307,14 +307,14 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
-  - test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
 documentation_of: datastructure/SegmentTreeBeats.hpp
 layout: document
 redirect_from:

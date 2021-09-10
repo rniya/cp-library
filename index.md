@@ -80,6 +80,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/SlidingWindowAggregation.hpp
       title: Sliding Window Aggregation (SWAG)
+    - icon: ':warning:'
+      path: datastructure/SlopeTrick.hpp
+      title: SLope Trick
     - icon: ':heavy_check_mark:'
       path: datastructure/SparseTable.hpp
       title: Sparse table
@@ -92,6 +95,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/WeightedUnionFind.hpp
       title: Weighted UnionFind
+  - name: dp
+    pages:
+    - icon: ':warning:'
+      path: dp/monotone_minima.hpp
+      title: monotone minima
   - name: flow
     pages:
     - icon: ':heavy_check_mark:'
@@ -112,6 +120,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/PrimalDual.hpp
       title: Primal Dual
+    - icon: ':heavy_check_mark:'
+      path: flow/PrimalDualonDAG.hpp
+      title: Primal Dual on DAG
     - icon: ':heavy_check_mark:'
       path: flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem
@@ -762,6 +773,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1307.test.cpp
       title: test/yukicoder/1307.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1678.test.cpp
+      title: test/yukicoder/1678.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/206.test.cpp
       title: test/yukicoder/206.test.cpp

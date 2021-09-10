@@ -86,29 +86,28 @@ data:
     \ from, int to, T cap, E cost) {\n        pos.emplace_back(from, G[from].size());\n\
     \        G[from].emplace_back(to, cap, cost, G[to].size());\n        G[to].emplace_back(from,\
     \ 0, -cost, G[from].size() - 1);\n        return pos.size() - 1;\n    }\n    tuple<int,\
-    \ int, int, int, int> get_edge(int i) {\n        auto e = G[pos[i].first][pos[i].second];\n\
+    \ int, T, T, E> get_edge(int i) {\n        auto e = G[pos[i].first][pos[i].second];\n\
     \        auto re = G[e.to][e.rev];\n        return {pos[i].first, e.to, e.cap\
-    \ + re.cap, re.cap, e.cost};\n    }\n    vector<tuple<int, int, int, int, int>>\
-    \ edges() {\n        vector<tuple<int, int, int, int, int>> res;\n        for\
-    \ (int i = 0; i < (int)pos.size(); i++) {\n            res.emplace_back(get_edge(i));\n\
-    \        }\n        return res;\n    }\n    E min_cost_flow(int s, int t, T f)\
-    \ {\n        E res = 0;\n        while (f > 0) {\n            fill(dist.begin(),\
-    \ dist.end(), inf);\n            dist[s] = 0;\n            bool update = true;\n\
-    \            while (update) {\n                update = false;\n             \
-    \   for (int v = 0; v < (int)G.size(); v++) {\n                    if (dist[v]\
-    \ == inf) continue;\n                    for (int i = 0; i < (int)G[v].size();\
-    \ i++) {\n                        edge& e = G[v][i];\n                       \
-    \ if (e.cap > 0 && dist[e.to] > dist[v] + e.cost) {\n                        \
-    \    dist[e.to] = dist[v] + e.cost;\n                            prevv[e.to] =\
-    \ v;\n                            preve[e.to] = i;\n                         \
-    \   update = true;\n                        }\n                    }\n       \
-    \         }\n            }\n            if (dist[t] == inf) return -1;\n     \
-    \       T d = f;\n            for (int v = t; v != s; v = prevv[v]) {\n      \
-    \          d = min(d, G[prevv[v]][preve[v]].cap);\n            }\n           \
-    \ f -= d;\n            res += dist[t] * d;\n            for (int v = t; v != s;\
-    \ v = prevv[v]) {\n                edge& e = G[prevv[v]][preve[v]];\n        \
-    \        e.cap -= d;\n                G[v][e.rev].cap += d;\n            }\n \
-    \       }\n        return res;\n    }\n};\n#line 5 \"test/aoj/GRL_6_B.test.cpp\"\
+    \ + re.cap, re.cap, e.cost};\n    }\n    vector<tuple<int, int, T, T, E>> edges()\
+    \ {\n        vector<tuple<int, int, T, T, E>> res;\n        for (int i = 0; i\
+    \ < (int)pos.size(); i++) {\n            res.emplace_back(get_edge(i));\n    \
+    \    }\n        return res;\n    }\n    E min_cost_flow(int s, int t, T f) {\n\
+    \        E res = 0;\n        while (f > 0) {\n            fill(dist.begin(), dist.end(),\
+    \ inf);\n            dist[s] = 0;\n            bool update = true;\n         \
+    \   while (update) {\n                update = false;\n                for (int\
+    \ v = 0; v < (int)G.size(); v++) {\n                    if (dist[v] == inf) continue;\n\
+    \                    for (int i = 0; i < (int)G[v].size(); i++) {\n          \
+    \              edge& e = G[v][i];\n                        if (e.cap > 0 && dist[e.to]\
+    \ > dist[v] + e.cost) {\n                            dist[e.to] = dist[v] + e.cost;\n\
+    \                            prevv[e.to] = v;\n                            preve[e.to]\
+    \ = i;\n                            update = true;\n                        }\n\
+    \                    }\n                }\n            }\n            if (dist[t]\
+    \ == inf) return -1;\n            T d = f;\n            for (int v = t; v != s;\
+    \ v = prevv[v]) {\n                d = min(d, G[prevv[v]][preve[v]].cap);\n  \
+    \          }\n            f -= d;\n            res += dist[t] * d;\n         \
+    \   for (int v = t; v != s; v = prevv[v]) {\n                edge& e = G[prevv[v]][preve[v]];\n\
+    \                e.cap -= d;\n                G[v][e.rev].cap += d;\n        \
+    \    }\n        }\n        return res;\n    }\n};\n#line 5 \"test/aoj/GRL_6_B.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
     \ E, F;\n    cin >> V >> E >> F;\n\n    MinCostFlow<int, int> MCF(V);\n\n    for\
     \ (int i = 0; i < E; i++) {\n        int u, v, c, d;\n        cin >> u >> v >>\
@@ -127,7 +126,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_6_B.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-09-11 00:56:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_B.test.cpp

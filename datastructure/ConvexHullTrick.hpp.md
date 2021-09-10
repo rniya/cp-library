@@ -144,8 +144,8 @@ data:
   isVerificationFile: false
   path: datastructure/ConvexHullTrick.hpp
   requiredBy:
-  - test/atcoder/colopl2018_final_c.cpp
   - test/atcoder/dp_z.cpp
+  - test/atcoder/colopl2018_final_c.cpp
   timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

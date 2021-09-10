@@ -161,8 +161,8 @@ data:
   verifiedWith:
   - test/yosupo/vertex_add_path_sum.test.cpp
   - test/yosupo/vertex_add_subtree_sum.test.cpp
-  - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   - test/aoj/2667.test.cpp
+  - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   - test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
 documentation_of: tree/HeavyLightDecomposition.hpp
 layout: document

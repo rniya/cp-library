@@ -33,5 +33,8 @@
 - $P(x)(ax+b),P(x)/(ax+b)$：$O(n)$
 - $P(x)(1+cx^d),P(x)/(1+cx^d)$：$O(n+d)$
 
+## 問題例
+[Codeforces Round #250 (Div. 1) E. The Child and Binary Tree](https://codeforces.com/contest/438/problem/E)
+
 ## 参照
 [Operations on Formal Power Series - Codeforces](https://codeforces.com/blog/entry/56422)

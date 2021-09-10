@@ -97,8 +97,8 @@ data:
   timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DPL_5_J.test.cpp
   - test/aoj/DPL_5_L.test.cpp
+  - test/aoj/DPL_5_J.test.cpp
 documentation_of: combinatorics/PartitionTable.hpp
 layout: document
 redirect_from:

@@ -93,10 +93,10 @@ data:
     \ directed ? 0 : cap, G[from].size() - 1);\n        return pos.size() - 1;\n \
     \   }\n    int add_vertex() {\n        G.emplace_back();\n        level.emplace_back();\n\
     \        iter.emplace_back();\n        return G.size() - 1;\n    }\n    tuple<int,\
-    \ int, int, int> get_edge(int i) {\n        auto e = G[pos[i].first][pos[i].second];\n\
+    \ int, T, T> get_edge(int i) {\n        auto e = G[pos[i].first][pos[i].second];\n\
     \        auto re = G[e.to][e.rev];\n        return {pos[i].first, e.to, e.cap\
-    \ + re.cap, re.cap};\n    }\n    vector<tuple<int, int, int, int>> edges() {\n\
-    \        vector<tuple<int, int, int, int>> res;\n        for (int i = 0; i < (int)pos.size();\
+    \ + re.cap, re.cap};\n    }\n    vector<tuple<int, int, T, T>> edges() {\n   \
+    \     vector<tuple<int, int, T, T>> res;\n        for (int i = 0; i < (int)pos.size();\
     \ i++) {\n            res.emplace_back(get_edge(i));\n        }\n        return\
     \ res;\n    }\n    void change_edge(int i, T new_cap, T new_flow) {\n        auto&\
     \ e = G[pos[i].first][pos[i].second];\n        auto& re = G[e.to][e.rev];\n  \
@@ -165,9 +165,9 @@ data:
   isVerificationFile: false
   path: flow/ProjectSelectionProblem.hpp
   requiredBy:
-  - test/codeforces/1404_E.cpp
   - test/atcoder/arc085_c.cpp
-  timestamp: '2021-07-19 14:45:19+09:00'
+  - test/codeforces/1404_E.cpp
+  timestamp: '2021-09-11 00:56:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp

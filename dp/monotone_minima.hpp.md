@@ -4,23 +4,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/atcoder/abc061_d.cpp
-    title: test/atcoder/abc061_d.cpp
-  - icon: ':warning:'
-    path: test/atcoder/abc137_e.cpp
-    title: test/atcoder/abc137_e.cpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_1_B.test.cpp
-    title: test/aoj/GRL_1_B.test.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/graph/BellmanFord.md
-    document_title: Bellman Ford
+    _deprecated_at_docs: docs/dp/monotone_minima.md
+    document_title: monotone minima
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
     #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
@@ -79,66 +70,60 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"graph/BellmanFord.hpp\"\
-    \n\n/**\n * @brief Bellman Ford\n * @docs docs/graph/BellmanFord.md\n */\ntemplate\
-    \ <typename T> struct BellmanFord {\n    const T inf = numeric_limits<T>::max();\n\
-    \    struct edge {\n        int u, v;\n        T w;\n        edge(int u, int v,\
-    \ T w) : u(u), v(v), w(w) {}\n    };\n    int n;\n    vector<vector<int>> G;\n\
-    \    vector<int> check, reach;\n    vector<edge> es;\n    BellmanFord(int n) :\
-    \ n(n), G(n), check(n), reach(n, 1) {}\n    void add_edge(int u, int v, T w) {\n\
-    \        es.emplace_back(u, v, w);\n        G[u].emplace_back(v);\n    }\n   \
-    \ vector<T> build(int s, int& neg_loop) {\n        vector<T> d(n, inf);\n    \
-    \    d[s] = 0;\n        for (int i = 0; i < n; i++) {\n            bool update\
-    \ = false;\n            for (auto e : es) {\n                if (!reach[e.u] ||\
-    \ !reach[e.v] || d[e.u] == inf) continue;\n                if (d[e.u] + e.w <\
-    \ d[e.v]) {\n                    d[e.v] = d[e.u] + e.w;\n                    update\
-    \ = true;\n                }\n            }\n            if (!update) break;\n\
-    \            if (i == n - 1) {\n                neg_loop = 1;\n              \
-    \  return d;\n            }\n        }\n        neg_loop = 0;\n        return\
-    \ d;\n    }\n    void dfs(int v) {\n        if (check[v]) return;\n        check[v]\
-    \ = 1;\n        for (int u : G[v]) dfs(u);\n    }\n    T shortest_path(int s,\
-    \ int t, int& neg_loop) {\n        for (int i = 0; i < n; i++) {\n           \
-    \ fill(check.begin(), check.end(), 0);\n            dfs(i);\n            reach[i]\
-    \ = check[t];\n        }\n        return build(s, neg_loop)[t];\n    }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Bellman Ford\n *\
-    \ @docs docs/graph/BellmanFord.md\n */\ntemplate <typename T> struct BellmanFord\
-    \ {\n    const T inf = numeric_limits<T>::max();\n    struct edge {\n        int\
-    \ u, v;\n        T w;\n        edge(int u, int v, T w) : u(u), v(v), w(w) {}\n\
-    \    };\n    int n;\n    vector<vector<int>> G;\n    vector<int> check, reach;\n\
-    \    vector<edge> es;\n    BellmanFord(int n) : n(n), G(n), check(n), reach(n,\
-    \ 1) {}\n    void add_edge(int u, int v, T w) {\n        es.emplace_back(u, v,\
-    \ w);\n        G[u].emplace_back(v);\n    }\n    vector<T> build(int s, int& neg_loop)\
-    \ {\n        vector<T> d(n, inf);\n        d[s] = 0;\n        for (int i = 0;\
-    \ i < n; i++) {\n            bool update = false;\n            for (auto e : es)\
-    \ {\n                if (!reach[e.u] || !reach[e.v] || d[e.u] == inf) continue;\n\
-    \                if (d[e.u] + e.w < d[e.v]) {\n                    d[e.v] = d[e.u]\
-    \ + e.w;\n                    update = true;\n                }\n            }\n\
-    \            if (!update) break;\n            if (i == n - 1) {\n            \
-    \    neg_loop = 1;\n                return d;\n            }\n        }\n    \
-    \    neg_loop = 0;\n        return d;\n    }\n    void dfs(int v) {\n        if\
-    \ (check[v]) return;\n        check[v] = 1;\n        for (int u : G[v]) dfs(u);\n\
-    \    }\n    T shortest_path(int s, int t, int& neg_loop) {\n        for (int i\
-    \ = 0; i < n; i++) {\n            fill(check.begin(), check.end(), 0);\n     \
-    \       dfs(i);\n            reach[i] = check[t];\n        }\n        return build(s,\
-    \ neg_loop)[t];\n    }\n};"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"dp/monotone_minima.hpp\"\
+    \n\n/**\n * @brief monotone minima\n * @docs docs/dp/monotone_minima.md\n */\n\
+    template <class Select> vector<size_t> monotone_minima(const size_t H, const size_t\
+    \ W, const Select& select) {\n    auto solve = [&](auto self, const vector<size_t>&\
+    \ v) -> vector<size_t> {\n        const size_t n = v.size();\n        if (n ==\
+    \ 0) return {};\n        vector<size_t> u;\n        for (size_t i = 1; i < n;\
+    \ i += 2) u.emplace_back(v[i]);\n        const vector<size_t> ch = self(self,\
+    \ u);\n        vector<size_t> res(n);\n        for (size_t i = 0; i < ch.size();\
+    \ i++) res[i << 1 | 1] = ch[i];\n        for (size_t i = 0, cur = 0; i < n; i\
+    \ += 2) {\n            size_t nxt = (i + 1 == n ? W - 1 : res[i + 1]);\n     \
+    \       for (res[i] = cur; cur < nxt;) {\n                if (select(v[i], res[i],\
+    \ ++cur)) {\n                    res[i] = cur;\n                }\n          \
+    \  }\n        }\n        return res;\n    };\n\n    vector<size_t> dp(H);\n  \
+    \  iota(dp.begin(), dp.end(), 0);\n    return solve(solve, dp);\n};\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief monotone minima\n\
+    \ * @docs docs/dp/monotone_minima.md\n */\ntemplate <class Select> vector<size_t>\
+    \ monotone_minima(const size_t H, const size_t W, const Select& select) {\n  \
+    \  auto solve = [&](auto self, const vector<size_t>& v) -> vector<size_t> {\n\
+    \        const size_t n = v.size();\n        if (n == 0) return {};\n        vector<size_t>\
+    \ u;\n        for (size_t i = 1; i < n; i += 2) u.emplace_back(v[i]);\n      \
+    \  const vector<size_t> ch = self(self, u);\n        vector<size_t> res(n);\n\
+    \        for (size_t i = 0; i < ch.size(); i++) res[i << 1 | 1] = ch[i];\n   \
+    \     for (size_t i = 0, cur = 0; i < n; i += 2) {\n            size_t nxt = (i\
+    \ + 1 == n ? W - 1 : res[i + 1]);\n            for (res[i] = cur; cur < nxt;)\
+    \ {\n                if (select(v[i], res[i], ++cur)) {\n                    res[i]\
+    \ = cur;\n                }\n            }\n        }\n        return res;\n \
+    \   };\n\n    vector<size_t> dp(H);\n    iota(dp.begin(), dp.end(), 0);\n    return\
+    \ solve(solve, dp);\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: graph/BellmanFord.hpp
-  requiredBy:
-  - test/atcoder/abc061_d.cpp
-  - test/atcoder/abc137_e.cpp
-  timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/aoj/GRL_1_B.test.cpp
-documentation_of: graph/BellmanFord.hpp
+  path: dp/monotone_minima.hpp
+  requiredBy: []
+  timestamp: '2021-09-11 00:56:35+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: dp/monotone_minima.hpp
 layout: document
 redirect_from:
-- /library/graph/BellmanFord.hpp
-- /library/graph/BellmanFord.hpp.html
-title: Bellman Ford
+- /library/dp/monotone_minima.hpp
+- /library/dp/monotone_minima.hpp.html
+title: monotone minima
 ---
 ## 概要
 
+f(i) を求める主なアルゴリズムは 2 種類存在する。
+
 ## 計算量
+$O(W + H \log W)$
+
+## 問題例
+[2020-2021 Summer Petrozavodsk Camp, Day 6: Korean Contest F. Rhythm Game](https://codeforces.com/gym/102984/problem/F)
+
+## 参照
+[Monge 行列と monotone minima について - Lorent’s diary](https://lorent-kyopro.hatenablog.com/entry/2021/04/04/133958)
+[DP高速化 - ferinの競プロ帳](https://ferin-tech.hatenablog.com/entry/2018/02/23/071343)
+[Knuth-Yao speedup - 週刊 spaghetti_source - TopCoder部](https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120915/1347668163.html)

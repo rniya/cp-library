@@ -84,11 +84,11 @@ data:
     \ {}\n    int add_edge(int from, int to, T cap) {\n        pos.emplace_back(from,\
     \ G[from].size());\n        G[from].emplace_back(to, cap, G[to].size());\n   \
     \     G[to].emplace_back(from, directed ? 0 : cap, G[from].size() - 1);\n    \
-    \    return pos.size() - 1;\n    }\n    tuple<int, int, int, int> get_edge(int\
-    \ i) {\n        auto e = G[pos[i].first][pos[i].second];\n        auto re = G[e.to][e.rev];\n\
+    \    return pos.size() - 1;\n    }\n    tuple<int, int, T, T> get_edge(int i)\
+    \ {\n        auto e = G[pos[i].first][pos[i].second];\n        auto re = G[e.to][e.rev];\n\
     \        return {pos[i].first, e.to, e.cap + re.cap, re.cap};\n    }\n    vector<tuple<int,\
-    \ int, int, int>> edges() {\n        vector<tuple<int, int, int, int>> res;\n\
-    \        for (int i = 0; i < (int)pos.size(); i++) {\n            res.emplace_back(get_edge(i));\n\
+    \ int, T, T>> edges() {\n        vector<tuple<int, int, T, T>> res;\n        for\
+    \ (int i = 0; i < (int)pos.size(); i++) {\n            res.emplace_back(get_edge(i));\n\
     \        }\n        return res;\n    }\n    T dfs(int v, int t, T f) {\n     \
     \   if (v == t) return f;\n        used[v] = true;\n        for (auto& e : G[v])\
     \ {\n            if (!used[e.to] && e.cap > 0) {\n                T d = dfs(e.to,\
@@ -117,7 +117,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_6_A.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-09-11 00:56:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_A.test.cpp

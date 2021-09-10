@@ -131,5 +131,8 @@ $$c_k=\sum_{i\oplus j=k}a_ib_j$$
 ## 計算量
 $|a|=2^n$として, $O(n2^n)$
 
+## 問題例
+[Codeforces Round #259 (Div. 1) D. Little Pony and Elements of Harmony](https://codeforces.com/contest/453/problem/D)
+
 ## 参照
 [色々な畳み込み - kazuma8128’s blog](https://kazuma8128.hatenablog.com/entry/2018/05/31/144519)
