@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -105,7 +105,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/BipartiteMatching.hpp
       title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: flow/Dinic.hpp
       title: Dinic
     - icon: ':heavy_check_mark:'
@@ -123,7 +123,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/PrimalDualonDAG.hpp
       title: Primal Dual on DAG
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem
   - name: geometry
@@ -367,7 +367,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/1370.test.cpp
       title: test/aoj/1370.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/2313.test.cpp
       title: test/aoj/2313.test.cpp
     - icon: ':heavy_check_mark:'
@@ -382,7 +382,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/2891.test.cpp
       title: test/aoj/2891.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/2903.test.cpp
       title: test/aoj/2903.test.cpp
     - icon: ':heavy_check_mark:'
@@ -595,7 +595,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
       title: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_A.DInic.test.cpp
       title: test/aoj/GRL_6_A.DInic.test.cpp
     - icon: ':heavy_check_mark:'

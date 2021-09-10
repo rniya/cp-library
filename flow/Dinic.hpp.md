@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: flow/ProjectSelectionProblem.hpp
     title: Project Selection Problem
   - icon: ':warning:'
@@ -15,18 +15,18 @@ data:
     path: test/codeforces/1404_E.cpp
     title: test/codeforces/1404_E.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/2313.test.cpp
     title: test/aoj/2313.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/2903.test.cpp
     title: test/aoj/2903.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_6_A.DInic.test.cpp
     title: test/aoj/GRL_6_A.DInic.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/flow/Dinic.md
     document_title: Dinic
@@ -114,11 +114,11 @@ data:
     \ > 0 && level[e.to] < 0) {\n                    level[e.to] = level[v] + 1;\n\
     \                    que.emplace(e.to);\n                }\n            }\n  \
     \      }\n    }\n    Cap dfs(int v, int t, Cap f) {\n        if (v == t) return\
-    \ f;\n        for (size_t& i = iter[v]; i < G[v].size(); i++) {\n            auto&\
-    \ e = G[v][i];\n            if (e.cap > 0 && level[v] < level[e.to]) {\n     \
-    \           Cap d = dfs(e.to, t, min(f, e.cap));\n                if (d <= 0)\
-    \ continue;\n                e.cap -= d;\n                G[e.to][e.rev].cap +=\
-    \ d;\n                return d;\n            }\n        }\n        return 0;\n\
+    \ f;\n        for (int& i = iter[v]; i < (int)G[v].size(); i++) {\n          \
+    \  auto& e = G[v][i];\n            if (e.cap > 0 && level[v] < level[e.to]) {\n\
+    \                Cap d = dfs(e.to, t, min(f, e.cap));\n                if (d <=\
+    \ 0) continue;\n                e.cap -= d;\n                G[e.to][e.rev].cap\
+    \ += d;\n                return d;\n            }\n        }\n        return 0;\n\
     \    }\n    Cap max_flow(int s, int t, Cap lim) {\n        Cap flow = 0;\n   \
     \     while (lim > 0) {\n            bfs(s);\n            if (level[t] < 0) break;\n\
     \            fill(iter.begin(), iter.end(), 0);\n            while (lim > 0) {\n\
@@ -158,11 +158,11 @@ data:
     \ > 0 && level[e.to] < 0) {\n                    level[e.to] = level[v] + 1;\n\
     \                    que.emplace(e.to);\n                }\n            }\n  \
     \      }\n    }\n    Cap dfs(int v, int t, Cap f) {\n        if (v == t) return\
-    \ f;\n        for (size_t& i = iter[v]; i < G[v].size(); i++) {\n            auto&\
-    \ e = G[v][i];\n            if (e.cap > 0 && level[v] < level[e.to]) {\n     \
-    \           Cap d = dfs(e.to, t, min(f, e.cap));\n                if (d <= 0)\
-    \ continue;\n                e.cap -= d;\n                G[e.to][e.rev].cap +=\
-    \ d;\n                return d;\n            }\n        }\n        return 0;\n\
+    \ f;\n        for (int& i = iter[v]; i < (int)G[v].size(); i++) {\n          \
+    \  auto& e = G[v][i];\n            if (e.cap > 0 && level[v] < level[e.to]) {\n\
+    \                Cap d = dfs(e.to, t, min(f, e.cap));\n                if (d <=\
+    \ 0) continue;\n                e.cap -= d;\n                G[e.to][e.rev].cap\
+    \ += d;\n                return d;\n            }\n        }\n        return 0;\n\
     \    }\n    Cap max_flow(int s, int t, Cap lim) {\n        Cap flow = 0;\n   \
     \     while (lim > 0) {\n            bfs(s);\n            if (level[t] < 0) break;\n\
     \            fill(iter.begin(), iter.end(), 0);\n            while (lim > 0) {\n\
@@ -184,8 +184,8 @@ data:
   - test/atcoder/arc085_c.cpp
   - test/codeforces/1404_E.cpp
   - flow/ProjectSelectionProblem.hpp
-  timestamp: '2021-09-11 01:27:48+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-09-11 01:38:11+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp
   - test/aoj/GRL_6_A.DInic.test.cpp
