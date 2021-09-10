@@ -24,13 +24,13 @@ template <typename T, typename E> struct MinCostFlow {
         G[to].emplace_back(from, 0, -cost, G[from].size() - 1);
         return pos.size() - 1;
     }
-    tuple<int, int, int, int, int> get_edge(int i) {
+    tuple<int, int, T, T, E> get_edge(int i) {
         auto e = G[pos[i].first][pos[i].second];
         auto re = G[e.to][e.rev];
         return {pos[i].first, e.to, e.cap + re.cap, re.cap, e.cost};
     }
-    vector<tuple<int, int, int, int, int>> edges() {
-        vector<tuple<int, int, int, int, int>> res;
+    vector<tuple<int, int, T, T, E>> edges() {
+        vector<tuple<int, int, T, T, E>> res;
         for (int i = 0; i < (int)pos.size(); i++) {
             res.emplace_back(get_edge(i));
         }

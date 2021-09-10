@@ -2,10 +2,10 @@
 #include "../base.hpp"
 
 /**
- * @brief Primal Dual
- * @docs docs/flow/PrimalDual.md
+ * @brief Primal Dual on DAG
+ * @docs docs/flow/PrimalDualonDAG.md
  */
-template <typename Cap, typename Cost> struct PrimalDual {
+template <typename Cap, typename Cost> struct PrimalDualonDAG {
     const Cost inf = numeric_limits<Cost>::max() / 2;
     struct edge {
         int to;
@@ -17,12 +17,13 @@ template <typename Cap, typename Cost> struct PrimalDual {
     vector<vector<edge>> G;
     vector<pair<int, int>> pos;
     vector<Cost> h, dist;
-    vector<int> prevv, preve;
-    PrimalDual(int n) : G(n), h(n), dist(n), prevv(n), preve(n) {}
+    vector<int> prevv, preve, indeg, ord;
+    PrimalDualonDAG(int n) : G(n), h(n), dist(n), prevv(n), preve(n), indeg(n, 0) {}
     int add_edge(int from, int to, Cap cap, Cost cost) {
         pos.emplace_back(from, G[from].size());
         G[from].emplace_back(to, cap, cost, G[to].size());
         G[to].emplace_back(from, 0, -cost, G[from].size() - 1);
+        if (cap > 0) indeg[to]++;
         return pos.size() - 1;
     }
     tuple<int, int, Cap, Cap, Cost> get_edge(int i) {
@@ -36,6 +37,40 @@ template <typename Cap, typename Cost> struct PrimalDual {
             res.emplace_back(get_edge(i));
         }
         return res;
+    }
+    bool topological_sort() {
+        queue<int> que;
+        for (size_t i = 0; i < G.size(); i++) {
+            if (indeg[i] == 0) {
+                que.emplace(i);
+            }
+        }
+
+        while (!que.empty()) {
+            int v = que.front();
+            que.pop();
+            ord.emplace_back(v);
+            for (const auto& e : G[v]) {
+                if (e.cap > 0 && --indeg[e.to] == 0) {
+                    que.emplace(e.to);
+                }
+            }
+        }
+
+        return (*max_element(indeg.begin(), indeg.end()) == 0);
+    }
+    void calc_potential(int s) {
+        fill(h.begin(), h.end(), inf);
+        h[s] = 0;
+
+        for (int& v : ord) {
+            if (h[v] == inf) continue;
+            for (const auto& e : G[v]) {
+                if (e.cap > 0) {
+                    h[e.to] = min(h[e.to], h[v] + e.cost);
+                }
+            }
+        }
     }
     void dijkstra(int s) {
         struct P {
@@ -66,6 +101,8 @@ template <typename Cap, typename Cost> struct PrimalDual {
         }
     }
     vector<pair<Cap, Cost>> slope(int s, int t, Cap lim) {
+        assert(topological_sort());
+        calc_potential(s);
         Cap f = 0;
         Cost c = 0, pre = -1;
         vector<pair<Cap, Cost>> res;

@@ -27,13 +27,13 @@ template <typename T, bool directed> struct Dinic {
         iter.emplace_back();
         return G.size() - 1;
     }
-    tuple<int, int, int, int> get_edge(int i) {
+    tuple<int, int, T, T> get_edge(int i) {
         auto e = G[pos[i].first][pos[i].second];
         auto re = G[e.to][e.rev];
         return {pos[i].first, e.to, e.cap + re.cap, re.cap};
     }
-    vector<tuple<int, int, int, int>> edges() {
-        vector<tuple<int, int, int, int>> res;
+    vector<tuple<int, int, T, T>> edges() {
+        vector<tuple<int, int, T, T>> res;
         for (int i = 0; i < (int)pos.size(); i++) {
             res.emplace_back(get_edge(i));
         }
