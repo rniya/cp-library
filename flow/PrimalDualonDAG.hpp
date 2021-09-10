@@ -33,9 +33,7 @@ template <typename Cap, typename Cost> struct PrimalDualonDAG {
     }
     vector<tuple<int, int, Cap, Cap, Cost>> edges() {
         vector<tuple<int, int, Cap, Cap, Cost>> res;
-        for (size_t i = 0; i < pos.size(); i++) {
-            res.emplace_back(get_edge(i));
-        }
+        for (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));
         return res;
     }
     bool topological_sort() {
@@ -111,7 +109,7 @@ template <typename Cap, typename Cost> struct PrimalDualonDAG {
         while (f < lim) {
             dijkstra(s);
             if (dist[t] == inf) break;
-            for (size_t v = 0; v < G.size(); v++) h[v] += dist[v];
+            for (size_t v = 0; v < G.size(); v++) h[v] = min(h[v] + dist[v], inf);
             Cap d = lim - f;
             for (int v = t; v != s; v = prevv[v]) d = min(d, G[prevv[v]][preve[v]].cap);
             for (int v = t; v != s; v = prevv[v]) {

@@ -32,9 +32,7 @@ template <typename Cap, typename Cost> struct PrimalDual {
     }
     vector<tuple<int, int, Cap, Cap, Cost>> edges() {
         vector<tuple<int, int, Cap, Cap, Cost>> res;
-        for (size_t i = 0; i < pos.size(); i++) {
-            res.emplace_back(get_edge(i));
-        }
+        for (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));
         return res;
     }
     void dijkstra(int s) {

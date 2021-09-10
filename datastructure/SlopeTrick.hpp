@@ -2,7 +2,7 @@
 #include "../base.hpp"
 
 /**
- * @brief SLope Trick
+ * @brief Slope Trick
  * @docs docs/datastructure/SlopeTrick.md
  */
 template <typename T> class SlopeTrick {
