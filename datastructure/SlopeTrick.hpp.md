@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/datastructure/SlopeTrick.md
-    document_title: SLope Trick
+    document_title: Slope Trick
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
     #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
@@ -71,7 +71,7 @@ data:
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
     \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"datastructure/SlopeTrick.hpp\"\
-    \n\n/**\n * @brief SLope Trick\n * @docs docs/datastructure/SlopeTrick.md\n */\n\
+    \n\n/**\n * @brief Slope Trick\n * @docs docs/datastructure/SlopeTrick.md\n */\n\
     template <typename T> class SlopeTrick {\n    const T inf = numeric_limits<T>::max()\
     \ / 3;\n    T min_f;\n    priority_queue<T, vector<T>, less<>> L;\n    priority_queue<T,\
     \ vector<T>, greater<>> R;\n    T add_l, add_r;\n\n    void push_L(const T& x)\
@@ -101,7 +101,7 @@ data:
     \ T& x) {\n        T res = min_f;\n        while (!L.empty()) res += max(pop_L()\
     \ - x, T(0));\n        while (!R.empty()) res += max(x - pop_R(), T(0));\n   \
     \     return res;\n    }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief SLope Trick\n *\
+  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Slope Trick\n *\
     \ @docs docs/datastructure/SlopeTrick.md\n */\ntemplate <typename T> class SlopeTrick\
     \ {\n    const T inf = numeric_limits<T>::max() / 3;\n    T min_f;\n    priority_queue<T,\
     \ vector<T>, less<>> L;\n    priority_queue<T, vector<T>, greater<>> R;\n    T\
@@ -137,7 +137,7 @@ data:
   isVerificationFile: false
   path: datastructure/SlopeTrick.hpp
   requiredBy: []
-  timestamp: '2021-09-11 00:56:35+09:00'
+  timestamp: '2021-09-11 01:27:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: datastructure/SlopeTrick.hpp
@@ -145,7 +145,7 @@ layout: document
 redirect_from:
 - /library/datastructure/SlopeTrick.hpp
 - /library/datastructure/SlopeTrick.hpp.html
-title: SLope Trick
+title: Slope Trick
 ---
 ## 概要
 区分線形凸関数 $f(x)$ を傾きの変化点の集合を管理することで, 諸操作を効率的に行えるようにしたデータ構造.

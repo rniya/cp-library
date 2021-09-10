@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -95,25 +95,24 @@ data:
     \        return {pos[i].first, e.to, e.cap + re.cap, re.cap, e.cost};\n    }\n\
     \    vector<tuple<int, int, Cap, Cap, Cost>> edges() {\n        vector<tuple<int,\
     \ int, Cap, Cap, Cost>> res;\n        for (size_t i = 0; i < pos.size(); i++)\
-    \ {\n            res.emplace_back(get_edge(i));\n        }\n        return res;\n\
-    \    }\n    void dijkstra(int s) {\n        struct P {\n            Cost c;\n\
-    \            int v;\n            P(Cost c, int v) : c(c), v(v) {}\n          \
-    \  bool operator<(const P& rhs) const { return c > rhs.c; }\n        };\n    \
-    \    priority_queue<P> pq;\n        fill(dist.begin(), dist.end(), inf);\n   \
-    \     dist[s] = 0;\n        pq.emplace(dist[s], s);\n\n        while (!pq.empty())\
-    \ {\n            auto p = pq.top();\n            pq.pop();\n            int v\
-    \ = p.v;\n            if (dist[v] < p.c) continue;\n            for (size_t i\
-    \ = 0; i < G[v].size(); i++) {\n                auto& e = G[v][i];\n         \
-    \       if (e.cap > 0 && dist[e.to] > dist[v] + e.cost + h[v] - h[e.to]) {\n \
-    \                   dist[e.to] = dist[v] + e.cost + h[v] - h[e.to];\n        \
-    \            prevv[e.to] = v;\n                    preve[e.to] = i;\n        \
-    \            pq.emplace(dist[e.to], e.to);\n                }\n            }\n\
-    \        }\n    }\n    vector<pair<Cap, Cost>> slope(int s, int t, Cap lim) {\n\
-    \        Cap f = 0;\n        Cost c = 0, pre = -1;\n        vector<pair<Cap, Cost>>\
-    \ res;\n        res.emplace_back(f, c);\n\n        while (f < lim) {\n       \
-    \     dijkstra(s);\n            if (dist[t] == inf) break;\n            for (size_t\
-    \ v = 0; v < G.size(); v++) h[v] += dist[v];\n            Cap d = lim - f;\n \
-    \           for (int v = t; v != s; v = prevv[v]) d = min(d, G[prevv[v]][preve[v]].cap);\n\
+    \ res.emplace_back(get_edge(i));\n        return res;\n    }\n    void dijkstra(int\
+    \ s) {\n        struct P {\n            Cost c;\n            int v;\n        \
+    \    P(Cost c, int v) : c(c), v(v) {}\n            bool operator<(const P& rhs)\
+    \ const { return c > rhs.c; }\n        };\n        priority_queue<P> pq;\n   \
+    \     fill(dist.begin(), dist.end(), inf);\n        dist[s] = 0;\n        pq.emplace(dist[s],\
+    \ s);\n\n        while (!pq.empty()) {\n            auto p = pq.top();\n     \
+    \       pq.pop();\n            int v = p.v;\n            if (dist[v] < p.c) continue;\n\
+    \            for (size_t i = 0; i < G[v].size(); i++) {\n                auto&\
+    \ e = G[v][i];\n                if (e.cap > 0 && dist[e.to] > dist[v] + e.cost\
+    \ + h[v] - h[e.to]) {\n                    dist[e.to] = dist[v] + e.cost + h[v]\
+    \ - h[e.to];\n                    prevv[e.to] = v;\n                    preve[e.to]\
+    \ = i;\n                    pq.emplace(dist[e.to], e.to);\n                }\n\
+    \            }\n        }\n    }\n    vector<pair<Cap, Cost>> slope(int s, int\
+    \ t, Cap lim) {\n        Cap f = 0;\n        Cost c = 0, pre = -1;\n        vector<pair<Cap,\
+    \ Cost>> res;\n        res.emplace_back(f, c);\n\n        while (f < lim) {\n\
+    \            dijkstra(s);\n            if (dist[t] == inf) break;\n          \
+    \  for (size_t v = 0; v < G.size(); v++) h[v] += dist[v];\n            Cap d =\
+    \ lim - f;\n            for (int v = t; v != s; v = prevv[v]) d = min(d, G[prevv[v]][preve[v]].cap);\n\
     \            for (int v = t; v != s; v = prevv[v]) {\n                auto& e\
     \ = G[prevv[v]][preve[v]];\n                e.cap -= d;\n                G[v][e.rev].cap\
     \ += d;\n            }\n            f += d;\n            c += h[t] * d;\n    \
@@ -139,25 +138,25 @@ data:
     \        auto re = G[e.to][e.rev];\n        return {pos[i].first, e.to, e.cap\
     \ + re.cap, re.cap, e.cost};\n    }\n    vector<tuple<int, int, Cap, Cap, Cost>>\
     \ edges() {\n        vector<tuple<int, int, Cap, Cap, Cost>> res;\n        for\
-    \ (size_t i = 0; i < pos.size(); i++) {\n            res.emplace_back(get_edge(i));\n\
-    \        }\n        return res;\n    }\n    void dijkstra(int s) {\n        struct\
-    \ P {\n            Cost c;\n            int v;\n            P(Cost c, int v) :\
-    \ c(c), v(v) {}\n            bool operator<(const P& rhs) const { return c > rhs.c;\
-    \ }\n        };\n        priority_queue<P> pq;\n        fill(dist.begin(), dist.end(),\
-    \ inf);\n        dist[s] = 0;\n        pq.emplace(dist[s], s);\n\n        while\
-    \ (!pq.empty()) {\n            auto p = pq.top();\n            pq.pop();\n   \
-    \         int v = p.v;\n            if (dist[v] < p.c) continue;\n           \
-    \ for (size_t i = 0; i < G[v].size(); i++) {\n                auto& e = G[v][i];\n\
-    \                if (e.cap > 0 && dist[e.to] > dist[v] + e.cost + h[v] - h[e.to])\
-    \ {\n                    dist[e.to] = dist[v] + e.cost + h[v] - h[e.to];\n   \
-    \                 prevv[e.to] = v;\n                    preve[e.to] = i;\n   \
-    \                 pq.emplace(dist[e.to], e.to);\n                }\n         \
-    \   }\n        }\n    }\n    vector<pair<Cap, Cost>> slope(int s, int t, Cap lim)\
-    \ {\n        Cap f = 0;\n        Cost c = 0, pre = -1;\n        vector<pair<Cap,\
-    \ Cost>> res;\n        res.emplace_back(f, c);\n\n        while (f < lim) {\n\
-    \            dijkstra(s);\n            if (dist[t] == inf) break;\n          \
-    \  for (size_t v = 0; v < G.size(); v++) h[v] += dist[v];\n            Cap d =\
-    \ lim - f;\n            for (int v = t; v != s; v = prevv[v]) d = min(d, G[prevv[v]][preve[v]].cap);\n\
+    \ (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));\n       \
+    \ return res;\n    }\n    void dijkstra(int s) {\n        struct P {\n       \
+    \     Cost c;\n            int v;\n            P(Cost c, int v) : c(c), v(v) {}\n\
+    \            bool operator<(const P& rhs) const { return c > rhs.c; }\n      \
+    \  };\n        priority_queue<P> pq;\n        fill(dist.begin(), dist.end(), inf);\n\
+    \        dist[s] = 0;\n        pq.emplace(dist[s], s);\n\n        while (!pq.empty())\
+    \ {\n            auto p = pq.top();\n            pq.pop();\n            int v\
+    \ = p.v;\n            if (dist[v] < p.c) continue;\n            for (size_t i\
+    \ = 0; i < G[v].size(); i++) {\n                auto& e = G[v][i];\n         \
+    \       if (e.cap > 0 && dist[e.to] > dist[v] + e.cost + h[v] - h[e.to]) {\n \
+    \                   dist[e.to] = dist[v] + e.cost + h[v] - h[e.to];\n        \
+    \            prevv[e.to] = v;\n                    preve[e.to] = i;\n        \
+    \            pq.emplace(dist[e.to], e.to);\n                }\n            }\n\
+    \        }\n    }\n    vector<pair<Cap, Cost>> slope(int s, int t, Cap lim) {\n\
+    \        Cap f = 0;\n        Cost c = 0, pre = -1;\n        vector<pair<Cap, Cost>>\
+    \ res;\n        res.emplace_back(f, c);\n\n        while (f < lim) {\n       \
+    \     dijkstra(s);\n            if (dist[t] == inf) break;\n            for (size_t\
+    \ v = 0; v < G.size(); v++) h[v] += dist[v];\n            Cap d = lim - f;\n \
+    \           for (int v = t; v != s; v = prevv[v]) d = min(d, G[prevv[v]][preve[v]].cap);\n\
     \            for (int v = t; v != s; v = prevv[v]) {\n                auto& e\
     \ = G[prevv[v]][preve[v]];\n                e.cap -= d;\n                G[v][e.rev].cap\
     \ += d;\n            }\n            f += d;\n            c += h[t] * d;\n    \
@@ -173,7 +172,7 @@ data:
   isVerificationFile: false
   path: flow/PrimalDual.hpp
   requiredBy: []
-  timestamp: '2021-09-11 00:56:35+09:00'
+  timestamp: '2021-09-11 01:27:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1288.test.cpp

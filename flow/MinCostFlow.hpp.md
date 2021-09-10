@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -75,76 +75,78 @@ data:
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
     \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"flow/MinCostFlow.hpp\"\
     \n\n/**\n * @brief \u6700\u5C0F\u8CBB\u7528\u6D41\n * @docs docs/flow/MinCostFlow.md\n\
-    \ */\ntemplate <typename T, typename E> struct MinCostFlow {\n    const E inf\
-    \ = numeric_limits<E>::max();\n    struct edge {\n        int to, rev;\n     \
-    \   T cap;\n        E cost;\n        edge(int to, T cap, E cost, int rev) : to(to),\
-    \ cap(cap), cost(cost), rev(rev) {}\n    };\n    vector<vector<edge>> G;\n   \
-    \ vector<pair<int, int>> pos;\n    vector<E> dist;\n    vector<int> prevv, preve;\n\
-    \    MinCostFlow(int n) : G(n), dist(n), prevv(n), preve(n) {}\n    int add_edge(int\
-    \ from, int to, T cap, E cost) {\n        pos.emplace_back(from, G[from].size());\n\
-    \        G[from].emplace_back(to, cap, cost, G[to].size());\n        G[to].emplace_back(from,\
-    \ 0, -cost, G[from].size() - 1);\n        return pos.size() - 1;\n    }\n    tuple<int,\
-    \ int, T, T, E> get_edge(int i) {\n        auto e = G[pos[i].first][pos[i].second];\n\
+    \ */\ntemplate <typename Cap, typename Cost> struct MinCostFlow {\n    const Cost\
+    \ inf = numeric_limits<Cost>::max() / 2;\n    struct edge {\n        int to;\n\
+    \        Cap cap;\n        Cost cost;\n        int rev;\n        edge(int to,\
+    \ Cap cap, Cost cost, int rev) : to(to), cap(cap), cost(cost), rev(rev) {}\n \
+    \   };\n    vector<vector<edge>> G;\n    vector<pair<int, int>> pos;\n    vector<Cost>\
+    \ dist;\n    vector<int> prevv, preve;\n    MinCostFlow(int n) : G(n), dist(n),\
+    \ prevv(n), preve(n) {}\n    int add_edge(int from, int to, Cap cap, Cost cost)\
+    \ {\n        pos.emplace_back(from, G[from].size());\n        G[from].emplace_back(to,\
+    \ cap, cost, G[to].size());\n        G[to].emplace_back(from, 0, -cost, G[from].size()\
+    \ - 1);\n        return pos.size() - 1;\n    }\n    tuple<int, int, Cap, Cap,\
+    \ Cost> get_edge(int i) {\n        auto e = G[pos[i].first][pos[i].second];\n\
     \        auto re = G[e.to][e.rev];\n        return {pos[i].first, e.to, e.cap\
-    \ + re.cap, re.cap, e.cost};\n    }\n    vector<tuple<int, int, T, T, E>> edges()\
-    \ {\n        vector<tuple<int, int, T, T, E>> res;\n        for (int i = 0; i\
-    \ < (int)pos.size(); i++) {\n            res.emplace_back(get_edge(i));\n    \
-    \    }\n        return res;\n    }\n    E min_cost_flow(int s, int t, T f) {\n\
-    \        E res = 0;\n        while (f > 0) {\n            fill(dist.begin(), dist.end(),\
+    \ + re.cap, re.cap, e.cost};\n    }\n    vector<tuple<int, int, Cap, Cap, Cost>>\
+    \ edges() {\n        vector<tuple<int, int, Cap, Cap, Cost>> res;\n        for\
+    \ (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));\n       \
+    \ return res;\n    }\n    Cost min_cost_flow(int s, int t, Cap f) {\n        Cost\
+    \ res = 0;\n        while (f > 0) {\n            fill(dist.begin(), dist.end(),\
     \ inf);\n            dist[s] = 0;\n            bool update = true;\n         \
-    \   while (update) {\n                update = false;\n                for (int\
-    \ v = 0; v < (int)G.size(); v++) {\n                    if (dist[v] == inf) continue;\n\
-    \                    for (int i = 0; i < (int)G[v].size(); i++) {\n          \
-    \              edge& e = G[v][i];\n                        if (e.cap > 0 && dist[e.to]\
+    \   while (update) {\n                update = false;\n                for (size_t\
+    \ v = 0; v < G.size(); v++) {\n                    if (dist[v] == inf) continue;\n\
+    \                    for (size_t i = 0; i < G[v].size(); i++) {\n            \
+    \            edge& e = G[v][i];\n                        if (e.cap > 0 && dist[e.to]\
     \ > dist[v] + e.cost) {\n                            dist[e.to] = dist[v] + e.cost;\n\
     \                            prevv[e.to] = v;\n                            preve[e.to]\
     \ = i;\n                            update = true;\n                        }\n\
     \                    }\n                }\n            }\n            if (dist[t]\
-    \ == inf) return -1;\n            T d = f;\n            for (int v = t; v != s;\
-    \ v = prevv[v]) {\n                d = min(d, G[prevv[v]][preve[v]].cap);\n  \
-    \          }\n            f -= d;\n            res += dist[t] * d;\n         \
-    \   for (int v = t; v != s; v = prevv[v]) {\n                edge& e = G[prevv[v]][preve[v]];\n\
-    \                e.cap -= d;\n                G[v][e.rev].cap += d;\n        \
-    \    }\n        }\n        return res;\n    }\n};\n"
+    \ == inf) return -1;\n            Cap d = f;\n            for (int v = t; v !=\
+    \ s; v = prevv[v]) d = min(d, G[prevv[v]][preve[v]].cap);\n            f -= d;\n\
+    \            res += dist[t] * d;\n            for (int v = t; v != s; v = prevv[v])\
+    \ {\n                edge& e = G[prevv[v]][preve[v]];\n                e.cap -=\
+    \ d;\n                G[v][e.rev].cap += d;\n            }\n        }\n      \
+    \  return res;\n    }\n};\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u6700\u5C0F\u8CBB\
-    \u7528\u6D41\n * @docs docs/flow/MinCostFlow.md\n */\ntemplate <typename T, typename\
-    \ E> struct MinCostFlow {\n    const E inf = numeric_limits<E>::max();\n    struct\
-    \ edge {\n        int to, rev;\n        T cap;\n        E cost;\n        edge(int\
-    \ to, T cap, E cost, int rev) : to(to), cap(cap), cost(cost), rev(rev) {}\n  \
-    \  };\n    vector<vector<edge>> G;\n    vector<pair<int, int>> pos;\n    vector<E>\
-    \ dist;\n    vector<int> prevv, preve;\n    MinCostFlow(int n) : G(n), dist(n),\
-    \ prevv(n), preve(n) {}\n    int add_edge(int from, int to, T cap, E cost) {\n\
-    \        pos.emplace_back(from, G[from].size());\n        G[from].emplace_back(to,\
-    \ cap, cost, G[to].size());\n        G[to].emplace_back(from, 0, -cost, G[from].size()\
-    \ - 1);\n        return pos.size() - 1;\n    }\n    tuple<int, int, T, T, E> get_edge(int\
-    \ i) {\n        auto e = G[pos[i].first][pos[i].second];\n        auto re = G[e.to][e.rev];\n\
+    \u7528\u6D41\n * @docs docs/flow/MinCostFlow.md\n */\ntemplate <typename Cap,\
+    \ typename Cost> struct MinCostFlow {\n    const Cost inf = numeric_limits<Cost>::max()\
+    \ / 2;\n    struct edge {\n        int to;\n        Cap cap;\n        Cost cost;\n\
+    \        int rev;\n        edge(int to, Cap cap, Cost cost, int rev) : to(to),\
+    \ cap(cap), cost(cost), rev(rev) {}\n    };\n    vector<vector<edge>> G;\n   \
+    \ vector<pair<int, int>> pos;\n    vector<Cost> dist;\n    vector<int> prevv,\
+    \ preve;\n    MinCostFlow(int n) : G(n), dist(n), prevv(n), preve(n) {}\n    int\
+    \ add_edge(int from, int to, Cap cap, Cost cost) {\n        pos.emplace_back(from,\
+    \ G[from].size());\n        G[from].emplace_back(to, cap, cost, G[to].size());\n\
+    \        G[to].emplace_back(from, 0, -cost, G[from].size() - 1);\n        return\
+    \ pos.size() - 1;\n    }\n    tuple<int, int, Cap, Cap, Cost> get_edge(int i)\
+    \ {\n        auto e = G[pos[i].first][pos[i].second];\n        auto re = G[e.to][e.rev];\n\
     \        return {pos[i].first, e.to, e.cap + re.cap, re.cap, e.cost};\n    }\n\
-    \    vector<tuple<int, int, T, T, E>> edges() {\n        vector<tuple<int, int,\
-    \ T, T, E>> res;\n        for (int i = 0; i < (int)pos.size(); i++) {\n      \
-    \      res.emplace_back(get_edge(i));\n        }\n        return res;\n    }\n\
-    \    E min_cost_flow(int s, int t, T f) {\n        E res = 0;\n        while (f\
-    \ > 0) {\n            fill(dist.begin(), dist.end(), inf);\n            dist[s]\
-    \ = 0;\n            bool update = true;\n            while (update) {\n      \
-    \          update = false;\n                for (int v = 0; v < (int)G.size();\
-    \ v++) {\n                    if (dist[v] == inf) continue;\n                \
-    \    for (int i = 0; i < (int)G[v].size(); i++) {\n                        edge&\
-    \ e = G[v][i];\n                        if (e.cap > 0 && dist[e.to] > dist[v]\
-    \ + e.cost) {\n                            dist[e.to] = dist[v] + e.cost;\n  \
-    \                          prevv[e.to] = v;\n                            preve[e.to]\
-    \ = i;\n                            update = true;\n                        }\n\
-    \                    }\n                }\n            }\n            if (dist[t]\
-    \ == inf) return -1;\n            T d = f;\n            for (int v = t; v != s;\
-    \ v = prevv[v]) {\n                d = min(d, G[prevv[v]][preve[v]].cap);\n  \
-    \          }\n            f -= d;\n            res += dist[t] * d;\n         \
-    \   for (int v = t; v != s; v = prevv[v]) {\n                edge& e = G[prevv[v]][preve[v]];\n\
-    \                e.cap -= d;\n                G[v][e.rev].cap += d;\n        \
-    \    }\n        }\n        return res;\n    }\n};"
+    \    vector<tuple<int, int, Cap, Cap, Cost>> edges() {\n        vector<tuple<int,\
+    \ int, Cap, Cap, Cost>> res;\n        for (size_t i = 0; i < pos.size(); i++)\
+    \ res.emplace_back(get_edge(i));\n        return res;\n    }\n    Cost min_cost_flow(int\
+    \ s, int t, Cap f) {\n        Cost res = 0;\n        while (f > 0) {\n       \
+    \     fill(dist.begin(), dist.end(), inf);\n            dist[s] = 0;\n       \
+    \     bool update = true;\n            while (update) {\n                update\
+    \ = false;\n                for (size_t v = 0; v < G.size(); v++) {\n        \
+    \            if (dist[v] == inf) continue;\n                    for (size_t i\
+    \ = 0; i < G[v].size(); i++) {\n                        edge& e = G[v][i];\n \
+    \                       if (e.cap > 0 && dist[e.to] > dist[v] + e.cost) {\n  \
+    \                          dist[e.to] = dist[v] + e.cost;\n                  \
+    \          prevv[e.to] = v;\n                            preve[e.to] = i;\n  \
+    \                          update = true;\n                        }\n       \
+    \             }\n                }\n            }\n            if (dist[t] ==\
+    \ inf) return -1;\n            Cap d = f;\n            for (int v = t; v != s;\
+    \ v = prevv[v]) d = min(d, G[prevv[v]][preve[v]].cap);\n            f -= d;\n\
+    \            res += dist[t] * d;\n            for (int v = t; v != s; v = prevv[v])\
+    \ {\n                edge& e = G[prevv[v]][preve[v]];\n                e.cap -=\
+    \ d;\n                G[v][e.rev].cap += d;\n            }\n        }\n      \
+    \  return res;\n    }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: flow/MinCostFlow.hpp
   requiredBy: []
-  timestamp: '2021-09-11 00:56:35+09:00'
+  timestamp: '2021-09-11 01:27:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_6_B.test.cpp

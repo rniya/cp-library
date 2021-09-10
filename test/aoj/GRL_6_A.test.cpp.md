@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -77,33 +77,34 @@ data:
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
     \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"flow/FordFulkerson.hpp\"\
     \n\n/**\n * @brief Ford Fulkerson\n * @docs docs/flow/FordFulkerson.md\n */\n\
-    template <typename T, bool directed> struct FordFulkerson {\n    struct edge {\n\
-    \        int to, rev;\n        T cap;\n        edge(int to, T cap, int rev) :\
-    \ to(to), cap(cap), rev(rev) {}\n    };\n    vector<vector<edge>> G;\n    vector<pair<int,\
-    \ int>> pos;\n    vector<int> used;\n    FordFulkerson(int n) : G(n), used(n)\
-    \ {}\n    int add_edge(int from, int to, T cap) {\n        pos.emplace_back(from,\
-    \ G[from].size());\n        G[from].emplace_back(to, cap, G[to].size());\n   \
-    \     G[to].emplace_back(from, directed ? 0 : cap, G[from].size() - 1);\n    \
-    \    return pos.size() - 1;\n    }\n    tuple<int, int, T, T> get_edge(int i)\
-    \ {\n        auto e = G[pos[i].first][pos[i].second];\n        auto re = G[e.to][e.rev];\n\
-    \        return {pos[i].first, e.to, e.cap + re.cap, re.cap};\n    }\n    vector<tuple<int,\
-    \ int, T, T>> edges() {\n        vector<tuple<int, int, T, T>> res;\n        for\
-    \ (int i = 0; i < (int)pos.size(); i++) {\n            res.emplace_back(get_edge(i));\n\
-    \        }\n        return res;\n    }\n    T dfs(int v, int t, T f) {\n     \
-    \   if (v == t) return f;\n        used[v] = true;\n        for (auto& e : G[v])\
-    \ {\n            if (!used[e.to] && e.cap > 0) {\n                T d = dfs(e.to,\
+    template <typename Cap, bool directed> struct FordFulkerson {\n    struct edge\
+    \ {\n        int to;\n        Cap cap;\n        int rev;\n        edge(int to,\
+    \ Cap cap, int rev) : to(to), cap(cap), rev(rev) {}\n    };\n    vector<vector<edge>>\
+    \ G;\n    vector<pair<int, int>> pos;\n    vector<int> used;\n    FordFulkerson(int\
+    \ n) : G(n), used(n) {}\n    int add_edge(int from, int to, Cap cap) {\n     \
+    \   pos.emplace_back(from, G[from].size());\n        G[from].emplace_back(to,\
+    \ cap, G[to].size());\n        G[to].emplace_back(from, directed ? 0 : cap, G[from].size()\
+    \ - 1);\n        return pos.size() - 1;\n    }\n    tuple<int, int, Cap, Cap>\
+    \ get_edge(int i) {\n        auto e = G[pos[i].first][pos[i].second];\n      \
+    \  auto re = G[e.to][e.rev];\n        return {pos[i].first, e.to, e.cap + re.cap,\
+    \ re.cap};\n    }\n    vector<tuple<int, int, Cap, Cap>> edges() {\n        vector<tuple<int,\
+    \ int, Cap, Cap>> res;\n        for (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));\n\
+    \        return res;\n    }\n    Cap dfs(int v, int t, Cap f) {\n        if (v\
+    \ == t) return f;\n        used[v] = true;\n        for (auto& e : G[v]) {\n \
+    \           if (!used[e.to] && e.cap > 0) {\n                Cap d = dfs(e.to,\
     \ t, min(f, e.cap));\n                if (d <= 0) continue;\n                e.cap\
     \ -= d;\n                G[e.to][e.rev].cap += d;\n                return d;\n\
-    \            }\n        }\n        return 0;\n    }\n    T max_flow(int s, int\
-    \ t, T lim) {\n        T flow = 0;\n        while (lim > 0) {\n            fill(used.begin(),\
-    \ used.end(), 0);\n            T f = dfs(s, t, lim);\n            if (f == 0)\
-    \ break;\n            flow += f;\n            lim -= f;\n        }\n        return\
-    \ flow;\n    }\n    T max_flow(int s, int t) { return max_flow(s, t, numeric_limits<T>::max());\
-    \ }\n};\n#line 5 \"test/aoj/GRL_6_A.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int V, E;\n    cin >> V >> E;\n\n    FordFulkerson<int,\
-    \ true> FF(V);\n\n    for (int i = 0; i < E; i++) {\n        int u, v, c;\n  \
-    \      cin >> u >> v >> c;\n        FF.add_edge(u, v, c);\n    }\n\n    cout <<\
-    \ FF.max_flow(0, V - 1) << '\\n';\n}\n"
+    \            }\n        }\n        return 0;\n    }\n    Cap max_flow(int s, int\
+    \ t, Cap lim) {\n        Cap flow = 0;\n        while (lim > 0) {\n          \
+    \  fill(used.begin(), used.end(), 0);\n            Cap f = dfs(s, t, lim);\n \
+    \           if (f == 0) break;\n            flow += f;\n            lim -= f;\n\
+    \        }\n        return flow;\n    }\n    Cap max_flow(int s, int t) { return\
+    \ max_flow(s, t, numeric_limits<Cap>::max()); }\n};\n#line 5 \"test/aoj/GRL_6_A.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
+    \ E;\n    cin >> V >> E;\n\n    FordFulkerson<int, true> FF(V);\n\n    for (int\
+    \ i = 0; i < E; i++) {\n        int u, v, c;\n        cin >> u >> v >> c;\n  \
+    \      FF.add_edge(u, v, c);\n    }\n\n    cout << FF.max_flow(0, V - 1) << '\\\
+    n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../flow/FordFulkerson.hpp\"\n\n\
     int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n\
@@ -117,7 +118,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_6_A.test.cpp
   requiredBy: []
-  timestamp: '2021-09-11 00:56:35+09:00'
+  timestamp: '2021-09-11 01:27:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_A.test.cpp
