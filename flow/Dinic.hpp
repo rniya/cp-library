@@ -63,7 +63,7 @@ template <typename Cap, bool directed> struct Dinic {
     }
     Cap dfs(int v, int t, Cap f) {
         if (v == t) return f;
-        for (size_t& i = iter[v]; i < G[v].size(); i++) {
+        for (int& i = iter[v]; i < (int)G[v].size(); i++) {
             auto& e = G[v][i];
             if (e.cap > 0 && level[v] < level[e.to]) {
                 Cap d = dfs(e.to, t, min(f, e.cap));
