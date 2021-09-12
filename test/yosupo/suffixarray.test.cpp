@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/suffixarray"
 
-#include "../../base.hpp"
 #include "../../string/SuffixArray.hpp"
+#include "../../base.hpp"
 
 int main() {
     cin.tie(0);
@@ -9,7 +9,6 @@ int main() {
     string S;
     cin >> S;
 
-    SuffixArray SA(S);
-
-    for (int i = 0; i < S.size(); i++) cout << SA[i + 1] << (i + 1 == S.size() ? '\n' : ' ');
+    auto ans = SuffixArray::suffix_array(S);
+    for (size_t i = 0; i < ans.size(); i++) cout << ans[i] << (i + 1 == ans.size() ? '\n' : ' ');
 }
