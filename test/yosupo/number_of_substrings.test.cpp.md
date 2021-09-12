@@ -5,11 +5,8 @@ data:
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
-    path: string/LongestCommonPrefixArray.hpp
-    title: Longest Common Prefix Array
-  - icon: ':heavy_check_mark:'
     path: string/SuffixArray.hpp
-    title: Suffix Array
+    title: Suffix Array + Longest Common Prefix Array
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -80,72 +77,81 @@ data:
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
     \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"string/SuffixArray.hpp\"\
-    \n\n/**\n * @brief Suffix Array\n * @docs docs/string/SuffixArray.md\n */\nstruct\
-    \ SuffixArray {\n    string s;\n    vector<int> SA;\n    SuffixArray(const string&\
-    \ S) : s(S) {\n        int n = s.size();\n        s.push_back('$');\n        SA.resize(n\
-    \ + 1);\n        iota(SA.begin(), SA.end(), 0);\n        sort(SA.begin(), SA.end(),\
-    \ [&](int a, int b) { return s[a] == s[b] ? a > b : s[a] < s[b]; });\n       \
-    \ vector<int> c(s.begin(), s.end()), cnt(n + 1), nxt(n + 1);\n        for (int\
-    \ j = 1; j <= n; j <<= 1) {\n            for (int i = 0; i <= n; i++) {\n    \
-    \            nxt[SA[i]] =\n                    ((i && c[SA[i - 1]] == c[SA[i]]\
-    \ && SA[i - 1] + j < n && c[SA[i - 1] + j / 2] == c[SA[i] + j / 2])\n        \
-    \                 ? nxt[SA[i - 1]]\n                         : i);\n         \
-    \   }\n            iota(cnt.begin(), cnt.end(), 0);\n            copy(SA.begin(),\
-    \ SA.end(), c.begin());\n            for (int i = 0; i <= n; i++) {\n        \
-    \        if (c[i] - j >= 0) {\n                    SA[cnt[nxt[c[i] - j]]++] =\
-    \ c[i] - j;\n                }\n            }\n            nxt.swap(c);\n    \
-    \    }\n    }\n    bool comp(const string& t, int si = 0, int ti = 0) {\n    \
-    \    int sn = s.size(), tn = t.size();\n        for (; si < sn && ti < tn; si++,\
-    \ ti++) {\n            if (s[si] < t[ti]) return true;\n            if (s[si]\
-    \ > t[ti]) return false;\n        }\n        return si >= sn && ti < tn;\n   \
-    \ }\n    int lower_bound(const string& t) {\n        int lb = -1, ub = SA.size();\n\
-    \        while (ub - lb > 1) {\n            int mid = (ub + lb) >> 1;\n      \
-    \      (comp(t, SA[mid]) ? lb : ub) = mid;\n        }\n        return ub;\n  \
-    \  }\n    pair<int, int> lower_upper_bound(string& t) {\n        int l = lower_bound(t);\n\
-    \        int lb = l - 1, ub = SA.size();\n        t.back()++;\n        while (ub\
-    \ - lb > 1) {\n            int mid = (ub + lb) >> 1;\n            (comp(t, SA[mid])\
-    \ ? lb : ub) = mid;\n        }\n        t.back()--;\n        return {l, ub};\n\
-    \    }\n    int count(string& t) {\n        pair<int, int> p = lower_upper_bound(t);\n\
-    \        return p.second - p.first;\n    }\n    int operator[](int i) const {\
-    \ return SA[i]; }\n    int size() const { return s.size(); }\n};\n#line 4 \"string/LongestCommonPrefixArray.hpp\"\
-    \n\n/**\n * @brief Longest Common Prefix Array\n * @docs docs/string/LongestCommonPrefixArray.md\n\
-    \ */\nstruct LongestCommonPrefixArray {\n    SuffixArray SA;\n    vector<int>\
-    \ LCP, rank, lookup;\n    vector<vector<int>> dat;\n    LongestCommonPrefixArray(const\
-    \ string& s) : SA(s) {\n        int n = s.size();\n        LCP.resize(n);\n  \
-    \      rank.resize(n + 1);\n        for (int i = 0; i <= n; i++) rank[SA[i]] =\
-    \ i;\n        LCP[0] = 0;\n        for (int i = 0, t = 0; i < n; i++) {\n    \
-    \        if (t) --t;\n            for (int j = SA[rank[i] - 1]; max(i, j) + t\
-    \ < n && s[i + t] == s[j + t]; t++)\n                ;\n            LCP[rank[i]\
-    \ - 1] = t;\n        }\n        int h = 1;\n        while ((1 << h) <= n) h++;\n\
-    \        dat.assign(h, vector<int>(n));\n        lookup.assign(n + 1, 0);\n  \
-    \      for (int i = 2; i <= n; i++) lookup[i] = lookup[i >> 1] + 1;\n        for\
-    \ (int j = 0; j < n; j++) dat[0][j] = LCP[j];\n        for (int i = 1, mask =\
-    \ 1; i < h; i++, mask <<= 1) {\n            for (int j = 0; j < n; j++) {\n  \
-    \              dat[i][j] = min(dat[i - 1][j], dat[i - 1][min(j + mask, n - 1)]);\n\
-    \            }\n        }\n    }\n    int query(int a, int b) {\n        if (a\
-    \ > b) swap(a, b);\n        int d = lookup[b - a];\n        return min(dat[d][a],\
-    \ dat[d][b - (1 << d)]);\n    }\n    // longest common prefix of s[a...] and s[b...]\n\
-    \    int lcp(int a, int b) { return query(rank[a], rank[b]); }\n    int operator[](int\
-    \ i) const { return LCP[i]; }\n    int size() const { return LCP.size(); }\n};\n\
-    #line 5 \"test/yosupo/number_of_substrings.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    string S;\n    cin >> S;\n    int N = S.size();\n\
-    \n    LongestCommonPrefixArray LCP(S);\n\n    long long ans = 0;\n    for (int\
-    \ i = 0; i < N; i++) {\n        ans += N - LCP.SA[i + 1] - LCP[i];\n    }\n\n\
-    \    cout << ans << '\\n';\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/number_of_substrings\"\n\
-    \n#include \"../../base.hpp\"\n#include \"../../string/LongestCommonPrefixArray.hpp\"\
+    \n\n/**\n * @brief Suffix Array + Longest Common Prefix Array\n * @docs docs/string/SuffixArray.md\n\
+    \ */\nnamespace SuffixArray {\nvector<int> sa_is(const vector<int>& s, int upper)\
+    \ {\n    int n = s.size();\n    if (n == 0) return {};\n    if (n == 1) return\
+    \ {0};\n    if (n == 2) return {s[0] < s[1] ? vector<int>{0, 1} : vector<int>{1,\
+    \ 0}};\n\n    vector<int> sa(n), lms, lms_map(n, -1), sum_l(upper + 1, 0), sum_s(upper\
+    \ + 1, 0);\n    vector<bool> is_s(n, false);\n    int m = 0;\n    for (int i =\
+    \ n - 2; i >= 0; i--) is_s[i] = (s[i] == s[i + 1] ? is_s[i + 1] : (s[i] < s[i\
+    \ + 1]));\n    for (int i = 0; i < n; i++) {\n        if (!is_s[i])\n        \
+    \    sum_s[s[i]]++;\n        else {\n            sum_l[s[i] + 1]++;\n        \
+    \    if (!i || !is_s[i - 1]) {\n                lms_map[i] = m++;\n          \
+    \      lms.emplace_back(i);\n            }\n        }\n    }\n    for (int i =\
+    \ 0; i <= upper; i++) {\n        sum_s[i] += sum_l[i];\n        if (i < upper)\
+    \ sum_l[i + 1] += sum_s[i];\n    }\n\n    auto induced_sort = [&](const vector<int>&\
+    \ lms) {\n        fill(sa.begin(), sa.end(), -1);\n        vector<int> buf(upper\
+    \ + 1);\n        copy(sum_s.begin(), sum_s.end(), buf.begin());\n        for (int\
+    \ idx : lms) sa[buf[s[idx]]++] = idx;\n\n        copy(sum_l.begin(), sum_l.end(),\
+    \ buf.begin());\n        sa[buf[s[n - 1]]++] = n - 1;\n        for (int i = 0;\
+    \ i < n; i++) {\n            if (sa[i] < 1 || is_s[sa[i] - 1]) continue;\n   \
+    \         int c = s[sa[i] - 1];\n            sa[buf[c]++] = sa[i] - 1;\n     \
+    \   }\n\n        copy(sum_l.begin(), sum_l.end(), buf.begin());\n        for (int\
+    \ i = n - 1; i >= 0; i--) {\n            if (sa[i] < 1 || !is_s[sa[i] - 1]) continue;\n\
+    \            int c = s[sa[i] - 1];\n            sa[--buf[c + 1]] = sa[i] - 1;\n\
+    \        }\n    };\n\n    induced_sort(lms);\n    if (m) {\n        vector<int>\
+    \ sorted_lms;\n        for (int& idx : sa) {\n            if (~lms_map[idx]) {\n\
+    \                sorted_lms.emplace_back(idx);\n            }\n        }\n   \
+    \     vector<int> rec_s(m);\n        int rec_upper = 0;\n        rec_s[lms_map[sorted_lms[0]]]\
+    \ = rec_upper;\n\n        for (int i = 1; i < m; i++) {\n            int l = sorted_lms[i\
+    \ - 1], r = sorted_lms[i];\n            int end_l = (lms_map[l] + 1 < m ? lms[lms_map[l]\
+    \ + 1] : n);\n            int end_r = (lms_map[r] + 1 < m ? lms[lms_map[r] + 1]\
+    \ : n);\n            bool same = true;\n            if (end_l - l != end_r - r)\n\
+    \                same = false;\n            else {\n                for (; l <\
+    \ end_l; l++, r++) {\n                    if (s[l] != s[r]) {\n              \
+    \          break;\n                    }\n                }\n                if\
+    \ (l == n || s[l] != s[r]) same = false;\n            }\n            rec_s[lms_map[sorted_lms[i]]]\
+    \ = (same ? rec_upper : ++rec_upper);\n        }\n\n        if (rec_upper + 1\
+    \ != m) {\n            auto rec_sa = sa_is(rec_s, rec_upper);\n            for\
+    \ (int i = 0; i < m; i++) sorted_lms[i] = lms[rec_sa[i]];\n        }\n       \
+    \ induced_sort(sorted_lms);\n    }\n\n    return sa;\n}\n\nvector<int> suffix_array(const\
+    \ vector<int>& s, int upper) {\n    for (int x : s) assert(0 <= x && x <= upper);\n\
+    \    return sa_is(s, upper);\n}\ntemplate <class T> vector<int> suffix_array(const\
+    \ vector<T>& s) {\n    int n = s.size();\n    vector<int> idx(n);\n    iota(idx.begin(),\
+    \ idx.end(), 0);\n    sort(idx.begin(), idx.end(), [&](int x, int y) { return\
+    \ s[x] < s[y]; });\n    vector<int> ns(n);\n    int cur = 0;\n    for (int i =\
+    \ 0; i < n; i++) {\n        if (i && s[idx[i - 1]] != s[idx[i]]) cur++;\n    \
+    \    ns[idx[i]] = cur;\n    }\n    return sa_is(s, cur);\n}\nvector<int> suffix_array(const\
+    \ string& s) {\n    vector<int> ns;\n    for (char c : s) ns.emplace_back(c);\n\
+    \    return sa_is(ns, 255);\n}\n\ntemplate <class T> vector<int> lcp_array(const\
+    \ vector<T>& s, const vector<int>& sa) {\n    int n = s.size();\n    vector<int>\
+    \ rank(n);\n    for (int i = 0; i < n; i++) rank[sa[i]] = i;\n    vector<int>\
+    \ lcp(n - 1);\n    for (int i = 0, h = 0; i < n; i++) {\n        if (h > 0) h--;\n\
+    \        if (rank[i] == 0) continue;\n        int j = sa[rank[i] - 1];\n     \
+    \   for (; j + h < n && i + h < n; h++) {\n            if (s[j + h] != s[i + h])\
+    \ {\n                break;\n            }\n        }\n        lcp[rank[i] - 1]\
+    \ = h;\n    }\n    return lcp;\n}\n\nvector<int> lcp_array(const string& s, const\
+    \ vector<int>& sa) {\n    vector<int> ns;\n    for (char c : s) ns.emplace_back(c);\n\
+    \    return lcp_array(ns, sa);\n}\n}  // namespace SuffixArray\n#line 5 \"test/yosupo/number_of_substrings.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
-    \ S;\n    cin >> S;\n    int N = S.size();\n\n    LongestCommonPrefixArray LCP(S);\n\
-    \n    long long ans = 0;\n    for (int i = 0; i < N; i++) {\n        ans += N\
-    \ - LCP.SA[i + 1] - LCP[i];\n    }\n\n    cout << ans << '\\n';\n}"
+    \ S;\n    cin >> S;\n\n    int N = S.size();\n    auto sa = SuffixArray::suffix_array(S);\n\
+    \    auto lcp = SuffixArray::lcp_array(S, sa);\n    long long ans = 0;\n    for\
+    \ (int i = 0; i < N; i++) {\n        ans += N - sa[i];\n        if (i < N - 1)\
+    \ ans -= lcp[i];\n    }\n\n    cout << ans << '\\n';\n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/number_of_substrings\"\n\
+    \n#include \"../../base.hpp\"\n#include \"../../string/SuffixArray.hpp\"\n\nint\
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S;\n\
+    \    cin >> S;\n\n    int N = S.size();\n    auto sa = SuffixArray::suffix_array(S);\n\
+    \    auto lcp = SuffixArray::lcp_array(S, sa);\n    long long ans = 0;\n    for\
+    \ (int i = 0; i < N; i++) {\n        ans += N - sa[i];\n        if (i < N - 1)\
+    \ ans -= lcp[i];\n    }\n\n    cout << ans << '\\n';\n    return 0;\n}"
   dependsOn:
   - base.hpp
-  - string/LongestCommonPrefixArray.hpp
   - string/SuffixArray.hpp
   isVerificationFile: true
   path: test/yosupo/number_of_substrings.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-09-12 18:03:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/number_of_substrings.test.cpp

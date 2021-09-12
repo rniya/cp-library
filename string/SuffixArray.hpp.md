@@ -4,14 +4,8 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: string/LongestCommonPrefixArray.hpp
-    title: Longest Common Prefix Array
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/ALDS1_14_D.test.cpp
-    title: test/aoj/ALDS1_14_D.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/number_of_substrings.test.cpp
     title: test/yosupo/number_of_substrings.test.cpp
@@ -23,7 +17,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/string/SuffixArray.md
-    document_title: Suffix Array
+    document_title: Suffix Array + Longest Common Prefix Array
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
     #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
@@ -83,106 +77,159 @@ data:
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
     \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"string/SuffixArray.hpp\"\
-    \n\n/**\n * @brief Suffix Array\n * @docs docs/string/SuffixArray.md\n */\nstruct\
-    \ SuffixArray {\n    string s;\n    vector<int> SA;\n    SuffixArray(const string&\
-    \ S) : s(S) {\n        int n = s.size();\n        s.push_back('$');\n        SA.resize(n\
-    \ + 1);\n        iota(SA.begin(), SA.end(), 0);\n        sort(SA.begin(), SA.end(),\
-    \ [&](int a, int b) { return s[a] == s[b] ? a > b : s[a] < s[b]; });\n       \
-    \ vector<int> c(s.begin(), s.end()), cnt(n + 1), nxt(n + 1);\n        for (int\
-    \ j = 1; j <= n; j <<= 1) {\n            for (int i = 0; i <= n; i++) {\n    \
-    \            nxt[SA[i]] =\n                    ((i && c[SA[i - 1]] == c[SA[i]]\
-    \ && SA[i - 1] + j < n && c[SA[i - 1] + j / 2] == c[SA[i] + j / 2])\n        \
-    \                 ? nxt[SA[i - 1]]\n                         : i);\n         \
-    \   }\n            iota(cnt.begin(), cnt.end(), 0);\n            copy(SA.begin(),\
-    \ SA.end(), c.begin());\n            for (int i = 0; i <= n; i++) {\n        \
-    \        if (c[i] - j >= 0) {\n                    SA[cnt[nxt[c[i] - j]]++] =\
-    \ c[i] - j;\n                }\n            }\n            nxt.swap(c);\n    \
-    \    }\n    }\n    bool comp(const string& t, int si = 0, int ti = 0) {\n    \
-    \    int sn = s.size(), tn = t.size();\n        for (; si < sn && ti < tn; si++,\
-    \ ti++) {\n            if (s[si] < t[ti]) return true;\n            if (s[si]\
-    \ > t[ti]) return false;\n        }\n        return si >= sn && ti < tn;\n   \
-    \ }\n    int lower_bound(const string& t) {\n        int lb = -1, ub = SA.size();\n\
-    \        while (ub - lb > 1) {\n            int mid = (ub + lb) >> 1;\n      \
-    \      (comp(t, SA[mid]) ? lb : ub) = mid;\n        }\n        return ub;\n  \
-    \  }\n    pair<int, int> lower_upper_bound(string& t) {\n        int l = lower_bound(t);\n\
-    \        int lb = l - 1, ub = SA.size();\n        t.back()++;\n        while (ub\
-    \ - lb > 1) {\n            int mid = (ub + lb) >> 1;\n            (comp(t, SA[mid])\
-    \ ? lb : ub) = mid;\n        }\n        t.back()--;\n        return {l, ub};\n\
-    \    }\n    int count(string& t) {\n        pair<int, int> p = lower_upper_bound(t);\n\
-    \        return p.second - p.first;\n    }\n    int operator[](int i) const {\
-    \ return SA[i]; }\n    int size() const { return s.size(); }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Suffix Array\n *\
-    \ @docs docs/string/SuffixArray.md\n */\nstruct SuffixArray {\n    string s;\n\
-    \    vector<int> SA;\n    SuffixArray(const string& S) : s(S) {\n        int n\
-    \ = s.size();\n        s.push_back('$');\n        SA.resize(n + 1);\n        iota(SA.begin(),\
-    \ SA.end(), 0);\n        sort(SA.begin(), SA.end(), [&](int a, int b) { return\
-    \ s[a] == s[b] ? a > b : s[a] < s[b]; });\n        vector<int> c(s.begin(), s.end()),\
-    \ cnt(n + 1), nxt(n + 1);\n        for (int j = 1; j <= n; j <<= 1) {\n      \
-    \      for (int i = 0; i <= n; i++) {\n                nxt[SA[i]] =\n        \
-    \            ((i && c[SA[i - 1]] == c[SA[i]] && SA[i - 1] + j < n && c[SA[i -\
-    \ 1] + j / 2] == c[SA[i] + j / 2])\n                         ? nxt[SA[i - 1]]\n\
-    \                         : i);\n            }\n            iota(cnt.begin(),\
-    \ cnt.end(), 0);\n            copy(SA.begin(), SA.end(), c.begin());\n       \
-    \     for (int i = 0; i <= n; i++) {\n                if (c[i] - j >= 0) {\n \
-    \                   SA[cnt[nxt[c[i] - j]]++] = c[i] - j;\n                }\n\
-    \            }\n            nxt.swap(c);\n        }\n    }\n    bool comp(const\
-    \ string& t, int si = 0, int ti = 0) {\n        int sn = s.size(), tn = t.size();\n\
-    \        for (; si < sn && ti < tn; si++, ti++) {\n            if (s[si] < t[ti])\
-    \ return true;\n            if (s[si] > t[ti]) return false;\n        }\n    \
-    \    return si >= sn && ti < tn;\n    }\n    int lower_bound(const string& t)\
-    \ {\n        int lb = -1, ub = SA.size();\n        while (ub - lb > 1) {\n   \
-    \         int mid = (ub + lb) >> 1;\n            (comp(t, SA[mid]) ? lb : ub)\
-    \ = mid;\n        }\n        return ub;\n    }\n    pair<int, int> lower_upper_bound(string&\
-    \ t) {\n        int l = lower_bound(t);\n        int lb = l - 1, ub = SA.size();\n\
-    \        t.back()++;\n        while (ub - lb > 1) {\n            int mid = (ub\
-    \ + lb) >> 1;\n            (comp(t, SA[mid]) ? lb : ub) = mid;\n        }\n  \
-    \      t.back()--;\n        return {l, ub};\n    }\n    int count(string& t) {\n\
-    \        pair<int, int> p = lower_upper_bound(t);\n        return p.second - p.first;\n\
-    \    }\n    int operator[](int i) const { return SA[i]; }\n    int size() const\
-    \ { return s.size(); }\n};"
+    \n\n/**\n * @brief Suffix Array + Longest Common Prefix Array\n * @docs docs/string/SuffixArray.md\n\
+    \ */\nnamespace SuffixArray {\nvector<int> sa_is(const vector<int>& s, int upper)\
+    \ {\n    int n = s.size();\n    if (n == 0) return {};\n    if (n == 1) return\
+    \ {0};\n    if (n == 2) return {s[0] < s[1] ? vector<int>{0, 1} : vector<int>{1,\
+    \ 0}};\n\n    vector<int> sa(n), lms, lms_map(n, -1), sum_l(upper + 1, 0), sum_s(upper\
+    \ + 1, 0);\n    vector<bool> is_s(n, false);\n    int m = 0;\n    for (int i =\
+    \ n - 2; i >= 0; i--) is_s[i] = (s[i] == s[i + 1] ? is_s[i + 1] : (s[i] < s[i\
+    \ + 1]));\n    for (int i = 0; i < n; i++) {\n        if (!is_s[i])\n        \
+    \    sum_s[s[i]]++;\n        else {\n            sum_l[s[i] + 1]++;\n        \
+    \    if (!i || !is_s[i - 1]) {\n                lms_map[i] = m++;\n          \
+    \      lms.emplace_back(i);\n            }\n        }\n    }\n    for (int i =\
+    \ 0; i <= upper; i++) {\n        sum_s[i] += sum_l[i];\n        if (i < upper)\
+    \ sum_l[i + 1] += sum_s[i];\n    }\n\n    auto induced_sort = [&](const vector<int>&\
+    \ lms) {\n        fill(sa.begin(), sa.end(), -1);\n        vector<int> buf(upper\
+    \ + 1);\n        copy(sum_s.begin(), sum_s.end(), buf.begin());\n        for (int\
+    \ idx : lms) sa[buf[s[idx]]++] = idx;\n\n        copy(sum_l.begin(), sum_l.end(),\
+    \ buf.begin());\n        sa[buf[s[n - 1]]++] = n - 1;\n        for (int i = 0;\
+    \ i < n; i++) {\n            if (sa[i] < 1 || is_s[sa[i] - 1]) continue;\n   \
+    \         int c = s[sa[i] - 1];\n            sa[buf[c]++] = sa[i] - 1;\n     \
+    \   }\n\n        copy(sum_l.begin(), sum_l.end(), buf.begin());\n        for (int\
+    \ i = n - 1; i >= 0; i--) {\n            if (sa[i] < 1 || !is_s[sa[i] - 1]) continue;\n\
+    \            int c = s[sa[i] - 1];\n            sa[--buf[c + 1]] = sa[i] - 1;\n\
+    \        }\n    };\n\n    induced_sort(lms);\n    if (m) {\n        vector<int>\
+    \ sorted_lms;\n        for (int& idx : sa) {\n            if (~lms_map[idx]) {\n\
+    \                sorted_lms.emplace_back(idx);\n            }\n        }\n   \
+    \     vector<int> rec_s(m);\n        int rec_upper = 0;\n        rec_s[lms_map[sorted_lms[0]]]\
+    \ = rec_upper;\n\n        for (int i = 1; i < m; i++) {\n            int l = sorted_lms[i\
+    \ - 1], r = sorted_lms[i];\n            int end_l = (lms_map[l] + 1 < m ? lms[lms_map[l]\
+    \ + 1] : n);\n            int end_r = (lms_map[r] + 1 < m ? lms[lms_map[r] + 1]\
+    \ : n);\n            bool same = true;\n            if (end_l - l != end_r - r)\n\
+    \                same = false;\n            else {\n                for (; l <\
+    \ end_l; l++, r++) {\n                    if (s[l] != s[r]) {\n              \
+    \          break;\n                    }\n                }\n                if\
+    \ (l == n || s[l] != s[r]) same = false;\n            }\n            rec_s[lms_map[sorted_lms[i]]]\
+    \ = (same ? rec_upper : ++rec_upper);\n        }\n\n        if (rec_upper + 1\
+    \ != m) {\n            auto rec_sa = sa_is(rec_s, rec_upper);\n            for\
+    \ (int i = 0; i < m; i++) sorted_lms[i] = lms[rec_sa[i]];\n        }\n       \
+    \ induced_sort(sorted_lms);\n    }\n\n    return sa;\n}\n\nvector<int> suffix_array(const\
+    \ vector<int>& s, int upper) {\n    for (int x : s) assert(0 <= x && x <= upper);\n\
+    \    return sa_is(s, upper);\n}\ntemplate <class T> vector<int> suffix_array(const\
+    \ vector<T>& s) {\n    int n = s.size();\n    vector<int> idx(n);\n    iota(idx.begin(),\
+    \ idx.end(), 0);\n    sort(idx.begin(), idx.end(), [&](int x, int y) { return\
+    \ s[x] < s[y]; });\n    vector<int> ns(n);\n    int cur = 0;\n    for (int i =\
+    \ 0; i < n; i++) {\n        if (i && s[idx[i - 1]] != s[idx[i]]) cur++;\n    \
+    \    ns[idx[i]] = cur;\n    }\n    return sa_is(s, cur);\n}\nvector<int> suffix_array(const\
+    \ string& s) {\n    vector<int> ns;\n    for (char c : s) ns.emplace_back(c);\n\
+    \    return sa_is(ns, 255);\n}\n\ntemplate <class T> vector<int> lcp_array(const\
+    \ vector<T>& s, const vector<int>& sa) {\n    int n = s.size();\n    vector<int>\
+    \ rank(n);\n    for (int i = 0; i < n; i++) rank[sa[i]] = i;\n    vector<int>\
+    \ lcp(n - 1);\n    for (int i = 0, h = 0; i < n; i++) {\n        if (h > 0) h--;\n\
+    \        if (rank[i] == 0) continue;\n        int j = sa[rank[i] - 1];\n     \
+    \   for (; j + h < n && i + h < n; h++) {\n            if (s[j + h] != s[i + h])\
+    \ {\n                break;\n            }\n        }\n        lcp[rank[i] - 1]\
+    \ = h;\n    }\n    return lcp;\n}\n\nvector<int> lcp_array(const string& s, const\
+    \ vector<int>& sa) {\n    vector<int> ns;\n    for (char c : s) ns.emplace_back(c);\n\
+    \    return lcp_array(ns, sa);\n}\n}  // namespace SuffixArray\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Suffix Array + Longest\
+    \ Common Prefix Array\n * @docs docs/string/SuffixArray.md\n */\nnamespace SuffixArray\
+    \ {\nvector<int> sa_is(const vector<int>& s, int upper) {\n    int n = s.size();\n\
+    \    if (n == 0) return {};\n    if (n == 1) return {0};\n    if (n == 2) return\
+    \ {s[0] < s[1] ? vector<int>{0, 1} : vector<int>{1, 0}};\n\n    vector<int> sa(n),\
+    \ lms, lms_map(n, -1), sum_l(upper + 1, 0), sum_s(upper + 1, 0);\n    vector<bool>\
+    \ is_s(n, false);\n    int m = 0;\n    for (int i = n - 2; i >= 0; i--) is_s[i]\
+    \ = (s[i] == s[i + 1] ? is_s[i + 1] : (s[i] < s[i + 1]));\n    for (int i = 0;\
+    \ i < n; i++) {\n        if (!is_s[i])\n            sum_s[s[i]]++;\n        else\
+    \ {\n            sum_l[s[i] + 1]++;\n            if (!i || !is_s[i - 1]) {\n \
+    \               lms_map[i] = m++;\n                lms.emplace_back(i);\n    \
+    \        }\n        }\n    }\n    for (int i = 0; i <= upper; i++) {\n       \
+    \ sum_s[i] += sum_l[i];\n        if (i < upper) sum_l[i + 1] += sum_s[i];\n  \
+    \  }\n\n    auto induced_sort = [&](const vector<int>& lms) {\n        fill(sa.begin(),\
+    \ sa.end(), -1);\n        vector<int> buf(upper + 1);\n        copy(sum_s.begin(),\
+    \ sum_s.end(), buf.begin());\n        for (int idx : lms) sa[buf[s[idx]]++] =\
+    \ idx;\n\n        copy(sum_l.begin(), sum_l.end(), buf.begin());\n        sa[buf[s[n\
+    \ - 1]]++] = n - 1;\n        for (int i = 0; i < n; i++) {\n            if (sa[i]\
+    \ < 1 || is_s[sa[i] - 1]) continue;\n            int c = s[sa[i] - 1];\n     \
+    \       sa[buf[c]++] = sa[i] - 1;\n        }\n\n        copy(sum_l.begin(), sum_l.end(),\
+    \ buf.begin());\n        for (int i = n - 1; i >= 0; i--) {\n            if (sa[i]\
+    \ < 1 || !is_s[sa[i] - 1]) continue;\n            int c = s[sa[i] - 1];\n    \
+    \        sa[--buf[c + 1]] = sa[i] - 1;\n        }\n    };\n\n    induced_sort(lms);\n\
+    \    if (m) {\n        vector<int> sorted_lms;\n        for (int& idx : sa) {\n\
+    \            if (~lms_map[idx]) {\n                sorted_lms.emplace_back(idx);\n\
+    \            }\n        }\n        vector<int> rec_s(m);\n        int rec_upper\
+    \ = 0;\n        rec_s[lms_map[sorted_lms[0]]] = rec_upper;\n\n        for (int\
+    \ i = 1; i < m; i++) {\n            int l = sorted_lms[i - 1], r = sorted_lms[i];\n\
+    \            int end_l = (lms_map[l] + 1 < m ? lms[lms_map[l] + 1] : n);\n   \
+    \         int end_r = (lms_map[r] + 1 < m ? lms[lms_map[r] + 1] : n);\n      \
+    \      bool same = true;\n            if (end_l - l != end_r - r)\n          \
+    \      same = false;\n            else {\n                for (; l < end_l; l++,\
+    \ r++) {\n                    if (s[l] != s[r]) {\n                        break;\n\
+    \                    }\n                }\n                if (l == n || s[l]\
+    \ != s[r]) same = false;\n            }\n            rec_s[lms_map[sorted_lms[i]]]\
+    \ = (same ? rec_upper : ++rec_upper);\n        }\n\n        if (rec_upper + 1\
+    \ != m) {\n            auto rec_sa = sa_is(rec_s, rec_upper);\n            for\
+    \ (int i = 0; i < m; i++) sorted_lms[i] = lms[rec_sa[i]];\n        }\n       \
+    \ induced_sort(sorted_lms);\n    }\n\n    return sa;\n}\n\nvector<int> suffix_array(const\
+    \ vector<int>& s, int upper) {\n    for (int x : s) assert(0 <= x && x <= upper);\n\
+    \    return sa_is(s, upper);\n}\ntemplate <class T> vector<int> suffix_array(const\
+    \ vector<T>& s) {\n    int n = s.size();\n    vector<int> idx(n);\n    iota(idx.begin(),\
+    \ idx.end(), 0);\n    sort(idx.begin(), idx.end(), [&](int x, int y) { return\
+    \ s[x] < s[y]; });\n    vector<int> ns(n);\n    int cur = 0;\n    for (int i =\
+    \ 0; i < n; i++) {\n        if (i && s[idx[i - 1]] != s[idx[i]]) cur++;\n    \
+    \    ns[idx[i]] = cur;\n    }\n    return sa_is(s, cur);\n}\nvector<int> suffix_array(const\
+    \ string& s) {\n    vector<int> ns;\n    for (char c : s) ns.emplace_back(c);\n\
+    \    return sa_is(ns, 255);\n}\n\ntemplate <class T> vector<int> lcp_array(const\
+    \ vector<T>& s, const vector<int>& sa) {\n    int n = s.size();\n    vector<int>\
+    \ rank(n);\n    for (int i = 0; i < n; i++) rank[sa[i]] = i;\n    vector<int>\
+    \ lcp(n - 1);\n    for (int i = 0, h = 0; i < n; i++) {\n        if (h > 0) h--;\n\
+    \        if (rank[i] == 0) continue;\n        int j = sa[rank[i] - 1];\n     \
+    \   for (; j + h < n && i + h < n; h++) {\n            if (s[j + h] != s[i + h])\
+    \ {\n                break;\n            }\n        }\n        lcp[rank[i] - 1]\
+    \ = h;\n    }\n    return lcp;\n}\n\nvector<int> lcp_array(const string& s, const\
+    \ vector<int>& sa) {\n    vector<int> ns;\n    for (char c : s) ns.emplace_back(c);\n\
+    \    return lcp_array(ns, sa);\n}\n}  // namespace SuffixArray"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: string/SuffixArray.hpp
-  requiredBy:
-  - string/LongestCommonPrefixArray.hpp
-  timestamp: '2021-07-19 14:45:19+09:00'
+  requiredBy: []
+  timestamp: '2021-09-12 18:03:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/number_of_substrings.test.cpp
   - test/yosupo/suffixarray.test.cpp
-  - test/aoj/ALDS1_14_D.test.cpp
 documentation_of: string/SuffixArray.hpp
 layout: document
 redirect_from:
 - /library/string/SuffixArray.hpp
 - /library/string/SuffixArray.hpp.html
-title: Suffix Array
+title: Suffix Array + Longest Common Prefix Array
 ---
 ## 概要
 以下, 文字列 `s` の $l$ 番目から $r - 1$ 番目までの部分文字列を `s[l,r)` , $l$ 番目から末尾までの部分文字列を `s[l)` と表すことにする.
 
 与えられた文字列 $S$ の Suffix Array を返す.
-Suffix Array `sa` とは, 順列 $(0, 1, \cdots, n-1)$ をその index から始まる接尾辞の辞書順によってソートしたものである.
+Suffix Array `sa` とは, 順列 $(0, 1, \cdots, n - 1)$ をその index から始まる接尾辞の辞書順によってソートしたものである.
 
 これは SA-IS と呼ばれるアルゴリズムによって $O(|S|)$ で構築することができる.
 
-- `SuffixArray(s)` : Suffix Array を構築する.
-- `comp(t, i, j)` : 部分文字列 `s[i)` が `t[j)` よりも strict に小さければ `true` を, そうでなければ `false` を返す.
-- `lower_bound(t)` : 接尾辞が辞書順において `t` 以上となるような Suffix Array の index の最小値を返す.
-- `lower_upper_bound(t)` : 接尾辞が辞書順において `t` 以上及び strict に大きくなるような Suffix Array の index の最小値のペアを返す.
-- `count(t)` : 文字列 `s` 内の部分文字列 `t` の個数を返す.
+また、先で得られた Suffix Array をもとに Lognest Common Prefix Array も構築できる。これは Suffix Array における隣同士の接尾辞において先頭何文字が共通しているかを表す長さ $n - 1$ の配列である。すなわち、 `lcp[i]` は接尾辞 `s[sa[i])` と `s[sa[i+1])` の LCP の長さに等しい。LCP Array を応用すると、隣り合う接尾辞だけでなく任意の接尾辞の LCP の長さを求めることができる。文字列 $S$ と $T$ の LCP の長さを $f(S, T)$ 、$S$ の位置 $i$ から始まる接尾辞を $S_i$ と表すとして、$l < r$ とすると、
+
+$$\begin{aligned}
+f(S_l, S_r) &= \min(f(S_l, S_{l+1}), f(S_{l+1}, S_{l+2}), \cdots, f(S_{r-1}, S_r)) \\
+&= \min(LCP_l, LCP_{l+1}, \cdots, LCP_{r-1})
+\end{aligned}$$
+
+が成立する。これは Sparse Table 等を用いて効率的に扱うことも可能である。
 
 ## 計算量
-- `SuffixArray(s)` : $O(|S|)$
-- `lower_bound(t)` : $O(|T| \log |S|)$
-- `lower_upper_bound(t)` : $O(|T| \log |S|)$
-- `count(t)` : $O(|T| \log |S|)$
 
 ## 問題例
-[CodeChef August Lunchtime 2021 Division 1 - Longest Spanning Substrings](https://www.codechef.com/LTIME99A/problems/LNGSUB)
+- [CodeChef August Lunchtime 2021 Division 1 - Longest Spanning Substrings](https://www.codechef.com/LTIME99A/problems/LNGSUB)
 
 ## 参照
-[SA-IS - Shogo Computing Laboratory](https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html)
-[SA-IS 法のメモ - まめめも](https://mametter.hatenablog.com/entry/20180130/p1#f-1aedbc3e)
-[Two Efficient Algorithms for Linear Time Suffix Array Construction](https://ieeexplore.ieee.org/document/5582081)
+- [SA-IS - Shogo Computing Laboratory](https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html)
+- [SA-IS 法のメモ - まめめも](https://mametter.hatenablog.com/entry/20180130/p1#f-1aedbc3e)
+- [Two Efficient Algorithms for Linear Time Suffix Array Construction](https://ieeexplore.ieee.org/document/5582081)

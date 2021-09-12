@@ -4,20 +4,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
-    path: string/SuffixArray.hpp
-    title: Suffix Array
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/number_of_substrings.test.cpp
-    title: test/yosupo/number_of_substrings.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/string/LongestCommonPrefixArray.md
-    document_title: Longest Common Prefix Array
+    _deprecated_at_docs: docs/string/SuffixArray.md
+    document_title: Suffix Array
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
     #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
@@ -76,7 +70,7 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"string/SuffixArray.hpp\"\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"hold/SuffixArray_old.hpp\"\
     \n\n/**\n * @brief Suffix Array\n * @docs docs/string/SuffixArray.md\n */\nstruct\
     \ SuffixArray {\n    string s;\n    vector<int> SA;\n    SuffixArray(const string&\
     \ S) : s(S) {\n        int n = s.size();\n        s.push_back('$');\n        SA.resize(n\
@@ -104,63 +98,74 @@ data:
     \ ? lb : ub) = mid;\n        }\n        t.back()--;\n        return {l, ub};\n\
     \    }\n    int count(string& t) {\n        pair<int, int> p = lower_upper_bound(t);\n\
     \        return p.second - p.first;\n    }\n    int operator[](int i) const {\
-    \ return SA[i]; }\n    int size() const { return s.size(); }\n};\n#line 4 \"string/LongestCommonPrefixArray.hpp\"\
-    \n\n/**\n * @brief Longest Common Prefix Array\n * @docs docs/string/LongestCommonPrefixArray.md\n\
-    \ */\nstruct LongestCommonPrefixArray {\n    SuffixArray SA;\n    vector<int>\
-    \ LCP, rank, lookup;\n    vector<vector<int>> dat;\n    LongestCommonPrefixArray(const\
-    \ string& s) : SA(s) {\n        int n = s.size();\n        LCP.resize(n);\n  \
-    \      rank.resize(n + 1);\n        for (int i = 0; i <= n; i++) rank[SA[i]] =\
-    \ i;\n        LCP[0] = 0;\n        for (int i = 0, t = 0; i < n; i++) {\n    \
-    \        if (t) --t;\n            for (int j = SA[rank[i] - 1]; max(i, j) + t\
-    \ < n && s[i + t] == s[j + t]; t++)\n                ;\n            LCP[rank[i]\
-    \ - 1] = t;\n        }\n        int h = 1;\n        while ((1 << h) <= n) h++;\n\
-    \        dat.assign(h, vector<int>(n));\n        lookup.assign(n + 1, 0);\n  \
-    \      for (int i = 2; i <= n; i++) lookup[i] = lookup[i >> 1] + 1;\n        for\
-    \ (int j = 0; j < n; j++) dat[0][j] = LCP[j];\n        for (int i = 1, mask =\
-    \ 1; i < h; i++, mask <<= 1) {\n            for (int j = 0; j < n; j++) {\n  \
-    \              dat[i][j] = min(dat[i - 1][j], dat[i - 1][min(j + mask, n - 1)]);\n\
-    \            }\n        }\n    }\n    int query(int a, int b) {\n        if (a\
-    \ > b) swap(a, b);\n        int d = lookup[b - a];\n        return min(dat[d][a],\
-    \ dat[d][b - (1 << d)]);\n    }\n    // longest common prefix of s[a...] and s[b...]\n\
-    \    int lcp(int a, int b) { return query(rank[a], rank[b]); }\n    int operator[](int\
-    \ i) const { return LCP[i]; }\n    int size() const { return LCP.size(); }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n#include \"SuffixArray.hpp\"\n\n\
-    /**\n * @brief Longest Common Prefix Array\n * @docs docs/string/LongestCommonPrefixArray.md\n\
-    \ */\nstruct LongestCommonPrefixArray {\n    SuffixArray SA;\n    vector<int>\
-    \ LCP, rank, lookup;\n    vector<vector<int>> dat;\n    LongestCommonPrefixArray(const\
-    \ string& s) : SA(s) {\n        int n = s.size();\n        LCP.resize(n);\n  \
-    \      rank.resize(n + 1);\n        for (int i = 0; i <= n; i++) rank[SA[i]] =\
-    \ i;\n        LCP[0] = 0;\n        for (int i = 0, t = 0; i < n; i++) {\n    \
-    \        if (t) --t;\n            for (int j = SA[rank[i] - 1]; max(i, j) + t\
-    \ < n && s[i + t] == s[j + t]; t++)\n                ;\n            LCP[rank[i]\
-    \ - 1] = t;\n        }\n        int h = 1;\n        while ((1 << h) <= n) h++;\n\
-    \        dat.assign(h, vector<int>(n));\n        lookup.assign(n + 1, 0);\n  \
-    \      for (int i = 2; i <= n; i++) lookup[i] = lookup[i >> 1] + 1;\n        for\
-    \ (int j = 0; j < n; j++) dat[0][j] = LCP[j];\n        for (int i = 1, mask =\
-    \ 1; i < h; i++, mask <<= 1) {\n            for (int j = 0; j < n; j++) {\n  \
-    \              dat[i][j] = min(dat[i - 1][j], dat[i - 1][min(j + mask, n - 1)]);\n\
-    \            }\n        }\n    }\n    int query(int a, int b) {\n        if (a\
-    \ > b) swap(a, b);\n        int d = lookup[b - a];\n        return min(dat[d][a],\
-    \ dat[d][b - (1 << d)]);\n    }\n    // longest common prefix of s[a...] and s[b...]\n\
-    \    int lcp(int a, int b) { return query(rank[a], rank[b]); }\n    int operator[](int\
-    \ i) const { return LCP[i]; }\n    int size() const { return LCP.size(); }\n};"
+    \ return SA[i]; }\n    int size() const { return s.size(); }\n};\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Suffix Array\n *\
+    \ @docs docs/string/SuffixArray.md\n */\nstruct SuffixArray {\n    string s;\n\
+    \    vector<int> SA;\n    SuffixArray(const string& S) : s(S) {\n        int n\
+    \ = s.size();\n        s.push_back('$');\n        SA.resize(n + 1);\n        iota(SA.begin(),\
+    \ SA.end(), 0);\n        sort(SA.begin(), SA.end(), [&](int a, int b) { return\
+    \ s[a] == s[b] ? a > b : s[a] < s[b]; });\n        vector<int> c(s.begin(), s.end()),\
+    \ cnt(n + 1), nxt(n + 1);\n        for (int j = 1; j <= n; j <<= 1) {\n      \
+    \      for (int i = 0; i <= n; i++) {\n                nxt[SA[i]] =\n        \
+    \            ((i && c[SA[i - 1]] == c[SA[i]] && SA[i - 1] + j < n && c[SA[i -\
+    \ 1] + j / 2] == c[SA[i] + j / 2])\n                         ? nxt[SA[i - 1]]\n\
+    \                         : i);\n            }\n            iota(cnt.begin(),\
+    \ cnt.end(), 0);\n            copy(SA.begin(), SA.end(), c.begin());\n       \
+    \     for (int i = 0; i <= n; i++) {\n                if (c[i] - j >= 0) {\n \
+    \                   SA[cnt[nxt[c[i] - j]]++] = c[i] - j;\n                }\n\
+    \            }\n            nxt.swap(c);\n        }\n    }\n    bool comp(const\
+    \ string& t, int si = 0, int ti = 0) {\n        int sn = s.size(), tn = t.size();\n\
+    \        for (; si < sn && ti < tn; si++, ti++) {\n            if (s[si] < t[ti])\
+    \ return true;\n            if (s[si] > t[ti]) return false;\n        }\n    \
+    \    return si >= sn && ti < tn;\n    }\n    int lower_bound(const string& t)\
+    \ {\n        int lb = -1, ub = SA.size();\n        while (ub - lb > 1) {\n   \
+    \         int mid = (ub + lb) >> 1;\n            (comp(t, SA[mid]) ? lb : ub)\
+    \ = mid;\n        }\n        return ub;\n    }\n    pair<int, int> lower_upper_bound(string&\
+    \ t) {\n        int l = lower_bound(t);\n        int lb = l - 1, ub = SA.size();\n\
+    \        t.back()++;\n        while (ub - lb > 1) {\n            int mid = (ub\
+    \ + lb) >> 1;\n            (comp(t, SA[mid]) ? lb : ub) = mid;\n        }\n  \
+    \      t.back()--;\n        return {l, ub};\n    }\n    int count(string& t) {\n\
+    \        pair<int, int> p = lower_upper_bound(t);\n        return p.second - p.first;\n\
+    \    }\n    int operator[](int i) const { return SA[i]; }\n    int size() const\
+    \ { return s.size(); }\n};"
   dependsOn:
   - base.hpp
-  - string/SuffixArray.hpp
   isVerificationFile: false
-  path: string/LongestCommonPrefixArray.hpp
+  path: hold/SuffixArray_old.hpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/yosupo/number_of_substrings.test.cpp
-documentation_of: string/LongestCommonPrefixArray.hpp
+  timestamp: '2021-09-12 18:03:48+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: hold/SuffixArray_old.hpp
 layout: document
 redirect_from:
-- /library/string/LongestCommonPrefixArray.hpp
-- /library/string/LongestCommonPrefixArray.hpp.html
-title: Longest Common Prefix Array
+- /library/hold/SuffixArray_old.hpp
+- /library/hold/SuffixArray_old.hpp.html
+title: Suffix Array
 ---
 ## 概要
+以下, 文字列 `s` の $l$ 番目から $r - 1$ 番目までの部分文字列を `s[l,r)` , $l$ 番目から末尾までの部分文字列を `s[l)` と表すことにする.
+
+与えられた文字列 $S$ の Suffix Array を返す.
+Suffix Array `sa` とは, 順列 $(0, 1, \cdots, n - 1)$ をその index から始まる接尾辞の辞書順によってソートしたものである.
+
+これは SA-IS と呼ばれるアルゴリズムによって $O(|S|)$ で構築することができる.
+
+また、先で得られた Suffix Array をもとに Lognest Common Prefix Array も構築できる。これは Suffix Array における隣同士の接尾辞において先頭何文字が共通しているかを表す長さ $n - 1$ の配列である。すなわち、 `lcp[i]` は接尾辞 `s[sa[i])` と `s[sa[i+1])` の LCP の長さに等しい。LCP Array を応用すると、隣り合う接尾辞だけでなく任意の接尾辞の LCP の長さを求めることができる。文字列 $S$ と $T$ の LCP の長さを $f(S, T)$ 、$S$ の位置 $i$ から始まる接尾辞を $S_i$ と表すとして、$l < r$ とすると、
+
+$$\begin{aligned}
+f(S_l, S_r) &= \min(f(S_l, S_{l+1}), f(S_{l+1}, S_{l+2}), \cdots, f(S_{r-1}, S_r)) \\
+&= \min(LCP_l, LCP_{l+1}, \cdots, LCP_{r-1})
+\end{aligned}$$
+
+が成立する。これは Sparse Table 等を用いて効率的に扱うことも可能である。
 
 ## 計算量
+
+## 問題例
+- [CodeChef August Lunchtime 2021 Division 1 - Longest Spanning Substrings](https://www.codechef.com/LTIME99A/problems/LNGSUB)
+
+## 参照
+- [SA-IS - Shogo Computing Laboratory](https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html)
+- [SA-IS 法のメモ - まめめも](https://mametter.hatenablog.com/entry/20180130/p1#f-1aedbc3e)
+- [Two Efficient Algorithms for Linear Time Suffix Array Construction](https://ieeexplore.ieee.org/document/5582081)

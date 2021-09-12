@@ -176,6 +176,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/WarshallFloyd.hpp
       title: Warshall Floyd
+  - name: hold
+    pages:
+    - icon: ':warning:'
+      path: hold/SuffixArray_old.hpp
+      title: Suffix Array
   - name: linearalgebra
     pages:
     - icon: ':warning:'
@@ -249,9 +254,6 @@ data:
       path: string/Knuth_Morris_Pratt.hpp
       title: "Knuth Moriss Pratt (KMP\u6CD5)"
     - icon: ':heavy_check_mark:'
-      path: string/LongestCommonPrefixArray.hpp
-      title: Longest Common Prefix Array
-    - icon: ':heavy_check_mark:'
       path: string/Manacher.hpp
       title: Manacher
     - icon: ':heavy_check_mark:'
@@ -259,7 +261,7 @@ data:
       title: Rolling Hash
     - icon: ':heavy_check_mark:'
       path: string/SuffixArray.hpp
-      title: Suffix Array
+      title: Suffix Array + Longest Common Prefix Array
     - icon: ':heavy_check_mark:'
       path: string/Trie.hpp
       title: Trie
@@ -388,9 +390,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_14_B.test.cpp
       title: test/aoj/ALDS1_14_B.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/ALDS1_14_D.test.cpp
-      title: test/aoj/ALDS1_14_D.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_1_A.test.cpp
       title: test/aoj/CGL_1_A.test.cpp

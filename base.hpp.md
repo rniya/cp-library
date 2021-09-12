@@ -159,6 +159,9 @@ data:
     path: graph/WarshallFloyd.hpp
     title: Warshall Floyd
   - icon: ':warning:'
+    path: hold/SuffixArray_old.hpp
+    title: Suffix Array
+  - icon: ':warning:'
     path: linearalgebra/Kitamasa.hpp
     title: Kitamasa
   - icon: ':heavy_check_mark:'
@@ -219,9 +222,6 @@ data:
     path: string/Knuth_Morris_Pratt.hpp
     title: "Knuth Moriss Pratt (KMP\u6CD5)"
   - icon: ':heavy_check_mark:'
-    path: string/LongestCommonPrefixArray.hpp
-    title: Longest Common Prefix Array
-  - icon: ':heavy_check_mark:'
     path: string/Manacher.hpp
     title: Manacher
   - icon: ':heavy_check_mark:'
@@ -229,7 +229,7 @@ data:
     title: Rolling Hash
   - icon: ':heavy_check_mark:'
     path: string/SuffixArray.hpp
-    title: Suffix Array
+    title: Suffix Array + Longest Common Prefix Array
   - icon: ':heavy_check_mark:'
     path: string/Trie.hpp
     title: Trie
@@ -348,9 +348,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_14_B.test.cpp
     title: test/aoj/ALDS1_14_B.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/ALDS1_14_D.test.cpp
-    title: test/aoj/ALDS1_14_D.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_1_A.test.cpp
     title: test/aoj/CGL_1_A.test.cpp
@@ -891,7 +888,7 @@ data:
   - string/Z_Algorithm.hpp
   - string/SuffixArray.hpp
   - string/RollingHash.hpp
-  - string/LongestCommonPrefixArray.hpp
+  - hold/SuffixArray_old.hpp
   - geometry/geometry.hpp
   - linearalgebra/SquareMatrix.hpp
   - linearalgebra/Kitamasa.hpp
@@ -1077,7 +1074,6 @@ data:
   - test/aoj/DSL_2_I.test.cpp
   - test/aoj/GRL_5_D.test.cpp
   - test/aoj/CGL_1_B.test.cpp
-  - test/aoj/ALDS1_14_D.test.cpp
   - test/aoj/GRL_1_A.test.cpp
   - test/aoj/DSL_2_D.DualSegmentTree.test.cpp
   - test/aoj/NTL_1_A.test.cpp
