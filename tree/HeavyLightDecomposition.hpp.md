@@ -159,11 +159,11 @@ data:
   timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/vertex_add_path_sum.test.cpp
-  - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/aoj/2667.test.cpp
   - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   - test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+  - test/yosupo/vertex_add_subtree_sum.test.cpp
+  - test/yosupo/vertex_add_path_sum.test.cpp
 documentation_of: tree/HeavyLightDecomposition.hpp
 layout: document
 redirect_from:

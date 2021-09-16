@@ -106,8 +106,8 @@ data:
   timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/unionfind.test.cpp
   - test/aoj/DSL_1_A.test.cpp
+  - test/yosupo/unionfind.test.cpp
 documentation_of: datastructure/UnionFind.hpp
 layout: document
 redirect_from:

@@ -204,6 +204,10 @@ data:
       path: math/extgcd.hpp
       title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
     - icon: ':heavy_check_mark:'
+      path: math/fast_factorize.hpp
+      title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
+        \ + Pollard's rho algorithm)"
+    - icon: ':heavy_check_mark:'
       path: math/floor_sum.hpp
       title: Sum of Floor of Linear
     - icon: ':warning:'
@@ -229,6 +233,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: modulo/modint.hpp
       title: modint
+    - icon: ':warning:'
+      path: modulo/montgomery64.hpp
+      title: montgomery modint (64 bit)
   - name: other
     pages:
     - icon: ':heavy_check_mark:'
@@ -653,6 +660,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/exp_of_formal_power_series.test.cpp
       title: test/yosupo/exp_of_formal_power_series.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/factorize.test.cpp
+      title: test/yosupo/factorize.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/frequency_table_of_tree_distance.test.cpp
       title: test/yosupo/frequency_table_of_tree_distance.test.cpp

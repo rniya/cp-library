@@ -133,9 +133,9 @@ data:
   timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/430.test.cpp
   - test/aoj/1370.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
+  - test/yukicoder/430.test.cpp
 documentation_of: string/RollingHash.hpp
 layout: document
 redirect_from:

@@ -134,8 +134,8 @@ data:
   timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/lca.test.cpp
   - test/aoj/GRL_5_C.test.cpp
+  - test/yosupo/lca.test.cpp
 documentation_of: tree/LowestCommonAncestor.hpp
 layout: document
 redirect_from:

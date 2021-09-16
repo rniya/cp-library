@@ -190,8 +190,8 @@ data:
   timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/bipartitematching.test.cpp
   - test/aoj/GRL_7_A.HopcroftKarp.test.cpp
+  - test/yosupo/bipartitematching.test.cpp
 documentation_of: flow/HopcroftKarp.hpp
 layout: document
 redirect_from:
