@@ -1,83 +1,113 @@
 #pragma once
-#include "../base.hpp"
+#include <cassert>
+#include <vector>
 
-/**
- * @brief Segment Tree
- * @docs docs/datastructure/SegmentTree.md
- */
-template <typename Monoid> struct SegmentTree {
-    typedef function<Monoid(Monoid, Monoid)> F;
-    int n;
-    F f;
-    Monoid id;
-    vector<Monoid> dat;
-    SegmentTree(int n_, F f, Monoid id) : f(f), id(id) { init(n_); }
-    void init(int n_) {
-        n = 1;
-        while (n < n_) n <<= 1;
-        dat.assign(n << 1, id);
+template <typename Monoid, typename F> struct SegmentTree {
+    SegmentTree(int n, const F f, const Monoid& e) : n(n), f(f), e(e) {
+        size = 1;
+        while (size < n) size <<= 1;
+        data.assign(size << 1, e);
     }
-    void build(const vector<Monoid>& v) {
-        for (int i = 0; i < (int)v.size(); i++) dat[i + n] = v[i];
-        for (int i = n - 1; i; i--) dat[i] = f(dat[i << 1 | 0], dat[i << 1 | 1]);
+
+    void set(int k, Monoid x) {
+        assert(0 <= k && k < n);
+        data[k + size] = x;
     }
+
+    void build() {
+        for (int k = size - 1; k > 0; k--) {
+            data[k] = f(data[k << 1 | 0], data[k << 1 | 1]);
+        }
+    }
+
     void update(int k, Monoid x) {
-        dat[k += n] = x;
-        while (k >>= 1) dat[k] = f(dat[k << 1 | 0], dat[k << 1 | 1]);
+        assert(0 <= k && k < n);
+        k += size;
+        data[k] = x;
+        while (k >>= 1) data[k] = f(data[k << 1 | 0], data[k << 1 | 1]);
     }
-    Monoid query(int a, int b) {
-        if (a >= b) return id;
-        Monoid vl = id, vr = id;
-        for (int l = a + n, r = b + n; l < r; l >>= 1, r >>= 1) {
-            if (l & 1) vl = f(vl, dat[l++]);
-            if (r & 1) vr = f(dat[--r], vr);
-        }
-        return f(vl, vr);
+
+    void add(int k, Monoid x) {
+        assert(0 <= k && k < n);
+        k += size;
+        data[k] += x;
+        while (k >>= 1) data[k] = f(data[k << 1 | 0], data[k << 1 | 1]);
     }
-    template <typename C> int find_subtree(int k, const C& check, Monoid& M, bool type) {
-        while (k < n) {
-            Monoid nxt = type ? f(dat[k << 1 | type], M) : f(M, dat[k << 1 | type]);
-            if (check(nxt))
-                k = k << 1 | type;
-            else
-                M = nxt, k = k << 1 | (type ^ 1);
+
+    Monoid query(int l, int r) const {
+        assert(0 <= l && l <= r && r <= n);
+        Monoid L = e, R = e;
+        for (l += size, r += size; l < r; l >>= 1, r >>= 1) {
+            if (l & 1) L = f(L, data[l++]);
+            if (r & 1) R = f(data[--r], R);
         }
-        return k - n;
+        return f(L, R);
     }
-    // min i s.t. f(seg[a],seg[a+1],...,seg[i]) satisfy "check"
-    template <typename C> int find_first(int a, const C& check) {
-        Monoid L = id;
-        if (a <= 0) {
-            if (check(f(L, dat[1]))) return find_subtree(1, check, L, false);
-            return -1;
+
+    Monoid all_prod() const { return data[1]; }
+
+    Monoid operator[](const int& k) const { return data[k + size]; }
+
+    template <typename C> int find_first(int l, const C& check) {
+        assert(0 <= l && l <= n);
+        assert(!check(e));
+        if (l == n) return n;
+        Monoid L = e;
+        if (l == 0) {
+            if (check(f(L, data[1]))) return find_subtree(1, check, L, false);
+            return n;
         }
-        int b = n;
-        for (int l = a + n, r = b + n; l < r; l >>= 1, r >>= 1) {
+        int r = size;
+        for (l += size, r += size; l < r; l >>= 1, r >>= 1) {
             if (l & 1) {
-                Monoid nxt = f(L, dat[l]);
+                Monoid nxt = f(L, data[l]);
                 if (check(nxt)) return find_subtree(l, check, L, false);
                 L = nxt;
                 l++;
             }
         }
-        return -1;
+        return n;
     }
-    // max i s.t. f(seg[i],...,seg[b-2],seg[b-1]) satisfy "check"
-    template <typename C> int find_last(int b, const C& check) {
-        Monoid R = id;
-        if (b >= n) {
-            if (check(f(dat[1], R))) return find_subtree(1, check, R, true);
+
+    template <typename C> int find_last(int r, const C& check) {
+        assert(0 <= r && r <= n);
+        assert(!check(e));
+        if (r == 0) return 0;
+        Monoid R = e;
+        if (r == n) {
+            if (check(f(data[1], R))) return find_subtree(1, check, R, true);
             return -1;
         }
-        int a = n;
-        for (int l = a, r = b + n; l < r; l >>= 1, r >>= 1) {
+        int l = size;
+        for (r += size; l < r; l >>= 1, r >>= 1) {
             if (r & 1) {
-                Monoid nxt = f(dat[--r], R);
-                if (check(nxt)) return find_subtree(r, check, R, true);
+                Monoid nxt = f(data[--r], R);
+                if (check(nxt)) return find_subtree(r, check, R, false);
                 R = nxt;
             }
         }
         return -1;
     }
-    Monoid operator[](int i) { return dat[i + n]; }
+
+private:
+    int n, size;
+    std::vector<Monoid> data;
+    const F f;
+    const Monoid e;
+
+    template <typename C> int find_subtree(int a, const C& check, Monoid& M, bool type) {
+        while (a < size) {
+            Monoid nxt = type ? f(data[a << 1 | type], M) : f(M, data[a << 1 | type]);
+            if (check(nxt))
+                a = a << 1 | type;
+            else
+                M = nxt, a = (a << 1 | type) - 1;
+        }
+        return a - size;
+    }
 };
+
+/**
+ * @brief Segment Tree
+ * @docs docs/datastructure/SegmentTree.md
+ */

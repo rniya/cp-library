@@ -21,8 +21,9 @@ int main() {
     HLD.build();
 
     auto f = [](long long a, long long b) { return a + b; };
-    SegmentTree<long long> seg(N, f, 0);
-    for (int i = 0; i < N; i++) seg.update(HLD.idx(i), a[i]);
+    SegmentTree<long long, decltype(f)> seg(N, f, 0);
+    for (int i = 0; i < N; i++) seg.set(HLD.idx(i), a[i]);
+    seg.build();
 
     for (; Q--;) {
         int t;
@@ -32,7 +33,7 @@ int main() {
             long long x;
             cin >> p >> x;
             int i = HLD.idx(p);
-            seg.update(i, seg[i] + x);
+            seg.add(i, x);
         } else {
             int u, v;
             cin >> u >> v;
@@ -41,4 +42,5 @@ int main() {
                  << '\n';
         }
     }
+    return 0;
 }

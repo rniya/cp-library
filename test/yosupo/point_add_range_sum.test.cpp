@@ -8,12 +8,15 @@ int main() {
     ios::sync_with_stdio(false);
     int N, Q;
     cin >> N >> Q;
-    vector<long long> a(N);
-    for (int i = 0; i < N; i++) cin >> a[i];
 
-    SegmentTree<long long> seg(
-        N, [](long long a, long long b) { return a + b; }, 0);
-    seg.build(a);
+    auto f = [](long long a, long long b) { return a + b; };
+    SegmentTree<long long, decltype(f)> seg(N, f, 0);
+    for (int i = 0; i < N; i++) {
+        long long a;
+        cin >> a;
+        seg.set(i, a);
+    }
+    seg.build();
 
     for (; Q--;) {
         int t;
@@ -21,11 +24,12 @@ int main() {
         if (!t) {
             int p, x;
             cin >> p >> x;
-            seg.update(p, seg[p] + x);
+            seg.add(p, x);
         } else {
             int l, r;
             cin >> l >> r;
             cout << seg.query(l, r) << '\n';
         }
     }
+    return 0;
 }

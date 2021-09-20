@@ -9,8 +9,8 @@ int main() {
     int n, q;
     cin >> n >> q;
 
-    SegmentTree<int> seg(
-        n, [](int a, int b) { return min(a, b); }, INT_MAX);
+    auto f = [](int a, int b) { return min(a, b); };
+    SegmentTree<int, decltype(f)> seg(n, f, INT_MAX);
 
     for (; q--;) {
         int c, x, y;
@@ -20,4 +20,5 @@ int main() {
         else
             cout << seg.query(x, y + 1) << '\n';
     }
+    return 0;
 }

@@ -11,33 +11,35 @@ int main() {
     ios::sync_with_stdio(false);
     int N, Q;
     cin >> N >> Q;
-    vector<mint> a(N), b(N);
-    for (int i = 0; i < N; i++) cin >> a[i] >> b[i];
 
     struct node {
         mint a, b;
         node(mint a, mint b) : a(a), b(b) {}
     };
     auto f = [](node a, node b) { return node(a.a * b.a, a.b * b.a + b.b); };
-    SegmentTree<node> seg(N, f, node(1, 0));
-    vector<node> v;
-    for (int i = 0; i < N; i++) v.emplace_back(a[i], b[i]);
-    seg.build(v);
+    SegmentTree<node, decltype(f)> seg(N, f, node(1, 0));
+    for (int i = 0; i < N; i++) {
+        int a, b;
+        cin >> a >> b;
+        seg.set(i, node(a, b));
+    }
+    seg.build();
 
     for (; Q--;) {
         int t;
         cin >> t;
         if (!t) {
             int p;
-            mint c, d;
+            int c, d;
             cin >> p >> c >> d;
             seg.update(p, node(c, d));
         } else {
             int l, r;
-            mint x;
+            int x;
             cin >> l >> r >> x;
             node ans = seg.query(l, r);
             cout << x * ans.a + ans.b << '\n';
         }
     }
+    return 0;
 }

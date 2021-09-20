@@ -4,15 +4,19 @@
 
 template <typename T> struct BinaryIndexedTree {
     BinaryIndexedTree(int n) : n(n), data(n) {}
+
     void add(int k, T x) {
         assert(0 <= k && k < n);
-        for (++k; k <= n; k += k & -k) data[k - 1] += x;
+        for (k++; k <= n; k += k & -k) data[k - 1] += x;
     }
+
     T query(int l, int r) const {
         assert(0 <= l && l <= r && r <= n);
         return sum(r) - sum(l);
     }
+
     T operator[](int i) const { return query(i, i + 1); }
+
     int lower_bound(T x) const {
         if (x <= 0) return 0;
         int cur = 0, k = 1;
@@ -30,6 +34,7 @@ template <typename T> struct BinaryIndexedTree {
 private:
     int n;
     std::vector<T> data;
+
     T sum(int r) const {
         T res = 0;
         for (; r > 0; r -= r & -r) res += data[r - 1];
