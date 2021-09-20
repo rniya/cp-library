@@ -84,19 +84,19 @@ data:
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
     \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 4 \"datastructure/BinaryIndexedTree.hpp\"\
     \n\ntemplate <typename T> struct BinaryIndexedTree {\n    BinaryIndexedTree(int\
-    \ n) : n(n), data(n) {}\n    void add(int k, T x) {\n        assert(0 <= k &&\
-    \ k < n);\n        for (++k; k <= n; k += k & -k) data[k - 1] += x;\n    }\n \
-    \   T query(int l, int r) const {\n        assert(0 <= l && l <= r && r <= n);\n\
-    \        return sum(r) - sum(l);\n    }\n    T operator[](int i) const { return\
-    \ query(i, i + 1); }\n    int lower_bound(T x) const {\n        if (x <= 0) return\
-    \ 0;\n        int cur = 0, k = 1;\n        while (k < n) k <<= 1;\n        for\
-    \ (; k > 0; k >>= 1) {\n            if (cur + k <= n && data[cur + k - 1] < x)\
-    \ {\n                x -= data[cur + k - 1];\n                cur += k;\n    \
-    \        }\n        }\n        return cur;\n    }\n    int upper_bound(T x) const\
-    \ { return lower_bound(x + 1); }\n\nprivate:\n    int n;\n    std::vector<T> data;\n\
-    \    T sum(int r) const {\n        T res = 0;\n        for (; r > 0; r -= r &\
-    \ -r) res += data[r - 1];\n        return res;\n    }\n};\n\n/**\n * @brief Binary\
-    \ Indexd Tree (Fenwick Tree)\n * @docs docs/datastructure/BinaryIndexedTree.md\n\
+    \ n) : n(n), data(n) {}\n\n    void add(int k, T x) {\n        assert(0 <= k &&\
+    \ k < n);\n        for (k++; k <= n; k += k & -k) data[k - 1] += x;\n    }\n\n\
+    \    T query(int l, int r) const {\n        assert(0 <= l && l <= r && r <= n);\n\
+    \        return sum(r) - sum(l);\n    }\n\n    T operator[](int i) const { return\
+    \ query(i, i + 1); }\n\n    int lower_bound(T x) const {\n        if (x <= 0)\
+    \ return 0;\n        int cur = 0, k = 1;\n        while (k < n) k <<= 1;\n   \
+    \     for (; k > 0; k >>= 1) {\n            if (cur + k <= n && data[cur + k -\
+    \ 1] < x) {\n                x -= data[cur + k - 1];\n                cur += k;\n\
+    \            }\n        }\n        return cur;\n    }\n    int upper_bound(T x)\
+    \ const { return lower_bound(x + 1); }\n\nprivate:\n    int n;\n    std::vector<T>\
+    \ data;\n\n    T sum(int r) const {\n        T res = 0;\n        for (; r > 0;\
+    \ r -= r & -r) res += data[r - 1];\n        return res;\n    }\n};\n\n/**\n *\
+    \ @brief Binary Indexd Tree (Fenwick Tree)\n * @docs docs/datastructure/BinaryIndexedTree.md\n\
     \ */\n#line 3 \"other/Mo.hpp\"\n\n/**\n * @brief Mo's Algorithm\n * @docs docs/other/Mo.md\n\
     \ */\nstruct Mo {\n    int sz;\n    vector<int> left, right;\n    Mo(int n) :\
     \ sz((int)sqrt(n)) {}\n    void insert(int l, int r) {\n        left.emplace_back(l);\n\
@@ -161,7 +161,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2021-09-20 18:15:46+09:00'
+  timestamp: '2021-09-20 21:09:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp

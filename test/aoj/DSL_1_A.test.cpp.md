@@ -76,20 +76,20 @@ data:
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
     \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 5 \"datastructure/UnionFind.hpp\"\
-    \n\nstruct UnionFind {\n    UnionFind(int n) : n(n), num(n), data(n, -1) {}\n\
+    \n\nstruct UnionFind {\n    UnionFind(int n) : n(n), num(n), data(n, -1) {}\n\n\
     \    int find(int x) {\n        assert(0 <= x && x < n);\n        return data[x]\
-    \ < 0 ? x : data[x] = find(data[x]);\n    }\n    bool merge(int x, int y) {\n\
+    \ < 0 ? x : data[x] = find(data[x]);\n    }\n\n    bool merge(int x, int y) {\n\
     \        assert(0 <= x && x < n);\n        assert(0 <= y && y < n);\n        if\
     \ ((x = find(x)) == (y = find(y))) return false;\n        if (-data[x] < -data[y])\
     \ std::swap(x, y);\n        data[x] += data[y];\n        data[y] = x;\n      \
-    \  num--;\n        return true;\n    }\n    bool same(int x, int y) {\n      \
-    \  assert(0 <= x && x < n);\n        assert(0 <= y && y < n);\n        return\
-    \ find(x) == find(y);\n    }\n    int size(int x) {\n        assert(0 <= x &&\
-    \ x < n);\n        return -data[find(x)];\n    }\n    int count() const { return\
-    \ num; }\n    std::vector<std::vector<int>> groups() {\n        std::vector<std::vector<int>>\
+    \  num--;\n        return true;\n    }\n\n    bool same(int x, int y) {\n    \
+    \    assert(0 <= x && x < n);\n        assert(0 <= y && y < n);\n        return\
+    \ find(x) == find(y);\n    }\n\n    int size(int x) {\n        assert(0 <= x &&\
+    \ x < n);\n        return -data[find(x)];\n    }\n\n    int count() const { return\
+    \ num; }\n\n    std::vector<std::vector<int>> groups() {\n        std::vector<std::vector<int>>\
     \ res(n);\n        for (int i = 0; i < n; i++) res[find(i)].emplace_back(i);\n\
     \        res.erase(std::remove_if(res.begin(), res.end(), [&](const std::vector<int>&\
-    \ v) { return v.empty(); }));\n        return res;\n    }\n    int operator[](int\
+    \ v) { return v.empty(); }));\n        return res;\n    }\n\n    int operator[](int\
     \ x) { return find(x); }\n\nprivate:\n    int n, num;\n    // root node : -1 *\
     \ component size\n    // otherwise : parent\n    std::vector<int> data;\n};\n\n\
     /**\n * @brief Union Find (Disjoint Set Union)\n * @docs docs/datastructure/UnionFind.md\n\
@@ -110,7 +110,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2021-09-20 18:15:46+09:00'
+  timestamp: '2021-09-20 21:09:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_1_A.test.cpp

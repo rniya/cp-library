@@ -56,9 +56,6 @@ data:
     path: datastructure/RectangleSet.hpp
     title: Rectangle Set
   - icon: ':heavy_check_mark:'
-    path: datastructure/SegmentTree.hpp
-    title: Segment Tree
-  - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTreeBeats.hpp
     title: Segment Tree Beats
   - icon: ':heavy_check_mark:'
@@ -904,7 +901,6 @@ data:
   - datastructure/RectangleSet.hpp
   - datastructure/DualSegmentTree.hpp
   - datastructure/BinaryTrie.hpp
-  - datastructure/SegmentTree.hpp
   - datastructure/SlidingWindowAggregation.hpp
   - datastructure/BitMatrix.hpp
   - datastructure/WeightedUnionFind.hpp

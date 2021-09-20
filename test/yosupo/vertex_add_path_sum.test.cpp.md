@@ -79,42 +79,48 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"datastructure/SegmentTree.hpp\"\
-    \n\n/**\n * @brief Segment Tree\n * @docs docs/datastructure/SegmentTree.md\n\
-    \ */\ntemplate <typename Monoid> struct SegmentTree {\n    typedef function<Monoid(Monoid,\
-    \ Monoid)> F;\n    int n;\n    F f;\n    Monoid id;\n    vector<Monoid> dat;\n\
-    \    SegmentTree(int n_, F f, Monoid id) : f(f), id(id) { init(n_); }\n    void\
-    \ init(int n_) {\n        n = 1;\n        while (n < n_) n <<= 1;\n        dat.assign(n\
-    \ << 1, id);\n    }\n    void build(const vector<Monoid>& v) {\n        for (int\
-    \ i = 0; i < (int)v.size(); i++) dat[i + n] = v[i];\n        for (int i = n -\
-    \ 1; i; i--) dat[i] = f(dat[i << 1 | 0], dat[i << 1 | 1]);\n    }\n    void update(int\
-    \ k, Monoid x) {\n        dat[k += n] = x;\n        while (k >>= 1) dat[k] = f(dat[k\
-    \ << 1 | 0], dat[k << 1 | 1]);\n    }\n    Monoid query(int a, int b) {\n    \
-    \    if (a >= b) return id;\n        Monoid vl = id, vr = id;\n        for (int\
-    \ l = a + n, r = b + n; l < r; l >>= 1, r >>= 1) {\n            if (l & 1) vl\
-    \ = f(vl, dat[l++]);\n            if (r & 1) vr = f(dat[--r], vr);\n        }\n\
-    \        return f(vl, vr);\n    }\n    template <typename C> int find_subtree(int\
-    \ k, const C& check, Monoid& M, bool type) {\n        while (k < n) {\n      \
-    \      Monoid nxt = type ? f(dat[k << 1 | type], M) : f(M, dat[k << 1 | type]);\n\
-    \            if (check(nxt))\n                k = k << 1 | type;\n           \
-    \ else\n                M = nxt, k = k << 1 | (type ^ 1);\n        }\n       \
-    \ return k - n;\n    }\n    // min i s.t. f(seg[a],seg[a+1],...,seg[i]) satisfy\
-    \ \"check\"\n    template <typename C> int find_first(int a, const C& check) {\n\
-    \        Monoid L = id;\n        if (a <= 0) {\n            if (check(f(L, dat[1])))\
-    \ return find_subtree(1, check, L, false);\n            return -1;\n        }\n\
-    \        int b = n;\n        for (int l = a + n, r = b + n; l < r; l >>= 1, r\
-    \ >>= 1) {\n            if (l & 1) {\n                Monoid nxt = f(L, dat[l]);\n\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 4 \"datastructure/SegmentTree.hpp\"\
+    \n\ntemplate <typename Monoid, typename F> struct SegmentTree {\n    SegmentTree(int\
+    \ n, const F f, const Monoid& e) : n(n), f(f), e(e) {\n        size = 1;\n   \
+    \     while (size < n) size <<= 1;\n        data.assign(size << 1, e);\n    }\n\
+    \n    void set(int k, Monoid x) {\n        assert(0 <= k && k < n);\n        data[k\
+    \ + size] = x;\n    }\n\n    void build() {\n        for (int k = size - 1; k\
+    \ > 0; k--) {\n            data[k] = f(data[k << 1 | 0], data[k << 1 | 1]);\n\
+    \        }\n    }\n\n    void update(int k, Monoid x) {\n        assert(0 <= k\
+    \ && k < n);\n        k += size;\n        data[k] = x;\n        while (k >>= 1)\
+    \ data[k] = f(data[k << 1 | 0], data[k << 1 | 1]);\n    }\n\n    void add(int\
+    \ k, Monoid x) {\n        assert(0 <= k && k < n);\n        k += size;\n     \
+    \   data[k] += x;\n        while (k >>= 1) data[k] = f(data[k << 1 | 0], data[k\
+    \ << 1 | 1]);\n    }\n\n    Monoid query(int l, int r) const {\n        assert(0\
+    \ <= l && l <= r && r <= n);\n        Monoid L = e, R = e;\n        for (l +=\
+    \ size, r += size; l < r; l >>= 1, r >>= 1) {\n            if (l & 1) L = f(L,\
+    \ data[l++]);\n            if (r & 1) R = f(data[--r], R);\n        }\n      \
+    \  return f(L, R);\n    }\n\n    Monoid all_prod() const { return data[1]; }\n\
+    \n    Monoid operator[](const int& k) const { return data[k + size]; }\n\n   \
+    \ template <typename C> int find_first(int l, const C& check) {\n        assert(0\
+    \ <= l && l <= n);\n        assert(!check(e));\n        if (l == n) return n;\n\
+    \        Monoid L = e;\n        if (l == 0) {\n            if (check(f(L, data[1])))\
+    \ return find_subtree(1, check, L, false);\n            return n;\n        }\n\
+    \        int r = size;\n        for (l += size, r += size; l < r; l >>= 1, r >>=\
+    \ 1) {\n            if (l & 1) {\n                Monoid nxt = f(L, data[l]);\n\
     \                if (check(nxt)) return find_subtree(l, check, L, false);\n  \
     \              L = nxt;\n                l++;\n            }\n        }\n    \
-    \    return -1;\n    }\n    // max i s.t. f(seg[i],...,seg[b-2],seg[b-1]) satisfy\
-    \ \"check\"\n    template <typename C> int find_last(int b, const C& check) {\n\
-    \        Monoid R = id;\n        if (b >= n) {\n            if (check(f(dat[1],\
-    \ R))) return find_subtree(1, check, R, true);\n            return -1;\n     \
-    \   }\n        int a = n;\n        for (int l = a, r = b + n; l < r; l >>= 1,\
-    \ r >>= 1) {\n            if (r & 1) {\n                Monoid nxt = f(dat[--r],\
-    \ R);\n                if (check(nxt)) return find_subtree(r, check, R, true);\n\
-    \                R = nxt;\n            }\n        }\n        return -1;\n    }\n\
-    \    Monoid operator[](int i) { return dat[i + n]; }\n};\n#line 3 \"tree/HeavyLightDecomposition.hpp\"\
+    \    return n;\n    }\n\n    template <typename C> int find_last(int r, const\
+    \ C& check) {\n        assert(0 <= r && r <= n);\n        assert(!check(e));\n\
+    \        if (r == 0) return 0;\n        Monoid R = e;\n        if (r == n) {\n\
+    \            if (check(f(data[1], R))) return find_subtree(1, check, R, true);\n\
+    \            return -1;\n        }\n        int l = size;\n        for (r += size;\
+    \ l < r; l >>= 1, r >>= 1) {\n            if (r & 1) {\n                Monoid\
+    \ nxt = f(data[--r], R);\n                if (check(nxt)) return find_subtree(r,\
+    \ check, R, false);\n                R = nxt;\n            }\n        }\n    \
+    \    return -1;\n    }\n\nprivate:\n    int n, size;\n    std::vector<Monoid>\
+    \ data;\n    const F f;\n    const Monoid e;\n\n    template <typename C> int\
+    \ find_subtree(int a, const C& check, Monoid& M, bool type) {\n        while (a\
+    \ < size) {\n            Monoid nxt = type ? f(data[a << 1 | type], M) : f(M,\
+    \ data[a << 1 | type]);\n            if (check(nxt))\n                a = a <<\
+    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | type) -\
+    \ 1;\n        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment\
+    \ Tree\n * @docs docs/datastructure/SegmentTree.md\n */\n#line 3 \"tree/HeavyLightDecomposition.hpp\"\
     \n\n/**\n * @brief Heavy Light Decomposition\n * @docsdocs/tree/HeavyLightDecomposition.md\n\
     \ */\nclass HeavyLightDecomposition {\n    void dfs_sz(int v) {\n        if (G[v].size()\
     \ && G[v][0] == par[v]) swap(G[v][0], G[v].back());\n        for (int& u : G[v])\
@@ -153,14 +159,14 @@ data:
     \ N; i++) cin >> a[i];\n\n    HeavyLightDecomposition HLD(N);\n    for (int i\
     \ = 0; i < N - 1; i++) {\n        int u, v;\n        cin >> u >> v;\n        HLD.add_edge(u,\
     \ v);\n    }\n    HLD.build();\n\n    auto f = [](long long a, long long b) {\
-    \ return a + b; };\n    SegmentTree<long long> seg(N, f, 0);\n    for (int i =\
-    \ 0; i < N; i++) seg.update(HLD.idx(i), a[i]);\n\n    for (; Q--;) {\n       \
-    \ int t;\n        cin >> t;\n        if (!t) {\n            int p;\n         \
-    \   long long x;\n            cin >> p >> x;\n            int i = HLD.idx(p);\n\
-    \            seg.update(i, seg[i] + x);\n        } else {\n            int u,\
-    \ v;\n            cin >> u >> v;\n            cout << HLD.query_path(\n      \
-    \                  u, v, 0LL, [&](int l, int r) { return seg.query(l, r); }, f)\n\
-    \                 << '\\n';\n        }\n    }\n}\n"
+    \ return a + b; };\n    SegmentTree<long long, decltype(f)> seg(N, f, 0);\n  \
+    \  for (int i = 0; i < N; i++) seg.set(HLD.idx(i), a[i]);\n    seg.build();\n\n\
+    \    for (; Q--;) {\n        int t;\n        cin >> t;\n        if (!t) {\n  \
+    \          int p;\n            long long x;\n            cin >> p >> x;\n    \
+    \        int i = HLD.idx(p);\n            seg.add(i, x);\n        } else {\n \
+    \           int u, v;\n            cin >> u >> v;\n            cout << HLD.query_path(\n\
+    \                        u, v, 0LL, [&](int l, int r) { return seg.query(l, r);\
+    \ }, f)\n                 << '\\n';\n        }\n    }\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n\
     \n#include \"../../base.hpp\"\n#include \"../../datastructure/SegmentTree.hpp\"\
     \n#include \"../../tree/HeavyLightDecomposition.hpp\"\n\nint main() {\n    cin.tie(0);\n\
@@ -168,14 +174,15 @@ data:
     \ long> a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\n    HeavyLightDecomposition\
     \ HLD(N);\n    for (int i = 0; i < N - 1; i++) {\n        int u, v;\n        cin\
     \ >> u >> v;\n        HLD.add_edge(u, v);\n    }\n    HLD.build();\n\n    auto\
-    \ f = [](long long a, long long b) { return a + b; };\n    SegmentTree<long long>\
-    \ seg(N, f, 0);\n    for (int i = 0; i < N; i++) seg.update(HLD.idx(i), a[i]);\n\
-    \n    for (; Q--;) {\n        int t;\n        cin >> t;\n        if (!t) {\n \
-    \           int p;\n            long long x;\n            cin >> p >> x;\n   \
-    \         int i = HLD.idx(p);\n            seg.update(i, seg[i] + x);\n      \
-    \  } else {\n            int u, v;\n            cin >> u >> v;\n            cout\
-    \ << HLD.query_path(\n                        u, v, 0LL, [&](int l, int r) { return\
-    \ seg.query(l, r); }, f)\n                 << '\\n';\n        }\n    }\n}"
+    \ f = [](long long a, long long b) { return a + b; };\n    SegmentTree<long long,\
+    \ decltype(f)> seg(N, f, 0);\n    for (int i = 0; i < N; i++) seg.set(HLD.idx(i),\
+    \ a[i]);\n    seg.build();\n\n    for (; Q--;) {\n        int t;\n        cin\
+    \ >> t;\n        if (!t) {\n            int p;\n            long long x;\n   \
+    \         cin >> p >> x;\n            int i = HLD.idx(p);\n            seg.add(i,\
+    \ x);\n        } else {\n            int u, v;\n            cin >> u >> v;\n \
+    \           cout << HLD.query_path(\n                        u, v, 0LL, [&](int\
+    \ l, int r) { return seg.query(l, r); }, f)\n                 << '\\n';\n    \
+    \    }\n    }\n    return 0;\n}"
   dependsOn:
   - base.hpp
   - datastructure/SegmentTree.hpp
@@ -183,7 +190,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-09-20 21:09:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/vertex_add_path_sum.test.cpp
