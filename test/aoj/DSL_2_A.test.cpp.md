@@ -114,9 +114,9 @@ data:
     \ find_subtree(int a, const C& check, Monoid& M, bool type) {\n        while (a\
     \ < size) {\n            Monoid nxt = type ? f(data[a << 1 | type], M) : f(M,\
     \ data[a << 1 | type]);\n            if (check(nxt))\n                a = a <<\
-    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | type) -\
-    \ 1;\n        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment\
-    \ Tree\n * @docs docs/datastructure/SegmentTree.md\n */\n#line 5 \"test/aoj/DSL_2_A.test.cpp\"\
+    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | 1) - type;\n\
+    \        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment Tree\n\
+    \ * @docs docs/datastructure/SegmentTree.md\n */\n#line 5 \"test/aoj/DSL_2_A.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,\
     \ q;\n    cin >> n >> q;\n\n    auto f = [](int a, int b) { return min(a, b);\
     \ };\n    SegmentTree<int, decltype(f)> seg(n, f, INT_MAX);\n\n    for (; q--;)\
@@ -137,7 +137,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2021-09-20 21:09:19+09:00'
+  timestamp: '2021-09-20 22:49:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_2_A.test.cpp

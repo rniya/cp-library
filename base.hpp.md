@@ -46,9 +46,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/DualSegmentTree.hpp
     title: Dual Segment Tree
-  - icon: ':heavy_check_mark:'
-    path: datastructure/LazySegmentTree.hpp
-    title: Lazy Segment Tree
   - icon: ':warning:'
     path: datastructure/PartiallyPersistentUnionFind.hpp
     title: Partially Persistent UnionFind
@@ -894,7 +891,6 @@ data:
   - datastructure/UnionFindUndo.hpp
   - datastructure/ConvexHullTrick.hpp
   - datastructure/SegmentTreeBeats.hpp
-  - datastructure/LazySegmentTree.hpp
   - datastructure/SparseTable.hpp
   - datastructure/Slide_Min.hpp
   - datastructure/SlopeTrick.hpp

@@ -118,9 +118,9 @@ data:
     \ find_subtree(int a, const C& check, Monoid& M, bool type) {\n        while (a\
     \ < size) {\n            Monoid nxt = type ? f(data[a << 1 | type], M) : f(M,\
     \ data[a << 1 | type]);\n            if (check(nxt))\n                a = a <<\
-    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | type) -\
-    \ 1;\n        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment\
-    \ Tree\n * @docs docs/datastructure/SegmentTree.md\n */\n#line 3 \"tree/HeavyLightDecomposition.hpp\"\
+    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | 1) - type;\n\
+    \        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment Tree\n\
+    \ * @docs docs/datastructure/SegmentTree.md\n */\n#line 3 \"tree/HeavyLightDecomposition.hpp\"\
     \n\n/**\n * @brief Heavy Light Decomposition\n * @docsdocs/tree/HeavyLightDecomposition.md\n\
     \ */\nclass HeavyLightDecomposition {\n    void dfs_sz(int v) {\n        if (G[v].size()\
     \ && G[v][0] == par[v]) swap(G[v][0], G[v].back());\n        for (int& u : G[v])\
@@ -190,7 +190,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-09-20 21:09:19+09:00'
+  timestamp: '2021-09-20 22:49:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/vertex_add_path_sum.test.cpp

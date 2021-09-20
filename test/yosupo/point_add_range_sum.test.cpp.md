@@ -115,9 +115,9 @@ data:
     \ find_subtree(int a, const C& check, Monoid& M, bool type) {\n        while (a\
     \ < size) {\n            Monoid nxt = type ? f(data[a << 1 | type], M) : f(M,\
     \ data[a << 1 | type]);\n            if (check(nxt))\n                a = a <<\
-    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | type) -\
-    \ 1;\n        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment\
-    \ Tree\n * @docs docs/datastructure/SegmentTree.md\n */\n#line 5 \"test/yosupo/point_add_range_sum.test.cpp\"\
+    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | 1) - type;\n\
+    \        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment Tree\n\
+    \ * @docs docs/datastructure/SegmentTree.md\n */\n#line 5 \"test/yosupo/point_add_range_sum.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
     \ Q;\n    cin >> N >> Q;\n\n    auto f = [](long long a, long long b) { return\
     \ a + b; };\n    SegmentTree<long long, decltype(f)> seg(N, f, 0);\n    for (int\
@@ -144,7 +144,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-09-20 21:09:19+09:00'
+  timestamp: '2021-09-20 22:49:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_add_range_sum.test.cpp

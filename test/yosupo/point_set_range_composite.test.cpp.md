@@ -118,9 +118,9 @@ data:
     \ find_subtree(int a, const C& check, Monoid& M, bool type) {\n        while (a\
     \ < size) {\n            Monoid nxt = type ? f(data[a << 1 | type], M) : f(M,\
     \ data[a << 1 | type]);\n            if (check(nxt))\n                a = a <<\
-    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | type) -\
-    \ 1;\n        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment\
-    \ Tree\n * @docs docs/datastructure/SegmentTree.md\n */\n#line 3 \"modulo/modint.hpp\"\
+    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | 1) - type;\n\
+    \        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment Tree\n\
+    \ * @docs docs/datastructure/SegmentTree.md\n */\n#line 3 \"modulo/modint.hpp\"\
     \n\n/**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
     \ mod> class modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n \
     \   using u64 = uint64_t;\n\npublic:\n    u32 v;\n    constexpr modint(const i64\
@@ -194,7 +194,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2021-09-20 21:09:19+09:00'
+  timestamp: '2021-09-20 22:49:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_set_range_composite.test.cpp

@@ -116,9 +116,9 @@ data:
     \ find_subtree(int a, const C& check, Monoid& M, bool type) {\n        while (a\
     \ < size) {\n            Monoid nxt = type ? f(data[a << 1 | type], M) : f(M,\
     \ data[a << 1 | type]);\n            if (check(nxt))\n                a = a <<\
-    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | type) -\
-    \ 1;\n        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment\
-    \ Tree\n * @docs docs/datastructure/SegmentTree.md\n */\n#line 3 \"string/Manacher.hpp\"\
+    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | 1) - type;\n\
+    \        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment Tree\n\
+    \ * @docs docs/datastructure/SegmentTree.md\n */\n#line 3 \"string/Manacher.hpp\"\
     \n\n/**\n * @brief Manacher\n * @docs docs/string/Manacher.md\n */\nvector<int>\
     \ Manacher(const string& s) {\n    int n = s.size();\n    vector<int> res(n);\n\
     \    for (int i = 0, j = 0; i < n;) {\n        while (i - j >= 0 && i + j < n\
@@ -155,7 +155,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/ukuku09_d.cpp
   requiredBy: []
-  timestamp: '2021-09-20 21:09:19+09:00'
+  timestamp: '2021-09-20 22:49:47+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/ukuku09_d.cpp

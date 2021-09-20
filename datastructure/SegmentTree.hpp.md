@@ -64,9 +64,9 @@ data:
     \ find_subtree(int a, const C& check, Monoid& M, bool type) {\n        while (a\
     \ < size) {\n            Monoid nxt = type ? f(data[a << 1 | type], M) : f(M,\
     \ data[a << 1 | type]);\n            if (check(nxt))\n                a = a <<\
-    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | type) -\
-    \ 1;\n        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment\
-    \ Tree\n * @docs docs/datastructure/SegmentTree.md\n */\n"
+    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | 1) - type;\n\
+    \        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment Tree\n\
+    \ * @docs docs/datastructure/SegmentTree.md\n */\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\ntemplate <typename\
     \ Monoid, typename F> struct SegmentTree {\n    SegmentTree(int n, const F f,\
     \ const Monoid& e) : n(n), f(f), e(e) {\n        size = 1;\n        while (size\
@@ -105,15 +105,15 @@ data:
     \ find_subtree(int a, const C& check, Monoid& M, bool type) {\n        while (a\
     \ < size) {\n            Monoid nxt = type ? f(data[a << 1 | type], M) : f(M,\
     \ data[a << 1 | type]);\n            if (check(nxt))\n                a = a <<\
-    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | type) -\
-    \ 1;\n        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment\
-    \ Tree\n * @docs docs/datastructure/SegmentTree.md\n */"
+    \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | 1) - type;\n\
+    \        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment Tree\n\
+    \ * @docs docs/datastructure/SegmentTree.md\n */"
   dependsOn: []
   isVerificationFile: false
   path: datastructure/SegmentTree.hpp
   requiredBy:
   - test/atcoder/ukuku09_d.cpp
-  timestamp: '2021-09-20 21:09:19+09:00'
+  timestamp: '2021-09-20 22:49:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_2_A.test.cpp
@@ -128,24 +128,24 @@ redirect_from:
 title: Segment Tree
 ---
 ## 概要
-モノイド $(S, \cdot)$ を扱うデータ構造。集合 $S$ とその上の二項演算 $\cdot : S \times S \to S$ について、
+モノイド $(S, \cdot)$ を扱うデータ構造. 集合 $S$ とその上の二項演算 $\cdot : S \times S \to S$ について,
 
 - 結合律 : $\forall a, b, c \in S,\ (a \cdot b) \cdot c = a \cdot (b \cdot c)$
 - 単位元の存在 : $\exist e \in S,\ \forall a \in S,\ a \cdot e = e \cdot a = a$
 
-といった群に対する要求の一部をを満たすとき、組 $(S,\cdot)$ はモノイドと呼ばれる。また、単位元をもつ半群という認識でも良い。
+といった群に対する要求の一部をを満たすとき, 組 $(S,\cdot)$ はモノイドと呼ばれる. また, 単位元をもつ半群という認識でも良い.
 
-Segment Tree はモノイドに対する一点更新及び区間取得といった処理を $O(\log n)$ で行うことができる。内部実装においては 1-indexed の完全二分木を保持している。
+Segment Tree はモノイドに対する一点更新及び区間取得といった処理を $O(\log n)$ で行うことができる. 内部実装においては 1-indexed の完全二分木を保持している.
 
-| メンバ関数             | 効果                                                                                                                                           | 時間計算量  |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `SegmentTree(n, f, e)` | 要素数 $n$ の単位元で初期化する。ここで、$f$ は二項演算、$e$ は単位元である。                                                                  | $O(n)$      |
-| `set(k, x)`            | $k$ 番目の要素に $x$ を代入する。ここで、この後各クエリに答えるには `build()` を挟んで親ノードの情報を更新してからでないといけないことに注意。 | $O(1)$      |
-| `build()`              | `set` された情報をもとに Segment Tree を構築する。                                                                                             | $O(n)$      |
-| `update(k, x)`         | $k$ 番目の要素を $x$ に代入して更新する。こちらは `set` とは違い親ノードの更新も含む。                                                         | $O(\log n)$ |
-| `add(k, x)`            | $k$ 番目の要素に $x$ を加算して更新する。                                                                                                      | $O(\log n)$ |
-| `query(l, r)`          | 区間 $[l, r)$ の要素について二項演算を適用した結果を返す。結合律が成立することからこの結果は一意に定まる。                                     | $O(\log n)$ |
-| `all_prod()`           | 全体、すなわち区間 $[0, n)$ に二項演算を適用した結果を返す。                                                                                   | $O(1)$      |
-| `operator[k]`          | $k$ 番目の要素を返す。                                                                                                                         | $O(1)$      |
-| `find_first(l, check)` | $[l, x)$ が `check` を満たすような最小の $x$ を返す。存在しない場合は $n$ を返す。                                                             | $O(\log n)$ |
-| `find_last(r, check)`  | $[x, r)$ が `check` を満たすような最大の $x$ を返す。存在しない場合は $-1$ を返す。                                                            | $O(\log n)$ |
+| メンバ関数             | 効果                                                                                                                                          | 時間計算量  |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `SegmentTree(n, f, e)` | 要素数 $n$ の単位元で初期化する. ここで, $f$ は二項演算, $e$ は単位元である.                                                                  | $O(n)$      |
+| `set(k, x)`            | $k$ 番目の要素に $x$ を代入する. ここで, この後各クエリに答えるには `build()` を挟んで親ノードの情報を更新してからでないといけないことに注意. | $O(1)$      |
+| `build()`              | `set` された情報をもとに Segment Tree を構築する.                                                                                             | $O(n)$      |
+| `update(k, x)`         | $k$ 番目の要素を $x$ に代入して更新する. こちらは `set` とは違い親ノードの更新も含む.                                                         | $O(\log n)$ |
+| `add(k, x)`            | $k$ 番目の要素に $x$ を加算して更新する.                                                                                                      | $O(\log n)$ |
+| `query(l, r)`          | 区間 $[l, r)$ の要素について二項演算を適用した結果を返す. 結合律が成立することからこの結果は一意に定まる.                                     | $O(\log n)$ |
+| `all_prod()`           | 全体, すなわち区間 $[0, n)$ に二項演算を適用した結果を返す.                                                                                   | $O(1)$      |
+| `operator[k]`          | $k$ 番目の要素を返す.                                                                                                                         | $O(1)$      |
+| `find_first(l, check)` | $[l, x)$ が `check` を満たすような最小の $x$ を返す. 存在しない場合は $n$ を返す.                                                             | $O(\log n)$ |
+| `find_last(r, check)`  | $[x, r)$ が `check` を満たすような最大の $x$ を返す. 存在しない場合は $-1$ を返す.                                                            | $O(\log n)$ |
