@@ -27,10 +27,9 @@ int main() {
     auto f = [](node a, node b) { return node(a.sum + b.sum, a.a + b.a); };
     auto g = [](node a, add x) { return node(a.sum * x.b + x.c * a.a, a.a); };
     auto h = [](add a, add b) { return add(a.b * b.b, a.c * b.b + b.c); };
-    LazySegmentTree<node, add> seg(N, f, g, h, node(0, 0), add(1, 0));
-    vector<node> v;
-    for (int i = 0; i < N; i++) v.emplace_back(a[i], 1);
-    seg.build(v);
+    LazySegmentTree<node, add, decltype(f), decltype(g), decltype(h)> seg(N, f, g, h, node(0, 0), add(1, 0));
+    for (int i = 0; i < N; i++) seg.set(i, node(a[i], 1));
+    seg.build();
 
     for (; Q--;) {
         int t, l, r;
@@ -42,4 +41,5 @@ int main() {
         } else
             cout << seg.query(l, r).sum << '\n';
     }
+    return 0;
 }

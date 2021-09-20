@@ -38,9 +38,9 @@ int main() {
     int inv = 0;
     auto f = [](int a, int b) { return min(a, b); };
     auto g = [](int a, int b) { return a + b; };
-    LazySegmentTree<int, int> seg(N, f, g, g, inf, 0);
-    vector<int> v(N, 0);
-    seg.build(v);
+    LazySegmentTree<int, int, decltype(f), decltype(g), decltype(g)> seg(N, f, g, g, inf, 0);
+    for (int i = 0; i < N; i++) seg.set(i, 0);
+    seg.build();
     for (int i = 0; i < N; i++) {
         BIT4.add(a[i], 1);
         seg.update(a[i] + 1, N, 1);
@@ -70,4 +70,5 @@ int main() {
     mo.build(add_left, add_right, del_left, del_right, rem);
 
     for (int i = 0; i < Q; i++) cout << ans[i] << '\n';
+    return 0;
 }

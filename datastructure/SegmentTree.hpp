@@ -101,7 +101,7 @@ private:
             if (check(nxt))
                 a = a << 1 | type;
             else
-                M = nxt, a = (a << 1 | type) - 1;
+                M = nxt, a = (a << 1 | 1) - type;
         }
         return a - size;
     }

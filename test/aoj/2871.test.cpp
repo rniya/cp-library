@@ -27,8 +27,9 @@ int main() {
     auto f = [](node a, node b) { return node(a.G + b.G, a.W + b.W); };
     auto g = [](node a, int x) { return x ? node(a.W, a.G) : a; };
     auto h = [](int a, int b) { return a ^ b; };
-    LazySegmentTree<node, int> seg(n, f, g, h, node(0, 0), 0);
-    for (int i = 0; i < n; i++) seg.set_val(ET.idx(i), c[i] == 'G' ? node(1, 0) : node(0, 1));
+    LazySegmentTree<node, int, decltype(f), decltype(g), decltype(h)> seg(n, f, g, h, node(0, 0), 0);
+    for (int i = 0; i < n; i++) seg.set(ET.idx(i), c[i] == 'G' ? node(1, 0) : node(0, 1));
+    seg.build();
     auto F = [&](int l, int r) { seg.update(l, r, 1); };
 
     for (; q--;) {
@@ -38,4 +39,5 @@ int main() {
         auto ans = seg.query(0, n);
         cout << (ans.G > ans.W ? "broccoli" : "cauliflower") << '\n';
     }
+    return 0;
 }

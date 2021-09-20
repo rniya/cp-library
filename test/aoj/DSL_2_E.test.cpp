@@ -10,7 +10,7 @@ int main() {
     cin >> n >> q;
 
     auto f = [](int a, int b) { return a + b; };
-    LazySegmentTree<int, int> seg(n, f, f, f, 0, 0);
+    LazySegmentTree<int, int, decltype(f), decltype(f), decltype(f)> seg(n, f, f, f, 0, 0);
 
     for (; q--;) {
         int c, s, t, x, i;
@@ -23,4 +23,5 @@ int main() {
             cout << seg[i - 1] << '\n';
         }
     }
+    return 0;
 }

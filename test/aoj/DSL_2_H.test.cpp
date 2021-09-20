@@ -11,9 +11,9 @@ int main() {
 
     auto f = [](int a, int b) { return min(a, b); };
     auto g = [](int a, int b) { return a + b; };
-    LazySegmentTree<int, int> seg(n, f, g, g, INT_MAX, 0);
-    vector<int> v(n, 0);
-    seg.build(v);
+    LazySegmentTree<int, int, decltype(f), decltype(g), decltype(g)> seg(n, f, g, g, INT_MAX, 0);
+    for (int i = 0; i < n; i++) seg.set(i, 0);
+    seg.build();
 
     for (; q--;) {
         int c, s, t, x;
@@ -24,4 +24,5 @@ int main() {
         } else
             cout << seg.query(s, t + 1) << '\n';
     }
+    return 0;
 }

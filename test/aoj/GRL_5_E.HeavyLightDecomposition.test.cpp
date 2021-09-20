@@ -30,9 +30,9 @@ int main() {
     auto f = [](node a, node b) { return node(a.a + b.a, a.b + b.b); };
     auto g = [](node a, long long x) { return node(a.a + x * a.b, a.b); };
     auto h = [](long long a, long long b) { return a + b; };
-    LazySegmentTree<node, long long> seg(n, f, g, h, node(0, 0), 0);
-    vector<node> v(n, node(0, 1));
-    seg.build(v);
+    LazySegmentTree<node, long long, decltype(f), decltype(g), decltype(h)> seg(n, f, g, h, node(0, 0), 0);
+    for (int i = 0; i < n; i++) seg.set(i, node(0, 1));
+    seg.build();
 
     int q;
     cin >> q;
@@ -53,4 +53,5 @@ int main() {
                  << '\n';
         }
     }
+    return 0;
 }

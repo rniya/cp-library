@@ -1,123 +1,152 @@
 #pragma once
-#include "../base.hpp"
+#include <cassert>
+#include <vector>
 
-/**
- * @brief Lazy Segment Tree
- * @docs docs/datastructure/LazySegmentTree.md
- */
-template <typename Monoid, typename OperatorMonoid> struct LazySegmentTree {
-    typedef function<Monoid(Monoid, Monoid)> F;
-    typedef function<Monoid(Monoid, OperatorMonoid)> G;
-    typedef function<OperatorMonoid(OperatorMonoid, OperatorMonoid)> H;
-    int n, hi;
-    F f;
-    G g;
-    H h;
-    Monoid id0;
-    OperatorMonoid id1;
-    vector<Monoid> dat;
-    vector<OperatorMonoid> laz;
-    LazySegmentTree(int n_, F f, G g, H h, Monoid id0, OperatorMonoid id1) : f(f), g(g), h(h), id0(id0), id1(id1) {
-        init(n_);
+template <typename Monoid, typename OperatorMonoid, typename F, typename G, typename H> struct LazySegmentTree {
+    LazySegmentTree(int n, const F f, const G g, const H h, const Monoid& e, const OperatorMonoid& id)
+        : n(n), f(f), g(g), h(h), e(e), id(id) {
+        size = 1;
+        height = 0;
+        while (size < n) size <<= 1, height++;
+        data.assign(size << 1, e);
+        lazy.assign(size << 1, id);
     }
-    void init(int n_) {
-        n = 1, hi = 0;
-        while (n < n_) n <<= 1, hi++;
-        dat.assign(n << 1, id0);
-        laz.assign(n << 1, id1);
+
+    void set(int k, Monoid x) {
+        assert(0 <= k && k < n);
+        data[k + size] = x;
     }
-    void build(const vector<Monoid>& v) {
-        for (int i = 0; i < (int)v.size(); i++) dat[i + n] = v[i];
-        for (int i = n - 1; i; --i) dat[i] = f(dat[i << 1 | 0], dat[i << 1 | 1]);
+
+    void build() {
+        for (int k = size - 1; k > 0; k--) {
+            data[k] = f(data[k << 1 | 0], data[k << 1 | 1]);
+        }
     }
-    inline Monoid reflect(int k) { return laz[k] == id1 ? dat[k] : g(dat[k], laz[k]); }
-    inline void propagate(int k) {
-        if (laz[k] == id1) return;
-        laz[k << 1 | 0] = h(laz[k << 1 | 0], laz[k]);
-        laz[k << 1 | 1] = h(laz[k << 1 | 1], laz[k]);
-        dat[k] = reflect(k);
-        laz[k] = id1;
-    }
-    inline void thrust(int k) {
-        for (int i = hi; i; i--) propagate(k >> i);
-    }
-    inline void recalc(int k) {
-        while (k >>= 1) dat[k] = f(reflect(k << 1 | 0), reflect(k << 1 | 1));
-    }
-    void update(int a, int b, OperatorMonoid x) {
-        if (a >= b) return;
-        thrust(a += n);
-        thrust(b += n - 1);
+
+    void update(int a, int b, const OperatorMonoid& x) {
+        assert(0 <= a && a <= b && b <= n);
+        if (a == b) return;
+        thrust(a += size);
+        thrust(b += size - 1);
         for (int l = a, r = b + 1; l < r; l >>= 1, r >>= 1) {
-            if (l & 1) laz[l] = h(laz[l], x), ++l;
-            if (r & 1) --r, laz[r] = h(laz[r], x);
+            if (l & 1) lazy[l] = h(lazy[l], x), ++l;
+            if (r & 1) --r, lazy[r] = h(lazy[r], x);
         }
         recalc(a);
         recalc(b);
     }
+
     void set_val(int k, Monoid x) {
-        thrust(k += n);
-        dat[k] = x, laz[k] = id1;
+        assert(0 <= k && k < n);
+        thrust(k += size);
+        data[k] = x;
+        lazy[k] = id;
         recalc(k);
     }
+
     Monoid query(int a, int b) {
-        if (a >= b) return id0;
-        thrust(a += n);
-        thrust(b += n - 1);
-        Monoid vl = id0, vr = id0;
+        assert(0 <= a && a <= b && b <= n);
+        if (a == b) return e;
+        thrust(a += size);
+        thrust(b += size - 1);
+        Monoid L = e, R = e;
         for (int l = a, r = b + 1; l < r; l >>= 1, r >>= 1) {
-            if (l & 1) vl = f(vl, reflect(l++));
-            if (r & 1) vr = f(reflect(--r), vr);
+            if (l & 1) L = f(L, apply(l++));
+            if (r & 1) R = f(apply(--r), R);
         }
-        return f(vl, vr);
+        return f(L, R);
     }
-    template <typename C> int find_subtree(int k, const C& check, Monoid& M, bool type) {
-        while (k < n) {
-            propagate(k);
-            Monoid nxt = type ? f(reflect(k << 1 | type), M) : f(M, reflect(k << 1 | type));
-            if (check(nxt))
-                k = k << 1 | type;
-            else
-                M = nxt, k = k << 1 | (type ^ 1);
-        }
-        return k - n;
+
+    Monoid operator[](int k) {
+        thrust(k += size);
+        return apply(k);
     }
-    // min i s.t. f(seg[a],seg[a+1],...,seg[i]) satisfy "check"
-    template <typename C> int find_first(int a, const C& check) {
-        Monoid L = id0;
-        if (a <= 0) {
-            if (check(f(L, reflect(1)))) return find_subtree(1, check, L, false);
-            return -1;
+
+    template <typename C> int find_first(int l, const C& check) {
+        assert(0 <= l && l <= n);
+        assert(!check(e));
+        if (l == n) return n;
+        Monoid L = e;
+        if (l == 0) {
+            if (check(f(L, apply(1)))) return find_subtree(1, check, L, false);
+            return n;
         }
-        thrust(a + n);
-        int b = n;
-        for (int l = a + n, r = b + n; l < r; l >>= 1, r >>= 1) {
+        thrust(l + size);
+        int r = size;
+        for (l += size, r += size; l < r; l >>= 1, r >>= 1) {
             if (l & 1) {
-                Monoid nxt = f(L, reflect(l));
+                Monoid nxt = f(L, apply(l));
                 if (check(nxt)) return find_subtree(l, check, L, false);
                 L = nxt;
                 l++;
             }
         }
-        return -1;
+        return n;
     }
-    // max i s.t. f(seg[i],...,seg[b-2],seg[b-1]) satisfy "check"
-    template <typename C> int find_last(int b, const C& check) {
-        Monoid R = id0;
-        if (b >= n) {
-            if (check(f(reflect(1), R))) return find_subtree(1, check, R, true);
+
+    template <typename C> int find_last(int r, const C& check) {
+        assert(0 <= r && r <= n);
+        assert(!check(e));
+        if (r == 0) return 0;
+        Monoid R = e;
+        if (r == n) {
+            if (check(f(apply(1), R))) return find_subtree(1, check, R, true);
             return -1;
         }
-        thrust(b + n - 1);
-        int a = n;
-        for (int l = a, r = b + n; l < r; l >>= 1, r >>= 1) {
+        thrust(r + size - 1);
+        int l = size;
+        for (r += size; l < r; l >>= 1, r >>= 1) {
             if (r & 1) {
-                Monoid nxt = f(reflect(--r), R);
+                Monoid nxt = f(apply(--r), R);
                 if (check(nxt)) return find_subtree(r, check, R, true);
                 R = nxt;
             }
         }
         return -1;
     }
-    Monoid operator[](int i) { return query(i, i + 1); }
+
+private:
+    int n, size, height;
+    std::vector<Monoid> data;
+    std::vector<OperatorMonoid> lazy;
+    const F f;
+    const G g;
+    const H h;
+    const Monoid e;
+    const OperatorMonoid id;
+
+    inline Monoid apply(int k) { return lazy[k] == id ? data[k] : g(data[k], lazy[k]); }
+
+    inline void propagate(int k) {
+        if (lazy[k] == id) return;
+        lazy[k << 1 | 0] = h(lazy[k << 1 | 0], lazy[k]);
+        lazy[k << 1 | 1] = h(lazy[k << 1 | 1], lazy[k]);
+        data[k] = apply(k);
+        lazy[k] = id;
+    }
+
+    inline void thrust(int k) {
+        for (int i = height; i > 0; i--) propagate(k >> i);
+    }
+
+    inline void recalc(int k) {
+        while (k >>= 1) data[k] = f(apply(k << 1 | 0), apply(k << 1 | 1));
+    }
+
+    template <typename C> int find_subtree(int a, const C& check, Monoid& M, bool type) {
+        while (a < size) {
+            propagate(a);
+            Monoid nxt = type ? f(apply(1 << a | type), M) : f(M, apply(1 << a | type));
+            if (check(nxt))
+                a = 1 << a | type;
+            else
+                M = nxt, a = (a << 1 | 1) - type;
+        }
+        return a - size;
+    }
 };
+
+/**
+ * @brief Lazy Segment Tree
+ * @docs docs/datastructure/LazySegmentTree.md
+ */
