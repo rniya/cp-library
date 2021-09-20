@@ -4,23 +4,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: graph/BiConnectedComponents.hpp
-    title: graph/BiConnectedComponents.hpp
-  _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_3_A.test.cpp
-    title: test/aoj/GRL_3_A.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_3_B.test.cpp
-    title: test/aoj/GRL_3_B.test.cpp
+    path: graph/LowLink.hpp
+    title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/graph/LowLink.md
-    document_title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
     #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
@@ -96,43 +88,51 @@ data:
     \ u);\n        }\n        is_articulation |= (p < 0 && cnt > 1);\n        if (is_articulation)\
     \ articulation.emplace_back(v);\n    }\n    void build() {\n        for (int v\
     \ = 0; v < n; v++) {\n            if (ord[v] < 0) dfs(v, -1);\n        }\n   \
-    \ }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Low Link (\u6A4B\
-    /\u95A2\u7BC0\u70B9)\n * @docs docs/graph/LowLink.md\n */\nstruct LowLink {\n\
-    \    int n, time;\n    vector<int> ord, low;\n    vector<vector<int>> G;\n   \
-    \ vector<int> articulation;\n    vector<pair<int, int>> bridge;\n    LowLink(int\
-    \ n) : n(n), time(0), ord(n, -1), low(n), G(n) {}\n    void add_edge(int u, int\
-    \ v) {\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n    }\n\
-    \    bool is_bridge(int u, int v) {\n        if (ord[u] > ord[v]) swap(u, v);\n\
-    \        return ord[u] < low[v];\n    }\n    void dfs(int v, int p) {\n      \
-    \  ord[v] = low[v] = time++;\n        bool is_articulation = false;\n        int\
-    \ cnt = 0;\n        for (int u : G[v]) {\n            if (u == p) continue;\n\
-    \            if (~ord[u]) {\n                low[v] = min(low[v], ord[u]);\n \
-    \               continue;\n            }\n            cnt++;\n            dfs(u,\
-    \ v);\n            low[v] = min(low[v], low[u]);\n            is_articulation\
-    \ |= (~p && ord[v] <= low[u]);\n            if (is_bridge(v, u)) bridge.emplace_back(v,\
-    \ u);\n        }\n        is_articulation |= (p < 0 && cnt > 1);\n        if (is_articulation)\
-    \ articulation.emplace_back(v);\n    }\n    void build() {\n        for (int v\
-    \ = 0; v < n; v++) {\n            if (ord[v] < 0) dfs(v, -1);\n        }\n   \
-    \ }\n};"
+    \ }\n};\n#line 3 \"graph/BiConnectedComponents.hpp\"\n\nstruct BiConnectedComponents\
+    \ : LowLink {\n    using LowLink::G;\n    using LowLink::low;\n    using LowLink::LowLink;\n\
+    \    using LowLink::ord;\n\n    vector<vector<pair<int, int>>> bc;\n    vector<pair<int,\
+    \ int>> tmp;\n    vector<bool> used;\n\n    vector<vector<pair<int, int>>> build()\
+    \ {\n        LowLink::build();\n        used.assign(G.size(), false);\n      \
+    \  for (size_t i = 0; i < used.size(); i++) {\n            if (used[i]) continue;\n\
+    \            dfs(i, -1);\n        }\n        return bc;\n    }\n\n    void dfs(int\
+    \ v, int p) {\n        used[v] = true;\n        bool flag = false;\n        for\
+    \ (int& u : G[v]) {\n            if (u == p && !exchange(flag, true)) continue;\n\
+    \            if (!used[u] || ord[u] < ord[v]) tmp.emplace_back(minmax(u, v));\n\
+    \            if (!used[u]) {\n                dfs(u, v);\n                if (low[u]\
+    \ >= ord[v]) {\n                    bc.emplace_back();\n                    for\
+    \ (;;) {\n                        auto e = tmp.back();\n                     \
+    \   bc.back().emplace_back(e);\n                        tmp.pop_back();\n    \
+    \                    if (e.first == min(u, v) && e.second == max(u, v)) break;\n\
+    \                    }\n                }\n            }\n        }\n    }\n};\n"
+  code: "#pragma once\n#include \"LowLink.hpp\"\n\nstruct BiConnectedComponents :\
+    \ LowLink {\n    using LowLink::G;\n    using LowLink::low;\n    using LowLink::LowLink;\n\
+    \    using LowLink::ord;\n\n    vector<vector<pair<int, int>>> bc;\n    vector<pair<int,\
+    \ int>> tmp;\n    vector<bool> used;\n\n    vector<vector<pair<int, int>>> build()\
+    \ {\n        LowLink::build();\n        used.assign(G.size(), false);\n      \
+    \  for (size_t i = 0; i < used.size(); i++) {\n            if (used[i]) continue;\n\
+    \            dfs(i, -1);\n        }\n        return bc;\n    }\n\n    void dfs(int\
+    \ v, int p) {\n        used[v] = true;\n        bool flag = false;\n        for\
+    \ (int& u : G[v]) {\n            if (u == p && !exchange(flag, true)) continue;\n\
+    \            if (!used[u] || ord[u] < ord[v]) tmp.emplace_back(minmax(u, v));\n\
+    \            if (!used[u]) {\n                dfs(u, v);\n                if (low[u]\
+    \ >= ord[v]) {\n                    bc.emplace_back();\n                    for\
+    \ (;;) {\n                        auto e = tmp.back();\n                     \
+    \   bc.back().emplace_back(e);\n                        tmp.pop_back();\n    \
+    \                    if (e.first == min(u, v) && e.second == max(u, v)) break;\n\
+    \                    }\n                }\n            }\n        }\n    }\n};\n"
   dependsOn:
+  - graph/LowLink.hpp
   - base.hpp
   isVerificationFile: false
-  path: graph/LowLink.hpp
-  requiredBy:
-  - graph/BiConnectedComponents.hpp
-  timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/aoj/GRL_3_B.test.cpp
-  - test/aoj/GRL_3_A.test.cpp
-documentation_of: graph/LowLink.hpp
+  path: graph/BiConnectedComponents.hpp
+  requiredBy: []
+  timestamp: '2021-09-20 17:22:23+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: graph/BiConnectedComponents.hpp
 layout: document
 redirect_from:
-- /library/graph/LowLink.hpp
-- /library/graph/LowLink.hpp.html
-title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
+- /library/graph/BiConnectedComponents.hpp
+- /library/graph/BiConnectedComponents.hpp.html
+title: graph/BiConnectedComponents.hpp
 ---
-## 概要
-
-## 計算量

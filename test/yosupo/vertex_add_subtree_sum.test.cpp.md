@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/BinaryIndexedTree.hpp
-    title: Binary Indexed Tree
+    title: Binary Indexd Tree (Fenwick Tree)
   - icon: ':heavy_check_mark:'
     path: tree/HeavyLightDecomposition.hpp
     title: Heavy Light Decomposition
@@ -79,63 +79,64 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"datastructure/BinaryIndexedTree.hpp\"\
-    \n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/datastructure/BinaryIndexedTree.md\n\
-    \ */\ntemplate <typename T> class BinaryIndexedTree {\n    T sum(int i) {\n  \
-    \      T res = T();\n        for (; i > 0; i -= (i & -i)) res += dat[i];\n   \
-    \     return res;\n    }\n\npublic:\n    int n;\n    vector<T> dat;\n    BinaryIndexedTree(int\
-    \ n_) : n(n_ + 1), dat(n + 1, 0) {}\n    void add(int i, const T& x) {\n     \
-    \   for (++i; i <= n; i += (i & -i)) dat[i] += x;\n    }\n    T query(int l, int\
-    \ r) { return sum(r) - sum(l); }\n    int lower_bound(T x) const {\n        if\
-    \ (x <= 0) return 0;\n        int pos = 0, k = 1;\n        while (k < n) k <<=\
-    \ 1;\n        for (; k > 0; k >>= 1) {\n            if (pos + k <= n && dat[pos\
-    \ + k] < x) {\n                x -= dat[pos + k];\n                pos += k;\n\
-    \            }\n        }\n        return pos;\n    }\n    int upper_bound(T x)\
-    \ const { return lower_bound(x + 1); }\n    T operator[](int i) { return query(i,\
-    \ i + 1); }\n};\n#line 3 \"tree/HeavyLightDecomposition.hpp\"\n\n/**\n * @brief\
-    \ Heavy Light Decomposition\n * @docsdocs/tree/HeavyLightDecomposition.md\n */\n\
-    class HeavyLightDecomposition {\n    void dfs_sz(int v) {\n        if (G[v].size()\
-    \ && G[v][0] == par[v]) swap(G[v][0], G[v].back());\n        for (int& u : G[v])\
-    \ {\n            if (u == par[v]) continue;\n            par[u] = v;\n       \
-    \     dep[u] = dep[v] + 1;\n            dfs_sz(u);\n            sub[v] += sub[u];\n\
-    \            if (sub[u] > sub[G[v][0]]) swap(u, G[v][0]);\n        }\n    }\n\
-    \    void dfs_hld(int v, int c, int& times) {\n        vid[v] = times++;\n   \
-    \     type[v] = c;\n        for (int u : G[v]) {\n            if (u == par[v])\
-    \ continue;\n            head[u] = (u == G[v][0] ? head[v] : u);\n           \
-    \ dfs_hld(u, c, times);\n        }\n    }\n\npublic:\n    vector<vector<int>>\
-    \ G;\n    vector<int> vid, head, sub, par, dep, type;\n    HeavyLightDecomposition(int\
-    \ n) : G(n), vid(n, -1), head(n), sub(n, 1), par(n, -1), dep(n, 0), type(n) {}\n\
-    \    void add_edge(int u, int v) {\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n\
-    \    }\n    void build(vector<int> rs = {0}) {\n        int c = 0, times = 0;\n\
-    \        for (int r : rs) {\n            dfs_sz(r);\n            head[r] = r;\n\
-    \            dfs_hld(r, c++, times);\n        }\n    }\n    int idx(int u) { return\
-    \ vid[u]; }\n    int lca(int u, int v) {\n        for (;; v = par[head[v]]) {\n\
-    \            if (vid[u] > vid[v]) swap(u, v);\n            if (head[u] == head[v])\
-    \ return u;\n        }\n    }\n    int distance(int u, int v) { return dep[u]\
-    \ + dep[v] - 2 * dep[lca(u, v)]; }\n    template <typename F> void update_path(int\
-    \ u, int v, const F& f, bool edge = false) {\n        for (;; v = par[head[v]])\
-    \ {\n            if (vid[u] > vid[v]) swap(u, v);\n            if (head[u] ==\
-    \ head[v]) break;\n            f(vid[head[v]], vid[v] + 1);\n        }\n     \
-    \   f(vid[u] + edge, vid[v] + 1);\n    }\n    template <typename F> void update_sub(int\
-    \ u, const F& f, bool edge = false) { f(vid[u] + edge, vid[u] + sub[u]); }\n \
-    \   template <typename T, typename Q, typename F>\n    T query_path(int u, int\
-    \ v, const T& id, const Q& q, const F& f, bool edge = false) {\n        T l =\
-    \ id, r = id;\n        for (;; v = par[head[v]]) {\n            if (vid[u] > vid[v])\
-    \ swap(u, v), swap(l, r);\n            if (head[u] == head[v]) break;\n      \
-    \      l = f(l, q(vid[head[v]], vid[v] + 1));\n        }\n        return f(r,\
-    \ f(l, q(vid[u] + edge, vid[v] + 1)));\n    }\n    template <typename T, typename\
-    \ Q> T query_sub(int u, const Q& q, bool edge = false) {\n        return q(vid[u]\
-    \ + edge, vid[u] + sub[u]);\n    }\n};\n#line 6 \"test/yosupo/vertex_add_subtree_sum.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
-    \ Q;\n    cin >> N >> Q;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
-    \ cin >> a[i];\n\n    HeavyLightDecomposition HLD(N);\n    for (int i = 1; i <\
-    \ N; i++) {\n        int p;\n        cin >> p;\n        HLD.add_edge(p, i);\n\
-    \    }\n    HLD.build();\n\n    BinaryIndexedTree<long long> BIT(N);\n    for\
-    \ (int i = 0; i < N; i++) BIT.add(HLD.idx(i), a[i]);\n\n    for (; Q--;) {\n \
-    \       int t, u;\n        cin >> t >> u;\n        if (!t) {\n            int\
-    \ x;\n            cin >> x;\n            BIT.add(HLD.idx(u), x);\n        } else\
-    \ {\n            cout << HLD.query_sub<long long>(u, [&](int l, int r) { return\
-    \ BIT.query(l, r); }) << '\\n';\n        }\n    }\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 4 \"datastructure/BinaryIndexedTree.hpp\"\
+    \n\ntemplate <typename T> struct BinaryIndexedTree {\n    BinaryIndexedTree(int\
+    \ n_) : n(n_), data(n_) {}\n    void add(int k, T x) {\n        assert(0 <= k\
+    \ && k < n);\n        for (++k; k <= n; k += k & -k) data[k - 1] += x;\n    }\n\
+    \    T query(int l, int r) const {\n        assert(0 <= l && l <= r && r <= n);\n\
+    \        return sum(r) - sum(l);\n    }\n    T operator[](int i) const { return\
+    \ query(i, i + 1); }\n    int lower_bound(T x) const {\n        if (x <= 0) return\
+    \ 0;\n        int cur = 0, k = 1;\n        while (k < n) k <<= 1;\n        for\
+    \ (; k > 0; k >>= 1) {\n            if (cur + k <= n && data[cur + k - 1] < x)\
+    \ {\n                x -= data[cur + k - 1];\n                cur += k;\n    \
+    \        }\n        }\n        return cur;\n    }\n    int upper_bound(T x) const\
+    \ { return lower_bound(x + 1); }\n\nprivate:\n    int n;\n    std::vector<T> data;\n\
+    \    T sum(int r) const {\n        T res = 0;\n        for (; r > 0; r -= r &\
+    \ -r) res += data[r - 1];\n        return res;\n    }\n};\n\n/**\n * @brief Binary\
+    \ Indexd Tree (Fenwick Tree)\n * @docs docs/datastructure/BinaryIndexedTree.md\n\
+    \ */\n#line 3 \"tree/HeavyLightDecomposition.hpp\"\n\n/**\n * @brief Heavy Light\
+    \ Decomposition\n * @docsdocs/tree/HeavyLightDecomposition.md\n */\nclass HeavyLightDecomposition\
+    \ {\n    void dfs_sz(int v) {\n        if (G[v].size() && G[v][0] == par[v]) swap(G[v][0],\
+    \ G[v].back());\n        for (int& u : G[v]) {\n            if (u == par[v]) continue;\n\
+    \            par[u] = v;\n            dep[u] = dep[v] + 1;\n            dfs_sz(u);\n\
+    \            sub[v] += sub[u];\n            if (sub[u] > sub[G[v][0]]) swap(u,\
+    \ G[v][0]);\n        }\n    }\n    void dfs_hld(int v, int c, int& times) {\n\
+    \        vid[v] = times++;\n        type[v] = c;\n        for (int u : G[v]) {\n\
+    \            if (u == par[v]) continue;\n            head[u] = (u == G[v][0] ?\
+    \ head[v] : u);\n            dfs_hld(u, c, times);\n        }\n    }\n\npublic:\n\
+    \    vector<vector<int>> G;\n    vector<int> vid, head, sub, par, dep, type;\n\
+    \    HeavyLightDecomposition(int n) : G(n), vid(n, -1), head(n), sub(n, 1), par(n,\
+    \ -1), dep(n, 0), type(n) {}\n    void add_edge(int u, int v) {\n        G[u].emplace_back(v);\n\
+    \        G[v].emplace_back(u);\n    }\n    void build(vector<int> rs = {0}) {\n\
+    \        int c = 0, times = 0;\n        for (int r : rs) {\n            dfs_sz(r);\n\
+    \            head[r] = r;\n            dfs_hld(r, c++, times);\n        }\n  \
+    \  }\n    int idx(int u) { return vid[u]; }\n    int lca(int u, int v) {\n   \
+    \     for (;; v = par[head[v]]) {\n            if (vid[u] > vid[v]) swap(u, v);\n\
+    \            if (head[u] == head[v]) return u;\n        }\n    }\n    int distance(int\
+    \ u, int v) { return dep[u] + dep[v] - 2 * dep[lca(u, v)]; }\n    template <typename\
+    \ F> void update_path(int u, int v, const F& f, bool edge = false) {\n       \
+    \ for (;; v = par[head[v]]) {\n            if (vid[u] > vid[v]) swap(u, v);\n\
+    \            if (head[u] == head[v]) break;\n            f(vid[head[v]], vid[v]\
+    \ + 1);\n        }\n        f(vid[u] + edge, vid[v] + 1);\n    }\n    template\
+    \ <typename F> void update_sub(int u, const F& f, bool edge = false) { f(vid[u]\
+    \ + edge, vid[u] + sub[u]); }\n    template <typename T, typename Q, typename\
+    \ F>\n    T query_path(int u, int v, const T& id, const Q& q, const F& f, bool\
+    \ edge = false) {\n        T l = id, r = id;\n        for (;; v = par[head[v]])\
+    \ {\n            if (vid[u] > vid[v]) swap(u, v), swap(l, r);\n            if\
+    \ (head[u] == head[v]) break;\n            l = f(l, q(vid[head[v]], vid[v] + 1));\n\
+    \        }\n        return f(r, f(l, q(vid[u] + edge, vid[v] + 1)));\n    }\n\
+    \    template <typename T, typename Q> T query_sub(int u, const Q& q, bool edge\
+    \ = false) {\n        return q(vid[u] + edge, vid[u] + sub[u]);\n    }\n};\n#line\
+    \ 6 \"test/yosupo/vertex_add_subtree_sum.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N, Q;\n    cin >> N >> Q;\n    vector<int>\
+    \ a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\n    HeavyLightDecomposition\
+    \ HLD(N);\n    for (int i = 1; i < N; i++) {\n        int p;\n        cin >> p;\n\
+    \        HLD.add_edge(p, i);\n    }\n    HLD.build();\n\n    BinaryIndexedTree<long\
+    \ long> BIT(N);\n    for (int i = 0; i < N; i++) BIT.add(HLD.idx(i), a[i]);\n\n\
+    \    for (; Q--;) {\n        int t, u;\n        cin >> t >> u;\n        if (!t)\
+    \ {\n            int x;\n            cin >> x;\n            BIT.add(HLD.idx(u),\
+    \ x);\n        } else {\n            cout << HLD.query_sub<long long>(u, [&](int\
+    \ l, int r) { return BIT.query(l, r); }) << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/BinaryIndexedTree.hpp\"\
     \n#include \"../../tree/HeavyLightDecomposition.hpp\"\n\nint main() {\n    cin.tie(0);\n\
@@ -155,7 +156,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/vertex_add_subtree_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-09-20 17:22:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/vertex_add_subtree_sum.test.cpp

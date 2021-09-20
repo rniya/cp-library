@@ -32,9 +32,6 @@ data:
     path: convolution/XORconvolution.hpp
     title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
   - icon: ':heavy_check_mark:'
-    path: datastructure/BinaryIndexedTree.hpp
-    title: Binary Indexed Tree
-  - icon: ':heavy_check_mark:'
     path: datastructure/BinaryTrie.hpp
     title: Binary Trie
   - icon: ':heavy_check_mark:'
@@ -118,6 +115,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/BellmanFord.hpp
     title: Bellman Ford
+  - icon: ':warning:'
+    path: graph/BiConnectedComponents.hpp
+    title: graph/BiConnectedComponents.hpp
   - icon: ':heavy_check_mark:'
     path: graph/BipartiteGraph.hpp
     title: "2\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
@@ -900,7 +900,6 @@ data:
   - datastructure/UnionFindUndo.hpp
   - datastructure/ConvexHullTrick.hpp
   - datastructure/SegmentTreeBeats.hpp
-  - datastructure/BinaryIndexedTree.hpp
   - datastructure/UnionFind.hpp
   - datastructure/LazySegmentTree.hpp
   - datastructure/SparseTable.hpp
@@ -929,6 +928,7 @@ data:
   - graph/StronglyConnectedComponents.hpp
   - graph/BellmanFord.hpp
   - graph/Dijkstra.hpp
+  - graph/BiConnectedComponents.hpp
   - graph/TwoEdgeConnectedComponents.hpp
   - graph/RangeEdgeGraph.hpp
   - graph/Prim.hpp
