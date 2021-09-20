@@ -3,7 +3,7 @@
 #include <vector>
 
 template <typename T> struct BinaryIndexedTree {
-    BinaryIndexedTree(int n_) : n(n_), data(n_) {}
+    BinaryIndexedTree(int n) : n(n), data(n) {}
     void add(int k, T x) {
         assert(0 <= k && k < n);
         for (++k; k <= n; k += k & -k) data[k - 1] += x;
