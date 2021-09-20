@@ -1,37 +1,43 @@
 #pragma once
-#include "../base.hpp"
+#include <cassert>
+#include <vector>
 
-/**
- * @brief Binary Indexed Tree
- * @docs docs/datastructure/BinaryIndexedTree.md
- */
-template <typename T> class BinaryIndexedTree {
-    T sum(int i) {
-        T res = T();
-        for (; i > 0; i -= (i & -i)) res += dat[i];
-        return res;
+template <typename T> struct BinaryIndexedTree {
+    BinaryIndexedTree(int n_) : n(n_), data(n_) {}
+    void add(int k, T x) {
+        assert(0 <= k && k < n);
+        for (++k; k <= n; k += k & -k) data[k - 1] += x;
     }
-
-public:
-    int n;
-    vector<T> dat;
-    BinaryIndexedTree(int n_) : n(n_ + 1), dat(n + 1, 0) {}
-    void add(int i, const T& x) {
-        for (++i; i <= n; i += (i & -i)) dat[i] += x;
+    T query(int l, int r) const {
+        assert(0 <= l && l <= r && r <= n);
+        return sum(r) - sum(l);
     }
-    T query(int l, int r) { return sum(r) - sum(l); }
+    T operator[](int i) const { return query(i, i + 1); }
     int lower_bound(T x) const {
         if (x <= 0) return 0;
-        int pos = 0, k = 1;
+        int cur = 0, k = 1;
         while (k < n) k <<= 1;
         for (; k > 0; k >>= 1) {
-            if (pos + k <= n && dat[pos + k] < x) {
-                x -= dat[pos + k];
-                pos += k;
+            if (cur + k <= n && data[cur + k - 1] < x) {
+                x -= data[cur + k - 1];
+                cur += k;
             }
         }
-        return pos;
+        return cur;
     }
     int upper_bound(T x) const { return lower_bound(x + 1); }
-    T operator[](int i) { return query(i, i + 1); }
+
+private:
+    int n;
+    std::vector<T> data;
+    T sum(int r) const {
+        T res = 0;
+        for (; r > 0; r -= r & -r) res += data[r - 1];
+        return res;
+    }
 };
+
+/**
+ * @brief Binary Indexd Tree (Fenwick Tree)
+ * @docs docs/datastructure/BinaryIndexedTree.md
+ */
