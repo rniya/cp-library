@@ -84,9 +84,9 @@ data:
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
     \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 4 \"datastructure/BinaryIndexedTree.hpp\"\
     \n\ntemplate <typename T> struct BinaryIndexedTree {\n    BinaryIndexedTree(int\
-    \ n_) : n(n_), data(n_) {}\n    void add(int k, T x) {\n        assert(0 <= k\
-    \ && k < n);\n        for (++k; k <= n; k += k & -k) data[k - 1] += x;\n    }\n\
-    \    T query(int l, int r) const {\n        assert(0 <= l && l <= r && r <= n);\n\
+    \ n) : n(n), data(n) {}\n    void add(int k, T x) {\n        assert(0 <= k &&\
+    \ k < n);\n        for (++k; k <= n; k += k & -k) data[k - 1] += x;\n    }\n \
+    \   T query(int l, int r) const {\n        assert(0 <= l && l <= r && r <= n);\n\
     \        return sum(r) - sum(l);\n    }\n    T operator[](int i) const { return\
     \ query(i, i + 1); }\n    int lower_bound(T x) const {\n        if (x <= 0) return\
     \ 0;\n        int cur = 0, k = 1;\n        while (k < n) k <<= 1;\n        for\
@@ -161,7 +161,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2021-09-20 17:22:23+09:00'
+  timestamp: '2021-09-20 18:15:46+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp

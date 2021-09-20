@@ -74,9 +74,6 @@ data:
     path: datastructure/SparseTable.hpp
     title: Sparse table
   - icon: ':heavy_check_mark:'
-    path: datastructure/UnionFind.hpp
-    title: UnionFind
-  - icon: ':heavy_check_mark:'
     path: datastructure/UnionFindUndo.hpp
     title: "UnionFind (Undo\u53EF\u80FD)"
   - icon: ':heavy_check_mark:'
@@ -900,7 +897,6 @@ data:
   - datastructure/UnionFindUndo.hpp
   - datastructure/ConvexHullTrick.hpp
   - datastructure/SegmentTreeBeats.hpp
-  - datastructure/UnionFind.hpp
   - datastructure/LazySegmentTree.hpp
   - datastructure/SparseTable.hpp
   - datastructure/Slide_Min.hpp

@@ -88,7 +88,7 @@ data:
       title: Sparse table
     - icon: ':heavy_check_mark:'
       path: datastructure/UnionFind.hpp
-      title: UnionFind
+      title: Union Find (Disjoint Set Union)
     - icon: ':heavy_check_mark:'
       path: datastructure/UnionFindUndo.hpp
       title: "UnionFind (Undo\u53EF\u80FD)"
