@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -19,7 +19,7 @@ data:
       title: combination
   - name: convolution
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: convolution/ArbitaryModConvolution.hpp
       title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
     - icon: ':heavy_check_mark:'
@@ -33,7 +33,7 @@ data:
       path: convolution/FastZetaMobiusTransform_Superset.hpp
       title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\u63DB\
         (\u4E0A\u4F4D\u96C6\u5408)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: convolution/NumberTheoreticTransform.hpp
       title: Number Theoretic Transform
     - icon: ':heavy_check_mark:'
@@ -215,7 +215,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: modulo/dynamic_modint.hpp
       title: "\u5B9F\u884C\u6642 modint"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: modulo/modint.hpp
       title: modint
     - icon: ':warning:'
@@ -228,7 +228,7 @@ data:
       title: Mo's Algorithm
   - name: polynomial
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: polynomial/FormalPowerSeries.hpp
       title: Formal Power Series
     - icon: ':heavy_check_mark:'
@@ -636,7 +636,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod.test.cpp
       title: test/yosupo/convolution_mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution_mod_1000000007.test.cpp
     - icon: ':heavy_check_mark:'
@@ -773,7 +773,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/206.test.cpp
       title: test/yukicoder/206.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/3046.test.cpp
       title: test/yukicoder/3046.test.cpp
     - icon: ':heavy_check_mark:'

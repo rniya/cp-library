@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/convolution/ArbitaryModConvolution.md
     document_title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
@@ -177,10 +177,10 @@ data:
     \ c2 = ntt2.multiply(a2, b2);\n    static const mint1 inv0 = (mint1)1 / mod0;\n\
     \    static const mint2 inv1 = (mint2)1 / mod1, inv0inv1 = inv1 / mod0;\n    static\
     \ const M m0 = mod0, m0m1 = m0 * mod1;\n    vector<M> res(n + m - 1);\n    for\
-    \ (int i = 0; i < n + m - 1; i++) {\n        int v0 = c0[i].v;\n        int v1\
-    \ = (inv0 * (c1[i] - v0)).v;\n        int v2 = (inv0inv1 * (c2[i] - v0) - inv1\
-    \ * v1).v;\n        res[i] = v0 + m0 * v1 + m0m1 * v2;\n    }\n    return res;\n\
-    }\n"
+    \ (int i = 0; i < n + m - 1; i++) {\n        int v0 = c0[i].value();\n       \
+    \ int v1 = (inv0 * (c1[i] - v0)).value();\n        int v2 = (inv0inv1 * (c2[i]\
+    \ - v0) - inv1 * v1).value();\n        res[i] = v0 + m0 * v1 + m0m1 * v2;\n  \
+    \  }\n    return res;\n}\n"
   code: "#pragma once\n#include \"../base.hpp\"\n#include \"../modulo/modint.hpp\"\
     \n#include \"NumberTheoreticTransform.hpp\"\n\n/**\n * @brief Arbirary Mod Convolution\
     \ (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)\n * @docs docs/convolution/ArbitaryModConvolution.md\n\
@@ -197,10 +197,10 @@ data:
     \ b1);\n    auto c2 = ntt2.multiply(a2, b2);\n    static const mint1 inv0 = (mint1)1\
     \ / mod0;\n    static const mint2 inv1 = (mint2)1 / mod1, inv0inv1 = inv1 / mod0;\n\
     \    static const M m0 = mod0, m0m1 = m0 * mod1;\n    vector<M> res(n + m - 1);\n\
-    \    for (int i = 0; i < n + m - 1; i++) {\n        int v0 = c0[i].v;\n      \
-    \  int v1 = (inv0 * (c1[i] - v0)).v;\n        int v2 = (inv0inv1 * (c2[i] - v0)\
-    \ - inv1 * v1).v;\n        res[i] = v0 + m0 * v1 + m0m1 * v2;\n    }\n    return\
-    \ res;\n}"
+    \    for (int i = 0; i < n + m - 1; i++) {\n        int v0 = c0[i].value();\n\
+    \        int v1 = (inv0 * (c1[i] - v0)).value();\n        int v2 = (inv0inv1 *\
+    \ (c2[i] - v0) - inv1 * v1).value();\n        res[i] = v0 + m0 * v1 + m0m1 * v2;\n\
+    \    }\n    return res;\n}"
   dependsOn:
   - base.hpp
   - modulo/modint.hpp
@@ -208,8 +208,8 @@ data:
   isVerificationFile: false
   path: convolution/ArbitaryModConvolution.hpp
   requiredBy: []
-  timestamp: '2021-09-21 16:26:52+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-09-21 16:34:54+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yukicoder/3046.test.cpp
