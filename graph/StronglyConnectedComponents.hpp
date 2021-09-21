@@ -4,8 +4,8 @@
 #include <vector>
 
 struct StronglyConnectedComponents {
-    std::vector<std::vector<int>> G;  // graph after contraction
-    std::vector<int> comp;            // component id vertex v belongs to
+    std::vector<std::vector<int>> G;
+    std::vector<int> comp;  // component id vertex v belongs to
 
     StronglyConnectedComponents(int n) : G(n), comp(n, -1), n(n), time(0), group_num(0), ord(n, -1), low(n) {}
 
@@ -73,6 +73,6 @@ private:
 };
 
 /**
- * @brief Strongly Connectes Components
+ * @brief Strongly Connected Components
  * @docs docs/graph/StronglyConnectedComponents.md
  */
