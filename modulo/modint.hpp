@@ -1,17 +1,18 @@
 #pragma once
-#include "../base.hpp"
+#include <cassert>
+#include <cstdint>
+#include <iostream>
 
-/**
- * @brief modint
- * @docs docs/modulo/modint.md
- */
-template <uint32_t mod> class modint {
+template <uint64_t Modulus> class modint {
     using i64 = int64_t;
     using u32 = uint32_t;
     using u64 = uint64_t;
 
-public:
+    static_assert(Modulus < static_cast<uint32_t>(1) << 31, "Modulus must be less than 2**31");
+    static constexpr u32 mod = Modulus;
     u32 v;
+
+public:
     constexpr modint(const i64 x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}
     constexpr u32& value() noexcept { return v; }
     constexpr const u32& value() const noexcept { return v; }
@@ -33,8 +34,9 @@ public:
         v = (u64)v * rhs.v % mod;
         return *this;
     }
-    constexpr modint& operator/=(const modint& rhs) noexcept { return *this *= rhs.pow(mod - 2); }
+    constexpr modint& operator/=(const modint& rhs) noexcept { return *this *= rhs.inv(); }
     constexpr modint pow(u64 exp) const noexcept {
+        assert(0 <= exp);
         modint self(*this), res(1);
         while (exp > 0) {
             if (exp & 1) res *= self;
@@ -42,6 +44,10 @@ public:
             exp >>= 1;
         }
         return res;
+    }
+    constexpr modint inv() const noexcept {
+        assert(*this != 0);
+        return pow(mod - 2);
     }
     constexpr modint& operator++() noexcept {
         if (++v == mod) v = 0;
@@ -67,10 +73,15 @@ public:
     constexpr bool operator==(const modint& rhs) const noexcept { return v == rhs.v; }
     constexpr bool operator!=(const modint& rhs) const noexcept { return v != rhs.v; }
     constexpr bool operator!() const noexcept { return !v; }
-    friend istream& operator>>(istream& s, modint& rhs) noexcept {
+    friend std::istream& operator>>(std::istream& s, modint& rhs) noexcept {
         i64 v;
         rhs = modint{(s >> v, v)};
         return s;
     }
-    friend ostream& operator<<(ostream& s, const modint& rhs) noexcept { return s << rhs.v; }
+    friend std::ostream& operator<<(std::ostream& s, const modint& rhs) noexcept { return s << rhs.v; }
 };
+
+/**
+ * @brief modint
+ * @docs docs/modulo/modint.md
+ */
