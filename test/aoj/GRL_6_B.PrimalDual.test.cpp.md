@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: flow/PrimalDual.hpp
-    title: Primal Dual
+    title: Primal Dual (Minimum-cost flow)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -76,53 +76,60 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"flow/PrimalDual.hpp\"\
-    \n\n/**\n * @brief Primal Dual\n * @docs docs/flow/PrimalDual.md\n */\ntemplate\
-    \ <typename Cap, typename Cost> struct PrimalDual {\n    const Cost inf = numeric_limits<Cost>::max()\
-    \ / 2;\n    struct edge {\n        int to;\n        Cap cap;\n        Cost cost;\n\
-    \        int rev;\n        edge(int to, Cap cap, Cost cost, int rev) : to(to),\
-    \ cap(cap), cost(cost), rev(rev) {}\n    };\n    vector<vector<edge>> G;\n   \
-    \ vector<pair<int, int>> pos;\n    vector<Cost> h, dist;\n    vector<int> prevv,\
-    \ preve;\n    PrimalDual(int n) : G(n), h(n), dist(n), prevv(n), preve(n) {}\n\
-    \    int add_edge(int from, int to, Cap cap, Cost cost) {\n        pos.emplace_back(from,\
-    \ G[from].size());\n        G[from].emplace_back(to, cap, cost, G[to].size());\n\
-    \        G[to].emplace_back(from, 0, -cost, G[from].size() - 1);\n        return\
-    \ pos.size() - 1;\n    }\n    tuple<int, int, Cap, Cap, Cost> get_edge(int i)\
-    \ {\n        auto e = G[pos[i].first][pos[i].second];\n        auto re = G[e.to][e.rev];\n\
-    \        return {pos[i].first, e.to, e.cap + re.cap, re.cap, e.cost};\n    }\n\
-    \    vector<tuple<int, int, Cap, Cap, Cost>> edges() {\n        vector<tuple<int,\
-    \ int, Cap, Cap, Cost>> res;\n        for (size_t i = 0; i < pos.size(); i++)\
-    \ res.emplace_back(get_edge(i));\n        return res;\n    }\n    void dijkstra(int\
-    \ s) {\n        struct P {\n            Cost c;\n            int v;\n        \
-    \    P(Cost c, int v) : c(c), v(v) {}\n            bool operator<(const P& rhs)\
-    \ const { return c > rhs.c; }\n        };\n        priority_queue<P> pq;\n   \
-    \     fill(dist.begin(), dist.end(), inf);\n        dist[s] = 0;\n        pq.emplace(dist[s],\
-    \ s);\n\n        while (!pq.empty()) {\n            auto p = pq.top();\n     \
-    \       pq.pop();\n            int v = p.v;\n            if (dist[v] < p.c) continue;\n\
-    \            for (size_t i = 0; i < G[v].size(); i++) {\n                auto&\
-    \ e = G[v][i];\n                if (e.cap > 0 && dist[e.to] > dist[v] + e.cost\
-    \ + h[v] - h[e.to]) {\n                    dist[e.to] = dist[v] + e.cost + h[v]\
-    \ - h[e.to];\n                    prevv[e.to] = v;\n                    preve[e.to]\
-    \ = i;\n                    pq.emplace(dist[e.to], e.to);\n                }\n\
-    \            }\n        }\n    }\n    vector<pair<Cap, Cost>> slope(int s, int\
-    \ t, Cap lim) {\n        Cap f = 0;\n        Cost c = 0, pre = -1;\n        vector<pair<Cap,\
-    \ Cost>> res;\n        res.emplace_back(f, c);\n\n        while (f < lim) {\n\
-    \            dijkstra(s);\n            if (dist[t] == inf) break;\n          \
-    \  for (size_t v = 0; v < G.size(); v++) h[v] += dist[v];\n            Cap d =\
-    \ lim - f;\n            for (int v = t; v != s; v = prevv[v]) d = min(d, G[prevv[v]][preve[v]].cap);\n\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 6 \"flow/PrimalDual.hpp\"\
+    \n\ntemplate <typename Cap, typename Cost> struct PrimalDual {\n    PrimalDual(int\
+    \ n) : n(n), G(n), h(n), dist(n), prevv(n), preve(n) {}\n\n    int add_edge(int\
+    \ from, int to, Cap cap, Cost cost) {\n        assert(0 <= from && from < n);\n\
+    \        assert(0 <= to && to < n);\n        assert(0 <= cap);\n        assert(0\
+    \ <= cost);\n        int m = pos.size(), from_id = G[from].size(), to_id = G[to].size();\n\
+    \        pos.emplace_back(from, G[from].size());\n        G[from].emplace_back(to,\
+    \ cap, cost, to_id);\n        G[to].emplace_back(from, 0, -cost, from_id);\n \
+    \       return m;\n    }\n\n    std::tuple<int, int, Cap, Cap, Cost> get_edge(int\
+    \ i) {\n        assert(0 <= i && i < (int)pos.size());\n        auto e = G[pos[i].first][pos[i].second];\n\
+    \        auto re = G[e.to][e.rev];\n        return {pos[i].first, e.to, e.cap\
+    \ + re.cap, re.cap, e.cost};\n    }\n\n    std::vector<std::tuple<int, int, Cap,\
+    \ Cap, Cost>> edges() {\n        std::vector<std::tuple<int, int, Cap, Cap, Cost>>\
+    \ res;\n        for (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));\n\
+    \    }\n\n    Cost min_cost_flow(int s, int t, Cap flow) {\n        auto res =\
+    \ slope(s, t, flow).back();\n        return res.first == flow ? res.second : -1;\n\
+    \    }\n\n    std::pair<Cap, Cost> min_cost_max_flow(int s, int t) { return slope(s,\
+    \ t, std::numeric_limits<Cap>::max()).back(); }\n\n    std::vector<std::pair<Cap,\
+    \ Cost>> slope(int s, int t) { return slope(s, t, std::numeric_limits<Cap>::max());\
+    \ }\n\nprivate:\n    struct edge {\n        int to;\n        Cap cap;\n      \
+    \  Cost cost;\n        int rev;\n        edge(int to, Cap cap, Cost cost, int\
+    \ rev) : to(to), cap(cap), cost(cost), rev(rev) {}\n    };\n\n    const Cost inf\
+    \ = std::numeric_limits<Cost>::max();\n    int n;\n    std::vector<std::vector<edge>>\
+    \ G;\n    std::vector<std::pair<int, int>> pos;\n    std::vector<Cost> h, dist;\n\
+    \    std::vector<int> prevv, preve;\n\n    void dijkstra(int s) {\n        struct\
+    \ P {\n            Cost c;\n            int v;\n            P(Cost c, int v) :\
+    \ c(c), v(v) {}\n            bool operator<(const P& rhs) const { return c > rhs.c;\
+    \ }\n        };\n        std::priority_queue<P> pq;\n        fill(dist.begin(),\
+    \ dist.end(), inf);\n        dist[s] = 0;\n        pq.emplace(dist[s], s);\n \
+    \       while (!pq.empty()) {\n            auto p = pq.top();\n            pq.pop();\n\
+    \            int v = p.v;\n            if (dist[v] < p.c) continue;\n        \
+    \    for (size_t i = 0; i < G[v].size(); i++) {\n                auto& e = G[v][i];\n\
+    \                if (e.cap > 0 && dist[e.to] > dist[v] + e.cost + h[v] - h[e.to])\
+    \ {\n                    dist[e.to] = dist[v] + e.cost + h[v] - h[e.to];\n   \
+    \                 prevv[e.to] = v;\n                    preve[e.to] = i;\n   \
+    \                 pq.emplace(dist[e.to], e.to);\n                }\n         \
+    \   }\n        }\n    }\n\n    std::vector<std::pair<Cap, Cost>> slope(int s,\
+    \ int t, Cap flow_limit) {\n        assert(0 <= s && s < n);\n        assert(0\
+    \ <= t && t < n);\n        assert(s != t);\n        Cap flow = 0;\n        Cost\
+    \ cost = 0, prev_cost_pre_flow = -1;\n        std::vector<std::pair<Cap, Cost>>\
+    \ res;\n        res.emplace_back(flow, cost);\n        while (flow < flow_limit)\
+    \ {\n            dijkstra(s);\n            if (dist[t] == inf) break;\n      \
+    \      for (int v = 0; v < n; v++) h[v] += dist[v];\n            Cap d = flow_limit\
+    \ - flow;\n            for (int v = t; v != s; v = prevv[v]) d = std::min(d, G[prevv[v]][preve[v]].cap);\n\
     \            for (int v = t; v != s; v = prevv[v]) {\n                auto& e\
     \ = G[prevv[v]][preve[v]];\n                e.cap -= d;\n                G[v][e.rev].cap\
-    \ += d;\n            }\n            f += d;\n            c += h[t] * d;\n    \
-    \        if (pre == h[t]) res.pop_back();\n            res.emplace_back(f, c);\n\
-    \            pre = c;\n        }\n\n        return res;\n    }\n    Cost min_cost_flow(int\
-    \ s, int t, Cap f) {\n        auto res = slope(s, t, f).back();\n        return\
-    \ res.first == f ? res.second : -1;\n    }\n    pair<Cap, Cost> min_cost_max_flow(int\
-    \ s, int t) { return slope(s, t, numeric_limits<Cap>::max()).back(); }\n    vector<pair<Cap,\
-    \ Cost>> min_cost_slope(int s, int t) { return slope(s, t, numeric_limits<Cap>::max());\
-    \ }\n};\n#line 5 \"test/aoj/GRL_6_B.PrimalDual.test.cpp\"\n\nint main() {\n  \
-    \  cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E, F;\n    cin >>\
-    \ V >> E >> F;\n\n    PrimalDual<int, int> PD(V);\n\n    for (int i = 0; i < E;\
-    \ i++) {\n        int u, v, c, d;\n        cin >> u >> v >> c >> d;\n        PD.add_edge(u,\
+    \ += d;\n            }\n            flow += d;\n            cost += d * h[t];\n\
+    \            if (prev_cost_pre_flow == d) res.pop_back();\n            res.emplace_back(flow,\
+    \ cost);\n            prev_cost_pre_flow = d;\n        }\n        return res;\n\
+    \    }\n};\n\n/**\n * @brief Primal Dual (Minimum-cost flow)\n * @docs docs/flow/PrimalDual.md\n\
+    \ */\n#line 5 \"test/aoj/GRL_6_B.PrimalDual.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int V, E, F;\n    cin >> V >> E >> F;\n\
+    \n    PrimalDual<int, int> PD(V);\n\n    for (int i = 0; i < E; i++) {\n     \
+    \   int u, v, c, d;\n        cin >> u >> v >> c >> d;\n        PD.add_edge(u,\
     \ v, c, d);\n    }\n\n    cout << PD.min_cost_flow(0, V - 1, F) << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../flow/PrimalDual.hpp\"\n\nint\
@@ -137,7 +144,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_6_B.PrimalDual.test.cpp
   requiredBy: []
-  timestamp: '2021-09-11 01:27:48+09:00'
+  timestamp: '2021-09-21 23:36:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_B.PrimalDual.test.cpp

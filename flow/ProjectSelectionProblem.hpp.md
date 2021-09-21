@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: flow/Dinic.hpp
-    title: Dinic
+    title: Dinic (Maximum flow)
   _extendedRequiredBy:
   - icon: ':warning:'
     path: test/atcoder/arc085_c.cpp
@@ -132,7 +132,7 @@ data:
     \ <= 0 || level[v] >= level[e.to]) continue;\n            Cap d = dfs(e.to, t,\
     \ min(f, e.cap));\n            if (d <= 0) continue;\n            e.cap -= d;\n\
     \            G[e.to][e.rev].cap += d;\n            return d;\n        }\n    \
-    \    return 0;\n    }\n};\n\n/**\n * @brief Dinic\n * @docs docs/flow/Dinic.md\n\
+    \    return 0;\n    }\n};\n\n/**\n * @brief Dinic (Maximum flow)\n * @docs docs/flow/Dinic.md\n\
     \ */\n#line 4 \"flow/ProjectSelectionProblem.hpp\"\n\n/**\n * @brief Project Selection\
     \ Problem\n * @docs docs/flow/ProjectSelectionProblem.md\n */\ntemplate <typename\
     \ T> struct ProjectSelectionProblem {\n    int s, t;\n    T sum = 0;\n    const\
@@ -174,7 +174,7 @@ data:
   requiredBy:
   - test/atcoder/arc085_c.cpp
   - test/codeforces/1404_E.cpp
-  timestamp: '2021-09-21 22:57:51+09:00'
+  timestamp: '2021-09-21 23:36:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp

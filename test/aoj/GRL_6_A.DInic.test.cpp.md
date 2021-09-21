@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: flow/Dinic.hpp
-    title: Dinic
+    title: Dinic (Maximum flow)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -125,7 +125,7 @@ data:
     \ <= 0 || level[v] >= level[e.to]) continue;\n            Cap d = dfs(e.to, t,\
     \ min(f, e.cap));\n            if (d <= 0) continue;\n            e.cap -= d;\n\
     \            G[e.to][e.rev].cap += d;\n            return d;\n        }\n    \
-    \    return 0;\n    }\n};\n\n/**\n * @brief Dinic\n * @docs docs/flow/Dinic.md\n\
+    \    return 0;\n    }\n};\n\n/**\n * @brief Dinic (Maximum flow)\n * @docs docs/flow/Dinic.md\n\
     \ */\n#line 5 \"test/aoj/GRL_6_A.DInic.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
     \    ios::sync_with_stdio(false);\n    int V, E;\n    cin >> V >> E;\n\n    Dinic<int,\
     \ true> D(V);\n\n    for (int i = 0; i < E; i++) {\n        int u, v, c;\n   \
@@ -143,7 +143,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_6_A.DInic.test.cpp
   requiredBy: []
-  timestamp: '2021-09-21 22:57:51+09:00'
+  timestamp: '2021-09-21 23:36:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_A.DInic.test.cpp

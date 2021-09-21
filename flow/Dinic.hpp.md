@@ -26,7 +26,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/flow/Dinic.md
-    document_title: Dinic
+    document_title: Dinic (Maximum flow)
     links: []
   bundledCode: "#line 2 \"flow/Dinic.hpp\"\n#include <cassert>\n#include <limits>\n\
     #include <queue>\n#include <vector>\n\ntemplate <typename Cap, bool directed>\
@@ -79,7 +79,7 @@ data:
     \ <= 0 || level[v] >= level[e.to]) continue;\n            Cap d = dfs(e.to, t,\
     \ min(f, e.cap));\n            if (d <= 0) continue;\n            e.cap -= d;\n\
     \            G[e.to][e.rev].cap += d;\n            return d;\n        }\n    \
-    \    return 0;\n    }\n};\n\n/**\n * @brief Dinic\n * @docs docs/flow/Dinic.md\n\
+    \    return 0;\n    }\n};\n\n/**\n * @brief Dinic (Maximum flow)\n * @docs docs/flow/Dinic.md\n\
     \ */\n"
   code: "#pragma once\n#include <cassert>\n#include <limits>\n#include <queue>\n#include\
     \ <vector>\n\ntemplate <typename Cap, bool directed> struct Dinic {\n    Dinic(int\
@@ -131,7 +131,7 @@ data:
     \ <= 0 || level[v] >= level[e.to]) continue;\n            Cap d = dfs(e.to, t,\
     \ min(f, e.cap));\n            if (d <= 0) continue;\n            e.cap -= d;\n\
     \            G[e.to][e.rev].cap += d;\n            return d;\n        }\n    \
-    \    return 0;\n    }\n};\n\n/**\n * @brief Dinic\n * @docs docs/flow/Dinic.md\n\
+    \    return 0;\n    }\n};\n\n/**\n * @brief Dinic (Maximum flow)\n * @docs docs/flow/Dinic.md\n\
     \ */"
   dependsOn: []
   isVerificationFile: false
@@ -140,7 +140,7 @@ data:
   - flow/ProjectSelectionProblem.hpp
   - test/atcoder/arc085_c.cpp
   - test/codeforces/1404_E.cpp
-  timestamp: '2021-09-21 22:57:51+09:00'
+  timestamp: '2021-09-21 23:36:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_6_A.DInic.test.cpp
@@ -151,7 +151,7 @@ layout: document
 redirect_from:
 - /library/flow/Dinic.hpp
 - /library/flow/Dinic.hpp.html
-title: Dinic
+title: Dinic (Maximum flow)
 ---
 ## 概要
 最大流を計算する.

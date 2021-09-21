@@ -104,13 +104,13 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: flow/Dinic.hpp
-      title: Dinic
+      title: Dinic (Maximum flow)
     - icon: ':heavy_check_mark:'
       path: flow/HopcroftKarp.hpp
       title: Hopcroft Karp
     - icon: ':heavy_check_mark:'
       path: flow/PrimalDual.hpp
-      title: Primal Dual
+      title: Primal Dual (Minimum-cost flow)
     - icon: ':heavy_check_mark:'
       path: flow/PrimalDualonDAG.hpp
       title: Primal Dual on DAG
