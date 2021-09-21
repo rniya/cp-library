@@ -33,6 +33,7 @@ struct TopologicalSort {
                 }
             }
         }
+        if (*max_element(indeg.begin(), indeg.end()) != 0) return {};
         return order;
     }
 
