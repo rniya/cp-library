@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -102,7 +102,7 @@ data:
       title: monotone minima
   - name: flow
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: flow/Dinic.hpp
       title: Dinic
     - icon: ':heavy_check_mark:'
@@ -361,7 +361,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/1370.test.cpp
       title: test/aoj/1370.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/2313.test.cpp
       title: test/aoj/2313.test.cpp
     - icon: ':heavy_check_mark:'

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -153,8 +153,3 @@ redirect_from:
 - /library/hold/MinCostFlow.hpp.html
 title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
 ---
-## 概要
-最小費用流を計算するが, 基本的には[Primal Dual](https://rniya.github.io/competitive-programming-library/flow/PrimalDual.hpp)の方が高速なのでそちらを使うほうが良い.
-
-## 計算量
-$O(fEV)$

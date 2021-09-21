@@ -59,7 +59,7 @@ data:
     \ <typename F> void query_subtree(int u, const F& f, bool vertex = false) const\
     \ {\n        assert(0 <= u && u < n);\n        f(vertex_id[u] + !vertex, vertex_id[u]\
     \ + sub[u]);\n    }\n\nprivate:\n    int n, time;\n    std::vector<std::vector<int>>\
-    \ G;  // child of vertex v on heavy edge is G[v].front() is it is not parent of\
+    \ G;  // child of vertex v on heavy edge is G[v].front() if it is not parent of\
     \ v\n    std::vector<int> par              // parent of vertex v\n        ,\n\
     \        sub  // size of subtree whose root is v\n        ,\n        dep  // distance\
     \ bitween root and vertex v\n        ,\n        head  // vertex that is the nearest\
@@ -115,7 +115,7 @@ data:
     \ <typename F> void query_subtree(int u, const F& f, bool vertex = false) const\
     \ {\n        assert(0 <= u && u < n);\n        f(vertex_id[u] + !vertex, vertex_id[u]\
     \ + sub[u]);\n    }\n\nprivate:\n    int n, time;\n    std::vector<std::vector<int>>\
-    \ G;  // child of vertex v on heavy edge is G[v].front() is it is not parent of\
+    \ G;  // child of vertex v on heavy edge is G[v].front() if it is not parent of\
     \ v\n    std::vector<int> par              // parent of vertex v\n        ,\n\
     \        sub  // size of subtree whose root is v\n        ,\n        dep  // distance\
     \ bitween root and vertex v\n        ,\n        head  // vertex that is the nearest\
@@ -145,7 +145,7 @@ data:
   isVerificationFile: false
   path: tree/HeavyLightDecomposition.hpp
   requiredBy: []
-  timestamp: '2021-09-21 21:14:24+09:00'
+  timestamp: '2021-09-21 22:39:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2667.test.cpp

@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: flow/Dinic.hpp
     title: Dinic
   _extendedRequiredBy: []
@@ -75,54 +75,62 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"flow/Dinic.hpp\"\
-    \n\n/**\n * @brief Dinic\n * @docs docs/flow/Dinic.md\n */\ntemplate <typename\
-    \ Cap, bool directed> struct Dinic {\n    struct edge {\n        int to;\n   \
-    \     Cap cap;\n        int rev;\n        edge(int to, Cap cap, int rev) : to(to),\
-    \ cap(cap), rev(rev) {}\n    };\n    vector<vector<edge>> G;\n    vector<pair<int,\
-    \ int>> pos;\n    vector<int> level, iter;\n    Dinic(int n) : G(n), level(n),\
-    \ iter(n) {}\n    int add_edge(int from, int to, Cap cap) {\n        pos.emplace_back(from,\
-    \ G[from].size());\n        G[from].emplace_back(to, cap, G[to].size());\n   \
-    \     G[to].emplace_back(from, directed ? 0 : cap, G[from].size() - 1);\n    \
-    \    return pos.size() - 1;\n    }\n    int add_vertex() {\n        G.emplace_back();\n\
-    \        level.emplace_back();\n        iter.emplace_back();\n        return G.size()\
-    \ - 1;\n    }\n    tuple<int, int, Cap, Cap> get_edge(int i) {\n        auto e\
-    \ = G[pos[i].first][pos[i].second];\n        auto re = G[e.to][e.rev];\n     \
-    \   return {pos[i].first, e.to, e.cap + re.cap, re.cap};\n    }\n    vector<tuple<int,\
-    \ int, Cap, Cap>> edges() {\n        vector<tuple<int, int, Cap, Cap>> res;\n\
-    \        for (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));\n\
-    \        return res;\n    }\n    void change_edge(int i, Cap new_cap, Cap new_flow)\
-    \ {\n        auto& e = G[pos[i].first][pos[i].second];\n        auto& re = G[e.to][e.rev];\n\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 6 \"flow/Dinic.hpp\"\
+    \n\ntemplate <typename Cap, bool directed> struct Dinic {\n    Dinic(int n) :\
+    \ n(n), G(n), level(n), iter(n) {}\n\n    int add_edge(int from, int to, Cap cap)\
+    \ {\n        assert(0 <= from && from < n);\n        assert(0 <= to && to < n);\n\
+    \        assert(0 <= cap);\n        assert(from != to);\n        int m = pos.size(),\
+    \ from_id = G[from].size(), to_id = G[to].size();\n        pos.emplace_back(from,\
+    \ G[from].size());\n        G[from].emplace_back(to, cap, to_id);\n        G[to].emplace_back(from,\
+    \ directed ? 0 : cap, from_id);\n        return m;\n    }\n\n    int add_vertex()\
+    \ {\n        G.emplace_back();\n        level.emplace_back();\n        iter.emplace_back();\n\
+    \        return n++;\n    }\n\n    std::tuple<int, int, Cap, Cap> get_edge(int\
+    \ i) {\n        assert(0 <= i && i < (int)pos.size());\n        auto e = G[pos[i].first][pos[i].second];\n\
+    \        auto re = G[e.to][e.rev];\n        return {pos[i].first, e.to, e.cap\
+    \ + re.cap, re.cap};\n    }\n\n    std::vector<std::tuple<int, int, Cap, Cap>>\
+    \ edges() {\n        std::vector<std::tuple<int, int, Cap, Cap>> res;\n      \
+    \  for (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));\n  \
+    \  }\n\n    void change_edge(int i, Cap new_cap, Cap new_flow) {\n        assert(0\
+    \ <= i && i < (int)pos.size());\n        assert(0 <= new_flow && new_flow <= new_cap);\n\
+    \        auto& e = G[pos[i].first][pos[i].second];\n        auto& re = G[e.to][e.rev];\n\
     \        e.cap = new_cap - new_flow;\n        re.cap = (directed ? new_flow :\
-    \ new_cap + new_flow);\n    }\n    void bfs(int s) {\n        fill(level.begin(),\
-    \ level.end(), -1);\n        queue<int> que;\n        level[s] = 0;\n        que.emplace(s);\n\
-    \n        while (!que.empty()) {\n            int v = que.front();\n         \
-    \   que.pop();\n            for (auto& e : G[v]) {\n                if (e.cap\
+    \ new_cap + new_flow);\n    }\n\n    Cap max_flow(int s, int t) { return max_flow(s,\
+    \ t, std::numeric_limits<Cap>::max()); }\n\n    Cap max_flow(int s, int t, Cap\
+    \ flow_limit) {\n        assert(0 <= s && s < n);\n        assert(0 <= t && t\
+    \ < n);\n        assert(s != t);\n        Cap flow = 0;\n        while (flow <\
+    \ flow_limit) {\n            bfs(s, t);\n            if (level[t] < 0) break;\n\
+    \            std::fill(iter.begin(), iter.end(), 0);\n            while (flow\
+    \ < flow_limit) {\n                Cap f = dfs(s, t, flow_limit - flow);\n   \
+    \             if (f == 0) break;\n                flow += f;\n            }\n\
+    \        }\n        return flow;\n    }\n\n    std::vector<bool> min_cut(int s)\
+    \ {\n        assert(0 <= s && s < n);\n        std::vector<bool> visited(n);\n\
+    \        std::queue<int> que;\n        visited[s] = true;\n        que.emplace(s);\n\
+    \        while (!que.empty()) {\n            int v = que.front();\n          \
+    \  que.pop();\n            for (const auto& e : G[v]) {\n                if (e.cap\
+    \ && !visited[e.to]) {\n                    visited[e.to] = true;\n          \
+    \          que.emplace(e.to);\n                }\n            }\n        }\n \
+    \       return visited;\n    }\n\nprivate:\n    struct edge {\n        int to;\n\
+    \        Cap cap;\n        int rev;\n        edge(int to, Cap cap, int rev) :\
+    \ to(to), cap(cap), rev(rev) {}\n    };\n\n    int n;\n    std::vector<std::vector<edge>>\
+    \ G;\n    std::vector<std::pair<int, int>> pos;\n    std::vector<int> level, iter;\n\
+    \n    void bfs(int s, int t) {\n        std::fill(level.begin(), level.end(),\
+    \ -1);\n        std::queue<int> que;\n        level[s] = 0;\n        que.emplace(s);\n\
+    \        while (!que.empty()) {\n            int v = que.front();\n          \
+    \  que.pop();\n            for (const auto& e : G[v]) {\n                if (e.cap\
     \ > 0 && level[e.to] < 0) {\n                    level[e.to] = level[v] + 1;\n\
-    \                    que.emplace(e.to);\n                }\n            }\n  \
-    \      }\n    }\n    Cap dfs(int v, int t, Cap f) {\n        if (v == t) return\
-    \ f;\n        for (int& i = iter[v]; i < (int)G[v].size(); i++) {\n          \
-    \  auto& e = G[v][i];\n            if (e.cap > 0 && level[v] < level[e.to]) {\n\
-    \                Cap d = dfs(e.to, t, min(f, e.cap));\n                if (d <=\
-    \ 0) continue;\n                e.cap -= d;\n                G[e.to][e.rev].cap\
-    \ += d;\n                return d;\n            }\n        }\n        return 0;\n\
-    \    }\n    Cap max_flow(int s, int t, Cap lim) {\n        Cap flow = 0;\n   \
-    \     while (lim > 0) {\n            bfs(s);\n            if (level[t] < 0) break;\n\
-    \            fill(iter.begin(), iter.end(), 0);\n            while (lim > 0) {\n\
-    \                Cap f = dfs(s, t, lim);\n                if (f == 0) break;\n\
-    \                flow += f;\n                lim -= f;\n            }\n      \
-    \  }\n        return flow;\n    }\n    Cap max_flow(int s, int t) { return max_flow(s,\
-    \ t, numeric_limits<Cap>::max()); }\n    vector<bool> min_cut(int s) {\n     \
-    \   vector<bool> res(G.size());\n        queue<int> que;\n        res[s] = true;\n\
-    \        que.emplace(s);\n        while (!que.empty()) {\n            int v =\
-    \ que.front();\n            que.pop();\n            for (auto e : G[v]) {\n  \
-    \              if (e.cap > 0 && !res[e.to]) {\n                    res[e.to] =\
-    \ true;\n                    que.emplace(e.to);\n                }\n         \
-    \   }\n        }\n        return res;\n    }\n};\n#line 5 \"test/aoj/GRL_6_A.DInic.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
-    \ E;\n    cin >> V >> E;\n\n    Dinic<int, true> D(V);\n\n    for (int i = 0;\
-    \ i < E; i++) {\n        int u, v, c;\n        cin >> u >> v >> c;\n        D.add_edge(u,\
-    \ v, c);\n    }\n\n    cout << D.max_flow(0, V - 1) << '\\n';\n}\n"
+    \                    if (e.to == t) return;\n                    que.emplace(e.to);\n\
+    \                }\n            }\n        }\n    }\n\n    Cap dfs(int v, int\
+    \ t, Cap f) {\n        if (v == t) return f;\n        for (int& i = iter[v]; i\
+    \ < (int)G[v].size(); i++) {\n            auto& e = G[v][i];\n            if (e.cap\
+    \ <= 0 || level[v] >= level[e.to]) continue;\n            Cap d = dfs(e.to, t,\
+    \ min(f, e.cap));\n            if (d <= 0) continue;\n            e.cap -= d;\n\
+    \            G[e.to][e.rev].cap += d;\n            return d;\n        }\n    \
+    \    return 0;\n    }\n};\n\n/**\n * @brief Dinic\n * @docs docs/flow/Dinic.md\n\
+    \ */\n#line 5 \"test/aoj/GRL_6_A.DInic.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int V, E;\n    cin >> V >> E;\n\n    Dinic<int,\
+    \ true> D(V);\n\n    for (int i = 0; i < E; i++) {\n        int u, v, c;\n   \
+    \     cin >> u >> v >> c;\n        D.add_edge(u, v, c);\n    }\n\n    cout <<\
+    \ D.max_flow(0, V - 1) << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../flow/Dinic.hpp\"\n\nint main()\
     \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
@@ -135,7 +143,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_6_A.DInic.test.cpp
   requiredBy: []
-  timestamp: '2021-09-11 01:38:11+09:00'
+  timestamp: '2021-09-21 22:39:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_A.DInic.test.cpp

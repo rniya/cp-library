@@ -77,9 +77,6 @@ data:
     path: dp/monotone_minima.hpp
     title: monotone minima
   - icon: ':heavy_check_mark:'
-    path: flow/Dinic.hpp
-    title: Dinic
-  - icon: ':heavy_check_mark:'
     path: flow/HopcroftKarp.hpp
     title: Hopcroft Karp
   - icon: ':heavy_check_mark:'
@@ -298,7 +295,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/1370.test.cpp
     title: test/aoj/1370.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/2313.test.cpp
     title: test/aoj/2313.test.cpp
   - icon: ':heavy_check_mark:'
@@ -724,9 +721,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -892,7 +889,6 @@ data:
   - graph/WarshallFloyd.hpp
   - flow/PrimalDualonDAG.hpp
   - flow/PrimalDual.hpp
-  - flow/Dinic.hpp
   - flow/HopcroftKarp.hpp
   - flow/ProjectSelectionProblem.hpp
   - hold/SuffixArray_old.hpp
@@ -945,7 +941,7 @@ data:
   - combinatorics/BellNumber.hpp
   - combinatorics/PartitionTable.hpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/CGL_4_B.test.cpp
   - test/aoj/GRL_6_A.DInic.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -123,11 +123,3 @@ redirect_from:
 - /library/hold/BipartiteMatching.hpp.html
 title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
 ---
-## 概要
-2部グラフの最大マッチングを求める. 基本的にはHopcroft-Karpのアルゴリズムの方が高速なのでそちらを使うのが良い. 頂点番号の振り方に注意.
-
-- `add_edge(u, v)`：$u$と$v$の間に辺を張る.
-- `build()`：最大マッチングの大きさを求める.
-
-## 計算量
-$O(EV)$
