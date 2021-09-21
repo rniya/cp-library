@@ -11,7 +11,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: combinatorics/combination.hpp
     title: combination
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':heavy_check_mark:'
@@ -25,7 +25,7 @@ data:
     path: convolution/FastZetaMobiusTransform_Superset.hpp
     title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\u63DB\
       (\u4E0A\u4F4D\u96C6\u5408)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
@@ -195,22 +195,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: modulo/dynamic_modint.hpp
     title: "\u5B9F\u884C\u6642 modint"
-  - icon: ':heavy_check_mark:'
-    path: modulo/modint.hpp
-    title: modint
   - icon: ':warning:'
     path: modulo/montgomery64.hpp
     title: montgomery modint (64 bit)
   - icon: ':heavy_check_mark:'
     path: other/Mo.hpp
     title: Mo's Algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   - icon: ':heavy_check_mark:'
     path: polynomial/StirlingSecond.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: polynomial/lagrange_interpolation.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - icon: ':heavy_check_mark:'
@@ -595,7 +592,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
   - icon: ':heavy_check_mark:'
@@ -730,7 +727,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/206.test.cpp
     title: test/yukicoder/206.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
   - icon: ':heavy_check_mark:'
@@ -745,7 +742,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/583.test.cpp
     title: test/yukicoder/583.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
   - icon: ':heavy_check_mark:'
@@ -757,9 +754,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -971,7 +968,6 @@ data:
   - test/codeforces/1361_C.cpp
   - geometry/geometry.hpp
   - modulo/montgomery64.hpp
-  - modulo/modint.hpp
   - modulo/dynamic_modint.hpp
   - math/fast_factorize.hpp
   - math/is_prime.hpp
@@ -987,7 +983,7 @@ data:
   - combinatorics/BellNumber.hpp
   - combinatorics/PartitionTable.hpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/CGL_4_B.test.cpp
   - test/aoj/GRL_6_A.DInic.test.cpp

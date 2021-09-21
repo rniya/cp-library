@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   - icon: ':warning:'
     path: linearalgebra/Kitamasa.hpp
     title: Kitamasa
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -93,14 +93,15 @@ data:
     \        if ((int)pcs.size() <= i) pcs.emplace_back(merge(pcs[i - 1], pcs[i -\
     \ 1]));\n            if (~n & 1) continue;\n            res = merge(res, pcs[i]);\n\
     \        }\n        K ans = K(0);\n        for (int i = 1; i <= k; i++) ans +=\
-    \ res[i] * A[i - 1];\n        return ans;\n    }\n};\n#line 3 \"modulo/modint.hpp\"\
-    \n\n/**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
-    \ mod> class modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n \
-    \   using u64 = uint64_t;\n\npublic:\n    u32 v;\n    constexpr modint(const i64\
-    \ x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr\
-    \ u32& value() noexcept { return v; }\n    constexpr const u32& value() const\
-    \ noexcept { return v; }\n    constexpr modint operator+(const modint& rhs) const\
-    \ noexcept { return modint(*this) += rhs; }\n    constexpr modint operator-(const\
+    \ res[i] * A[i - 1];\n        return ans;\n    }\n};\n#line 5 \"modulo/modint.hpp\"\
+    \n\ntemplate <uint64_t Modulus> class modint {\n    using i64 = int64_t;\n   \
+    \ using u32 = uint32_t;\n    using u64 = uint64_t;\n\n    static_assert(Modulus\
+    \ < static_cast<uint32_t>(1) << 31, \"Modulus must be less than 2**31\");\n  \
+    \  static constexpr u32 mod = Modulus;\n    u32 v;\n\npublic:\n    constexpr modint(const\
+    \ i64 x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n \
+    \   constexpr u32& value() noexcept { return v; }\n    constexpr const u32& value()\
+    \ const noexcept { return v; }\n    constexpr modint operator+(const modint& rhs)\
+    \ const noexcept { return modint(*this) += rhs; }\n    constexpr modint operator-(const\
     \ modint& rhs) const noexcept { return modint(*this) -= rhs; }\n    constexpr\
     \ modint operator*(const modint& rhs) const noexcept { return modint(*this) *=\
     \ rhs; }\n    constexpr modint operator/(const modint& rhs) const noexcept { return\
@@ -110,32 +111,35 @@ data:
     \ {\n        if (v < rhs.v) v += mod;\n        v -= rhs.v;\n        return *this;\n\
     \    }\n    constexpr modint& operator*=(const modint& rhs) noexcept {\n     \
     \   v = (u64)v * rhs.v % mod;\n        return *this;\n    }\n    constexpr modint&\
-    \ operator/=(const modint& rhs) noexcept { return *this *= rhs.pow(mod - 2); }\n\
-    \    constexpr modint pow(u64 exp) const noexcept {\n        modint self(*this),\
-    \ res(1);\n        while (exp > 0) {\n            if (exp & 1) res *= self;\n\
-    \            self *= self;\n            exp >>= 1;\n        }\n        return\
-    \ res;\n    }\n    constexpr modint& operator++() noexcept {\n        if (++v\
-    \ == mod) v = 0;\n        return *this;\n    }\n    constexpr modint& operator--()\
-    \ noexcept {\n        if (v == 0) v = mod;\n        return --v, *this;\n    }\n\
-    \    constexpr modint operator++(int) noexcept {\n        modint t = *this;\n\
-    \        return ++*this, t;\n    }\n    constexpr modint operator--(int) noexcept\
-    \ {\n        modint t = *this;\n        return --*this, t;\n    }\n    constexpr\
-    \ modint operator-() const noexcept { return modint(mod - v); }\n    template\
-    \ <class T> friend constexpr modint operator+(T x, modint y) noexcept { return\
-    \ modint(x) + y; }\n    template <class T> friend constexpr modint operator-(T\
-    \ x, modint y) noexcept { return modint(x) - y; }\n    template <class T> friend\
-    \ constexpr modint operator*(T x, modint y) noexcept { return modint(x) * y; }\n\
-    \    template <class T> friend constexpr modint operator/(T x, modint y) noexcept\
-    \ { return modint(x) / y; }\n    constexpr bool operator==(const modint& rhs)\
-    \ const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const modint&\
-    \ rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!() const\
-    \ noexcept { return !v; }\n    friend istream& operator>>(istream& s, modint&\
-    \ rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n      \
-    \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
-    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 8 \"test/atcoder/tdpc_fibonacci.cpp\"\
-    \n\nusing mint = modint<1000000007>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int K, N;\n    cin >> K >> N;\n\n    vector<mint> A(K, 1);\n    Kitamasa<mint>\
-    \ Ki(A);\n\n    cout << Ki.calc(A, --N) << endl;\n}\n"
+    \ operator/=(const modint& rhs) noexcept { return *this *= rhs.inv(); }\n    constexpr\
+    \ modint pow(u64 exp) const noexcept {\n        assert(0 <= exp);\n        modint\
+    \ self(*this), res(1);\n        while (exp > 0) {\n            if (exp & 1) res\
+    \ *= self;\n            self *= self;\n            exp >>= 1;\n        }\n   \
+    \     return res;\n    }\n    constexpr modint inv() const noexcept {\n      \
+    \  assert(*this != 0);\n        return pow(mod - 2);\n    }\n    constexpr modint&\
+    \ operator++() noexcept {\n        if (++v == mod) v = 0;\n        return *this;\n\
+    \    }\n    constexpr modint& operator--() noexcept {\n        if (v == 0) v =\
+    \ mod;\n        return --v, *this;\n    }\n    constexpr modint operator++(int)\
+    \ noexcept {\n        modint t = *this;\n        return ++*this, t;\n    }\n \
+    \   constexpr modint operator--(int) noexcept {\n        modint t = *this;\n \
+    \       return --*this, t;\n    }\n    constexpr modint operator-() const noexcept\
+    \ { return modint(mod - v); }\n    template <class T> friend constexpr modint\
+    \ operator+(T x, modint y) noexcept { return modint(x) + y; }\n    template <class\
+    \ T> friend constexpr modint operator-(T x, modint y) noexcept { return modint(x)\
+    \ - y; }\n    template <class T> friend constexpr modint operator*(T x, modint\
+    \ y) noexcept { return modint(x) * y; }\n    template <class T> friend constexpr\
+    \ modint operator/(T x, modint y) noexcept { return modint(x) / y; }\n    constexpr\
+    \ bool operator==(const modint& rhs) const noexcept { return v == rhs.v; }\n \
+    \   constexpr bool operator!=(const modint& rhs) const noexcept { return v !=\
+    \ rhs.v; }\n    constexpr bool operator!() const noexcept { return !v; }\n   \
+    \ friend std::istream& operator>>(std::istream& s, modint& rhs) noexcept {\n \
+    \       i64 v;\n        rhs = modint{(s >> v, v)};\n        return s;\n    }\n\
+    \    friend std::ostream& operator<<(std::ostream& s, const modint& rhs) noexcept\
+    \ { return s << rhs.v; }\n};\n\n/**\n * @brief modint\n * @docs docs/modulo/modint.md\n\
+    \ */\n#line 8 \"test/atcoder/tdpc_fibonacci.cpp\"\n\nusing mint = modint<1000000007>;\n\
+    \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int K,\
+    \ N;\n    cin >> K >> N;\n\n    vector<mint> A(K, 1);\n    Kitamasa<mint> Ki(A);\n\
+    \n    cout << Ki.calc(A, --N) << endl;\n}\n"
   code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/tdpc/tasks/tdpc_fibonacci\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../linearalgebra/Kitamasa.hpp\"\
     \n#include \"../../modulo/modint.hpp\"\n\nusing mint = modint<1000000007>;\n\n\
@@ -149,7 +153,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/tdpc_fibonacci.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-09-21 14:56:05+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/tdpc_fibonacci.cpp

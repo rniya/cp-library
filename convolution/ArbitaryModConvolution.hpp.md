@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/3046.test.cpp
     title: test/yukicoder/3046.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/convolution/ArbitaryModConvolution.md
     document_title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
@@ -83,14 +83,15 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"modulo/modint.hpp\"\
-    \n\n/**\n * @brief modint\n * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t\
-    \ mod> class modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n \
-    \   using u64 = uint64_t;\n\npublic:\n    u32 v;\n    constexpr modint(const i64\
-    \ x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr\
-    \ u32& value() noexcept { return v; }\n    constexpr const u32& value() const\
-    \ noexcept { return v; }\n    constexpr modint operator+(const modint& rhs) const\
-    \ noexcept { return modint(*this) += rhs; }\n    constexpr modint operator-(const\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 5 \"modulo/modint.hpp\"\
+    \n\ntemplate <uint64_t Modulus> class modint {\n    using i64 = int64_t;\n   \
+    \ using u32 = uint32_t;\n    using u64 = uint64_t;\n\n    static_assert(Modulus\
+    \ < static_cast<uint32_t>(1) << 31, \"Modulus must be less than 2**31\");\n  \
+    \  static constexpr u32 mod = Modulus;\n    u32 v;\n\npublic:\n    constexpr modint(const\
+    \ i64 x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n \
+    \   constexpr u32& value() noexcept { return v; }\n    constexpr const u32& value()\
+    \ const noexcept { return v; }\n    constexpr modint operator+(const modint& rhs)\
+    \ const noexcept { return modint(*this) += rhs; }\n    constexpr modint operator-(const\
     \ modint& rhs) const noexcept { return modint(*this) -= rhs; }\n    constexpr\
     \ modint operator*(const modint& rhs) const noexcept { return modint(*this) *=\
     \ rhs; }\n    constexpr modint operator/(const modint& rhs) const noexcept { return\
@@ -100,30 +101,33 @@ data:
     \ {\n        if (v < rhs.v) v += mod;\n        v -= rhs.v;\n        return *this;\n\
     \    }\n    constexpr modint& operator*=(const modint& rhs) noexcept {\n     \
     \   v = (u64)v * rhs.v % mod;\n        return *this;\n    }\n    constexpr modint&\
-    \ operator/=(const modint& rhs) noexcept { return *this *= rhs.pow(mod - 2); }\n\
-    \    constexpr modint pow(u64 exp) const noexcept {\n        modint self(*this),\
-    \ res(1);\n        while (exp > 0) {\n            if (exp & 1) res *= self;\n\
-    \            self *= self;\n            exp >>= 1;\n        }\n        return\
-    \ res;\n    }\n    constexpr modint& operator++() noexcept {\n        if (++v\
-    \ == mod) v = 0;\n        return *this;\n    }\n    constexpr modint& operator--()\
-    \ noexcept {\n        if (v == 0) v = mod;\n        return --v, *this;\n    }\n\
-    \    constexpr modint operator++(int) noexcept {\n        modint t = *this;\n\
-    \        return ++*this, t;\n    }\n    constexpr modint operator--(int) noexcept\
-    \ {\n        modint t = *this;\n        return --*this, t;\n    }\n    constexpr\
-    \ modint operator-() const noexcept { return modint(mod - v); }\n    template\
-    \ <class T> friend constexpr modint operator+(T x, modint y) noexcept { return\
-    \ modint(x) + y; }\n    template <class T> friend constexpr modint operator-(T\
-    \ x, modint y) noexcept { return modint(x) - y; }\n    template <class T> friend\
-    \ constexpr modint operator*(T x, modint y) noexcept { return modint(x) * y; }\n\
-    \    template <class T> friend constexpr modint operator/(T x, modint y) noexcept\
-    \ { return modint(x) / y; }\n    constexpr bool operator==(const modint& rhs)\
-    \ const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const modint&\
-    \ rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!() const\
-    \ noexcept { return !v; }\n    friend istream& operator>>(istream& s, modint&\
-    \ rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n      \
-    \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
-    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 4 \"convolution/NumberTheoreticTransform.hpp\"\
-    \n\n/**\n * @brief Number Theoretic Transform\n * @docs docs/convolution/NumberTheoreticTransform.md\n\
+    \ operator/=(const modint& rhs) noexcept { return *this *= rhs.inv(); }\n    constexpr\
+    \ modint pow(u64 exp) const noexcept {\n        assert(0 <= exp);\n        modint\
+    \ self(*this), res(1);\n        while (exp > 0) {\n            if (exp & 1) res\
+    \ *= self;\n            self *= self;\n            exp >>= 1;\n        }\n   \
+    \     return res;\n    }\n    constexpr modint inv() const noexcept {\n      \
+    \  assert(*this != 0);\n        return pow(mod - 2);\n    }\n    constexpr modint&\
+    \ operator++() noexcept {\n        if (++v == mod) v = 0;\n        return *this;\n\
+    \    }\n    constexpr modint& operator--() noexcept {\n        if (v == 0) v =\
+    \ mod;\n        return --v, *this;\n    }\n    constexpr modint operator++(int)\
+    \ noexcept {\n        modint t = *this;\n        return ++*this, t;\n    }\n \
+    \   constexpr modint operator--(int) noexcept {\n        modint t = *this;\n \
+    \       return --*this, t;\n    }\n    constexpr modint operator-() const noexcept\
+    \ { return modint(mod - v); }\n    template <class T> friend constexpr modint\
+    \ operator+(T x, modint y) noexcept { return modint(x) + y; }\n    template <class\
+    \ T> friend constexpr modint operator-(T x, modint y) noexcept { return modint(x)\
+    \ - y; }\n    template <class T> friend constexpr modint operator*(T x, modint\
+    \ y) noexcept { return modint(x) * y; }\n    template <class T> friend constexpr\
+    \ modint operator/(T x, modint y) noexcept { return modint(x) / y; }\n    constexpr\
+    \ bool operator==(const modint& rhs) const noexcept { return v == rhs.v; }\n \
+    \   constexpr bool operator!=(const modint& rhs) const noexcept { return v !=\
+    \ rhs.v; }\n    constexpr bool operator!() const noexcept { return !v; }\n   \
+    \ friend std::istream& operator>>(std::istream& s, modint& rhs) noexcept {\n \
+    \       i64 v;\n        rhs = modint{(s >> v, v)};\n        return s;\n    }\n\
+    \    friend std::ostream& operator<<(std::ostream& s, const modint& rhs) noexcept\
+    \ { return s << rhs.v; }\n};\n\n/**\n * @brief modint\n * @docs docs/modulo/modint.md\n\
+    \ */\n#line 4 \"convolution/NumberTheoreticTransform.hpp\"\n\n/**\n * @brief Number\
+    \ Theoretic Transform\n * @docs docs/convolution/NumberTheoreticTransform.md\n\
     \ */\ntemplate <int mod> struct NumberTheoreticTransform {\n    using Mint = modint<mod>;\n\
     \    vector<Mint> roots;\n    vector<int> rev;\n    int base, max_base;\n    Mint\
     \ root;\n    NumberTheoreticTransform() : base(1), rev{0, 1}, roots{Mint(0), Mint(1)}\
@@ -203,8 +207,8 @@ data:
   isVerificationFile: false
   path: convolution/ArbitaryModConvolution.hpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-09-21 14:56:05+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yukicoder/3046.test.cpp

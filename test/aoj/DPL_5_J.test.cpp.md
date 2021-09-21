@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: combinatorics/PartitionTable.hpp
     title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -84,27 +84,30 @@ data:
     \    vector<vector<T>> dp(n + 1, vector<T>(k + 1));\n    dp[0][0] = 1;\n    for\
     \ (int i = 0; i <= n; i++) {\n        for (int j = 1; j <= k; j++) {\n       \
     \     dp[i][j] = dp[i][j - 1] + (i - j >= 0 ? dp[i - j][j] : 0);\n        }\n\
-    \    }\n    return dp;\n}\n#line 3 \"modulo/modint.hpp\"\n\n/**\n * @brief modint\n\
-    \ * @docs docs/modulo/modint.md\n */\ntemplate <uint32_t mod> class modint {\n\
-    \    using i64 = int64_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\
-    \npublic:\n    u32 v;\n    constexpr modint(const i64 x = 0) noexcept : v(x <\
-    \ 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& value() noexcept\
-    \ { return v; }\n    constexpr const u32& value() const noexcept { return v; }\n\
-    \    constexpr modint operator+(const modint& rhs) const noexcept { return modint(*this)\
-    \ += rhs; }\n    constexpr modint operator-(const modint& rhs) const noexcept\
-    \ { return modint(*this) -= rhs; }\n    constexpr modint operator*(const modint&\
-    \ rhs) const noexcept { return modint(*this) *= rhs; }\n    constexpr modint operator/(const\
-    \ modint& rhs) const noexcept { return modint(*this) /= rhs; }\n    constexpr\
-    \ modint& operator+=(const modint& rhs) noexcept {\n        v += rhs.v;\n    \
-    \    if (v >= mod) v -= mod;\n        return *this;\n    }\n    constexpr modint&\
-    \ operator-=(const modint& rhs) noexcept {\n        if (v < rhs.v) v += mod;\n\
-    \        v -= rhs.v;\n        return *this;\n    }\n    constexpr modint& operator*=(const\
-    \ modint& rhs) noexcept {\n        v = (u64)v * rhs.v % mod;\n        return *this;\n\
-    \    }\n    constexpr modint& operator/=(const modint& rhs) noexcept { return\
-    \ *this *= rhs.pow(mod - 2); }\n    constexpr modint pow(u64 exp) const noexcept\
-    \ {\n        modint self(*this), res(1);\n        while (exp > 0) {\n        \
-    \    if (exp & 1) res *= self;\n            self *= self;\n            exp >>=\
-    \ 1;\n        }\n        return res;\n    }\n    constexpr modint& operator++()\
+    \    }\n    return dp;\n}\n#line 5 \"modulo/modint.hpp\"\n\ntemplate <uint64_t\
+    \ Modulus> class modint {\n    using i64 = int64_t;\n    using u32 = uint32_t;\n\
+    \    using u64 = uint64_t;\n\n    static_assert(Modulus < static_cast<uint32_t>(1)\
+    \ << 31, \"Modulus must be less than 2**31\");\n    static constexpr u32 mod =\
+    \ Modulus;\n    u32 v;\n\npublic:\n    constexpr modint(const i64 x = 0) noexcept\
+    \ : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& value()\
+    \ noexcept { return v; }\n    constexpr const u32& value() const noexcept { return\
+    \ v; }\n    constexpr modint operator+(const modint& rhs) const noexcept { return\
+    \ modint(*this) += rhs; }\n    constexpr modint operator-(const modint& rhs) const\
+    \ noexcept { return modint(*this) -= rhs; }\n    constexpr modint operator*(const\
+    \ modint& rhs) const noexcept { return modint(*this) *= rhs; }\n    constexpr\
+    \ modint operator/(const modint& rhs) const noexcept { return modint(*this) /=\
+    \ rhs; }\n    constexpr modint& operator+=(const modint& rhs) noexcept {\n   \
+    \     v += rhs.v;\n        if (v >= mod) v -= mod;\n        return *this;\n  \
+    \  }\n    constexpr modint& operator-=(const modint& rhs) noexcept {\n       \
+    \ if (v < rhs.v) v += mod;\n        v -= rhs.v;\n        return *this;\n    }\n\
+    \    constexpr modint& operator*=(const modint& rhs) noexcept {\n        v = (u64)v\
+    \ * rhs.v % mod;\n        return *this;\n    }\n    constexpr modint& operator/=(const\
+    \ modint& rhs) noexcept { return *this *= rhs.inv(); }\n    constexpr modint pow(u64\
+    \ exp) const noexcept {\n        assert(0 <= exp);\n        modint self(*this),\
+    \ res(1);\n        while (exp > 0) {\n            if (exp & 1) res *= self;\n\
+    \            self *= self;\n            exp >>= 1;\n        }\n        return\
+    \ res;\n    }\n    constexpr modint inv() const noexcept {\n        assert(*this\
+    \ != 0);\n        return pow(mod - 2);\n    }\n    constexpr modint& operator++()\
     \ noexcept {\n        if (++v == mod) v = 0;\n        return *this;\n    }\n \
     \   constexpr modint& operator--() noexcept {\n        if (v == 0) v = mod;\n\
     \        return --v, *this;\n    }\n    constexpr modint operator++(int) noexcept\
@@ -119,11 +122,12 @@ data:
     \ x, modint y) noexcept { return modint(x) / y; }\n    constexpr bool operator==(const\
     \ modint& rhs) const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const\
     \ modint& rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!()\
-    \ const noexcept { return !v; }\n    friend istream& operator>>(istream& s, modint&\
-    \ rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n      \
-    \  return s;\n    }\n    friend ostream& operator<<(ostream& s, const modint&\
-    \ rhs) noexcept { return s << rhs.v; }\n};\n#line 6 \"test/aoj/DPL_5_J.test.cpp\"\
-    \n\nusing mint = modint<1000000007>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \ const noexcept { return !v; }\n    friend std::istream& operator>>(std::istream&\
+    \ s, modint& rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n\
+    \        return s;\n    }\n    friend std::ostream& operator<<(std::ostream& s,\
+    \ const modint& rhs) noexcept { return s << rhs.v; }\n};\n\n/**\n * @brief modint\n\
+    \ * @docs docs/modulo/modint.md\n */\n#line 6 \"test/aoj/DPL_5_J.test.cpp\"\n\n\
+    using mint = modint<1000000007>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    int n, k;\n    cin >> n >> k;\n\n    cout << partition_table<mint>(n, k)[n][k]\
     \ << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DPL_5_J\"\n\n\
@@ -139,7 +143,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_J.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-09-21 14:56:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_J.test.cpp
