@@ -24,8 +24,9 @@ data:
     \ {\n            int v = que.front();\n            que.pop();\n            order.emplace_back(v);\n\
     \            for (int& u : G[v]) {\n                if (--indeg[u] == 0) {\n \
     \                   que.emplace(u);\n                }\n            }\n      \
-    \  }\n        return order;\n    }\n\nprivate:\n    int n;\n    std::vector<int>\
-    \ indeg;\n};\n\n/**\n * @brief Topological Sort\n * @docs docs/graph/TopologicalSort.md\n\
+    \  }\n        if (*max_element(indeg.begin(), indeg.end()) != 0) return {};\n\
+    \        return order;\n    }\n\nprivate:\n    int n;\n    std::vector<int> indeg;\n\
+    };\n\n/**\n * @brief Topological Sort\n * @docs docs/graph/TopologicalSort.md\n\
     \ */\n"
   code: "#pragma once\n#include <cassert>\n#include <queue>\n#include <vector>\n\n\
     struct TopologicalSort {\n    std::vector<std::vector<int>> G;\n\n    TopologicalSort(int\
@@ -37,14 +38,15 @@ data:
     \ order;\n        while (!que.empty()) {\n            int v = que.front();\n \
     \           que.pop();\n            order.emplace_back(v);\n            for (int&\
     \ u : G[v]) {\n                if (--indeg[u] == 0) {\n                    que.emplace(u);\n\
-    \                }\n            }\n        }\n        return order;\n    }\n\n\
-    private:\n    int n;\n    std::vector<int> indeg;\n};\n\n/**\n * @brief Topological\
-    \ Sort\n * @docs docs/graph/TopologicalSort.md\n */"
+    \                }\n            }\n        }\n        if (*max_element(indeg.begin(),\
+    \ indeg.end()) != 0) return {};\n        return order;\n    }\n\nprivate:\n  \
+    \  int n;\n    std::vector<int> indeg;\n};\n\n/**\n * @brief Topological Sort\n\
+    \ * @docs docs/graph/TopologicalSort.md\n */"
   dependsOn: []
   isVerificationFile: false
   path: graph/TopologicalSort.hpp
   requiredBy: []
-  timestamp: '2021-09-22 02:06:49+09:00'
+  timestamp: '2021-09-22 03:15:23+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/GRL_4_B.test.cpp

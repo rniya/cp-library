@@ -85,9 +85,10 @@ data:
     \ order;\n        while (!que.empty()) {\n            int v = que.front();\n \
     \           que.pop();\n            order.emplace_back(v);\n            for (int&\
     \ u : G[v]) {\n                if (--indeg[u] == 0) {\n                    que.emplace(u);\n\
-    \                }\n            }\n        }\n        return order;\n    }\n\n\
-    private:\n    int n;\n    std::vector<int> indeg;\n};\n\n/**\n * @brief Topological\
-    \ Sort\n * @docs docs/graph/TopologicalSort.md\n */\n#line 5 \"test/aoj/GRL_4_B.test.cpp\"\
+    \                }\n            }\n        }\n        if (*max_element(indeg.begin(),\
+    \ indeg.end()) != 0) return {};\n        return order;\n    }\n\nprivate:\n  \
+    \  int n;\n    std::vector<int> indeg;\n};\n\n/**\n * @brief Topological Sort\n\
+    \ * @docs docs/graph/TopologicalSort.md\n */\n#line 5 \"test/aoj/GRL_4_B.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
     \ E;\n    cin >> V >> E;\n\n    TopologicalSort TS(V);\n    for (int i = 0; i\
     \ < E; i++) {\n        int s, t;\n        cin >> s >> t;\n        TS.add_edge(s,\
@@ -106,7 +107,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_4_B.test.cpp
   requiredBy: []
-  timestamp: '2021-09-22 02:06:49+09:00'
+  timestamp: '2021-09-22 03:15:23+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_4_B.test.cpp

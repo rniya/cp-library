@@ -92,9 +92,6 @@ data:
     path: graph/BiConnectedComponents.hpp
     title: graph/BiConnectedComponents.hpp
   - icon: ':heavy_check_mark:'
-    path: graph/BipartiteGraph.hpp
-    title: "2\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
-  - icon: ':heavy_check_mark:'
     path: graph/CycleDetection.hpp
     title: Cycle Detection
   - icon: ':heavy_check_mark:'
@@ -292,9 +289,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2871.test.cpp
     title: test/aoj/2871.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/2885.test.cpp
-    title: test/aoj/2885.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/2891.test.cpp
     title: test/aoj/2891.test.cpp
@@ -862,7 +856,6 @@ data:
   - string/AhoCorasick.hpp
   - graph/CycleDetection.hpp
   - graph/Kruskal.hpp
-  - graph/BipartiteGraph.hpp
   - graph/BellmanFord.hpp
   - graph/Dijkstra.hpp
   - graph/BiConnectedComponents.hpp
@@ -952,7 +945,6 @@ data:
   - test/aoj/DSL_2_E.DualSegmentTree.test.cpp
   - test/aoj/2903.test.cpp
   - test/aoj/CGL_7_G.test.cpp
-  - test/aoj/2885.test.cpp
   - test/aoj/CGL_3_A.test.cpp
   - test/aoj/DPL_5_D.test.cpp
   - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
