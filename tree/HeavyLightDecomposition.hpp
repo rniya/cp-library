@@ -69,7 +69,7 @@ struct HeavyLightDecomposition {
 
 private:
     int n, time;
-    std::vector<std::vector<int>> G;  // child of vertex v on heavy edge is G[v].front() is it is not parent of v
+    std::vector<std::vector<int>> G;  // child of vertex v on heavy edge is G[v].front() if it is not parent of v
     std::vector<int> par              // parent of vertex v
         ,
         sub  // size of subtree whose root is v
