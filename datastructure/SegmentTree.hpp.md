@@ -18,6 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/vertex_add_path_sum.test.cpp
     title: test/yosupo/vertex_add_path_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/vertex_set_path_composite.test.cpp
+    title: test/yosupo/vertex_set_path_composite.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -120,6 +123,7 @@ data:
   - test/yosupo/point_add_range_sum.test.cpp
   - test/yosupo/vertex_add_path_sum.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
+  - test/yosupo/vertex_set_path_composite.test.cpp
 documentation_of: datastructure/SegmentTree.hpp
 layout: document
 redirect_from:

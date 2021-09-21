@@ -265,9 +265,6 @@ data:
     path: tree/EulerTourforVertex.hpp
     title: "Euler Tour (\u90E8\u5206\u6728\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)"
   - icon: ':heavy_check_mark:'
-    path: tree/HeavyLightDecomposition.hpp
-    title: Heavy Light Decomposition
-  - icon: ':heavy_check_mark:'
     path: tree/LowestCommonAncestor.hpp
     title: Lowest Common Ancestor
   - icon: ':heavy_check_mark:'
@@ -659,6 +656,9 @@ data:
     path: test/yosupo/vertex_add_subtree_sum.test.cpp
     title: test/yosupo/vertex_add_subtree_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/vertex_set_path_composite.test.cpp
+    title: test/yosupo/vertex_set_path_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/zalgorithm.test.cpp
     title: test/yosupo/zalgorithm.test.cpp
   - icon: ':heavy_check_mark:'
@@ -854,7 +854,6 @@ data:
   - tree/EulerTourforEdge.hpp
   - tree/EulerTourforVertex.hpp
   - tree/LowestCommonAncestor.hpp
-  - tree/HeavyLightDecomposition.hpp
   - datastructure/UnionFindUndo.hpp
   - datastructure/ConvexHullTrick.hpp
   - datastructure/SegmentTreeBeats.hpp
@@ -1070,6 +1069,7 @@ data:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/aplusb.test.cpp
+  - test/yosupo/vertex_set_path_composite.test.cpp
   - test/yukicoder/952.test.cpp
   - test/yukicoder/1301.test.cpp
   - test/yukicoder/803.test.cpp

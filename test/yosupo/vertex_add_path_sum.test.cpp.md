@@ -120,40 +120,62 @@ data:
     \ data[a << 1 | type]);\n            if (check(nxt))\n                a = a <<\
     \ 1 | type;\n            else\n                M = nxt, a = (a << 1 | 1) - type;\n\
     \        }\n        return a - size;\n    }\n};\n\n/**\n * @brief Segment Tree\n\
-    \ * @docs docs/datastructure/SegmentTree.md\n */\n#line 3 \"tree/HeavyLightDecomposition.hpp\"\
-    \n\n/**\n * @brief Heavy Light Decomposition\n * @docsdocs/tree/HeavyLightDecomposition.md\n\
-    \ */\nclass HeavyLightDecomposition {\n    void dfs_sz(int v) {\n        if (G[v].size()\
-    \ && G[v][0] == par[v]) swap(G[v][0], G[v].back());\n        for (int& u : G[v])\
-    \ {\n            if (u == par[v]) continue;\n            par[u] = v;\n       \
-    \     dep[u] = dep[v] + 1;\n            dfs_sz(u);\n            sub[v] += sub[u];\n\
-    \            if (sub[u] > sub[G[v][0]]) swap(u, G[v][0]);\n        }\n    }\n\
-    \    void dfs_hld(int v, int c, int& times) {\n        vid[v] = times++;\n   \
-    \     type[v] = c;\n        for (int u : G[v]) {\n            if (u == par[v])\
-    \ continue;\n            head[u] = (u == G[v][0] ? head[v] : u);\n           \
-    \ dfs_hld(u, c, times);\n        }\n    }\n\npublic:\n    vector<vector<int>>\
-    \ G;\n    vector<int> vid, head, sub, par, dep, type;\n    HeavyLightDecomposition(int\
-    \ n) : G(n), vid(n, -1), head(n), sub(n, 1), par(n, -1), dep(n, 0), type(n) {}\n\
-    \    void add_edge(int u, int v) {\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n\
-    \    }\n    void build(vector<int> rs = {0}) {\n        int c = 0, times = 0;\n\
-    \        for (int r : rs) {\n            dfs_sz(r);\n            head[r] = r;\n\
-    \            dfs_hld(r, c++, times);\n        }\n    }\n    int idx(int u) { return\
-    \ vid[u]; }\n    int lca(int u, int v) {\n        for (;; v = par[head[v]]) {\n\
-    \            if (vid[u] > vid[v]) swap(u, v);\n            if (head[u] == head[v])\
-    \ return u;\n        }\n    }\n    int distance(int u, int v) { return dep[u]\
-    \ + dep[v] - 2 * dep[lca(u, v)]; }\n    template <typename F> void update_path(int\
-    \ u, int v, const F& f, bool edge = false) {\n        for (;; v = par[head[v]])\
-    \ {\n            if (vid[u] > vid[v]) swap(u, v);\n            if (head[u] ==\
-    \ head[v]) break;\n            f(vid[head[v]], vid[v] + 1);\n        }\n     \
-    \   f(vid[u] + edge, vid[v] + 1);\n    }\n    template <typename F> void update_sub(int\
-    \ u, const F& f, bool edge = false) { f(vid[u] + edge, vid[u] + sub[u]); }\n \
-    \   template <typename T, typename Q, typename F>\n    T query_path(int u, int\
-    \ v, const T& id, const Q& q, const F& f, bool edge = false) {\n        T l =\
-    \ id, r = id;\n        for (;; v = par[head[v]]) {\n            if (vid[u] > vid[v])\
-    \ swap(u, v), swap(l, r);\n            if (head[u] == head[v]) break;\n      \
-    \      l = f(l, q(vid[head[v]], vid[v] + 1));\n        }\n        return f(r,\
-    \ f(l, q(vid[u] + edge, vid[v] + 1)));\n    }\n    template <typename T, typename\
-    \ Q> T query_sub(int u, const Q& q, bool edge = false) {\n        return q(vid[u]\
-    \ + edge, vid[u] + sub[u]);\n    }\n};\n#line 6 \"test/yosupo/vertex_add_path_sum.test.cpp\"\
+    \ * @docs docs/datastructure/SegmentTree.md\n */\n#line 5 \"tree/HeavyLightDecomposition.hpp\"\
+    \n\nstruct HeavyLightDecomposition {\n    HeavyLightDecomposition(int n)\n   \
+    \     : n(n), time(0), G(n), par(n, -1), sub(n), dep(n, 0), head(n), tree_id(n,\
+    \ -1), vertex_id(n, -1) {}\n    void add_edge(int u, int v) {\n        assert(0\
+    \ <= u && u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n\
+    \        G[v].emplace_back(u);\n    }\n\n    void build(std::vector<int> roots\
+    \ = {0}) {\n        int tree_id_cur = 0;\n        for (int& r : roots) {\n   \
+    \         assert(0 <= r && r < n);\n            dfs_sz(r);\n            head[r]\
+    \ = r;\n            dfs_hld(r, tree_id_cur++);\n        }\n    }\n\n    int idx(int\
+    \ v) const { return vertex_id[v]; }\n\n    int lca(int u, int v) const {\n   \
+    \     assert(0 <= u && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u]\
+    \ == tree_id[v]);\n        for (;; v = par[head[v]]) {\n            if (vertex_id[u]\
+    \ > vertex_id[v]) std::swap(u, v);\n            if (head[u] == head[v]) return\
+    \ u;\n        }\n    }\n\n    int distance(int u, int v) const {\n        assert(0\
+    \ <= u && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u]\
+    \ == tree_id[v]);\n        return dep[u] + dep[v] - 2 * dep[lca(u, v)];\n    }\n\
+    \n    template <typename F> void query_path(int u, int v, const F& f, bool vertex\
+    \ = false) const {\n        assert(0 <= u && u < n);\n        assert(0 <= v &&\
+    \ v < n);\n        assert(tree_id[u] == tree_id[v]);\n        int p = lca(u, v);\n\
+    \        for (auto& e : ascend(u, p)) f(e.second, e.first + 1);\n        if (vertex)\
+    \ f(vertex_id[p], vertex_id[p] + 1);\n        for (auto& e : descend(p, v)) f(e.first,\
+    \ e.second + 1);\n    }\n\n    template <typename F> void query_path_noncommutative(int\
+    \ u, int v, const F& f, bool vertex = false) const {\n        assert(0 <= u &&\
+    \ u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
+    \        int p = lca(u, v);\n        for (auto& e : ascend(u, p)) f(e.first +\
+    \ 1, e.second);\n        if (vertex) f(vertex_id[p], vertex_id[p] + 1);\n    \
+    \    for (auto& e : descend(p, v)) f(e.first, e.second + 1);\n    }\n\n    template\
+    \ <typename F> void query_subtree(int u, const F& f, bool vertex = false) const\
+    \ {\n        assert(0 <= u && u < n);\n        f(vertex_id[u] + !vertex, vertex_id[u]\
+    \ + sub[u]);\n    }\n\nprivate:\n    int n, time;\n    std::vector<std::vector<int>>\
+    \ G;  // child of vertex v on heavy edge is G[v].front() is it is not parent of\
+    \ v\n    std::vector<int> par              // parent of vertex v\n        ,\n\
+    \        sub  // size of subtree whose root is v\n        ,\n        dep  // distance\
+    \ bitween root and vertex v\n        ,\n        head  // vertex that is the nearest\
+    \ to root on heavy path of vertex v\n        ,\n        tree_id  // id of tree\
+    \ vertex v belongs to\n        ,\n        vertex_id;  // id of vertex v (consecutive\
+    \ on heavy paths)\n\n    void dfs_sz(int v) {\n        sub[v] = 1;\n        if\
+    \ (!G[v].empty() && G[v].front() == par[v]) std::swap(G[v].front(), G[v].back());\n\
+    \        for (int& u : G[v]) {\n            if (u == par[v]) continue;\n     \
+    \       par[u] = v;\n            dep[u] = dep[v] + 1;\n            dfs_sz(u);\n\
+    \            sub[v] += sub[u];\n            if (sub[u] > sub[G[v].front()]) std::swap(u,\
+    \ G[v].front());\n        }\n    }\n\n    void dfs_hld(int v, int tree_id_cur)\
+    \ {\n        vertex_id[v] = time++;\n        tree_id[v] = tree_id_cur;\n     \
+    \   for (int& u : G[v]) {\n            if (u == par[v]) continue;\n          \
+    \  head[u] = (u == G[v][0] ? head[v] : u);\n            dfs_hld(u, tree_id_cur);\n\
+    \        }\n    }\n\n    std::vector<std::pair<int, int>> ascend(int u, int v)\
+    \ const {  // [u, v), v is ancestor of u\n        std::vector<std::pair<int, int>>\
+    \ res;\n        while (head[u] != head[v]) {\n            res.emplace_back(vertex_id[u],\
+    \ vertex_id[head[u]]);\n            u = par[head[u]];\n        }\n        if (u\
+    \ != v) res.emplace_back(vertex_id[u], vertex_id[v] + 1);\n        return res;\n\
+    \    }\n\n    std::vector<std::pair<int, int>> descend(int u, int v) const { \
+    \ // (u, v], u is ancestor of v\n        if (u == v) return {};\n        if (head[u]\
+    \ == head[v]) return {{vertex_id[u] + 1, vertex_id[v]}};\n        auto res = descend(u,\
+    \ par[head[v]]);\n        res.emplace_back(vertex_id[head[v]], vertex_id[v]);\n\
+    \        return res;\n    }\n};\n\n/**\n * @brief Heavy Light Decomposition\n\
+    \ * @docs docs/tree/HeavyLightDecomposition.md\n */\n#line 6 \"test/yosupo/vertex_add_path_sum.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
     \ Q;\n    cin >> N >> Q;\n    vector<long long> a(N);\n    for (int i = 0; i <\
     \ N; i++) cin >> a[i];\n\n    HeavyLightDecomposition HLD(N);\n    for (int i\
@@ -163,10 +185,11 @@ data:
     \  for (int i = 0; i < N; i++) seg.set(HLD.idx(i), a[i]);\n    seg.build();\n\n\
     \    for (; Q--;) {\n        int t;\n        cin >> t;\n        if (!t) {\n  \
     \          int p;\n            long long x;\n            cin >> p >> x;\n    \
-    \        int i = HLD.idx(p);\n            seg.add(i, x);\n        } else {\n \
-    \           int u, v;\n            cin >> u >> v;\n            cout << HLD.query_path(\n\
-    \                        u, v, 0LL, [&](int l, int r) { return seg.query(l, r);\
-    \ }, f)\n                 << '\\n';\n        }\n    }\n    return 0;\n}\n"
+    \        seg.add(HLD.idx(p), x);\n        } else {\n            int u, v;\n  \
+    \          cin >> u >> v;\n            long long ans = 0;\n            auto q\
+    \ = [&](int l, int r) { ans += seg.query(l, r); };\n            HLD.query_path(u,\
+    \ v, q, true);\n            cout << ans << '\\n';\n        }\n    }\n    return\
+    \ 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n\
     \n#include \"../../base.hpp\"\n#include \"../../datastructure/SegmentTree.hpp\"\
     \n#include \"../../tree/HeavyLightDecomposition.hpp\"\n\nint main() {\n    cin.tie(0);\n\
@@ -178,11 +201,11 @@ data:
     \ decltype(f)> seg(N, f, 0);\n    for (int i = 0; i < N; i++) seg.set(HLD.idx(i),\
     \ a[i]);\n    seg.build();\n\n    for (; Q--;) {\n        int t;\n        cin\
     \ >> t;\n        if (!t) {\n            int p;\n            long long x;\n   \
-    \         cin >> p >> x;\n            int i = HLD.idx(p);\n            seg.add(i,\
-    \ x);\n        } else {\n            int u, v;\n            cin >> u >> v;\n \
-    \           cout << HLD.query_path(\n                        u, v, 0LL, [&](int\
-    \ l, int r) { return seg.query(l, r); }, f)\n                 << '\\n';\n    \
-    \    }\n    }\n    return 0;\n}"
+    \         cin >> p >> x;\n            seg.add(HLD.idx(p), x);\n        } else\
+    \ {\n            int u, v;\n            cin >> u >> v;\n            long long\
+    \ ans = 0;\n            auto q = [&](int l, int r) { ans += seg.query(l, r); };\n\
+    \            HLD.query_path(u, v, q, true);\n            cout << ans << '\\n';\n\
+    \        }\n    }\n    return 0;\n}"
   dependsOn:
   - base.hpp
   - datastructure/SegmentTree.hpp
@@ -190,7 +213,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-09-20 22:49:47+09:00'
+  timestamp: '2021-09-21 21:14:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/vertex_add_path_sum.test.cpp

@@ -79,6 +79,9 @@ data:
     path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/vertex_set_path_composite.test.cpp
+    title: test/yosupo/vertex_set_path_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
   - icon: ':heavy_check_mark:'
@@ -231,6 +234,7 @@ data:
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/vertex_set_path_composite.test.cpp
   - test/yukicoder/803.test.cpp
   - test/yukicoder/931.test.cpp
   - test/yukicoder/3046.test.cpp
