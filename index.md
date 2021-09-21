@@ -157,7 +157,7 @@ data:
       title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
     - icon: ':heavy_check_mark:'
       path: graph/StronglyConnectedComponents.hpp
-      title: Strongly Connectes Components
+      title: Strongly Connected Components
     - icon: ':x:'
       path: graph/TopologicalSort.hpp
       title: Topological Sort
