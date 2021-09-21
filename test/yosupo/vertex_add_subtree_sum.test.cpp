@@ -31,7 +31,11 @@ int main() {
             cin >> x;
             BIT.add(HLD.idx(u), x);
         } else {
-            cout << HLD.query_sub<long long>(u, [&](int l, int r) { return BIT.query(l, r); }) << '\n';
+            long long ans = 0;
+            auto q = [&](int l, int r) { ans += BIT.query(l, r); };
+            HLD.query_subtree(u, q, true);
+            cout << ans << '\n';
         }
     }
+    return 0;
 }

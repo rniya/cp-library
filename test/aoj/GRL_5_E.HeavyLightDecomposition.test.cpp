@@ -43,14 +43,15 @@ int main() {
             int v;
             long long w;
             cin >> v >> w;
-            HLD.update_path(
-                0, v, [&](int l, int r) { seg.update(l, r, w); }, true);
+            auto q = [&](int l, int r) { seg.update(l, r, w); };
+            HLD.query_path(0, v, q);
         } else {
             int u;
             cin >> u;
-            cout << HLD.query_path(
-                        0, u, 0LL, [&](int l, int r) { return seg.query(l, r).a; }, h)
-                 << '\n';
+            long long ans = 0;
+            auto q = [&](int l, int r) { ans += seg.query(l, r).a; };
+            HLD.query_path(0, u, q);
+            cout << ans << '\n';
         }
     }
     return 0;

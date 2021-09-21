@@ -36,15 +36,16 @@ int main() {
         if (!t) {
             int u, v;
             cin >> u >> v;
-            cout << HLD.query_path(
-                        u, v, 0LL, [&](int l, int r) { return seg.query(l, r).a; }, h, true)
-                 << '\n';
+            long long ans = 0;
+            auto q = [&](int l, int r) { ans += seg.query(l, r).a; };
+            HLD.query_path(u, v, q);
+            cout << ans << '\n';
         } else {
             int v;
             long long x;
             cin >> v >> x;
-            HLD.update_sub(
-                v, [&](int l, int r) { seg.update(l, r, x); }, true);
+            auto q = [&](int l, int r) { seg.update(l, r, x); };
+            HLD.query_subtree(v, q);
         }
     }
     return 0;

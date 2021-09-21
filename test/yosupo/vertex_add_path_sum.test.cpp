@@ -32,14 +32,14 @@ int main() {
             int p;
             long long x;
             cin >> p >> x;
-            int i = HLD.idx(p);
-            seg.add(i, x);
+            seg.add(HLD.idx(p), x);
         } else {
             int u, v;
             cin >> u >> v;
-            cout << HLD.query_path(
-                        u, v, 0LL, [&](int l, int r) { return seg.query(l, r); }, f)
-                 << '\n';
+            long long ans = 0;
+            auto q = [&](int l, int r) { ans += seg.query(l, r); };
+            HLD.query_path(u, v, q, true);
+            cout << ans << '\n';
         }
     }
     return 0;
