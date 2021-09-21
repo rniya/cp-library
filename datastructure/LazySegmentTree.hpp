@@ -136,9 +136,9 @@ private:
     template <typename C> int find_subtree(int a, const C& check, Monoid& M, bool type) {
         while (a < size) {
             propagate(a);
-            Monoid nxt = type ? f(apply(1 << a | type), M) : f(M, apply(1 << a | type));
+            Monoid nxt = type ? f(apply(a << 1 | type), M) : f(M, apply(a << 1 | type));
             if (check(nxt))
-                a = 1 << a | type;
+                a = a << 1 | type;
             else
                 M = nxt, a = (a << 1 | 1) - type;
         }
