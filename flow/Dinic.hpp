@@ -52,7 +52,7 @@ template <typename Cap, bool directed> struct Dinic {
     Cap max_flow(int s, int t, Cap flow_limit) {
         assert(0 <= s && s < n);
         assert(0 <= t && t < n);
-        assert(s != t);
+        if (s == t) return 0;
         Cap flow = 0;
         while (flow < flow_limit) {
             bfs(s, t);
