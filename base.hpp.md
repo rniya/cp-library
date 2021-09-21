@@ -80,9 +80,6 @@ data:
     path: flow/HopcroftKarp.hpp
     title: Hopcroft Karp
   - icon: ':heavy_check_mark:'
-    path: flow/PrimalDualonDAG.hpp
-    title: Primal Dual on DAG
-  - icon: ':heavy_check_mark:'
     path: flow/ProjectSelectionProblem.hpp
     title: Project Selection Problem
   - icon: ':heavy_check_mark:'
@@ -884,7 +881,6 @@ data:
   - graph/TwoSatisfiability.hpp
   - graph/EulerianTrail.hpp
   - graph/WarshallFloyd.hpp
-  - flow/PrimalDualonDAG.hpp
   - flow/HopcroftKarp.hpp
   - flow/ProjectSelectionProblem.hpp
   - hold/SuffixArray_old.hpp

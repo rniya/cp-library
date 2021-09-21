@@ -113,7 +113,7 @@ data:
       title: Primal Dual (Minimum-cost flow)
     - icon: ':heavy_check_mark:'
       path: flow/PrimalDualonDAG.hpp
-      title: Primal Dual on DAG
+      title: Primal Dual on DAG (allow negative-cost edge)
     - icon: ':heavy_check_mark:'
       path: flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem
