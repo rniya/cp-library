@@ -12,7 +12,7 @@ data:
     path: test/codeforces/1404_E.cpp
     title: test/codeforces/1404_E.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/2313.test.cpp
     title: test/aoj/2313.test.cpp
   - icon: ':heavy_check_mark:'
@@ -21,9 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_6_A.DInic.test.cpp
     title: test/aoj/GRL_6_A.DInic.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/flow/Dinic.md
     document_title: Dinic
@@ -51,8 +51,8 @@ data:
     \ new_cap + new_flow);\n    }\n\n    Cap max_flow(int s, int t) { return max_flow(s,\
     \ t, std::numeric_limits<Cap>::max()); }\n\n    Cap max_flow(int s, int t, Cap\
     \ flow_limit) {\n        assert(0 <= s && s < n);\n        assert(0 <= t && t\
-    \ < n);\n        assert(s != t);\n        Cap flow = 0;\n        while (flow <\
-    \ flow_limit) {\n            bfs(s, t);\n            if (level[t] < 0) break;\n\
+    \ < n);\n        if (s == t) return 0;\n        Cap flow = 0;\n        while (flow\
+    \ < flow_limit) {\n            bfs(s, t);\n            if (level[t] < 0) break;\n\
     \            std::fill(iter.begin(), iter.end(), 0);\n            while (flow\
     \ < flow_limit) {\n                Cap f = dfs(s, t, flow_limit - flow);\n   \
     \             if (f == 0) break;\n                flow += f;\n            }\n\
@@ -103,8 +103,8 @@ data:
     \ new_cap + new_flow);\n    }\n\n    Cap max_flow(int s, int t) { return max_flow(s,\
     \ t, std::numeric_limits<Cap>::max()); }\n\n    Cap max_flow(int s, int t, Cap\
     \ flow_limit) {\n        assert(0 <= s && s < n);\n        assert(0 <= t && t\
-    \ < n);\n        assert(s != t);\n        Cap flow = 0;\n        while (flow <\
-    \ flow_limit) {\n            bfs(s, t);\n            if (level[t] < 0) break;\n\
+    \ < n);\n        if (s == t) return 0;\n        Cap flow = 0;\n        while (flow\
+    \ < flow_limit) {\n            bfs(s, t);\n            if (level[t] < 0) break;\n\
     \            std::fill(iter.begin(), iter.end(), 0);\n            while (flow\
     \ < flow_limit) {\n                Cap f = dfs(s, t, flow_limit - flow);\n   \
     \             if (f == 0) break;\n                flow += f;\n            }\n\
@@ -140,8 +140,8 @@ data:
   - flow/ProjectSelectionProblem.hpp
   - test/atcoder/arc085_c.cpp
   - test/codeforces/1404_E.cpp
-  timestamp: '2021-09-21 22:39:35+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2021-09-21 22:57:51+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_6_A.DInic.test.cpp
   - test/aoj/2903.test.cpp

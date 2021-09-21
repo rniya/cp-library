@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: flow/Dinic.hpp
     title: Dinic
   _extendedRequiredBy:
@@ -104,8 +104,8 @@ data:
     \ new_cap + new_flow);\n    }\n\n    Cap max_flow(int s, int t) { return max_flow(s,\
     \ t, std::numeric_limits<Cap>::max()); }\n\n    Cap max_flow(int s, int t, Cap\
     \ flow_limit) {\n        assert(0 <= s && s < n);\n        assert(0 <= t && t\
-    \ < n);\n        assert(s != t);\n        Cap flow = 0;\n        while (flow <\
-    \ flow_limit) {\n            bfs(s, t);\n            if (level[t] < 0) break;\n\
+    \ < n);\n        if (s == t) return 0;\n        Cap flow = 0;\n        while (flow\
+    \ < flow_limit) {\n            bfs(s, t);\n            if (level[t] < 0) break;\n\
     \            std::fill(iter.begin(), iter.end(), 0);\n            while (flow\
     \ < flow_limit) {\n                Cap f = dfs(s, t, flow_limit - flow);\n   \
     \             if (f == 0) break;\n                flow += f;\n            }\n\
@@ -174,7 +174,7 @@ data:
   requiredBy:
   - test/atcoder/arc085_c.cpp
   - test/codeforces/1404_E.cpp
-  timestamp: '2021-09-21 22:39:35+09:00'
+  timestamp: '2021-09-21 22:57:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp
