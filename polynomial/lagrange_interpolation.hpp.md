@@ -6,12 +6,12 @@ data:
     title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/polynomial/lagrange_interpolation.md
     document_title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
@@ -81,15 +81,15 @@ data:
     \ {\n            if (i == j) continue;\n            (c *= T - x[j]) /= x[i] -\
     \ x[j];\n        }\n        res += c * y[i];\n    }\n    return res;\n}\n\ntemplate\
     \ <typename M> M lagrange_interpolation_arithmetic(vector<M>& y, M T) {\n    int\
-    \ n = y.size() - 1;\n    if (T.v <= n) return y[T.v];\n    vector<M> left(n +\
-    \ 1, 1), right(n + 1, 1), fac(n + 1, 1), finv(n + 1, 1);\n    for (int i = 0;\
-    \ i < n; i++) left[i + 1] = left[i] * (T - i);\n    for (int i = n - 1; i >= 0;\
-    \ --i) right[i] = right[i + 1] * (T - (i + 1));\n    for (int i = 1; i <= n; i++)\
-    \ fac[i] = fac[i - 1] * i;\n    finv[n] = (M)1 / fac[n];\n    for (int i = n;\
-    \ i > 0; --i) finv[i - 1] = finv[i] * i;\n    M res = 0;\n    for (int i = 0;\
-    \ i <= n; i++) {\n        M add = y[i] * left[i] * right[i] * finv[i] * finv[n\
-    \ - i];\n        if ((n - i) & 1)\n            res -= add;\n        else\n   \
-    \         res += add;\n    }\n    return res;\n}\n"
+    \ n = y.size() - 1;\n    if (T.value() <= n) return y[T.value()];\n    vector<M>\
+    \ left(n + 1, 1), right(n + 1, 1), fac(n + 1, 1), finv(n + 1, 1);\n    for (int\
+    \ i = 0; i < n; i++) left[i + 1] = left[i] * (T - i);\n    for (int i = n - 1;\
+    \ i >= 0; --i) right[i] = right[i + 1] * (T - (i + 1));\n    for (int i = 1; i\
+    \ <= n; i++) fac[i] = fac[i - 1] * i;\n    finv[n] = (M)1 / fac[n];\n    for (int\
+    \ i = n; i > 0; --i) finv[i - 1] = finv[i] * i;\n    M res = 0;\n    for (int\
+    \ i = 0; i <= n; i++) {\n        M add = y[i] * left[i] * right[i] * finv[i] *\
+    \ finv[n - i];\n        if ((n - i) & 1)\n            res -= add;\n        else\n\
+    \            res += add;\n    }\n    return res;\n}\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u30E9\u30B0\u30E9\
     \u30F3\u30B8\u30E5\u88DC\u9593\n * @docs docs/polynomial/lagrange_interpolation.md\n\
     \ */\ntemplate <typename M> M lagrange_interpolation(vector<M> x, vector<M> y,\
@@ -98,22 +98,22 @@ data:
     \      if (i == j) continue;\n            (c *= T - x[j]) /= x[i] - x[j];\n  \
     \      }\n        res += c * y[i];\n    }\n    return res;\n}\n\ntemplate <typename\
     \ M> M lagrange_interpolation_arithmetic(vector<M>& y, M T) {\n    int n = y.size()\
-    \ - 1;\n    if (T.v <= n) return y[T.v];\n    vector<M> left(n + 1, 1), right(n\
-    \ + 1, 1), fac(n + 1, 1), finv(n + 1, 1);\n    for (int i = 0; i < n; i++) left[i\
-    \ + 1] = left[i] * (T - i);\n    for (int i = n - 1; i >= 0; --i) right[i] = right[i\
-    \ + 1] * (T - (i + 1));\n    for (int i = 1; i <= n; i++) fac[i] = fac[i - 1]\
-    \ * i;\n    finv[n] = (M)1 / fac[n];\n    for (int i = n; i > 0; --i) finv[i -\
-    \ 1] = finv[i] * i;\n    M res = 0;\n    for (int i = 0; i <= n; i++) {\n    \
-    \    M add = y[i] * left[i] * right[i] * finv[i] * finv[n - i];\n        if ((n\
-    \ - i) & 1)\n            res -= add;\n        else\n            res += add;\n\
-    \    }\n    return res;\n}"
+    \ - 1;\n    if (T.value() <= n) return y[T.value()];\n    vector<M> left(n + 1,\
+    \ 1), right(n + 1, 1), fac(n + 1, 1), finv(n + 1, 1);\n    for (int i = 0; i <\
+    \ n; i++) left[i + 1] = left[i] * (T - i);\n    for (int i = n - 1; i >= 0; --i)\
+    \ right[i] = right[i + 1] * (T - (i + 1));\n    for (int i = 1; i <= n; i++) fac[i]\
+    \ = fac[i - 1] * i;\n    finv[n] = (M)1 / fac[n];\n    for (int i = n; i > 0;\
+    \ --i) finv[i - 1] = finv[i] * i;\n    M res = 0;\n    for (int i = 0; i <= n;\
+    \ i++) {\n        M add = y[i] * left[i] * right[i] * finv[i] * finv[n - i];\n\
+    \        if ((n - i) & 1)\n            res -= add;\n        else\n           \
+    \ res += add;\n    }\n    return res;\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: polynomial/lagrange_interpolation.hpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-09-21 16:26:52+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/665.test.cpp
 documentation_of: polynomial/lagrange_interpolation.hpp

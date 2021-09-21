@@ -5,15 +5,13 @@ data:
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/NTL_1_B.test.cpp
-    title: test/aoj/NTL_1_B.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    document_title: "\u7E70\u308A\u8FD4\u30572\u4E57\u6CD5"
+    _deprecated_at_docs: docs/flow/FordFulkerson.md
+    document_title: Ford Fulkerson
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
     #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
@@ -72,31 +70,71 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"math/modpow.hpp\"\
-    \n\n/**\n * @brief \u7E70\u308A\u8FD4\u30572\u4E57\u6CD5\n */\nlong long modpow(long\
-    \ long x, long long n, long long mod) {\n    long long res = 1;\n    while (n\
-    \ > 0) {\n        if (n & 1LL) res = res * x % mod;\n        x = x * x % mod;\n\
-    \        n >>= 1LL;\n    }\n    return res;\n}\nlong long modinv(long long x,\
-    \ long long p) { return modpow(x, p - 2, p); }\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u7E70\u308A\u8FD4\
-    \u30572\u4E57\u6CD5\n */\nlong long modpow(long long x, long long n, long long\
-    \ mod) {\n    long long res = 1;\n    while (n > 0) {\n        if (n & 1LL) res\
-    \ = res * x % mod;\n        x = x * x % mod;\n        n >>= 1LL;\n    }\n    return\
-    \ res;\n}\nlong long modinv(long long x, long long p) { return modpow(x, p - 2,\
-    \ p); }"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"hold/FordFulkerson.hpp\"\
+    \n\n/**\n * @brief Ford Fulkerson\n * @docs docs/flow/FordFulkerson.md\n */\n\
+    template <typename Cap, bool directed> struct FordFulkerson {\n    struct edge\
+    \ {\n        int to;\n        Cap cap;\n        int rev;\n        edge(int to,\
+    \ Cap cap, int rev) : to(to), cap(cap), rev(rev) {}\n    };\n    vector<vector<edge>>\
+    \ G;\n    vector<pair<int, int>> pos;\n    vector<int> used;\n    FordFulkerson(int\
+    \ n) : G(n), used(n) {}\n    int add_edge(int from, int to, Cap cap) {\n     \
+    \   pos.emplace_back(from, G[from].size());\n        G[from].emplace_back(to,\
+    \ cap, G[to].size());\n        G[to].emplace_back(from, directed ? 0 : cap, G[from].size()\
+    \ - 1);\n        return pos.size() - 1;\n    }\n    tuple<int, int, Cap, Cap>\
+    \ get_edge(int i) {\n        auto e = G[pos[i].first][pos[i].second];\n      \
+    \  auto re = G[e.to][e.rev];\n        return {pos[i].first, e.to, e.cap + re.cap,\
+    \ re.cap};\n    }\n    vector<tuple<int, int, Cap, Cap>> edges() {\n        vector<tuple<int,\
+    \ int, Cap, Cap>> res;\n        for (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));\n\
+    \        return res;\n    }\n    Cap dfs(int v, int t, Cap f) {\n        if (v\
+    \ == t) return f;\n        used[v] = true;\n        for (auto& e : G[v]) {\n \
+    \           if (!used[e.to] && e.cap > 0) {\n                Cap d = dfs(e.to,\
+    \ t, min(f, e.cap));\n                if (d <= 0) continue;\n                e.cap\
+    \ -= d;\n                G[e.to][e.rev].cap += d;\n                return d;\n\
+    \            }\n        }\n        return 0;\n    }\n    Cap max_flow(int s, int\
+    \ t, Cap lim) {\n        Cap flow = 0;\n        while (lim > 0) {\n          \
+    \  fill(used.begin(), used.end(), 0);\n            Cap f = dfs(s, t, lim);\n \
+    \           if (f == 0) break;\n            flow += f;\n            lim -= f;\n\
+    \        }\n        return flow;\n    }\n    Cap max_flow(int s, int t) { return\
+    \ max_flow(s, t, numeric_limits<Cap>::max()); }\n};\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Ford Fulkerson\n\
+    \ * @docs docs/flow/FordFulkerson.md\n */\ntemplate <typename Cap, bool directed>\
+    \ struct FordFulkerson {\n    struct edge {\n        int to;\n        Cap cap;\n\
+    \        int rev;\n        edge(int to, Cap cap, int rev) : to(to), cap(cap),\
+    \ rev(rev) {}\n    };\n    vector<vector<edge>> G;\n    vector<pair<int, int>>\
+    \ pos;\n    vector<int> used;\n    FordFulkerson(int n) : G(n), used(n) {}\n \
+    \   int add_edge(int from, int to, Cap cap) {\n        pos.emplace_back(from,\
+    \ G[from].size());\n        G[from].emplace_back(to, cap, G[to].size());\n   \
+    \     G[to].emplace_back(from, directed ? 0 : cap, G[from].size() - 1);\n    \
+    \    return pos.size() - 1;\n    }\n    tuple<int, int, Cap, Cap> get_edge(int\
+    \ i) {\n        auto e = G[pos[i].first][pos[i].second];\n        auto re = G[e.to][e.rev];\n\
+    \        return {pos[i].first, e.to, e.cap + re.cap, re.cap};\n    }\n    vector<tuple<int,\
+    \ int, Cap, Cap>> edges() {\n        vector<tuple<int, int, Cap, Cap>> res;\n\
+    \        for (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));\n\
+    \        return res;\n    }\n    Cap dfs(int v, int t, Cap f) {\n        if (v\
+    \ == t) return f;\n        used[v] = true;\n        for (auto& e : G[v]) {\n \
+    \           if (!used[e.to] && e.cap > 0) {\n                Cap d = dfs(e.to,\
+    \ t, min(f, e.cap));\n                if (d <= 0) continue;\n                e.cap\
+    \ -= d;\n                G[e.to][e.rev].cap += d;\n                return d;\n\
+    \            }\n        }\n        return 0;\n    }\n    Cap max_flow(int s, int\
+    \ t, Cap lim) {\n        Cap flow = 0;\n        while (lim > 0) {\n          \
+    \  fill(used.begin(), used.end(), 0);\n            Cap f = dfs(s, t, lim);\n \
+    \           if (f == 0) break;\n            flow += f;\n            lim -= f;\n\
+    \        }\n        return flow;\n    }\n    Cap max_flow(int s, int t) { return\
+    \ max_flow(s, t, numeric_limits<Cap>::max()); }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: math/modpow.hpp
+  path: hold/FordFulkerson.hpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/aoj/NTL_1_B.test.cpp
-documentation_of: math/modpow.hpp
+  timestamp: '2021-09-21 16:26:52+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: hold/FordFulkerson.hpp
 layout: document
 redirect_from:
-- /library/math/modpow.hpp
-- /library/math/modpow.hpp.html
-title: "\u7E70\u308A\u8FD4\u30572\u4E57\u6CD5"
+- /library/hold/FordFulkerson.hpp
+- /library/hold/FordFulkerson.hpp.html
+title: Ford Fulkerson
 ---
+## 概要
+
+## 計算量

@@ -103,20 +103,11 @@ data:
   - name: flow
     pages:
     - icon: ':heavy_check_mark:'
-      path: flow/BipartiteMatching.hpp
-      title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-    - icon: ':heavy_check_mark:'
       path: flow/Dinic.hpp
       title: Dinic
     - icon: ':heavy_check_mark:'
-      path: flow/FordFulkerson.hpp
-      title: Ford Fulkerson
-    - icon: ':heavy_check_mark:'
       path: flow/HopcroftKarp.hpp
       title: Hopcroft Karp
-    - icon: ':heavy_check_mark:'
-      path: flow/MinCostFlow.hpp
-      title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
     - icon: ':heavy_check_mark:'
       path: flow/PrimalDual.hpp
       title: Primal Dual
@@ -182,6 +173,15 @@ data:
   - name: hold
     pages:
     - icon: ':warning:'
+      path: hold/BipartiteMatching.hpp
+      title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
+    - icon: ':warning:'
+      path: hold/FordFulkerson.hpp
+      title: Ford Fulkerson
+    - icon: ':warning:'
+      path: hold/MinCostFlow.hpp
+      title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
+    - icon: ':warning:'
       path: hold/SuffixArray_old.hpp
       title: Suffix Array
   - name: linearalgebra
@@ -197,15 +197,9 @@ data:
       title: Square Matrix
   - name: math
     pages:
-    - icon: ':warning:'
-      path: math/divisor.hpp
-      title: "\u7D04\u6570\u5217\u6319"
     - icon: ':heavy_check_mark:'
-      path: math/euler_phi.hpp
-      title: "Euler\u306E\u03C6\u95A2\u6570"
-    - icon: ':heavy_check_mark:'
-      path: math/extgcd.hpp
-      title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
+      path: math/elementary_math.hpp
+      title: elementary math
     - icon: ':heavy_check_mark:'
       path: math/fast_factorize.hpp
       title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
@@ -213,18 +207,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/floor_sum.hpp
       title: Sum of Floor of Linear
-    - icon: ':warning:'
-      path: math/is_prime.hpp
-      title: "\u7D20\u6570\u5224\u5B9A"
-    - icon: ':heavy_check_mark:'
-      path: math/modpow.hpp
-      title: "\u7E70\u308A\u8FD4\u30572\u4E57\u6CD5"
-    - icon: ':heavy_check_mark:'
-      path: math/prime_factor.hpp
-      title: "\u7D20\u56E0\u6570\u5206\u89E3"
-    - icon: ':warning:'
-      path: math/prime_factor_table.hpp
-      title: "osa_k\u6CD5"
     - icon: ':warning:'
       path: math/quotient_ranges.hpp
       title: "\u5546\u5217\u6319"
@@ -252,7 +234,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: polynomial/StirlingSecond.hpp
       title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: polynomial/lagrange_interpolation.hpp
       title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - name: string
@@ -607,19 +589,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_A.DInic.test.cpp
       title: test/aoj/GRL_6_A.DInic.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL_6_A.test.cpp
       title: test/aoj/GRL_6_A.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_B.PrimalDual.test.cpp
       title: test/aoj/GRL_6_B.PrimalDual.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL_6_B.test.cpp
       title: test/aoj/GRL_6_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
       title: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL_7_A.test.cpp
       title: test/aoj/GRL_7_A.test.cpp
     - icon: ':heavy_check_mark:'
@@ -806,7 +788,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/583.test.cpp
       title: test/yukicoder/583.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/665.test.cpp
       title: test/yukicoder/665.test.cpp
     - icon: ':heavy_check_mark:'

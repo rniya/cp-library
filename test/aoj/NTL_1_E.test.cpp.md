@@ -5,8 +5,8 @@ data:
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
-    path: math/extgcd.hpp
-    title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
+    path: math/elementary_math.hpp
+    title: elementary math
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -75,26 +75,55 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"math/extgcd.hpp\"\
-    \n\n/**\n * @brief \u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\
-    \u9664\u6CD5\n */\ntemplate <typename T> T extgcd(T a, T b, T& x, T& y) {\n  \
-    \  T d = a;\n    if (b != 0) {\n        d = extgcd(b, a % b, y, x);\n        y\
-    \ -= (a / b) * x;\n    } else\n        x = 1, y = 0;\n    return d;\n}\n#line\
-    \ 5 \"test/aoj/NTL_1_E.test.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int a, b, x, y;\n    cin >> a >> b;\n\n    extgcd(a, b, x, y);\n    cout\
-    \ << x << ' ' << y << '\\n';\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 4 \"math/elementary_math.hpp\"\
+    \n\nnamespace elementary_math {\ntemplate <typename T> std::vector<T> divisor(T\
+    \ n) {\n    std::vector<T> res;\n    for (T i = 1; i * i <= n; i++) {\n      \
+    \  if (n % i == 0) {\n            res.emplace_back(i);\n            if (i * i\
+    \ != n) res.emplace_back(n / i);\n        }\n    }\n    return res;\n}\n\ntemplate\
+    \ <typename T> std::vector<std::pair<T, int>> prime_factor(T n) {\n    std::vector<std::pair<T,\
+    \ int>> res;\n    for (T p = 2; p * p <= n; p++) {\n        if (n % p == 0) {\n\
+    \            res.emplace_back(p, 0);\n            while (n % p == 0) {\n     \
+    \           res.back().second++;\n                n /= p;\n            }\n   \
+    \     }\n    }\n    if (n > 1) res.emplace_back(n, 1);\n    return res;\n}\n\n\
+    std::vector<int> osa_k(int n) {\n    std::vector<int> min_factor(n + 1, 0);\n\
+    \    for (int i = 2; i <= n; i++) {\n        if (min_factor[i]) continue;\n  \
+    \      for (int j = i; j <= n; j += i) {\n            if (!min_factor[j]) {\n\
+    \                min_factor[j] = i;\n            }\n        }\n    }\n    return\
+    \ min_factor;\n}\n\nstd::vector<int> prime_factor(const std::vector<int>& min_factor,\
+    \ int n) {\n    std::vector<int> res;\n    while (n > 1) {\n        res.emplace_back(min_factor[n]);\n\
+    \        n /= min_factor[n];\n    }\n    return res;\n}\n\nlong long modpow(long\
+    \ long x, long long n, long long mod) {\n    assert(0 <= n && 1 <= mod && mod\
+    \ < (1LL << 31));\n    if (mod == 1) return 0;\n    x %= mod;\n    long long res\
+    \ = 1;\n    while (n > 0) {\n        if (n & 1) res = res * x % mod;\n       \
+    \ x = x * x % mod;\n        n >>= 1;\n    }\n    return res;\n}\n\nlong long extgcd(long\
+    \ long a, long long b, long long& x, long long& y) {\n    long long d = a;\n \
+    \   if (b != 0) {\n        d = extgcd(b, a % b, y, x);\n        y -= (a / b) *\
+    \ x;\n    } else\n        x = 1, y = 0;\n    return d;\n}\n\nlong long inv_mod(long\
+    \ long a, long long mod) {\n    assert(1 <= mod);\n    long long x, y;\n    if\
+    \ (extgcd(a, mod, x, y) != 1) return -1;\n    return (mod + x % mod) % mod;\n\
+    }\n\ntemplate <typename T> T euler_phi(T n) {\n    auto pf = prime_factor(n);\n\
+    \    T res = n;\n    for (const auto& p : pf) {\n        res /= p.first;\n   \
+    \     res *= p.first - 1;\n    }\n    return res;\n}\n\nstd::vector<int> euler_phi_table(int\
+    \ n) {\n    std::vector<int> res(n + 1, 0);\n    iota(res.begin(), res.end(),\
+    \ 0);\n    for (int i = 2; i <= n; i++) {\n        if (res[i] != i) continue;\n\
+    \        for (int j = i; j <= n; j += i) res[j] = res[j] / i * (i - 1);\n    }\n\
+    \    return res;\n}\n}  // namespace elementary_math\n\n/**\n * @brief elementary\
+    \ math\n * @docs docs/math/elementary_math.md\n */\n#line 5 \"test/aoj/NTL_1_E.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    long\
+    \ long a, b, x, y;\n    cin >> a >> b;\n    elementary_math::extgcd(a, b, x, y);\n\
+    \    cout << x << ' ' << y << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_E\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../math/extgcd.hpp\"\n\nint main()\
-    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int a, b, x, y;\n\
-    \    cin >> a >> b;\n\n    extgcd(a, b, x, y);\n    cout << x << ' ' << y << '\\\
-    n';\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../math/elementary_math.hpp\"\n\
+    \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    long long\
+    \ a, b, x, y;\n    cin >> a >> b;\n    elementary_math::extgcd(a, b, x, y);\n\
+    \    cout << x << ' ' << y << '\\n';\n}"
   dependsOn:
   - base.hpp
-  - math/extgcd.hpp
+  - math/elementary_math.hpp
   isVerificationFile: true
   path: test/aoj/NTL_1_E.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-09-21 16:26:52+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_E.test.cpp

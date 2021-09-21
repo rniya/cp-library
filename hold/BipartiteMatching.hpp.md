@@ -5,16 +5,14 @@ data:
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/NTL_1_D.test.cpp
-    title: test/aoj/NTL_1_D.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/math/euler_phi.md
-    document_title: "Euler\u306E\u03C6\u95A2\u6570"
+    _deprecated_at_docs: docs/flow/BipartiteMatching.md
+    document_title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\
+      \u30F3\u30B0"
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
     #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
@@ -73,40 +71,63 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"math/euler_phi.hpp\"\
-    \n\n/**\n * @brief Euler\u306E\u03C6\u95A2\u6570\n * @docs docs/math/euler_phi.md\n\
-    \ */\ntemplate <typename T> T euler_phi(T n) {\n    T res = n;\n    for (T i =\
-    \ 2; i * i <= n; i++)\n        if (n % i == 0) {\n            res -= res / i;\n\
-    \            while (n % i == 0) n /= i;\n        }\n    if (n != 1) res -= res\
-    \ / n;\n    return res;\n}\nvector<int> euler_phi_table(int n) {\n    vector<int>\
-    \ euler(n + 1);\n    iota(euler.begin(), euler.end(), 0);\n    for (int i = 2;\
-    \ i <= n; i++)\n        if (euler[i] == i) {\n            for (int j = i; j <=\
-    \ n; j += i) euler[j] -= euler[j] / i;\n        }\n    return euler;\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Euler\u306E\u03C6\
-    \u95A2\u6570\n * @docs docs/math/euler_phi.md\n */\ntemplate <typename T> T euler_phi(T\
-    \ n) {\n    T res = n;\n    for (T i = 2; i * i <= n; i++)\n        if (n % i\
-    \ == 0) {\n            res -= res / i;\n            while (n % i == 0) n /= i;\n\
-    \        }\n    if (n != 1) res -= res / n;\n    return res;\n}\nvector<int> euler_phi_table(int\
-    \ n) {\n    vector<int> euler(n + 1);\n    iota(euler.begin(), euler.end(), 0);\n\
-    \    for (int i = 2; i <= n; i++)\n        if (euler[i] == i) {\n            for\
-    \ (int j = i; j <= n; j += i) euler[j] -= euler[j] / i;\n        }\n    return\
-    \ euler;\n};"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"hold/BipartiteMatching.hpp\"\
+    \n\n/**\n * @brief 2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\
+    \u30F3\u30B0\n * @docs docs/flow/BipartiteMatching.md\n */\nstruct BipartiteMatching\
+    \ {\n    vector<vector<int>> G;\n    vector<int> match, alive, used;\n    int\
+    \ time = 0;\n    BipartiteMatching(int n) : G(n), match(n, -1), alive(n, 1), used(n,\
+    \ 0) {}\n    void add_edge(int u, int v) {\n        G[u].emplace_back(v);\n  \
+    \      G[v].emplace_back(u);\n    }\n    bool dfs(int v) {\n        used[v] =\
+    \ time;\n        for (int u : G[v]) {\n            int w = match[u];\n       \
+    \     if (!alive[u]) continue;\n            if (w < 0 || (used[w] != time && dfs(w)))\
+    \ {\n                match[v] = u;\n                match[u] = v;\n          \
+    \      return true;\n            }\n        }\n        return false;\n    }\n\
+    \    int build() {\n        int res = 0;\n        for (int i = 0; i < (int)G.size();\
+    \ i++) {\n            if (!alive[i]) continue;\n            if (~match[i]) continue;\n\
+    \            time++;\n            res += dfs(i);\n        }\n        return res;\n\
+    \    }\n    int enable(int v) {\n        alive[v] = 1;\n        time++;\n    \
+    \    return dfs(v);\n    }\n    int disable(int v) {\n        alive[v] = 0;\n\
+    \        if (match[v] < 0) return 0;\n        match[v] = -1;\n        match[match[v]]\
+    \ = -1;\n        time++;\n        int res = dfs(match[v]);\n        return res\
+    \ - 1;\n    }\n};\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief 2\u90E8\u30B0\u30E9\
+    \u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0\n * @docs docs/flow/BipartiteMatching.md\n\
+    \ */\nstruct BipartiteMatching {\n    vector<vector<int>> G;\n    vector<int>\
+    \ match, alive, used;\n    int time = 0;\n    BipartiteMatching(int n) : G(n),\
+    \ match(n, -1), alive(n, 1), used(n, 0) {}\n    void add_edge(int u, int v) {\n\
+    \        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n    }\n    bool\
+    \ dfs(int v) {\n        used[v] = time;\n        for (int u : G[v]) {\n      \
+    \      int w = match[u];\n            if (!alive[u]) continue;\n            if\
+    \ (w < 0 || (used[w] != time && dfs(w))) {\n                match[v] = u;\n  \
+    \              match[u] = v;\n                return true;\n            }\n  \
+    \      }\n        return false;\n    }\n    int build() {\n        int res = 0;\n\
+    \        for (int i = 0; i < (int)G.size(); i++) {\n            if (!alive[i])\
+    \ continue;\n            if (~match[i]) continue;\n            time++;\n     \
+    \       res += dfs(i);\n        }\n        return res;\n    }\n    int enable(int\
+    \ v) {\n        alive[v] = 1;\n        time++;\n        return dfs(v);\n    }\n\
+    \    int disable(int v) {\n        alive[v] = 0;\n        if (match[v] < 0) return\
+    \ 0;\n        match[v] = -1;\n        match[match[v]] = -1;\n        time++;\n\
+    \        int res = dfs(match[v]);\n        return res - 1;\n    }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: math/euler_phi.hpp
+  path: hold/BipartiteMatching.hpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/aoj/NTL_1_D.test.cpp
-documentation_of: math/euler_phi.hpp
+  timestamp: '2021-09-21 16:26:52+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: hold/BipartiteMatching.hpp
 layout: document
 redirect_from:
-- /library/math/euler_phi.hpp
-- /library/math/euler_phi.hpp.html
-title: "Euler\u306E\u03C6\u95A2\u6570"
+- /library/hold/BipartiteMatching.hpp
+- /library/hold/BipartiteMatching.hpp.html
+title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
 ---
 ## 概要
+2部グラフの最大マッチングを求める. 基本的にはHopcroft-Karpのアルゴリズムの方が高速なのでそちらを使うのが良い. 頂点番号の振り方に注意.
+
+- `add_edge(u, v)`：$u$と$v$の間に辺を張る.
+- `build()`：最大マッチングの大きさを求める.
 
 ## 計算量
+$O(EV)$

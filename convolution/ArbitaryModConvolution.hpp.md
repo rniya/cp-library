@@ -170,18 +170,19 @@ data:
     \ = modint<mod1>;\n    using mint2 = modint<mod2>;\n    NumberTheoreticTransform<mod0>\
     \ ntt0;\n    NumberTheoreticTransform<mod1> ntt1;\n    NumberTheoreticTransform<mod2>\
     \ ntt2;\n    vector<mint0> a0(n), b0(m);\n    vector<mint1> a1(n), b1(m);\n  \
-    \  vector<mint2> a2(n), b2(m);\n    for (int i = 0; i < n; i++) a0[i] = a[i].v,\
-    \ a1[i] = a[i].v, a2[i] = a[i].v;\n    for (int i = 0; i < m; i++) b0[i] = b[i].v,\
-    \ b1[i] = b[i].v, b2[i] = b[i].v;\n    auto c0 = ntt0.multiply(a0, b0);\n    auto\
-    \ c1 = ntt1.multiply(a1, b1);\n    auto c2 = ntt2.multiply(a2, b2);\n    static\
-    \ const mint1 inv0 = (mint1)1 / mod0;\n    static const mint2 inv1 = (mint2)1\
-    \ / mod1, inv0inv1 = inv1 / mod0;\n    static const M m0 = mod0, m0m1 = m0 * mod1;\n\
-    \    vector<M> res(n + m - 1);\n    for (int i = 0; i < n + m - 1; i++) {\n  \
-    \      int v0 = c0[i].v;\n        int v1 = (inv0 * (c1[i] - v0)).v;\n        int\
-    \ v2 = (inv0inv1 * (c2[i] - v0) - inv1 * v1).v;\n        res[i] = v0 + m0 * v1\
-    \ + m0m1 * v2;\n    }\n    return res;\n}\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n#include \"NumberTheoreticTransform.hpp\"\
-    \n#include \"../modulo/modint.hpp\"\n\n/**\n * @brief Arbirary Mod Convolution\
+    \  vector<mint2> a2(n), b2(m);\n    for (int i = 0; i < n; i++) a0[i] = a[i].value(),\
+    \ a1[i] = a[i].value(), a2[i] = a[i].value();\n    for (int i = 0; i < m; i++)\
+    \ b0[i] = b[i].value(), b1[i] = b[i].value(), b2[i] = b[i].value();\n    auto\
+    \ c0 = ntt0.multiply(a0, b0);\n    auto c1 = ntt1.multiply(a1, b1);\n    auto\
+    \ c2 = ntt2.multiply(a2, b2);\n    static const mint1 inv0 = (mint1)1 / mod0;\n\
+    \    static const mint2 inv1 = (mint2)1 / mod1, inv0inv1 = inv1 / mod0;\n    static\
+    \ const M m0 = mod0, m0m1 = m0 * mod1;\n    vector<M> res(n + m - 1);\n    for\
+    \ (int i = 0; i < n + m - 1; i++) {\n        int v0 = c0[i].v;\n        int v1\
+    \ = (inv0 * (c1[i] - v0)).v;\n        int v2 = (inv0inv1 * (c2[i] - v0) - inv1\
+    \ * v1).v;\n        res[i] = v0 + m0 * v1 + m0m1 * v2;\n    }\n    return res;\n\
+    }\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n#include \"../modulo/modint.hpp\"\
+    \n#include \"NumberTheoreticTransform.hpp\"\n\n/**\n * @brief Arbirary Mod Convolution\
     \ (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)\n * @docs docs/convolution/ArbitaryModConvolution.md\n\
     \ */\ntemplate <typename M> vector<M> ArbitaryModConvolution(const vector<M>&\
     \ a, const vector<M>& b) {\n    int n = a.size(), m = b.size();\n    static constexpr\
@@ -190,11 +191,11 @@ data:
     \    NumberTheoreticTransform<mod0> ntt0;\n    NumberTheoreticTransform<mod1>\
     \ ntt1;\n    NumberTheoreticTransform<mod2> ntt2;\n    vector<mint0> a0(n), b0(m);\n\
     \    vector<mint1> a1(n), b1(m);\n    vector<mint2> a2(n), b2(m);\n    for (int\
-    \ i = 0; i < n; i++) a0[i] = a[i].v, a1[i] = a[i].v, a2[i] = a[i].v;\n    for\
-    \ (int i = 0; i < m; i++) b0[i] = b[i].v, b1[i] = b[i].v, b2[i] = b[i].v;\n  \
-    \  auto c0 = ntt0.multiply(a0, b0);\n    auto c1 = ntt1.multiply(a1, b1);\n  \
-    \  auto c2 = ntt2.multiply(a2, b2);\n    static const mint1 inv0 = (mint1)1 /\
-    \ mod0;\n    static const mint2 inv1 = (mint2)1 / mod1, inv0inv1 = inv1 / mod0;\n\
+    \ i = 0; i < n; i++) a0[i] = a[i].value(), a1[i] = a[i].value(), a2[i] = a[i].value();\n\
+    \    for (int i = 0; i < m; i++) b0[i] = b[i].value(), b1[i] = b[i].value(), b2[i]\
+    \ = b[i].value();\n    auto c0 = ntt0.multiply(a0, b0);\n    auto c1 = ntt1.multiply(a1,\
+    \ b1);\n    auto c2 = ntt2.multiply(a2, b2);\n    static const mint1 inv0 = (mint1)1\
+    \ / mod0;\n    static const mint2 inv1 = (mint2)1 / mod1, inv0inv1 = inv1 / mod0;\n\
     \    static const M m0 = mod0, m0m1 = m0 * mod1;\n    vector<M> res(n + m - 1);\n\
     \    for (int i = 0; i < n + m - 1; i++) {\n        int v0 = c0[i].v;\n      \
     \  int v1 = (inv0 * (c1[i] - v0)).v;\n        int v2 = (inv0inv1 * (c2[i] - v0)\
@@ -202,12 +203,12 @@ data:
     \ res;\n}"
   dependsOn:
   - base.hpp
-  - convolution/NumberTheoreticTransform.hpp
   - modulo/modint.hpp
+  - convolution/NumberTheoreticTransform.hpp
   isVerificationFile: false
   path: convolution/ArbitaryModConvolution.hpp
   requiredBy: []
-  timestamp: '2021-09-21 14:56:05+09:00'
+  timestamp: '2021-09-21 16:26:52+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/convolution_mod_1000000007.test.cpp
