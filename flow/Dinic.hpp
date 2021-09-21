@@ -133,6 +133,6 @@ private:
 };
 
 /**
- * @brief Dinic
+ * @brief Dinic (Maximum flow)
  * @docs docs/flow/Dinic.md
  */
