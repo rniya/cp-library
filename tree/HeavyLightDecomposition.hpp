@@ -21,6 +21,7 @@ struct HeavyLightDecomposition {
             head[r] = r;
             dfs_hld(r, tree_id_cur++);
         }
+        assert(time == n);
     }
 
     int idx(int v) const { return vertex_id[v]; }

@@ -1,28 +1,47 @@
 #pragma once
-#include "../base.hpp"
+#include <cassert>
+#include <queue>
+#include <vector>
+
+struct TopologicalSort {
+    std::vector<std::vector<int>> G;
+
+    TopologicalSort(int n) : G(n), n(n), indeg(n, 0) {}
+
+    void add_edge(int u, int v) {
+        assert(0 <= u && u < n);
+        assert(0 <= v && v < n);
+        G[u].emplace_back(v);
+        indeg[v]++;
+    }
+
+    std::vector<int> build() {
+        std::queue<int> que;
+        for (int i = 0; i < n; i++) {
+            if (indeg[i] == 0) {
+                que.emplace(i);
+            }
+        }
+        std::vector<int> order;
+        while (!que.empty()) {
+            int v = que.front();
+            que.pop();
+            order.emplace_back(v);
+            for (int& u : G[v]) {
+                if (--indeg[u] == 0) {
+                    que.emplace(u);
+                }
+            }
+        }
+        return order;
+    }
+
+private:
+    int n;
+    std::vector<int> indeg;
+};
 
 /**
  * @brief Topological Sort
  * @docs docs/graph/TopologicalSort.md
  */
-struct TopologicalSort {
-    vector<vector<int>> G;
-    vector<int> seen, order;
-    TopologicalSort(int n) : G(n), seen(n) {}
-    void add_edge(int u, int v) { G[u].emplace_back(v); }
-    void dfs(int v) {
-        seen[v] = 1;
-        for (int u : G[v]) {
-            if (!seen[u]) dfs(u);
-        }
-        order.emplace_back(v);
-    }
-    vector<int> build() {
-        for (int i = 0; i < (int)G.size(); i++) {
-            if (!seen[i]) dfs(i);
-        }
-        reverse(order.begin(), order.end());
-        return order;
-    }
-    int operator[](int i) { return order[i]; }
-};

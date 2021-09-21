@@ -1,55 +1,78 @@
 #pragma once
-#include "../base.hpp"
+#include <algorithm>
+#include <cassert>
+#include <vector>
 
-/**
- * @brief Strongly Connected Components
- * @docs docs/graph/StronglyConnectedComponents.md
- */
 struct StronglyConnectedComponents {
-    vector<vector<int>> G, rG, C, T;
-    vector<int> vs, cmp, used;
-    StronglyConnectedComponents(int n) : G(n), rG(n), cmp(n), used(n) {}
+    std::vector<std::vector<int>> G;  // graph after contraction
+    std::vector<int> comp;            // component id vertex v belongs to
+
+    StronglyConnectedComponents(int n) : G(n), comp(n, -1), n(n), time(0), group_num(0), ord(n, -1), low(n) {}
+
     void add_edge(int u, int v) {
+        assert(0 <= u && u < n);
+        assert(0 <= v && v < n);
         G[u].emplace_back(v);
-        rG[v].emplace_back(u);
     }
-    void dfs(int v) {
-        used[v] = 1;
-        for (int u : G[v])
-            if (!used[u]) dfs(u);
-        vs.emplace_back(v);
-    }
-    void rdfs(int v, int k) {
-        used[v] = 1;
-        cmp[v] = k;
-        C[k].emplace_back(v);
-        for (int u : rG[v])
-            if (!used[u]) rdfs(u, k);
-    }
-    int build() {
-        int n = G.size();
-        for (int i = 0; i < n; i++)
-            if (!used[i]) dfs(i);
-        fill(used.begin(), used.end(), 0);
-        int k = 0;
-        for (int i = n - 1; i >= 0; --i) {
-            if (!used[vs[i]]) {
-                C.emplace_back(), T.emplace_back();
-                rdfs(vs[i], k++);
+
+    std::vector<std::vector<int>> build() {
+        for (int i = 0; i < n; i++) {
+            if (ord[i] < 0) {
+                dfs(i);
             }
         }
+        for (int& x : comp) x = group_num - 1 - x;
+        std::vector<std::vector<int>> groups(group_num);
+        for (int i = 0; i < n; i++) groups[comp[i]].emplace_back(i);
+        return groups;
+    }
+
+    std::vector<std::vector<int>> make_graph() {
+        std::vector<std::vector<int>> dag(group_num);
         for (int v = 0; v < n; v++) {
-            for (int u : G[v]) {
-                if (cmp[v] != cmp[u]) {
-                    T[cmp[v]].emplace_back(cmp[u]);
+            for (int& u : G[v]) {
+                if (comp[v] != comp[u]) {
+                    dag[comp[v]].emplace_back(comp[u]);
                 }
             }
         }
-        for (int i = 0; i < k; i++) {
-            sort(T[i].begin(), T[i].end());
-            T[i].erase(unique(T[i].begin(), T[i].end()), T[i].end());
+        for (auto& to : dag) {
+            std::sort(to.begin(), to.end());
+            to.erase(unique(to.begin(), to.end()), to.end());
         }
-        return k;
+        return dag;
     }
-    int operator[](int i) const { return cmp[i]; }
+
+    int operator[](int v) const { return comp[v]; }
+
+private:
+    int n, time, group_num;
+    std::vector<int> ord, low, visited;
+
+    void dfs(int v) {
+        ord[v] = low[v] = time++;
+        visited.emplace_back(v);
+        for (int& u : G[v]) {
+            if (ord[u] == -1) {
+                dfs(u);
+                low[v] = std::min(low[v], low[u]);
+            } else if (comp[u] < 0) {
+                low[v] = std::min(low[v], ord[u]);
+            }
+        }
+        if (ord[v] == low[v]) {
+            while (true) {
+                int u = visited.back();
+                visited.pop_back();
+                comp[u] = group_num;
+                if (u == v) break;
+            }
+            group_num++;
+        }
+    }
 };
+
+/**
+ * @brief Strongly Connectes Components
+ * @docs docs/graph/StronglyConnectedComponents.md
+ */

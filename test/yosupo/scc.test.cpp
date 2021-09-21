@@ -16,11 +16,11 @@ int main() {
         SCC.add_edge(a, b);
     }
 
-    int K = SCC.build();
-    cout << K << '\n';
-    for (int i = 0; i < K; i++) {
-        cout << SCC.C[i].size();
-        for (int v : SCC.C[i]) cout << ' ' << v;
+    auto res = SCC.build();
+    cout << res.size() << '\n';
+    for (auto& group : res) {
+        cout << group.size();
+        for (int& v : group) cout << ' ' << v;
         cout << '\n';
     }
 }
