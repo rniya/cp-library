@@ -16,9 +16,9 @@
 | `set_val(k, x)`                      |                                                                                                                                                                           | $O(\log n)$ |
 | `query(a, b)`                        | 区間 $[a, b)$ の要素について二項演算を適用した結果を返す. 結合律が成立することからこの結果は一意に定まる.                                                                 | $O(\log n)$ |
 | `operator[k]`                        | $k$ 番目の要素を返す.                                                                                                                                                     | $O(\log n)$ |
-| `find_first(l, check)`               | [l, x)$ が `check` を満たすような最小の $x$ を返す. 存在しない場合は $n$ を返す.                                                                                          | $O(\log n)$ |
-| `find_last(r, check)`                | $[x, r)$ が `check` を満たすような最大の $x$ を返す. 存在しない場合は $-1$ を返す.                                                                                        | $O(\log n)$ |
+| `find_first(l, check)`               | $[l, x]$ (右端点を含む) が `check` を満たすような最小の $x$ を返す. 存在しない場合は $n$ を返す.                                                                          | $O(\log n)$ |
+| `find_last(r, check)`                | $[x, r)$ (左端点を含む) が `check` を満たすような最大の $x$ を返す. 存在しない場合は $-1$ を返す.                                                                         | $O(\log n)$ |
 
-## remark
-[Educational Codeforces Round 101 (Rated for Div. 2) F. Power Sockets](https://codeforces.com/contest/1469/problem/F)
-この遅延セグメント木を用いると通らないがAC Libraryのものを用いると問題ない. おそらく単位元が$(0,1)$である影響で木上の二分探索がバグっている.
+## Remark
+- [Educational Codeforces Round 101 (Rated for Div. 2) F. Power Sockets](https://codeforces.com/contest/1469/problem/F)
+区間加算区間和取得において `find_first` といった二分探索関数を用いる際には, 始点を厳密に定めないと想定し得ない挙動を起こすので注意.

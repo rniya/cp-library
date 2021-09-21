@@ -131,9 +131,9 @@ data:
     \    inline void recalc(int k) {\n        while (k >>= 1) data[k] = f(apply(k\
     \ << 1 | 0), apply(k << 1 | 1));\n    }\n\n    template <typename C> int find_subtree(int\
     \ a, const C& check, Monoid& M, bool type) {\n        while (a < size) {\n   \
-    \         propagate(a);\n            Monoid nxt = type ? f(apply(1 << a | type),\
-    \ M) : f(M, apply(1 << a | type));\n            if (check(nxt))\n            \
-    \    a = 1 << a | type;\n            else\n                M = nxt, a = (a <<\
+    \         propagate(a);\n            Monoid nxt = type ? f(apply(a << 1 | type),\
+    \ M) : f(M, apply(a << 1 | type));\n            if (check(nxt))\n            \
+    \    a = a << 1 | type;\n            else\n                M = nxt, a = (a <<\
     \ 1 | 1) - type;\n        }\n        return a - size;\n    }\n};\n\n/**\n * @brief\
     \ Lazy Segment Tree\n * @docs docs/datastructure/LazySegmentTree.md\n */\n#line\
     \ 3 \"tree/HeavyLightDecomposition.hpp\"\n\n/**\n * @brief Heavy Light Decomposition\n\
@@ -216,7 +216,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   requiredBy: []
-  timestamp: '2021-09-20 22:49:47+09:00'
+  timestamp: '2021-09-21 14:13:52+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp

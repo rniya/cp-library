@@ -81,5 +81,5 @@ title: Union Find (Disjoint Set Union)
 | `same(x,y)`    | 頂点 $x, y$ が同一の集合に属するか判定する. | ならし $O(\alpha(n))$ |
 | `size(x)`      | 頂点 $x$ が属する集合の要素数を返す.        | ならし $O(\alpha(n))$ |
 | `count()`      | 素集合の数を返す.                           | $O(1)$                |
-| `groups()`     | 頂点を連結性で分割した同値類の情報を返す.   | $O(n)                 |
+| `groups()`     | 頂点を連結性で分割した同値類の情報を返す.   | $O(n)$                |
 | `operator[x]`  | 頂点 $x$ の属する集合の代表元を返す.        | ならし $O(\alpha(n))$ |

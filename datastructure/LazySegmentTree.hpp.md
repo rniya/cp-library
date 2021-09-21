@@ -98,9 +98,9 @@ data:
     \    inline void recalc(int k) {\n        while (k >>= 1) data[k] = f(apply(k\
     \ << 1 | 0), apply(k << 1 | 1));\n    }\n\n    template <typename C> int find_subtree(int\
     \ a, const C& check, Monoid& M, bool type) {\n        while (a < size) {\n   \
-    \         propagate(a);\n            Monoid nxt = type ? f(apply(1 << a | type),\
-    \ M) : f(M, apply(1 << a | type));\n            if (check(nxt))\n            \
-    \    a = 1 << a | type;\n            else\n                M = nxt, a = (a <<\
+    \         propagate(a);\n            Monoid nxt = type ? f(apply(a << 1 | type),\
+    \ M) : f(M, apply(a << 1 | type));\n            if (check(nxt))\n            \
+    \    a = a << 1 | type;\n            else\n                M = nxt, a = (a <<\
     \ 1 | 1) - type;\n        }\n        return a - size;\n    }\n};\n\n/**\n * @brief\
     \ Lazy Segment Tree\n * @docs docs/datastructure/LazySegmentTree.md\n */\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\ntemplate <typename\
@@ -155,9 +155,9 @@ data:
     \    inline void recalc(int k) {\n        while (k >>= 1) data[k] = f(apply(k\
     \ << 1 | 0), apply(k << 1 | 1));\n    }\n\n    template <typename C> int find_subtree(int\
     \ a, const C& check, Monoid& M, bool type) {\n        while (a < size) {\n   \
-    \         propagate(a);\n            Monoid nxt = type ? f(apply(1 << a | type),\
-    \ M) : f(M, apply(1 << a | type));\n            if (check(nxt))\n            \
-    \    a = 1 << a | type;\n            else\n                M = nxt, a = (a <<\
+    \         propagate(a);\n            Monoid nxt = type ? f(apply(a << 1 | type),\
+    \ M) : f(M, apply(a << 1 | type));\n            if (check(nxt))\n            \
+    \    a = a << 1 | type;\n            else\n                M = nxt, a = (a <<\
     \ 1 | 1) - type;\n        }\n        return a - size;\n    }\n};\n\n/**\n * @brief\
     \ Lazy Segment Tree\n * @docs docs/datastructure/LazySegmentTree.md\n */"
   dependsOn: []
@@ -165,7 +165,7 @@ data:
   path: datastructure/LazySegmentTree.hpp
   requiredBy:
   - test/codeforces/1179_C.cpp
-  timestamp: '2021-09-20 22:49:47+09:00'
+  timestamp: '2021-09-21 14:13:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2667.test.cpp
@@ -204,9 +204,9 @@ title: Lazy Segment Tree
 | `set_val(k, x)`                      |                                                                                                                                                                           | $O(\log n)$ |
 | `query(a, b)`                        | 区間 $[a, b)$ の要素について二項演算を適用した結果を返す. 結合律が成立することからこの結果は一意に定まる.                                                                 | $O(\log n)$ |
 | `operator[k]`                        | $k$ 番目の要素を返す.                                                                                                                                                     | $O(\log n)$ |
-| `find_first(l, check)`               | [l, x)$ が `check` を満たすような最小の $x$ を返す. 存在しない場合は $n$ を返す.                                                                                          | $O(\log n)$ |
-| `find_last(r, check)`                | $[x, r)$ が `check` を満たすような最大の $x$ を返す. 存在しない場合は $-1$ を返す.                                                                                        | $O(\log n)$ |
+| `find_first(l, check)`               | $[l, x]$ (右端点を含む) が `check` を満たすような最小の $x$ を返す. 存在しない場合は $n$ を返す.                                                                          | $O(\log n)$ |
+| `find_last(r, check)`                | $[x, r)$ (左端点を含む) が `check` を満たすような最大の $x$ を返す. 存在しない場合は $-1$ を返す.                                                                         | $O(\log n)$ |
 
-## remark
-[Educational Codeforces Round 101 (Rated for Div. 2) F. Power Sockets](https://codeforces.com/contest/1469/problem/F)
-この遅延セグメント木を用いると通らないがAC Libraryのものを用いると問題ない. おそらく単位元が$(0,1)$である影響で木上の二分探索がバグっている.
+## Remark
+- [Educational Codeforces Round 101 (Rated for Div. 2) F. Power Sockets](https://codeforces.com/contest/1469/problem/F)
+区間加算区間和取得において `find_first` といった二分探索関数を用いる際には, 始点を厳密に定めないと想定し得ない挙動を起こすので注意.
