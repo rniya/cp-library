@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: graph/TwoSatisfiability.hpp
@@ -23,114 +20,72 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/StronglyConnectedComponents.md
-    document_title: Strongly Connected Components
+    document_title: Strongly Connectes Components
     links: []
-  bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
-    #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
-    \ unsigned int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(),\
-    \ (x).end()\n\ntemplate <typename T> istream& operator>>(istream& is, vector<T>&\
-    \ v) {\n    for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T>\
-    \ ostream& operator<<(ostream& os, const vector<T>& v) {\n    for (int i = 0;\
-    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
-    \" : \" \");\n    }\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const pair<T, U>& p) {\n    os << '(' << p.first <<\
-    \ ',' << p.second << ')';\n    return os;\n}\ntemplate <typename T, typename U>\
-    \ ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os << '{';\n   \
-    \ for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const unordered_map<T, U>& m) {\n    os << '{';\n  \
-    \  for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
-    \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
-    \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const multiset<T>& s) {\n    os << '{';\n    for (auto itr = s.begin();\
-    \ itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os <<\
-    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
-    \ operator<<(ostream& os, const unordered_set<T>& s) {\n    os << '{';\n    for\
-    \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
-    \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
-    \" : \" \");\n    }\n    return os;\n}\n\ntemplate <int i, typename T> void print_tuple(ostream&,\
-    \ const T&) {}\ntemplate <int i, typename T, typename H, class... Args> void print_tuple(ostream&\
-    \ os, const T& t) {\n    if (i) os << ',';\n    os << get<i>(t);\n    print_tuple<i\
-    \ + 1, T, Args...>(os, t);\n}\ntemplate <typename... Args> ostream& operator<<(ostream&\
-    \ os, const tuple<Args...>& t) {\n    os << '{';\n    print_tuple<0, tuple<Args...>,\
-    \ Args...>(os, t);\n    return os << '}';\n}\n\nvoid debug_out() { cerr << '\\\
-    n'; }\ntemplate <class Head, class... Tail> void debug_out(Head&& head, Tail&&...\
-    \ tail) {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n \
-    \   debug_out(move(tail)...);\n}\n#ifdef LOCAL\n#define debug(...)           \
-    \                                                        \\\n    cerr << \" \"\
-    ;                                                                     \\\n   \
-    \ cerr << #__VA_ARGS__ << \" :[\" << __LINE__ << \":\" << __FUNCTION__ << \"]\"\
-    \ << '\\n'; \\\n    cerr << \" \";                                           \
-    \                          \\\n    debug_out(__VA_ARGS__)\n#else\n#define debug(...)\
-    \ 42\n#endif\n\ntemplate <typename T> T gcd(T x, T y) { return y != 0 ? gcd(y,\
-    \ x % y) : x; }\ntemplate <typename T> T lcm(T x, T y) { return x / gcd(x, y)\
-    \ * y; }\n\nint topbit(signed t) { return t == 0 ? -1 : 31 - __builtin_clz(t);\
-    \ }\nint topbit(long long t) { return t == 0 ? -1 : 63 - __builtin_clzll(t); }\n\
-    int botbit(signed a) { return a == 0 ? 32 : __builtin_ctz(a); }\nint botbit(long\
-    \ long a) { return a == 0 ? 64 : __builtin_ctzll(a); }\nint popcount(signed t)\
-    \ { return __builtin_popcount(t); }\nint popcount(long long t) { return __builtin_popcountll(t);\
-    \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
-    \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
-    \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
-    \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
-    \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"graph/StronglyConnectedComponents.hpp\"\
-    \n\n/**\n * @brief Strongly Connected Components\n * @docs docs/graph/StronglyConnectedComponents.md\n\
-    \ */\nstruct StronglyConnectedComponents {\n    vector<vector<int>> G, rG, C,\
-    \ T;\n    vector<int> vs, cmp, used;\n    StronglyConnectedComponents(int n) :\
-    \ G(n), rG(n), cmp(n), used(n) {}\n    void add_edge(int u, int v) {\n       \
-    \ G[u].emplace_back(v);\n        rG[v].emplace_back(u);\n    }\n    void dfs(int\
-    \ v) {\n        used[v] = 1;\n        for (int u : G[v])\n            if (!used[u])\
-    \ dfs(u);\n        vs.emplace_back(v);\n    }\n    void rdfs(int v, int k) {\n\
-    \        used[v] = 1;\n        cmp[v] = k;\n        C[k].emplace_back(v);\n  \
-    \      for (int u : rG[v])\n            if (!used[u]) rdfs(u, k);\n    }\n   \
-    \ int build() {\n        int n = G.size();\n        for (int i = 0; i < n; i++)\n\
-    \            if (!used[i]) dfs(i);\n        fill(used.begin(), used.end(), 0);\n\
-    \        int k = 0;\n        for (int i = n - 1; i >= 0; --i) {\n            if\
-    \ (!used[vs[i]]) {\n                C.emplace_back(), T.emplace_back();\n    \
-    \            rdfs(vs[i], k++);\n            }\n        }\n        for (int v =\
-    \ 0; v < n; v++) {\n            for (int u : G[v]) {\n                if (cmp[v]\
-    \ != cmp[u]) {\n                    T[cmp[v]].emplace_back(cmp[u]);\n        \
-    \        }\n            }\n        }\n        for (int i = 0; i < k; i++) {\n\
-    \            sort(T[i].begin(), T[i].end());\n            T[i].erase(unique(T[i].begin(),\
-    \ T[i].end()), T[i].end());\n        }\n        return k;\n    }\n    int operator[](int\
-    \ i) const { return cmp[i]; }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Strongly Connected\
-    \ Components\n * @docs docs/graph/StronglyConnectedComponents.md\n */\nstruct\
-    \ StronglyConnectedComponents {\n    vector<vector<int>> G, rG, C, T;\n    vector<int>\
-    \ vs, cmp, used;\n    StronglyConnectedComponents(int n) : G(n), rG(n), cmp(n),\
-    \ used(n) {}\n    void add_edge(int u, int v) {\n        G[u].emplace_back(v);\n\
-    \        rG[v].emplace_back(u);\n    }\n    void dfs(int v) {\n        used[v]\
-    \ = 1;\n        for (int u : G[v])\n            if (!used[u]) dfs(u);\n      \
-    \  vs.emplace_back(v);\n    }\n    void rdfs(int v, int k) {\n        used[v]\
-    \ = 1;\n        cmp[v] = k;\n        C[k].emplace_back(v);\n        for (int u\
-    \ : rG[v])\n            if (!used[u]) rdfs(u, k);\n    }\n    int build() {\n\
-    \        int n = G.size();\n        for (int i = 0; i < n; i++)\n            if\
-    \ (!used[i]) dfs(i);\n        fill(used.begin(), used.end(), 0);\n        int\
-    \ k = 0;\n        for (int i = n - 1; i >= 0; --i) {\n            if (!used[vs[i]])\
-    \ {\n                C.emplace_back(), T.emplace_back();\n                rdfs(vs[i],\
-    \ k++);\n            }\n        }\n        for (int v = 0; v < n; v++) {\n   \
-    \         for (int u : G[v]) {\n                if (cmp[v] != cmp[u]) {\n    \
-    \                T[cmp[v]].emplace_back(cmp[u]);\n                }\n        \
-    \    }\n        }\n        for (int i = 0; i < k; i++) {\n            sort(T[i].begin(),\
-    \ T[i].end());\n            T[i].erase(unique(T[i].begin(), T[i].end()), T[i].end());\n\
-    \        }\n        return k;\n    }\n    int operator[](int i) const { return\
-    \ cmp[i]; }\n};"
-  dependsOn:
-  - base.hpp
+  bundledCode: "#line 2 \"graph/StronglyConnectedComponents.hpp\"\n#include <algorithm>\n\
+    #include <cassert>\n#include <vector>\n\nstruct StronglyConnectedComponents {\n\
+    \    std::vector<std::vector<int>> G;  // graph after contraction\n    std::vector<int>\
+    \ comp;            // component id vertex v belongs to\n\n    StronglyConnectedComponents(int\
+    \ n) : G(n), comp(n, -1), n(n), time(0), group_num(0), ord(n, -1), low(n) {}\n\
+    \n    void add_edge(int u, int v) {\n        assert(0 <= u && u < n);\n      \
+    \  assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n    }\n\n    std::vector<std::vector<int>>\
+    \ build() {\n        for (int i = 0; i < n; i++) {\n            if (ord[i] < 0)\
+    \ {\n                dfs(i);\n            }\n        }\n        for (int& x :\
+    \ comp) x = group_num - 1 - x;\n        std::vector<std::vector<int>> groups(group_num);\n\
+    \        for (int i = 0; i < n; i++) groups[comp[i]].emplace_back(i);\n      \
+    \  return groups;\n    }\n\n    std::vector<std::vector<int>> make_graph() {\n\
+    \        std::vector<std::vector<int>> dag(group_num);\n        for (int v = 0;\
+    \ v < n; v++) {\n            for (int& u : G[v]) {\n                if (comp[v]\
+    \ != comp[u]) {\n                    dag[comp[v]].emplace_back(comp[u]);\n   \
+    \             }\n            }\n        }\n        for (auto& to : dag) {\n  \
+    \          std::sort(to.begin(), to.end());\n            to.erase(unique(to.begin(),\
+    \ to.end()), to.end());\n        }\n        return dag;\n    }\n\n    int operator[](int\
+    \ v) const { return comp[v]; }\n\nprivate:\n    int n, time, group_num;\n    std::vector<int>\
+    \ ord, low, visited;\n\n    void dfs(int v) {\n        ord[v] = low[v] = time++;\n\
+    \        visited.emplace_back(v);\n        for (int& u : G[v]) {\n           \
+    \ if (ord[u] == -1) {\n                dfs(u);\n                low[v] = std::min(low[v],\
+    \ low[u]);\n            } else if (comp[u] < 0) {\n                low[v] = std::min(low[v],\
+    \ ord[u]);\n            }\n        }\n        if (ord[v] == low[v]) {\n      \
+    \      while (true) {\n                int u = visited.back();\n             \
+    \   visited.pop_back();\n                comp[u] = group_num;\n              \
+    \  if (u == v) break;\n            }\n            group_num++;\n        }\n  \
+    \  }\n};\n\n/**\n * @brief Strongly Connectes Components\n * @docs docs/graph/StronglyConnectedComponents.md\n\
+    \ */\n"
+  code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <vector>\n\
+    \nstruct StronglyConnectedComponents {\n    std::vector<std::vector<int>> G; \
+    \ // graph after contraction\n    std::vector<int> comp;            // component\
+    \ id vertex v belongs to\n\n    StronglyConnectedComponents(int n) : G(n), comp(n,\
+    \ -1), n(n), time(0), group_num(0), ord(n, -1), low(n) {}\n\n    void add_edge(int\
+    \ u, int v) {\n        assert(0 <= u && u < n);\n        assert(0 <= v && v <\
+    \ n);\n        G[u].emplace_back(v);\n    }\n\n    std::vector<std::vector<int>>\
+    \ build() {\n        for (int i = 0; i < n; i++) {\n            if (ord[i] < 0)\
+    \ {\n                dfs(i);\n            }\n        }\n        for (int& x :\
+    \ comp) x = group_num - 1 - x;\n        std::vector<std::vector<int>> groups(group_num);\n\
+    \        for (int i = 0; i < n; i++) groups[comp[i]].emplace_back(i);\n      \
+    \  return groups;\n    }\n\n    std::vector<std::vector<int>> make_graph() {\n\
+    \        std::vector<std::vector<int>> dag(group_num);\n        for (int v = 0;\
+    \ v < n; v++) {\n            for (int& u : G[v]) {\n                if (comp[v]\
+    \ != comp[u]) {\n                    dag[comp[v]].emplace_back(comp[u]);\n   \
+    \             }\n            }\n        }\n        for (auto& to : dag) {\n  \
+    \          std::sort(to.begin(), to.end());\n            to.erase(unique(to.begin(),\
+    \ to.end()), to.end());\n        }\n        return dag;\n    }\n\n    int operator[](int\
+    \ v) const { return comp[v]; }\n\nprivate:\n    int n, time, group_num;\n    std::vector<int>\
+    \ ord, low, visited;\n\n    void dfs(int v) {\n        ord[v] = low[v] = time++;\n\
+    \        visited.emplace_back(v);\n        for (int& u : G[v]) {\n           \
+    \ if (ord[u] == -1) {\n                dfs(u);\n                low[v] = std::min(low[v],\
+    \ low[u]);\n            } else if (comp[u] < 0) {\n                low[v] = std::min(low[v],\
+    \ ord[u]);\n            }\n        }\n        if (ord[v] == low[v]) {\n      \
+    \      while (true) {\n                int u = visited.back();\n             \
+    \   visited.pop_back();\n                comp[u] = group_num;\n              \
+    \  if (u == v) break;\n            }\n            group_num++;\n        }\n  \
+    \  }\n};\n\n/**\n * @brief Strongly Connectes Components\n * @docs docs/graph/StronglyConnectedComponents.md\n\
+    \ */"
+  dependsOn: []
   isVerificationFile: false
   path: graph/StronglyConnectedComponents.hpp
   requiredBy:
   - graph/TwoSatisfiability.hpp
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-09-22 02:06:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_3_C.test.cpp
@@ -141,8 +96,16 @@ layout: document
 redirect_from:
 - /library/graph/StronglyConnectedComponents.hpp
 - /library/graph/StronglyConnectedComponents.hpp.html
-title: Strongly Connected Components
+title: Strongly Connectes Components
 ---
 ## 概要
+有向グラフを強連結成分に分解する. 各強連結成分の番号は強連結成分を 1 つの頂点にするように縮約した DAG におけるトポロジカル順序を同時に表す. 実装は Tarjan の考案したアルゴリズムに沿っている.
 
-## 計算量
+| メンバ関数                       | 効果                                            | 時間計算量            |
+| -------------------------------- | ----------------------------------------------- | --------------------- |
+| `StronglyConnectedComponents(n)` | $n$ 頂点 0 辺のグラフとして初期化する.          | $O(n)$                |
+| `add_edge(u, v)`                 | 頂点 $u$ から頂点 $v$ への有向辺を追加する.     | $O(1)$                |
+| `build()`                        | 強連結成分分解し, 各強連結成分の頂点集合を返す. | $O(n + m)$            |
+| `make_graph()`                   | 各強連結成分を頂点とする DAG の辺情報を返す.    | $O(n + m + m \log m)$ |
+
+`make_graph` では利便性を考えてソートして多重辺を除去しているが, 特にその必要もなく時間計算量が問題であればこのパートは除いて良い.

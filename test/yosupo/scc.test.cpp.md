@@ -1,12 +1,12 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: graph/StronglyConnectedComponents.hpp
-    title: Strongly Connected Components
+    title: Strongly Connectes Components
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -75,48 +75,56 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"graph/StronglyConnectedComponents.hpp\"\
-    \n\n/**\n * @brief Strongly Connected Components\n * @docs docs/graph/StronglyConnectedComponents.md\n\
-    \ */\nstruct StronglyConnectedComponents {\n    vector<vector<int>> G, rG, C,\
-    \ T;\n    vector<int> vs, cmp, used;\n    StronglyConnectedComponents(int n) :\
-    \ G(n), rG(n), cmp(n), used(n) {}\n    void add_edge(int u, int v) {\n       \
-    \ G[u].emplace_back(v);\n        rG[v].emplace_back(u);\n    }\n    void dfs(int\
-    \ v) {\n        used[v] = 1;\n        for (int u : G[v])\n            if (!used[u])\
-    \ dfs(u);\n        vs.emplace_back(v);\n    }\n    void rdfs(int v, int k) {\n\
-    \        used[v] = 1;\n        cmp[v] = k;\n        C[k].emplace_back(v);\n  \
-    \      for (int u : rG[v])\n            if (!used[u]) rdfs(u, k);\n    }\n   \
-    \ int build() {\n        int n = G.size();\n        for (int i = 0; i < n; i++)\n\
-    \            if (!used[i]) dfs(i);\n        fill(used.begin(), used.end(), 0);\n\
-    \        int k = 0;\n        for (int i = n - 1; i >= 0; --i) {\n            if\
-    \ (!used[vs[i]]) {\n                C.emplace_back(), T.emplace_back();\n    \
-    \            rdfs(vs[i], k++);\n            }\n        }\n        for (int v =\
-    \ 0; v < n; v++) {\n            for (int u : G[v]) {\n                if (cmp[v]\
-    \ != cmp[u]) {\n                    T[cmp[v]].emplace_back(cmp[u]);\n        \
-    \        }\n            }\n        }\n        for (int i = 0; i < k; i++) {\n\
-    \            sort(T[i].begin(), T[i].end());\n            T[i].erase(unique(T[i].begin(),\
-    \ T[i].end()), T[i].end());\n        }\n        return k;\n    }\n    int operator[](int\
-    \ i) const { return cmp[i]; }\n};\n#line 5 \"test/yosupo/scc.test.cpp\"\n\nint\
-    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, M;\n\
-    \    cin >> N >> M;\n\n    StronglyConnectedComponents SCC(N);\n    for (int i\
-    \ = 0; i < M; i++) {\n        int a, b;\n        cin >> a >> b;\n        SCC.add_edge(a,\
-    \ b);\n    }\n\n    int K = SCC.build();\n    cout << K << '\\n';\n    for (int\
-    \ i = 0; i < K; i++) {\n        cout << SCC.C[i].size();\n        for (int v :\
-    \ SCC.C[i]) cout << ' ' << v;\n        cout << '\\n';\n    }\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 5 \"graph/StronglyConnectedComponents.hpp\"\
+    \n\nstruct StronglyConnectedComponents {\n    std::vector<std::vector<int>> G;\
+    \  // graph after contraction\n    std::vector<int> comp;            // component\
+    \ id vertex v belongs to\n\n    StronglyConnectedComponents(int n) : G(n), comp(n,\
+    \ -1), n(n), time(0), group_num(0), ord(n, -1), low(n) {}\n\n    void add_edge(int\
+    \ u, int v) {\n        assert(0 <= u && u < n);\n        assert(0 <= v && v <\
+    \ n);\n        G[u].emplace_back(v);\n    }\n\n    std::vector<std::vector<int>>\
+    \ build() {\n        for (int i = 0; i < n; i++) {\n            if (ord[i] < 0)\
+    \ {\n                dfs(i);\n            }\n        }\n        for (int& x :\
+    \ comp) x = group_num - 1 - x;\n        std::vector<std::vector<int>> groups(group_num);\n\
+    \        for (int i = 0; i < n; i++) groups[comp[i]].emplace_back(i);\n      \
+    \  return groups;\n    }\n\n    std::vector<std::vector<int>> make_graph() {\n\
+    \        std::vector<std::vector<int>> dag(group_num);\n        for (int v = 0;\
+    \ v < n; v++) {\n            for (int& u : G[v]) {\n                if (comp[v]\
+    \ != comp[u]) {\n                    dag[comp[v]].emplace_back(comp[u]);\n   \
+    \             }\n            }\n        }\n        for (auto& to : dag) {\n  \
+    \          std::sort(to.begin(), to.end());\n            to.erase(unique(to.begin(),\
+    \ to.end()), to.end());\n        }\n        return dag;\n    }\n\n    int operator[](int\
+    \ v) const { return comp[v]; }\n\nprivate:\n    int n, time, group_num;\n    std::vector<int>\
+    \ ord, low, visited;\n\n    void dfs(int v) {\n        ord[v] = low[v] = time++;\n\
+    \        visited.emplace_back(v);\n        for (int& u : G[v]) {\n           \
+    \ if (ord[u] == -1) {\n                dfs(u);\n                low[v] = std::min(low[v],\
+    \ low[u]);\n            } else if (comp[u] < 0) {\n                low[v] = std::min(low[v],\
+    \ ord[u]);\n            }\n        }\n        if (ord[v] == low[v]) {\n      \
+    \      while (true) {\n                int u = visited.back();\n             \
+    \   visited.pop_back();\n                comp[u] = group_num;\n              \
+    \  if (u == v) break;\n            }\n            group_num++;\n        }\n  \
+    \  }\n};\n\n/**\n * @brief Strongly Connectes Components\n * @docs docs/graph/StronglyConnectedComponents.md\n\
+    \ */\n#line 5 \"test/yosupo/scc.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N, M;\n    cin >> N >> M;\n\n    StronglyConnectedComponents\
+    \ SCC(N);\n    for (int i = 0; i < M; i++) {\n        int a, b;\n        cin >>\
+    \ a >> b;\n        SCC.add_edge(a, b);\n    }\n\n    auto res = SCC.build();\n\
+    \    cout << res.size() << '\\n';\n    for (auto& group : res) {\n        cout\
+    \ << group.size();\n        for (int& v : group) cout << ' ' << v;\n        cout\
+    \ << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n\n#include \"../../base.hpp\"\
     \n#include \"../../graph/StronglyConnectedComponents.hpp\"\n\nint main() {\n \
     \   cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, M;\n    cin >> N\
     \ >> M;\n\n    StronglyConnectedComponents SCC(N);\n    for (int i = 0; i < M;\
     \ i++) {\n        int a, b;\n        cin >> a >> b;\n        SCC.add_edge(a, b);\n\
-    \    }\n\n    int K = SCC.build();\n    cout << K << '\\n';\n    for (int i =\
-    \ 0; i < K; i++) {\n        cout << SCC.C[i].size();\n        for (int v : SCC.C[i])\
-    \ cout << ' ' << v;\n        cout << '\\n';\n    }\n}"
+    \    }\n\n    auto res = SCC.build();\n    cout << res.size() << '\\n';\n    for\
+    \ (auto& group : res) {\n        cout << group.size();\n        for (int& v :\
+    \ group) cout << ' ' << v;\n        cout << '\\n';\n    }\n}"
   dependsOn:
   - base.hpp
   - graph/StronglyConnectedComponents.hpp
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-09-22 02:06:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp

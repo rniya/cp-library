@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -144,14 +144,14 @@ data:
     \    void build(std::vector<int> roots = {0}) {\n        int tree_id_cur = 0;\n\
     \        for (int& r : roots) {\n            assert(0 <= r && r < n);\n      \
     \      dfs_sz(r);\n            head[r] = r;\n            dfs_hld(r, tree_id_cur++);\n\
-    \        }\n    }\n\n    int idx(int v) const { return vertex_id[v]; }\n\n   \
-    \ int lca(int u, int v) const {\n        assert(0 <= u && u < n);\n        assert(0\
-    \ <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n        for (;;\
-    \ v = par[head[v]]) {\n            if (vertex_id[u] > vertex_id[v]) std::swap(u,\
-    \ v);\n            if (head[u] == head[v]) return u;\n        }\n    }\n\n   \
-    \ int distance(int u, int v) const {\n        assert(0 <= u && u < n);\n     \
-    \   assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n    \
-    \    return dep[u] + dep[v] - 2 * dep[lca(u, v)];\n    }\n\n    template <typename\
+    \        }\n        assert(time == n);\n    }\n\n    int idx(int v) const { return\
+    \ vertex_id[v]; }\n\n    int lca(int u, int v) const {\n        assert(0 <= u\
+    \ && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
+    \        for (;; v = par[head[v]]) {\n            if (vertex_id[u] > vertex_id[v])\
+    \ std::swap(u, v);\n            if (head[u] == head[v]) return u;\n        }\n\
+    \    }\n\n    int distance(int u, int v) const {\n        assert(0 <= u && u <\
+    \ n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
+    \        return dep[u] + dep[v] - 2 * dep[lca(u, v)];\n    }\n\n    template <typename\
     \ F> void query_path(int u, int v, const F& f, bool vertex = false) const {\n\
     \        assert(0 <= u && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u]\
     \ == tree_id[v]);\n        int p = lca(u, v);\n        for (auto& e : ascend(u,\
@@ -239,7 +239,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   requiredBy: []
-  timestamp: '2021-09-21 22:39:35+09:00'
+  timestamp: '2021-09-22 02:06:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp

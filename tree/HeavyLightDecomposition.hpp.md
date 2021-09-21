@@ -37,14 +37,14 @@ data:
     \    void build(std::vector<int> roots = {0}) {\n        int tree_id_cur = 0;\n\
     \        for (int& r : roots) {\n            assert(0 <= r && r < n);\n      \
     \      dfs_sz(r);\n            head[r] = r;\n            dfs_hld(r, tree_id_cur++);\n\
-    \        }\n    }\n\n    int idx(int v) const { return vertex_id[v]; }\n\n   \
-    \ int lca(int u, int v) const {\n        assert(0 <= u && u < n);\n        assert(0\
-    \ <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n        for (;;\
-    \ v = par[head[v]]) {\n            if (vertex_id[u] > vertex_id[v]) std::swap(u,\
-    \ v);\n            if (head[u] == head[v]) return u;\n        }\n    }\n\n   \
-    \ int distance(int u, int v) const {\n        assert(0 <= u && u < n);\n     \
-    \   assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n    \
-    \    return dep[u] + dep[v] - 2 * dep[lca(u, v)];\n    }\n\n    template <typename\
+    \        }\n        assert(time == n);\n    }\n\n    int idx(int v) const { return\
+    \ vertex_id[v]; }\n\n    int lca(int u, int v) const {\n        assert(0 <= u\
+    \ && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
+    \        for (;; v = par[head[v]]) {\n            if (vertex_id[u] > vertex_id[v])\
+    \ std::swap(u, v);\n            if (head[u] == head[v]) return u;\n        }\n\
+    \    }\n\n    int distance(int u, int v) const {\n        assert(0 <= u && u <\
+    \ n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
+    \        return dep[u] + dep[v] - 2 * dep[lca(u, v)];\n    }\n\n    template <typename\
     \ F> void query_path(int u, int v, const F& f, bool vertex = false) const {\n\
     \        assert(0 <= u && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u]\
     \ == tree_id[v]);\n        int p = lca(u, v);\n        for (auto& e : ascend(u,\
@@ -93,22 +93,23 @@ data:
     \        G[v].emplace_back(u);\n    }\n\n    void build(std::vector<int> roots\
     \ = {0}) {\n        int tree_id_cur = 0;\n        for (int& r : roots) {\n   \
     \         assert(0 <= r && r < n);\n            dfs_sz(r);\n            head[r]\
-    \ = r;\n            dfs_hld(r, tree_id_cur++);\n        }\n    }\n\n    int idx(int\
-    \ v) const { return vertex_id[v]; }\n\n    int lca(int u, int v) const {\n   \
-    \     assert(0 <= u && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u]\
-    \ == tree_id[v]);\n        for (;; v = par[head[v]]) {\n            if (vertex_id[u]\
-    \ > vertex_id[v]) std::swap(u, v);\n            if (head[u] == head[v]) return\
-    \ u;\n        }\n    }\n\n    int distance(int u, int v) const {\n        assert(0\
-    \ <= u && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u]\
-    \ == tree_id[v]);\n        return dep[u] + dep[v] - 2 * dep[lca(u, v)];\n    }\n\
-    \n    template <typename F> void query_path(int u, int v, const F& f, bool vertex\
-    \ = false) const {\n        assert(0 <= u && u < n);\n        assert(0 <= v &&\
-    \ v < n);\n        assert(tree_id[u] == tree_id[v]);\n        int p = lca(u, v);\n\
-    \        for (auto& e : ascend(u, p)) f(e.second, e.first + 1);\n        if (vertex)\
-    \ f(vertex_id[p], vertex_id[p] + 1);\n        for (auto& e : descend(p, v)) f(e.first,\
-    \ e.second + 1);\n    }\n\n    template <typename F> void query_path_noncommutative(int\
-    \ u, int v, const F& f, bool vertex = false) const {\n        assert(0 <= u &&\
-    \ u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
+    \ = r;\n            dfs_hld(r, tree_id_cur++);\n        }\n        assert(time\
+    \ == n);\n    }\n\n    int idx(int v) const { return vertex_id[v]; }\n\n    int\
+    \ lca(int u, int v) const {\n        assert(0 <= u && u < n);\n        assert(0\
+    \ <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n        for (;;\
+    \ v = par[head[v]]) {\n            if (vertex_id[u] > vertex_id[v]) std::swap(u,\
+    \ v);\n            if (head[u] == head[v]) return u;\n        }\n    }\n\n   \
+    \ int distance(int u, int v) const {\n        assert(0 <= u && u < n);\n     \
+    \   assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n    \
+    \    return dep[u] + dep[v] - 2 * dep[lca(u, v)];\n    }\n\n    template <typename\
+    \ F> void query_path(int u, int v, const F& f, bool vertex = false) const {\n\
+    \        assert(0 <= u && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u]\
+    \ == tree_id[v]);\n        int p = lca(u, v);\n        for (auto& e : ascend(u,\
+    \ p)) f(e.second, e.first + 1);\n        if (vertex) f(vertex_id[p], vertex_id[p]\
+    \ + 1);\n        for (auto& e : descend(p, v)) f(e.first, e.second + 1);\n   \
+    \ }\n\n    template <typename F> void query_path_noncommutative(int u, int v,\
+    \ const F& f, bool vertex = false) const {\n        assert(0 <= u && u < n);\n\
+    \        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
     \        int p = lca(u, v);\n        for (auto& e : ascend(u, p)) f(e.first +\
     \ 1, e.second);\n        if (vertex) f(vertex_id[p], vertex_id[p] + 1);\n    \
     \    for (auto& e : descend(p, v)) f(e.first, e.second + 1);\n    }\n\n    template\
@@ -145,7 +146,7 @@ data:
   isVerificationFile: false
   path: tree/HeavyLightDecomposition.hpp
   requiredBy: []
-  timestamp: '2021-09-21 22:39:35+09:00'
+  timestamp: '2021-09-22 02:06:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2667.test.cpp

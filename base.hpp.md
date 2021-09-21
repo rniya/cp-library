@@ -117,12 +117,6 @@ data:
     path: graph/RangeEdgeGraph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
   - icon: ':heavy_check_mark:'
-    path: graph/StronglyConnectedComponents.hpp
-    title: Strongly Connected Components
-  - icon: ':heavy_check_mark:'
-    path: graph/TopologicalSort.hpp
-    title: Topological Sort
-  - icon: ':heavy_check_mark:'
     path: graph/TwoEdgeConnectedComponents.hpp
     title: Two Edge Connected Components
   - icon: ':heavy_check_mark:'
@@ -493,7 +487,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_4_A.test.cpp
     title: test/aoj/GRL_4_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL_4_B.test.cpp
     title: test/aoj/GRL_4_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -715,9 +709,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -868,9 +862,7 @@ data:
   - string/AhoCorasick.hpp
   - graph/CycleDetection.hpp
   - graph/Kruskal.hpp
-  - graph/TopologicalSort.hpp
   - graph/BipartiteGraph.hpp
-  - graph/StronglyConnectedComponents.hpp
   - graph/BellmanFord.hpp
   - graph/Dijkstra.hpp
   - graph/BiConnectedComponents.hpp
@@ -933,7 +925,7 @@ data:
   - combinatorics/BellNumber.hpp
   - combinatorics/PartitionTable.hpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/CGL_4_B.test.cpp
   - test/aoj/GRL_6_A.DInic.test.cpp

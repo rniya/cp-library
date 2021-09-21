@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/TopologicalSort.hpp
     title: Topological Sort
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_B
@@ -75,16 +75,19 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"graph/TopologicalSort.hpp\"\
-    \n\n/**\n * @brief Topological Sort\n * @docs docs/graph/TopologicalSort.md\n\
-    \ */\nstruct TopologicalSort {\n    vector<vector<int>> G;\n    vector<int> seen,\
-    \ order;\n    TopologicalSort(int n) : G(n), seen(n) {}\n    void add_edge(int\
-    \ u, int v) { G[u].emplace_back(v); }\n    void dfs(int v) {\n        seen[v]\
-    \ = 1;\n        for (int u : G[v]) {\n            if (!seen[u]) dfs(u);\n    \
-    \    }\n        order.emplace_back(v);\n    }\n    vector<int> build() {\n   \
-    \     for (int i = 0; i < (int)G.size(); i++) {\n            if (!seen[i]) dfs(i);\n\
-    \        }\n        reverse(order.begin(), order.end());\n        return order;\n\
-    \    }\n    int operator[](int i) { return order[i]; }\n};\n#line 5 \"test/aoj/GRL_4_B.test.cpp\"\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 5 \"graph/TopologicalSort.hpp\"\
+    \n\nstruct TopologicalSort {\n    std::vector<std::vector<int>> G;\n\n    TopologicalSort(int\
+    \ n) : G(n), n(n), indeg(n, 0) {}\n\n    void add_edge(int u, int v) {\n     \
+    \   assert(0 <= u && u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n\
+    \        indeg[v]++;\n    }\n\n    std::vector<int> build() {\n        std::queue<int>\
+    \ que;\n        for (int i = 0; i < n; i++) {\n            if (indeg[i] == 0)\
+    \ {\n                que.emplace(i);\n            }\n        }\n        std::vector<int>\
+    \ order;\n        while (!que.empty()) {\n            int v = que.front();\n \
+    \           que.pop();\n            order.emplace_back(v);\n            for (int&\
+    \ u : G[v]) {\n                if (--indeg[u] == 0) {\n                    que.emplace(u);\n\
+    \                }\n            }\n        }\n        return order;\n    }\n\n\
+    private:\n    int n;\n    std::vector<int> indeg;\n};\n\n/**\n * @brief Topological\
+    \ Sort\n * @docs docs/graph/TopologicalSort.md\n */\n#line 5 \"test/aoj/GRL_4_B.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
     \ E;\n    cin >> V >> E;\n\n    TopologicalSort TS(V);\n    for (int i = 0; i\
     \ < E; i++) {\n        int s, t;\n        cin >> s >> t;\n        TS.add_edge(s,\
@@ -103,8 +106,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_4_B.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-09-22 02:06:49+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_4_B.test.cpp
 layout: document
