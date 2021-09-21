@@ -1,12 +1,47 @@
 #pragma once
-#include "../base.hpp"
+#include <cassert>
+#include <limits>
+#include <queue>
+#include <vector>
 
-/**
- * @brief Primal Dual on DAG
- * @docs docs/flow/PrimalDualonDAG.md
- */
 template <typename Cap, typename Cost> struct PrimalDualonDAG {
-    const Cost inf = numeric_limits<Cost>::max() / 2;
+    PrimalDualonDAG(int n) : n(n), G(n), h(n), dist(n), prevv(n), preve(n), indeg(n, 0) {}
+
+    int add_edge(int from, int to, Cap cap, Cost cost) {
+        assert(0 <= from && from < n);
+        assert(0 <= to && to < n);
+        assert(0 <= cap);
+        // assert(0 <= cost);
+        int m = pos.size(), from_id = G[from].size(), to_id = G[to].size();
+        pos.emplace_back(from, G[from].size());
+        G[from].emplace_back(to, cap, cost, to_id);
+        G[to].emplace_back(from, 0, -cost, from_id);
+        if (cap > 0) indeg[to]++;
+        return m;
+    }
+
+    std::tuple<int, int, Cap, Cap, Cost> get_edge(int i) {
+        assert(0 <= i && i < (int)pos.size());
+        auto e = G[pos[i].first][pos[i].second];
+        auto re = G[e.to][e.rev];
+        return {pos[i].first, e.to, e.cap + re.cap, re.cap, e.cost};
+    }
+
+    std::vector<std::tuple<int, int, Cap, Cap, Cost>> edges() {
+        std::vector<std::tuple<int, int, Cap, Cap, Cost>> res;
+        for (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));
+    }
+
+    Cost min_cost_flow(int s, int t, Cap flow) {
+        auto res = slope(s, t, flow).back();
+        return res.first == flow ? res.second : -1;
+    }
+
+    std::pair<Cap, Cost> min_cost_max_flow(int s, int t) { return slope(s, t, std::numeric_limits<Cap>::max()).back(); }
+
+    std::vector<std::pair<Cap, Cost>> slope(int s, int t) { return slope(s, t, std::numeric_limits<Cap>::max()); }
+
+private:
     struct edge {
         int to;
         Cap cap;
@@ -14,40 +49,25 @@ template <typename Cap, typename Cost> struct PrimalDualonDAG {
         int rev;
         edge(int to, Cap cap, Cost cost, int rev) : to(to), cap(cap), cost(cost), rev(rev) {}
     };
-    vector<vector<edge>> G;
-    vector<pair<int, int>> pos;
-    vector<Cost> h, dist;
-    vector<int> prevv, preve, indeg, ord;
-    PrimalDualonDAG(int n) : G(n), h(n), dist(n), prevv(n), preve(n), indeg(n, 0) {}
-    int add_edge(int from, int to, Cap cap, Cost cost) {
-        pos.emplace_back(from, G[from].size());
-        G[from].emplace_back(to, cap, cost, G[to].size());
-        G[to].emplace_back(from, 0, -cost, G[from].size() - 1);
-        if (cap > 0) indeg[to]++;
-        return pos.size() - 1;
-    }
-    tuple<int, int, Cap, Cap, Cost> get_edge(int i) {
-        auto e = G[pos[i].first][pos[i].second];
-        auto re = G[e.to][e.rev];
-        return {pos[i].first, e.to, e.cap + re.cap, re.cap, e.cost};
-    }
-    vector<tuple<int, int, Cap, Cap, Cost>> edges() {
-        vector<tuple<int, int, Cap, Cap, Cost>> res;
-        for (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));
-        return res;
-    }
+
+    const Cost inf = std::numeric_limits<Cost>::max();
+    int n;
+    std::vector<std::vector<edge>> G;
+    std::vector<std::pair<int, int>> pos;
+    std::vector<Cost> h, dist;
+    std::vector<int> prevv, preve, indeg, order;
+
     bool topological_sort() {
-        queue<int> que;
-        for (size_t i = 0; i < G.size(); i++) {
+        std::queue<int> que;
+        for (int i = 0; i < n; i++) {
             if (indeg[i] == 0) {
                 que.emplace(i);
             }
         }
-
         while (!que.empty()) {
             int v = que.front();
             que.pop();
-            ord.emplace_back(v);
+            order.emplace_back(v);
             for (const auto& e : G[v]) {
                 if (e.cap > 0 && --indeg[e.to] == 0) {
                     que.emplace(e.to);
@@ -55,21 +75,22 @@ template <typename Cap, typename Cost> struct PrimalDualonDAG {
             }
         }
 
-        return (*max_element(indeg.begin(), indeg.end()) == 0);
+        return *max_element(indeg.begin(), indeg.end()) == 0;
     }
+
     void calc_potential(int s) {
         fill(h.begin(), h.end(), inf);
         h[s] = 0;
-
-        for (int& v : ord) {
+        for (int& v : order) {
             if (h[v] == inf) continue;
             for (const auto& e : G[v]) {
                 if (e.cap > 0) {
-                    h[e.to] = min(h[e.to], h[v] + e.cost);
+                    h[e.to] = std::min(h[e.to], h[v] + e.cost);
                 }
             }
         }
     }
+
     void dijkstra(int s) {
         struct P {
             Cost c;
@@ -77,11 +98,10 @@ template <typename Cap, typename Cost> struct PrimalDualonDAG {
             P(Cost c, int v) : c(c), v(v) {}
             bool operator<(const P& rhs) const { return c > rhs.c; }
         };
-        priority_queue<P> pq;
+        std::priority_queue<P> pq;
         fill(dist.begin(), dist.end(), inf);
         dist[s] = 0;
         pq.emplace(dist[s], s);
-
         while (!pq.empty()) {
             auto p = pq.top();
             pq.pop();
@@ -98,38 +118,39 @@ template <typename Cap, typename Cost> struct PrimalDualonDAG {
             }
         }
     }
-    vector<pair<Cap, Cost>> slope(int s, int t, Cap lim) {
+
+    std::vector<std::pair<Cap, Cost>> slope(int s, int t, Cap flow_limit) {
+        assert(0 <= s && s < n);
+        assert(0 <= t && t < n);
+        assert(s != t);
         assert(topological_sort());
         calc_potential(s);
-        Cap f = 0;
-        Cost c = 0, pre = -1;
-        vector<pair<Cap, Cost>> res;
-        res.emplace_back(f, c);
-
-        while (f < lim) {
+        Cap flow = 0;
+        Cost cost = 0, prev_cost_pre_flow = -1;
+        std::vector<std::pair<Cap, Cost>> res;
+        res.emplace_back(flow, cost);
+        while (flow < flow_limit) {
             dijkstra(s);
             if (dist[t] == inf) break;
-            for (size_t v = 0; v < G.size(); v++) h[v] = min(h[v] + dist[v], inf);
-            Cap d = lim - f;
-            for (int v = t; v != s; v = prevv[v]) d = min(d, G[prevv[v]][preve[v]].cap);
+            for (int v = 0; v < n; v++) h[v] += dist[v];
+            Cap d = flow_limit - flow;
+            for (int v = t; v != s; v = prevv[v]) d = std::min(d, G[prevv[v]][preve[v]].cap);
             for (int v = t; v != s; v = prevv[v]) {
                 auto& e = G[prevv[v]][preve[v]];
                 e.cap -= d;
                 G[v][e.rev].cap += d;
             }
-            f += d;
-            c += h[t] * d;
-            if (pre == h[t]) res.pop_back();
-            res.emplace_back(f, c);
-            pre = c;
+            flow += d;
+            cost += d * h[t];
+            if (prev_cost_pre_flow == d) res.pop_back();
+            res.emplace_back(flow, cost);
+            prev_cost_pre_flow = d;
         }
-
         return res;
     }
-    Cost min_cost_flow(int s, int t, Cap f) {
-        auto res = slope(s, t, f).back();
-        return res.first == f ? res.second : -1;
-    }
-    pair<Cap, Cost> min_cost_max_flow(int s, int t) { return slope(s, t, numeric_limits<Cap>::max()).back(); }
-    vector<pair<Cap, Cost>> min_cost_slope(int s, int t) { return slope(s, t, numeric_limits<Cap>::max()); }
 };
+
+/**
+ * @brief Primal Dual on DAG (allow negative-cost edge)
+ * @docs docs/flow/PrimalDualonDAG.md
+ */
