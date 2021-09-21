@@ -21,7 +21,7 @@ template <typename M> M lagrange_interpolation(vector<M> x, vector<M> y, M T) {
 
 template <typename M> M lagrange_interpolation_arithmetic(vector<M>& y, M T) {
     int n = y.size() - 1;
-    if (T.v <= n) return y[T.v];
+    if (T.value() <= n) return y[T.value()];
     vector<M> left(n + 1, 1), right(n + 1, 1), fac(n + 1, 1), finv(n + 1, 1);
     for (int i = 0; i < n; i++) left[i + 1] = left[i] * (T - i);
     for (int i = n - 1; i >= 0; --i) right[i] = right[i + 1] * (T - (i + 1));
