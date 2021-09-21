@@ -29,9 +29,9 @@ template <typename M> vector<M> ArbitaryModConvolution(const vector<M>& a, const
     static const M m0 = mod0, m0m1 = m0 * mod1;
     vector<M> res(n + m - 1);
     for (int i = 0; i < n + m - 1; i++) {
-        int v0 = c0[i].v;
-        int v1 = (inv0 * (c1[i] - v0)).v;
-        int v2 = (inv0inv1 * (c2[i] - v0) - inv1 * v1).v;
+        int v0 = c0[i].value();
+        int v1 = (inv0 * (c1[i] - v0)).value();
+        int v2 = (inv0inv1 * (c2[i] - v0) - inv1 * v1).value();
         res[i] = v0 + m0 * v1 + m0m1 * v2;
     }
     return res;
