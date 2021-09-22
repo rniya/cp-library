@@ -17,5 +17,5 @@ int main() {
     }
 
     vector<int> ans = TS.build();
-    for (int v : ans) cout << v << '\n';
+    for (int& v : ans) cout << v << '\n';
 }
