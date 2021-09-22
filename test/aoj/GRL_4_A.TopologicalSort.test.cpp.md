@@ -1,26 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/TopologicalSort.hpp
     title: Topological Sort
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_B
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_A
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_B
-  bundledCode: "#line 1 \"test/aoj/GRL_4_B.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_B\"\
-    \n\n#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n#pragma\
-    \ region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned\
-    \ int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
+    - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_A
+  bundledCode: "#line 1 \"test/aoj/GRL_4_A.TopologicalSort.test.cpp\"\n#define PROBLEM\
+    \ \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_A\"\n\n#line\
+    \ 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n#pragma region\
+    \ Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int\
+    \ uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
     \ntemplate <typename T> istream& operator>>(istream& is, vector<T>& v) {\n   \
     \ for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
     \ os, const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n \
@@ -88,32 +89,32 @@ data:
     \                }\n            }\n        }\n        if (*max_element(indeg.begin(),\
     \ indeg.end()) != 0) return {};\n        return order;\n    }\n\nprivate:\n  \
     \  int n;\n    std::vector<int> indeg;\n};\n\n/**\n * @brief Topological Sort\n\
-    \ * @docs docs/graph/TopologicalSort.md\n */\n#line 5 \"test/aoj/GRL_4_B.test.cpp\"\
+    \ * @docs docs/graph/TopologicalSort.md\n */\n#line 5 \"test/aoj/GRL_4_A.TopologicalSort.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
-    \ E;\n    cin >> V >> E;\n\n    TopologicalSort TS(V);\n    for (int i = 0; i\
-    \ < E; i++) {\n        int s, t;\n        cin >> s >> t;\n        TS.add_edge(s,\
-    \ t);\n    }\n\n    vector<int> ans = TS.build();\n    for (int& v : ans) cout\
-    \ << v << '\\n';\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_B\"\
+    \ E;\n    cin >> V >> E;\n    TopologicalSort TS(V);\n    for (; E--;) {\n   \
+    \     int s, t;\n        cin >> s >> t;\n        TS.add_edge(s, t);\n    }\n\n\
+    \    auto res = TS.build();\n    cout << res.empty() << '\\n';\n    return 0;\n\
+    }\n"
+  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/TopologicalSort.hpp\"\n\
     \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
-    \ E;\n    cin >> V >> E;\n\n    TopologicalSort TS(V);\n    for (int i = 0; i\
-    \ < E; i++) {\n        int s, t;\n        cin >> s >> t;\n        TS.add_edge(s,\
-    \ t);\n    }\n\n    vector<int> ans = TS.build();\n    for (int& v : ans) cout\
-    \ << v << '\\n';\n}"
+    \ E;\n    cin >> V >> E;\n    TopologicalSort TS(V);\n    for (; E--;) {\n   \
+    \     int s, t;\n        cin >> s >> t;\n        TS.add_edge(s, t);\n    }\n\n\
+    \    auto res = TS.build();\n    cout << res.empty() << '\\n';\n    return 0;\n\
+    }"
   dependsOn:
   - base.hpp
   - graph/TopologicalSort.hpp
   isVerificationFile: true
-  path: test/aoj/GRL_4_B.test.cpp
+  path: test/aoj/GRL_4_A.TopologicalSort.test.cpp
   requiredBy: []
-  timestamp: '2021-09-22 14:17:43+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-09-22 20:47:22+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/GRL_4_B.test.cpp
+documentation_of: test/aoj/GRL_4_A.TopologicalSort.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL_4_B.test.cpp
-- /verify/test/aoj/GRL_4_B.test.cpp.html
-title: test/aoj/GRL_4_B.test.cpp
+- /verify/test/aoj/GRL_4_A.TopologicalSort.test.cpp
+- /verify/test/aoj/GRL_4_A.TopologicalSort.test.cpp.html
+title: test/aoj/GRL_4_A.TopologicalSort.test.cpp
 ---

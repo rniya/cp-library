@@ -18,7 +18,7 @@ data:
     template <bool isMin = true> struct LineContainer : std::multiset<Line, std::less<>>\
     \ {\n    // (for doubles, use inf = 1/.0, div(a,b) = a/b)\n    const long long\
     \ inf = LLONG_MAX / 2;\n    long long div(long long a, long long b) {  // floored\
-    \ divisoin\n        return a / b - ((a ^ b) < 0 && a % b);\n    }\n    bool isect(iterator\
+    \ division\n        return a / b - ((a ^ b) < 0 && a % b);\n    }\n    bool isect(iterator\
     \ x, iterator y) {\n        if (y == end()) {\n            x->p = inf;\n     \
     \       return false;\n        }\n        if (x->k == y->k)\n            x->p\
     \ = x->m > y->m ? inf : -inf;\n        else\n            x->p = div(y->m - x->m,\
@@ -38,7 +38,7 @@ data:
     \ return p < x; }\n};\n\ntemplate <bool isMin = true> struct LineContainer : std::multiset<Line,\
     \ std::less<>> {\n    // (for doubles, use inf = 1/.0, div(a,b) = a/b)\n    const\
     \ long long inf = LLONG_MAX / 2;\n    long long div(long long a, long long b)\
-    \ {  // floored divisoin\n        return a / b - ((a ^ b) < 0 && a % b);\n   \
+    \ {  // floored division\n        return a / b - ((a ^ b) < 0 && a % b);\n   \
     \ }\n    bool isect(iterator x, iterator y) {\n        if (y == end()) {\n   \
     \         x->p = inf;\n            return false;\n        }\n        if (x->k\
     \ == y->k)\n            x->p = x->m > y->m ? inf : -inf;\n        else\n     \
@@ -56,7 +56,7 @@ data:
   isVerificationFile: false
   path: datastructure/LineContainer.hpp
   requiredBy: []
-  timestamp: '2021-09-22 14:17:43+09:00'
+  timestamp: '2021-09-22 20:47:22+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: datastructure/LineContainer.hpp

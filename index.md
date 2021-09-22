@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -158,7 +158,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/StronglyConnectedComponents.hpp
       title: Strongly Connected Components
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/TopologicalSort.hpp
       title: Topological Sort
     - icon: ':heavy_check_mark:'
@@ -560,11 +560,11 @@ data:
       path: test/aoj/GRL_3_C.test.cpp
       title: test/aoj/GRL_3_C.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_4_A.TopologicalSort.test.cpp
+      title: test/aoj/GRL_4_A.TopologicalSort.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_4_A.test.cpp
       title: test/aoj/GRL_4_A.test.cpp
-    - icon: ':x:'
-      path: test/aoj/GRL_4_B.test.cpp
-      title: test/aoj/GRL_4_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_A.test.cpp
       title: test/aoj/GRL_5_A.test.cpp
