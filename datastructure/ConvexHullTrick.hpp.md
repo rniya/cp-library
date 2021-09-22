@@ -121,7 +121,7 @@ redirect_from:
 title: Convex Hull Trick (Add-Monotonic Slope Optimization)
 ---
 ## 概要
-直線 $f(x) = ax + b$ の追加 (ただし, $a$ は単調増加もしくは単調減少) 及びある $x$ での最小値クエリを効率的に処理するデータ構造.
+直線 $f(x) = ax + b$ の追加 (ただし, $a$ は単調増加もしくは単調減少) 及びある $x$ での最小値 (最大値) クエリを効率的に処理するデータ構造.
 最小値を求めることを考えると,
 
 - 固定された $x$ に対して最小値を取る直線の傾きは $x$ が増加するにつれて減少する.
@@ -141,7 +141,9 @@ title: Convex Hull Trick (Add-Monotonic Slope Optimization)
 
 ## 問題例
 - [Codeforces Round #222 (Div. 1) E. Cookie Clicker](https://codeforces.com/contest/377/problem/E)
-- [TOKI Regular Open Contest #22 F. MCD](https://tlx.toki.id/contests/troc-22/problems/F)
+- [Codeforces Round #549 (Div. 1) C. U2](https://codeforces.com/contest/1142/problem/C)
+- [AtCoder Regular Contest 051 D - 長方形](https://atcoder.jp/contests/arc051/tasks/arc051_d)
+
 ## Links
 - [Convex-Hull Trick - sataniC++](https://satanic0258.hatenablog.com/entry/2016/08/16/181331)
 - [Convex-Hull-Trick-Add-Monotone | Luzhiled’s Library](https://ei1333.github.io/library/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp)

@@ -63,6 +63,9 @@ data:
       path: datastructure/LazySegmentTree.hpp
       title: Lazy Segment Tree
     - icon: ':warning:'
+      path: datastructure/LineContainer.hpp
+      title: Line Container (based on kactl)
+    - icon: ':warning:'
       path: datastructure/PartiallyPersistentUnionFind.hpp
       title: Partially Persistent UnionFind
     - icon: ':warning:'

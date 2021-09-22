@@ -92,14 +92,14 @@ data:
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
     \ E;\n    cin >> V >> E;\n\n    TopologicalSort TS(V);\n    for (int i = 0; i\
     \ < E; i++) {\n        int s, t;\n        cin >> s >> t;\n        TS.add_edge(s,\
-    \ t);\n    }\n\n    vector<int> ans = TS.build();\n    for (int v : ans) cout\
+    \ t);\n    }\n\n    vector<int> ans = TS.build();\n    for (int& v : ans) cout\
     \ << v << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/TopologicalSort.hpp\"\n\
     \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
     \ E;\n    cin >> V >> E;\n\n    TopologicalSort TS(V);\n    for (int i = 0; i\
     \ < E; i++) {\n        int s, t;\n        cin >> s >> t;\n        TS.add_edge(s,\
-    \ t);\n    }\n\n    vector<int> ans = TS.build();\n    for (int v : ans) cout\
+    \ t);\n    }\n\n    vector<int> ans = TS.build();\n    for (int& v : ans) cout\
     \ << v << '\\n';\n}"
   dependsOn:
   - base.hpp
@@ -107,7 +107,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_4_B.test.cpp
   requiredBy: []
-  timestamp: '2021-09-22 03:15:23+09:00'
+  timestamp: '2021-09-22 14:17:43+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_4_B.test.cpp
