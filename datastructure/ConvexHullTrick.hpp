@@ -1,61 +1,92 @@
 #pragma once
-#include "../base.hpp"
+#include <cassert>
+#include <queue>
 
-/**
- * @brief Convex Hull Trick
- * @docs docs/datastructure/ConvexHullTrick.md
- */
 template <typename T, bool isMin = true> struct ConvexHullTrick {
-    struct Line {
-        T a, b;
-        Line(T a, T b) : a(a), b(b) {}
-    };
-    deque<Line> Lines;
-    bool empty() const { return Lines.empty(); }
-    inline int sgn(T a) { return a == 0 ? 0 : (a < 0 ? -1 : 1); }
-    inline bool check(const Line& a, const Line& b, const Line& c) {
-        if (b.b == a.b || c.b == b.b) return sgn(b.a - a.a) * sgn(c.b - b.b) >= sgn(c.a - b.a) * sgn(b.b - a.b);
-        return (long double)(b.a - a.a) * sgn(c.b - b.b) / (long double)abs(b.b - a.b) >=
-               (long double)(c.a - b.a) * sgn(b.b - a.b) / (long double)abs(c.b - b.b);
-    }
+    bool empty() const { return lines.empty(); }
+
     void add(T a, T b) {
         if (!isMin) a *= -1, b *= -1;
-        Line l(a, b);
+        std::pair<T, T> l(a, b);
         if (empty()) {
-            Lines.emplace_back(l);
+            lines.emplace_back(a, b);
             return;
         }
-        if (Lines.front().a <= a) {
-            if (Lines.front().a == a) {
-                if (Lines.front().b <= b) return;
-                Lines.pop_front();
+        if (lines.front().first <= a) {
+            if (lines.front().first == a) {
+                if (lines.front().second <= b) return;
+                lines.pop_back();
             }
-            while (Lines.size() >= 2 && check(l, Lines.front(), Lines[1])) Lines.pop_front();
-            Lines.emplace_front(l);
-        } else {
-            if (Lines.back().a == a) {
-                if (Lines.back().b <= b) return;
-                Lines.pop_back();
+            while (lines.size() >= 2 && check(l, lines.front(), lines[1])) lines.pop_front();
+            lines.emplace_front(l);
+        } else if (a <= lines.back().first) {
+            if (lines.back().first == a) {
+                if (lines.back().second <= b) return;
+                lines.pop_back();
             }
-            while (Lines.size() >= 2 && check(Lines[Lines.size() - 2], Lines.back(), l)) Lines.pop_back();
-            Lines.emplace_back(l);
-        }
+            while (lines.size() >= 2 && check(lines[lines.size() - 2], lines.back(), l)) lines.pop_back();
+            lines.emplace_back(l);
+        } else
+            assert(false);
     }
-    inline T f(const Line& l, const T& x) { return l.a * x + l.b; }
+
     T query(T x) {
-        int lb = -1, ub = Lines.size() - 1;
+        assert(!called_query_monotonic_inc && !called_query_monotonic_dec);
+        assert(!empty());
+        called_query = true;
+        int lb = -1, ub = lines.size() - 1;
         while (ub - lb > 1) {
             int mid = (ub + lb) >> 1;
-            (f(Lines[mid], x) >= f(Lines[mid + 1], x) ? lb : ub) = mid;
+            (f(lines[mid], x) >= f(lines[mid + 1], x) ? lb : ub) = mid;
         }
-        return (isMin ? f(Lines[ub], x) : -f(Lines[ub], x));
+        T res = f(lines[ub], x);
+        return isMin ? res : -res;
     }
+
     T query_monotone_inc(T x) {
-        while (Lines.size() >= 2 && f(Lines.front(), x) >= f(Lines[1], x)) Lines.pop_front();
-        return (isMin ? f(Lines.front(), x) : -f(Lines.front(), x));
+        assert(!called_query && !called_query_monotonic_dec);
+        assert(!empty());
+        if (!called_query_monotonic_inc)
+            called_query_monotonic_inc = true;
+        else
+            assert(prev_query <= x);
+        prev_query = x;
+        while (lines.size() >= 2 && f(lines.front(), x) >= f(lines[1], x)) lines.pop_front();
+        T res = f(lines.front(), x);
+        return isMin ? res : -res;
     }
+
     T query_monotone_dec(T x) {
-        while (Lines.size() >= 2 && f(Lines.back(), x) >= f(Lines[Lines.size() - 2], x)) Lines.pop_back();
-        return (isMin ? f(Lines.back(), x) : -f(Lines.back(), x));
+        assert(!called_query && !called_query_monotonic_inc);
+        assert(!empty());
+        if (!called_query_monotonic_dec)
+            called_query_monotonic_dec = true;
+        else
+            assert(x <= prev_query);
+        prev_query = x;
+        while (lines.size() >= 2 && f(lines.back(), x) >= f(lines[lines.size() - 2], x)) lines.pop_back();
+        T res = f(lines.back(), x);
+        return isMin ? res : -res;
     }
+
+private:
+    std::deque<std::pair<T, T>> lines;  // slope decreases as index increases
+    bool called_query = false, called_query_monotonic_inc = false, called_query_monotonic_dec = false;
+    T prev_query;
+
+    using D = long double;
+
+    // check if b is unnecessary
+    inline bool check(const std::pair<T, T>& a, const std::pair<T, T>& b, const std::pair<T, T>& c) {
+        // return (b.first - a.first) * (c.second - b.second) >= (c.first - b.first) * (b.second - a.second);
+        // note that slopes are distinct and decrease
+        return D(c.second - b.second) / (c.first - b.first) >= D(b.second - a.second) / (b.first - a.first);
+    }
+
+    inline T f(const std::pair<T, T>& l, T x) { return l.first * x + l.second; }
 };
+
+/**
+ * @brief Convex Hull Trick (Add-Monotonic Slope Optimization)
+ * @docs docs/datastructure/ConvexHullTrick.md
+ */
