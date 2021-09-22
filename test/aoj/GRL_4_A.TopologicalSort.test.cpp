@@ -1,4 +1,4 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_B"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_A"
 
 #include "../../base.hpp"
 #include "../../graph/TopologicalSort.hpp"
@@ -8,14 +8,14 @@ int main() {
     ios::sync_with_stdio(false);
     int V, E;
     cin >> V >> E;
-
     TopologicalSort TS(V);
-    for (int i = 0; i < E; i++) {
+    for (; E--;) {
         int s, t;
         cin >> s >> t;
         TS.add_edge(s, t);
     }
 
-    vector<int> ans = TS.build();
-    for (int& v : ans) cout << v << '\n';
+    auto res = TS.build();
+    cout << res.empty() << '\n';
+    return 0;
 }

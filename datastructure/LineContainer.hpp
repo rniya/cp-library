@@ -13,7 +13,7 @@ struct Line {
 template <bool isMin = true> struct LineContainer : std::multiset<Line, std::less<>> {
     // (for doubles, use inf = 1/.0, div(a,b) = a/b)
     const long long inf = LLONG_MAX / 2;
-    long long div(long long a, long long b) {  // floored divisoin
+    long long div(long long a, long long b) {  // floored division
         return a / b - ((a ^ b) < 0 && a % b);
     }
     bool isect(iterator x, iterator y) {
