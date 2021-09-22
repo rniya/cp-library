@@ -52,7 +52,7 @@ data:
       title: BitMatrix
     - icon: ':heavy_check_mark:'
       path: datastructure/ConvexHullTrick.hpp
-      title: Convex Hull Trick
+      title: Convex Hull Trick (Add-Monotonic Slope Optimization)
     - icon: ':heavy_check_mark:'
       path: datastructure/CumulativeSum2D.hpp
       title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"

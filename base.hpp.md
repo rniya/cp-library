@@ -38,9 +38,6 @@ data:
     path: datastructure/BitMatrix.hpp
     title: BitMatrix
   - icon: ':heavy_check_mark:'
-    path: datastructure/ConvexHullTrick.hpp
-    title: Convex Hull Trick
-  - icon: ':heavy_check_mark:'
     path: datastructure/CumulativeSum2D.hpp
     title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
   - icon: ':heavy_check_mark:'
@@ -834,7 +831,6 @@ data:
   - tree/EulerTourforVertex.hpp
   - tree/LowestCommonAncestor.hpp
   - datastructure/UnionFindUndo.hpp
-  - datastructure/ConvexHullTrick.hpp
   - datastructure/SegmentTreeBeats.hpp
   - datastructure/SparseTable.hpp
   - datastructure/Slide_Min.hpp

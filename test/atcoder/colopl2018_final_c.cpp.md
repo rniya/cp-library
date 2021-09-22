@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/ConvexHullTrick.hpp
-    title: Convex Hull Trick
+    title: Convex Hull Trick (Add-Monotonic Slope Optimization)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -74,37 +74,48 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"datastructure/ConvexHullTrick.hpp\"\
-    \n\n/**\n * @brief Convex Hull Trick\n * @docs docs/datastructure/ConvexHullTrick.md\n\
-    \ */\ntemplate <typename T, bool isMin = true> struct ConvexHullTrick {\n    struct\
-    \ Line {\n        T a, b;\n        Line(T a, T b) : a(a), b(b) {}\n    };\n  \
-    \  deque<Line> Lines;\n    bool empty() const { return Lines.empty(); }\n    inline\
-    \ int sgn(T a) { return a == 0 ? 0 : (a < 0 ? -1 : 1); }\n    inline bool check(const\
-    \ Line& a, const Line& b, const Line& c) {\n        if (b.b == a.b || c.b == b.b)\
-    \ return sgn(b.a - a.a) * sgn(c.b - b.b) >= sgn(c.a - b.a) * sgn(b.b - a.b);\n\
-    \        return (long double)(b.a - a.a) * sgn(c.b - b.b) / (long double)abs(b.b\
-    \ - a.b) >=\n               (long double)(c.a - b.a) * sgn(b.b - a.b) / (long\
-    \ double)abs(c.b - b.b);\n    }\n    void add(T a, T b) {\n        if (!isMin)\
-    \ a *= -1, b *= -1;\n        Line l(a, b);\n        if (empty()) {\n         \
-    \   Lines.emplace_back(l);\n            return;\n        }\n        if (Lines.front().a\
-    \ <= a) {\n            if (Lines.front().a == a) {\n                if (Lines.front().b\
-    \ <= b) return;\n                Lines.pop_front();\n            }\n         \
-    \   while (Lines.size() >= 2 && check(l, Lines.front(), Lines[1])) Lines.pop_front();\n\
-    \            Lines.emplace_front(l);\n        } else {\n            if (Lines.back().a\
-    \ == a) {\n                if (Lines.back().b <= b) return;\n                Lines.pop_back();\n\
-    \            }\n            while (Lines.size() >= 2 && check(Lines[Lines.size()\
-    \ - 2], Lines.back(), l)) Lines.pop_back();\n            Lines.emplace_back(l);\n\
-    \        }\n    }\n    inline T f(const Line& l, const T& x) { return l.a * x\
-    \ + l.b; }\n    T query(T x) {\n        int lb = -1, ub = Lines.size() - 1;\n\
-    \        while (ub - lb > 1) {\n            int mid = (ub + lb) >> 1;\n      \
-    \      (f(Lines[mid], x) >= f(Lines[mid + 1], x) ? lb : ub) = mid;\n        }\n\
-    \        return (isMin ? f(Lines[ub], x) : -f(Lines[ub], x));\n    }\n    T query_monotone_inc(T\
-    \ x) {\n        while (Lines.size() >= 2 && f(Lines.front(), x) >= f(Lines[1],\
-    \ x)) Lines.pop_front();\n        return (isMin ? f(Lines.front(), x) : -f(Lines.front(),\
-    \ x));\n    }\n    T query_monotone_dec(T x) {\n        while (Lines.size() >=\
-    \ 2 && f(Lines.back(), x) >= f(Lines[Lines.size() - 2], x)) Lines.pop_back();\n\
-    \        return (isMin ? f(Lines.back(), x) : -f(Lines.back(), x));\n    }\n};\n\
-    #line 7 \"test/atcoder/colopl2018_final_c.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 4 \"datastructure/ConvexHullTrick.hpp\"\
+    \n\ntemplate <typename T, bool isMin = true> struct ConvexHullTrick {\n    bool\
+    \ empty() const { return lines.empty(); }\n\n    void add(T a, T b) {\n      \
+    \  if (!isMin) a *= -1, b *= -1;\n        std::pair<T, T> l(a, b);\n        if\
+    \ (empty()) {\n            lines.emplace_back(a, b);\n            return;\n  \
+    \      }\n        if (lines.front().first <= a) {\n            if (lines.front().first\
+    \ == a) {\n                if (lines.front().second <= b) return;\n          \
+    \      lines.pop_back();\n            }\n            while (lines.size() >= 2\
+    \ && check(l, lines.front(), lines[1])) lines.pop_front();\n            lines.emplace_front(l);\n\
+    \        } else if (a <= lines.back().first) {\n            if (lines.back().first\
+    \ == a) {\n                if (lines.back().second <= b) return;\n           \
+    \     lines.pop_back();\n            }\n            while (lines.size() >= 2 &&\
+    \ check(lines[lines.size() - 2], lines.back(), l)) lines.pop_back();\n       \
+    \     lines.emplace_back(l);\n        } else\n            assert(false);\n   \
+    \ }\n\n    T query(T x) {\n        assert(!called_query_monotonic_inc && !called_query_monotonic_dec);\n\
+    \        assert(!empty());\n        called_query = true;\n        int lb = -1,\
+    \ ub = lines.size() - 1;\n        while (ub - lb > 1) {\n            int mid =\
+    \ (ub + lb) >> 1;\n            (f(lines[mid], x) >= f(lines[mid + 1], x) ? lb\
+    \ : ub) = mid;\n        }\n        T res = f(lines[ub], x);\n        return isMin\
+    \ ? res : -res;\n    }\n\n    T query_monotone_inc(T x) {\n        assert(!called_query\
+    \ && !called_query_monotonic_dec);\n        assert(!empty());\n        if (!called_query_monotonic_inc)\n\
+    \            called_query_monotonic_inc = true;\n        else\n            assert(prev_query\
+    \ <= x);\n        prev_query = x;\n        while (lines.size() >= 2 && f(lines.front(),\
+    \ x) >= f(lines[1], x)) lines.pop_front();\n        T res = f(lines.front(), x);\n\
+    \        return isMin ? res : -res;\n    }\n\n    T query_monotone_dec(T x) {\n\
+    \        assert(!called_query && !called_query_monotonic_inc);\n        assert(!empty());\n\
+    \        if (!called_query_monotonic_dec)\n            called_query_monotonic_dec\
+    \ = true;\n        else\n            assert(x <= prev_query);\n        prev_query\
+    \ = x;\n        while (lines.size() >= 2 && f(lines.back(), x) >= f(lines[lines.size()\
+    \ - 2], x)) lines.pop_back();\n        T res = f(lines.back(), x);\n        return\
+    \ isMin ? res : -res;\n    }\n\nprivate:\n    std::deque<std::pair<T, T>> lines;\
+    \  // slope decreases as index increases\n    bool called_query = false, called_query_monotonic_inc\
+    \ = false, called_query_monotonic_dec = false;\n    T prev_query;\n\n    using\
+    \ D = long double;\n\n    // check if b is unnecessary\n    inline bool check(const\
+    \ std::pair<T, T>& a, const std::pair<T, T>& b, const std::pair<T, T>& c) {\n\
+    \        // return (b.first - a.first) * (c.second - b.second) >= (c.first - b.first)\
+    \ * (b.second - a.second);\n        // note that slopes are distinct and decrease\n\
+    \        return D(c.second - b.second) / (c.first - b.first) >= D(b.second - a.second)\
+    \ / (b.first - a.first);\n    }\n\n    inline T f(const std::pair<T, T>& l, T\
+    \ x) { return l.first * x + l.second; }\n};\n\n/**\n * @brief Convex Hull Trick\
+    \ (Add-Monotonic Slope Optimization)\n * @docs docs/datastructure/ConvexHullTrick.md\n\
+    \ */\n#line 7 \"test/atcoder/colopl2018_final_c.cpp\"\n\nint main() {\n    cin.tie(0);\n\
     \    ios::sync_with_stdio(false);\n    int N;\n    cin >> N;\n    vector<long\
     \ long> a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\n    ConvexHullTrick<long\
     \ long> CHT;\n\n    for (long long i = 0; i < N; i++) CHT.add(-2 * i, a[i] + i\
@@ -123,7 +134,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/colopl2018_final_c.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-09-22 12:29:03+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/colopl2018_final_c.cpp
