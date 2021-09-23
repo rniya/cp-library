@@ -584,8 +584,8 @@ data:
       path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
       title: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/aoj/GRL_6_A.DInic.test.cpp
-      title: test/aoj/GRL_6_A.DInic.test.cpp
+      path: test/aoj/GRL_6_A.Dinic.test.cpp
+      title: test/aoj/GRL_6_A.Dinic.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_B.PrimalDual.test.cpp
       title: test/aoj/GRL_6_B.PrimalDual.test.cpp

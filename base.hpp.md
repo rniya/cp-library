@@ -497,8 +497,8 @@ data:
     path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
     title: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_6_A.DInic.test.cpp
-    title: test/aoj/GRL_6_A.DInic.test.cpp
+    path: test/aoj/GRL_6_A.Dinic.test.cpp
+    title: test/aoj/GRL_6_A.Dinic.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_6_B.PrimalDual.test.cpp
     title: test/aoj/GRL_6_B.PrimalDual.test.cpp
@@ -913,7 +913,6 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL_4_B.test.cpp
-  - test/aoj/GRL_6_A.DInic.test.cpp
   - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
   - test/aoj/GRL_1_A.test.cpp
   - test/aoj/DPL_5_J.test.cpp
@@ -924,6 +923,7 @@ data:
   - test/aoj/DSL_3_D.test.cpp
   - test/aoj/CGL_1_C.test.cpp
   - test/aoj/DPL_5_B.test.cpp
+  - test/aoj/GRL_6_A.Dinic.test.cpp
   - test/aoj/GRL_3_B.test.cpp
   - test/aoj/DSL_1_A.test.cpp
   - test/aoj/GRL_6_B.PrimalDual.test.cpp

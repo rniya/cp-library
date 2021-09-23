@@ -17,7 +17,7 @@ data:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A
-  bundledCode: "#line 1 \"test/aoj/GRL_6_A.DInic.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A\"\
+  bundledCode: "#line 1 \"test/aoj/GRL_6_A.Dinic.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A\"\
     \n\n#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n#pragma\
     \ region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned\
     \ int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
@@ -126,7 +126,7 @@ data:
     \ min(f, e.cap));\n            if (d <= 0) continue;\n            e.cap -= d;\n\
     \            G[e.to][e.rev].cap += d;\n            return d;\n        }\n    \
     \    return 0;\n    }\n};\n\n/**\n * @brief Dinic (Maximum flow)\n * @docs docs/flow/Dinic.md\n\
-    \ */\n#line 5 \"test/aoj/GRL_6_A.DInic.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \ */\n#line 5 \"test/aoj/GRL_6_A.Dinic.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
     \    ios::sync_with_stdio(false);\n    int V, E;\n    cin >> V >> E;\n\n    Dinic<int,\
     \ true> D(V);\n\n    for (int i = 0; i < E; i++) {\n        int u, v, c;\n   \
     \     cin >> u >> v >> c;\n        D.add_edge(u, v, c);\n    }\n\n    cout <<\
@@ -136,20 +136,20 @@ data:
     \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
     \ >> V >> E;\n\n    Dinic<int, true> D(V);\n\n    for (int i = 0; i < E; i++)\
     \ {\n        int u, v, c;\n        cin >> u >> v >> c;\n        D.add_edge(u,\
-    \ v, c);\n    }\n\n    cout << D.max_flow(0, V - 1) << '\\n';\n}"
+    \ v, c);\n    }\n\n    cout << D.max_flow(0, V - 1) << '\\n';\n}\n"
   dependsOn:
   - base.hpp
   - flow/Dinic.hpp
   isVerificationFile: true
-  path: test/aoj/GRL_6_A.DInic.test.cpp
+  path: test/aoj/GRL_6_A.Dinic.test.cpp
   requiredBy: []
-  timestamp: '2021-09-21 23:36:40+09:00'
+  timestamp: '2021-09-23 20:39:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/GRL_6_A.DInic.test.cpp
+documentation_of: test/aoj/GRL_6_A.Dinic.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL_6_A.DInic.test.cpp
-- /verify/test/aoj/GRL_6_A.DInic.test.cpp.html
-title: test/aoj/GRL_6_A.DInic.test.cpp
+- /verify/test/aoj/GRL_6_A.Dinic.test.cpp
+- /verify/test/aoj/GRL_6_A.Dinic.test.cpp.html
+title: test/aoj/GRL_6_A.Dinic.test.cpp
 ---
