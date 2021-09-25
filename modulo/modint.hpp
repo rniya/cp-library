@@ -35,13 +35,13 @@ public:
         return *this;
     }
     constexpr modint& operator/=(const modint& rhs) noexcept { return *this *= rhs.inv(); }
-    constexpr modint pow(u64 exp) const noexcept {
-        assert(0 <= exp);
+    constexpr modint pow(long long n) const noexcept {
+        assert(0 <= n);
         modint self(*this), res(1);
-        while (exp > 0) {
-            if (exp & 1) res *= self;
+        while (n > 0) {
+            if (n & 1) res *= self;
             self *= self;
-            exp >>= 1;
+            n >>= 1;
         }
         return res;
     }

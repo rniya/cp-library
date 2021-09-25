@@ -1,13 +1,16 @@
 #pragma once
-#include "../base.hpp"
+#include <algorithm>
+#include <map>
+#include <vector>
 
-/**
- * @brief compress
- */
-template <typename T> map<T, int> compress(vector<T>& v) {
-    sort(v.begin(), v.end());
+template <typename T> std::map<T, int> compress(std::vector<T>& v) {
+    std::sort(v.begin(), v.end());
     v.erase(unique(v.begin(), v.end()), v.end());
-    map<T, int> res;
-    for (int i = 0; i < (int)v.size(); i++) res[v[i]] = i;
+    std::map<T, int> res;
+    for (size_t i = 0; i < v.size(); i++) res[v[i]] = i;
     return res;
 }
+
+/**
+ * @brief compress (座標圧縮)
+ */

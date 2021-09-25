@@ -5,7 +5,16 @@
 
 struct HeavyLightDecomposition {
     HeavyLightDecomposition(int n)
-        : n(n), time(0), G(n), par(n, -1), sub(n), dep(n, 0), head(n), tree_id(n, -1), vertex_id(n, -1) {}
+        : n(n),
+          time(0),
+          G(n),
+          par(n, -1),
+          sub(n),
+          dep(n, 0),
+          head(n),
+          tree_id(n, -1),
+          vertex_id(n, -1),
+          vertex_id_inv(n) {}
     void add_edge(int u, int v) {
         assert(0 <= u && u < n);
         assert(0 <= v && v < n);
@@ -22,9 +31,21 @@ struct HeavyLightDecomposition {
             dfs_hld(r, tree_id_cur++);
         }
         assert(time == n);
+        for (int v = 0; v < n; v++) vertex_id_inv[vertex_id[v]] = v;
     }
 
     int idx(int v) const { return vertex_id[v]; }
+
+    int la(int v, int k) {
+        assert(0 <= v && v < n);
+        assert(0 <= k && k <= dep[v]);
+        while (1) {
+            int u = head[v];
+            if (vertex_id[v] - k >= vertex_id[u]) return vertex_id_inv[vertex_id[v] - k];
+            k -= vertex_id[v] - vertex_id[u] + 1;
+            v = par[u];
+        }
+    }
 
     int lca(int u, int v) const {
         assert(0 <= u && u < n);
@@ -81,7 +102,9 @@ private:
         ,
         tree_id  // id of tree vertex v belongs to
         ,
-        vertex_id;  // id of vertex v (consecutive on heavy paths)
+        vertex_id  // id of vertex v (consecutive on heavy paths)
+        ,
+        vertex_id_inv;  // vertex_id_inv[vertex_id[v]] = v
 
     void dfs_sz(int v) {
         sub[v] = 1;
