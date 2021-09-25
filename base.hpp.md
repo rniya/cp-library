@@ -132,9 +132,6 @@ data:
     path: linearalgebra/Kitamasa.hpp
     title: Kitamasa
   - icon: ':heavy_check_mark:'
-    path: linearalgebra/Matrix.hpp
-    title: Matrix
-  - icon: ':heavy_check_mark:'
     path: linearalgebra/SquareMatrix.hpp
     title: Square Matrix
   - icon: ':heavy_check_mark:'
@@ -261,9 +258,6 @@ data:
   - icon: ':warning:'
     path: util/binary_conversion.hpp
     title: "\u6587\u5B57\u5217\u306E2\u9032\u5909\u63DB"
-  - icon: ':heavy_check_mark:'
-    path: util/compress.hpp
-    title: compress
   - icon: ':warning:'
     path: util/gray_code.hpp
     title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"
@@ -875,10 +869,8 @@ data:
   - util/Dice.hpp
   - util/gray_code.hpp
   - util/RandomNumberGenerator_64.hpp
-  - util/compress.hpp
   - util/ZobristHash.hpp
   - util/RandomNumberGenerator_32.hpp
-  - linearalgebra/Matrix.hpp
   - linearalgebra/Kitamasa.hpp
   - linearalgebra/SquareMatrix.hpp
   - polynomial/FormalPowerSeries.hpp

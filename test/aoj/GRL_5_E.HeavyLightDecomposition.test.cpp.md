@@ -137,15 +137,22 @@ data:
     \ 1 | 1) - type;\n        }\n        return a - size;\n    }\n};\n\n/**\n * @brief\
     \ Lazy Segment Tree\n * @docs docs/datastructure/LazySegmentTree.md\n */\n#line\
     \ 5 \"tree/HeavyLightDecomposition.hpp\"\n\nstruct HeavyLightDecomposition {\n\
-    \    HeavyLightDecomposition(int n)\n        : n(n), time(0), G(n), par(n, -1),\
-    \ sub(n), dep(n, 0), head(n), tree_id(n, -1), vertex_id(n, -1) {}\n    void add_edge(int\
-    \ u, int v) {\n        assert(0 <= u && u < n);\n        assert(0 <= v && v <\
-    \ n);\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n    }\n\n\
-    \    void build(std::vector<int> roots = {0}) {\n        int tree_id_cur = 0;\n\
-    \        for (int& r : roots) {\n            assert(0 <= r && r < n);\n      \
-    \      dfs_sz(r);\n            head[r] = r;\n            dfs_hld(r, tree_id_cur++);\n\
-    \        }\n        assert(time == n);\n    }\n\n    int idx(int v) const { return\
-    \ vertex_id[v]; }\n\n    int lca(int u, int v) const {\n        assert(0 <= u\
+    \    HeavyLightDecomposition(int n)\n        : n(n),\n          time(0),\n   \
+    \       G(n),\n          par(n, -1),\n          sub(n),\n          dep(n, 0),\n\
+    \          head(n),\n          tree_id(n, -1),\n          vertex_id(n, -1),\n\
+    \          vertex_id_inv(n) {}\n    void add_edge(int u, int v) {\n        assert(0\
+    \ <= u && u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n\
+    \        G[v].emplace_back(u);\n    }\n\n    void build(std::vector<int> roots\
+    \ = {0}) {\n        int tree_id_cur = 0;\n        for (int& r : roots) {\n   \
+    \         assert(0 <= r && r < n);\n            dfs_sz(r);\n            head[r]\
+    \ = r;\n            dfs_hld(r, tree_id_cur++);\n        }\n        assert(time\
+    \ == n);\n        for (int v = 0; v < n; v++) vertex_id_inv[vertex_id[v]] = v;\n\
+    \    }\n\n    int idx(int v) const { return vertex_id[v]; }\n\n    int la(int\
+    \ v, int k) {\n        assert(0 <= v && v < n);\n        assert(0 <= k && k <=\
+    \ dep[v]);\n        while (1) {\n            int u = head[v];\n            if\
+    \ (vertex_id[v] - k >= vertex_id[u]) return vertex_id_inv[vertex_id[v] - k];\n\
+    \            k -= vertex_id[v] - vertex_id[u] + 1;\n            v = par[u];\n\
+    \        }\n    }\n\n    int lca(int u, int v) const {\n        assert(0 <= u\
     \ && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
     \        for (;; v = par[head[v]]) {\n            if (vertex_id[u] > vertex_id[v])\
     \ std::swap(u, v);\n            if (head[u] == head[v]) return u;\n        }\n\
@@ -171,12 +178,13 @@ data:
     \        sub  // size of subtree whose root is v\n        ,\n        dep  // distance\
     \ bitween root and vertex v\n        ,\n        head  // vertex that is the nearest\
     \ to root on heavy path of vertex v\n        ,\n        tree_id  // id of tree\
-    \ vertex v belongs to\n        ,\n        vertex_id;  // id of vertex v (consecutive\
-    \ on heavy paths)\n\n    void dfs_sz(int v) {\n        sub[v] = 1;\n        if\
-    \ (!G[v].empty() && G[v].front() == par[v]) std::swap(G[v].front(), G[v].back());\n\
-    \        for (int& u : G[v]) {\n            if (u == par[v]) continue;\n     \
-    \       par[u] = v;\n            dep[u] = dep[v] + 1;\n            dfs_sz(u);\n\
-    \            sub[v] += sub[u];\n            if (sub[u] > sub[G[v].front()]) std::swap(u,\
+    \ vertex v belongs to\n        ,\n        vertex_id  // id of vertex v (consecutive\
+    \ on heavy paths)\n        ,\n        vertex_id_inv;  // vertex_id_inv[vertex_id[v]]\
+    \ = v\n\n    void dfs_sz(int v) {\n        sub[v] = 1;\n        if (!G[v].empty()\
+    \ && G[v].front() == par[v]) std::swap(G[v].front(), G[v].back());\n        for\
+    \ (int& u : G[v]) {\n            if (u == par[v]) continue;\n            par[u]\
+    \ = v;\n            dep[u] = dep[v] + 1;\n            dfs_sz(u);\n           \
+    \ sub[v] += sub[u];\n            if (sub[u] > sub[G[v].front()]) std::swap(u,\
     \ G[v].front());\n        }\n    }\n\n    void dfs_hld(int v, int tree_id_cur)\
     \ {\n        vertex_id[v] = time++;\n        tree_id[v] = tree_id_cur;\n     \
     \   for (int& u : G[v]) {\n            if (u == par[v]) continue;\n          \
@@ -239,7 +247,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   requiredBy: []
-  timestamp: '2021-09-22 02:06:49+09:00'
+  timestamp: '2021-09-25 17:45:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp

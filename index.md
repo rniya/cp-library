@@ -191,7 +191,7 @@ data:
       title: Kitamasa
     - icon: ':heavy_check_mark:'
       path: linearalgebra/Matrix.hpp
-      title: Matrix
+      title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
     - icon: ':heavy_check_mark:'
       path: linearalgebra/SquareMatrix.hpp
       title: Square Matrix
@@ -348,7 +348,7 @@ data:
       title: "\u6587\u5B57\u5217\u306E2\u9032\u5909\u63DB"
     - icon: ':heavy_check_mark:'
       path: util/compress.hpp
-      title: compress
+      title: "compress (\u5EA7\u6A19\u5727\u7E2E)"
     - icon: ':warning:'
       path: util/gray_code.hpp
       title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"

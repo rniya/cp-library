@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: linearalgebra/Matrix.hpp
-    title: Matrix
+    title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
   - icon: ':heavy_check_mark:'
     path: modulo/modint.hpp
     title: modint
@@ -78,87 +78,118 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"linearalgebra/Matrix.hpp\"\
-    \n\n/**\n * @brief Matrix\n * @docs docs/linearalgebra/Matrix.md\n */\ntemplate\
-    \ <class T> struct Matrix {\n    vector<vector<T>> A;\n    Matrix(size_t n, size_t\
-    \ m) : A(n, vector<T>(m, 0)) {}\n    Matrix(size_t n) : A(n, vector<T>(n, 0))\
-    \ {}\n    size_t height() const { return A.size(); }\n    size_t width() const\
-    \ { return A[0].size(); }\n    inline const vector<T>& operator[](int i) const\
-    \ { return A[i]; }\n    inline vector<T>& operator[](int i) { return A[i]; }\n\
-    \    static Matrix I(size_t n) {\n        Matrix res(n);\n        for (int i =\
-    \ 0; i < n; i++) res[i][i] = 1;\n        return res;\n    }\n    Matrix operator+(const\
-    \ Matrix& B) const { return Matrix(*this) += B; }\n    Matrix operator-(const\
-    \ Matrix& B) const { return Matrix(*this) -= B; }\n    Matrix operator*(const\
-    \ Matrix& B) const { return Matrix(*this) *= B; }\n    Matrix operator^(const\
-    \ long long k) const { return Matrix(*this) ^= k; }\n    Matrix& operator+=(const\
-    \ Matrix& B) {\n        size_t n = height(), m = width();\n        assert(n ==\
-    \ B.height() && m == B.width());\n        for (int i = 0; i < n; i++) {\n    \
-    \        for (int j = 0; j < m; j++) {\n                (*this)[i][j] += B[i][j];\n\
-    \            }\n        }\n        return *this;\n    }\n    Matrix& operator-=(const\
-    \ Matrix& B) {\n        size_t n = height(), m = width();\n        assert(n ==\
-    \ B.height() && m == B.width());\n        for (int i = 0; i < n; i++) {\n    \
-    \        for (int j = 0; j < m; j++) {\n                (*this)[i][j] -= B[i][j];\n\
-    \            }\n        }\n        return *this;\n    }\n    Matrix& operator*=(const\
-    \ Matrix& B) {\n        size_t n = height(), m = B.width(), l = width();\n   \
-    \     assert(l == B.height());\n        vector<vector<T>> C(n, vector<T>(m, 0));\n\
-    \        for (int i = 0; i < n; i++) {\n            for (int j = 0; j < m; j++)\
-    \ {\n                for (int k = 0; k < l; k++) {\n                    C[i][j]\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 5 \"linearalgebra/Matrix.hpp\"\
+    \n\ntemplate <typename T> struct Matrix {\n    std::vector<std::vector<T>> A;\n\
+    \n    Matrix(size_t n, size_t m) : A(n, std::vector<T>(m, 0)) {}\n\n    Matrix(size_t\
+    \ n) : A(n, std::vector<T>(n, 0)) {}\n\n    size_t size() const { return A.size();\
+    \ }\n\n    size_t height() const { return A.size(); }\n\n    size_t width() const\
+    \ { return A[0].size(); }\n\n    inline const std::vector<T>& operator[](int k)\
+    \ const { return A[k]; }\n\n    inline std::vector<T>& operator[](int k) { return\
+    \ A[k]; }\n\n    static Matrix I(size_t n) {\n        Matrix res(n);\n       \
+    \ for (size_t i = 0; i < n; i++) res[i][i] = 1;\n        return res;\n    }\n\n\
+    \    Matrix& operator+=(const Matrix& B) {\n        size_t n = height(), m = width();\n\
+    \        assert(n == B.height() && m == B.width());\n        for (size_t i = 0;\
+    \ i < n; i++) {\n            for (size_t j = 0; j < m; j++) {\n              \
+    \  (*this)[i][j] += B[i][j];\n            }\n        }\n        return *this;\n\
+    \    }\n\n    Matrix& operator-=(const Matrix& B) {\n        size_t n = height(),\
+    \ m = width();\n        assert(n == B.height() && m == B.width());\n        for\
+    \ (size_t i = 0; i < n; i++) {\n            for (size_t j = 0; j < m; j++) {\n\
+    \                (*this)[i][j] -= B[i][j];\n            }\n        }\n       \
+    \ return *this;\n    }\n\n    Matrix& operator*=(const Matrix& B) {\n        size_t\
+    \ n = height(), m = B.width(), p = width();\n        assert(p == B.height());\n\
+    \        std::vector<std::vector<T>> C(n, std::vector<T>(m, 0));\n        for\
+    \ (size_t i = 0; i < n; i++) {\n            for (size_t k = 0; k < p; k++) {\n\
+    \                for (size_t j = 0; j < m; j++) {\n                    C[i][j]\
     \ += (*this)[i][k] * B[k][j];\n                }\n            }\n        }\n \
-    \       A.swap(C);\n        return *this;\n    }\n    Matrix& operator^=(long\
-    \ long k) {\n        Matrix res = Matrix::I(height());\n        while (k > 0)\
-    \ {\n            if (k & 1) res *= *this;\n            *this *= *this;\n     \
-    \       k >>= 1LL;\n        }\n        A.swap(res.A);\n        return *this;\n\
-    \    }\n    T determinant() {\n        Matrix B(*this);\n        T res = 1;\n\
-    \        for (int i = 0; i < width(); i++) {\n            int pivot = -1;\n  \
-    \          for (int j = i; j < height(); j++) {\n                if (B[j][i] !=\
-    \ 0) {\n                    pivot = j;\n                }\n            }\n   \
-    \         if (pivot < 0) return 0;\n            if (pivot != i) {\n          \
-    \      res *= -1;\n                swap(B[i], B[pivot]);\n            }\n    \
-    \        res *= B[i][i];\n            T v = T(1) / B[i][i];\n            for (int\
-    \ j = 0; j < width(); j++) B[i][j] *= v;\n            for (int j = i + 1; j <\
-    \ height(); j++) {\n                T w = B[j][i];\n                for (int k\
-    \ = 0; k < width(); k++) {\n                    B[j][k] -= B[i][k] * w;\n    \
-    \            }\n            }\n        }\n        return res;\n    }\n};\n#line\
-    \ 5 \"modulo/modint.hpp\"\n\ntemplate <uint64_t Modulus> class modint {\n    using\
-    \ i64 = int64_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\n   \
-    \ static_assert(Modulus < static_cast<uint32_t>(1) << 31, \"Modulus must be less\
-    \ than 2**31\");\n    static constexpr u32 mod = Modulus;\n    u32 v;\n\npublic:\n\
-    \    constexpr modint(const i64 x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1)\
-    \ % mod) : x % mod) {}\n    constexpr u32& value() noexcept { return v; }\n  \
-    \  constexpr const u32& value() const noexcept { return v; }\n    constexpr modint\
-    \ operator+(const modint& rhs) const noexcept { return modint(*this) += rhs; }\n\
-    \    constexpr modint operator-(const modint& rhs) const noexcept { return modint(*this)\
-    \ -= rhs; }\n    constexpr modint operator*(const modint& rhs) const noexcept\
-    \ { return modint(*this) *= rhs; }\n    constexpr modint operator/(const modint&\
-    \ rhs) const noexcept { return modint(*this) /= rhs; }\n    constexpr modint&\
-    \ operator+=(const modint& rhs) noexcept {\n        v += rhs.v;\n        if (v\
-    \ >= mod) v -= mod;\n        return *this;\n    }\n    constexpr modint& operator-=(const\
-    \ modint& rhs) noexcept {\n        if (v < rhs.v) v += mod;\n        v -= rhs.v;\n\
-    \        return *this;\n    }\n    constexpr modint& operator*=(const modint&\
-    \ rhs) noexcept {\n        v = (u64)v * rhs.v % mod;\n        return *this;\n\
-    \    }\n    constexpr modint& operator/=(const modint& rhs) noexcept { return\
-    \ *this *= rhs.inv(); }\n    constexpr modint pow(u64 exp) const noexcept {\n\
-    \        assert(0 <= exp);\n        modint self(*this), res(1);\n        while\
-    \ (exp > 0) {\n            if (exp & 1) res *= self;\n            self *= self;\n\
-    \            exp >>= 1;\n        }\n        return res;\n    }\n    constexpr\
-    \ modint inv() const noexcept {\n        assert(*this != 0);\n        return pow(mod\
-    \ - 2);\n    }\n    constexpr modint& operator++() noexcept {\n        if (++v\
-    \ == mod) v = 0;\n        return *this;\n    }\n    constexpr modint& operator--()\
-    \ noexcept {\n        if (v == 0) v = mod;\n        return --v, *this;\n    }\n\
-    \    constexpr modint operator++(int) noexcept {\n        modint t = *this;\n\
-    \        return ++*this, t;\n    }\n    constexpr modint operator--(int) noexcept\
-    \ {\n        modint t = *this;\n        return --*this, t;\n    }\n    constexpr\
-    \ modint operator-() const noexcept { return modint(mod - v); }\n    template\
-    \ <class T> friend constexpr modint operator+(T x, modint y) noexcept { return\
-    \ modint(x) + y; }\n    template <class T> friend constexpr modint operator-(T\
-    \ x, modint y) noexcept { return modint(x) - y; }\n    template <class T> friend\
-    \ constexpr modint operator*(T x, modint y) noexcept { return modint(x) * y; }\n\
-    \    template <class T> friend constexpr modint operator/(T x, modint y) noexcept\
-    \ { return modint(x) / y; }\n    constexpr bool operator==(const modint& rhs)\
-    \ const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const modint&\
-    \ rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!() const\
-    \ noexcept { return !v; }\n    friend std::istream& operator>>(std::istream& s,\
-    \ modint& rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n\
+    \       A.swap(C);\n        return *this;\n    }\n\n    Matrix& operator*=(const\
+    \ T& v) {\n        for (size_t i = 0; i < height(); i++) {\n            for (size_t\
+    \ j = 0; j < width(); j++) {\n                (*this)[i][j] *= v;\n          \
+    \  }\n        }\n        return *this;\n    }\n\n    Matrix& operator/=(const\
+    \ T& v) {\n        T inv = T(1) / v;\n        for (size_t i = 0; i < height();\
+    \ i++) {\n            for (size_t j = 0; j < width(); j++) {\n               \
+    \ (*this)[i][j] *= inv;\n            }\n        }\n        return *this;\n   \
+    \ }\n\n    Matrix& operator^=(long long k) {\n        assert(0 <= k);\n      \
+    \  Matrix B = Matrix::I(size());\n        while (k > 0) {\n            if (k &\
+    \ 1) B *= *this;\n            *this *= *this;\n            k >>= 1;\n        }\n\
+    \        A.swap(B.A);\n        return *this;\n    }\n\n    Matrix operator-()\
+    \ const {\n        Matrix res(height(), width());\n        for (size_t i = 0;\
+    \ i < height(); i++) {\n            for (size_t j = 0; j < width(); j++) {\n \
+    \               res[i][j] = -(*this)[i][j];\n            }\n        }\n      \
+    \  return res;\n    }\n\n    Matrix operator+(const Matrix& B) const { return\
+    \ Matrix(*this) += B; }\n\n    Matrix operator-(const Matrix& B) const { return\
+    \ Matrix(*this) -= B; }\n\n    Matrix operator*(const Matrix& B) const { return\
+    \ Matrix(*this) *= B; }\n\n    Matrix operator*(const T& v) const { return Matrix(*this)\
+    \ *= v; }\n\n    Matrix operator/(const T& v) const { return Matrix(*this) /=\
+    \ v; }\n\n    Matrix operator^(const long long k) const { return Matrix(*this)\
+    \ ^= k; }\n\n    bool operator==(const Matrix& B) const {\n        assert(height()\
+    \ == B.height() && width() == B.width());\n        return A == B.A;\n    }\n\n\
+    \    bool operator!=(const Matrix& B) const {\n        assert(height() == B.height()\
+    \ && width() == B.width());\n        return A != B.A;\n    }\n\n    Matrix transpose()\
+    \ const {\n        Matrix res(width(), height());\n        for (size_t i = 0;\
+    \ i < height(); i++) {\n            for (size_t j = 0; j < width(); j++) {\n \
+    \               res[j][i] = (*this)[i][j];\n            }\n        }\n       \
+    \ return res;\n    }\n\n    T determinant() const {\n        assert(height() ==\
+    \ width());\n        Matrix B(*this);\n        T res = 1;\n        for (size_t\
+    \ i = 0; i < height(); i++) {\n            int pivot = -1;\n            for (size_t\
+    \ j = i; j < height(); j++) {\n                if (B[j][i] != 0) {\n         \
+    \           pivot = j;\n                    break;\n                }\n      \
+    \      }\n            if (pivot == -1) return 0;\n            if (pivot != (int)i)\
+    \ {\n                res *= -1;\n                std::swap(B[i], B[pivot]);\n\
+    \            }\n            res *= B[i][i];\n            T inv = T(1) / B[i][i];\n\
+    \            for (size_t j = 0; j < width(); j++) B[i][j] *= inv;\n          \
+    \  for (size_t j = i + 1; j < height(); j++) {\n                T a = B[j][i];\n\
+    \                for (size_t k = 0; k < width(); k++) {\n                    B[j][k]\
+    \ -= B[i][k] * a;\n                }\n            }\n        }\n        return\
+    \ res;\n    }\n\n    friend std::ostream& operator<<(std::ostream& os, const Matrix&\
+    \ p) {\n        size_t n = p.height(), m = p.width();\n        os << \"[(\" <<\
+    \ n << \" * \" << m << \" Matrix)\";\n        os << \"\\n[columun sums: \";\n\
+    \        for (size_t j = 0; j < m; j++) {\n            T sum = 0;\n          \
+    \  for (size_t i = 0; i < n; i++) sum += p[i][j];\n            ;\n           \
+    \ os << sum << (j + 1 < m ? \",\" : \"\");\n        }\n        os << \"]\";\n\
+    \        for (size_t i = 0; i < n; i++) {\n            os << \"\\n[\";\n     \
+    \       for (size_t j = 0; j < m; j++) os << p[i][j] << (j + 1 < m ? \",\" : \"\
+    \");\n            os << \"]\";\n        }\n        os << \"]\\n\";\n        return\
+    \ os;\n    }\n};\n\n/**\n * @brief \u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA\n\
+    \ * @docs docs/linearalgebra/Matrix.md\n */\n#line 5 \"modulo/modint.hpp\"\n\n\
+    template <uint64_t Modulus> class modint {\n    using i64 = int64_t;\n    using\
+    \ u32 = uint32_t;\n    using u64 = uint64_t;\n\n    static_assert(Modulus < static_cast<uint32_t>(1)\
+    \ << 31, \"Modulus must be less than 2**31\");\n    static constexpr u32 mod =\
+    \ Modulus;\n    u32 v;\n\npublic:\n    constexpr modint(const i64 x = 0) noexcept\
+    \ : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& value()\
+    \ noexcept { return v; }\n    constexpr const u32& value() const noexcept { return\
+    \ v; }\n    constexpr modint operator+(const modint& rhs) const noexcept { return\
+    \ modint(*this) += rhs; }\n    constexpr modint operator-(const modint& rhs) const\
+    \ noexcept { return modint(*this) -= rhs; }\n    constexpr modint operator*(const\
+    \ modint& rhs) const noexcept { return modint(*this) *= rhs; }\n    constexpr\
+    \ modint operator/(const modint& rhs) const noexcept { return modint(*this) /=\
+    \ rhs; }\n    constexpr modint& operator+=(const modint& rhs) noexcept {\n   \
+    \     v += rhs.v;\n        if (v >= mod) v -= mod;\n        return *this;\n  \
+    \  }\n    constexpr modint& operator-=(const modint& rhs) noexcept {\n       \
+    \ if (v < rhs.v) v += mod;\n        v -= rhs.v;\n        return *this;\n    }\n\
+    \    constexpr modint& operator*=(const modint& rhs) noexcept {\n        v = (u64)v\
+    \ * rhs.v % mod;\n        return *this;\n    }\n    constexpr modint& operator/=(const\
+    \ modint& rhs) noexcept { return *this *= rhs.inv(); }\n    constexpr modint pow(long\
+    \ long n) const noexcept {\n        assert(0 <= n);\n        modint self(*this),\
+    \ res(1);\n        while (n > 0) {\n            if (n & 1) res *= self;\n    \
+    \        self *= self;\n            n >>= 1;\n        }\n        return res;\n\
+    \    }\n    constexpr modint inv() const noexcept {\n        assert(*this != 0);\n\
+    \        return pow(mod - 2);\n    }\n    constexpr modint& operator++() noexcept\
+    \ {\n        if (++v == mod) v = 0;\n        return *this;\n    }\n    constexpr\
+    \ modint& operator--() noexcept {\n        if (v == 0) v = mod;\n        return\
+    \ --v, *this;\n    }\n    constexpr modint operator++(int) noexcept {\n      \
+    \  modint t = *this;\n        return ++*this, t;\n    }\n    constexpr modint\
+    \ operator--(int) noexcept {\n        modint t = *this;\n        return --*this,\
+    \ t;\n    }\n    constexpr modint operator-() const noexcept { return modint(mod\
+    \ - v); }\n    template <class T> friend constexpr modint operator+(T x, modint\
+    \ y) noexcept { return modint(x) + y; }\n    template <class T> friend constexpr\
+    \ modint operator-(T x, modint y) noexcept { return modint(x) - y; }\n    template\
+    \ <class T> friend constexpr modint operator*(T x, modint y) noexcept { return\
+    \ modint(x) * y; }\n    template <class T> friend constexpr modint operator/(T\
+    \ x, modint y) noexcept { return modint(x) / y; }\n    constexpr bool operator==(const\
+    \ modint& rhs) const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const\
+    \ modint& rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!()\
+    \ const noexcept { return !v; }\n    friend std::istream& operator>>(std::istream&\
+    \ s, modint& rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n\
     \        return s;\n    }\n    friend std::ostream& operator<<(std::ostream& s,\
     \ const modint& rhs) noexcept { return s << rhs.v; }\n};\n\n/**\n * @brief modint\n\
     \ * @docs docs/modulo/modint.md\n */\n#line 6 \"test/yosupo/matrix_det.test.cpp\"\
@@ -180,7 +211,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix_det.test.cpp
   requiredBy: []
-  timestamp: '2021-09-21 14:56:05+09:00'
+  timestamp: '2021-09-25 17:45:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix_det.test.cpp

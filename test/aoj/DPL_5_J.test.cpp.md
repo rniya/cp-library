@@ -102,23 +102,23 @@ data:
     \ if (v < rhs.v) v += mod;\n        v -= rhs.v;\n        return *this;\n    }\n\
     \    constexpr modint& operator*=(const modint& rhs) noexcept {\n        v = (u64)v\
     \ * rhs.v % mod;\n        return *this;\n    }\n    constexpr modint& operator/=(const\
-    \ modint& rhs) noexcept { return *this *= rhs.inv(); }\n    constexpr modint pow(u64\
-    \ exp) const noexcept {\n        assert(0 <= exp);\n        modint self(*this),\
-    \ res(1);\n        while (exp > 0) {\n            if (exp & 1) res *= self;\n\
-    \            self *= self;\n            exp >>= 1;\n        }\n        return\
-    \ res;\n    }\n    constexpr modint inv() const noexcept {\n        assert(*this\
-    \ != 0);\n        return pow(mod - 2);\n    }\n    constexpr modint& operator++()\
-    \ noexcept {\n        if (++v == mod) v = 0;\n        return *this;\n    }\n \
-    \   constexpr modint& operator--() noexcept {\n        if (v == 0) v = mod;\n\
-    \        return --v, *this;\n    }\n    constexpr modint operator++(int) noexcept\
-    \ {\n        modint t = *this;\n        return ++*this, t;\n    }\n    constexpr\
-    \ modint operator--(int) noexcept {\n        modint t = *this;\n        return\
-    \ --*this, t;\n    }\n    constexpr modint operator-() const noexcept { return\
-    \ modint(mod - v); }\n    template <class T> friend constexpr modint operator+(T\
-    \ x, modint y) noexcept { return modint(x) + y; }\n    template <class T> friend\
-    \ constexpr modint operator-(T x, modint y) noexcept { return modint(x) - y; }\n\
-    \    template <class T> friend constexpr modint operator*(T x, modint y) noexcept\
-    \ { return modint(x) * y; }\n    template <class T> friend constexpr modint operator/(T\
+    \ modint& rhs) noexcept { return *this *= rhs.inv(); }\n    constexpr modint pow(long\
+    \ long n) const noexcept {\n        assert(0 <= n);\n        modint self(*this),\
+    \ res(1);\n        while (n > 0) {\n            if (n & 1) res *= self;\n    \
+    \        self *= self;\n            n >>= 1;\n        }\n        return res;\n\
+    \    }\n    constexpr modint inv() const noexcept {\n        assert(*this != 0);\n\
+    \        return pow(mod - 2);\n    }\n    constexpr modint& operator++() noexcept\
+    \ {\n        if (++v == mod) v = 0;\n        return *this;\n    }\n    constexpr\
+    \ modint& operator--() noexcept {\n        if (v == 0) v = mod;\n        return\
+    \ --v, *this;\n    }\n    constexpr modint operator++(int) noexcept {\n      \
+    \  modint t = *this;\n        return ++*this, t;\n    }\n    constexpr modint\
+    \ operator--(int) noexcept {\n        modint t = *this;\n        return --*this,\
+    \ t;\n    }\n    constexpr modint operator-() const noexcept { return modint(mod\
+    \ - v); }\n    template <class T> friend constexpr modint operator+(T x, modint\
+    \ y) noexcept { return modint(x) + y; }\n    template <class T> friend constexpr\
+    \ modint operator-(T x, modint y) noexcept { return modint(x) - y; }\n    template\
+    \ <class T> friend constexpr modint operator*(T x, modint y) noexcept { return\
+    \ modint(x) * y; }\n    template <class T> friend constexpr modint operator/(T\
     \ x, modint y) noexcept { return modint(x) / y; }\n    constexpr bool operator==(const\
     \ modint& rhs) const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const\
     \ modint& rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!()\
@@ -143,7 +143,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_J.test.cpp
   requiredBy: []
-  timestamp: '2021-09-21 14:56:05+09:00'
+  timestamp: '2021-09-25 17:45:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_J.test.cpp

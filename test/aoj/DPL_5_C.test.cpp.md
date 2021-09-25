@@ -109,36 +109,35 @@ data:
     \    }\n    constexpr modint& operator*=(const modint& rhs) noexcept {\n     \
     \   v = (u64)v * rhs.v % mod;\n        return *this;\n    }\n    constexpr modint&\
     \ operator/=(const modint& rhs) noexcept { return *this *= rhs.inv(); }\n    constexpr\
-    \ modint pow(u64 exp) const noexcept {\n        assert(0 <= exp);\n        modint\
-    \ self(*this), res(1);\n        while (exp > 0) {\n            if (exp & 1) res\
-    \ *= self;\n            self *= self;\n            exp >>= 1;\n        }\n   \
-    \     return res;\n    }\n    constexpr modint inv() const noexcept {\n      \
-    \  assert(*this != 0);\n        return pow(mod - 2);\n    }\n    constexpr modint&\
-    \ operator++() noexcept {\n        if (++v == mod) v = 0;\n        return *this;\n\
-    \    }\n    constexpr modint& operator--() noexcept {\n        if (v == 0) v =\
-    \ mod;\n        return --v, *this;\n    }\n    constexpr modint operator++(int)\
-    \ noexcept {\n        modint t = *this;\n        return ++*this, t;\n    }\n \
-    \   constexpr modint operator--(int) noexcept {\n        modint t = *this;\n \
-    \       return --*this, t;\n    }\n    constexpr modint operator-() const noexcept\
-    \ { return modint(mod - v); }\n    template <class T> friend constexpr modint\
-    \ operator+(T x, modint y) noexcept { return modint(x) + y; }\n    template <class\
-    \ T> friend constexpr modint operator-(T x, modint y) noexcept { return modint(x)\
-    \ - y; }\n    template <class T> friend constexpr modint operator*(T x, modint\
-    \ y) noexcept { return modint(x) * y; }\n    template <class T> friend constexpr\
-    \ modint operator/(T x, modint y) noexcept { return modint(x) / y; }\n    constexpr\
-    \ bool operator==(const modint& rhs) const noexcept { return v == rhs.v; }\n \
-    \   constexpr bool operator!=(const modint& rhs) const noexcept { return v !=\
-    \ rhs.v; }\n    constexpr bool operator!() const noexcept { return !v; }\n   \
-    \ friend std::istream& operator>>(std::istream& s, modint& rhs) noexcept {\n \
-    \       i64 v;\n        rhs = modint{(s >> v, v)};\n        return s;\n    }\n\
-    \    friend std::ostream& operator<<(std::ostream& s, const modint& rhs) noexcept\
-    \ { return s << rhs.v; }\n};\n\n/**\n * @brief modint\n * @docs docs/modulo/modint.md\n\
-    \ */\n#line 6 \"test/aoj/DPL_5_C.test.cpp\"\n\nusing mint = modint<1000000007>;\n\
-    \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Combination<mint>\
-    \ COM(1010);\n    int n, k;\n    cin >> n >> k;\n\n    mint ans = 0;\n    for\
-    \ (int i = 0; i < k; i++) {\n        mint add = COM.C(k, i) * mint(k - i).pow(n);\n\
-    \        if (i & 1)\n            ans -= add;\n        else\n            ans +=\
-    \ add;\n    }\n\n    cout << ans << '\\n';\n}\n"
+    \ modint pow(long long n) const noexcept {\n        assert(0 <= n);\n        modint\
+    \ self(*this), res(1);\n        while (n > 0) {\n            if (n & 1) res *=\
+    \ self;\n            self *= self;\n            n >>= 1;\n        }\n        return\
+    \ res;\n    }\n    constexpr modint inv() const noexcept {\n        assert(*this\
+    \ != 0);\n        return pow(mod - 2);\n    }\n    constexpr modint& operator++()\
+    \ noexcept {\n        if (++v == mod) v = 0;\n        return *this;\n    }\n \
+    \   constexpr modint& operator--() noexcept {\n        if (v == 0) v = mod;\n\
+    \        return --v, *this;\n    }\n    constexpr modint operator++(int) noexcept\
+    \ {\n        modint t = *this;\n        return ++*this, t;\n    }\n    constexpr\
+    \ modint operator--(int) noexcept {\n        modint t = *this;\n        return\
+    \ --*this, t;\n    }\n    constexpr modint operator-() const noexcept { return\
+    \ modint(mod - v); }\n    template <class T> friend constexpr modint operator+(T\
+    \ x, modint y) noexcept { return modint(x) + y; }\n    template <class T> friend\
+    \ constexpr modint operator-(T x, modint y) noexcept { return modint(x) - y; }\n\
+    \    template <class T> friend constexpr modint operator*(T x, modint y) noexcept\
+    \ { return modint(x) * y; }\n    template <class T> friend constexpr modint operator/(T\
+    \ x, modint y) noexcept { return modint(x) / y; }\n    constexpr bool operator==(const\
+    \ modint& rhs) const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const\
+    \ modint& rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!()\
+    \ const noexcept { return !v; }\n    friend std::istream& operator>>(std::istream&\
+    \ s, modint& rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n\
+    \        return s;\n    }\n    friend std::ostream& operator<<(std::ostream& s,\
+    \ const modint& rhs) noexcept { return s << rhs.v; }\n};\n\n/**\n * @brief modint\n\
+    \ * @docs docs/modulo/modint.md\n */\n#line 6 \"test/aoj/DPL_5_C.test.cpp\"\n\n\
+    using mint = modint<1000000007>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    Combination<mint> COM(1010);\n    int n, k;\n    cin >> n >> k;\n\n    mint\
+    \ ans = 0;\n    for (int i = 0; i < k; i++) {\n        mint add = COM.C(k, i)\
+    \ * mint(k - i).pow(n);\n        if (i & 1)\n            ans -= add;\n       \
+    \ else\n            ans += add;\n    }\n\n    cout << ans << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_C\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../combinatorics/combination.hpp\"\
     \n#include \"../../modulo/modint.hpp\"\n\nusing mint = modint<1000000007>;\n\n\
@@ -154,7 +153,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_C.test.cpp
   requiredBy: []
-  timestamp: '2021-09-21 14:56:05+09:00'
+  timestamp: '2021-09-25 17:45:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_C.test.cpp

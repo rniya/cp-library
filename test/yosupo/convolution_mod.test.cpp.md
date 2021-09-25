@@ -98,32 +98,31 @@ data:
     \    }\n    constexpr modint& operator*=(const modint& rhs) noexcept {\n     \
     \   v = (u64)v * rhs.v % mod;\n        return *this;\n    }\n    constexpr modint&\
     \ operator/=(const modint& rhs) noexcept { return *this *= rhs.inv(); }\n    constexpr\
-    \ modint pow(u64 exp) const noexcept {\n        assert(0 <= exp);\n        modint\
-    \ self(*this), res(1);\n        while (exp > 0) {\n            if (exp & 1) res\
-    \ *= self;\n            self *= self;\n            exp >>= 1;\n        }\n   \
-    \     return res;\n    }\n    constexpr modint inv() const noexcept {\n      \
-    \  assert(*this != 0);\n        return pow(mod - 2);\n    }\n    constexpr modint&\
-    \ operator++() noexcept {\n        if (++v == mod) v = 0;\n        return *this;\n\
-    \    }\n    constexpr modint& operator--() noexcept {\n        if (v == 0) v =\
-    \ mod;\n        return --v, *this;\n    }\n    constexpr modint operator++(int)\
-    \ noexcept {\n        modint t = *this;\n        return ++*this, t;\n    }\n \
-    \   constexpr modint operator--(int) noexcept {\n        modint t = *this;\n \
-    \       return --*this, t;\n    }\n    constexpr modint operator-() const noexcept\
-    \ { return modint(mod - v); }\n    template <class T> friend constexpr modint\
-    \ operator+(T x, modint y) noexcept { return modint(x) + y; }\n    template <class\
-    \ T> friend constexpr modint operator-(T x, modint y) noexcept { return modint(x)\
-    \ - y; }\n    template <class T> friend constexpr modint operator*(T x, modint\
-    \ y) noexcept { return modint(x) * y; }\n    template <class T> friend constexpr\
-    \ modint operator/(T x, modint y) noexcept { return modint(x) / y; }\n    constexpr\
-    \ bool operator==(const modint& rhs) const noexcept { return v == rhs.v; }\n \
-    \   constexpr bool operator!=(const modint& rhs) const noexcept { return v !=\
-    \ rhs.v; }\n    constexpr bool operator!() const noexcept { return !v; }\n   \
-    \ friend std::istream& operator>>(std::istream& s, modint& rhs) noexcept {\n \
-    \       i64 v;\n        rhs = modint{(s >> v, v)};\n        return s;\n    }\n\
-    \    friend std::ostream& operator<<(std::ostream& s, const modint& rhs) noexcept\
-    \ { return s << rhs.v; }\n};\n\n/**\n * @brief modint\n * @docs docs/modulo/modint.md\n\
-    \ */\n#line 4 \"convolution/NumberTheoreticTransform.hpp\"\n\n/**\n * @brief Number\
-    \ Theoretic Transform\n * @docs docs/convolution/NumberTheoreticTransform.md\n\
+    \ modint pow(long long n) const noexcept {\n        assert(0 <= n);\n        modint\
+    \ self(*this), res(1);\n        while (n > 0) {\n            if (n & 1) res *=\
+    \ self;\n            self *= self;\n            n >>= 1;\n        }\n        return\
+    \ res;\n    }\n    constexpr modint inv() const noexcept {\n        assert(*this\
+    \ != 0);\n        return pow(mod - 2);\n    }\n    constexpr modint& operator++()\
+    \ noexcept {\n        if (++v == mod) v = 0;\n        return *this;\n    }\n \
+    \   constexpr modint& operator--() noexcept {\n        if (v == 0) v = mod;\n\
+    \        return --v, *this;\n    }\n    constexpr modint operator++(int) noexcept\
+    \ {\n        modint t = *this;\n        return ++*this, t;\n    }\n    constexpr\
+    \ modint operator--(int) noexcept {\n        modint t = *this;\n        return\
+    \ --*this, t;\n    }\n    constexpr modint operator-() const noexcept { return\
+    \ modint(mod - v); }\n    template <class T> friend constexpr modint operator+(T\
+    \ x, modint y) noexcept { return modint(x) + y; }\n    template <class T> friend\
+    \ constexpr modint operator-(T x, modint y) noexcept { return modint(x) - y; }\n\
+    \    template <class T> friend constexpr modint operator*(T x, modint y) noexcept\
+    \ { return modint(x) * y; }\n    template <class T> friend constexpr modint operator/(T\
+    \ x, modint y) noexcept { return modint(x) / y; }\n    constexpr bool operator==(const\
+    \ modint& rhs) const noexcept { return v == rhs.v; }\n    constexpr bool operator!=(const\
+    \ modint& rhs) const noexcept { return v != rhs.v; }\n    constexpr bool operator!()\
+    \ const noexcept { return !v; }\n    friend std::istream& operator>>(std::istream&\
+    \ s, modint& rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n\
+    \        return s;\n    }\n    friend std::ostream& operator<<(std::ostream& s,\
+    \ const modint& rhs) noexcept { return s << rhs.v; }\n};\n\n/**\n * @brief modint\n\
+    \ * @docs docs/modulo/modint.md\n */\n#line 4 \"convolution/NumberTheoreticTransform.hpp\"\
+    \n\n/**\n * @brief Number Theoretic Transform\n * @docs docs/convolution/NumberTheoreticTransform.md\n\
     \ */\ntemplate <int mod> struct NumberTheoreticTransform {\n    using Mint = modint<mod>;\n\
     \    vector<Mint> roots;\n    vector<int> rev;\n    int base, max_base;\n    Mint\
     \ root;\n    NumberTheoreticTransform() : base(1), rev{0, 1}, roots{Mint(0), Mint(1)}\
@@ -179,7 +178,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/convolution_mod.test.cpp
   requiredBy: []
-  timestamp: '2021-09-21 14:56:05+09:00'
+  timestamp: '2021-09-25 17:45:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/convolution_mod.test.cpp

@@ -12,7 +12,7 @@ data:
     title: Mo's Algorithm
   - icon: ':heavy_check_mark:'
     path: util/compress.hpp
-    title: compress
+    title: "compress (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -113,15 +113,15 @@ data:
     \    while (r > right[idx]) del_right(--r);\n            rem(idx);\n        }\n\
     \    }\n    template <typename ADD, typename DEL, typename REM> void build(const\
     \ ADD& add, const DEL& del, const REM& rem) {\n        build(add, add, del, del,\
-    \ rem);\n    }\n};\n#line 3 \"util/compress.hpp\"\n\n/**\n * @brief compress\n\
-    \ */\ntemplate <typename T> map<T, int> compress(vector<T>& v) {\n    sort(v.begin(),\
-    \ v.end());\n    v.erase(unique(v.begin(), v.end()), v.end());\n    map<T, int>\
-    \ res;\n    for (int i = 0; i < (int)v.size(); i++) res[v[i]] = i;\n    return\
-    \ res;\n}\n#line 7 \"test/yosupo/static_range_inversions_query.test.cpp\"\n\n\
-    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n\
-    \    cin >> N >> Q;\n    vector<int> A(N);\n    for (int i = 0; i < N; i++) cin\
-    \ >> A[i];\n\n    Mo mo(N);\n    for (int i = 0; i < Q; i++) {\n        int l,\
-    \ r;\n        cin >> l >> r;\n        mo.insert(l, r);\n    }\n\n    vector<int>\
+    \ rem);\n    }\n};\n#line 5 \"util/compress.hpp\"\n\ntemplate <typename T> std::map<T,\
+    \ int> compress(std::vector<T>& v) {\n    std::sort(v.begin(), v.end());\n   \
+    \ v.erase(unique(v.begin(), v.end()), v.end());\n    std::map<T, int> res;\n \
+    \   for (size_t i = 0; i < v.size(); i++) res[v[i]] = i;\n    return res;\n}\n\
+    \n/**\n * @brief compress (\u5EA7\u6A19\u5727\u7E2E)\n */\n#line 7 \"test/yosupo/static_range_inversions_query.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ Q;\n    cin >> N >> Q;\n    vector<int> A(N);\n    for (int i = 0; i < N; i++)\
+    \ cin >> A[i];\n\n    Mo mo(N);\n    for (int i = 0; i < Q; i++) {\n        int\
+    \ l, r;\n        cin >> l >> r;\n        mo.insert(l, r);\n    }\n\n    vector<int>\
     \ B = A;\n    map<int, int> mp = compress(B);\n    for (int i = 0; i < N; i++)\
     \ A[i] = mp[A[i]];\n    int n = mp.size();\n    BinaryIndexedTree<int> BIT(n);\n\
     \    vector<long long> ans(Q);\n    long long inv = 0;\n    int sum = 0;\n\n \
@@ -161,7 +161,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2021-09-20 21:09:19+09:00'
+  timestamp: '2021-09-25 17:45:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp
