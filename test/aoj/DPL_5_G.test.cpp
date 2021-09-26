@@ -1,8 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_G"
 
 #include "../../base.hpp"
-#include "../../combinatorics/combination.hpp"
-
 #include "../../combinatorics/BellNumber.hpp"
 #include "../../modulo/modint.hpp"
 

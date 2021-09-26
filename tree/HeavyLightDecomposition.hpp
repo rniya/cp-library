@@ -4,10 +4,12 @@
 #include <vector>
 
 struct HeavyLightDecomposition {
+    std::vector<std::vector<int>> G;  // child of vertex v on heavy edge is G[v].front() if it is not parent of v
+
     HeavyLightDecomposition(int n)
-        : n(n),
+        : G(n),
+          n(n),
           time(0),
-          G(n),
           par(n, -1),
           sub(n),
           dep(n, 0),
@@ -91,8 +93,7 @@ struct HeavyLightDecomposition {
 
 private:
     int n, time;
-    std::vector<std::vector<int>> G;  // child of vertex v on heavy edge is G[v].front() if it is not parent of v
-    std::vector<int> par              // parent of vertex v
+    std::vector<int> par  // parent of vertex v
         ,
         sub  // size of subtree whose root is v
         ,
