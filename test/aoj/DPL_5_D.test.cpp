@@ -13,5 +13,5 @@ int main() {
     int n, k;
     cin >> n >> k;
 
-    cout << BINOM.H(n, k) << '\n';
+    cout << BINOM.H(k, n) << '\n';
 }
