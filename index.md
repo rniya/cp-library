@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -14,7 +14,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: combinatorics/PartitionTable.hpp
       title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: combinatorics/binomial.hpp
       title: binomial
   - name: convolution
@@ -215,7 +215,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: modulo/dynamic_modint.hpp
       title: "\u5B9F\u884C\u6642 modint"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: modulo/modint.hpp
       title: modint
     - icon: ':warning:'
@@ -445,7 +445,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_C.test.cpp
       title: test/aoj/DPL_5_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_D.test.cpp
       title: test/aoj/DPL_5_D.test.cpp
     - icon: ':heavy_check_mark:'

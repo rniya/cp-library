@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: combinatorics/binomial.hpp
     title: binomial
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_D
@@ -145,13 +145,13 @@ data:
     \ const modint& rhs) noexcept { return s << rhs.v; }\n};\n\n/**\n * @brief modint\n\
     \ * @docs docs/modulo/modint.md\n */\n#line 6 \"test/aoj/DPL_5_D.test.cpp\"\n\n\
     using mint = modint<1000000007>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    Binomial<mint> BINOM;\n    int n, k;\n    cin >> n >> k;\n\n    cout << BINOM.H(n,\
-    \ k) << '\\n';\n}\n"
+    \    Binomial<mint> BINOM;\n    int n, k;\n    cin >> n >> k;\n\n    cout << BINOM.H(k,\
+    \ n) << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_D\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../combinatorics/binomial.hpp\"\
     \n#include \"../../modulo/modint.hpp\"\n\nusing mint = modint<1000000007>;\n\n\
     int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Binomial<mint>\
-    \ BINOM;\n    int n, k;\n    cin >> n >> k;\n\n    cout << BINOM.H(n, k) << '\\\
+    \ BINOM;\n    int n, k;\n    cin >> n >> k;\n\n    cout << BINOM.H(k, n) << '\\\
     n';\n}"
   dependsOn:
   - base.hpp
@@ -160,8 +160,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_D.test.cpp
   requiredBy: []
-  timestamp: '2021-09-26 16:55:29+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-09-26 17:20:02+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_D.test.cpp
 layout: document

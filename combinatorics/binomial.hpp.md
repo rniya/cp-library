@@ -12,7 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_C.test.cpp
     title: test/aoj/DPL_5_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_D.test.cpp
     title: test/aoj/DPL_5_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -30,9 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1302.test.cpp
     title: test/yukicoder/1302.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/combinatorics/binomial.md
     document_title: binomial
@@ -90,7 +90,7 @@ data:
   requiredBy:
   - combinatorics/BellNumber.hpp
   timestamp: '2021-09-26 16:55:29+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DPL_5_B.test.cpp
   - test/aoj/DPL_5_D.test.cpp
@@ -112,12 +112,12 @@ $\mathbb{Z}/p\mathbb{Z}$ における二項係数を扱うライブラリ. $n$ �
 
 下記の時間計算量については構築にかかる時間計算量は含んでいない.
 
-| メンバ関数      | 効果                                                                                                                                                             | 時間計算量          |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `fac(i)`        | $i!$ を返す.                                                                                                                                                     | $O(1)$              |
-| `finv(i)`       | $\frac{1}{i!}$ を返す.                                                                                                                                           | $O(1)$              |
-| `inv(i)`        | $\frac{1}{i}$ を返す.                                                                                                                                            | $O(1)$              |
-| `P(n, r)`       | ${}_n\mathrm{P}_r = \frac{n!}{r!}$ を返す.                                                                                                                       | $O(1)$              |
-| `C(n, r)`       | ${}_n \mathrm{C}_r = \binom{n}{r} = \frac{n!}{(n - r)!r!}$ を返す.                                                                                               | $O(1)$              |
-| `H(n, r)`       | ${}_n \mathrm{H}_r = \binom{n + r - 1}{n}$ , すなわち $n$ 個の区別できない玉を $r$ 個の区別できる箱に入れる (ただし, 箱が空な状態を許す) 入れ方の総数を計算する. | $O(1)$              |
-| `C_naive(n, r)` | $\binom{n}{r}$ を愚直に計算する.                                                                                                                                 | $O(\min(r, n - r))$ |
+| メンバ関数      | 効果                                                                                                                           | 時間計算量          |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
+| `fac(i)`        | $i!$ を返す.                                                                                                                   | $O(1)$              |
+| `finv(i)`       | $\frac{1}{i!}$ を返す.                                                                                                         | $O(1)$              |
+| `inv(i)`        | $\frac{1}{i}$ を返す.                                                                                                          | $O(1)$              |
+| `P(n, r)`       | ${}_n\mathrm{P}_r = \frac{n!}{r!}$ を返す.                                                                                     | $O(1)$              |
+| `C(n, r)`       | ${}_n \mathrm{C}_r = \binom{n}{r} = \frac{n!}{(n - r)!r!}$ を返す.                                                             | $O(1)$              |
+| `H(n, r)`       | ${}_n \mathrm{H}_r = \binom{n + r - 1}{r}$ , すなわち $n$ 種類のものから重複を許して $r$ 個取り出す組み合わせの総数を計算する. | $O(1)$              |
+| `C_naive(n, r)` | $\binom{n}{r}$ を愚直に計算する.                                                                                               | $O(\min(r, n - r))$ |
