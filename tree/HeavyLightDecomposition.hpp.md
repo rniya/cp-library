@@ -30,21 +30,22 @@ data:
     links: []
   bundledCode: "#line 2 \"tree/HeavyLightDecomposition.hpp\"\n#include <cassert>\n\
     #include <utility>\n#include <vector>\n\nstruct HeavyLightDecomposition {\n  \
-    \  HeavyLightDecomposition(int n)\n        : n(n),\n          time(0),\n     \
-    \     G(n),\n          par(n, -1),\n          sub(n),\n          dep(n, 0),\n\
-    \          head(n),\n          tree_id(n, -1),\n          vertex_id(n, -1),\n\
-    \          vertex_id_inv(n) {}\n    void add_edge(int u, int v) {\n        assert(0\
-    \ <= u && u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n\
-    \        G[v].emplace_back(u);\n    }\n\n    void build(std::vector<int> roots\
-    \ = {0}) {\n        int tree_id_cur = 0;\n        for (int& r : roots) {\n   \
-    \         assert(0 <= r && r < n);\n            dfs_sz(r);\n            head[r]\
-    \ = r;\n            dfs_hld(r, tree_id_cur++);\n        }\n        assert(time\
-    \ == n);\n        for (int v = 0; v < n; v++) vertex_id_inv[vertex_id[v]] = v;\n\
-    \    }\n\n    int idx(int v) const { return vertex_id[v]; }\n\n    int la(int\
-    \ v, int k) {\n        assert(0 <= v && v < n);\n        assert(0 <= k && k <=\
-    \ dep[v]);\n        while (1) {\n            int u = head[v];\n            if\
-    \ (vertex_id[v] - k >= vertex_id[u]) return vertex_id_inv[vertex_id[v] - k];\n\
-    \            k -= vertex_id[v] - vertex_id[u] + 1;\n            v = par[u];\n\
+    \  std::vector<std::vector<int>> G;  // child of vertex v on heavy edge is G[v].front()\
+    \ if it is not parent of v\n\n    HeavyLightDecomposition(int n)\n        : G(n),\n\
+    \          n(n),\n          time(0),\n          par(n, -1),\n          sub(n),\n\
+    \          dep(n, 0),\n          head(n),\n          tree_id(n, -1),\n       \
+    \   vertex_id(n, -1),\n          vertex_id_inv(n) {}\n    void add_edge(int u,\
+    \ int v) {\n        assert(0 <= u && u < n);\n        assert(0 <= v && v < n);\n\
+    \        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n    }\n\n    void\
+    \ build(std::vector<int> roots = {0}) {\n        int tree_id_cur = 0;\n      \
+    \  for (int& r : roots) {\n            assert(0 <= r && r < n);\n            dfs_sz(r);\n\
+    \            head[r] = r;\n            dfs_hld(r, tree_id_cur++);\n        }\n\
+    \        assert(time == n);\n        for (int v = 0; v < n; v++) vertex_id_inv[vertex_id[v]]\
+    \ = v;\n    }\n\n    int idx(int v) const { return vertex_id[v]; }\n\n    int\
+    \ la(int v, int k) {\n        assert(0 <= v && v < n);\n        assert(0 <= k\
+    \ && k <= dep[v]);\n        while (1) {\n            int u = head[v];\n      \
+    \      if (vertex_id[v] - k >= vertex_id[u]) return vertex_id_inv[vertex_id[v]\
+    \ - k];\n            k -= vertex_id[v] - vertex_id[u] + 1;\n            v = par[u];\n\
     \        }\n    }\n\n    int lca(int u, int v) const {\n        assert(0 <= u\
     \ && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
     \        for (;; v = par[head[v]]) {\n            if (vertex_id[u] > vertex_id[v])\
@@ -65,26 +66,24 @@ data:
     \    for (auto& e : descend(p, v)) f(e.first, e.second + 1);\n    }\n\n    template\
     \ <typename F> void query_subtree(int u, const F& f, bool vertex = false) const\
     \ {\n        assert(0 <= u && u < n);\n        f(vertex_id[u] + !vertex, vertex_id[u]\
-    \ + sub[u]);\n    }\n\nprivate:\n    int n, time;\n    std::vector<std::vector<int>>\
-    \ G;  // child of vertex v on heavy edge is G[v].front() if it is not parent of\
-    \ v\n    std::vector<int> par              // parent of vertex v\n        ,\n\
-    \        sub  // size of subtree whose root is v\n        ,\n        dep  // distance\
-    \ bitween root and vertex v\n        ,\n        head  // vertex that is the nearest\
-    \ to root on heavy path of vertex v\n        ,\n        tree_id  // id of tree\
-    \ vertex v belongs to\n        ,\n        vertex_id  // id of vertex v (consecutive\
-    \ on heavy paths)\n        ,\n        vertex_id_inv;  // vertex_id_inv[vertex_id[v]]\
-    \ = v\n\n    void dfs_sz(int v) {\n        sub[v] = 1;\n        if (!G[v].empty()\
-    \ && G[v].front() == par[v]) std::swap(G[v].front(), G[v].back());\n        for\
-    \ (int& u : G[v]) {\n            if (u == par[v]) continue;\n            par[u]\
-    \ = v;\n            dep[u] = dep[v] + 1;\n            dfs_sz(u);\n           \
-    \ sub[v] += sub[u];\n            if (sub[u] > sub[G[v].front()]) std::swap(u,\
-    \ G[v].front());\n        }\n    }\n\n    void dfs_hld(int v, int tree_id_cur)\
-    \ {\n        vertex_id[v] = time++;\n        tree_id[v] = tree_id_cur;\n     \
-    \   for (int& u : G[v]) {\n            if (u == par[v]) continue;\n          \
-    \  head[u] = (u == G[v][0] ? head[v] : u);\n            dfs_hld(u, tree_id_cur);\n\
-    \        }\n    }\n\n    std::vector<std::pair<int, int>> ascend(int u, int v)\
-    \ const {  // [u, v), v is ancestor of u\n        std::vector<std::pair<int, int>>\
-    \ res;\n        while (head[u] != head[v]) {\n            res.emplace_back(vertex_id[u],\
+    \ + sub[u]);\n    }\n\nprivate:\n    int n, time;\n    std::vector<int> par  //\
+    \ parent of vertex v\n        ,\n        sub  // size of subtree whose root is\
+    \ v\n        ,\n        dep  // distance bitween root and vertex v\n        ,\n\
+    \        head  // vertex that is the nearest to root on heavy path of vertex v\n\
+    \        ,\n        tree_id  // id of tree vertex v belongs to\n        ,\n  \
+    \      vertex_id  // id of vertex v (consecutive on heavy paths)\n        ,\n\
+    \        vertex_id_inv;  // vertex_id_inv[vertex_id[v]] = v\n\n    void dfs_sz(int\
+    \ v) {\n        sub[v] = 1;\n        if (!G[v].empty() && G[v].front() == par[v])\
+    \ std::swap(G[v].front(), G[v].back());\n        for (int& u : G[v]) {\n     \
+    \       if (u == par[v]) continue;\n            par[u] = v;\n            dep[u]\
+    \ = dep[v] + 1;\n            dfs_sz(u);\n            sub[v] += sub[u];\n     \
+    \       if (sub[u] > sub[G[v].front()]) std::swap(u, G[v].front());\n        }\n\
+    \    }\n\n    void dfs_hld(int v, int tree_id_cur) {\n        vertex_id[v] = time++;\n\
+    \        tree_id[v] = tree_id_cur;\n        for (int& u : G[v]) {\n          \
+    \  if (u == par[v]) continue;\n            head[u] = (u == G[v][0] ? head[v] :\
+    \ u);\n            dfs_hld(u, tree_id_cur);\n        }\n    }\n\n    std::vector<std::pair<int,\
+    \ int>> ascend(int u, int v) const {  // [u, v), v is ancestor of u\n        std::vector<std::pair<int,\
+    \ int>> res;\n        while (head[u] != head[v]) {\n            res.emplace_back(vertex_id[u],\
     \ vertex_id[head[u]]);\n            u = par[head[u]];\n        }\n        if (u\
     \ != v) res.emplace_back(vertex_id[u], vertex_id[v] + 1);\n        return res;\n\
     \    }\n\n    std::vector<std::pair<int, int>> descend(int u, int v) const { \
@@ -94,9 +93,10 @@ data:
     \        return res;\n    }\n};\n\n/**\n * @brief Heavy Light Decomposition\n\
     \ * @docs docs/tree/HeavyLightDecomposition.md\n */\n"
   code: "#pragma once\n#include <cassert>\n#include <utility>\n#include <vector>\n\
-    \nstruct HeavyLightDecomposition {\n    HeavyLightDecomposition(int n)\n     \
-    \   : n(n),\n          time(0),\n          G(n),\n          par(n, -1),\n    \
-    \      sub(n),\n          dep(n, 0),\n          head(n),\n          tree_id(n,\
+    \nstruct HeavyLightDecomposition {\n    std::vector<std::vector<int>> G;  // child\
+    \ of vertex v on heavy edge is G[v].front() if it is not parent of v\n\n    HeavyLightDecomposition(int\
+    \ n)\n        : G(n),\n          n(n),\n          time(0),\n          par(n, -1),\n\
+    \          sub(n),\n          dep(n, 0),\n          head(n),\n          tree_id(n,\
     \ -1),\n          vertex_id(n, -1),\n          vertex_id_inv(n) {}\n    void add_edge(int\
     \ u, int v) {\n        assert(0 <= u && u < n);\n        assert(0 <= v && v <\
     \ n);\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n    }\n\n\
@@ -129,26 +129,24 @@ data:
     \    for (auto& e : descend(p, v)) f(e.first, e.second + 1);\n    }\n\n    template\
     \ <typename F> void query_subtree(int u, const F& f, bool vertex = false) const\
     \ {\n        assert(0 <= u && u < n);\n        f(vertex_id[u] + !vertex, vertex_id[u]\
-    \ + sub[u]);\n    }\n\nprivate:\n    int n, time;\n    std::vector<std::vector<int>>\
-    \ G;  // child of vertex v on heavy edge is G[v].front() if it is not parent of\
-    \ v\n    std::vector<int> par              // parent of vertex v\n        ,\n\
-    \        sub  // size of subtree whose root is v\n        ,\n        dep  // distance\
-    \ bitween root and vertex v\n        ,\n        head  // vertex that is the nearest\
-    \ to root on heavy path of vertex v\n        ,\n        tree_id  // id of tree\
-    \ vertex v belongs to\n        ,\n        vertex_id  // id of vertex v (consecutive\
-    \ on heavy paths)\n        ,\n        vertex_id_inv;  // vertex_id_inv[vertex_id[v]]\
-    \ = v\n\n    void dfs_sz(int v) {\n        sub[v] = 1;\n        if (!G[v].empty()\
-    \ && G[v].front() == par[v]) std::swap(G[v].front(), G[v].back());\n        for\
-    \ (int& u : G[v]) {\n            if (u == par[v]) continue;\n            par[u]\
-    \ = v;\n            dep[u] = dep[v] + 1;\n            dfs_sz(u);\n           \
-    \ sub[v] += sub[u];\n            if (sub[u] > sub[G[v].front()]) std::swap(u,\
-    \ G[v].front());\n        }\n    }\n\n    void dfs_hld(int v, int tree_id_cur)\
-    \ {\n        vertex_id[v] = time++;\n        tree_id[v] = tree_id_cur;\n     \
-    \   for (int& u : G[v]) {\n            if (u == par[v]) continue;\n          \
-    \  head[u] = (u == G[v][0] ? head[v] : u);\n            dfs_hld(u, tree_id_cur);\n\
-    \        }\n    }\n\n    std::vector<std::pair<int, int>> ascend(int u, int v)\
-    \ const {  // [u, v), v is ancestor of u\n        std::vector<std::pair<int, int>>\
-    \ res;\n        while (head[u] != head[v]) {\n            res.emplace_back(vertex_id[u],\
+    \ + sub[u]);\n    }\n\nprivate:\n    int n, time;\n    std::vector<int> par  //\
+    \ parent of vertex v\n        ,\n        sub  // size of subtree whose root is\
+    \ v\n        ,\n        dep  // distance bitween root and vertex v\n        ,\n\
+    \        head  // vertex that is the nearest to root on heavy path of vertex v\n\
+    \        ,\n        tree_id  // id of tree vertex v belongs to\n        ,\n  \
+    \      vertex_id  // id of vertex v (consecutive on heavy paths)\n        ,\n\
+    \        vertex_id_inv;  // vertex_id_inv[vertex_id[v]] = v\n\n    void dfs_sz(int\
+    \ v) {\n        sub[v] = 1;\n        if (!G[v].empty() && G[v].front() == par[v])\
+    \ std::swap(G[v].front(), G[v].back());\n        for (int& u : G[v]) {\n     \
+    \       if (u == par[v]) continue;\n            par[u] = v;\n            dep[u]\
+    \ = dep[v] + 1;\n            dfs_sz(u);\n            sub[v] += sub[u];\n     \
+    \       if (sub[u] > sub[G[v].front()]) std::swap(u, G[v].front());\n        }\n\
+    \    }\n\n    void dfs_hld(int v, int tree_id_cur) {\n        vertex_id[v] = time++;\n\
+    \        tree_id[v] = tree_id_cur;\n        for (int& u : G[v]) {\n          \
+    \  if (u == par[v]) continue;\n            head[u] = (u == G[v][0] ? head[v] :\
+    \ u);\n            dfs_hld(u, tree_id_cur);\n        }\n    }\n\n    std::vector<std::pair<int,\
+    \ int>> ascend(int u, int v) const {  // [u, v), v is ancestor of u\n        std::vector<std::pair<int,\
+    \ int>> res;\n        while (head[u] != head[v]) {\n            res.emplace_back(vertex_id[u],\
     \ vertex_id[head[u]]);\n            u = par[head[u]];\n        }\n        if (u\
     \ != v) res.emplace_back(vertex_id[u], vertex_id[v] + 1);\n        return res;\n\
     \    }\n\n    std::vector<std::pair<int, int>> descend(int u, int v) const { \
@@ -161,7 +159,7 @@ data:
   isVerificationFile: false
   path: tree/HeavyLightDecomposition.hpp
   requiredBy: []
-  timestamp: '2021-09-25 17:45:48+09:00'
+  timestamp: '2021-09-26 16:55:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2667.test.cpp
@@ -188,6 +186,7 @@ title: Heavy Light Decomposition
 | `add_edge(u, v)`                             | 辺 $(u,v)$ を追加する.                                                                                    | $O(1)$          |
 | `build()`                                    | 追加された辺情報をもとに Heavy edge, Light edge の情報を構築する.                                         | $O(n)$          |
 | `idx(v)`                                     | 内部処理における頂点 $v$ の識別子を返す. 一点更新や一点取得の際に必要となる.                              | $O(1)$          |
+| `la(v,k)`                                    | $v$ から根の方向に $k$ 回辺を辿った先の頂点を返す.                                                        | $O(\log n)$     |
 | `lca(u, v)`                                  | 頂点 $u, v$ の最小共通祖先を返す.                                                                         | $O(\log n)$     |
 | `distance(u, v)`                             | `add_edge` で追加された各辺の重みを 1 として, 頂点 $u, v$ 間の距離を返す.                                 | $O(\log n)$     |
 | `query_path(u, v, f, vertex)`                | 頂点 $u, v$ 間のパスに対してのクエリを処理する (演算が可換, すなわち扱う対象がモノイドである必要がある) . | $O((\log n)^2)$ |

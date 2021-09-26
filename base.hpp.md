@@ -3,14 +3,8 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: combinatorics/BellNumber.hpp
-    title: "\u30D9\u30EB\u6570"
-  - icon: ':heavy_check_mark:'
     path: combinatorics/PartitionTable.hpp
     title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
-  - icon: ':heavy_check_mark:'
-    path: combinatorics/combination.hpp
-    title: combination
   - icon: ':heavy_check_mark:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
@@ -352,7 +346,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_C.test.cpp
     title: test/aoj/DPL_5_C.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DPL_5_D.test.cpp
     title: test/aoj/DPL_5_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -691,9 +685,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -898,11 +892,9 @@ data:
   - math/fast_factorize.hpp
   - math/floor_sum.hpp
   - math/quotient_ranges.hpp
-  - combinatorics/combination.hpp
-  - combinatorics/BellNumber.hpp
   - combinatorics/PartitionTable.hpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/CGL_4_B.test.cpp
   - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
