@@ -9,13 +9,14 @@ int main() {
     int n;
     cin >> n;
 
-    TreeDiameter<int> TD(n);
+    TreeDiameter<> TD(n);
     for (int i = 0; i < n - 1; i++) {
         int s, t, w;
         cin >> s >> t >> w;
         TD.add_edge(s, t, w);
     }
 
-    vector<int> ans = TD.farthest();
+    vector<int> ans = TD.farthest_distance();
     for (int i = 0; i < n; i++) cout << ans[i] << '\n';
+    return 0;
 }

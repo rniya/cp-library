@@ -9,12 +9,14 @@ int main() {
     int n;
     cin >> n;
 
-    TreeDiameter<int> TD(n);
+    TreeDiameter<> TD(n);
     for (int i = 0; i < n - 1; i++) {
         int s, t, w;
         cin >> s >> t >> w;
         TD.add_edge(s, t, w);
     }
 
-    cout << TD.build() << '\n';
+    int ans = TD.get_diameter_path().first;
+    cout << ans << '\n';
+    return 0;
 }

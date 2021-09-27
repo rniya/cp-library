@@ -17,9 +17,11 @@ int main() {
         TD.add_edge(a, b, c);
     }
 
-    long long X = TD.build();
-    vector<int> ans = TD.restore();
+    auto res = TD.get_diameter_path();
+    long long X = res.first;
+    auto ans = res.second;
     int Y = ans.size();
     cout << X << ' ' << Y << '\n';
     for (int i = 0; i < Y; i++) cout << ans[i] << (i + 1 == Y ? '\n' : ' ');
+    return 0;
 }

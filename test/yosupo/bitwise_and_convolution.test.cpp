@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/bitwise_xor_convolution"
+#define PROBLEM "https://judge.yosupo.jp/problem/bitwise_and_convolution"
 
 #include "../../base.hpp"
 #include "../../convolution/set_function.hpp"
@@ -15,7 +15,7 @@ int main() {
     for (int i = 0; i < (1 << N); i++) cin >> a[i];
     for (int i = 0; i < (1 << N); i++) cin >> b[i];
 
-    vector<mint> c = set_function::xor_convolution(a, b);
+    vector<mint> c = set_function::and_convolution(a, b);
     for (int i = 0; i < (1 << N); i++) cout << c[i] << (i + 1 == (1 << N) ? '\n' : ' ');
     return 0;
 }

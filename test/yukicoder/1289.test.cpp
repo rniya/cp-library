@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1289"
 
 #include "../../base.hpp"
-#include "../../convolution/FastZetaMobiusTransform_Subset.hpp"
+#include "../../convolution/set_function.hpp"
 #include "../../modulo/modint.hpp"
 
 using mint = modint<998244353>;
@@ -18,7 +18,7 @@ int main() {
         sum += A[i];
     }
 
-    FastZetaTransform(N, A);
+    set_function::subset_zeta_transform(A);
     mint ans = 0, inv = mint(1) / sum;
 
     for (int mask = 0; mask < (1 << N) - 1; mask++) {
@@ -30,4 +30,5 @@ int main() {
     }
 
     cout << ans << '\n';
+    return 0;
 }

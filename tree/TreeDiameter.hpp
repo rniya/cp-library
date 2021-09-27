@@ -1,58 +1,62 @@
 #pragma once
-#include "../base.hpp"
+#include <cassert>
+#include <vector>
+
+template <typename T = int> struct TreeDiameter {
+    std::vector<std::vector<std::pair<int, T>>> G;
+
+    TreeDiameter(int n) : G(n), n(n), dist(n), par(n) {}
+
+    void add_edge(int u, int v, T c = 1) {
+        assert(0 <= u && u < n);
+        assert(0 <= v && v < n);
+        G[u].emplace_back(v, c);
+        G[v].emplace_back(u, c);
+    }
+
+    std::pair<T, std::vector<int>> get_diameter_path() {
+        argmax = 0;
+        dfs(argmax, -1);
+        dfs(argmax, -1);
+        T diam = dist[argmax];
+        std::vector<int> path;
+        while (argmax >= 0) {
+            path.emplace_back(argmax);
+            argmax = par[argmax];
+        }
+        return {diam, path};
+    }
+
+    std::vector<T> farthest_distance() {
+        auto path = get_diameter_path().second;
+        int s = path.front(), t = path.back();
+        dfs(s, -1);
+        auto dist_s = dist;
+        dfs(t, -1);
+        auto dist_t = dist;
+        for (int i = 0; i < n; i++) dist_s[i] = std::max(dist_s[i], dist_t[i]);
+        return dist_s;
+    }
+
+private:
+    int n, argmax;
+    std::vector<T> dist;
+    std::vector<int> par;
+
+    void dfs(int v, int p) {
+        par[v] = p;
+        if (p < 0) dist[v] = T(0);
+        if (dist[argmax] < dist[v]) argmax = v;
+        for (auto& e : G[v]) {
+            int u = e.first;
+            if (u == p) continue;
+            dist[u] = dist[v] + e.second;
+            dfs(u, v);
+        }
+    }
+};
 
 /**
  * @brief Tree Diameter
  * @docs docs/tree/TreeDiameter.md
  */
-template <typename T> struct TreeDiameter {
-    vector<T> dp, par;
-    vector<vector<pair<int, T>>> G;
-    TreeDiameter(int n) : dp(n), par(n), G(n) {}
-    void add_edge(int u, int v, T c) {
-        G[u].emplace_back(v, c);
-        G[v].emplace_back(u, c);
-    }
-    void dfs(int v, int p, int& s) {
-        par[v] = p;
-        if (p < 0) dp[v] = T(0);
-        if (dp[s] < dp[v]) s = v;
-        for (auto e : G[v]) {
-            int u = e.first;
-            if (u == p) continue;
-            dp[u] = dp[v] + e.second;
-            dfs(u, v, s);
-        }
-    }
-    pair<int, int> endPoints() {
-        int s = 0;
-        dfs(s, -1, s);
-        int t = s;
-        dfs(t, -1, t);
-        return make_pair(s, t);
-    }
-    T build() {
-        int t = endPoints().second;
-        return dp[t];
-    }
-    vector<int> restore() {
-        int t = endPoints().second;
-        vector<int> res;
-        while (~t) {
-            res.emplace_back(t);
-            t = par[t];
-        }
-        return res;
-    }
-    vector<T> distance(int v) {
-        dfs(v, -1, v);
-        return dp;
-    }
-    vector<T> farthest() {
-        int t = endPoints().second;
-        auto ds = dp;
-        auto dt = distance(t);
-        for (int i = 0; i < (int)ds.size(); i++) ds[i] = max(ds[i], dt[i]);
-        return ds;
-    }
-};
