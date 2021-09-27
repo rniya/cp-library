@@ -17,7 +17,7 @@ int main() {
     for (int i = 0; i < Q; i++) {
         int l, r;
         cin >> l >> r;
-        mo.insert(l, r);
+        mo.add(l, r);
     }
 
     vector<int> B = A;
@@ -51,7 +51,8 @@ int main() {
     };
     auto rem = [&](int idx) { ans[idx] = inv; };
 
-    mo.build(add_left, add_right, del_left, del_right, rem);
+    mo.run(add_left, add_right, del_left, del_right, rem);
 
     for (int i = 0; i < Q; i++) cout << ans[i] << '\n';
+    return 0;
 }

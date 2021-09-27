@@ -30,7 +30,7 @@ int main() {
     Mo mo(N);
     for (int i = 0; i < Q; i++) {
         cin >> l[i] >> r[i];
-        mo.insert(--l[i], r[i]);
+        mo.add(--l[i], r[i]);
         ans[i] += left[l[i]] + right[r[i]];
     }
 
@@ -67,7 +67,7 @@ int main() {
         seg.update(a[idx] + 1, N, 1);
     };
     auto rem = [&](int idx) { ans[idx] += inv + seg.query(0, N) * (r[idx] - l[idx]); };
-    mo.build(add_left, add_right, del_left, del_right, rem);
+    mo.run(add_left, add_right, del_left, del_right, rem);
 
     for (int i = 0; i < Q; i++) cout << ans[i] << '\n';
     return 0;
