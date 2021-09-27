@@ -75,44 +75,46 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"tree/TreeDiameter.hpp\"\
-    \n\n/**\n * @brief Tree Diameter\n * @docs docs/tree/TreeDiameter.md\n */\ntemplate\
-    \ <typename T> struct TreeDiameter {\n    vector<T> dp, par;\n    vector<vector<pair<int,\
-    \ T>>> G;\n    TreeDiameter(int n) : dp(n), par(n), G(n) {}\n    void add_edge(int\
-    \ u, int v, T c) {\n        G[u].emplace_back(v, c);\n        G[v].emplace_back(u,\
-    \ c);\n    }\n    void dfs(int v, int p, int& s) {\n        par[v] = p;\n    \
-    \    if (p < 0) dp[v] = T(0);\n        if (dp[s] < dp[v]) s = v;\n        for\
-    \ (auto e : G[v]) {\n            int u = e.first;\n            if (u == p) continue;\n\
-    \            dp[u] = dp[v] + e.second;\n            dfs(u, v, s);\n        }\n\
-    \    }\n    pair<int, int> endPoints() {\n        int s = 0;\n        dfs(s, -1,\
-    \ s);\n        int t = s;\n        dfs(t, -1, t);\n        return make_pair(s,\
-    \ t);\n    }\n    T build() {\n        int t = endPoints().second;\n        return\
-    \ dp[t];\n    }\n    vector<int> restore() {\n        int t = endPoints().second;\n\
-    \        vector<int> res;\n        while (~t) {\n            res.emplace_back(t);\n\
-    \            t = par[t];\n        }\n        return res;\n    }\n    vector<T>\
-    \ distance(int v) {\n        dfs(v, -1, v);\n        return dp;\n    }\n    vector<T>\
-    \ farthest() {\n        int t = endPoints().second;\n        auto ds = dp;\n \
-    \       auto dt = distance(t);\n        for (int i = 0; i < (int)ds.size(); i++)\
-    \ ds[i] = max(ds[i], dt[i]);\n        return ds;\n    }\n};\n#line 5 \"test/aoj/GRL_5_B.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\n\
-    \    cin >> n;\n\n    TreeDiameter<int> TD(n);\n    for (int i = 0; i < n - 1;\
-    \ i++) {\n        int s, t, w;\n        cin >> s >> t >> w;\n        TD.add_edge(s,\
-    \ t, w);\n    }\n\n    vector<int> ans = TD.farthest();\n    for (int i = 0; i\
-    \ < n; i++) cout << ans[i] << '\\n';\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 4 \"tree/TreeDiameter.hpp\"\
+    \n\ntemplate <typename T = int> struct TreeDiameter {\n    std::vector<std::vector<std::pair<int,\
+    \ T>>> G;\n\n    TreeDiameter(int n) : G(n), n(n), dist(n), par(n) {}\n\n    void\
+    \ add_edge(int u, int v, T c = 1) {\n        assert(0 <= u && u < n);\n      \
+    \  assert(0 <= v && v < n);\n        G[u].emplace_back(v, c);\n        G[v].emplace_back(u,\
+    \ c);\n    }\n\n    std::pair<T, std::vector<int>> get_diameter_path() {\n   \
+    \     argmax = 0;\n        dfs(argmax, -1);\n        dfs(argmax, -1);\n      \
+    \  T diam = dist[argmax];\n        std::vector<int> path;\n        while (argmax\
+    \ >= 0) {\n            path.emplace_back(argmax);\n            argmax = par[argmax];\n\
+    \        }\n        return {diam, path};\n    }\n\n    std::vector<T> farthest_distance()\
+    \ {\n        auto path = get_diameter_path().second;\n        int s = path.front(),\
+    \ t = path.back();\n        dfs(s, -1);\n        auto dist_s = dist;\n       \
+    \ dfs(t, -1);\n        auto dist_t = dist;\n        for (int i = 0; i < n; i++)\
+    \ dist_s[i] = std::max(dist_s[i], dist_t[i]);\n        return dist_s;\n    }\n\
+    \nprivate:\n    int n, argmax;\n    std::vector<T> dist;\n    std::vector<int>\
+    \ par;\n\n    void dfs(int v, int p) {\n        par[v] = p;\n        if (p < 0)\
+    \ dist[v] = T(0);\n        if (dist[argmax] < dist[v]) argmax = v;\n        for\
+    \ (auto& e : G[v]) {\n            int u = e.first;\n            if (u == p) continue;\n\
+    \            dist[u] = dist[v] + e.second;\n            dfs(u, v);\n        }\n\
+    \    }\n};\n\n/**\n * @brief Tree Diameter\n * @docs docs/tree/TreeDiameter.md\n\
+    \ */\n#line 5 \"test/aoj/GRL_5_B.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int n;\n    cin >> n;\n\n    TreeDiameter<>\
+    \ TD(n);\n    for (int i = 0; i < n - 1; i++) {\n        int s, t, w;\n      \
+    \  cin >> s >> t >> w;\n        TD.add_edge(s, t, w);\n    }\n\n    vector<int>\
+    \ ans = TD.farthest_distance();\n    for (int i = 0; i < n; i++) cout << ans[i]\
+    \ << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../tree/TreeDiameter.hpp\"\n\n\
     int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\n\
-    \    cin >> n;\n\n    TreeDiameter<int> TD(n);\n    for (int i = 0; i < n - 1;\
-    \ i++) {\n        int s, t, w;\n        cin >> s >> t >> w;\n        TD.add_edge(s,\
-    \ t, w);\n    }\n\n    vector<int> ans = TD.farthest();\n    for (int i = 0; i\
-    \ < n; i++) cout << ans[i] << '\\n';\n}"
+    \    cin >> n;\n\n    TreeDiameter<> TD(n);\n    for (int i = 0; i < n - 1; i++)\
+    \ {\n        int s, t, w;\n        cin >> s >> t >> w;\n        TD.add_edge(s,\
+    \ t, w);\n    }\n\n    vector<int> ans = TD.farthest_distance();\n    for (int\
+    \ i = 0; i < n; i++) cout << ans[i] << '\\n';\n    return 0;\n}"
   dependsOn:
   - base.hpp
   - tree/TreeDiameter.hpp
   isVerificationFile: true
   path: test/aoj/GRL_5_B.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-09-27 13:41:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_B.test.cpp

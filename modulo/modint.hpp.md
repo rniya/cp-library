@@ -43,6 +43,9 @@ data:
     path: test/aoj/DPL_5_L.test.cpp
     title: test/aoj/DPL_5_L.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/bitwise_and_convolution.test.cpp
+    title: test/yosupo/bitwise_and_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/bitwise_xor_convolution.test.cpp
     title: test/yosupo/bitwise_xor_convolution.test.cpp
   - icon: ':heavy_check_mark:'
@@ -221,6 +224,7 @@ data:
   - test/aoj/DPL_5_E.test.cpp
   - test/aoj/DPL_5_C.test.cpp
   - test/aoj/DPL_5_G.test.cpp
+  - test/yosupo/bitwise_and_convolution.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/matrix_det.test.cpp
   - test/yosupo/stirling_number_of_the_second_kind.test.cpp

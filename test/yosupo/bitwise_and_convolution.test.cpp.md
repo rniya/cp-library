@@ -17,11 +17,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/bitwise_xor_convolution
+    PROBLEM: https://judge.yosupo.jp/problem/bitwise_and_convolution
     links:
-    - https://judge.yosupo.jp/problem/bitwise_xor_convolution
-  bundledCode: "#line 1 \"test/yosupo/bitwise_xor_convolution.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/bitwise_xor_convolution\"\n\n#line\
+    - https://judge.yosupo.jp/problem/bitwise_and_convolution
+  bundledCode: "#line 1 \"test/yosupo/bitwise_and_convolution.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/bitwise_and_convolution\"\n\n#line\
     \ 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n#pragma region\
     \ Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int\
     \ uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
@@ -161,20 +161,20 @@ data:
     \ modint& rhs) noexcept {\n        i64 v;\n        rhs = modint{(s >> v, v)};\n\
     \        return s;\n    }\n    friend std::ostream& operator<<(std::ostream& s,\
     \ const modint& rhs) noexcept { return s << rhs.v; }\n};\n\n/**\n * @brief modint\n\
-    \ * @docs docs/modulo/modint.md\n */\n#line 6 \"test/yosupo/bitwise_xor_convolution.test.cpp\"\
+    \ * @docs docs/modulo/modint.md\n */\n#line 6 \"test/yosupo/bitwise_and_convolution.test.cpp\"\
     \n\nusing mint = modint<998244353>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    int N;\n    cin >> N;\n    vector<mint> a(1 << N), b(1 << N);\n    for (int\
     \ i = 0; i < (1 << N); i++) cin >> a[i];\n    for (int i = 0; i < (1 << N); i++)\
-    \ cin >> b[i];\n\n    vector<mint> c = set_function::xor_convolution(a, b);\n\
+    \ cin >> b[i];\n\n    vector<mint> c = set_function::and_convolution(a, b);\n\
     \    for (int i = 0; i < (1 << N); i++) cout << c[i] << (i + 1 == (1 << N) ? '\\\
     n' : ' ');\n    return 0;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_xor_convolution\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_and_convolution\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../convolution/set_function.hpp\"\
     \n#include \"../../modulo/modint.hpp\"\n\nusing mint = modint<998244353>;\n\n\
     int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\n\
     \    cin >> N;\n    vector<mint> a(1 << N), b(1 << N);\n    for (int i = 0; i\
     \ < (1 << N); i++) cin >> a[i];\n    for (int i = 0; i < (1 << N); i++) cin >>\
-    \ b[i];\n\n    vector<mint> c = set_function::xor_convolution(a, b);\n    for\
+    \ b[i];\n\n    vector<mint> c = set_function::and_convolution(a, b);\n    for\
     \ (int i = 0; i < (1 << N); i++) cout << c[i] << (i + 1 == (1 << N) ? '\\n' :\
     \ ' ');\n    return 0;\n}"
   dependsOn:
@@ -182,15 +182,15 @@ data:
   - convolution/set_function.hpp
   - modulo/modint.hpp
   isVerificationFile: true
-  path: test/yosupo/bitwise_xor_convolution.test.cpp
+  path: test/yosupo/bitwise_and_convolution.test.cpp
   requiredBy: []
   timestamp: '2021-09-27 13:41:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/bitwise_xor_convolution.test.cpp
+documentation_of: test/yosupo/bitwise_and_convolution.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/bitwise_xor_convolution.test.cpp
-- /verify/test/yosupo/bitwise_xor_convolution.test.cpp.html
-title: test/yosupo/bitwise_xor_convolution.test.cpp
+- /verify/test/yosupo/bitwise_and_convolution.test.cpp
+- /verify/test/yosupo/bitwise_and_convolution.test.cpp.html
+title: test/yosupo/bitwise_and_convolution.test.cpp
 ---

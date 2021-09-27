@@ -12,19 +12,8 @@ data:
     path: convolution/FastFourierTransform.hpp
     title: Fast Fourier Transform
   - icon: ':heavy_check_mark:'
-    path: convolution/FastZetaMobiusTransform_Subset.hpp
-    title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\u63DB\
-      (\u4E0B\u4F4D\u96C6\u5408)"
-  - icon: ':warning:'
-    path: convolution/FastZetaMobiusTransform_Superset.hpp
-    title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u30FB\u30E1\u30D3\u30A6\u30B9\u5909\u63DB\
-      (\u4E0A\u4F4D\u96C6\u5408)"
-  - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
-    path: convolution/XORconvolution.hpp
-    title: "\u6DFB\u5B57XOR\u7573\u307F\u8FBC\u307F"
   - icon: ':heavy_check_mark:'
     path: datastructure/BinaryTrie.hpp
     title: Binary Trie
@@ -234,9 +223,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: tree/LowestCommonAncestor.hpp
     title: Lowest Common Ancestor
-  - icon: ':heavy_check_mark:'
-    path: tree/TreeDiameter.hpp
-    title: Tree Diameter
   - icon: ':heavy_check_mark:'
     path: util/Dice.hpp
     title: "\u30B5\u30A4\u30B3\u30ED"
@@ -514,6 +500,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/bipartitematching.test.cpp
     title: test/yosupo/bipartitematching.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/bitwise_and_convolution.test.cpp
+    title: test/yosupo/bitwise_and_convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/bitwise_xor_convolution.test.cpp
     title: test/yosupo/bitwise_xor_convolution.test.cpp
@@ -810,7 +799,6 @@ data:
   isVerificationFile: false
   path: base.hpp
   requiredBy:
-  - tree/TreeDiameter.hpp
   - tree/CentroidDecomposition.hpp
   - tree/EulerTourforEdge.hpp
   - tree/EulerTourforVertex.hpp
@@ -853,9 +841,6 @@ data:
   - hold/MinCostFlow.hpp
   - hold/BipartiteMatching.hpp
   - hold/FordFulkerson.hpp
-  - convolution/FastZetaMobiusTransform_Superset.hpp
-  - convolution/XORconvolution.hpp
-  - convolution/FastZetaMobiusTransform_Subset.hpp
   - convolution/FastFourierTransform.hpp
   - convolution/NumberTheoreticTransform.hpp
   - convolution/ArbitaryModConvolution.hpp
@@ -982,6 +967,7 @@ data:
   - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/zalgorithm.test.cpp
   - test/yosupo/set_xor_min.test.cpp
+  - test/yosupo/bitwise_and_convolution.test.cpp
   - test/yosupo/suffixarray.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/sum_of_floor_of_linear.test.cpp
