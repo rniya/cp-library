@@ -134,9 +134,6 @@ data:
     path: modulo/montgomery64.hpp
     title: montgomery modint (64 bit)
   - icon: ':heavy_check_mark:'
-    path: other/Mo.hpp
-    title: Mo's Algorithm
-  - icon: ':heavy_check_mark:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   - icon: ':heavy_check_mark:'
@@ -855,7 +852,6 @@ data:
   - polynomial/FormalPowerSeries.hpp
   - polynomial/lagrange_interpolation.hpp
   - polynomial/StirlingSecond.hpp
-  - other/Mo.hpp
   - test/atcoder/abc061_d.cpp
   - test/atcoder/dp_z.cpp
   - test/atcoder/arc039_d.cpp

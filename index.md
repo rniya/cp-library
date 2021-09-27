@@ -217,7 +217,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: other/Mo.hpp
-      title: Mo's Algorithm
+      title: Mo's algorithm
   - name: polynomial
     pages:
     - icon: ':heavy_check_mark:'

@@ -9,7 +9,7 @@ data:
     title: Binary Indexd Tree (Fenwick Tree)
   - icon: ':heavy_check_mark:'
     path: other/Mo.hpp
-    title: Mo's Algorithm
+    title: Mo's algorithm
   - icon: ':heavy_check_mark:'
     path: util/compress.hpp
     title: "compress (\u5EA7\u6A19\u5727\u7E2E)"
@@ -97,31 +97,33 @@ data:
     \ data;\n\n    T sum(int r) const {\n        T res = 0;\n        for (; r > 0;\
     \ r -= r & -r) res += data[r - 1];\n        return res;\n    }\n};\n\n/**\n *\
     \ @brief Binary Indexd Tree (Fenwick Tree)\n * @docs docs/datastructure/BinaryIndexedTree.md\n\
-    \ */\n#line 3 \"other/Mo.hpp\"\n\n/**\n * @brief Mo's Algorithm\n * @docs docs/other/Mo.md\n\
-    \ */\nstruct Mo {\n    int sz;\n    vector<int> left, right;\n    Mo(int n) :\
-    \ sz((int)sqrt(n)) {}\n    void insert(int l, int r) {\n        left.emplace_back(l);\n\
-    \        right.emplace_back(r);\n    }\n    template <typename ADDL, typename\
-    \ ADDR, typename DELL, typename DELR, typename REM>\n    void build(const ADDL&\
-    \ add_left,\n               const ADDR& add_right,\n               const DELL&\
-    \ del_left,\n               const DELR& del_right,\n               const REM&\
-    \ rem) {\n        int q = left.size();\n        vector<int> ord(q);\n        iota(ord.begin(),\
-    \ ord.end(), 0);\n        sort(ord.begin(), ord.end(),\n             [&](int a,\
-    \ int b) { return (left[a] / sz != left[b] / sz ? left[a] < left[b] : right[a]\
-    \ < right[b]); });\n        int l = 0, r = 0;\n        for (int idx : ord) {\n\
-    \            while (l > left[idx]) add_left(--l);\n            while (r < right[idx])\
-    \ add_right(r++);\n            while (l < left[idx]) del_left(l++);\n        \
-    \    while (r > right[idx]) del_right(--r);\n            rem(idx);\n        }\n\
-    \    }\n    template <typename ADD, typename DEL, typename REM> void build(const\
-    \ ADD& add, const DEL& del, const REM& rem) {\n        build(add, add, del, del,\
-    \ rem);\n    }\n};\n#line 5 \"util/compress.hpp\"\n\ntemplate <typename T> std::map<T,\
-    \ int> compress(std::vector<T>& v) {\n    std::sort(v.begin(), v.end());\n   \
-    \ v.erase(unique(v.begin(), v.end()), v.end());\n    std::map<T, int> res;\n \
-    \   for (size_t i = 0; i < v.size(); i++) res[v[i]] = i;\n    return res;\n}\n\
+    \ */\n#line 6 \"other/Mo.hpp\"\n\nstruct Mo {\n    Mo(int n) : n(n) {}\n\n   \
+    \ void add(int l, int r) {\n        assert(l <= r);\n        left.emplace_back(l);\n\
+    \        right.emplace_back(r);\n    }\n\n    template <typename AL, typename\
+    \ AR, typename DL, typename DR, typename REM>\n    void run(const AL& add_left,\
+    \ const AR& add_right, const DL& del_left, const DR del_right, const REM& rem)\
+    \ {\n        int q = left.size(), width = n / std::min(std::max<int>(sqrt(q *\
+    \ 2 / 3), 1), n);\n        std::vector<int> order(q);\n        std::iota(order.begin(),\
+    \ order.end(), 0);\n        std::sort(order.begin(), order.end(), [&](int a, int\
+    \ b) {\n            int ablock = left[a] / width, bblock = left[b] / width;\n\
+    \            if (ablock != bblock) return ablock < bblock;\n            return\
+    \ (ablock & 1) ? (right[a] > right[b]) : (right[a] < right[b]);\n        });\n\
+    \n        int l = 0, r = 0;\n        for (auto idx : order) {\n            while\
+    \ (l > left[idx]) add_left(--l);\n            while (r < right[idx]) add_right(r++);\n\
+    \            while (l < left[idx]) del_left(l++);\n            while (r > right[idx])\
+    \ del_right(--r);\n            rem(idx);\n        }\n    }\n\n    template <typename\
+    \ A, typename D, typename REM> void run(const A& add, const D& del, const REM&\
+    \ rem) {\n        run(add, add, del, del, rem);\n    }\n\nprivate:\n    int n;\n\
+    \    std::vector<int> left, right;\n};\n\n/**\n * @brief Mo's algorithm\n * @docs\
+    \ docs/other/Mo.md\n */\n#line 5 \"util/compress.hpp\"\n\ntemplate <typename T>\
+    \ std::map<T, int> compress(std::vector<T>& v) {\n    std::sort(v.begin(), v.end());\n\
+    \    v.erase(unique(v.begin(), v.end()), v.end());\n    std::map<T, int> res;\n\
+    \    for (size_t i = 0; i < v.size(); i++) res[v[i]] = i;\n    return res;\n}\n\
     \n/**\n * @brief compress (\u5EA7\u6A19\u5727\u7E2E)\n */\n#line 7 \"test/yosupo/static_range_inversions_query.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
     \ Q;\n    cin >> N >> Q;\n    vector<int> A(N);\n    for (int i = 0; i < N; i++)\
     \ cin >> A[i];\n\n    Mo mo(N);\n    for (int i = 0; i < Q; i++) {\n        int\
-    \ l, r;\n        cin >> l >> r;\n        mo.insert(l, r);\n    }\n\n    vector<int>\
+    \ l, r;\n        cin >> l >> r;\n        mo.add(l, r);\n    }\n\n    vector<int>\
     \ B = A;\n    map<int, int> mp = compress(B);\n    for (int i = 0; i < N; i++)\
     \ A[i] = mp[A[i]];\n    int n = mp.size();\n    BinaryIndexedTree<int> BIT(n);\n\
     \    vector<long long> ans(Q);\n    long long inv = 0;\n    int sum = 0;\n\n \
@@ -132,15 +134,15 @@ data:
     \ A[idx]);\n        sum--;\n        BIT.add(A[idx], -1);\n    };\n    auto del_right\
     \ = [&](int idx) {\n        inv -= BIT.query(A[idx] + 1, n);\n        sum--;\n\
     \        BIT.add(A[idx], -1);\n    };\n    auto rem = [&](int idx) { ans[idx]\
-    \ = inv; };\n\n    mo.build(add_left, add_right, del_left, del_right, rem);\n\n\
-    \    for (int i = 0; i < Q; i++) cout << ans[i] << '\\n';\n}\n"
+    \ = inv; };\n\n    mo.run(add_left, add_right, del_left, del_right, rem);\n\n\
+    \    for (int i = 0; i < Q; i++) cout << ans[i] << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/BinaryIndexedTree.hpp\"\
     \n#include \"../../other/Mo.hpp\"\n#include \"../../util/compress.hpp\"\n\nint\
     \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n\
     \    cin >> N >> Q;\n    vector<int> A(N);\n    for (int i = 0; i < N; i++) cin\
     \ >> A[i];\n\n    Mo mo(N);\n    for (int i = 0; i < Q; i++) {\n        int l,\
-    \ r;\n        cin >> l >> r;\n        mo.insert(l, r);\n    }\n\n    vector<int>\
+    \ r;\n        cin >> l >> r;\n        mo.add(l, r);\n    }\n\n    vector<int>\
     \ B = A;\n    map<int, int> mp = compress(B);\n    for (int i = 0; i < N; i++)\
     \ A[i] = mp[A[i]];\n    int n = mp.size();\n    BinaryIndexedTree<int> BIT(n);\n\
     \    vector<long long> ans(Q);\n    long long inv = 0;\n    int sum = 0;\n\n \
@@ -151,8 +153,8 @@ data:
     \ A[idx]);\n        sum--;\n        BIT.add(A[idx], -1);\n    };\n    auto del_right\
     \ = [&](int idx) {\n        inv -= BIT.query(A[idx] + 1, n);\n        sum--;\n\
     \        BIT.add(A[idx], -1);\n    };\n    auto rem = [&](int idx) { ans[idx]\
-    \ = inv; };\n\n    mo.build(add_left, add_right, del_left, del_right, rem);\n\n\
-    \    for (int i = 0; i < Q; i++) cout << ans[i] << '\\n';\n}"
+    \ = inv; };\n\n    mo.run(add_left, add_right, del_left, del_right, rem);\n\n\
+    \    for (int i = 0; i < Q; i++) cout << ans[i] << '\\n';\n    return 0;\n}"
   dependsOn:
   - base.hpp
   - datastructure/BinaryIndexedTree.hpp
@@ -161,7 +163,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2021-09-25 17:45:48+09:00'
+  timestamp: '2021-09-27 16:06:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp
