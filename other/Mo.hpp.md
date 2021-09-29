@@ -85,7 +85,7 @@ title: Mo's algorithm
 
 ## 問題例
 - [Codeforces Round #221 (Div. 1) D. Tree and Queries](https://codeforces.com/contest/375/problem/D)
-  部分木クエリはオイラーツアー順に並べることにより区間クエリになる. 種類数や転倒数に関連するクエリは Mo's algorithm で扱いやすい.
+  - 部分木クエリはオイラーツアー順に並べることにより区間クエリになる. 種類数や転倒数に関連するクエリは Mo's algorithm で扱いやすい.
 
 ## Links
 - [Mo's algorithm とその上位互換の話 - あなたは嘘つきですかと聞かれたら「YES」と答えるブログ](https://snuke.hatenablog.com/entry/2016/07/01/000000)

@@ -209,4 +209,4 @@ title: Lazy Segment Tree
 
 ## Remark
 - [Educational Codeforces Round 101 (Rated for Div. 2) F. Power Sockets](https://codeforces.com/contest/1469/problem/F)
-区間加算区間和取得において `find_first` といった二分探索関数を用いる際には, 始点を厳密に定めないと想定し得ない挙動を起こすので注意.
+  - 区間加算区間和取得において `find_first` といった二分探索関数を用いる際には, 始点を厳密に定めないと想定し得ない挙動を起こすので注意.

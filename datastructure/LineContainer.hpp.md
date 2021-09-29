@@ -77,3 +77,4 @@ title: Line Container (based on kactl)
 
 ## 問題例
 - [TOKI Regular Open Contest #22 F. MCD](https://tlx.toki.id/contests/troc-22/problems/F)
+  - 2 乗和は Slope Optimization.

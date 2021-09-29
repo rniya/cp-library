@@ -41,9 +41,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
-  - icon: ':warning:'
-    path: datastructure/SlopeTrick.hpp
-    title: Slope Trick
   - icon: ':heavy_check_mark:'
     path: datastructure/SparseTable.hpp
     title: Sparse table
@@ -804,7 +801,6 @@ data:
   - datastructure/SegmentTreeBeats.hpp
   - datastructure/SparseTable.hpp
   - datastructure/Slide_Min.hpp
-  - datastructure/SlopeTrick.hpp
   - datastructure/RectangleSet.hpp
   - datastructure/DualSegmentTree.hpp
   - datastructure/BinaryTrie.hpp
