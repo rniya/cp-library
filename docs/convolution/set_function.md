@@ -16,9 +16,9 @@
 
 ## 問題例
 - [Codeforces Round #259 (Div. 1) D. Little Pony and Elements of Harmony](https://codeforces.com/contest/453/problem/D)
-  3 種の畳み込みは適切な変換によって列を各点積で合成できるようにし, 最後にそれを逆変換するという仕組みになっている. よって, 例えば同じ列を $n$ 回合成するというような操作も一度変換した後に列の各要素を $n$ 乗するといった操作によって容易に扱える.
+  - 3 種の畳み込みは適切な変換によって列を各点積で合成できるようにし, 最後にそれを逆変換するという仕組みになっている. よって, 例えば同じ列を $n$ 回合成するというような操作も一度変換した後に列の各要素を $n$ 乗するといった操作によって容易に扱える.
 - [AtCoder Beginner Contest 212 H - Nim Counting](https://atcoder.jp/contests/abc212/tasks/abc212_h)
-  上記に加えて, 変換後の空間での線形性も扱っている.
+  - 上記に加えて, 変換後の空間での線形性も扱っている.
 - [AtCoder Beginner Contest 215 H - Cabbage Master](https://atcoder.jp/contests/abc215/tasks/abc215_h)
 - [AtCoder Beginner Contest 220 H - Security Camera](https://atcoder.jp/contests/abc220/tasks/abc220_h)
 - [AtCoder Regular Contest 106 E - Medals](https://atcoder.jp/contests/arc106/tasks/arc106_e)

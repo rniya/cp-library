@@ -1,86 +1,111 @@
 #pragma once
-#include "../base.hpp"
+#include <cassert>
+#include <limits>
+#include <queue>
 
-/**
- * @brief Slope Trick
- * @docs docs/datastructure/SlopeTrick.md
- */
-template <typename T> class SlopeTrick {
-    const T inf = numeric_limits<T>::max() / 3;
-    T min_f;
-    priority_queue<T, vector<T>, less<>> L;
-    priority_queue<T, vector<T>, greater<>> R;
-    T add_l, add_r;
-
-    void push_L(const T& x) { L.emplace(x - add_l); }
-    T top_L() const { return !L.empty() ? L.top() + add_l : -inf; }
-    T pop_L() {
-        T res = top_L();
-        if (!L.empty()) L.pop();
-        return res;
-    }
-    void clear_left() {
-        while (!L.empty()) L.pop();
-    }
-    void push_R(const T& x) { R.emplace(x - add_r); }
-    T top_R() const { return !R.empty() ? R.top() + add_r : inf; }
-    T pop_R() {
-        T res = top_R();
-        if (!R.empty()) R.pop();
-        return res;
-    }
-    void clear_right() {
-        while (!R.empty()) R.pop();
-    }
-    size_t size() const { return L.size() + R.size(); }
-
-public:
+template <typename T> struct SlopeTrick {
+    // initialize as f(x) = 0
     SlopeTrick() : min_f(0), add_l(0), add_r(0) {}
-    tuple<T, T, T> query() const { return make_tuple(top_L(), top_R(), min_f); }
-    // f(x) += a
-    void add_all(const T& a) { min_f += a; }
-    // add _/
-    // f(x) += max(x - a, 0)
-    void add_x_minus_a(const T& a) {
-        min_f += max(top_L() - a, T(0));
-        push_L(a);
-        push_R(pop_L());
-    }
-    // add \_
-    // f(x) += max(a - x, 0)
+
+    // argmin f(x), min f(x)
+    std::tuple<T, T, T> query() const { return {top_L(), top_R(), min_f}; }
+
+    // f(x) += b
+    void add_const(const T& b) { min_f += b; }
+
+    // f(x) += max(a - x, 0) \_
     void add_a_minus_x(const T& a) {
-        min_f += max(a - top_R(), T(0));
+        min_f += std::max(T(0), a - top_R());
         push_R(a);
         push_L(pop_R());
     }
-    // add \/
-    // f(x) += abs(x - a)
-    void add_abs(const T& a) {
-        add_x_minus_a(a);
-        add_a_minus_x(a);
+
+    // f(x) += max(x - a, 0) _/
+    void add_x_minus_a(const T& a) {
+        min_f += std::max(T(0), top_L() - a);
+        push_L(a);
+        push_R(pop_L());
     }
 
-    // \/ -> \_
-    // f(x) <- min_{y <= x} f(y)
-    void cumulative_min_left() { clear_right(); }
-    // \/ -> _/
-    // f(x) <- min_{x <= y} f(y)
-    void cumulative_min_right() { clear_left(); }
+    // f(x) += |x - a| \/
+    void add_abs(const T& a) {
+        add_a_minus_x(a);
+        add_x_minus_a(a);
+    }
 
-    // f(x) <- min_{x- b <= y <= x - a} f(y)
+    // f(x) <- min_{y <= x} f(y) \/ -> \_
+    void chmin_right() {
+        while (!R.empty()) R.pop();
+    }
+
+    // f(x) <- min_{x <= y} f(y)
+    void chmin_left() {
+        while (!L.empty()) L.pop();
+    }
+
+    // f(x) <- min_{x - b <= y <= x - a} f(y)
     void shift(const T& a, const T& b) {
         assert(a <= b);
         add_l += a;
         add_r += b;
     }
+
     // f(x) <- f(x - a)
-    // note after this operation, L and R are empty
     void shift(const T& a) { shift(a, a); }
 
-    T get(const T& x) {
+    // return f(x), f destructive
+    T get_destructive(const T& x) {
         T res = min_f;
-        while (!L.empty()) res += max(pop_L() - x, T(0));
-        while (!R.empty()) res += max(x - pop_R(), T(0));
+        while (!L.empty()) res += std::max(T(0), pop_L() - x);
+        while (!R.empty()) res += std::max(T(0), x - pop_R());
         return res;
     }
+
+    // f(x) += g(x), g destructive
+    void merge_destructive(SlopeTrick& g) {
+        if (g.size() < size()) {
+            std::swap(min_f, g.min_f);
+            std::swap(L, g.L);
+            std::swap(R, g.R);
+            std::swap(min_f, g.add_l);
+            std::swap(min_f, g.add_r);
+        }
+        min_f += g.min_f;
+        while (!g.L.empty()) add_a_minus_x(g.pop_L());
+        while (!g.R.empty()) add_x_minus_a(g.pop_R());
+    }
+
+private:
+    const T inf = std::numeric_limits<T>::max() / 2;
+    T min_f;
+    std::priority_queue<T, std::vector<T>, std::less<>> L;
+    std::priority_queue<T, std::vector<T>, std::greater<>> R;
+    T add_l, add_r;
+
+    void push_L(const T& a) { L.emplace(a - add_l); }
+
+    T top_L() const { return L.empty() ? -inf : L.top() + add_l; }
+
+    T pop_L() {
+        T res = top_L();
+        if (!L.empty()) L.pop();
+        return res;
+    }
+
+    void push_R(const T& a) { R.emplace(a - add_r); }
+
+    T top_R() const { return R.empty() ? inf : R.top() + add_r; }
+
+    T pop_R() {
+        T res = top_R();
+        if (!R.empty()) R.pop();
+        return res;
+    }
+
+    size_t size() const { return L.size() + R.size(); }
 };
+
+/**
+ * @brief Slope Trick
+ * @docs docs/datastructure/SlopeTrick.md
+ */
