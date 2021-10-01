@@ -381,3 +381,20 @@ bool argument_sort(const Point& l, const Point& r) {
     else
         return l.x * r.y > l.y * r.x;
 }
+
+Line bisector(const Point& p, const Point& q) {
+    Point c = (p + q) * 0.5;
+    Point v = (q - p) * Point(0.0, 1.0);
+    v = v / norm(v);
+    return Line(c - v, c + v);
+}
+
+Polygon voronoi(const Polygon& P, const vector<Point>& ps, size_t idx) {
+    Polygon res = P;
+    for (size_t i = 0; i < ps.size(); i++) {
+        if (i == idx) continue;
+        Line l = bisector(ps[idx], ps[i]);
+        res = convex_cut(res, l);
+    }
+    return res;
+}
