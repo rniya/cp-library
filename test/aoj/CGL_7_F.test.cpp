@@ -15,6 +15,6 @@ int main() {
     cin >> p >> c;
     auto res = tangent_to_circle(c, p);
     if (res[0] > res[1]) swap(res[0], res[1]);
-    cout << res[0] << ' ' << res[1] << '\n';
+    cout << res[0] << '\n' << res[1] << '\n';
     return 0;
 }

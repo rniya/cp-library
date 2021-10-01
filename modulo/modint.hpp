@@ -14,8 +14,8 @@ template <uint64_t Modulus> class modint {
 
 public:
     constexpr modint(const i64 x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}
-    constexpr u32& value() noexcept { return v; }
-    constexpr const u32& value() const noexcept { return v; }
+    constexpr u32& val() noexcept { return v; }
+    constexpr const u32& val() const noexcept { return v; }
     constexpr modint operator+(const modint& rhs) const noexcept { return modint(*this) += rhs; }
     constexpr modint operator-(const modint& rhs) const noexcept { return modint(*this) -= rhs; }
     constexpr modint operator*(const modint& rhs) const noexcept { return modint(*this) *= rhs; }

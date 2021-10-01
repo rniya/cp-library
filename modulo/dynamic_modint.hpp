@@ -1,10 +1,7 @@
 #pragma once
-#include "../base.hpp"
+#include <cassert>
+#include <iostream>
 
-/**
- * @brief 実行時 modint
- * @docs docs/modulo/modint.md
- */
 class dynamic_modint {
     using i64 = int64_t;
     using u32 = uint32_t;
@@ -22,8 +19,8 @@ public:
     }
     static u32 get_mod() { return mod(); }
     dynamic_modint(const i64 x = 0) : v(x < 0 ? get_mod() - 1 - (-(x + 1) % get_mod()) : x % get_mod()) {}
-    u32& value() noexcept { return v; }
-    const u32& value() const noexcept { return v; }
+    u32& val() noexcept { return v; }
+    const u32& val() const noexcept { return v; }
     dynamic_modint operator+(const dynamic_modint& rhs) const { return dynamic_modint(*this) += rhs; }
     dynamic_modint operator-(const dynamic_modint& rhs) const { return dynamic_modint(*this) -= rhs; }
     dynamic_modint operator*(const dynamic_modint& rhs) const { return dynamic_modint(*this) *= rhs; }
@@ -76,10 +73,15 @@ public:
     bool operator==(const dynamic_modint& rhs) { return v == rhs.v; }
     bool operator!=(const dynamic_modint& rhs) { return v != rhs.v; }
     bool operator!() { return !v; }
-    friend istream& operator>>(istream& s, dynamic_modint& rhs) {
+    friend std::istream& operator>>(std::istream& s, dynamic_modint& rhs) {
         i64 v;
         rhs = dynamic_modint{(s >> v, v)};
         return s;
     }
-    friend ostream& operator<<(ostream& s, const dynamic_modint& rhs) { return s << rhs.v; }
+    friend std::ostream& operator<<(std::ostream& s, const dynamic_modint& rhs) { return s << rhs.v; }
 };
+
+/**
+ * @brief 実行時 modint
+ * @docs docs/modulo/modint.md
+ */
