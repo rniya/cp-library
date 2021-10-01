@@ -14,12 +14,12 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    ERROR: '0.000001'
+    ERROR: '0.00001'
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_F
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_F
   bundledCode: "#line 1 \"test/aoj/CGL_7_F.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_F\"\
-    \n#define ERROR 0.000001\n\n#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing\
+    \n#define ERROR 0.00001\n\n#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing\
     \ namespace std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t\
     \ i128;\ntypedef unsigned int uint;\ntypedef unsigned long long ull;\n#define\
     \ ALL(x) (x).begin(), (x).end()\n\ntemplate <typename T> istream& operator>>(istream&\
@@ -250,7 +250,7 @@ data:
     \ swap(res[0], res[1]);\n    cout << res[0] << ' ' << res[1] << '\\n';\n    return\
     \ 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_F\"\
-    \n#define ERROR 0.000001\n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\
+    \n#define ERROR 0.00001\n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\
     \n\nusing namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    cout << fixed << setprecision(10);\n    Point p;\n    Circle c;\n    cin\
     \ >> p >> c;\n    auto res = tangent_to_circle(c, p);\n    if (res[0] > res[1])\
@@ -262,7 +262,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_7_F.test.cpp
   requiredBy: []
-  timestamp: '2021-10-01 16:25:03+09:00'
+  timestamp: '2021-10-01 18:13:28+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/CGL_7_F.test.cpp

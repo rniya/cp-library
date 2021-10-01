@@ -1,18 +1,17 @@
 ## 概要
-$\bmod 2^{61}-1$で基数は$\left[2,2^{61}-1\right)$の乱数によるRolling Hash.
-- `generate_base()`：基数を生成する. 2つ以上の文字列に対しては同じ基数を用いねばならないので注意.
-- `query(l,r)`：$[l,r)$のhash値を返す.
-- `lcp(a,b)`：$a$文字目を$b$文字目を始点としたLongest Common Prefixの長さを返す.
-- `get(t)`：文字列$t$のhash値を返す.
+$\bmod\ 2^{61}-1$ で基数は $\left[2, 2^{61}-1\right)$ の乱数によるRolling Hash.
 
-## 計算量
-- `generate_base()`：$O(1)$
-- `query(l,r)`：$O(1)$
-- `lcp(a,b)`；$O(\log n)$
-- `get(t)`：$O(|t|)$
+| メンバ関数                  | 効果                                                                                                                               | 時間計算量                          |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| `build(s)`                  | 文字列もしくは数列 $s$ に対する hash table を返す.                                                                                 | $O(\|S\|)$                          |
+| `get(s)`                    | 文字列もしくは数列 $s$ 全体の hash 値をを返す.                                                                                     | $O(\|S\|)$                          |
+| `query(hash, l, r)`         | `build` で生成された hash table である `hash` をもとにこの列の区間 $[l, r)$ に対応する hash 値を返す.                              | $O(1)$                              |
+| `combine(h1, h2, h2_len)`   | 前半の hash 値が $h_1$, 後半のそれが $h_2$ で後半の長さが `h2_len` のときに列全体の hash 値を返す.                                 | $O(1)$                              |
+| `lcp(a, l1, r1, b, l2, r2)` | hash table $a$ からなる列の $[l_1, r_1)$ の部分文字列と, hash table $b$ からなる列の $[l_2, r_2)$ の部分文字列の LCP の長さを返す. | $O(\log\max(r_1 - l_1, r_2 - l_2))$ |
 
 ## 問題例
-[Codeforces Round #542 [Alex Lopashev Thanks-Round] (Div. 1) C. Morse Code](https://codeforces.com/contest/1129/problem/C) $\bmod$の値が小さいとかなりの確率で衝突し, hash値を2つもとうとするとTLEにハマるので, このRolling Hashが有効.
+- [Codeforces Round #542 [Alex Lopashev Thanks-Round] (Div. 1) C. Morse Code](https://codeforces.com/contest/1129/problem/C)
+  - $\bmod$ の値が小さいとかなりの確率で衝突し, hash 値を 2 つもとうとすると TLE にハマるので, この Rolling Hash が特に有効.
 
 ## 参照
-[安全で爆速なRollingHashの話 - Qiita](https://qiita.com/keymoon/items/11fac5627672a6d6a9f6)
+- [安全で爆速なRollingHashの話 - Qiita](https://qiita.com/keymoon/items/11fac5627672a6d6a9f6)

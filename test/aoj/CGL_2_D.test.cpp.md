@@ -14,41 +14,42 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
+    ERROR: '0.00000001'
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_D
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_D
   bundledCode: "#line 1 \"test/aoj/CGL_2_D.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_D\"\
-    \n\n#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n#pragma\
-    \ region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned\
-    \ int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
-    \ntemplate <typename T> istream& operator>>(istream& is, vector<T>& v) {\n   \
-    \ for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n \
-    \       os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
-    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
-    \ pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return\
-    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
-    \ map<T, U>& m) {\n    os << '{';\n    for (auto itr = m.begin(); itr != m.end();)\
-    \ {\n        os << '(' << itr->first << ',' << itr->second << ')';\n        if\
-    \ (++itr != m.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate\
-    \ <typename T, typename U> ostream& operator<<(ostream& os, const unordered_map<T,\
-    \ U>& m) {\n    os << '{';\n    for (auto itr = m.begin(); itr != m.end();) {\n\
-    \        os << '(' << itr->first << ',' << itr->second << ')';\n        if (++itr\
-    \ != m.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const set<T>& s) {\n    os << '{';\n   \
-    \ for (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n       \
-    \ if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\n\
-    template <typename T> ostream& operator<<(ostream& os, const multiset<T>& s) {\n\
-    \    os << '{';\n    for (auto itr = s.begin(); itr != s.end();) {\n        os\
-    \ << *itr;\n        if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n\
-    \    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream& os, const\
-    \ unordered_set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
+    \n#define ERROR 0.00000001\n\n#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\n\
+    using namespace std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t\
+    \ i128;\ntypedef unsigned int uint;\ntypedef unsigned long long ull;\n#define\
+    \ ALL(x) (x).begin(), (x).end()\n\ntemplate <typename T> istream& operator>>(istream&\
+    \ is, vector<T>& v) {\n    for (T& x : v) is >> x;\n    return is;\n}\ntemplate\
+    \ <typename T> ostream& operator<<(ostream& os, const vector<T>& v) {\n    for\
+    \ (int i = 0; i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size()\
+    \ ? \"\" : \" \");\n    }\n    return os;\n}\ntemplate <typename T, typename U>\
+    \ ostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os << '(' << p.first\
+    \ << ',' << p.second << ')';\n    return os;\n}\ntemplate <typename T, typename\
+    \ U> ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os << '{';\n\
+    \    for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
+    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
+    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
+    \ operator<<(ostream& os, const unordered_map<T, U>& m) {\n    os << '{';\n  \
+    \  for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
+    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
+    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
+    \ os, const set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
     \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
     \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const deque<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n  \
-    \      os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
-    \ os;\n}\n\ntemplate <int i, typename T> void print_tuple(ostream&, const T&)\
-    \ {}\ntemplate <int i, typename T, typename H, class... Args> void print_tuple(ostream&\
+    \ os, const multiset<T>& s) {\n    os << '{';\n    for (auto itr = s.begin();\
+    \ itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os <<\
+    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
+    \ operator<<(ostream& os, const unordered_set<T>& s) {\n    os << '{';\n    for\
+    \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
+    \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
+    \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
+    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
+    \" : \" \");\n    }\n    return os;\n}\n\ntemplate <int i, typename T> void print_tuple(ostream&,\
+    \ const T&) {}\ntemplate <int i, typename T, typename H, class... Args> void print_tuple(ostream&\
     \ os, const T& t) {\n    if (i) os << ',';\n    os << get<i>(t);\n    print_tuple<i\
     \ + 1, T, Args...>(os, t);\n}\ntemplate <typename... Args> ostream& operator<<(ostream&\
     \ os, const tuple<Args...>& t) {\n    os << '{';\n    print_tuple<0, tuple<Args...>,\
@@ -242,14 +243,14 @@ data:
     \ i = 0; i < ps.size(); i++) {\n        if (i == idx) continue;\n        res =\
     \ convex_cut(res, bisector(ps[idx], ps[i]));\n    }\n    return res;\n}\n\n} \
     \ // namespace geometry\n\n/**\n * @brief 2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\
-    \u30D6\u30E9\u30EA\n * @docs docs/geometry/geometry.md\n */\n#line 5 \"test/aoj/CGL_2_D.test.cpp\"\
+    \u30D6\u30E9\u30EA\n * @docs docs/geometry/geometry.md\n */\n#line 6 \"test/aoj/CGL_2_D.test.cpp\"\
     \n\nusing namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    cout << fixed << setprecision(10);\n    int q;\n    cin >> q;\n    for (;\
     \ q--;) {\n        Segment s_1, s_2;\n        cin >> s_1 >> s_2;\n        cout\
     \ << distance(s_1, s_2) << '\\n';\n    }\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_D\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\n\n\
-    using namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \n#define ERROR 0.00000001\n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\
+    \n\nusing namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    cout << fixed << setprecision(10);\n    int q;\n    cin >> q;\n    for (;\
     \ q--;) {\n        Segment s_1, s_2;\n        cin >> s_1 >> s_2;\n        cout\
     \ << distance(s_1, s_2) << '\\n';\n    }\n    return 0;\n}"
@@ -259,7 +260,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_2_D.test.cpp
   requiredBy: []
-  timestamp: '2021-10-01 16:25:03+09:00'
+  timestamp: '2021-10-01 18:13:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_2_D.test.cpp

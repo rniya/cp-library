@@ -99,7 +99,7 @@ data:
   - icon: ':warning:'
     path: hold/SuffixArray_old.hpp
     title: Suffix Array
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: linearalgebra/BitMatrix.hpp
     title: BitMatrix
   - icon: ':warning:'
@@ -139,9 +139,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/Manacher.hpp
     title: Manacher
-  - icon: ':heavy_check_mark:'
-    path: string/RollingHash.hpp
-    title: Rolling Hash
   - icon: ':heavy_check_mark:'
     path: string/SuffixArray.hpp
     title: Suffix Array + Longest Common Prefix Array
@@ -225,9 +222,6 @@ data:
     path: test/aoj/1181.test.cpp
     title: test/aoj/1181.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/1370.test.cpp
-    title: test/aoj/1370.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/2313.test.cpp
     title: test/aoj/2313.test.cpp
   - icon: ':heavy_check_mark:'
@@ -245,10 +239,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_14_B.test.cpp
     title: test/aoj/ALDS1_14_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_1_A.test.cpp
     title: test/aoj/CGL_1_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_1_B.test.cpp
     title: test/aoj/CGL_1_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -645,6 +639,9 @@ data:
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/803.test.cpp
+    title: test/yukicoder/803.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/931.test.cpp
     title: test/yukicoder/931.test.cpp
   - icon: ':heavy_check_mark:'
@@ -793,7 +790,6 @@ data:
   - string/Manacher.hpp
   - string/Knuth_Morris_Pratt.hpp
   - string/Z_Algorithm.hpp
-  - string/RollingHash.hpp
   - graph/CycleDetection.hpp
   - graph/Kruskal.hpp
   - graph/BellmanFord.hpp
@@ -884,7 +880,6 @@ data:
   - test/aoj/CGL_7_D.test.cpp
   - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
   - test/aoj/CGL_2_C.test.cpp
-  - test/aoj/1370.test.cpp
   - test/aoj/DPL_5_L.test.cpp
   - test/aoj/CGL_4_C.test.cpp
   - test/aoj/DSL_5_B.test.cpp
@@ -975,6 +970,7 @@ data:
   - test/yosupo/vertex_set_path_composite.test.cpp
   - test/yukicoder/952.test.cpp
   - test/yukicoder/1301.test.cpp
+  - test/yukicoder/803.test.cpp
   - test/yukicoder/931.test.cpp
   - test/yukicoder/3046.test.cpp
   - test/yukicoder/1678.test.cpp

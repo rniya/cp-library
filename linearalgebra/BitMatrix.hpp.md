@@ -5,10 +5,13 @@ data:
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/803.test.cpp
+    title: test/yukicoder/803.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/datastructure/BitMatrix.md
     document_title: BitMatrix
@@ -115,8 +118,9 @@ data:
   path: linearalgebra/BitMatrix.hpp
   requiredBy: []
   timestamp: '2021-10-01 16:25:03+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/803.test.cpp
 documentation_of: linearalgebra/BitMatrix.hpp
 layout: document
 redirect_from:

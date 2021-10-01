@@ -106,6 +106,9 @@ data:
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/803.test.cpp
+    title: test/yukicoder/803.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/931.test.cpp
     title: test/yukicoder/931.test.cpp
   _isVerificationFailed: false
@@ -235,6 +238,7 @@ data:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/vertex_set_path_composite.test.cpp
+  - test/yukicoder/803.test.cpp
   - test/yukicoder/931.test.cpp
   - test/yukicoder/3046.test.cpp
   - test/yukicoder/1050.test.cpp

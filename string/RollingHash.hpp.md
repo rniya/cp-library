@@ -1,14 +1,8 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':question:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/1370.test.cpp
-    title: test/aoj/1370.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_14_B.test.cpp
     title: test/aoj/ALDS1_14_B.test.cpp
@@ -22,118 +16,73 @@ data:
     _deprecated_at_docs: docs/string/RollingHash.md
     document_title: Rolling Hash
     links: []
-  bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
-    #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
-    \ unsigned int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(),\
-    \ (x).end()\n\ntemplate <typename T> istream& operator>>(istream& is, vector<T>&\
-    \ v) {\n    for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T>\
-    \ ostream& operator<<(ostream& os, const vector<T>& v) {\n    for (int i = 0;\
-    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
-    \" : \" \");\n    }\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const pair<T, U>& p) {\n    os << '(' << p.first <<\
-    \ ',' << p.second << ')';\n    return os;\n}\ntemplate <typename T, typename U>\
-    \ ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os << '{';\n   \
-    \ for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const unordered_map<T, U>& m) {\n    os << '{';\n  \
-    \  for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
-    \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
-    \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const multiset<T>& s) {\n    os << '{';\n    for (auto itr = s.begin();\
-    \ itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os <<\
-    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
-    \ operator<<(ostream& os, const unordered_set<T>& s) {\n    os << '{';\n    for\
-    \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
-    \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
-    \" : \" \");\n    }\n    return os;\n}\n\ntemplate <int i, typename T> void print_tuple(ostream&,\
-    \ const T&) {}\ntemplate <int i, typename T, typename H, class... Args> void print_tuple(ostream&\
-    \ os, const T& t) {\n    if (i) os << ',';\n    os << get<i>(t);\n    print_tuple<i\
-    \ + 1, T, Args...>(os, t);\n}\ntemplate <typename... Args> ostream& operator<<(ostream&\
-    \ os, const tuple<Args...>& t) {\n    os << '{';\n    print_tuple<0, tuple<Args...>,\
-    \ Args...>(os, t);\n    return os << '}';\n}\n\nvoid debug_out() { cerr << '\\\
-    n'; }\ntemplate <class Head, class... Tail> void debug_out(Head&& head, Tail&&...\
-    \ tail) {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n \
-    \   debug_out(move(tail)...);\n}\n#ifdef LOCAL\n#define debug(...)           \
-    \                                                        \\\n    cerr << \" \"\
-    ;                                                                     \\\n   \
-    \ cerr << #__VA_ARGS__ << \" :[\" << __LINE__ << \":\" << __FUNCTION__ << \"]\"\
-    \ << '\\n'; \\\n    cerr << \" \";                                           \
-    \                          \\\n    debug_out(__VA_ARGS__)\n#else\n#define debug(...)\
-    \ 42\n#endif\n\ntemplate <typename T> T gcd(T x, T y) { return y != 0 ? gcd(y,\
-    \ x % y) : x; }\ntemplate <typename T> T lcm(T x, T y) { return x / gcd(x, y)\
-    \ * y; }\n\nint topbit(signed t) { return t == 0 ? -1 : 31 - __builtin_clz(t);\
-    \ }\nint topbit(long long t) { return t == 0 ? -1 : 63 - __builtin_clzll(t); }\n\
-    int botbit(signed a) { return a == 0 ? 32 : __builtin_ctz(a); }\nint botbit(long\
-    \ long a) { return a == 0 ? 64 : __builtin_ctzll(a); }\nint popcount(signed t)\
-    \ { return __builtin_popcount(t); }\nint popcount(long long t) { return __builtin_popcountll(t);\
-    \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
-    \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
-    \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
-    \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
-    \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"string/RollingHash.hpp\"\
-    \n\n/**\n * @brief Rolling Hash\n * @docs docs/string/RollingHash.md\n */\nclass\
-    \ RollingHash {\n    using u64 = uint64_t;\n    using u128 = __uint128_t;\n  \
-    \  static const u64 mod = (1ULL << 61) - 1;\n    const u64 base;\n    vector<u64>\
-    \ hash, power;\n    static inline u64 add(u64 a, u64 b) {\n        if ((a += b)\
-    \ >= mod) a -= mod;\n        return a;\n    }\n    static inline u64 mul(u64 a,\
-    \ u64 b) {\n        u128 c = (u128)a * b;\n        return add(c >> 61, c & mod);\n\
-    \    }\n\npublic:\n    static inline u64 generate_base() {\n        mt19937_64\
-    \ mt(chrono::steady_clock::now().time_since_epoch().count());\n        uniform_int_distribution<u64>\
-    \ rand(2, RollingHash::mod - 1);\n        return rand(mt);\n    }\n    RollingHash(u64\
-    \ base = generate_base()) : base(base) {}\n    template <typename T> RollingHash(const\
-    \ T& s, u64 base = generate_base()) : base(base) {\n        int n = s.size();\n\
-    \        hash.assign(n + 1, 0);\n        power.assign(n + 1, 0);\n        power[0]\
-    \ = 1;\n        for (int i = 0; i < n; i++) {\n            hash[i + 1] = add(mul(hash[i],\
-    \ base), s[i]);\n            power[i + 1] = mul(power[i], base);\n        }\n\
-    \    }\n    u64 query(int l, int r) const { return add(hash[r], mod - mul(hash[l],\
-    \ power[r - l])); }\n    int lcp(int a, int b) const {\n        int len = min(hash.size()\
-    \ - a, hash.size() - b);\n        int lb = 0, ub = len;\n        while (ub - lb\
-    \ > 1) {\n            int mid = (lb + ub) >> 1;\n            (query(a, a + mid)\
-    \ == query(b, b + mid) ? lb : ub) = mid;\n        }\n        return lb;\n    }\n\
-    \    template <typename T> u64 get(const T& t) {\n        u64 res = 0;\n     \
-    \   for (int i = 0; i < (int)t.size(); i++) res = add(mul(res, base), t[i]);\n\
-    \        return res;\n    }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Rolling Hash\n *\
-    \ @docs docs/string/RollingHash.md\n */\nclass RollingHash {\n    using u64 =\
-    \ uint64_t;\n    using u128 = __uint128_t;\n    static const u64 mod = (1ULL <<\
-    \ 61) - 1;\n    const u64 base;\n    vector<u64> hash, power;\n    static inline\
-    \ u64 add(u64 a, u64 b) {\n        if ((a += b) >= mod) a -= mod;\n        return\
-    \ a;\n    }\n    static inline u64 mul(u64 a, u64 b) {\n        u128 c = (u128)a\
-    \ * b;\n        return add(c >> 61, c & mod);\n    }\n\npublic:\n    static inline\
-    \ u64 generate_base() {\n        mt19937_64 mt(chrono::steady_clock::now().time_since_epoch().count());\n\
-    \        uniform_int_distribution<u64> rand(2, RollingHash::mod - 1);\n      \
-    \  return rand(mt);\n    }\n    RollingHash(u64 base = generate_base()) : base(base)\
-    \ {}\n    template <typename T> RollingHash(const T& s, u64 base = generate_base())\
-    \ : base(base) {\n        int n = s.size();\n        hash.assign(n + 1, 0);\n\
-    \        power.assign(n + 1, 0);\n        power[0] = 1;\n        for (int i =\
-    \ 0; i < n; i++) {\n            hash[i + 1] = add(mul(hash[i], base), s[i]);\n\
-    \            power[i + 1] = mul(power[i], base);\n        }\n    }\n    u64 query(int\
-    \ l, int r) const { return add(hash[r], mod - mul(hash[l], power[r - l])); }\n\
-    \    int lcp(int a, int b) const {\n        int len = min(hash.size() - a, hash.size()\
-    \ - b);\n        int lb = 0, ub = len;\n        while (ub - lb > 1) {\n      \
-    \      int mid = (lb + ub) >> 1;\n            (query(a, a + mid) == query(b, b\
-    \ + mid) ? lb : ub) = mid;\n        }\n        return lb;\n    }\n    template\
-    \ <typename T> u64 get(const T& t) {\n        u64 res = 0;\n        for (int i\
-    \ = 0; i < (int)t.size(); i++) res = add(mul(res, base), t[i]);\n        return\
-    \ res;\n    }\n};"
-  dependsOn:
-  - base.hpp
+  bundledCode: "#line 2 \"string/RollingHash.hpp\"\n#include <cassert>\n#include <chrono>\n\
+    #include <random>\n#include <string>\n#include <vector>\n\nstruct RollingHash\
+    \ {\n    static inline uint64_t generate_base() {\n        std::mt19937_64 mt(std::chrono::steady_clock::now().time_since_epoch().count());\n\
+    \        std::uniform_int_distribution<uint64_t> rand(2, RollingHash::mod - 1);\n\
+    \        return rand(mt);\n    }\n\n    RollingHash(uint64_t base = generate_base())\
+    \ : base(base), power{1} {}\n\n    template <typename T> std::vector<uint64_t>\
+    \ build(const T& s) const {\n        int n = s.size();\n        std::vector<uint64_t>\
+    \ hash(n + 1);\n        hash[0] = 0;\n        for (int i = 0; i < n; i++) hash[i\
+    \ + 1] = add(mul(hash[i], base), s[i]);\n        return hash;\n    }\n\n    template\
+    \ <typename T> uint64_t get(const T& s) const {\n        uint64_t res = 0;\n \
+    \       for (const auto& x : s) res = add(mul(res, base), x);\n        return\
+    \ res;\n    }\n\n    uint64_t query(const std::vector<uint64_t>& hash, int l,\
+    \ int r) {\n        assert(0 <= l && l <= r);\n        extend(r - l);\n      \
+    \  return add(hash[r], mod - mul(hash[l], power[r - l]));\n    }\n\n    uint64_t\
+    \ combine(uint64_t h1, uint64_t h2, size_t h2_len) {\n        extend(h2_len);\n\
+    \        return add(mul(h1, power[h2_len]), h2);\n    }\n\n    int lcp(const std::vector<uint64_t>&\
+    \ a, int l1, int r1, const std::vector<uint64_t>& b, int l2, int r2) {\n     \
+    \   int len = std::min(r1 - l1, r2 - l2);\n        int lb = 0, ub = len + 1;\n\
+    \        while (ub - lb > 1) {\n            int mid = (lb + ub) >> 1;\n      \
+    \      (query(a, l1, l1 + mid) == query(b, l2, l2 + mid) ? lb : ub) = mid;\n \
+    \       }\n        return lb;\n    }\n\nprivate:\n    static constexpr uint64_t\
+    \ mod = (1ULL << 61) - 1;\n    const uint64_t base;\n    std::vector<uint64_t>\
+    \ power;\n\n    static inline uint64_t add(uint64_t a, uint64_t b) {\n       \
+    \ if ((a += b) >= mod) a -= mod;\n        return a;\n    }\n\n    static inline\
+    \ uint64_t mul(uint64_t a, uint64_t b) {\n        __uint128_t c = (__uint128_t)a\
+    \ * b;\n        return add(c >> 61, c & mod);\n    }\n\n    inline void extend(size_t\
+    \ len) {\n        if (power.size() > len) return;\n        size_t pre = power.size();\n\
+    \        power.resize(len + 1);\n        for (size_t i = pre - 1; i < len; i++)\
+    \ power[i + 1] = mul(power[i], base);\n    }\n};\n\n/**\n * @brief Rolling Hash\n\
+    \ * @docs docs/string/RollingHash.md\n */\n"
+  code: "#pragma once\n#include <cassert>\n#include <chrono>\n#include <random>\n\
+    #include <string>\n#include <vector>\n\nstruct RollingHash {\n    static inline\
+    \ uint64_t generate_base() {\n        std::mt19937_64 mt(std::chrono::steady_clock::now().time_since_epoch().count());\n\
+    \        std::uniform_int_distribution<uint64_t> rand(2, RollingHash::mod - 1);\n\
+    \        return rand(mt);\n    }\n\n    RollingHash(uint64_t base = generate_base())\
+    \ : base(base), power{1} {}\n\n    template <typename T> std::vector<uint64_t>\
+    \ build(const T& s) const {\n        int n = s.size();\n        std::vector<uint64_t>\
+    \ hash(n + 1);\n        hash[0] = 0;\n        for (int i = 0; i < n; i++) hash[i\
+    \ + 1] = add(mul(hash[i], base), s[i]);\n        return hash;\n    }\n\n    template\
+    \ <typename T> uint64_t get(const T& s) const {\n        uint64_t res = 0;\n \
+    \       for (const auto& x : s) res = add(mul(res, base), x);\n        return\
+    \ res;\n    }\n\n    uint64_t query(const std::vector<uint64_t>& hash, int l,\
+    \ int r) {\n        assert(0 <= l && l <= r);\n        extend(r - l);\n      \
+    \  return add(hash[r], mod - mul(hash[l], power[r - l]));\n    }\n\n    uint64_t\
+    \ combine(uint64_t h1, uint64_t h2, size_t h2_len) {\n        extend(h2_len);\n\
+    \        return add(mul(h1, power[h2_len]), h2);\n    }\n\n    int lcp(const std::vector<uint64_t>&\
+    \ a, int l1, int r1, const std::vector<uint64_t>& b, int l2, int r2) {\n     \
+    \   int len = std::min(r1 - l1, r2 - l2);\n        int lb = 0, ub = len + 1;\n\
+    \        while (ub - lb > 1) {\n            int mid = (lb + ub) >> 1;\n      \
+    \      (query(a, l1, l1 + mid) == query(b, l2, l2 + mid) ? lb : ub) = mid;\n \
+    \       }\n        return lb;\n    }\n\nprivate:\n    static constexpr uint64_t\
+    \ mod = (1ULL << 61) - 1;\n    const uint64_t base;\n    std::vector<uint64_t>\
+    \ power;\n\n    static inline uint64_t add(uint64_t a, uint64_t b) {\n       \
+    \ if ((a += b) >= mod) a -= mod;\n        return a;\n    }\n\n    static inline\
+    \ uint64_t mul(uint64_t a, uint64_t b) {\n        __uint128_t c = (__uint128_t)a\
+    \ * b;\n        return add(c >> 61, c & mod);\n    }\n\n    inline void extend(size_t\
+    \ len) {\n        if (power.size() > len) return;\n        size_t pre = power.size();\n\
+    \        power.resize(len + 1);\n        for (size_t i = pre - 1; i < len; i++)\
+    \ power[i + 1] = mul(power[i], base);\n    }\n};\n\n/**\n * @brief Rolling Hash\n\
+    \ * @docs docs/string/RollingHash.md\n */\n"
+  dependsOn: []
   isVerificationFile: false
   path: string/RollingHash.hpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-10-01 18:13:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/1370.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
   - test/yukicoder/430.test.cpp
 documentation_of: string/RollingHash.hpp
@@ -144,20 +93,19 @@ redirect_from:
 title: Rolling Hash
 ---
 ## 概要
-$\bmod 2^{61}-1$で基数は$\left[2,2^{61}-1\right)$の乱数によるRolling Hash.
-- `generate_base()`：基数を生成する. 2つ以上の文字列に対しては同じ基数を用いねばならないので注意.
-- `query(l,r)`：$[l,r)$のhash値を返す.
-- `lcp(a,b)`：$a$文字目を$b$文字目を始点としたLongest Common Prefixの長さを返す.
-- `get(t)`：文字列$t$のhash値を返す.
+$\bmod\ 2^{61}-1$ で基数は $\left[2, 2^{61}-1\right)$ の乱数によるRolling Hash.
 
-## 計算量
-- `generate_base()`：$O(1)$
-- `query(l,r)`：$O(1)$
-- `lcp(a,b)`；$O(\log n)$
-- `get(t)`：$O(|t|)$
+| メンバ関数                  | 効果                                                                                                                               | 時間計算量                          |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| `build(s)`                  | 文字列もしくは数列 $s$ に対する hash table を返す.                                                                                 | $O(\|S\|)$                          |
+| `get(s)`                    | 文字列もしくは数列 $s$ 全体の hash 値をを返す.                                                                                     | $O(\|S\|)$                          |
+| `query(hash, l, r)`         | `build` で生成された hash table である `hash` をもとにこの列の区間 $[l, r)$ に対応する hash 値を返す.                              | $O(1)$                              |
+| `combine(h1, h2, h2_len)`   | 前半の hash 値が $h_1$, 後半のそれが $h_2$ で後半の長さが `h2_len` のときに列全体の hash 値を返す.                                 | $O(1)$                              |
+| `lcp(a, l1, r1, b, l2, r2)` | hash table $a$ からなる列の $[l_1, r_1)$ の部分文字列と, hash table $b$ からなる列の $[l_2, r_2)$ の部分文字列の LCP の長さを返す. | $O(\log\max(r_1 - l_1, r_2 - l_2))$ |
 
 ## 問題例
-[Codeforces Round #542 [Alex Lopashev Thanks-Round] (Div. 1) C. Morse Code](https://codeforces.com/contest/1129/problem/C) $\bmod$の値が小さいとかなりの確率で衝突し, hash値を2つもとうとするとTLEにハマるので, このRolling Hashが有効.
+- [Codeforces Round #542 [Alex Lopashev Thanks-Round] (Div. 1) C. Morse Code](https://codeforces.com/contest/1129/problem/C)
+  - $\bmod$ の値が小さいとかなりの確率で衝突し, hash 値を 2 つもとうとすると TLE にハマるので, この Rolling Hash が特に有効.
 
 ## 参照
-[安全で爆速なRollingHashの話 - Qiita](https://qiita.com/keymoon/items/11fac5627672a6d6a9f6)
+- [安全で爆速なRollingHashの話 - Qiita](https://qiita.com/keymoon/items/11fac5627672a6d6a9f6)
