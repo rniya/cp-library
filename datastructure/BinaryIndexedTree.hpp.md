@@ -10,6 +10,9 @@ data:
     path: test/aoj/GRL_5_D.test.cpp
     title: test/aoj/GRL_5_D.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_add_rectangle_sum.test.cpp
+    title: test/yosupo/point_add_rectangle_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/static_range_inversions_query.test.cpp
     title: test/yosupo/static_range_inversions_query.test.cpp
   - icon: ':heavy_check_mark:'
@@ -68,6 +71,7 @@ data:
   - test/aoj/DSL_2_B.test.cpp
   - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
+  - test/yosupo/point_add_rectangle_sum.test.cpp
   - test/yukicoder/1270.test.cpp
 documentation_of: datastructure/BinaryIndexedTree.hpp
 layout: document

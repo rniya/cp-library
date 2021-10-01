@@ -60,6 +60,9 @@ data:
     - icon: ':warning:'
       path: datastructure/PartiallyPersistentUnionFind.hpp
       title: Partially Persistent UnionFind
+    - icon: ':heavy_check_mark:'
+      path: datastructure/RangeTree.hpp
+      title: "Range Tree (\u62BD\u8C61\u5316\u9818\u57DF\u6728)"
     - icon: ':warning:'
       path: datastructure/RectangleSet.hpp
       title: Rectangle Set
@@ -162,6 +165,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/WarshallFloyd.hpp
       title: Warshall Floyd
+    - icon: ':warning:'
+      path: graph/enumerate_cliques.hpp
+      title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
   - name: hold
     pages:
     - icon: ':warning:'
@@ -655,6 +661,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum.test.cpp
       title: test/yosupo/point_add_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/point_add_rectangle_sum.test.cpp
+      title: test/yosupo/point_add_rectangle_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp

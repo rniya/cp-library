@@ -540,6 +540,9 @@ data:
     path: test/yosupo/point_add_range_sum.test.cpp
     title: test/yosupo/point_add_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_add_rectangle_sum.test.cpp
+    title: test/yosupo/point_add_rectangle_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -964,6 +967,7 @@ data:
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/sum_of_floor_of_linear.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
+  - test/yosupo/point_add_rectangle_sum.test.cpp
   - test/yosupo/point_add_range_sum.test.cpp
   - test/yosupo/enumerate_palindromes.test.cpp
   - test/yosupo/factorize.test.cpp

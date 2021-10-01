@@ -260,15 +260,21 @@ data:
     \ nxt), l));\n    }\n    return res;\n}\n\nbool argument_sort(const Point& l,\
     \ const Point& r) {\n    auto la = atan2(l.y, l.x);\n    auto ra = atan2(r.y,\
     \ r.x);\n    if (abs(la - ra) > 1)\n        return la < ra;\n    else\n      \
-    \  return l.x * r.y > l.y * r.x;\n}\n#line 5 \"test/aoj/CGL_1_C.test.cpp\"\n\n\
-    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Point p_0,\
-    \ p_1;\n    cin >> p_0 >> p_1;\n    int q;\n    cin >> q;\n    for (; q--;) {\n\
-    \        Point p_2;\n        cin >> p_2;\n        int res = ccw(p_0, p_1, p_2);\n\
-    \        if (res == 1)\n            cout << \"COUNTER_CLOCKWISE\" << '\\n';\n\
-    \        else if (res == -1)\n            cout << \"CLOCKWISE\" << '\\n';\n  \
-    \      else if (res == 2)\n            cout << \"ONLINE_BACK\" << '\\n';\n   \
-    \     else if (res == -2)\n            cout << \"ONLINE_FRONT\" << '\\n';\n  \
-    \      else\n            cout << \"ON_SEGMENT\" << '\\n';\n    }\n}\n"
+    \  return l.x * r.y > l.y * r.x;\n}\n\nLine bisector(const Point& p, const Point&\
+    \ q) {\n    Point c = (p + q) * 0.5;\n    Point v = (q - p) * Point(0.0, 1.0);\n\
+    \    v = v / norm(v);\n    return Line(c - v, c + v);\n}\n\nPolygon voronoi(const\
+    \ Polygon& P, const vector<Point>& ps, size_t idx) {\n    Polygon res = P;\n \
+    \   for (size_t i = 0; i < ps.size(); i++) {\n        if (i == idx) continue;\n\
+    \        Line l = bisector(ps[idx], ps[i]);\n        res = convex_cut(res, l);\n\
+    \    }\n    return res;\n}\n#line 5 \"test/aoj/CGL_1_C.test.cpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Point p_0, p_1;\n\
+    \    cin >> p_0 >> p_1;\n    int q;\n    cin >> q;\n    for (; q--;) {\n     \
+    \   Point p_2;\n        cin >> p_2;\n        int res = ccw(p_0, p_1, p_2);\n \
+    \       if (res == 1)\n            cout << \"COUNTER_CLOCKWISE\" << '\\n';\n \
+    \       else if (res == -1)\n            cout << \"CLOCKWISE\" << '\\n';\n   \
+    \     else if (res == 2)\n            cout << \"ONLINE_BACK\" << '\\n';\n    \
+    \    else if (res == -2)\n            cout << \"ONLINE_FRONT\" << '\\n';\n   \
+    \     else\n            cout << \"ON_SEGMENT\" << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\n\n\
     int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Point p_0,\
@@ -285,7 +291,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-10-01 11:32:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_1_C.test.cpp

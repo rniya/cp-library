@@ -131,13 +131,13 @@ data:
     \    for (auto& e : descend(p, v)) f(e.first, e.second + 1);\n    }\n\n    template\
     \ <typename F> void query_subtree(int u, const F& f, bool vertex = false) const\
     \ {\n        assert(0 <= u && u < n);\n        f(vertex_id[u] + !vertex, vertex_id[u]\
-    \ + sub[u]);\n    }\n\nprivate:\n    int n, time;\n    std::vector<int> par  //\
-    \ parent of vertex v\n        ,\n        sub  // size of subtree whose root is\
-    \ v\n        ,\n        dep  // distance bitween root and vertex v\n        ,\n\
-    \        head  // vertex that is the nearest to root on heavy path of vertex v\n\
-    \        ,\n        tree_id  // id of tree vertex v belongs to\n        ,\n  \
-    \      vertex_id  // id of vertex v (consecutive on heavy paths)\n        ,\n\
-    \        vertex_id_inv;  // vertex_id_inv[vertex_id[v]] = v\n\n    void dfs_sz(int\
+    \ + sub[u]);\n    }\n\nprivate:\n    int n, time;\n    std::vector<int> par, \
+    \ // parent of vertex v\n        sub,               // size of subtree whose root\
+    \ is v\n        dep,               // distance bitween root and vertex v\n   \
+    \     head,              // vertex that is the nearest to root on heavy path of\
+    \ vertex v\n        tree_id,           // id of tree vertex v belongs to\n   \
+    \     vertex_id,         // id of vertex v (consecutive on heavy paths)\n    \
+    \    vertex_id_inv;     // vertex_id_inv[vertex_id[v]] = v\n\n    void dfs_sz(int\
     \ v) {\n        sub[v] = 1;\n        if (!G[v].empty() && G[v].front() == par[v])\
     \ std::swap(G[v].front(), G[v].back());\n        for (int& u : G[v]) {\n     \
     \       if (u == par[v]) continue;\n            par[u] = v;\n            dep[u]\
@@ -189,7 +189,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/vertex_add_subtree_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-09-26 16:55:29+09:00'
+  timestamp: '2021-10-01 11:32:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/vertex_add_subtree_sum.test.cpp
