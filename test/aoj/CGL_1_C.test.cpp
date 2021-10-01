@@ -3,6 +3,8 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
+using namespace geometry;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
@@ -25,4 +27,5 @@ int main() {
         else
             cout << "ON_SEGMENT" << '\n';
     }
+    return 0;
 }

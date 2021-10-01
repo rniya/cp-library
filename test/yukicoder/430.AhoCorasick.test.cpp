@@ -10,7 +10,7 @@ int main() {
     int M;
     cin >> S >> M;
 
-    AhoCorasick<26> AHO([](char c) { return c - 'A'; });
+    AhoCorasick<26, 'A'> AHO;
     for (; M--;) {
         string C;
         cin >> C;
@@ -18,5 +18,5 @@ int main() {
     }
     AHO.build();
 
-    cout << AHO.move(S).first << '\n';
+    cout << AHO.match(S) << '\n';
 }

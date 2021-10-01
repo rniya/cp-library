@@ -3,9 +3,12 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
+using namespace geometry;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
+    cout << fixed << setprecision(10);
     Line l;
     cin >> l;
     int q;
@@ -13,6 +16,7 @@ int main() {
     for (; q--;) {
         Point p;
         cin >> p;
-        cout << reflection(l, p) << '\n';
+        cout << refl(l, p) << '\n';
     }
+    return 0;
 }

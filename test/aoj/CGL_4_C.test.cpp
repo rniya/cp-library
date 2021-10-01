@@ -4,6 +4,8 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
+using namespace geometry;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
@@ -11,12 +13,13 @@ int main() {
     int n;
     cin >> n;
     Polygon g(n);
-    cin >> g;
+    for (auto& p : g) cin >> p;
     int q;
     cin >> q;
     for (; q--;) {
         Line l;
         cin >> l;
-        cout << area(convex_cut(g, l)) << '\n';
+        cout << convex_cut(g, l).area() << '\n';
     }
+    return 0;
 }

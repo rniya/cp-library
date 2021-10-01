@@ -3,6 +3,8 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
+using namespace geometry;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
@@ -18,4 +20,5 @@ int main() {
         else
             cout << 0 << '\n';
     }
+    return 0;
 }

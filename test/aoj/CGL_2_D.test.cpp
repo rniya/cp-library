@@ -3,6 +3,8 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
+using namespace geometry;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
@@ -14,4 +16,5 @@ int main() {
         cin >> s_1 >> s_2;
         cout << distance(s_1, s_2) << '\n';
     }
+    return 0;
 }

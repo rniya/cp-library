@@ -10,16 +10,16 @@ int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
     int N;
-    ll L, R;
+    long long L, R;
     cin >> N >> L >> R;
 
-    vector<ll> fib(2);
+    vector<long long> fib(2);
     fib[0] = fib[1] = 1;
     for (int i = 2; fib[i - 1] + fib[i - 2] <= R; i++) {
         fib.emplace_back(fib[i - 1] + fib[i - 2]);
     }
-    AhoCorasick<10> AHO([](char c) { return c - '0'; });
-    for (ll f : fib) {
+    AhoCorasick<10, '0'> AHO;
+    for (auto f : fib) {
         if (L <= f) {
             AHO.add(to_string(f));
         }
@@ -32,7 +32,7 @@ int main() {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < n; j++) {
             for (int k = 0; k < 10; k++) {
-                int nxt = AHO.move('0' + k, j);
+                int nxt = AHO.move(j, '0' + k);
                 if (!AHO.count(nxt)) dp[i + 1][nxt] += dp[i][j];
             }
         }
@@ -41,4 +41,5 @@ int main() {
     mint ans = 0;
     for (int j = 0; j < n; j++) ans += dp[N][j];
     cout << ans - 1 << '\n';
+    return 0;
 }

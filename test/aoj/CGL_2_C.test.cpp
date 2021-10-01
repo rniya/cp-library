@@ -3,9 +3,12 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
+using namespace geometry;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
+    cout << fixed << setprecision(10);
     int q;
     cin >> q;
     for (; q--;) {
@@ -13,4 +16,5 @@ int main() {
         cin >> s_1 >> s_2;
         cout << crosspoint(s_1, s_2) << '\n';
     }
+    return 0;
 }

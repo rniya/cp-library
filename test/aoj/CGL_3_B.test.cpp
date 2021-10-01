@@ -3,12 +3,15 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
+using namespace geometry;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
     int n;
     cin >> n;
     Polygon g(n);
-    cin >> g;
-    cout << is_convex(g) << '\n';
+    for (auto& p : g) cin >> p;
+    cout << g.is_convex() << '\n';
+    return 0;
 }

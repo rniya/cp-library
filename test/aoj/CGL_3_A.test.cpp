@@ -3,6 +3,8 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
+using namespace geometry;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
@@ -10,6 +12,7 @@ int main() {
     int n;
     cin >> n;
     Polygon g(n);
-    cin >> g;
-    cout << area(g) << '\n';
+    for (auto& p : g) cin >> p;
+    cout << g.area() << '\n';
+    return 0;
 }

@@ -4,12 +4,17 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
+using namespace geometry;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
+    cout << fixed << setprecision(10);
     Point p;
     Circle c;
     cin >> p >> c;
-    auto res = tangent(c, p);
-    cout << res.first << '\n' << res.second << '\n';
+    auto res = tangent_to_circle(c, p);
+    if (res[0] > res[1]) swap(res[0], res[1]);
+    cout << res[0] << ' ' << res[1] << '\n';
+    return 0;
 }

@@ -4,6 +4,8 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
+using namespace geometry;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
@@ -11,6 +13,7 @@ int main() {
     int n;
     cin >> n;
     Polygon g(n);
-    cin >> g;
-    cout << convex_diameter(g) << '\n';
+    for (auto& p : g) cin >> p;
+    cout << get<2>(convex_diameter(g)) << '\n';
+    return 0;
 }

@@ -4,11 +4,15 @@
 #include "../../base.hpp"
 #include "../../geometry/geometry.hpp"
 
+using namespace geometry;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
+    cout << fixed << setprecision(10);
     Point p_1, p_2, p_3;
     cin >> p_1 >> p_2 >> p_3;
-    auto res = circumcenter(p_1, p_2, p_3);
+    auto res = circumcircle(p_1, p_2, p_3);
     cout << res << '\n';
+    return 0;
 }

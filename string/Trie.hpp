@@ -1,51 +1,62 @@
 #pragma once
-#include "../base.hpp"
+#include <array>
+#include <cassert>
+#include <string>
+#include <vector>
+
+template <size_t char_size, char margin = 'a'> struct Trie {
+    struct Node {
+        std::array<int, char_size> nxt;
+        std::vector<int> idxs;
+        int idx, sub;
+        char key;
+        Node(char c) : idx(-1), key(c) { fill(nxt.begin(), nxt.end(), -1); }
+    };
+
+    std::vector<Node> nodes;
+
+    inline int& next(int i, int j) { return nodes[i].nxt[j]; }
+
+    Trie() { nodes.emplace_back('$'); }
+
+    void add(const std::string& s, int x = 0) {
+        int cur = 0;
+        for (const char& c : s) {
+            int k = c - margin;
+            if (next(cur, k) < 0) {
+                next(cur, k) = nodes.size();
+                nodes.emplace_back(c);
+            }
+            cur = next(cur, k);
+            nodes[cur].sub++;
+        }
+        nodes[cur].idx = x;
+        nodes[cur].idxs.emplace_back(x);
+    }
+
+    int find(const std::string& s) {
+        int cur = 0;
+        for (const char& c : s) {
+            int k = c - margin;
+            if (next(cur, k) < 0) return -1;
+            cur = next(cur, k);
+        }
+        return cur;
+    }
+
+    int move(int pos, char c) {
+        assert(pos < (int)nodes.size());
+        return pos < 0 ? -1 : next(pos, c - margin);
+    }
+
+    int size() const { return nodes.size(); }
+
+    int idx(int pos) { return pos < 0 ? -1 : nodes[pos].idx; }
+
+    std::vector<int> idxs(int pos) { return pos < 0 ? std::vector<int>() : nodes[pos].idxs; }
+};
 
 /**
  * @brief Trie
  * @docs docs/string/Trie.md
  */
-template <int char_size> struct Trie {
-    struct TrieNode {
-        char c;
-        int dep;
-        vector<int> nxt, idxs;
-        TrieNode(char c, int dep) : c(c), dep(dep), nxt(char_size, -1) {}
-    };
-    vector<TrieNode> Nodes;
-    function<int(char)> ctoi;
-    Trie(function<int(char)> ctoi) : ctoi(ctoi) { Nodes.emplace_back('$', 0); }
-    inline int& next(int node, int c) { return Nodes[node].nxt[c]; }
-    inline int& next(int node, char c) { return next(node, ctoi(c)); }
-    void add(const string& s, int x = 0) {
-        int node = 0;
-        for (int i = 0; i < (int)s.size(); i++) {
-            int k = ctoi(s[i]);
-            if (next(node, k) < 0) {
-                next(node, k) = Nodes.size();
-                Nodes.emplace_back(s[i], i + 1);
-            }
-            node = next(node, k);
-        }
-        Nodes[node].idxs.emplace_back(x);
-    }
-    int find(const string& s) {
-        int node = 0;
-        for (int i = 0; i < (int)s.size(); i++) {
-            int k = ctoi(s[i]);
-            if (next(node, k) < 0) return -1;
-            node = next(node, k);
-        }
-        return node;
-    }
-    template <typename F> void query(const string& s, const F& f, int l) {
-        int node = 0;
-        for (int i = l; i < (int)s.size(); i++) {
-            node = next(node, s[i]);
-            if (node < 0) return;
-            for (auto& idx : Nodes[node].idxs) f(idx);
-        }
-    }
-    int size() { return Nodes.size(); };
-    vector<int> idxs(int node) { return Nodes[node].idxs; }
-};
