@@ -1,8 +1,8 @@
 #define PROBLEM "https://yukicoder.me/problems/no/803"
 
 #include "../../base.hpp"
+#include "../../linearalgebra/BitMatrix.hpp"
 #include "../../modulo/modint.hpp"
-#include "../../datastructure/BitMatrix.hpp"
 
 const int MAX_LOG = 30, MAX_N = 305;
 using BM = BitMatrix<MAX_N>;

@@ -7,19 +7,19 @@ int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
     string S;
-    int M;
-    cin >> S >> M;
-    int n = S.size();
+    cin >> S;
 
-    RollingHash RH(S, RollingHash::generate_base());
+    RollingHash RH;
+    auto v = RH.build(S);
     map<uint64_t, int> mp;
-    for (int j = 0; j <= min(n, 10); j++) {
-        for (int i = 0; i + j <= n; i++) {
-            mp[RH.query(i, i + j)]++;
+    for (size_t j = 1; j <= 10; j++) {
+        for (size_t i = 0; i + j <= S.size(); i++) {
+            mp[RH.query(v, i, i + j)]++;
         }
     }
 
-    int ans = 0;
+    int M, ans = 0;
+    cin >> M;
     for (; M--;) {
         string C;
         cin >> C;
