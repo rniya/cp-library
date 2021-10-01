@@ -4,17 +4,17 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/queue_operate_all_composite
@@ -97,8 +97,8 @@ data:
     \    using u64 = uint64_t;\n\n    static_assert(Modulus < static_cast<uint32_t>(1)\
     \ << 31, \"Modulus must be less than 2**31\");\n    static constexpr u32 mod =\
     \ Modulus;\n    u32 v;\n\npublic:\n    constexpr modint(const i64 x = 0) noexcept\
-    \ : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& value()\
-    \ noexcept { return v; }\n    constexpr const u32& value() const noexcept { return\
+    \ : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& val()\
+    \ noexcept { return v; }\n    constexpr const u32& val() const noexcept { return\
     \ v; }\n    constexpr modint operator+(const modint& rhs) const noexcept { return\
     \ modint(*this) += rhs; }\n    constexpr modint operator-(const modint& rhs) const\
     \ noexcept { return modint(*this) -= rhs; }\n    constexpr modint operator*(const\
@@ -164,8 +164,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/queue_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2021-09-25 17:45:48+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-10-01 20:18:39+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/queue_operate_all_composite.test.cpp
 layout: document

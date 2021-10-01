@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: '0.00001'
@@ -247,23 +247,23 @@ data:
     \n\nusing namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    cout << fixed << setprecision(10);\n    Point p;\n    Circle c;\n    cin\
     \ >> p >> c;\n    auto res = tangent_to_circle(c, p);\n    if (res[0] > res[1])\
-    \ swap(res[0], res[1]);\n    cout << res[0] << ' ' << res[1] << '\\n';\n    return\
-    \ 0;\n}\n"
+    \ swap(res[0], res[1]);\n    cout << res[0] << '\\n' << res[1] << '\\n';\n   \
+    \ return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_F\"\
     \n#define ERROR 0.00001\n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\
     \n\nusing namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    cout << fixed << setprecision(10);\n    Point p;\n    Circle c;\n    cin\
     \ >> p >> c;\n    auto res = tangent_to_circle(c, p);\n    if (res[0] > res[1])\
-    \ swap(res[0], res[1]);\n    cout << res[0] << ' ' << res[1] << '\\n';\n    return\
-    \ 0;\n}"
+    \ swap(res[0], res[1]);\n    cout << res[0] << '\\n' << res[1] << '\\n';\n   \
+    \ return 0;\n}"
   dependsOn:
   - base.hpp
   - geometry/geometry.hpp
   isVerificationFile: true
   path: test/aoj/CGL_7_F.test.cpp
   requiredBy: []
-  timestamp: '2021-10-01 18:13:28+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-10-01 20:18:39+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_7_F.test.cpp
 layout: document

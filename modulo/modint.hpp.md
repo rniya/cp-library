@@ -72,7 +72,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -111,9 +111,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/931.test.cpp
     title: test/yukicoder/931.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/modulo/modint.md
     document_title: modint
@@ -124,7 +124,7 @@ data:
     \ < static_cast<uint32_t>(1) << 31, \"Modulus must be less than 2**31\");\n  \
     \  static constexpr u32 mod = Modulus;\n    u32 v;\n\npublic:\n    constexpr modint(const\
     \ i64 x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n \
-    \   constexpr u32& value() noexcept { return v; }\n    constexpr const u32& value()\
+    \   constexpr u32& val() noexcept { return v; }\n    constexpr const u32& val()\
     \ const noexcept { return v; }\n    constexpr modint operator+(const modint& rhs)\
     \ const noexcept { return modint(*this) += rhs; }\n    constexpr modint operator-(const\
     \ modint& rhs) const noexcept { return modint(*this) -= rhs; }\n    constexpr\
@@ -166,8 +166,8 @@ data:
     \ u32 = uint32_t;\n    using u64 = uint64_t;\n\n    static_assert(Modulus < static_cast<uint32_t>(1)\
     \ << 31, \"Modulus must be less than 2**31\");\n    static constexpr u32 mod =\
     \ Modulus;\n    u32 v;\n\npublic:\n    constexpr modint(const i64 x = 0) noexcept\
-    \ : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& value()\
-    \ noexcept { return v; }\n    constexpr const u32& value() const noexcept { return\
+    \ : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& val()\
+    \ noexcept { return v; }\n    constexpr const u32& val() const noexcept { return\
     \ v; }\n    constexpr modint operator+(const modint& rhs) const noexcept { return\
     \ modint(*this) += rhs; }\n    constexpr modint operator-(const modint& rhs) const\
     \ noexcept { return modint(*this) -= rhs; }\n    constexpr modint operator*(const\
@@ -211,8 +211,8 @@ data:
   - convolution/NumberTheoreticTransform.hpp
   - convolution/ArbitaryModConvolution.hpp
   - test/atcoder/tdpc_fibonacci.cpp
-  timestamp: '2021-09-25 17:45:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-10-01 20:18:39+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DPL_5_J.test.cpp
   - test/aoj/DPL_5_B.test.cpp

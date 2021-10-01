@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -89,7 +89,7 @@ data:
     \ < static_cast<uint32_t>(1) << 31, \"Modulus must be less than 2**31\");\n  \
     \  static constexpr u32 mod = Modulus;\n    u32 v;\n\npublic:\n    constexpr modint(const\
     \ i64 x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n \
-    \   constexpr u32& value() noexcept { return v; }\n    constexpr const u32& value()\
+    \   constexpr u32& val() noexcept { return v; }\n    constexpr const u32& val()\
     \ const noexcept { return v; }\n    constexpr modint operator+(const modint& rhs)\
     \ const noexcept { return modint(*this) += rhs; }\n    constexpr modint operator-(const\
     \ modint& rhs) const noexcept { return modint(*this) -= rhs; }\n    constexpr\
@@ -169,17 +169,16 @@ data:
     \ = modint<mod1>;\n    using mint2 = modint<mod2>;\n    NumberTheoreticTransform<mod0>\
     \ ntt0;\n    NumberTheoreticTransform<mod1> ntt1;\n    NumberTheoreticTransform<mod2>\
     \ ntt2;\n    vector<mint0> a0(n), b0(m);\n    vector<mint1> a1(n), b1(m);\n  \
-    \  vector<mint2> a2(n), b2(m);\n    for (int i = 0; i < n; i++) a0[i] = a[i].value(),\
-    \ a1[i] = a[i].value(), a2[i] = a[i].value();\n    for (int i = 0; i < m; i++)\
-    \ b0[i] = b[i].value(), b1[i] = b[i].value(), b2[i] = b[i].value();\n    auto\
-    \ c0 = ntt0.multiply(a0, b0);\n    auto c1 = ntt1.multiply(a1, b1);\n    auto\
-    \ c2 = ntt2.multiply(a2, b2);\n    static const mint1 inv0 = (mint1)1 / mod0;\n\
-    \    static const mint2 inv1 = (mint2)1 / mod1, inv0inv1 = inv1 / mod0;\n    static\
-    \ const M m0 = mod0, m0m1 = m0 * mod1;\n    vector<M> res(n + m - 1);\n    for\
-    \ (int i = 0; i < n + m - 1; i++) {\n        int v0 = c0[i].value();\n       \
-    \ int v1 = (inv0 * (c1[i] - v0)).value();\n        int v2 = (inv0inv1 * (c2[i]\
-    \ - v0) - inv1 * v1).value();\n        res[i] = v0 + m0 * v1 + m0m1 * v2;\n  \
-    \  }\n    return res;\n}\n"
+    \  vector<mint2> a2(n), b2(m);\n    for (int i = 0; i < n; i++) a0[i] = a[i].val(),\
+    \ a1[i] = a[i].val(), a2[i] = a[i].val();\n    for (int i = 0; i < m; i++) b0[i]\
+    \ = b[i].val(), b1[i] = b[i].val(), b2[i] = b[i].val();\n    auto c0 = ntt0.multiply(a0,\
+    \ b0);\n    auto c1 = ntt1.multiply(a1, b1);\n    auto c2 = ntt2.multiply(a2,\
+    \ b2);\n    static const mint1 inv0 = (mint1)1 / mod0;\n    static const mint2\
+    \ inv1 = (mint2)1 / mod1, inv0inv1 = inv1 / mod0;\n    static const M m0 = mod0,\
+    \ m0m1 = m0 * mod1;\n    vector<M> res(n + m - 1);\n    for (int i = 0; i < n\
+    \ + m - 1; i++) {\n        int v0 = c0[i].val();\n        int v1 = (inv0 * (c1[i]\
+    \ - v0)).val();\n        int v2 = (inv0inv1 * (c2[i] - v0) - inv1 * v1).val();\n\
+    \        res[i] = v0 + m0 * v1 + m0m1 * v2;\n    }\n    return res;\n}\n"
   code: "#pragma once\n#include \"../base.hpp\"\n#include \"../modulo/modint.hpp\"\
     \n#include \"NumberTheoreticTransform.hpp\"\n\n/**\n * @brief Arbirary Mod Convolution\
     \ (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)\n * @docs docs/convolution/ArbitaryModConvolution.md\n\
@@ -190,16 +189,16 @@ data:
     \    NumberTheoreticTransform<mod0> ntt0;\n    NumberTheoreticTransform<mod1>\
     \ ntt1;\n    NumberTheoreticTransform<mod2> ntt2;\n    vector<mint0> a0(n), b0(m);\n\
     \    vector<mint1> a1(n), b1(m);\n    vector<mint2> a2(n), b2(m);\n    for (int\
-    \ i = 0; i < n; i++) a0[i] = a[i].value(), a1[i] = a[i].value(), a2[i] = a[i].value();\n\
-    \    for (int i = 0; i < m; i++) b0[i] = b[i].value(), b1[i] = b[i].value(), b2[i]\
-    \ = b[i].value();\n    auto c0 = ntt0.multiply(a0, b0);\n    auto c1 = ntt1.multiply(a1,\
+    \ i = 0; i < n; i++) a0[i] = a[i].val(), a1[i] = a[i].val(), a2[i] = a[i].val();\n\
+    \    for (int i = 0; i < m; i++) b0[i] = b[i].val(), b1[i] = b[i].val(), b2[i]\
+    \ = b[i].val();\n    auto c0 = ntt0.multiply(a0, b0);\n    auto c1 = ntt1.multiply(a1,\
     \ b1);\n    auto c2 = ntt2.multiply(a2, b2);\n    static const mint1 inv0 = (mint1)1\
     \ / mod0;\n    static const mint2 inv1 = (mint2)1 / mod1, inv0inv1 = inv1 / mod0;\n\
     \    static const M m0 = mod0, m0m1 = m0 * mod1;\n    vector<M> res(n + m - 1);\n\
-    \    for (int i = 0; i < n + m - 1; i++) {\n        int v0 = c0[i].value();\n\
-    \        int v1 = (inv0 * (c1[i] - v0)).value();\n        int v2 = (inv0inv1 *\
-    \ (c2[i] - v0) - inv1 * v1).value();\n        res[i] = v0 + m0 * v1 + m0m1 * v2;\n\
-    \    }\n    return res;\n}"
+    \    for (int i = 0; i < n + m - 1; i++) {\n        int v0 = c0[i].val();\n  \
+    \      int v1 = (inv0 * (c1[i] - v0)).val();\n        int v2 = (inv0inv1 * (c2[i]\
+    \ - v0) - inv1 * v1).val();\n        res[i] = v0 + m0 * v1 + m0m1 * v2;\n    }\n\
+    \    return res;\n}"
   dependsOn:
   - base.hpp
   - modulo/modint.hpp
@@ -207,7 +206,7 @@ data:
   isVerificationFile: false
   path: convolution/ArbitaryModConvolution.hpp
   requiredBy: []
-  timestamp: '2021-09-25 17:45:48+09:00'
+  timestamp: '2021-10-01 20:18:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/convolution_mod_1000000007.test.cpp

@@ -72,7 +72,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/Slide_Min.hpp
       title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: datastructure/SlidingWindowAggregation.hpp
       title: Sliding Window Aggregation (SWAG)
     - icon: ':warning:'
@@ -114,7 +114,7 @@ data:
       title: Project Selection Problem
   - name: geometry
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/geometry.hpp
       title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
   - name: graph
@@ -213,7 +213,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: modulo/dynamic_modint.hpp
       title: "\u5B9F\u884C\u6642 modint"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: modulo/modint.hpp
       title: modint
     - icon: ':warning:'
@@ -422,7 +422,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_E.test.cpp
       title: test/aoj/CGL_7_E.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_F.test.cpp
       title: test/aoj/CGL_7_F.test.cpp
     - icon: ':heavy_check_mark:'
@@ -661,7 +661,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/queue_operate_all_composite.test.cpp
       title: test/yosupo/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'

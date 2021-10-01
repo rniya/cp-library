@@ -7,7 +7,7 @@ data:
   - icon: ':warning:'
     path: linearalgebra/Kitamasa.hpp
     title: Kitamasa
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -99,7 +99,7 @@ data:
     \ < static_cast<uint32_t>(1) << 31, \"Modulus must be less than 2**31\");\n  \
     \  static constexpr u32 mod = Modulus;\n    u32 v;\n\npublic:\n    constexpr modint(const\
     \ i64 x = 0) noexcept : v(x < 0 ? mod - 1 - (-(x + 1) % mod) : x % mod) {}\n \
-    \   constexpr u32& value() noexcept { return v; }\n    constexpr const u32& value()\
+    \   constexpr u32& val() noexcept { return v; }\n    constexpr const u32& val()\
     \ const noexcept { return v; }\n    constexpr modint operator+(const modint& rhs)\
     \ const noexcept { return modint(*this) += rhs; }\n    constexpr modint operator-(const\
     \ modint& rhs) const noexcept { return modint(*this) -= rhs; }\n    constexpr\
@@ -152,7 +152,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/tdpc_fibonacci.cpp
   requiredBy: []
-  timestamp: '2021-09-25 17:45:48+09:00'
+  timestamp: '2021-10-01 20:18:39+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/tdpc_fibonacci.cpp

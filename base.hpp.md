@@ -32,7 +32,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/Slide_Min.hpp
     title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
   - icon: ':heavy_check_mark:'
@@ -118,9 +118,6 @@ data:
   - icon: ':warning:'
     path: math/quotient_ranges.hpp
     title: "\u5546\u5217\u6319"
-  - icon: ':heavy_check_mark:'
-    path: modulo/dynamic_modint.hpp
-    title: "\u5B9F\u884C\u6642 modint"
   - icon: ':warning:'
     path: modulo/montgomery64.hpp
     title: montgomery modint (64 bit)
@@ -290,7 +287,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_E.test.cpp
     title: test/aoj/CGL_7_E.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_F.test.cpp
     title: test/aoj/CGL_7_F.test.cpp
   - icon: ':heavy_check_mark:'
@@ -524,7 +521,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -838,7 +835,6 @@ data:
   - test/codeforces/1404_E.cpp
   - test/codeforces/1361_C.cpp
   - modulo/montgomery64.hpp
-  - modulo/dynamic_modint.hpp
   - math/fast_factorize.hpp
   - math/floor_sum.hpp
   - math/quotient_ranges.hpp

@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: combinatorics/binomial.hpp
     title: binomial
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -106,8 +106,8 @@ data:
     \n    static_assert(Modulus < static_cast<uint32_t>(1) << 31, \"Modulus must be\
     \ less than 2**31\");\n    static constexpr u32 mod = Modulus;\n    u32 v;\n\n\
     public:\n    constexpr modint(const i64 x = 0) noexcept : v(x < 0 ? mod - 1 -\
-    \ (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& value() noexcept { return\
-    \ v; }\n    constexpr const u32& value() const noexcept { return v; }\n    constexpr\
+    \ (-(x + 1) % mod) : x % mod) {}\n    constexpr u32& val() noexcept { return v;\
+    \ }\n    constexpr const u32& val() const noexcept { return v; }\n    constexpr\
     \ modint operator+(const modint& rhs) const noexcept { return modint(*this) +=\
     \ rhs; }\n    constexpr modint operator-(const modint& rhs) const noexcept { return\
     \ modint(*this) -= rhs; }\n    constexpr modint operator*(const modint& rhs) const\
@@ -160,7 +160,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_F.test.cpp
   requiredBy: []
-  timestamp: '2021-09-26 16:55:29+09:00'
+  timestamp: '2021-10-01 20:18:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_F.test.cpp
