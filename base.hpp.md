@@ -18,12 +18,6 @@ data:
     path: datastructure/BinaryTrie.hpp
     title: Binary Trie
   - icon: ':heavy_check_mark:'
-    path: datastructure/BitMatrix.hpp
-    title: BitMatrix
-  - icon: ':heavy_check_mark:'
-    path: datastructure/CumulativeSum2D.hpp
-    title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
-  - icon: ':heavy_check_mark:'
     path: datastructure/DualSegmentTree.hpp
     title: Dual Segment Tree
   - icon: ':warning:'
@@ -56,9 +50,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: flow/ProjectSelectionProblem.hpp
     title: Project Selection Problem
-  - icon: ':heavy_check_mark:'
-    path: geometry/geometry.hpp
-    title: geometry
   - icon: ':heavy_check_mark:'
     path: graph/BellmanFord.hpp
     title: Bellman Ford
@@ -109,6 +100,9 @@ data:
     path: hold/SuffixArray_old.hpp
     title: Suffix Array
   - icon: ':warning:'
+    path: linearalgebra/BitMatrix.hpp
+    title: BitMatrix
+  - icon: ':warning:'
     path: linearalgebra/Kitamasa.hpp
     title: Kitamasa
   - icon: ':heavy_check_mark:'
@@ -139,9 +133,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/lagrange_interpolation.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
-  - icon: ':heavy_check_mark:'
-    path: string/AhoCorasick.hpp
-    title: Aho Corasick
   - icon: ':warning:'
     path: string/Knuth_Morris_Pratt.hpp
     title: "Knuth Moriss Pratt (KMP\u6CD5)"
@@ -154,9 +145,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/SuffixArray.hpp
     title: Suffix Array + Longest Common Prefix Array
-  - icon: ':heavy_check_mark:'
-    path: string/Trie.hpp
-    title: Trie
   - icon: ':heavy_check_mark:'
     path: string/Z_Algorithm.hpp
     title: Z-Algorithm
@@ -193,9 +181,6 @@ data:
   - icon: ':warning:'
     path: test/atcoder/ukuku09_d.cpp
     title: test/atcoder/ukuku09_d.cpp
-  - icon: ':warning:'
-    path: test/codeforces/1179_C.cpp
-    title: test/codeforces/1179_C.cpp
   - icon: ':warning:'
     path: test/codeforces/1361_C.cpp
     title: test/codeforces/1361_C.cpp
@@ -260,10 +245,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_14_B.test.cpp
     title: test/aoj/ALDS1_14_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_1_A.test.cpp
     title: test/aoj/CGL_1_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_1_B.test.cpp
     title: test/aoj/CGL_1_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -311,12 +296,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_E.test.cpp
     title: test/aoj/CGL_7_E.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_7_F.test.cpp
     title: test/aoj/CGL_7_F.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/CGL_7_G.test.cpp
-    title: test/aoj/CGL_7_G.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_A.test.cpp
     title: test/aoj/DPL_5_A.test.cpp
@@ -663,17 +645,14 @@ data:
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yukicoder/803.test.cpp
-    title: test/yukicoder/803.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yukicoder/931.test.cpp
     title: test/yukicoder/931.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -808,17 +787,13 @@ data:
   - datastructure/DualSegmentTree.hpp
   - datastructure/BinaryTrie.hpp
   - datastructure/SlidingWindowAggregation.hpp
-  - datastructure/BitMatrix.hpp
   - datastructure/WeightedUnionFind.hpp
   - datastructure/PartiallyPersistentUnionFind.hpp
-  - datastructure/CumulativeSum2D.hpp
-  - string/Trie.hpp
   - string/SuffixArray.hpp
   - string/Manacher.hpp
   - string/Knuth_Morris_Pratt.hpp
   - string/Z_Algorithm.hpp
   - string/RollingHash.hpp
-  - string/AhoCorasick.hpp
   - graph/CycleDetection.hpp
   - graph/Kruskal.hpp
   - graph/BellmanFord.hpp
@@ -848,6 +823,7 @@ data:
   - util/RandomNumberGenerator_32.hpp
   - linearalgebra/Kitamasa.hpp
   - linearalgebra/SquareMatrix.hpp
+  - linearalgebra/BitMatrix.hpp
   - polynomial/FormalPowerSeries.hpp
   - polynomial/lagrange_interpolation.hpp
   - polynomial/StirlingSecond.hpp
@@ -863,10 +839,8 @@ data:
   - test/atcoder/nikkei2019_2_qual_d.cpp
   - test/atcoder/agc002_d.cpp
   - test/codeforces/1444_C.cpp
-  - test/codeforces/1179_C.cpp
   - test/codeforces/1404_E.cpp
   - test/codeforces/1361_C.cpp
-  - geometry/geometry.hpp
   - modulo/montgomery64.hpp
   - modulo/dynamic_modint.hpp
   - math/fast_factorize.hpp
@@ -874,7 +848,7 @@ data:
   - math/quotient_ranges.hpp
   - combinatorics/PartitionTable.hpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/CGL_4_B.test.cpp
   - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
@@ -900,7 +874,6 @@ data:
   - test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_E.DualSegmentTree.test.cpp
   - test/aoj/2903.test.cpp
-  - test/aoj/CGL_7_G.test.cpp
   - test/aoj/CGL_3_A.test.cpp
   - test/aoj/DPL_5_D.test.cpp
   - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
@@ -1002,7 +975,6 @@ data:
   - test/yosupo/vertex_set_path_composite.test.cpp
   - test/yukicoder/952.test.cpp
   - test/yukicoder/1301.test.cpp
-  - test/yukicoder/803.test.cpp
   - test/yukicoder/931.test.cpp
   - test/yukicoder/3046.test.cpp
   - test/yukicoder/1678.test.cpp

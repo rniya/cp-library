@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -40,14 +40,11 @@ data:
       path: datastructure/BinaryTrie.hpp
       title: Binary Trie
     - icon: ':heavy_check_mark:'
-      path: datastructure/BitMatrix.hpp
-      title: BitMatrix
-    - icon: ':heavy_check_mark:'
       path: datastructure/ConvexHullTrick.hpp
       title: Convex Hull Trick (Add-Monotonic Slope Optimization)
     - icon: ':heavy_check_mark:'
       path: datastructure/CumulativeSum2D.hpp
-      title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
+      title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
     - icon: ':heavy_check_mark:'
       path: datastructure/DualSegmentTree.hpp
       title: Dual Segment Tree
@@ -117,9 +114,9 @@ data:
       title: Project Selection Problem
   - name: geometry
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: geometry/geometry.hpp
-      title: geometry
+      title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
   - name: graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -184,6 +181,9 @@ data:
       title: Suffix Array
   - name: linearalgebra
     pages:
+    - icon: ':warning:'
+      path: linearalgebra/BitMatrix.hpp
+      title: BitMatrix
     - icon: ':warning:'
       path: linearalgebra/Kitamasa.hpp
       title: Kitamasa
@@ -296,9 +296,6 @@ data:
   - name: test/codeforces
     pages:
     - icon: ':warning:'
-      path: test/codeforces/1179_C.cpp
-      title: test/codeforces/1179_C.cpp
-    - icon: ':warning:'
       path: test/codeforces/1361_C.cpp
       title: test/codeforces/1361_C.cpp
     - icon: ':warning:'
@@ -377,10 +374,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_14_B.test.cpp
       title: test/aoj/ALDS1_14_B.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/CGL_1_A.test.cpp
       title: test/aoj/CGL_1_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/CGL_1_B.test.cpp
       title: test/aoj/CGL_1_B.test.cpp
     - icon: ':heavy_check_mark:'
@@ -428,12 +425,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_E.test.cpp
       title: test/aoj/CGL_7_E.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/CGL_7_F.test.cpp
       title: test/aoj/CGL_7_F.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/CGL_7_G.test.cpp
-      title: test/aoj/CGL_7_G.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_A.test.cpp
       title: test/aoj/DPL_5_A.test.cpp
@@ -786,7 +780,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/665.test.cpp
       title: test/yukicoder/665.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/803.test.cpp
       title: test/yukicoder/803.test.cpp
     - icon: ':heavy_check_mark:'

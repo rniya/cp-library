@@ -1,12 +1,12 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/CumulativeSum2D.hpp
-    title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
+    title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -75,24 +75,26 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"datastructure/CumulativeSum2D.hpp\"\
-    \n\n/**\n * @brief 2\u6B21\u5143\u7D2F\u7A4D\u548C\n * @docs docs/datastructure/CumulativeSum2D.md\n\
-    \ */\ntemplate <typename T> struct CumulativeSum2D {\n    vector<vector<T>> dat;\n\
-    \    CumulativeSum2D(const vector<vector<T>>& v) {\n        int H = v.size(),\
-    \ W = v[0].size();\n        dat.assign(H + 1, vector<T>(W + 1, 0));\n        for\
-    \ (int i = 0; i < H; i++) {\n            for (int j = 0; j < W; j++) {\n     \
-    \           dat[i + 1][j + 1] = v[i][j];\n                dat[i + 1][j + 1] +=\
-    \ dat[i + 1][j] + dat[i][j + 1] - dat[i][j];\n            }\n        }\n    }\n\
-    \    T query(int sx, int gx, int sy, int gy) {  // [sx,gx),[sy,gy)\n        return\
-    \ dat[gx][gy] - dat[sx][gy] - dat[gx][sy] + dat[sx][sy];\n    }\n};\n#line 5 \"\
-    test/aoj/DSL_5_B.test.cpp\"\n\nconst int MAX_X = 1010;\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N;\n    cin >> N;\n    vector<vector<int>>\
-    \ v(MAX_X, vector<int>(MAX_X, 0));\n    for (; N--;) {\n        int a, b, c, d;\n\
-    \        cin >> a >> b >> c >> d;\n        ++v[a][b];\n        ++v[c][d];\n  \
-    \      --v[a][d];\n        --v[c][b];\n    }\n\n    CumulativeSum2D<int> CS(v);\n\
-    \    int ans = 0;\n    for (int i = 0; i < MAX_X; i++) {\n        for (int j =\
-    \ 0; j < MAX_X; j++) {\n            ans = max(ans, CS.query(0, i, 0, j));\n  \
-    \      }\n    }\n\n    cout << ans << '\\n';\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 4 \"datastructure/CumulativeSum2D.hpp\"\
+    \n\ntemplate <typename T> struct CumulativeSum2D {\n    CumulativeSum2D(const\
+    \ std::vector<std::vector<T>>& v) {\n        n = v.size(), m = v[0].size();\n\
+    \        dat.assign(n + 1, std::vector<T>(m + 1, T(0)));\n        for (int i =\
+    \ 0; i < n; i++) {\n            for (int j = 0; j < m; j++) {\n              \
+    \  dat[i + 1][j + 1] = v[i][j];\n                dat[i + 1][j + 1] += dat[i +\
+    \ 1][j] + dat[i][j + 1] - dat[i][j];\n            }\n        }\n    }\n\n    T\
+    \ query(int xl, int xr, int yl, int yr) const {  // [xl, xr) * [yl, yr)\n    \
+    \    assert(0 <= xl && xl <= xr && xr <= n);\n        assert(0 <= yl && yl <=\
+    \ yr && yr <= m);\n        return dat[xr][yr] - dat[xl][yr] - dat[xr][yl] + dat[xl][yl];\n\
+    \    }\n\nprivate:\n    int n, m;\n    std::vector<std::vector<T>> dat;\n};\n\n\
+    /**\n * @brief 2 \u6B21\u5143\u7D2F\u7A4D\u548C\n */\n#line 5 \"test/aoj/DSL_5_B.test.cpp\"\
+    \n\nconst int MAX_X = 1010;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int N;\n    cin >> N;\n    vector<vector<int>> v(MAX_X, vector<int>(MAX_X,\
+    \ 0));\n    for (; N--;) {\n        int a, b, c, d;\n        cin >> a >> b >>\
+    \ c >> d;\n        ++v[a][b];\n        ++v[c][d];\n        --v[a][d];\n      \
+    \  --v[c][b];\n    }\n\n    CumulativeSum2D<int> CS(v);\n    int ans = 0;\n  \
+    \  for (int i = 0; i < MAX_X; i++) {\n        for (int j = 0; j < MAX_X; j++)\
+    \ {\n            ans = max(ans, CS.query(0, i, 0, j));\n        }\n    }\n\n \
+    \   cout << ans << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/5/DSL_5_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/CumulativeSum2D.hpp\"\
     \n\nconst int MAX_X = 1010;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
@@ -109,7 +111,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_5_B.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-10-01 16:25:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_5_B.test.cpp

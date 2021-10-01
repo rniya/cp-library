@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -74,29 +74,28 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"string/Trie.hpp\"\
-    \n\n/**\n * @brief Trie\n * @docs docs/string/Trie.md\n */\ntemplate <int char_size>\
-    \ struct Trie {\n    struct TrieNode {\n        char c;\n        int dep;\n  \
-    \      vector<int> nxt, idxs;\n        TrieNode(char c, int dep) : c(c), dep(dep),\
-    \ nxt(char_size, -1) {}\n    };\n    vector<TrieNode> Nodes;\n    function<int(char)>\
-    \ ctoi;\n    Trie(function<int(char)> ctoi) : ctoi(ctoi) { Nodes.emplace_back('$',\
-    \ 0); }\n    inline int& next(int node, int c) { return Nodes[node].nxt[c]; }\n\
-    \    inline int& next(int node, char c) { return next(node, ctoi(c)); }\n    void\
-    \ add(const string& s, int x = 0) {\n        int node = 0;\n        for (int i\
-    \ = 0; i < (int)s.size(); i++) {\n            int k = ctoi(s[i]);\n          \
-    \  if (next(node, k) < 0) {\n                next(node, k) = Nodes.size();\n \
-    \               Nodes.emplace_back(s[i], i + 1);\n            }\n            node\
-    \ = next(node, k);\n        }\n        Nodes[node].idxs.emplace_back(x);\n   \
-    \ }\n    int find(const string& s) {\n        int node = 0;\n        for (int\
-    \ i = 0; i < (int)s.size(); i++) {\n            int k = ctoi(s[i]);\n        \
-    \    if (next(node, k) < 0) return -1;\n            node = next(node, k);\n  \
-    \      }\n        return node;\n    }\n    template <typename F> void query(const\
-    \ string& s, const F& f, int l) {\n        int node = 0;\n        for (int i =\
-    \ l; i < (int)s.size(); i++) {\n            node = next(node, s[i]);\n       \
-    \     if (node < 0) return;\n            for (auto& idx : Nodes[node].idxs) f(idx);\n\
-    \        }\n    }\n    int size() { return Nodes.size(); };\n    vector<int> idxs(int\
-    \ node) { return Nodes[node].idxs; }\n};\n#line 7 \"test/atcoder/tenka1_2016_final_c.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 6 \"string/Trie.hpp\"\
+    \n\ntemplate <size_t char_size, char margin = 'a'> struct Trie {\n    struct Node\
+    \ {\n        std::array<int, char_size> nxt;\n        std::vector<int> idxs;\n\
+    \        int idx, sub;\n        char key;\n        Node(char c) : idx(-1), key(c)\
+    \ { fill(nxt.begin(), nxt.end(), -1); }\n    };\n\n    std::vector<Node> nodes;\n\
+    \n    inline int& next(int i, int j) { return nodes[i].nxt[j]; }\n\n    Trie()\
+    \ { nodes.emplace_back('$'); }\n\n    void add(const std::string& s, int x = 0)\
+    \ {\n        int cur = 0;\n        for (const char& c : s) {\n            int\
+    \ k = c - margin;\n            if (next(cur, k) < 0) {\n                next(cur,\
+    \ k) = nodes.size();\n                nodes.emplace_back(c);\n            }\n\
+    \            cur = next(cur, k);\n            nodes[cur].sub++;\n        }\n \
+    \       nodes[cur].idx = x;\n        nodes[cur].idxs.emplace_back(x);\n    }\n\
+    \n    int find(const std::string& s) {\n        int cur = 0;\n        for (const\
+    \ char& c : s) {\n            int k = c - margin;\n            if (next(cur, k)\
+    \ < 0) return -1;\n            cur = next(cur, k);\n        }\n        return\
+    \ cur;\n    }\n\n    int move(int pos, char c) {\n        assert(pos < (int)nodes.size());\n\
+    \        return pos < 0 ? -1 : next(pos, c - margin);\n    }\n\n    int size()\
+    \ const { return nodes.size(); }\n\n    int idx(int pos) { return pos < 0 ? -1\
+    \ : nodes[pos].idx; }\n\n    std::vector<int> idxs(int pos) { return pos < 0 ?\
+    \ std::vector<int>() : nodes[pos].idxs; }\n};\n\n/**\n * @brief Trie\n * @docs\
+    \ docs/string/Trie.md\n */\n#line 7 \"test/atcoder/tenka1_2016_final_c.cpp\"\n\
+    \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
     \ S;\n    int M;\n    cin >> S >> M;\n    vector<string> P(M);\n    vector<int>\
     \ W(M);\n    for (int i = 0; i < M; i++) cin >> P[i];\n    for (int i = 0; i <\
     \ M; i++) cin >> W[i];\n\n    Trie<26> trie([](char c) { return c - 'a'; });\n\
@@ -122,7 +121,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/tenka1_2016_final_c.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-10-01 16:25:03+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/tenka1_2016_final_c.cpp

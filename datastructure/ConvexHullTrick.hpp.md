@@ -146,4 +146,4 @@ title: Convex Hull Trick (Add-Monotonic Slope Optimization)
 
 ## Links
 - [Convex-Hull Trick - sataniC++](https://satanic0258.hatenablog.com/entry/2016/08/16/181331)
-- [Convex-Hull-Trick-Add-Monotone | Luzhiled’s Library](https://ei1333.github.io/library/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp)
+- [Convex-Hull-Trick-Add-Monotone \| Luzhiled’s Library](https://ei1333.github.io/library/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp)

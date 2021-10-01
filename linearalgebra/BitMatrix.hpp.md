@@ -1,17 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/803.test.cpp
-    title: test/yukicoder/803.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/datastructure/BitMatrix.md
     document_title: BitMatrix
@@ -73,7 +70,7 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"datastructure/BitMatrix.hpp\"\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"linearalgebra/BitMatrix.hpp\"\
     \n\n/**\n * @brief BitMatrix\n * @docs docs/datastructure/BitMatrix.md\n */\n\
     template <size_t MAX_COL> struct BitMatrix {\n    int n, m;\n    vector<bitset<MAX_COL>>\
     \ A;\n    BitMatrix(int n) : n(n), m(MAX_COL), A(n) {}\n    const bitset<MAX_COL>&\
@@ -115,17 +112,16 @@ data:
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: datastructure/BitMatrix.hpp
+  path: linearalgebra/BitMatrix.hpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/yukicoder/803.test.cpp
-documentation_of: datastructure/BitMatrix.hpp
+  timestamp: '2021-10-01 16:25:03+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: linearalgebra/BitMatrix.hpp
 layout: document
 redirect_from:
-- /library/datastructure/BitMatrix.hpp
-- /library/datastructure/BitMatrix.hpp.html
+- /library/linearalgebra/BitMatrix.hpp
+- /library/linearalgebra/BitMatrix.hpp.html
 title: BitMatrix
 ---
 ## 概要

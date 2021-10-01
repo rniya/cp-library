@@ -1,12 +1,12 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: geometry/geometry.hpp
-    title: geometry
+    title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -75,213 +75,191 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"geometry/geometry.hpp\"\
-    \n\n/**\n * @brief geometry\n * @docs docs/geometry/geometry.md\n */\nconst double\
-    \ EPS = 1e-8, PI = acos(-1);\ninline bool EQ(double a, double b) { return fabs(b\
-    \ - a) < EPS; }\n\nstruct Point {\n    double x, y;\n    Point() {}\n    Point(double\
-    \ x, double y) : x(x), y(y) {}\n    Point operator-() const { return Point(-x,\
-    \ -y); }\n    Point operator+(Point p) const { return Point(x + p.x, y + p.y);\
-    \ }\n    Point operator-(Point p) const { return Point(x - p.x, y - p.y); }\n\
-    \    Point operator*(double t) const { return Point(x * t, y * t); }\n    Point\
-    \ operator*(Point p) const { return Point(x * p.x - y * p.y, x * p.y + y * p.x);\
-    \ }\n    Point operator/(double t) const { return Point(x / t, y / t); }\n   \
-    \ bool operator<(const Point& p) const { return x != p.x ? x < p.x : y < p.y;\
-    \ }\n    bool operator==(const Point& p) const { return EQ(x, p.x) && EQ(y, p.y);\
-    \ }\n    friend istream& operator>>(istream& is, Point& p) {\n        is >> p.x\
-    \ >> p.y;\n        return is;\n    }\n    friend ostream& operator<<(ostream&\
-    \ os, Point p) {\n        os << fixed << setprecision(10) << p.x << ' ' << p.y;\n\
-    \        return os;\n    }\n};\n\nstruct Line {\n    Point a, b;\n    Line() {}\n\
-    \    Line(Point a, Point b) : a(a), b(b) {}\n    friend istream& operator>>(istream&\
-    \ is, Line& l) {\n        is >> l.a >> l.b;\n        return is;\n    }\n    friend\
-    \ ostream& operator<<(ostream& os, Line l) {\n        os << l.a << \" to \" <<\
-    \ l.b;\n        return os;\n    }\n};\n\nstruct Segment : Line {\n    Segment()\
-    \ {}\n    Segment(Point a, Point b) : Line(a, b) {}\n};\n\nstruct Circle {\n \
-    \   Point c;\n    double r;\n    Circle() {}\n    Circle(Point c, double r) :\
-    \ c(c), r(r) {}\n    friend istream& operator>>(istream& is, Circle& c) {\n  \
-    \      is >> c.c >> c.r;\n        return is;\n    }\n    friend ostream& operator<<(ostream&\
-    \ os, Circle& c) {\n        os << c.c << ' ' << c.r;\n        return os;\n   \
-    \ }\n};\n\nusing Polygon = vector<Point>;\n\ndouble dot(const Point&, const Point&);\n\
-    double cross(const Point&, const Point&);\ndouble norm(const Point&);\ndouble\
-    \ abs(const Point&);\nPoint projection(const Line&, const Point&);\nPoint reflection(const\
-    \ Line&, const Point&);\ndouble arg(const Point&);\ndouble radian_to_degree(const\
-    \ double&);\ndouble degree_to_radian(const double&);\nPoint polar(const double&,\
-    \ const double&);\nPoint rotate(const Point&, const double&);\ndouble get_angle(const\
-    \ Point&, const Point&, const Point&);\nenum { COUNTER_CLOCKWISE = 1, CLOCKWISE\
-    \ = -1, ONLINE_BACK = 2, ONLINE_FRONT = -2, ON_SEGMENT = 0 };\nint ccw(const Point&,\
-    \ Point, Point);\nbool orthogonal(const Point&, const Point&);\nbool orthogonal(const\
-    \ Point&, const Point&, const Point&, const Point&);\nbool orthogonal(const Line&,\
-    \ const Line&);\nbool parallel(const Point&, const Point&);\nbool parallel(const\
-    \ Point&, const Point&);\nbool parallel(const Point&, const Point&, const Point&,\
-    \ const Point&);\nbool parallel(const Line&, const Line&);\nbool intersect(const\
-    \ Line&, const Point&);\nbool intersect(const Line&, const Line&);\nbool intersect(const\
-    \ Line&, const Segment&);\nbool intersect(const Segment&, const Point&);\nbool\
-    \ intersect(const Segment&, const Segment&);\nbool intersect(const Circle&, const\
-    \ Line&);\nint intersect(const Circle&, const Segment&);\nbool intersect(Circle,\
-    \ Circle);\nint count_tangent(Circle, Circle);\ndouble distance(const Point&,\
-    \ const Point&);\ndouble distance(const Line&, const Point&);\ndouble distance(const\
-    \ Line&, const Line&);\ndouble distance(const Segment&, const Point&);\ndouble\
-    \ distance(const Segment&, const Segment&);\ndouble distance(const Line&, const\
-    \ Segment&);\nPoint crosspoint(const Line&, const Line&);\nPoint crosspoint(const\
-    \ Segment&, const Segment&);\npair<Point, Point> crosspoint(const Circle&, const\
-    \ Line&);\npair<Point, Point> crosspoint(const Circle&, const Segment&);\npair<Point,\
-    \ Point> crosspoint(const Circle&, const Circle&);\nCircle circumcenter(Point,\
-    \ Point, const Point&);\npair<Point, Point> center_given_radius(const Point&,\
-    \ const Point&, const double&);\npair<Point, Point> tangent(const Circle&, const\
-    \ Point&);\nvector<Line> common_tangent(Circle, Circle);\ndouble area(const Polygon&);\n\
-    enum { OUT, ON, IN };\nint contain(const Polygon&, const Point&);\nint contain(const\
-    \ Circle&, const Point&);\nbool is_convex(const Polygon&);\nPolygon convex_hull(Polygon,\
-    \ bool);\ndouble convex_diameter(Polygon);\nPolygon convex_cut(const Polygon&,\
-    \ const Line&);\n\ndouble dot(const Point& a, const Point& b) { return a.x * b.x\
-    \ + a.y * b.y; }\ndouble cross(const Point& a, const Point& b) { return a.x *\
-    \ b.y - a.y * b.x; }\ndouble norm(const Point& p) { return p.x * p.x + p.y * p.y;\
-    \ }\ndouble abs(const Point& p) { return sqrt(norm(p)); }\n\nPoint projection(const\
-    \ Line& l, const Point& p) {\n    double t = dot(p - l.a, l.b - l.a) / norm(l.b\
-    \ - l.a);\n    return l.a + (l.b - l.a) * t;\n}\nPoint reflection(const Line&\
-    \ l, const Point& p) { return p + (projection(l, p) - p) * 2.0; }\n\ndouble arg(const\
-    \ Point& p) { return atan2(p.y, p.x); }\ndouble radian_to_degree(const double&\
-    \ r) { return r * 180.0 / PI; }\ndouble degree_to_radian(const double& d) { return\
-    \ d * PI / 180.0; }\nPoint polar(const double& r, const double& theta) { return\
-    \ Point(cos(theta), sin(theta)) * r; }\nPoint rotate(const Point& p, const double&\
-    \ theta) {\n    return Point(cos(theta) * p.x - sin(theta) * p.y, sin(theta) *\
-    \ p.x + cos(theta) * p.y);\n}\ndouble get_angle(const Point& a, const Point& b,\
-    \ const Point& c) {\n    const Point v = b - a, w = c - b;\n    double alpha =\
-    \ arg(v), beta = arg(w);\n    if (alpha > beta) swap(alpha, beta);\n    double\
-    \ theta = beta - alpha;\n    return min(theta, 2 * PI - theta);\n}\n\nint ccw(const\
-    \ Point& a, Point b, Point c) {\n    b = b - a, c = c - a;\n    if (cross(b, c)\
-    \ > EPS) return COUNTER_CLOCKWISE;\n    if (cross(b, c) < -EPS) return CLOCKWISE;\n\
-    \    if (dot(b, c) < 0) return ONLINE_BACK;\n    if (norm(b) < norm(c)) return\
-    \ ONLINE_FRONT;\n    return ON_SEGMENT;\n}\n\nbool orthogonal(const Point& a,\
-    \ const Point& b) { return EQ(dot(a, b), 0.0); }\nbool orthogonal(const Point&\
-    \ a, const Point& b, const Point& c, const Point& d) { return orthogonal(b - a,\
-    \ d - c); }\nbool orthogonal(const Line& l, const Line& m) { return EQ(dot(l.b\
-    \ - l.a, m.b - m.a), 0.0); }\nbool parallel(const Point& a, const Point& b) {\
-    \ return EQ(cross(a, b), 0.0); }\nbool parallel(const Point& a, const Point& b,\
-    \ const Point& c, const Point& d) { return parallel(b - a, d - c); }\nbool parallel(const\
-    \ Line& l, const Line& m) { return EQ(cross(l.b - l.a, m.b - m.a), 0.0); }\n\n\
-    bool intersect(const Line& l, const Point& p) { return abs(ccw(l.a, l.b, p)) !=\
-    \ COUNTER_CLOCKWISE; }\nbool intersect(const Line& l, const Line& m) {\n    return\
-    \ abs(cross(l.b - l.a, m.b - m.a)) > EPS || abs(cross(l.b - l.a, m.b - l.a)) <\
-    \ EPS;\n}\nbool intersect(const Line& l, const Segment& s) {\n    return cross(l.b\
-    \ - l.a, s.a - l.a) * cross(l.b - l.a, s.b - l.a) < EPS;\n}\nbool intersect(const\
-    \ Segment& s, const Point& p) { return ccw(s.a, s.b, p) == ON_SEGMENT; }\nbool\
-    \ intersect(const Segment& s, const Segment& t) {\n    return ccw(s.a, s.b, t.a)\
-    \ * ccw(s.a, s.b, t.b) <= 0 && ccw(t.a, t.b, s.a) * ccw(t.a, t.b, s.b) <= 0;\n\
-    }\nbool intersect(const Circle& c, const Line& l) { return distance(l, c.c) <=\
-    \ c.r + EPS; }\nint intersect(const Circle& c, const Segment& s) {\n    Point\
-    \ h = projection(s, c.c);\n    double d1 = abs(c.c - s.a), d2 = abs(c.c - s.b);\n\
-    \    if (norm(h - c.c) - c.r * c.r > EPS) return 0;\n    if (d1 < c.r + EPS &&\
-    \ d2 < c.r + EPS) return 0;\n    if ((d1 < c.r - EPS && d2 > c.r + EPS) || (d1\
-    \ > c.r + EPS && d2 < c.r - EPS)) return 1;\n    if (dot(s.a - h, s.b - h) < 0)\
-    \ return 2;\n    return 0;\n}\nbool intersect(Circle a, Circle b) {\n    int c\
-    \ = count_tangent(a, b);\n    return 1 <= c && c <= 3;\n}\nint count_tangent(Circle\
-    \ a, Circle b) {\n    if (a.r < b.r) swap(a, b);\n    double d = abs(a.c - b.c);\n\
-    \    if (a.r + b.r < d) return 4;\n    if (EQ(a.r + b.r, d)) return 3;\n    if\
-    \ (a.r - b.r < d) return 2;\n    if (EQ(a.r - b.r, d)) return 1;\n    return 0;\n\
-    }\n\ndouble distance(const Point& a, const Point& b) { return abs(b - a); }\n\
-    double distance(const Line& l, const Point& p) { return distance(p, projection(l,\
-    \ p)); }\ndouble distance(const Line& l, const Line& m) { return intersect(l,\
-    \ m) ? 0 : distance(l, m.a); }\ndouble distance(const Segment& s, const Point&\
-    \ p) {\n    Point h = projection(s, p);\n    return intersect(s, h) ? distance(p,\
-    \ h) : min(distance(p, s.a), distance(p, s.b));\n}\ndouble distance(const Segment&\
-    \ s, const Segment& t) {\n    return intersect(s, t) ? 0 : min({distance(s, t.a),\
-    \ distance(s, t.b), distance(t, s.a), distance(t, s.b)});\n}\ndouble distance(const\
-    \ Line& l, const Segment& s) {\n    return intersect(l, s) ? 0 : min(distance(l,\
-    \ s.a), distance(l, s.b));\n}\n\nPoint crosspoint(const Line& l, const Line& m)\
-    \ {\n    assert(intersect(l, m));\n    double d1 = cross(l.b - l.a, m.b - m.a),\
-    \ d2 = cross(l.b - l.a, l.b - m.a);\n    if (EQ(abs(d1), 0.0) && EQ(abs(d2), 0.0))\
-    \ return m.a;\n    return m.a + (m.b - m.a) * d2 / d1;\n}\nPoint crosspoint(const\
-    \ Segment& s, const Segment& t) {\n    assert(intersect(s, t));\n    return crosspoint(Line(s),\
-    \ Line(t));\n}\npair<Point, Point> crosspoint(const Circle& c, const Line& l)\
-    \ {\n    assert(intersect(c, l));\n    Point h = projection(l, c.c);\n    Point\
-    \ e = (l.b - l.a) / abs(l.b - l.a) * sqrt(c.r * c.r - norm(h - c.c));\n    return\
-    \ minmax(h - e, h + e);\n}\npair<Point, Point> crosspoint(const Circle& c, const\
-    \ Segment& s) {\n    assert(intersect(c, s));\n    auto res = crosspoint(c, Line(s));\n\
-    \    if (intersect(c, s) == 2) return res;\n    return intersect(s, res.first)\
-    \ ? make_pair(res.first, res.first) : make_pair(res.second, res.second);\n}\n\
-    pair<Point, Point> crosspoint(const Circle& a, const Circle& b) {\n    assert(intersect(a,\
-    \ b));\n    double d = distance(a.c, b.c);\n    double alpha = acos((a.r * a.r\
-    \ + d * d - b.r * b.r) / (2 * a.r * d));\n    double theta = arg(b.c - a.c);\n\
-    \    return minmax(a.c + polar(a.r, theta + alpha), a.c + polar(a.r, theta - alpha));\n\
-    }\n\nCircle circumcenter(Point a, Point b, const Point& c) {\n    a = (a - c)\
-    \ * 0.5;\n    b = (b - c) * 0.5;\n    Point center = c + crosspoint(Line(a, a\
-    \ * Point(1.0, 1.0)), Line{b, b * Point(1.0, 1.0)});\n    return Circle{center,\
-    \ abs(c - center)};\n}\npair<Point, Point> center_given_radius(const Point& a,\
-    \ const Point& b, const double& r) {\n    Point m = (b - a) * 0.5;\n    double\
-    \ d1 = abs(m);\n    assert(!(EQ(d1, 0.0) || d1 > r));\n    double d2 = sqrt(r\
-    \ * r - d1 * d1);\n    Point n = m * Point(0.0, 1.0) * d2 / d1;\n    return minmax(a\
-    \ + m - n, a + m + n);\n}\npair<Point, Point> tangent(const Circle& c, const Point&\
-    \ p) {\n    return crosspoint(c, Circle(p, sqrt(norm(c.c - p) - c.r * c.r)));\n\
-    }\nvector<Line> common_tangent(Circle a, Circle b) {\n    vector<Line> res;\n\
-    \    if (a.r < b.r) swap(a, b);\n    double g = distance(a.c, b.c);\n    if (EQ(g,\
-    \ 0.0)) return res;\n    Point u = (b.c - a.c) / g;\n    Point v = rotate(u, PI\
-    \ * 0.5);\n    for (int s : {-1, 1}) {\n        double h = (a.r + s * b.r) / g;\n\
-    \        if (EQ(1.0 - h * h, 0.0))\n            res.emplace_back(a.c + u * a.r,\
-    \ a.c + (u + v) * a.r);\n        else if (1.0 - h * h > 0.0) {\n            Point\
-    \ U = u * h, V = v * sqrt(1 - h * h);\n            res.emplace_back(a.c + (U +\
-    \ V) * a.r, b.c - (U + V) * b.r * s);\n            res.emplace_back(a.c + (U -\
-    \ V) * a.r, b.c - (U - V) * b.r * s);\n        }\n    }\n    return res;\n}\n\n\
-    double area(const Polygon& P) {\n    int n = P.size();\n    double res = 0;\n\
-    \    for (int i = 0; i < n; i++) res += cross(P[i], P[(i + 1) % n]);\n    return\
-    \ res * 0.5;\n}\n\nint contain(const Polygon& P, const Point& p) {\n    int n\
-    \ = P.size();\n    bool in = false;\n    for (int i = 0; i < n; i++) {\n     \
-    \   Point a = P[i] - p, b = P[(i + 1) % n] - p;\n        if (a.y > b.y) swap(a,\
-    \ b);\n        if (a.y <= 0 && 0 < b.y && cross(a, b) < 0) in = !in;\n       \
-    \ if (cross(a, b) == 0 && dot(a, b) <= 0) return ON;\n    }\n    return in ? IN\
-    \ : OUT;\n}\nint contain(const Circle& c, const Point& p) {\n    double d = distance(c.c,\
-    \ p);\n    return EQ(d, c.r) ? ON : d < c.r ? IN : OUT;\n}\n\nbool is_convex(const\
-    \ Polygon& P) {\n    int n = P.size();\n    for (int i = 0; i < n; i++) {\n  \
-    \      if (ccw(P[(i + n - 1) % n], P[i], P[(i + 1) % n]) == CLOCKWISE) {\n   \
-    \         return false;\n        }\n    }\n    return true;\n}\nPolygon convex_hull(Polygon\
-    \ P, bool ONSEG) {\n    int n = P.size(), k = 0;\n    if (n <= 2) return P;\n\
-    \    sort(P.begin(), P.end());\n    Polygon ch(2 * n);\n    for (int i = 0; i\
-    \ < n; ch[k++] = P[i++]) {\n        if (ONSEG)\n            while (k >= 2 && ccw(ch[k\
-    \ - 2], ch[k - 1], P[i]) == CLOCKWISE) k--;\n        else\n            while (k\
-    \ >= 2 && ccw(ch[k - 2], ch[k - 1], P[i]) != COUNTER_CLOCKWISE) k--;\n    }\n\
-    \    for (int i = n - 2, t = k + 1; i >= 0; ch[k++] = P[i--]) {\n        if (ONSEG)\n\
-    \            while (k >= t && ccw(ch[k - 2], ch[k - 1], P[i]) == CLOCKWISE) k--;\n\
-    \        else\n            while (k >= t && ccw(ch[k - 2], ch[k - 1], P[i]) !=\
-    \ COUNTER_CLOCKWISE) k--;\n    }\n    ch.resize(k - 1);\n    int start = 0;\n\
-    \    for (int i = 1; i < k - 1; i++) {\n        if (EQ(ch[i].y, ch[start].y) ?\
-    \ ch[i].x < ch[start].x : ch[i].y < ch[start].y) start = i;\n    }\n    rotate(ch.begin(),\
-    \ ch.begin() + start, ch.end());\n    return ch;\n}\n\ndouble convex_diameter(Polygon\
-    \ P) {\n    if (!is_convex(P)) P = convex_hull(P, false);\n    int n = P.size();\n\
-    \    int is = 0, js = 0;\n    for (int i = 1; i < n; i++) {\n        if (P[i].y\
-    \ > P[is].y) is = i;\n        if (P[i].y < P[js].y) js = i;\n    }\n    double\
-    \ maxd = norm(P[is] - P[js]);\n    int i, maxi, j, maxj;\n    i = maxi = is;\n\
-    \    j = maxj = js;\n    do {\n        if (cross(P[(i + 1) % n] - P[i], P[(j +\
-    \ 1) % n] - P[j]) >= 0)\n            j = (j + 1) % n;\n        else\n        \
-    \    i = (i + 1) % n;\n        if (maxd < norm(P[i] - P[j])) {\n            maxd\
-    \ = norm(P[i] - P[j]);\n            maxi = i;\n            maxj = j;\n       \
-    \ }\n    } while (i != is || j != js);\n    return sqrt(maxd);\n}\n\nPolygon convex_cut(const\
-    \ Polygon& P, const Line& l) {\n    int n = P.size();\n    Polygon res;\n    for\
-    \ (int i = 0; i < n; i++) {\n        Point cur = P[i], nxt = P[(i + 1) % n];\n\
-    \        if (ccw(l.a, l.b, cur) != CLOCKWISE) res.emplace_back(cur);\n       \
-    \ if (ccw(l.a, l.b, cur) * ccw(l.a, l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur,\
-    \ nxt), l));\n    }\n    return res;\n}\n\nbool argument_sort(const Point& l,\
-    \ const Point& r) {\n    auto la = atan2(l.y, l.x);\n    auto ra = atan2(r.y,\
-    \ r.x);\n    if (abs(la - ra) > 1)\n        return la < ra;\n    else\n      \
-    \  return l.x * r.y > l.y * r.x;\n}\n\nLine bisector(const Point& p, const Point&\
-    \ q) {\n    Point c = (p + q) * 0.5;\n    Point v = (q - p) * Point(0.0, 1.0);\n\
-    \    v = v / norm(v);\n    return Line(c - v, c + v);\n}\n\nPolygon voronoi(const\
-    \ Polygon& P, const vector<Point>& ps, size_t idx) {\n    Polygon res = P;\n \
-    \   for (size_t i = 0; i < ps.size(); i++) {\n        if (i == idx) continue;\n\
-    \        Line l = bisector(ps[idx], ps[i]);\n        res = convex_cut(res, l);\n\
-    \    }\n    return res;\n}\n#line 5 \"test/aoj/CGL_3_A.test.cpp\"\n\nint main()\
-    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    cout << fixed << setprecision(1);\n\
-    \    int n;\n    cin >> n;\n    Polygon g(n);\n    cin >> g;\n    cout << area(g)\
-    \ << '\\n';\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 8 \"geometry/geometry.hpp\"\
+    \n\nnamespace geometry {\nusing Real = double;\nconstexpr Real EPS = 1e-8;\nconstexpr\
+    \ Real PI = 3.14159265358979323846L;\n\ninline int sgn(Real x) { return x < -EPS\
+    \ ? -1 : x > EPS ? 1 : 0; }\n\ninline int compare(Real a, Real b) { return sgn(a\
+    \ - b); }\n\ninline bool equals(Real a, Real b) { return compare(a, b) == 0; }\n\
+    \nstruct Point {\n    Real x, y;\n\n    Point() {}\n\n    Point(Real x, Real y)\
+    \ : x(x), y(y) {}\n\n    Point& operator+=(const Point& p) {\n        x += p.x,\
+    \ y += p.y;\n        return *this;\n    }\n\n    Point& operator-=(const Point&\
+    \ p) {\n        x -= p.x, y -= p.y;\n        return *this;\n    }\n\n    Point&\
+    \ operator*=(const Real& k) {\n        x *= k, y *= k;\n        return *this;\n\
+    \    }\n\n    Point& operator/=(const Real& k) {\n        x /= k, y /= k;\n  \
+    \      return *this;\n    }\n\n    Point operator+(const Point& p) const { return\
+    \ Point(*this) += p; }\n\n    Point operator-(const Point& p) const { return Point(*this)\
+    \ -= p; }\n\n    Point operator*(const Real& k) const { return Point(*this) *=\
+    \ k; }\n\n    Point operator/(const Real& k) const { return Point(*this) /= k;\
+    \ }\n\n    Point operator-() const { return Point(-x, -y); }\n\n    bool operator==(const\
+    \ Point& p) const { return (compare(x, p.x) == 0 && compare(y, p.y) == 0); }\n\
+    \n    bool operator!=(const Point& p) const { return !(*this == p); }\n\n    bool\
+    \ operator<(const Point& p) const {\n        return compare(x, p.x) < 0 || (compare(x,\
+    \ p.x) == 0 && compare(y, p.y) < 0);\n    }\n\n    bool operator>(const Point&\
+    \ p) const {\n        return compare(x, p.x) > 0 || (compare(x, p.x) == 0 && compare(y,\
+    \ p.y) > 0);\n    }\n\n    friend std::istream& operator>>(std::istream& is, Point&\
+    \ p) { return is >> p.x >> p.y; }\n\n    friend std::ostream& operator<<(std::ostream&\
+    \ os, const Point& p) { return os << p.x << ' ' << p.y; }\n\n    Real norm() const\
+    \ { return x * x + y * y; }\n\n    Real abs() const { return std::hypot(x, y);\
+    \ }\n\n    Real arg() const { return std::atan2(y, x); }\n\n    Point normal()\
+    \ const { return Point(-y, x); }\n\n    Point unit() const { return *this / abs();\
+    \ }\n\n    Point rotate(Real theta) const {\n        return Point(x * std::cos(theta)\
+    \ - y * std::sin(theta), x * std::sin(theta) + y * std::cos(theta));\n    }\n\
+    };\n\nPoint polar(const Real& r, const Real& theta) { return Point(cos(theta),\
+    \ sin(theta)) * r; }\n\nReal dot(const Point& p, const Point& q) { return p.x\
+    \ * q.x + p.y * q.y; }\n\nReal cross(const Point& p, const Point& q) { return\
+    \ p.x * q.y - p.y * q.x; }\n\nReal distance(const Point& p, const Point& q) {\
+    \ return (p - q).abs(); }\n\nstruct Line {\n    Point a, b;\n\n    Line() {}\n\
+    \n    Line(const Point& a, const Point& b) : a(a), b(b) {}\n\n    Line(const Real&\
+    \ A, const Real& B, const Real& C) {  // Ax + By = c\n        if (equals(A, 0))\
+    \ {\n            assert(!equals(B, 0));\n            a = Point(0, C / B);\n  \
+    \          b = Point(1, C / B);\n        } else if (equals(B, 0)) {\n        \
+    \    a = Point(C / A, 0);\n            b = Point(C / A, 1);\n        } else {\n\
+    \            a = Point(0, C / B);\n            b = Point(C / A, 0);\n        }\n\
+    \    }\n\n    friend std::istream& operator>>(std::istream& is, Line& l) { return\
+    \ is >> l.a >> l.b; }\n\n    friend std::ostream& operator<<(std::ostream& os,\
+    \ const Line& l) { return os << l.a << \" to \" << l.b; }\n\n    Point diff()\
+    \ const { return b - a; }\n};\n\nstruct Segment : Line {\n    Segment() {}\n\n\
+    \    Segment(Point a, Point b) : Line(a, b) {}\n\n    Real length() const { return\
+    \ diff().abs(); }\n};\n\nPoint proj(const Line& l, const Point& p) {\n    Point\
+    \ v = l.diff().unit();\n    return l.a + v * dot(v, p - l.a);\n}\n\nPoint refl(const\
+    \ Line& l, const Point& p) {\n    Point h = proj(l, p);\n    return h + (h - p);\n\
+    }\n\nbool orthogonal(const Line& l, const Line& m) { return equals(dot(l.diff(),\
+    \ m.diff()), 0); }\n\nbool parallel(const Line& l, const Line& m) { return equals(cross(l.diff(),\
+    \ m.diff()), 0); }\n\nenum Position { COUNTER_CLOCKWISE = +1, CLOCKWISE = -1,\
+    \ ONLINE_BACK = +2, ONLINE_FRONT = -2, ON_SEGMENT = 0 };\n\nPosition ccw(const\
+    \ Point& a, Point b, Point c) {\n    b -= a, c -= a;\n    if (sgn(cross(b, c))\
+    \ == +1) return COUNTER_CLOCKWISE;\n    if (sgn(cross(b, c)) == -1) return CLOCKWISE;\n\
+    \    if (sgn(dot(b, c)) == -1) return ONLINE_BACK;\n    if (compare(b.norm(),\
+    \ c.norm()) == -1) return ONLINE_FRONT;\n    return ON_SEGMENT;\n}\n\nbool intersect(const\
+    \ Line& l, const Point& p) { return abs(ccw(l.a, l.b, p)) != 1; }\n\nbool intersect(const\
+    \ Line& l, const Line& m) {\n    Real A = cross(l.diff(), m.diff()), B = cross(l.diff(),\
+    \ l.b - m.a);\n    if (equals(A, 0) && equals(B, 0)) return true;\n    return\
+    \ !parallel(l, m);\n}\n\nbool intersect(const Line& l, const Segment& s) {\n \
+    \   return sgn(cross(l.diff(), s.a - l.a)) * sgn(cross(l.diff(), s.b - l.a)) <=\
+    \ 0;\n}\n\nbool intersect(const Segment& s, const Point& p) { return ccw(s.a,\
+    \ s.b, p) == ON_SEGMENT; }\n\nbool intersect(const Segment& s, const Segment&\
+    \ t) {\n    return ccw(s.a, s.b, t.a) * ccw(s.a, s.b, t.b) <= 0 && ccw(t.a, t.b,\
+    \ s.a) * ccw(t.a, t.b, s.b) <= 0;\n}\n\nReal distance(const Line& l, const Point&\
+    \ p) { return distance(p, proj(l, p)); }\n\nReal distance(const Line& l, const\
+    \ Line& m) { return intersect(l, m) ? 0 : distance(l, m.a); }\n\nReal distance(const\
+    \ Line& l, const Segment& s) {\n    return intersect(l, s) ? 0 : std::min(distance(l,\
+    \ s.a), distance(l, s.b));\n}\n\nReal distance(const Segment& s, const Point&\
+    \ p) {\n    Point h = proj(s, p);\n    return intersect(s, h) ? distance(p, h)\
+    \ : std::min(distance(p, s.a), distance(p, s.b));\n}\n\nReal distance(const Segment&\
+    \ s, const Segment& t) {\n    if (intersect(s, t)) return 0;\n    return std::min({distance(s,\
+    \ t.a), distance(s, t.b), distance(t, s.a), distance(t, s.b)});\n}\n\nPoint crosspoint(const\
+    \ Line& l, const Line& m) {\n    assert(intersect(l, m));\n    Real A = cross(l.diff(),\
+    \ m.diff()), B = cross(l.diff(), l.b - m.a);\n    if (equals(A, 0) && equals(B,\
+    \ 0)) return m.a;\n    return m.a + m.diff() * B / A;\n}\n\nstruct Circle {\n\
+    \    Point center;\n    Real radius;\n\n    Circle() {}\n\n    Circle(const Point&\
+    \ center, const Real& radius) : center(center), radius(radius) {}\n\n    friend\
+    \ std::istream& operator>>(std::istream& is, Circle& c) { return is >> c.center\
+    \ >> c.radius; }\n\n    friend std::ostream& operator<<(std::ostream& os, const\
+    \ Circle& c) { return os << c.center << ' ' << c.radius; }\n};\n\nbool intersect(const\
+    \ Circle& c, const Line& l) { return compare(c.radius, distance(l, c.center))\
+    \ >= 0; }\n\nint intersect(const Circle& c, const Segment& s) {\n    Point h =\
+    \ proj(s, c.center);\n    if (compare(distance(c.center, h), c.radius) > 0) return\
+    \ 0;\n    Real d1 = (c.center - s.a).abs(), d2 = (c.center - s.b).abs();\n   \
+    \ if (compare(c.radius, d1) >= 0 && compare(c.radius, d2) >= 0) return 0;\n  \
+    \  if (compare(c.radius, d1) * compare(c.radius, d2) < 0) return 1;\n    if (sgn(dot(s.a\
+    \ - h, s.b - h)) < 0) return 2;\n    return 0;\n}\n\nstd::vector<Point> crosspoint(const\
+    \ Circle& c, const Line& l) {\n    Point h = proj(l, c.center);\n    Real d =\
+    \ c.radius * c.radius - (c.center - h).norm();\n    if (sgn(d) < 0) return {};\n\
+    \    if (sgn(d) == 0) return {h};\n    Point v = l.diff().unit() * sqrt(d);\n\
+    \    return {h - v, h + v};\n}\n\nstd::vector<Point> crosspoint(const Circle&\
+    \ c, const Segment& s) {\n    int num = intersect(c, s);\n    if (num == 0) return\
+    \ {};\n    auto res = crosspoint(c, Line(s.a, s.b));\n    if (num == 2) return\
+    \ res;\n    if (sgn(dot(s.a - res[0], s.b - res[0])) > 0) std::swap(res[0], res[1]);\n\
+    \    return {res[0]};\n}\n\n// requirement : c != d\nstd::vector<Point> crosspoint(const\
+    \ Circle& c1, const Circle& c2) {\n    Real r1 = c1.radius, r2 = c2.radius;\n\
+    \    if (r1 < r2) return crosspoint(c2, c1);\n    Real d = distance(c1.center,\
+    \ c2.center);\n    if (compare(d, r1 + r2) > 0 || compare(d, r1 - r2) < 0) return\
+    \ {};\n    Real alpha = std::acos((r1 * r1 + d * d - r2 * r2) / (2 * r1 * d));\n\
+    \    Real theta = (c2.center - c1.center).arg();\n    Point p = c1.center + polar(r1,\
+    \ theta + alpha);\n    Point q = c1.center + polar(r1, theta - alpha);\n    if\
+    \ (p == q) return {p};\n    return {p, q};\n}\n\nLine bisector(const Point& p,\
+    \ const Point& q) {\n    Point c = (p + q) * 0.5;\n    Point v = (q - p).normal();\n\
+    \    return Line(c - v, c + v);\n}\n\nCircle circumcircle(Point a, Point b, const\
+    \ Point& c) {\n    Point center = crosspoint(bisector(a, c), bisector(b, c));\n\
+    \    return Circle(center, distance(c, center));\n}\n\nstd::vector<Point> center_given_radius(const\
+    \ Point& a, const Point& b, const Real& r) {\n    Point m = (b - a) * 0.5;\n \
+    \   Real d1 = m.abs();\n    if (equals(d1, 0) || d1 > r) return {};\n    Real\
+    \ d2 = sqrt(r * r - d1 * d1);\n    Point n = m.normal() * d2 / d1;\n    Point\
+    \ p = a + m - n, q = a + m + n;\n    if (p == q) return {p};\n    return {p, q};\n\
+    }\n\nint count_tangent(const Circle& c1, const Circle& c2) {\n    Real r1 = c1.radius,\
+    \ r2 = c2.radius;\n    if (r1 < r2) return count_tangent(c2, c1);\n    Real d\
+    \ = distance(c1.center, c2.center);\n    if (compare(d, r1 + r2) > 0) return 4;\n\
+    \    if (compare(d, r1 + r2) == 0) return 3;\n    if (compare(d, r1 - r2) > 0)\
+    \ return 2;\n    if (compare(d, r1 - r2) == 0) return 1;\n    return 0;\n}\n\n\
+    std::vector<Point> tangent_to_circle(const Circle& c, const Point& p) {\n    return\
+    \ crosspoint(c, Circle(p, sqrt((c.center - p).norm() - c.radius * c.radius)));\n\
+    }\n\nenum Contain { OUT, ON, IN };\n\nstruct Polygon : std::vector<Point> {\n\
+    \    using std::vector<Point>::vector;\n\n    Polygon(int n) : std::vector<Point>(n)\
+    \ {}\n\n    std::vector<Segment> segments() const {\n        assert(size() > 1);\n\
+    \        std::vector<Segment> segs;\n        for (size_t i = 0; i < size(); i++)\
+    \ segs.emplace_back((*this)[i], (*this)[(i + 1) % size()]);\n        return segs;\n\
+    \    }\n\n    Real area() const {\n        Real sum = 0;\n        for (size_t\
+    \ i = 0; i < size(); i++) sum += cross((*this)[i], (*this)[(i + 1) % size()]);\n\
+    \        return std::abs(sum) / 2;\n    }\n\n    bool is_convex(bool accept_on_segment\
+    \ = true) const {\n        int n = size();\n        for (int i = 0; i < n; i++)\
+    \ {\n            if (accept_on_segment) {\n                if (ccw((*this)[i],\
+    \ (*this)[(i + 1) % n], (*this)[(i + 2) % n]) == CLOCKWISE) {\n              \
+    \      return false;\n                }\n            } else {\n              \
+    \  if (ccw((*this)[i], (*this)[(i + 1) % n], (*this)[(i + 2) % n]) != COUNTER_CLOCKWISE)\
+    \ {\n                    return false;\n                }\n            }\n   \
+    \     }\n        return true;\n    }\n};\n\nContain contain(const Polygon& P,\
+    \ const Point& p) {\n    bool in = false;\n    for (size_t i = 0; i < P.size();\
+    \ i++) {\n        if (ccw(P[i], P[(i + 1) % P.size()], p) == ON_SEGMENT) return\
+    \ ON;\n        Point a = P[i] - p, b = P[(i + 1) % P.size()] - p;\n        if\
+    \ (a.y > b.y) std::swap(a, b);\n        if (sgn(a.y) <= 0 && sgn(b.y) > 0 && sgn(cross(a,\
+    \ b)) < 0) in = !in;\n    }\n    return in ? IN : OUT;\n}\n\nPolygon convex_hull(Polygon&\
+    \ P, bool accept_on_segment = false) {\n    int n = P.size(), k = 0;\n    if (n\
+    \ <= 2) return P;\n    std::sort(P.begin(), P.end());\n    Polygon ch(n * 2);\n\
+    \    auto check = [&](int i) {\n        if (accept_on_segment) return ccw(ch[k\
+    \ - 2], ch[k - 1], P[i]) == CLOCKWISE;\n        return ccw(ch[k - 2], ch[k - 1],\
+    \ P[i]) != COUNTER_CLOCKWISE;\n    };\n    for (int i = 0; i < n; ch[k++] = P[i++])\
+    \ {\n        while (k >= 2 && check(i)) {\n            k--;\n        }\n    }\n\
+    \    for (int i = n - 2, t = k + 1; i >= 0; ch[k++] = P[i--]) {\n        while\
+    \ (k >= t && check(i)) {\n            k--;\n        }\n    }\n    ch.resize(k\
+    \ - 1);\n    int start = 0;\n    for (int i = 1; i < k - 1; i++) {\n        if\
+    \ (equals(ch[i].y, ch[start].y) ? ch[i].x < ch[start].x : ch[i].y < ch[start].y)\
+    \ {\n            start = i;\n        }\n    }\n    std::rotate(ch.begin(), ch.begin()\
+    \ + start, ch.end());\n    return ch;\n}\n\nstd::tuple<int, int, Real> convex_diameter(const\
+    \ Polygon& convex) {\n    assert(convex.is_convex());\n    int n = convex.size();\n\
+    \    Real max_dist = -1;\n    std::pair<int, int> argmax = {-1, -1};\n    for\
+    \ (int i = 0, j = 0; i < n; i++) {\n        while (j + 1 < n && distance(convex[i],\
+    \ convex[j + 1]) > distance(convex[i], convex[j])) j++;\n        double cur_dist\
+    \ = distance(convex[i], convex[j]);\n        if (max_dist < cur_dist) {\n    \
+    \        max_dist = cur_dist;\n            argmax = {i, j};\n        }\n    }\n\
+    \    return {argmax.first, argmax.second, max_dist};\n}\n\nPolygon convex_cut(const\
+    \ Polygon& convex, const Line& l) {\n    assert(convex.is_convex());\n    int\
+    \ n = convex.size();\n    Polygon res;\n    for (int i = 0; i < n; i++) {\n  \
+    \      const Point& cur = convex[i];\n        const Point& nxt = convex[(i + 1)\
+    \ % n];\n        if (ccw(l.a, l.b, cur) != CLOCKWISE) res.emplace_back(cur);\n\
+    \        if (ccw(l.a, l.b, cur) * ccw(l.a, l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur,\
+    \ nxt), l));\n    }\n    return res;\n}\n\nPolygon voronoi(const Polygon& P, const\
+    \ std::vector<Point>& ps, size_t idx) {\n    Polygon res = P;\n    for (size_t\
+    \ i = 0; i < ps.size(); i++) {\n        if (i == idx) continue;\n        res =\
+    \ convex_cut(res, bisector(ps[idx], ps[i]));\n    }\n    return res;\n}\n\n} \
+    \ // namespace geometry\n\n/**\n * @brief 2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\
+    \u30D6\u30E9\u30EA\n * @docs docs/geometry/geometry.md\n */\n#line 5 \"test/aoj/CGL_3_A.test.cpp\"\
+    \n\nusing namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    cout << fixed << setprecision(1);\n    int n;\n    cin >> n;\n    Polygon\
+    \ g(n);\n    for (auto& p : g) cin >> p;\n    cout << g.area() << '\\n';\n   \
+    \ return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/3/CGL_3_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\n\n\
-    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    cout << fixed\
-    \ << setprecision(1);\n    int n;\n    cin >> n;\n    Polygon g(n);\n    cin >>\
-    \ g;\n    cout << area(g) << '\\n';\n}"
+    using namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    cout << fixed << setprecision(1);\n    int n;\n    cin >> n;\n    Polygon\
+    \ g(n);\n    for (auto& p : g) cin >> p;\n    cout << g.area() << '\\n';\n   \
+    \ return 0;\n}"
   dependsOn:
   - base.hpp
   - geometry/geometry.hpp
   isVerificationFile: true
   path: test/aoj/CGL_3_A.test.cpp
   requiredBy: []
-  timestamp: '2021-10-01 11:32:51+09:00'
+  timestamp: '2021-10-01 16:25:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_3_A.test.cpp

@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: string/Trie.hpp
     title: Trie
   _extendedRequiredBy: []
@@ -22,153 +19,91 @@ data:
     _deprecated_at_docs: docs/string/AhoCorasick.md
     document_title: Aho Corasick
     links: []
-  bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
-    #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
-    \ unsigned int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(),\
-    \ (x).end()\n\ntemplate <typename T> istream& operator>>(istream& is, vector<T>&\
-    \ v) {\n    for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T>\
-    \ ostream& operator<<(ostream& os, const vector<T>& v) {\n    for (int i = 0;\
-    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
-    \" : \" \");\n    }\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const pair<T, U>& p) {\n    os << '(' << p.first <<\
-    \ ',' << p.second << ')';\n    return os;\n}\ntemplate <typename T, typename U>\
-    \ ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os << '{';\n   \
-    \ for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const unordered_map<T, U>& m) {\n    os << '{';\n  \
-    \  for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
-    \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
-    \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const multiset<T>& s) {\n    os << '{';\n    for (auto itr = s.begin();\
-    \ itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os <<\
-    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
-    \ operator<<(ostream& os, const unordered_set<T>& s) {\n    os << '{';\n    for\
-    \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
-    \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
-    \" : \" \");\n    }\n    return os;\n}\n\ntemplate <int i, typename T> void print_tuple(ostream&,\
-    \ const T&) {}\ntemplate <int i, typename T, typename H, class... Args> void print_tuple(ostream&\
-    \ os, const T& t) {\n    if (i) os << ',';\n    os << get<i>(t);\n    print_tuple<i\
-    \ + 1, T, Args...>(os, t);\n}\ntemplate <typename... Args> ostream& operator<<(ostream&\
-    \ os, const tuple<Args...>& t) {\n    os << '{';\n    print_tuple<0, tuple<Args...>,\
-    \ Args...>(os, t);\n    return os << '}';\n}\n\nvoid debug_out() { cerr << '\\\
-    n'; }\ntemplate <class Head, class... Tail> void debug_out(Head&& head, Tail&&...\
-    \ tail) {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n \
-    \   debug_out(move(tail)...);\n}\n#ifdef LOCAL\n#define debug(...)           \
-    \                                                        \\\n    cerr << \" \"\
-    ;                                                                     \\\n   \
-    \ cerr << #__VA_ARGS__ << \" :[\" << __LINE__ << \":\" << __FUNCTION__ << \"]\"\
-    \ << '\\n'; \\\n    cerr << \" \";                                           \
-    \                          \\\n    debug_out(__VA_ARGS__)\n#else\n#define debug(...)\
-    \ 42\n#endif\n\ntemplate <typename T> T gcd(T x, T y) { return y != 0 ? gcd(y,\
-    \ x % y) : x; }\ntemplate <typename T> T lcm(T x, T y) { return x / gcd(x, y)\
-    \ * y; }\n\nint topbit(signed t) { return t == 0 ? -1 : 31 - __builtin_clz(t);\
-    \ }\nint topbit(long long t) { return t == 0 ? -1 : 63 - __builtin_clzll(t); }\n\
-    int botbit(signed a) { return a == 0 ? 32 : __builtin_ctz(a); }\nint botbit(long\
-    \ long a) { return a == 0 ? 64 : __builtin_ctzll(a); }\nint popcount(signed t)\
-    \ { return __builtin_popcount(t); }\nint popcount(long long t) { return __builtin_popcountll(t);\
-    \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
-    \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
-    \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
-    \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
-    \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"string/Trie.hpp\"\
-    \n\n/**\n * @brief Trie\n * @docs docs/string/Trie.md\n */\ntemplate <int char_size>\
-    \ struct Trie {\n    struct TrieNode {\n        char c;\n        int dep;\n  \
-    \      vector<int> nxt, idxs;\n        TrieNode(char c, int dep) : c(c), dep(dep),\
-    \ nxt(char_size, -1) {}\n    };\n    vector<TrieNode> Nodes;\n    function<int(char)>\
-    \ ctoi;\n    Trie(function<int(char)> ctoi) : ctoi(ctoi) { Nodes.emplace_back('$',\
-    \ 0); }\n    inline int& next(int node, int c) { return Nodes[node].nxt[c]; }\n\
-    \    inline int& next(int node, char c) { return next(node, ctoi(c)); }\n    void\
-    \ add(const string& s, int x = 0) {\n        int node = 0;\n        for (int i\
-    \ = 0; i < (int)s.size(); i++) {\n            int k = ctoi(s[i]);\n          \
-    \  if (next(node, k) < 0) {\n                next(node, k) = Nodes.size();\n \
-    \               Nodes.emplace_back(s[i], i + 1);\n            }\n            node\
-    \ = next(node, k);\n        }\n        Nodes[node].idxs.emplace_back(x);\n   \
-    \ }\n    int find(const string& s) {\n        int node = 0;\n        for (int\
-    \ i = 0; i < (int)s.size(); i++) {\n            int k = ctoi(s[i]);\n        \
-    \    if (next(node, k) < 0) return -1;\n            node = next(node, k);\n  \
-    \      }\n        return node;\n    }\n    template <typename F> void query(const\
-    \ string& s, const F& f, int l) {\n        int node = 0;\n        for (int i =\
-    \ l; i < (int)s.size(); i++) {\n            node = next(node, s[i]);\n       \
-    \     if (node < 0) return;\n            for (auto& idx : Nodes[node].idxs) f(idx);\n\
-    \        }\n    }\n    int size() { return Nodes.size(); };\n    vector<int> idxs(int\
-    \ node) { return Nodes[node].idxs; }\n};\n#line 4 \"string/AhoCorasick.hpp\"\n\
-    \n/**\n * @brief Aho Corasick\n * @docs docs/string/AhoCorasick.md\n */\ntemplate\
-    \ <int char_size> struct AhoCorasick : Trie<char_size + 1> {\n    using Trie<char_size\
-    \ + 1>::Trie;\n    using Trie<char_size + 1>::next;\n    using Trie<char_size\
-    \ + 1>::ctoi;\n    const int FAIL = char_size;\n    vector<int> cnt;\n    void\
-    \ build(bool heavy = true) {\n        auto& Nodes = this->Nodes;\n        cnt.resize(Nodes.size());\n\
-    \        for (int i = 0; i < (int)Nodes.size(); i++) {\n            cnt[i] = Nodes[i].idxs.size();\n\
-    \        }\n        queue<int> que;\n        for (int i = 0; i <= char_size; i++)\
+  bundledCode: "#line 2 \"string/AhoCorasick.hpp\"\n#include <map>\n#include <queue>\n\
+    #line 2 \"string/Trie.hpp\"\n#include <array>\n#include <cassert>\n#include <string>\n\
+    #include <vector>\n\ntemplate <size_t char_size, char margin = 'a'> struct Trie\
+    \ {\n    struct Node {\n        std::array<int, char_size> nxt;\n        std::vector<int>\
+    \ idxs;\n        int idx, sub;\n        char key;\n        Node(char c) : idx(-1),\
+    \ key(c) { fill(nxt.begin(), nxt.end(), -1); }\n    };\n\n    std::vector<Node>\
+    \ nodes;\n\n    inline int& next(int i, int j) { return nodes[i].nxt[j]; }\n\n\
+    \    Trie() { nodes.emplace_back('$'); }\n\n    void add(const std::string& s,\
+    \ int x = 0) {\n        int cur = 0;\n        for (const char& c : s) {\n    \
+    \        int k = c - margin;\n            if (next(cur, k) < 0) {\n          \
+    \      next(cur, k) = nodes.size();\n                nodes.emplace_back(c);\n\
+    \            }\n            cur = next(cur, k);\n            nodes[cur].sub++;\n\
+    \        }\n        nodes[cur].idx = x;\n        nodes[cur].idxs.emplace_back(x);\n\
+    \    }\n\n    int find(const std::string& s) {\n        int cur = 0;\n       \
+    \ for (const char& c : s) {\n            int k = c - margin;\n            if (next(cur,\
+    \ k) < 0) return -1;\n            cur = next(cur, k);\n        }\n        return\
+    \ cur;\n    }\n\n    int move(int pos, char c) {\n        assert(pos < (int)nodes.size());\n\
+    \        return pos < 0 ? -1 : next(pos, c - margin);\n    }\n\n    int size()\
+    \ const { return nodes.size(); }\n\n    int idx(int pos) { return pos < 0 ? -1\
+    \ : nodes[pos].idx; }\n\n    std::vector<int> idxs(int pos) { return pos < 0 ?\
+    \ std::vector<int>() : nodes[pos].idxs; }\n};\n\n/**\n * @brief Trie\n * @docs\
+    \ docs/string/Trie.md\n */\n#line 5 \"string/AhoCorasick.hpp\"\n\ntemplate <size_t\
+    \ char_size, char margin = 'a'> struct AhoCorasick : Trie<char_size + 1, margin>\
+    \ {\n    void build(bool heavy = true) {\n        int n = nodes.size();\n    \
+    \    cnt.resize(n);\n        for (int i = 0; i < n; i++) cnt[i] = nodes[i].idxs.size();\n\
+    \        std::queue<int> que;\n        for (size_t i = 0; i <= char_size; i++)\
     \ {\n            if (~next(0, i)) {\n                next(next(0, i), FAIL) =\
     \ 0;\n                que.emplace(next(0, i));\n            } else\n         \
     \       next(0, i) = 0;\n        }\n        while (!que.empty()) {\n         \
-    \   auto& node = Nodes[que.front()];\n            int fail = node.nxt[FAIL];\n\
-    \            cnt[que.front()] += cnt[fail];\n            que.pop();\n        \
-    \    for (int i = 0; i < char_size; i++) {\n                if (~node.nxt[i])\
-    \ {\n                    next(node.nxt[i], FAIL) = next(fail, i);\n          \
-    \          if (heavy) {\n                        auto& u = Nodes[node.nxt[i]].idxs;\n\
-    \                        auto& v = Nodes[next(fail, i)].idxs;\n              \
-    \          vector<int> w;\n                        set_union(u.begin(), u.end(),\
-    \ v.begin(), v.end(), back_inserter(w));\n                        u = w;\n   \
-    \                 }\n                    que.emplace(node.nxt[i]);\n         \
-    \       } else\n                    node.nxt[i] = Nodes[fail].nxt[i];\n      \
-    \      }\n        }\n    }\n    map<int, int> match(const string& s, int now =\
-    \ 0) {\n        auto& Nodes = this->Nodes;\n        map<int, int> res;\n     \
-    \   for (auto c : s) {\n            now = next(now, ctoi(c));\n            for\
-    \ (auto& id : Nodes[now].idxs) res[id]++;\n        }\n        return res;\n  \
-    \  }\n    int move(const char& c, int now) {\n        while (next(now, ctoi(c))\
-    \ < 0) now = next(now, FAIL);\n        return next(now, ctoi(c));\n    }\n   \
-    \ pair<long long, int> move(const string& s, int now = 0) {\n        long long\
-    \ res = 0;\n        for (auto& c : s) {\n            int nxt = move(c, now);\n\
-    \            res += cnt[nxt];\n            now = nxt;\n        }\n        return\
-    \ {res, now};\n    }\n    int count(int node) { return cnt[node]; }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n#include \"Trie.hpp\"\n\n/**\n *\
-    \ @brief Aho Corasick\n * @docs docs/string/AhoCorasick.md\n */\ntemplate <int\
-    \ char_size> struct AhoCorasick : Trie<char_size + 1> {\n    using Trie<char_size\
-    \ + 1>::Trie;\n    using Trie<char_size + 1>::next;\n    using Trie<char_size\
-    \ + 1>::ctoi;\n    const int FAIL = char_size;\n    vector<int> cnt;\n    void\
-    \ build(bool heavy = true) {\n        auto& Nodes = this->Nodes;\n        cnt.resize(Nodes.size());\n\
-    \        for (int i = 0; i < (int)Nodes.size(); i++) {\n            cnt[i] = Nodes[i].idxs.size();\n\
-    \        }\n        queue<int> que;\n        for (int i = 0; i <= char_size; i++)\
+    \   auto& cur = nodes[que.front()];\n            int fail = cur.nxt[FAIL];\n \
+    \           cnt[que.front()] += cnt[fail];\n            que.pop();\n         \
+    \   for (size_t i = 0; i < char_size; i++) {\n                int& nxt = cur.nxt[i];\n\
+    \                if (nxt < 0) {\n                    nxt = next(fail, i);\n  \
+    \                  continue;\n                }\n                next(nxt, FAIL)\
+    \ = next(fail, i);\n                if (heavy) {\n                    auto& u\
+    \ = nodes[nxt].idxs;\n                    auto& v = nodes[next(fail, i)].idxs;\n\
+    \                    std::vector<int> w;\n                    set_union(u.begin(),\
+    \ u.end(), v.begin(), v.end(), back_inserter(w));\n                    u = w;\n\
+    \                }\n                que.emplace(nxt);\n            }\n       \
+    \ }\n    }\n\n    long long match(const std::string& s) {\n        long long res\
+    \ = 0;\n        int cur = 0;\n        for (const char& c : s) {\n            cur\
+    \ = next(cur, c - margin);\n            res += cnt[cur];\n        }\n        return\
+    \ res;\n    }\n\n    std::map<int, int> frequency(const std::string& s) {\n  \
+    \      std::map<int, int> res;\n        int cur = 0;\n        for (const char&\
+    \ c : s) {\n            cur = next(cur, c - margin);\n            for (auto& idx\
+    \ : nodes[cur].idxs) res[idx]++;\n        }\n        return res;\n    }\n\n  \
+    \  int count(int pos) { return cnt[pos]; }\n\nprivate:\n    using super = Trie<char_size\
+    \ + 1, margin>;\n    using super::next;\n    using super::nodes;\n\n    const\
+    \ int FAIL = char_size;\n    std::vector<int> cnt;\n};\n\n/**\n * @brief Aho Corasick\n\
+    \ * @docs docs/string/AhoCorasick.md\n */\n"
+  code: "#pragma once\n#include <map>\n#include <queue>\n#include \"Trie.hpp\"\n\n\
+    template <size_t char_size, char margin = 'a'> struct AhoCorasick : Trie<char_size\
+    \ + 1, margin> {\n    void build(bool heavy = true) {\n        int n = nodes.size();\n\
+    \        cnt.resize(n);\n        for (int i = 0; i < n; i++) cnt[i] = nodes[i].idxs.size();\n\
+    \        std::queue<int> que;\n        for (size_t i = 0; i <= char_size; i++)\
     \ {\n            if (~next(0, i)) {\n                next(next(0, i), FAIL) =\
     \ 0;\n                que.emplace(next(0, i));\n            } else\n         \
     \       next(0, i) = 0;\n        }\n        while (!que.empty()) {\n         \
-    \   auto& node = Nodes[que.front()];\n            int fail = node.nxt[FAIL];\n\
-    \            cnt[que.front()] += cnt[fail];\n            que.pop();\n        \
-    \    for (int i = 0; i < char_size; i++) {\n                if (~node.nxt[i])\
-    \ {\n                    next(node.nxt[i], FAIL) = next(fail, i);\n          \
-    \          if (heavy) {\n                        auto& u = Nodes[node.nxt[i]].idxs;\n\
-    \                        auto& v = Nodes[next(fail, i)].idxs;\n              \
-    \          vector<int> w;\n                        set_union(u.begin(), u.end(),\
-    \ v.begin(), v.end(), back_inserter(w));\n                        u = w;\n   \
-    \                 }\n                    que.emplace(node.nxt[i]);\n         \
-    \       } else\n                    node.nxt[i] = Nodes[fail].nxt[i];\n      \
-    \      }\n        }\n    }\n    map<int, int> match(const string& s, int now =\
-    \ 0) {\n        auto& Nodes = this->Nodes;\n        map<int, int> res;\n     \
-    \   for (auto c : s) {\n            now = next(now, ctoi(c));\n            for\
-    \ (auto& id : Nodes[now].idxs) res[id]++;\n        }\n        return res;\n  \
-    \  }\n    int move(const char& c, int now) {\n        while (next(now, ctoi(c))\
-    \ < 0) now = next(now, FAIL);\n        return next(now, ctoi(c));\n    }\n   \
-    \ pair<long long, int> move(const string& s, int now = 0) {\n        long long\
-    \ res = 0;\n        for (auto& c : s) {\n            int nxt = move(c, now);\n\
-    \            res += cnt[nxt];\n            now = nxt;\n        }\n        return\
-    \ {res, now};\n    }\n    int count(int node) { return cnt[node]; }\n};"
+    \   auto& cur = nodes[que.front()];\n            int fail = cur.nxt[FAIL];\n \
+    \           cnt[que.front()] += cnt[fail];\n            que.pop();\n         \
+    \   for (size_t i = 0; i < char_size; i++) {\n                int& nxt = cur.nxt[i];\n\
+    \                if (nxt < 0) {\n                    nxt = next(fail, i);\n  \
+    \                  continue;\n                }\n                next(nxt, FAIL)\
+    \ = next(fail, i);\n                if (heavy) {\n                    auto& u\
+    \ = nodes[nxt].idxs;\n                    auto& v = nodes[next(fail, i)].idxs;\n\
+    \                    std::vector<int> w;\n                    set_union(u.begin(),\
+    \ u.end(), v.begin(), v.end(), back_inserter(w));\n                    u = w;\n\
+    \                }\n                que.emplace(nxt);\n            }\n       \
+    \ }\n    }\n\n    long long match(const std::string& s) {\n        long long res\
+    \ = 0;\n        int cur = 0;\n        for (const char& c : s) {\n            cur\
+    \ = next(cur, c - margin);\n            res += cnt[cur];\n        }\n        return\
+    \ res;\n    }\n\n    std::map<int, int> frequency(const std::string& s) {\n  \
+    \      std::map<int, int> res;\n        int cur = 0;\n        for (const char&\
+    \ c : s) {\n            cur = next(cur, c - margin);\n            for (auto& idx\
+    \ : nodes[cur].idxs) res[idx]++;\n        }\n        return res;\n    }\n\n  \
+    \  int count(int pos) { return cnt[pos]; }\n\nprivate:\n    using super = Trie<char_size\
+    \ + 1, margin>;\n    using super::next;\n    using super::nodes;\n\n    const\
+    \ int FAIL = char_size;\n    std::vector<int> cnt;\n};\n\n/**\n * @brief Aho Corasick\n\
+    \ * @docs docs/string/AhoCorasick.md\n */\n"
   dependsOn:
-  - base.hpp
   - string/Trie.hpp
   isVerificationFile: false
   path: string/AhoCorasick.hpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-10-01 16:25:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1269.test.cpp
@@ -181,5 +116,4 @@ redirect_from:
 title: Aho Corasick
 ---
 ## 概要
-
-## 計算量
+各パターン文字列を区別する必要がない場合には `build()` の引数 `heavy` を `false` にする。
