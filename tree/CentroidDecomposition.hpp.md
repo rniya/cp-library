@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':question:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -16,98 +13,51 @@ data:
     _deprecated_at_docs: docs/tree/CentroidDecomposition.md
     document_title: Centroid Decomposition
     links: []
-  bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
-    #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
-    \ unsigned int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(),\
-    \ (x).end()\n\ntemplate <typename T> istream& operator>>(istream& is, vector<T>&\
-    \ v) {\n    for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T>\
-    \ ostream& operator<<(ostream& os, const vector<T>& v) {\n    for (int i = 0;\
-    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
-    \" : \" \");\n    }\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const pair<T, U>& p) {\n    os << '(' << p.first <<\
-    \ ',' << p.second << ')';\n    return os;\n}\ntemplate <typename T, typename U>\
-    \ ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os << '{';\n   \
-    \ for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const unordered_map<T, U>& m) {\n    os << '{';\n  \
-    \  for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
-    \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
-    \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const multiset<T>& s) {\n    os << '{';\n    for (auto itr = s.begin();\
-    \ itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os <<\
-    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
-    \ operator<<(ostream& os, const unordered_set<T>& s) {\n    os << '{';\n    for\
-    \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
-    \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
-    \" : \" \");\n    }\n    return os;\n}\n\ntemplate <int i, typename T> void print_tuple(ostream&,\
-    \ const T&) {}\ntemplate <int i, typename T, typename H, class... Args> void print_tuple(ostream&\
-    \ os, const T& t) {\n    if (i) os << ',';\n    os << get<i>(t);\n    print_tuple<i\
-    \ + 1, T, Args...>(os, t);\n}\ntemplate <typename... Args> ostream& operator<<(ostream&\
-    \ os, const tuple<Args...>& t) {\n    os << '{';\n    print_tuple<0, tuple<Args...>,\
-    \ Args...>(os, t);\n    return os << '}';\n}\n\nvoid debug_out() { cerr << '\\\
-    n'; }\ntemplate <class Head, class... Tail> void debug_out(Head&& head, Tail&&...\
-    \ tail) {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n \
-    \   debug_out(move(tail)...);\n}\n#ifdef LOCAL\n#define debug(...)           \
-    \                                                        \\\n    cerr << \" \"\
-    ;                                                                     \\\n   \
-    \ cerr << #__VA_ARGS__ << \" :[\" << __LINE__ << \":\" << __FUNCTION__ << \"]\"\
-    \ << '\\n'; \\\n    cerr << \" \";                                           \
-    \                          \\\n    debug_out(__VA_ARGS__)\n#else\n#define debug(...)\
-    \ 42\n#endif\n\ntemplate <typename T> T gcd(T x, T y) { return y != 0 ? gcd(y,\
-    \ x % y) : x; }\ntemplate <typename T> T lcm(T x, T y) { return x / gcd(x, y)\
-    \ * y; }\n\nint topbit(signed t) { return t == 0 ? -1 : 31 - __builtin_clz(t);\
-    \ }\nint topbit(long long t) { return t == 0 ? -1 : 63 - __builtin_clzll(t); }\n\
-    int botbit(signed a) { return a == 0 ? 32 : __builtin_ctz(a); }\nint botbit(long\
-    \ long a) { return a == 0 ? 64 : __builtin_ctzll(a); }\nint popcount(signed t)\
-    \ { return __builtin_popcount(t); }\nint popcount(long long t) { return __builtin_popcountll(t);\
-    \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
-    \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
-    \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
-    \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
-    \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"tree/CentroidDecomposition.hpp\"\
-    \n\n/**\n * @brief Centroid Decomposition\n * @docs docs/tree/CentroidDecomposition.md\n\
-    \ */\nclass CentroidDecomposition {\n    vector<vector<int>> G;\n    vector<int>\
-    \ sub, centroid;\n    inline int dfs(int v, int p) {\n        sub[v] = 1;\n  \
-    \      for (int u : G[v]) {\n            if (u == p || centroid[u]) continue;\n\
-    \            sub[v] += dfs(u, v);\n        }\n        return sub[v];\n    }\n\
-    \    inline int find(int v, int p, int mid) {\n        for (int u : G[v]) {\n\
-    \            if (u == p || centroid[u]) continue;\n            if (sub[u] > mid)\
-    \ return find(u, v, mid);\n        }\n        return v;\n    }\n\npublic:\n  \
-    \  CentroidDecomposition(int n) : G(n), sub(n), centroid(n) {}\n    void add_edge(int\
-    \ u, int v) {\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n\
-    \    }\n    int build(int r) { return find(r, -1, dfs(r, -1) >> 1); }\n    void\
-    \ disable(int v) { centroid[v] = true; }\n    void enable(int v) { centroid[v]\
-    \ = false; }\n    int alive(int v) { return !centroid[v]; }\n    const vector<int>&\
-    \ operator[](int v) const { return G[v]; }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Centroid Decomposition\n\
-    \ * @docs docs/tree/CentroidDecomposition.md\n */\nclass CentroidDecomposition\
-    \ {\n    vector<vector<int>> G;\n    vector<int> sub, centroid;\n    inline int\
-    \ dfs(int v, int p) {\n        sub[v] = 1;\n        for (int u : G[v]) {\n   \
-    \         if (u == p || centroid[u]) continue;\n            sub[v] += dfs(u, v);\n\
-    \        }\n        return sub[v];\n    }\n    inline int find(int v, int p, int\
-    \ mid) {\n        for (int u : G[v]) {\n            if (u == p || centroid[u])\
-    \ continue;\n            if (sub[u] > mid) return find(u, v, mid);\n        }\n\
-    \        return v;\n    }\n\npublic:\n    CentroidDecomposition(int n) : G(n),\
-    \ sub(n), centroid(n) {}\n    void add_edge(int u, int v) {\n        G[u].emplace_back(v);\n\
-    \        G[v].emplace_back(u);\n    }\n    int build(int r) { return find(r, -1,\
-    \ dfs(r, -1) >> 1); }\n    void disable(int v) { centroid[v] = true; }\n    void\
-    \ enable(int v) { centroid[v] = false; }\n    int alive(int v) { return !centroid[v];\
-    \ }\n    const vector<int>& operator[](int v) const { return G[v]; }\n};"
-  dependsOn:
-  - base.hpp
+  bundledCode: "#line 2 \"tree/CentroidDecomposition.hpp\"\n#include <cassert>\n#include\
+    \ <vector>\n\nstruct CentroidDecomposition {\n    std::vector<std::vector<int>>\
+    \ G;\n\n    CentroidDecomposition(int n) : G(n), n(n), sub(n), is_centroid(n)\
+    \ {}\n\n    void add_edge(int u, int v) {\n        assert(0 <= u && u < n);\n\
+    \        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n\
+    \    }\n\n    std::vector<int> build(int x = 0) {\n        centroids.clear();\n\
+    \        fill(is_centroid.begin(), is_centroid.end(), false);\n        centroid_decomposition(x);\n\
+    \        return centroids;\n    }\n\nprivate:\n    int n;\n    std::vector<int>\
+    \ sub, centroids;\n    std::vector<bool> is_centroid;\n\n    int dfs_sz(int v,\
+    \ int p) {\n        sub[v] = 1;\n        for (int& u : G[v]) {\n            if\
+    \ (u == p || is_centroid[u]) continue;\n            sub[v] += dfs_sz(u, v);\n\
+    \        }\n        return sub[v];\n    }\n\n    int dfs_search_centroid(int v,\
+    \ int p, int mid) {\n        for (int& u : G[v]) {\n            if (u == p ||\
+    \ is_centroid[u]) continue;\n            if (sub[u] > mid) return dfs_search_centroid(u,\
+    \ v, mid);\n        }\n        return v;\n    }\n\n    void centroid_decomposition(int\
+    \ r) {\n        int centroid = dfs_search_centroid(r, -1, dfs_sz(r, -1) / 2);\n\
+    \        centroids.emplace_back(centroid);\n        is_centroid[centroid] = true;\n\
+    \        for (int& ch : G[centroid]) {\n            if (is_centroid[ch]) continue;\n\
+    \            centroid_decomposition(ch);\n        }\n    }\n};\n\n/**\n * @brief\
+    \ Centroid Decomposition\n * @docs docs/tree/CentroidDecomposition.md\n */\n"
+  code: "#pragma once\n#include <cassert>\n#include <vector>\n\nstruct CentroidDecomposition\
+    \ {\n    std::vector<std::vector<int>> G;\n\n    CentroidDecomposition(int n)\
+    \ : G(n), n(n), sub(n), is_centroid(n) {}\n\n    void add_edge(int u, int v) {\n\
+    \        assert(0 <= u && u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n\
+    \        G[v].emplace_back(u);\n    }\n\n    std::vector<int> build(int x = 0)\
+    \ {\n        centroids.clear();\n        fill(is_centroid.begin(), is_centroid.end(),\
+    \ false);\n        centroid_decomposition(x);\n        return centroids;\n   \
+    \ }\n\nprivate:\n    int n;\n    std::vector<int> sub, centroids;\n    std::vector<bool>\
+    \ is_centroid;\n\n    int dfs_sz(int v, int p) {\n        sub[v] = 1;\n      \
+    \  for (int& u : G[v]) {\n            if (u == p || is_centroid[u]) continue;\n\
+    \            sub[v] += dfs_sz(u, v);\n        }\n        return sub[v];\n    }\n\
+    \n    int dfs_search_centroid(int v, int p, int mid) {\n        for (int& u :\
+    \ G[v]) {\n            if (u == p || is_centroid[u]) continue;\n            if\
+    \ (sub[u] > mid) return dfs_search_centroid(u, v, mid);\n        }\n        return\
+    \ v;\n    }\n\n    void centroid_decomposition(int r) {\n        int centroid\
+    \ = dfs_search_centroid(r, -1, dfs_sz(r, -1) / 2);\n        centroids.emplace_back(centroid);\n\
+    \        is_centroid[centroid] = true;\n        for (int& ch : G[centroid]) {\n\
+    \            if (is_centroid[ch]) continue;\n            centroid_decomposition(ch);\n\
+    \        }\n    }\n};\n\n/**\n * @brief Centroid Decomposition\n * @docs docs/tree/CentroidDecomposition.md\n\
+    \ */\n"
+  dependsOn: []
   isVerificationFile: false
   path: tree/CentroidDecomposition.hpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-10-03 22:16:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/frequency_table_of_tree_distance.test.cpp
@@ -119,5 +69,17 @@ redirect_from:
 title: Centroid Decomposition
 ---
 ## 概要
+木の重心分解を扱う.
 
-## 計算量
+| メンバ関数                 | 効果                             | 時間計算量 |
+| -------------------------- | -------------------------------- | ---------- |
+| `CentroidDecomposition(n)` | 頂点数 $n$ の木として初期化する. | $O(n)$     |
+| `add_edge(u, v)`           | 辺 $(u,v)$ を追加する.           | $O(1)$     |
+| `build()`                  | 重心分解を構築する (後述)        | $O(n)$     |
+
+木の重心とは, その頂点を取り除くいて残るすべての部分木のうち最大のものの頂点数が最小になる頂点である. 特に嬉しいのは, 重心を取り除いて残るすべての部分木のサイズがもとの木の頂点数の半分以下になっているという性質で, これにより再帰の深さは高々 $O(\log n)$ となる. 各深さ帯においての処理に $O(n)$ かけてもよく, 現在の部分木の頂点を全探索するといったことも行える. このためパスの数え上げ等の問題によく用いられる手法である.
+
+メンバ関数 `build()` はもとの木を重心分解していく過程における重心を dfs-order に列挙する. これをもとにまた別に探索していくのが良い.
+
+## 問題例
+- [COMPFEST 13 - Finals Online Mirror (Unrated, ICPC Rules, Teams Preferred) E. Eye-Pleasing City Park Tour](https://codeforces.com/contest/1575/problem/E)

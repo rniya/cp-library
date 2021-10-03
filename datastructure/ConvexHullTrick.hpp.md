@@ -1,13 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/atcoder/colopl2018_final_c.cpp
-    title: test/atcoder/colopl2018_final_c.cpp
-  - icon: ':warning:'
-    path: test/atcoder/dp_z.cpp
-    title: test/atcoder/dp_z.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
@@ -106,9 +100,7 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: datastructure/ConvexHullTrick.hpp
-  requiredBy:
-  - test/atcoder/dp_z.cpp
-  - test/atcoder/colopl2018_final_c.cpp
+  requiredBy: []
   timestamp: '2021-09-22 12:29:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

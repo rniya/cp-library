@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -118,61 +118,65 @@ data:
     \       C[i] = C0 + C1 * s;\n    }\n    fft(C, sz >> 1);\n    vector<long long>\
     \ res(need);\n    for (int i = 0; i < need; i++) {\n        res[i] = llround(i\
     \ & 1 ? C[i >> 1].y : C[i >> 1].x);\n    }\n    return res;\n}\n}  // namespace\
-    \ FastFourierTransform\n#line 3 \"tree/CentroidDecomposition.hpp\"\n\n/**\n *\
-    \ @brief Centroid Decomposition\n * @docs docs/tree/CentroidDecomposition.md\n\
-    \ */\nclass CentroidDecomposition {\n    vector<vector<int>> G;\n    vector<int>\
-    \ sub, centroid;\n    inline int dfs(int v, int p) {\n        sub[v] = 1;\n  \
-    \      for (int u : G[v]) {\n            if (u == p || centroid[u]) continue;\n\
-    \            sub[v] += dfs(u, v);\n        }\n        return sub[v];\n    }\n\
-    \    inline int find(int v, int p, int mid) {\n        for (int u : G[v]) {\n\
-    \            if (u == p || centroid[u]) continue;\n            if (sub[u] > mid)\
-    \ return find(u, v, mid);\n        }\n        return v;\n    }\n\npublic:\n  \
-    \  CentroidDecomposition(int n) : G(n), sub(n), centroid(n) {}\n    void add_edge(int\
-    \ u, int v) {\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n\
-    \    }\n    int build(int r) { return find(r, -1, dfs(r, -1) >> 1); }\n    void\
-    \ disable(int v) { centroid[v] = true; }\n    void enable(int v) { centroid[v]\
-    \ = false; }\n    int alive(int v) { return !centroid[v]; }\n    const vector<int>&\
-    \ operator[](int v) const { return G[v]; }\n};\n#line 6 \"test/yosupo/frequency_table_of_tree_distance.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\n\
-    \    cin >> N;\n\n    CentroidDecomposition CD(N);\n    for (int i = 0; i < N\
-    \ - 1; i++) {\n        int a, b;\n        cin >> a >> b;\n        CD.add_edge(a,\
-    \ b);\n    }\n\n    vector<long long> ans(N, 0);\n    auto calc = [&](auto self,\
-    \ int v, int p, int d, vector<int>& cnt) -> void {\n        while (cnt.size()\
-    \ <= d) cnt.emplace_back(0);\n        cnt[d]++;\n        for (int u : CD[v]) {\n\
-    \            if (u == p || !CD.alive(u)) continue;\n            self(self, u,\
-    \ v, d + 1, cnt);\n        }\n    };\n    auto dfs = [&](auto self, int v) ->\
-    \ void {\n        int c = CD.build(v);\n        CD.disable(c);\n        vector<int>\
-    \ sum{1};\n        for (int u : CD[c]) {\n            if (!CD.alive(u)) continue;\n\
-    \            self(self, u);\n            vector<int> cnt;\n            calc(calc,\
-    \ u, c, 1, cnt);\n            while (sum.size() < cnt.size()) sum.emplace_back(0);\n\
-    \            for (int i = 0; i < cnt.size(); i++) sum[i] += cnt[i];\n        \
-    \    auto mul = FastFourierTransform::multiply(cnt, cnt);\n            for (int\
-    \ i = 0; i < mul.size(); i++) ans[i] -= mul[i];\n        }\n        auto ret =\
-    \ FastFourierTransform::multiply(sum, sum);\n        for (int i = 0; i < ret.size();\
-    \ i++) ans[i] += ret[i];\n        CD.enable(c);\n    };\n\n    dfs(dfs, 0);\n\
-    \    for (int i = 1; i < N; i++) cout << ans[i] / 2 << (i + 1 == N ? '\\n' : '\
-    \ ');\n}\n"
+    \ FastFourierTransform\n#line 4 \"tree/CentroidDecomposition.hpp\"\n\nstruct CentroidDecomposition\
+    \ {\n    std::vector<std::vector<int>> G;\n\n    CentroidDecomposition(int n)\
+    \ : G(n), n(n), sub(n), is_centroid(n) {}\n\n    void add_edge(int u, int v) {\n\
+    \        assert(0 <= u && u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n\
+    \        G[v].emplace_back(u);\n    }\n\n    std::vector<int> build(int x = 0)\
+    \ {\n        centroids.clear();\n        fill(is_centroid.begin(), is_centroid.end(),\
+    \ false);\n        centroid_decomposition(x);\n        return centroids;\n   \
+    \ }\n\nprivate:\n    int n;\n    std::vector<int> sub, centroids;\n    std::vector<bool>\
+    \ is_centroid;\n\n    int dfs_sz(int v, int p) {\n        sub[v] = 1;\n      \
+    \  for (int& u : G[v]) {\n            if (u == p || is_centroid[u]) continue;\n\
+    \            sub[v] += dfs_sz(u, v);\n        }\n        return sub[v];\n    }\n\
+    \n    int dfs_search_centroid(int v, int p, int mid) {\n        for (int& u :\
+    \ G[v]) {\n            if (u == p || is_centroid[u]) continue;\n            if\
+    \ (sub[u] > mid) return dfs_search_centroid(u, v, mid);\n        }\n        return\
+    \ v;\n    }\n\n    void centroid_decomposition(int r) {\n        int centroid\
+    \ = dfs_search_centroid(r, -1, dfs_sz(r, -1) / 2);\n        centroids.emplace_back(centroid);\n\
+    \        is_centroid[centroid] = true;\n        for (int& ch : G[centroid]) {\n\
+    \            if (is_centroid[ch]) continue;\n            centroid_decomposition(ch);\n\
+    \        }\n    }\n};\n\n/**\n * @brief Centroid Decomposition\n * @docs docs/tree/CentroidDecomposition.md\n\
+    \ */\n#line 6 \"test/yosupo/frequency_table_of_tree_distance.test.cpp\"\n\nint\
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\n  \
+    \  cin >> N;\n    CentroidDecomposition CD(N);\n    for (int i = 0; i < N - 1;\
+    \ i++) {\n        int a, b;\n        cin >> a >> b;\n        CD.add_edge(a, b);\n\
+    \    }\n\n    vector<int> alive(N, true);\n    auto& G = CD.G;\n    auto calc\
+    \ = [&](auto self, int v, int p, int d, vector<int>& cnt) -> void {\n        while\
+    \ ((int)cnt.size() <= d) cnt.emplace_back(0);\n        cnt[d]++;\n        for\
+    \ (int& u : G[v]) {\n            if (u == p || !alive[u]) continue;\n        \
+    \    self(self, u, v, d + 1, cnt);\n        }\n    };\n\n    auto cs = CD.build();\n\
+    \    vector<long long> ans(2 * N, 0);\n\n    for (int& root : cs) {\n        alive[root]\
+    \ = 0;\n        vector<int> sum{1};\n        for (int& ch : G[root]) {\n     \
+    \       if (!alive[ch]) continue;\n            vector<int> cnt;\n            calc(calc,\
+    \ ch, root, 1, cnt);\n            auto sub = FastFourierTransform::multiply(cnt,\
+    \ cnt);\n            for (size_t i = 0; i < sub.size(); i++) ans[i] -= sub[i];\n\
+    \            while (sum.size() < cnt.size()) sum.emplace_back(0);\n          \
+    \  for (size_t i = 0; i < cnt.size(); i++) sum[i] += cnt[i];\n        }\n    \
+    \    auto add = FastFourierTransform::multiply(sum, sum);\n        for (size_t\
+    \ i = 0; i < add.size(); i++) ans[i] += add[i];\n    }\n\n    for (int i = 1;\
+    \ i < N; i++) cout << ans[i] / 2 << (i + 1 == N ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/frequency_table_of_tree_distance\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../convolution/FastFourierTransform.hpp\"\
     \n#include \"../../tree/CentroidDecomposition.hpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N;\n    cin >> N;\n\n    CentroidDecomposition\
+    \    ios::sync_with_stdio(false);\n    int N;\n    cin >> N;\n    CentroidDecomposition\
     \ CD(N);\n    for (int i = 0; i < N - 1; i++) {\n        int a, b;\n        cin\
-    \ >> a >> b;\n        CD.add_edge(a, b);\n    }\n\n    vector<long long> ans(N,\
-    \ 0);\n    auto calc = [&](auto self, int v, int p, int d, vector<int>& cnt) ->\
-    \ void {\n        while (cnt.size() <= d) cnt.emplace_back(0);\n        cnt[d]++;\n\
-    \        for (int u : CD[v]) {\n            if (u == p || !CD.alive(u)) continue;\n\
-    \            self(self, u, v, d + 1, cnt);\n        }\n    };\n    auto dfs =\
-    \ [&](auto self, int v) -> void {\n        int c = CD.build(v);\n        CD.disable(c);\n\
-    \        vector<int> sum{1};\n        for (int u : CD[c]) {\n            if (!CD.alive(u))\
-    \ continue;\n            self(self, u);\n            vector<int> cnt;\n      \
-    \      calc(calc, u, c, 1, cnt);\n            while (sum.size() < cnt.size())\
-    \ sum.emplace_back(0);\n            for (int i = 0; i < cnt.size(); i++) sum[i]\
-    \ += cnt[i];\n            auto mul = FastFourierTransform::multiply(cnt, cnt);\n\
-    \            for (int i = 0; i < mul.size(); i++) ans[i] -= mul[i];\n        }\n\
-    \        auto ret = FastFourierTransform::multiply(sum, sum);\n        for (int\
-    \ i = 0; i < ret.size(); i++) ans[i] += ret[i];\n        CD.enable(c);\n    };\n\
-    \n    dfs(dfs, 0);\n    for (int i = 1; i < N; i++) cout << ans[i] / 2 << (i +\
-    \ 1 == N ? '\\n' : ' ');\n}"
+    \ >> a >> b;\n        CD.add_edge(a, b);\n    }\n\n    vector<int> alive(N, true);\n\
+    \    auto& G = CD.G;\n    auto calc = [&](auto self, int v, int p, int d, vector<int>&\
+    \ cnt) -> void {\n        while ((int)cnt.size() <= d) cnt.emplace_back(0);\n\
+    \        cnt[d]++;\n        for (int& u : G[v]) {\n            if (u == p || !alive[u])\
+    \ continue;\n            self(self, u, v, d + 1, cnt);\n        }\n    };\n\n\
+    \    auto cs = CD.build();\n    vector<long long> ans(2 * N, 0);\n\n    for (int&\
+    \ root : cs) {\n        alive[root] = 0;\n        vector<int> sum{1};\n      \
+    \  for (int& ch : G[root]) {\n            if (!alive[ch]) continue;\n        \
+    \    vector<int> cnt;\n            calc(calc, ch, root, 1, cnt);\n           \
+    \ auto sub = FastFourierTransform::multiply(cnt, cnt);\n            for (size_t\
+    \ i = 0; i < sub.size(); i++) ans[i] -= sub[i];\n            while (sum.size()\
+    \ < cnt.size()) sum.emplace_back(0);\n            for (size_t i = 0; i < cnt.size();\
+    \ i++) sum[i] += cnt[i];\n        }\n        auto add = FastFourierTransform::multiply(sum,\
+    \ sum);\n        for (size_t i = 0; i < add.size(); i++) ans[i] += add[i];\n \
+    \   }\n\n    for (int i = 1; i < N; i++) cout << ans[i] / 2 << (i + 1 == N ? '\\\
+    n' : ' ');\n}"
   dependsOn:
   - base.hpp
   - convolution/FastFourierTransform.hpp
@@ -180,7 +184,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/frequency_table_of_tree_distance.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-10-03 22:16:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/frequency_table_of_tree_distance.test.cpp

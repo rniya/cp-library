@@ -5,9 +5,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/AhoCorasick.hpp
     title: Aho Corasick
-  - icon: ':warning:'
-    path: test/atcoder/tenka1_2016_final_c.cpp
-    title: test/atcoder/tenka1_2016_final_c.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1269.test.cpp
@@ -69,7 +66,6 @@ data:
   path: string/Trie.hpp
   requiredBy:
   - string/AhoCorasick.hpp
-  - test/atcoder/tenka1_2016_final_c.cpp
   timestamp: '2021-10-01 16:25:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

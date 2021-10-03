@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -165,7 +165,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/WarshallFloyd.hpp
       title: Warshall Floyd
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/enumerate_cliques.hpp
       title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
   - name: hold
@@ -279,20 +279,11 @@ data:
       path: test/atcoder/arc085_c.cpp
       title: test/atcoder/arc085_c.cpp
     - icon: ':warning:'
-      path: test/atcoder/colopl2018_final_c.cpp
-      title: test/atcoder/colopl2018_final_c.cpp
-    - icon: ':warning:'
-      path: test/atcoder/dp_z.cpp
-      title: test/atcoder/dp_z.cpp
-    - icon: ':warning:'
       path: test/atcoder/nikkei2019_2_qual_d.cpp
       title: test/atcoder/nikkei2019_2_qual_d.cpp
     - icon: ':warning:'
       path: test/atcoder/tdpc_fibonacci.cpp
       title: test/atcoder/tdpc_fibonacci.cpp
-    - icon: ':warning:'
-      path: test/atcoder/tenka1_2016_final_c.cpp
-      title: test/atcoder/tenka1_2016_final_c.cpp
     - icon: ':warning:'
       path: test/atcoder/ukuku09_d.cpp
       title: test/atcoder/ukuku09_d.cpp
@@ -350,7 +341,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/1181.test.cpp
       title: test/aoj/1181.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/2306.test.cpp
       title: test/aoj/2306.test.cpp
     - icon: ':heavy_check_mark:'

@@ -155,20 +155,11 @@ data:
     path: test/atcoder/arc085_c.cpp
     title: test/atcoder/arc085_c.cpp
   - icon: ':warning:'
-    path: test/atcoder/colopl2018_final_c.cpp
-    title: test/atcoder/colopl2018_final_c.cpp
-  - icon: ':warning:'
-    path: test/atcoder/dp_z.cpp
-    title: test/atcoder/dp_z.cpp
-  - icon: ':warning:'
     path: test/atcoder/nikkei2019_2_qual_d.cpp
     title: test/atcoder/nikkei2019_2_qual_d.cpp
   - icon: ':warning:'
     path: test/atcoder/tdpc_fibonacci.cpp
     title: test/atcoder/tdpc_fibonacci.cpp
-  - icon: ':warning:'
-    path: test/atcoder/tenka1_2016_final_c.cpp
-    title: test/atcoder/tenka1_2016_final_c.cpp
   - icon: ':warning:'
     path: test/atcoder/ukuku09_d.cpp
     title: test/atcoder/ukuku09_d.cpp
@@ -181,9 +172,6 @@ data:
   - icon: ':warning:'
     path: test/codeforces/1444_C.cpp
     title: test/codeforces/1444_C.cpp
-  - icon: ':heavy_check_mark:'
-    path: tree/CentroidDecomposition.hpp
-    title: Centroid Decomposition
   - icon: ':heavy_check_mark:'
     path: tree/LowestCommonAncestor.hpp
     title: Lowest Common Ancestor
@@ -209,7 +197,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/1181.test.cpp
     title: test/aoj/1181.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/2306.test.cpp
     title: test/aoj/2306.test.cpp
   - icon: ':heavy_check_mark:'
@@ -632,9 +620,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -757,7 +745,6 @@ data:
   isVerificationFile: false
   path: base.hpp
   requiredBy:
-  - tree/CentroidDecomposition.hpp
   - tree/LowestCommonAncestor.hpp
   - datastructure/UnionFindUndo.hpp
   - datastructure/SegmentTreeBeats.hpp
@@ -806,11 +793,8 @@ data:
   - polynomial/lagrange_interpolation.hpp
   - polynomial/StirlingSecond.hpp
   - test/atcoder/abc061_d.cpp
-  - test/atcoder/dp_z.cpp
   - test/atcoder/arc039_d.cpp
-  - test/atcoder/colopl2018_final_c.cpp
   - test/atcoder/abc137_e.cpp
-  - test/atcoder/tenka1_2016_final_c.cpp
   - test/atcoder/ukuku09_d.cpp
   - test/atcoder/tdpc_fibonacci.cpp
   - test/atcoder/arc085_c.cpp
@@ -825,7 +809,7 @@ data:
   - math/quotient_ranges.hpp
   - combinatorics/PartitionTable.hpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL_4_B.test.cpp
   - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
