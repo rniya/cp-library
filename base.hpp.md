@@ -45,9 +45,6 @@ data:
     path: datastructure/WeightedUnionFind.hpp
     title: Weighted UnionFind
   - icon: ':heavy_check_mark:'
-    path: flow/HopcroftKarp.hpp
-    title: Hopcroft Karp
-  - icon: ':heavy_check_mark:'
     path: flow/ProjectSelectionProblem.hpp
     title: Project Selection Problem
   - icon: ':heavy_check_mark:'
@@ -444,9 +441,6 @@ data:
     path: test/aoj/GRL_6_B.PrimalDual.test.cpp
     title: test/aoj/GRL_6_B.PrimalDual.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
-    title: test/aoj/GRL_7_A.HopcroftKarp.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/NTL_1_A.test.cpp
     title: test/aoj/NTL_1_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -464,9 +458,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/associative_array.test.cpp
     title: test/yosupo/associative_array.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/bipartitematching.test.cpp
-    title: test/yosupo/bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/bitwise_and_convolution.test.cpp
     title: test/yosupo/bitwise_and_convolution.test.cpp
@@ -802,7 +793,6 @@ data:
   - graph/TwoSatisfiability.hpp
   - graph/EulerianTrail.hpp
   - graph/WarshallFloyd.hpp
-  - flow/HopcroftKarp.hpp
   - flow/ProjectSelectionProblem.hpp
   - hold/SuffixArray_old.hpp
   - hold/MinCostFlow.hpp
@@ -906,7 +896,6 @@ data:
   - test/aoj/DSL_2_D.test.cpp
   - test/aoj/2313.test.cpp
   - test/aoj/GRL_3_A.test.cpp
-  - test/aoj/GRL_7_A.HopcroftKarp.test.cpp
   - test/aoj/GRL_5_D.test.cpp
   - test/aoj/GRL_1_B.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
@@ -947,7 +936,6 @@ data:
   - test/yosupo/number_of_substrings.test.cpp
   - test/yosupo/staticrmq.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
-  - test/yosupo/bipartitematching.test.cpp
   - test/yosupo/unionfind.test.cpp
   - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp

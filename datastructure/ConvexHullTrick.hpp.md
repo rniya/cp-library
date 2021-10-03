@@ -153,6 +153,7 @@ title: Convex Hull Trick (Add-Monotonic Slope Optimization)
     \end{aligned}$$
 
     となる. カッコ内の式は内側から順に計算していけばそれぞれ $y_i, x_i$ の 1 次式の最小化と見なせる. クエリや直線追加の順番を適切にすることで全体 $O(nm)$ で解くことができる.
+
 ## Links
 - [Convex-Hull Trick - sataniC++](https://satanic0258.hatenablog.com/entry/2016/08/16/181331)
 - [Convex-Hull-Trick-Add-Monotone \| Luzhiled’s Library](https://ei1333.github.io/library/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp)
