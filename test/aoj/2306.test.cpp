@@ -3,6 +3,8 @@
 #include "../../base.hpp"
 #include "../../graph/enumerate_cliques.hpp"
 
+const int inf = 1e9;
+
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
@@ -23,12 +25,12 @@ int main() {
     auto calc = [&](const vector<int>& clique) {
         int sum = 0;
         for (const auto& u : clique) {
-            int Min = INF;
+            int Min = inf;
             for (const auto& v : clique) {
                 if (u == v) continue;
                 Min = min(Min, G[u][v]);
             }
-            if (Min < INF) sum += Min;
+            if (Min < inf) sum += Min;
         }
         return sum;
     };
