@@ -3,6 +3,7 @@
 #include <vector>
 
 namespace set_function {
+
 // subset sum : f(S) <- \sum_{T \subseteq S} f(T)
 template <typename T> void subset_zeta_transform(std::vector<T>& f) {
     int n = f.size();
@@ -104,6 +105,7 @@ template <typename T> std::vector<T> xor_convolution(std::vector<T> f, std::vect
     walsh_hadamard_transform(f, true);
     return f;
 }
+
 }  // namespace set_function
 
 /**
