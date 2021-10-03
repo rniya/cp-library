@@ -7,9 +7,6 @@ data:
     path: test/aoj/DSL_2_B.test.cpp
     title: test/aoj/DSL_2_B.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_5_D.test.cpp
-    title: test/aoj/GRL_5_D.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_rectangle_sum.test.cpp
     title: test/yosupo/point_add_rectangle_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -67,7 +64,6 @@ data:
   timestamp: '2021-09-20 21:09:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_5_D.test.cpp
   - test/aoj/DSL_2_B.test.cpp
   - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp

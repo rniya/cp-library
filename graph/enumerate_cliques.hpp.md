@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/2306.test.cpp
+    title: test/aoj/2306.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/graph/enumerate_cliques.md
     document_title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
@@ -81,8 +84,9 @@ data:
   path: graph/enumerate_cliques.hpp
   requiredBy: []
   timestamp: '2021-10-01 11:32:51+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/aoj/2306.test.cpp
 documentation_of: graph/enumerate_cliques.hpp
 layout: document
 redirect_from:

@@ -7,9 +7,6 @@ data:
     path: test/aoj/2667.test.cpp
     title: test/aoj/2667.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/2871.test.cpp
-    title: test/aoj/2871.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_D.test.cpp
     title: test/aoj/DSL_2_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -168,7 +165,6 @@ data:
   - test/aoj/DSL_2_F.test.cpp
   - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   - test/aoj/DSL_2_G.test.cpp
-  - test/aoj/2871.test.cpp
   - test/aoj/DSL_2_D.test.cpp
   - test/aoj/DSL_2_E.test.cpp
   - test/aoj/DSL_2_H.test.cpp

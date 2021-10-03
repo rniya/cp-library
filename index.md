@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -100,7 +100,7 @@ data:
       title: monotone minima
   - name: flow
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: flow/BipartiteMatching.hpp
       title: Bipartite Matching
     - icon: ':heavy_check_mark:'
@@ -165,7 +165,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/WarshallFloyd.hpp
       title: Warshall Floyd
-    - icon: ':warning:'
+    - icon: ':x:'
       path: graph/enumerate_cliques.hpp
       title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
   - name: hold
@@ -313,12 +313,6 @@ data:
       path: tree/CentroidDecomposition.hpp
       title: Centroid Decomposition
     - icon: ':heavy_check_mark:'
-      path: tree/EulerTourforEdge.hpp
-      title: "Euler Tour (\u30D1\u30B9\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)"
-    - icon: ':heavy_check_mark:'
-      path: tree/EulerTourforVertex.hpp
-      title: "Euler Tour (\u90E8\u5206\u6728\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)"
-    - icon: ':heavy_check_mark:'
       path: tree/HeavyLightDecomposition.hpp
       title: Heavy Light Decomposition
     - icon: ':heavy_check_mark:'
@@ -356,15 +350,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/1181.test.cpp
       title: test/aoj/1181.test.cpp
+    - icon: ':x:'
+      path: test/aoj/2306.test.cpp
+      title: test/aoj/2306.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/2313.test.cpp
       title: test/aoj/2313.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/2667.test.cpp
       title: test/aoj/2667.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/2871.test.cpp
-      title: test/aoj/2871.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/2891.test.cpp
       title: test/aoj/2891.test.cpp
@@ -570,9 +564,6 @@ data:
       path: test/aoj/GRL_5_C.test.cpp
       title: test/aoj/GRL_5_C.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/aoj/GRL_5_D.test.cpp
-      title: test/aoj/GRL_5_D.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
       title: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
     - icon: ':heavy_check_mark:'
@@ -604,7 +595,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/associative_array.test.cpp
       title: test/yosupo/associative_array.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/bipartitematching.test.cpp
       title: test/yosupo/bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'

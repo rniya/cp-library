@@ -185,12 +185,6 @@ data:
     path: tree/CentroidDecomposition.hpp
     title: Centroid Decomposition
   - icon: ':heavy_check_mark:'
-    path: tree/EulerTourforEdge.hpp
-    title: "Euler Tour (\u30D1\u30B9\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)"
-  - icon: ':heavy_check_mark:'
-    path: tree/EulerTourforVertex.hpp
-    title: "Euler Tour (\u90E8\u5206\u6728\u306B\u5BFE\u3059\u308B\u64CD\u4F5C)"
-  - icon: ':heavy_check_mark:'
     path: tree/LowestCommonAncestor.hpp
     title: Lowest Common Ancestor
   - icon: ':heavy_check_mark:'
@@ -215,15 +209,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/1181.test.cpp
     title: test/aoj/1181.test.cpp
+  - icon: ':x:'
+    path: test/aoj/2306.test.cpp
+    title: test/aoj/2306.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/2313.test.cpp
     title: test/aoj/2313.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/2667.test.cpp
     title: test/aoj/2667.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/2871.test.cpp
-    title: test/aoj/2871.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/2891.test.cpp
     title: test/aoj/2891.test.cpp
@@ -429,9 +423,6 @@ data:
     path: test/aoj/GRL_5_C.test.cpp
     title: test/aoj/GRL_5_C.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_5_D.test.cpp
-    title: test/aoj/GRL_5_D.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
     title: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   - icon: ':heavy_check_mark:'
@@ -458,6 +449,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/associative_array.test.cpp
     title: test/yosupo/associative_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/bipartitematching.test.cpp
+    title: test/yosupo/bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/bitwise_and_convolution.test.cpp
     title: test/yosupo/bitwise_and_convolution.test.cpp
@@ -638,9 +632,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -764,8 +758,6 @@ data:
   path: base.hpp
   requiredBy:
   - tree/CentroidDecomposition.hpp
-  - tree/EulerTourforEdge.hpp
-  - tree/EulerTourforVertex.hpp
   - tree/LowestCommonAncestor.hpp
   - datastructure/UnionFindUndo.hpp
   - datastructure/SegmentTreeBeats.hpp
@@ -833,7 +825,7 @@ data:
   - math/quotient_ranges.hpp
   - combinatorics/PartitionTable.hpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/CGL_4_B.test.cpp
   - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
@@ -862,6 +854,7 @@ data:
   - test/aoj/CGL_3_A.test.cpp
   - test/aoj/DPL_5_D.test.cpp
   - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
+  - test/aoj/2306.test.cpp
   - test/aoj/DSL_1_B.test.cpp
   - test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
   - test/aoj/GRL_2_A.Prim.test.cpp
@@ -891,12 +884,10 @@ data:
   - test/aoj/GRL_5_B.test.cpp
   - test/aoj/GRL_2_A.test.cpp
   - test/aoj/GRL_3_C.test.cpp
-  - test/aoj/2871.test.cpp
   - test/aoj/GRL_5_A.test.cpp
   - test/aoj/DSL_2_D.test.cpp
   - test/aoj/2313.test.cpp
   - test/aoj/GRL_3_A.test.cpp
-  - test/aoj/GRL_5_D.test.cpp
   - test/aoj/GRL_1_B.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
   - test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
@@ -936,6 +927,7 @@ data:
   - test/yosupo/number_of_substrings.test.cpp
   - test/yosupo/staticrmq.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
+  - test/yosupo/bipartitematching.test.cpp
   - test/yosupo/unionfind.test.cpp
   - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
