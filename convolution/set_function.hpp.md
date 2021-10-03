@@ -23,10 +23,10 @@ data:
     document_title: set function (FZT, FMT, FWHT)
     links: []
   bundledCode: "#line 2 \"convolution/set_function.hpp\"\n#include <cassert>\n#include\
-    \ <vector>\n\nnamespace set_function {\n// subset sum : f(S) <- \\sum_{T \\subseteq\
-    \ S} f(T)\ntemplate <typename T> void subset_zeta_transform(std::vector<T>& f)\
-    \ {\n    int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for (int i =\
-    \ 1; i < n; i <<= 1) {\n        for (int j = 0; j < n; j++) {\n            if\
+    \ <vector>\n\nnamespace set_function {\n\n// subset sum : f(S) <- \\sum_{T \\\
+    subseteq S} f(T)\ntemplate <typename T> void subset_zeta_transform(std::vector<T>&\
+    \ f) {\n    int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for (int i\
+    \ = 1; i < n; i <<= 1) {\n        for (int j = 0; j < n; j++) {\n            if\
     \ ((j & i) == 0) {\n                f[j | i] += f[j];\n            }\n       \
     \ }\n    }\n}\n\n// inverse of subset sum\n// g = FZT(f) \\iff f = FMT(g)\ntemplate\
     \ <typename T> void subset_mobius_transform(std::vector<T>& f) {\n    int n =\
@@ -60,15 +60,15 @@ data:
     \ T> std::vector<T> xor_convolution(std::vector<T> f, std::vector<T> g) {\n  \
     \  assert(f.size() == g.size());\n    walsh_hadamard_transform(f);\n    walsh_hadamard_transform(g);\n\
     \    for (size_t i = 0; i < f.size(); i++) f[i] *= g[i];\n    walsh_hadamard_transform(f,\
-    \ true);\n    return f;\n}\n}  // namespace set_function\n\n/**\n * @brief set\
+    \ true);\n    return f;\n}\n\n}  // namespace set_function\n\n/**\n * @brief set\
     \ function (FZT, FMT, FWHT)\n * @docs docs/convolution/set_function.md\n */\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\nnamespace set_function\
-    \ {\n// subset sum : f(S) <- \\sum_{T \\subseteq S} f(T)\ntemplate <typename T>\
-    \ void subset_zeta_transform(std::vector<T>& f) {\n    int n = f.size();\n   \
-    \ assert((n & (n - 1)) == 0);\n    for (int i = 1; i < n; i <<= 1) {\n       \
-    \ for (int j = 0; j < n; j++) {\n            if ((j & i) == 0) {\n           \
-    \     f[j | i] += f[j];\n            }\n        }\n    }\n}\n\n// inverse of subset\
-    \ sum\n// g = FZT(f) \\iff f = FMT(g)\ntemplate <typename T> void subset_mobius_transform(std::vector<T>&\
+    \ {\n\n// subset sum : f(S) <- \\sum_{T \\subseteq S} f(T)\ntemplate <typename\
+    \ T> void subset_zeta_transform(std::vector<T>& f) {\n    int n = f.size();\n\
+    \    assert((n & (n - 1)) == 0);\n    for (int i = 1; i < n; i <<= 1) {\n    \
+    \    for (int j = 0; j < n; j++) {\n            if ((j & i) == 0) {\n        \
+    \        f[j | i] += f[j];\n            }\n        }\n    }\n}\n\n// inverse of\
+    \ subset sum\n// g = FZT(f) \\iff f = FMT(g)\ntemplate <typename T> void subset_mobius_transform(std::vector<T>&\
     \ f) {\n    int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for (int i\
     \ = 1; i < n; i <<= 1) {\n        for (int j = 0; j < n; j++) {\n            if\
     \ ((j & i) == 0) {\n                f[j | i] -= f[j];\n            }\n       \
@@ -99,14 +99,14 @@ data:
     \    return f;\n}\n\ntemplate <typename T> std::vector<T> xor_convolution(std::vector<T>\
     \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    walsh_hadamard_transform(f);\n\
     \    walsh_hadamard_transform(g);\n    for (size_t i = 0; i < f.size(); i++) f[i]\
-    \ *= g[i];\n    walsh_hadamard_transform(f, true);\n    return f;\n}\n}  // namespace\
-    \ set_function\n\n/**\n * @brief set function (FZT, FMT, FWHT)\n * @docs docs/convolution/set_function.md\n\
-    \ */\n"
+    \ *= g[i];\n    walsh_hadamard_transform(f, true);\n    return f;\n}\n\n}  //\
+    \ namespace set_function\n\n/**\n * @brief set function (FZT, FMT, FWHT)\n * @docs\
+    \ docs/convolution/set_function.md\n */\n"
   dependsOn: []
   isVerificationFile: false
   path: convolution/set_function.hpp
   requiredBy: []
-  timestamp: '2021-09-27 13:41:22+09:00'
+  timestamp: '2021-10-03 17:00:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/bitwise_and_convolution.test.cpp

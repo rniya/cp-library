@@ -21,7 +21,16 @@
 - [Codeforces Round #222 (Div. 1) E. Cookie Clicker](https://codeforces.com/contest/377/problem/E)
 - [Codeforces Round #549 (Div. 1) C. U2](https://codeforces.com/contest/1142/problem/C)
 - [AtCoder Regular Contest 051 D - 長方形](https://atcoder.jp/contests/arc051/tasks/arc051_d)
+- [COMPFEST 13 - Finals Online Mirror (Unrated, ICPC Rules, Teams Preferred) M. Managing Telephone Poles](https://codeforces.com/contest/1575/problem/M)
+  - 式変形すると,
 
+    $$\begin{aligned}
+        (x_i - x_j)^2 + (y_i - y_j)^2
+        &= (-2x_ix_j - 2y_iy_j + x_j^2 + y_j^2) + (x_i^2 + y_i^2) \\
+        &= \left[-2x_jx_i + \left(-2\frac{y_j}{x_j}y_i + x_j + \frac{y_j^2}{x_j}\right)x_j\right] + (x_i^2 + y_i^2) \\
+    \end{aligned}$$
+
+    となる. カッコ内の式は内側から順に計算していけばそれぞれ $y_i, x_i$ の 1 次式の最小化と見なせる. クエリや直線追加の順番を適切にすることで全体 $O(nm)$ で解くことができる.
 ## Links
 - [Convex-Hull Trick - sataniC++](https://satanic0258.hatenablog.com/entry/2016/08/16/181331)
 - [Convex-Hull-Trick-Add-Monotone \| Luzhiled’s Library](https://ei1333.github.io/library/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp)

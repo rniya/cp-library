@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -28,6 +28,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: convolution/NumberTheoreticTransform.hpp
       title: Number Theoretic Transform
+    - icon: ':heavy_check_mark:'
+      path: convolution/gcd_convolution.hpp
+      title: "$\\gcd$ convolution (\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F)"
     - icon: ':heavy_check_mark:'
       path: convolution/set_function.hpp
       title: set function (FZT, FMT, FWHT)
@@ -72,7 +75,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/Slide_Min.hpp
       title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/SlidingWindowAggregation.hpp
       title: Sliding Window Aggregation (SWAG)
     - icon: ':warning:'
@@ -213,7 +216,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: modulo/dynamic_modint.hpp
       title: "\u5B9F\u884C\u6642 modint"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: modulo/modint.hpp
       title: modint
     - icon: ':warning:'
@@ -661,7 +664,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/queue_operate_all_composite.test.cpp
       title: test/yosupo/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
@@ -780,6 +783,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/803.test.cpp
       title: test/yukicoder/803.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/886.test.cpp
+      title: test/yukicoder/886.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/931.test.cpp
       title: test/yukicoder/931.test.cpp

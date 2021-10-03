@@ -32,7 +32,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/Slide_Min.hpp
     title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
   - icon: ':heavy_check_mark:'
@@ -521,7 +521,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -639,14 +639,17 @@ data:
     path: test/yukicoder/803.test.cpp
     title: test/yukicoder/803.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/886.test.cpp
+    title: test/yukicoder/886.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/931.test.cpp
     title: test/yukicoder/931.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -840,7 +843,7 @@ data:
   - math/quotient_ranges.hpp
   - combinatorics/PartitionTable.hpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL_4_B.test.cpp
   - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
@@ -970,6 +973,7 @@ data:
   - test/yukicoder/931.test.cpp
   - test/yukicoder/3046.test.cpp
   - test/yukicoder/1678.test.cpp
+  - test/yukicoder/886.test.cpp
   - test/yukicoder/1050.test.cpp
   - test/yukicoder/1289.test.cpp
   - test/yukicoder/1302.test.cpp

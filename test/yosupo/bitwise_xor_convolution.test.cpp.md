@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: convolution/set_function.hpp
     title: set function (FZT, FMT, FWHT)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -80,16 +80,16 @@ data:
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
     \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 4 \"convolution/set_function.hpp\"\
-    \n\nnamespace set_function {\n// subset sum : f(S) <- \\sum_{T \\subseteq S} f(T)\n\
-    template <typename T> void subset_zeta_transform(std::vector<T>& f) {\n    int\
-    \ n = f.size();\n    assert((n & (n - 1)) == 0);\n    for (int i = 1; i < n; i\
-    \ <<= 1) {\n        for (int j = 0; j < n; j++) {\n            if ((j & i) ==\
-    \ 0) {\n                f[j | i] += f[j];\n            }\n        }\n    }\n}\n\
-    \n// inverse of subset sum\n// g = FZT(f) \\iff f = FMT(g)\ntemplate <typename\
-    \ T> void subset_mobius_transform(std::vector<T>& f) {\n    int n = f.size();\n\
-    \    assert((n & (n - 1)) == 0);\n    for (int i = 1; i < n; i <<= 1) {\n    \
-    \    for (int j = 0; j < n; j++) {\n            if ((j & i) == 0) {\n        \
-    \        f[j | i] -= f[j];\n            }\n        }\n    }\n}\n\n// superset\
+    \n\nnamespace set_function {\n\n// subset sum : f(S) <- \\sum_{T \\subseteq S}\
+    \ f(T)\ntemplate <typename T> void subset_zeta_transform(std::vector<T>& f) {\n\
+    \    int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for (int i = 1; i\
+    \ < n; i <<= 1) {\n        for (int j = 0; j < n; j++) {\n            if ((j &\
+    \ i) == 0) {\n                f[j | i] += f[j];\n            }\n        }\n  \
+    \  }\n}\n\n// inverse of subset sum\n// g = FZT(f) \\iff f = FMT(g)\ntemplate\
+    \ <typename T> void subset_mobius_transform(std::vector<T>& f) {\n    int n =\
+    \ f.size();\n    assert((n & (n - 1)) == 0);\n    for (int i = 1; i < n; i <<=\
+    \ 1) {\n        for (int j = 0; j < n; j++) {\n            if ((j & i) == 0) {\n\
+    \                f[j | i] -= f[j];\n            }\n        }\n    }\n}\n\n// superset\
     \ sum : f(S) <- \\sum_{T \\supseteq S} f(T)\ntemplate <typename T> void superset_zeta_transform(std::vector<T>&\
     \ f) {\n    int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for (int i\
     \ = 1; i < n; i <<= 1) {\n        for (int j = 0; j < n; j++) {\n            if\
@@ -117,7 +117,7 @@ data:
     \ T> std::vector<T> xor_convolution(std::vector<T> f, std::vector<T> g) {\n  \
     \  assert(f.size() == g.size());\n    walsh_hadamard_transform(f);\n    walsh_hadamard_transform(g);\n\
     \    for (size_t i = 0; i < f.size(); i++) f[i] *= g[i];\n    walsh_hadamard_transform(f,\
-    \ true);\n    return f;\n}\n}  // namespace set_function\n\n/**\n * @brief set\
+    \ true);\n    return f;\n}\n\n}  // namespace set_function\n\n/**\n * @brief set\
     \ function (FZT, FMT, FWHT)\n * @docs docs/convolution/set_function.md\n */\n\
     #line 5 \"modulo/modint.hpp\"\n\ntemplate <uint64_t Modulus> class modint {\n\
     \    using i64 = int64_t;\n    using u32 = uint32_t;\n    using u64 = uint64_t;\n\
@@ -184,7 +184,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/bitwise_xor_convolution.test.cpp
   requiredBy: []
-  timestamp: '2021-10-01 20:18:39+09:00'
+  timestamp: '2021-10-03 17:00:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/bitwise_xor_convolution.test.cpp

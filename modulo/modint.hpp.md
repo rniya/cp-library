@@ -72,7 +72,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -109,11 +109,14 @@ data:
     path: test/yukicoder/803.test.cpp
     title: test/yukicoder/803.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/886.test.cpp
+    title: test/yukicoder/886.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/931.test.cpp
     title: test/yukicoder/931.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/modulo/modint.md
     document_title: modint
@@ -212,7 +215,7 @@ data:
   - convolution/ArbitaryModConvolution.hpp
   - test/atcoder/tdpc_fibonacci.cpp
   timestamp: '2021-10-01 20:18:39+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DPL_5_J.test.cpp
   - test/aoj/DPL_5_B.test.cpp
@@ -241,6 +244,7 @@ data:
   - test/yukicoder/803.test.cpp
   - test/yukicoder/931.test.cpp
   - test/yukicoder/3046.test.cpp
+  - test/yukicoder/886.test.cpp
   - test/yukicoder/1050.test.cpp
   - test/yukicoder/1289.test.cpp
   - test/yukicoder/1302.test.cpp
