@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cassert>
 #include <queue>
+#include <random>
 #include <utility>
 #include <vector>
 
@@ -9,8 +10,14 @@ struct BipartiteMatching {
     BipartiteMatching(int U, int V) : U(U), V(V), t(0), solved(false), G(U), L(U, -1), R(V, -1), visited(U, -1) {}
 
     void add_edge(int u, int v) {
-        assert(0 <= u && u < U && 0 <= v && v < V);
+        assert(0 <= u && u < U);
+        assert(0 <= v && v < V);
         G[u].emplace_back(v);
+    }
+
+    void shuffle() {
+        static std::mt19937 mt;
+        for (auto& v : G) std::shuffle(v.begin(), v.end(), mt);
     }
 
     int solve() {
@@ -62,5 +69,5 @@ private:
 
 /**
  * @brief Bipartite Matching
- * @docs docs/flow/BipartiteMathcing.md
+ * @docs docs/flow/BipartiteMatching.md
  */
