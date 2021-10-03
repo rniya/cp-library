@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 
 #include "../../base.hpp"
-#include "../../flow/HopcroftKarp.hpp"
+#include "../../flow/BipartiteMathcing.hpp"
 
 int main() {
     cin.tie(0);
@@ -9,14 +9,16 @@ int main() {
     int L, R, M;
     cin >> L >> R >> M;
 
-    HopcroftKarp HK(L, R);
+    BipartiteMatching BM(L, R);
     for (; M--;) {
         int a, b;
         cin >> a >> b;
-        HK.add_edge(a, b);
+        BM.add_edge(a, b);
     }
 
-    auto ans = HK.max_matching();
+    BM.solve();
+    auto ans = BM.max_matching();
     cout << ans.size() << '\n';
     for (auto p : ans) cout << p.first << ' ' << p.second << '\n';
+    return 0;
 }
