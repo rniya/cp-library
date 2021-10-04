@@ -5,8 +5,9 @@ data:
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
-    path: graph/LowLink.hpp
-    title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
+    path: graph/BlockCutTree.hpp
+    title: Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected
+      Components)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -75,47 +76,114 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"graph/LowLink.hpp\"\
-    \n\n/**\n * @brief Low Link (\u6A4B/\u95A2\u7BC0\u70B9)\n * @docs docs/graph/LowLink.md\n\
-    \ */\nstruct LowLink {\n    int n, time;\n    vector<int> ord, low;\n    vector<vector<int>>\
-    \ G;\n    vector<int> articulation;\n    vector<pair<int, int>> bridge;\n    LowLink(int\
-    \ n) : n(n), time(0), ord(n, -1), low(n), G(n) {}\n    void add_edge(int u, int\
-    \ v) {\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n    }\n\
-    \    bool is_bridge(int u, int v) {\n        if (ord[u] > ord[v]) swap(u, v);\n\
-    \        return ord[u] < low[v];\n    }\n    void dfs(int v, int p) {\n      \
-    \  ord[v] = low[v] = time++;\n        bool is_articulation = false;\n        int\
-    \ cnt = 0;\n        for (int u : G[v]) {\n            if (u == p) continue;\n\
-    \            if (~ord[u]) {\n                low[v] = min(low[v], ord[u]);\n \
-    \               continue;\n            }\n            cnt++;\n            dfs(u,\
-    \ v);\n            low[v] = min(low[v], low[u]);\n            is_articulation\
-    \ |= (~p && ord[v] <= low[u]);\n            if (is_bridge(v, u)) bridge.emplace_back(v,\
-    \ u);\n        }\n        is_articulation |= (p < 0 && cnt > 1);\n        if (is_articulation)\
-    \ articulation.emplace_back(v);\n    }\n    void build() {\n        for (int v\
-    \ = 0; v < n; v++) {\n            if (ord[v] < 0) dfs(v, -1);\n        }\n   \
-    \ }\n};\n#line 5 \"test/aoj/GRL_3_B.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int V, E;\n    cin >> V >> E;\n\n    LowLink\
-    \ L(V);\n    for (int i = 0; i < E; i++) {\n        int s, t;\n        cin >>\
-    \ s >> t;\n        L.add_edge(s, t);\n    }\n\n    L.build();\n    vector<pair<int,\
-    \ int>> ans = L.bridge;\n    for (auto& e : ans) {\n        if (e.second < e.first)\
-    \ {\n            swap(e.first, e.second);\n        }\n    }\n\n    sort(ans.begin(),\
-    \ ans.end());\n    for (auto e : ans) cout << e.first << ' ' << e.second << '\\\
-    n';\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 6 \"graph/BlockCutTree.hpp\"\
+    \n\nstruct BlockCutTree {\n    std::vector<std::vector<std::pair<int, int>>> G;\n\
+    \    std::vector<std::vector<int>> tecc_tree,    // tree that consists of two-edge-connected-component\n\
+    \        bct;                                    // tree that consists of bi-connected-component\
+    \ and articulation\n    std::vector<bool> is_articulation,          // whether\
+    \ vertex i is articulation or not\n        is_bridge;                        \
+    \      // whether edge i is bridge or not\n    std::vector<int> tecc_id;     \
+    \              // id of two-edge-connected-component vertex i belongs to\n   \
+    \ std::vector<std::vector<int>> tecc_groups;  // vertices belongs to i-th two-edge-connected-component\n\
+    \    std::vector<int> bcc_id;                    // id of bi-connected-component\
+    \ edge i belongs to\n    std::vector<std::vector<std::pair<int, int>>> bcc_groups;\
+    \  // edges belongs to i-th bi-connected-component\n    std::vector<int> bct_id;\
+    \  // id of component on block-cut-tree vertex i belongs to (order : bcc -> articulation)\n\
+    \    std::vector<std::vector<int>> bct_groups;  // vertices belongs to i-th component\
+    \ on block-cut-tree\n\n    BlockCutTree(int n)\n        : G(n), is_articulation(n,\
+    \ false), n(n), m(0), time(0), bcc_num(0), order(n, -1), lowlink(n, -1) {}\n\n\
+    \    void add_edge(int u, int v) {\n        assert(0 <= u && u < n);\n       \
+    \ assert(0 <= v && v < n);\n        G[u].emplace_back(v, m);\n        G[v].emplace_back(u,\
+    \ m);\n        if (u > v) std::swap(u, v);\n        edges.emplace_back(u, v);\n\
+    \        is_bridge.emplace_back(false);\n        is_dfstree_edge.emplace_back(false);\n\
+    \        bcc_id.emplace_back(-1);\n        m++;\n    }\n\n    void build() {\n\
+    \        called_build = true;\n        for (int i = 0; i < n; i++) {\n       \
+    \     if (order[i] == -1) {\n                dfs_lowlink(i);\n            }\n\
+    \        }\n        for (int i = 0; i < m; i++) {\n            int u = edges[i].first,\
+    \ v = edges[i].second;\n            if (order[u] > order[v]) std::swap(u, v);\n\
+    \            if (order[u] < lowlink[v]) is_bridge[i] = true;\n        }\n    }\n\
+    \n    std::vector<std::vector<int>> two_edge_connected_components() {\n      \
+    \  assert(called_build);\n        called_two_connected_components = true;\n  \
+    \      tecc_num = 0;\n        tecc_id.assign(n, -1);\n        for (int i = 0;\
+    \ i < n; i++) {\n            if (tecc_id[i] >= 0) continue;\n            tecc_id[i]\
+    \ = tecc_num;\n            std::queue<int> que;\n            que.emplace(i);\n\
+    \            while (!que.empty()) {\n                int v = que.front();\n  \
+    \              que.pop();\n                for (const auto& e : G[v]) {\n    \
+    \                int u = e.first;\n                    if (tecc_id[u] >= 0 ||\
+    \ is_bridge[e.second]) continue;\n                    tecc_id[u] = tecc_num;\n\
+    \                    que.emplace(u);\n                }\n            }\n     \
+    \       tecc_num++;\n        }\n        tecc_groups.resize(tecc_num);\n      \
+    \  for (int i = 0; i < n; i++) tecc_groups[tecc_id[i]].emplace_back(i);\n    \
+    \    return tecc_groups;\n    }\n\n    std::vector<std::vector<int>> tecc_make_tree()\
+    \ {\n        assert(called_two_connected_components);\n        tecc_tree.resize(tecc_num);\n\
+    \        for (int i = 0; i < m; i++) {\n            if (!is_bridge[i]) continue;\n\
+    \            int u = tecc_id[edges[i].first], v = tecc_id[edges[i].second];\n\
+    \            tecc_tree[u].emplace_back(v);\n            tecc_tree[v].emplace_back(u);\n\
+    \        }\n        return tecc_tree;\n    }\n\n    std::vector<std::vector<std::pair<int,\
+    \ int>>> bi_connected_components() {\n        assert(called_build);\n        called_bi_connected_components\
+    \ = true;\n        bcc_groups.resize(bcc_num);\n        for (int i = 0; i < m;\
+    \ i++) bcc_groups[bcc_id[i]].emplace_back(edges[i]);\n        return bcc_groups;\n\
+    \    }\n\n    std::vector<std::vector<int>> block_cut_tree() {\n        assert(called_bi_connected_components);\n\
+    \        int bct_num = bcc_num;\n        for (int i = 0; i < n; i++) {\n     \
+    \       if (is_articulation[i]) {\n                bct_id[i] = bct_num++;\n  \
+    \          }\n        }\n        bct.resize(bct_num);\n        std::vector<int>\
+    \ last_adjacent(bct_num, -1);\n        for (int i = 0; i < bcc_num; i++) {\n \
+    \           for (auto& e : bcc_groups[i]) {\n                for (auto& v : {e.first,\
+    \ e.second}) {\n                    if (is_articulation[v]) {\n              \
+    \          if (std::exchange(last_adjacent[bct_id[v]], i) != i) {\n          \
+    \                  bct[i].emplace_back(bct_id[v]);\n                         \
+    \   bct[bct_id[v]].emplace_back(i);\n                        }\n             \
+    \       } else\n                        bct_id[v] = i;\n                }\n  \
+    \          }\n        }\n        return bct;\n    }\n\nprivate:\n    int n, m,\
+    \ time, tecc_num, bcc_num;\n    bool called_build, called_two_connected_components,\
+    \ called_bi_connected_components;\n    std::vector<std::pair<int, int>> edges;\n\
+    \    std::vector<int> order;             // visiting order of dfs-tree\n    std::vector<int>\
+    \ lowlink;           // min of order of u which can be visited from v by using\
+    \ dfs-tree edge any\n                                        // times and back\
+    \ edge at most once\n    std::vector<bool> is_dfstree_edge;  // whether edge is\
+    \ used in dfs-tree or not\n\n    std::vector<int> edge_stack;\n\n    void dfs_lowlink(int\
+    \ v, int pre_eid = -1) {\n        order[v] = lowlink[v] = time++;\n        for\
+    \ (const auto& e : G[v]) {\n            int u = e.first;\n            if (e.second\
+    \ != pre_eid) {\n                if (order[u] < order[v]) edge_stack.emplace_back(e.second);\n\
+    \                if (order[u] >= 0)\n                    lowlink[v] = std::min(lowlink[v],\
+    \ order[u]);\n                else {\n                    is_dfstree_edge[e.second]\
+    \ = true;\n                    dfs_lowlink(u, e.second);\n                   \
+    \ lowlink[v] = std::min(lowlink[v], lowlink[u]);\n                    if (pre_eid\
+    \ == -1 && order[u] != order[v] + 1) is_articulation[v] = true;\n            \
+    \        if (pre_eid != -1 && order[v] <= lowlink[u]) is_articulation[v] = true;\n\
+    \                    if (order[v] <= lowlink[u]) {\n                        while\
+    \ (true) {\n                            int cur = edge_stack.back();\n       \
+    \                     edge_stack.pop_back();\n                            bcc_id[cur]\
+    \ = bcc_num;\n                            if (edges[cur] == edges[e.second]) break;\n\
+    \                        }\n                        bcc_num++;\n             \
+    \       }\n                }\n            }\n        }\n    }\n};\n\n/**\n * @brief\
+    \ Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected Components)\n\
+    \ * @docs docs/graph/BlockCutTree.md\n */\n#line 5 \"test/aoj/GRL_3_B.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
+    \ E;\n    cin >> V >> E;\n\n    BlockCutTree BCT(V);\n    vector<int> s(E), t(E);\n\
+    \    for (int i = 0; i < E; i++) {\n        cin >> s[i] >> t[i];\n        if (s[i]\
+    \ > t[i]) swap(s[i], t[i]);\n        BCT.add_edge(s[i], t[i]);\n    }\n\n    BCT.build();\n\
+    \    vector<pair<int, int>> ans;\n    for (int i = 0; i < E; i++) {\n        if\
+    \ (BCT.is_bridge[i]) {\n            ans.emplace_back(s[i], t[i]);\n        }\n\
+    \    }\n    sort(ans.begin(), ans.end());\n    for (auto& e : ans) cout << e.first\
+    \ << ' ' << e.second << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../graph/LowLink.hpp\"\n\nint main()\
-    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
-    \ >> V >> E;\n\n    LowLink L(V);\n    for (int i = 0; i < E; i++) {\n       \
-    \ int s, t;\n        cin >> s >> t;\n        L.add_edge(s, t);\n    }\n\n    L.build();\n\
-    \    vector<pair<int, int>> ans = L.bridge;\n    for (auto& e : ans) {\n     \
-    \   if (e.second < e.first) {\n            swap(e.first, e.second);\n        }\n\
-    \    }\n\n    sort(ans.begin(), ans.end());\n    for (auto e : ans) cout << e.first\
-    \ << ' ' << e.second << '\\n';\n}"
+    \n\n#include \"../../base.hpp\"\n#include \"../../graph/BlockCutTree.hpp\"\n\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n\
+    \    cin >> V >> E;\n\n    BlockCutTree BCT(V);\n    vector<int> s(E), t(E);\n\
+    \    for (int i = 0; i < E; i++) {\n        cin >> s[i] >> t[i];\n        if (s[i]\
+    \ > t[i]) swap(s[i], t[i]);\n        BCT.add_edge(s[i], t[i]);\n    }\n\n    BCT.build();\n\
+    \    vector<pair<int, int>> ans;\n    for (int i = 0; i < E; i++) {\n        if\
+    \ (BCT.is_bridge[i]) {\n            ans.emplace_back(s[i], t[i]);\n        }\n\
+    \    }\n    sort(ans.begin(), ans.end());\n    for (auto& e : ans) cout << e.first\
+    \ << ' ' << e.second << '\\n';\n    return 0;\n}"
   dependsOn:
   - base.hpp
-  - graph/LowLink.hpp
+  - graph/BlockCutTree.hpp
   isVerificationFile: true
   path: test/aoj/GRL_3_B.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-10-04 21:58:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_3_B.test.cpp

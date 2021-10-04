@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: graph/TwoEdgeConnectedComponents.hpp
     title: Two Edge Connected Components
   - icon: ':heavy_check_mark:'

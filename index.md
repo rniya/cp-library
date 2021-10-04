@@ -129,6 +129,10 @@ data:
       path: graph/BiConnectedComponents.hpp
       title: graph/BiConnectedComponents.hpp
     - icon: ':heavy_check_mark:'
+      path: graph/BlockCutTree.hpp
+      title: Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected
+        Components)
+    - icon: ':heavy_check_mark:'
       path: graph/CycleDetection.hpp
       title: Cycle Detection
     - icon: ':heavy_check_mark:'
@@ -141,7 +145,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/Kruskal.hpp
       title: Kruskal
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: graph/LowLink.hpp
       title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
     - icon: ':heavy_check_mark:'
@@ -156,7 +160,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/TopologicalSort.hpp
       title: Topological Sort
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: graph/TwoEdgeConnectedComponents.hpp
       title: Two Edge Connected Components
     - icon: ':heavy_check_mark:'
@@ -269,9 +273,6 @@ data:
     - icon: ':warning:'
       path: test/atcoder/abc137_e.cpp
       title: test/atcoder/abc137_e.cpp
-    - icon: ':warning:'
-      path: test/atcoder/agc002_d.cpp
-      title: test/atcoder/agc002_d.cpp
     - icon: ':warning:'
       path: test/atcoder/arc039_d.cpp
       title: test/atcoder/arc039_d.cpp

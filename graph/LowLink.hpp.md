@@ -8,16 +8,10 @@ data:
   - icon: ':warning:'
     path: graph/BiConnectedComponents.hpp
     title: graph/BiConnectedComponents.hpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_3_A.test.cpp
-    title: test/aoj/GRL_3_A.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_3_B.test.cpp
-    title: test/aoj/GRL_3_B.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/graph/LowLink.md
     document_title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
@@ -122,10 +116,8 @@ data:
   requiredBy:
   - graph/BiConnectedComponents.hpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/aoj/GRL_3_B.test.cpp
-  - test/aoj/GRL_3_A.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: graph/LowLink.hpp
 layout: document
 redirect_from:
@@ -134,5 +126,4 @@ redirect_from:
 title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
 ---
 ## 概要
-
-## 計算量
+有向グラフを分解する手法である強連結成分分解に対し, 無向グラフを分解する二重辺連結成分分解や二重頂点連結成分分解に繋がる.

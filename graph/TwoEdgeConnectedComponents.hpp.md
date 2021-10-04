@@ -8,13 +8,10 @@ data:
   - icon: ':warning:'
     path: test/atcoder/arc039_d.cpp
     title: test/atcoder/arc039_d.cpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/two_edge_connected_components.test.cpp
-    title: test/yosupo/two_edge_connected_components.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/graph/StronglyConnectedComponents.md
     document_title: Two Edge Connected Components
@@ -133,9 +130,8 @@ data:
   requiredBy:
   - test/atcoder/arc039_d.cpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/yosupo/two_edge_connected_components.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: graph/TwoEdgeConnectedComponents.hpp
 layout: document
 redirect_from:

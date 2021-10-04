@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/atcoder/agc002_d.cpp
-    title: test/atcoder/agc002_d.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -54,8 +51,7 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: datastructure/PartiallyPersistentUnionFind.hpp
-  requiredBy:
-  - test/atcoder/agc002_d.cpp
+  requiredBy: []
   timestamp: '2021-10-04 17:13:22+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

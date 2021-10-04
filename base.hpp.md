@@ -54,13 +54,13 @@ data:
     path: graph/EulerianTrail.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u30FB\u6E96\u30AA\u30A4\u30E9\u30FC\u8DEF\
       \u306E\u69CB\u7BC9"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: graph/LowLink.hpp
     title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
   - icon: ':warning:'
     path: graph/RangeEdgeGraph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: graph/TwoEdgeConnectedComponents.hpp
     title: Two Edge Connected Components
   - icon: ':heavy_check_mark:'
@@ -130,9 +130,6 @@ data:
   - icon: ':warning:'
     path: test/atcoder/abc137_e.cpp
     title: test/atcoder/abc137_e.cpp
-  - icon: ':warning:'
-    path: test/atcoder/agc002_d.cpp
-    title: test/atcoder/agc002_d.cpp
   - icon: ':warning:'
     path: test/atcoder/arc039_d.cpp
     title: test/atcoder/arc039_d.cpp
@@ -776,7 +773,6 @@ data:
   - test/atcoder/tdpc_fibonacci.cpp
   - test/atcoder/arc085_c.cpp
   - test/atcoder/nikkei2019_2_qual_d.cpp
-  - test/atcoder/agc002_d.cpp
   - test/codeforces/1404_E.cpp
   - test/codeforces/1361_C.cpp
   - modulo/montgomery64.hpp

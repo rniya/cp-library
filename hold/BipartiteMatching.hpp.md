@@ -123,8 +123,8 @@ redirect_from:
 - /library/hold/BipartiteMatching.hpp.html
 title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
 ---
-# Remarks
-以下に書いてるあることは大嘘で, まだ最大マッチングしか実装していない.
+# TODO
+最小点被覆, 最大独立集合, 最小辺被覆の実装
 
 ## 概要
 2部グラフにおける最大マッチング, 最小点被覆, 最大独立集合, 最小辺被覆を求める.
