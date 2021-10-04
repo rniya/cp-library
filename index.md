@@ -59,7 +59,10 @@ data:
       title: Line Container (based on kactl)
     - icon: ':warning:'
       path: datastructure/PartiallyPersistentUnionFind.hpp
-      title: Partially Persistent UnionFind
+      title: Partially Persistent Union Find
+    - icon: ':heavy_check_mark:'
+      path: datastructure/PotentializedUnionFind.hpp
+      title: Potentialized Union Find
     - icon: ':heavy_check_mark:'
       path: datastructure/RangeTree.hpp
       title: "Range Tree (\u62BD\u8C61\u5316\u9818\u57DF\u6728)"
@@ -85,14 +88,11 @@ data:
       path: datastructure/SparseTable.hpp
       title: Sparse table
     - icon: ':heavy_check_mark:'
+      path: datastructure/UndoUnionFind.hpp
+      title: Union Find with Undo operation
+    - icon: ':heavy_check_mark:'
       path: datastructure/UnionFind.hpp
       title: Union Find (Disjoint Set Union)
-    - icon: ':heavy_check_mark:'
-      path: datastructure/UnionFindUndo.hpp
-      title: "UnionFind (Undo\u53EF\u80FD)"
-    - icon: ':heavy_check_mark:'
-      path: datastructure/WeightedUnionFind.hpp
-      title: Weighted UnionFind
   - name: dp
     pages:
     - icon: ':warning:'
@@ -629,8 +629,8 @@ data:
       path: test/yosupo/number_of_substrings.test.cpp
       title: test/yosupo/number_of_substrings.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
-      title: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
+      path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
+      title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum.test.cpp
       title: test/yosupo/point_add_range_sum.test.cpp

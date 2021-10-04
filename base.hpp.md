@@ -21,9 +21,6 @@ data:
     path: datastructure/DualSegmentTree.hpp
     title: Dual Segment Tree
   - icon: ':warning:'
-    path: datastructure/PartiallyPersistentUnionFind.hpp
-    title: Partially Persistent UnionFind
-  - icon: ':warning:'
     path: datastructure/RectangleSet.hpp
     title: Rectangle Set
   - icon: ':heavy_check_mark:'
@@ -38,12 +35,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/SparseTable.hpp
     title: Sparse table
-  - icon: ':heavy_check_mark:'
-    path: datastructure/UnionFindUndo.hpp
-    title: "UnionFind (Undo\u53EF\u80FD)"
-  - icon: ':heavy_check_mark:'
-    path: datastructure/WeightedUnionFind.hpp
-    title: Weighted UnionFind
   - icon: ':heavy_check_mark:'
     path: flow/ProjectSelectionProblem.hpp
     title: Project Selection Problem
@@ -163,9 +154,6 @@ data:
   - icon: ':warning:'
     path: test/codeforces/1404_E.cpp
     title: test/codeforces/1404_E.cpp
-  - icon: ':warning:'
-    path: test/codeforces/1444_C.cpp
-    title: test/codeforces/1444_C.cpp
   - icon: ':heavy_check_mark:'
     path: tree/LowestCommonAncestor.hpp
     title: Lowest Common Ancestor
@@ -474,8 +462,8 @@ data:
     path: test/yosupo/number_of_substrings.test.cpp
     title: test/yosupo/number_of_substrings.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
-    title: test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
+    path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
+    title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum.test.cpp
     title: test/yosupo/point_add_range_sum.test.cpp
@@ -740,7 +728,6 @@ data:
   path: base.hpp
   requiredBy:
   - tree/LowestCommonAncestor.hpp
-  - datastructure/UnionFindUndo.hpp
   - datastructure/SegmentTreeBeats.hpp
   - datastructure/SparseTable.hpp
   - datastructure/Slide_Min.hpp
@@ -748,8 +735,6 @@ data:
   - datastructure/DualSegmentTree.hpp
   - datastructure/BinaryTrie.hpp
   - datastructure/SlidingWindowAggregation.hpp
-  - datastructure/WeightedUnionFind.hpp
-  - datastructure/PartiallyPersistentUnionFind.hpp
   - string/SuffixArray.hpp
   - string/Manacher.hpp
   - string/Knuth_Morris_Pratt.hpp
@@ -792,7 +777,6 @@ data:
   - test/atcoder/arc085_c.cpp
   - test/atcoder/nikkei2019_2_qual_d.cpp
   - test/atcoder/agc002_d.cpp
-  - test/codeforces/1444_C.cpp
   - test/codeforces/1404_E.cpp
   - test/codeforces/1361_C.cpp
   - modulo/montgomery64.hpp
@@ -904,13 +888,13 @@ data:
   - test/yosupo/staticrmq.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/bipartitematching.test.cpp
+  - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
   - test/yosupo/unionfind.test.cpp
   - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
   - test/yosupo/vertex_add_path_sum.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/shortest_path.test.cpp
-  - test/yosupo/persistent_unionfind.UnionFindUndo.test.cpp
   - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp

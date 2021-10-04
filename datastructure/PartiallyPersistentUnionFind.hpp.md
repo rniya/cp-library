@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':warning:'
     path: test/atcoder/agc002_d.cpp
@@ -14,102 +11,52 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/datastructure/PartiallyPersistentUnionFind.md
-    document_title: Partially Persistent UnionFind
+    document_title: Partially Persistent Union Find
     links: []
-  bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
-    #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
-    \ unsigned int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(),\
-    \ (x).end()\n\ntemplate <typename T> istream& operator>>(istream& is, vector<T>&\
-    \ v) {\n    for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T>\
-    \ ostream& operator<<(ostream& os, const vector<T>& v) {\n    for (int i = 0;\
-    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
-    \" : \" \");\n    }\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const pair<T, U>& p) {\n    os << '(' << p.first <<\
-    \ ',' << p.second << ')';\n    return os;\n}\ntemplate <typename T, typename U>\
-    \ ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os << '{';\n   \
-    \ for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const unordered_map<T, U>& m) {\n    os << '{';\n  \
-    \  for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
-    \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
-    \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const multiset<T>& s) {\n    os << '{';\n    for (auto itr = s.begin();\
-    \ itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os <<\
-    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
-    \ operator<<(ostream& os, const unordered_set<T>& s) {\n    os << '{';\n    for\
-    \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
-    \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
-    \" : \" \");\n    }\n    return os;\n}\n\ntemplate <int i, typename T> void print_tuple(ostream&,\
-    \ const T&) {}\ntemplate <int i, typename T, typename H, class... Args> void print_tuple(ostream&\
-    \ os, const T& t) {\n    if (i) os << ',';\n    os << get<i>(t);\n    print_tuple<i\
-    \ + 1, T, Args...>(os, t);\n}\ntemplate <typename... Args> ostream& operator<<(ostream&\
-    \ os, const tuple<Args...>& t) {\n    os << '{';\n    print_tuple<0, tuple<Args...>,\
-    \ Args...>(os, t);\n    return os << '}';\n}\n\nvoid debug_out() { cerr << '\\\
-    n'; }\ntemplate <class Head, class... Tail> void debug_out(Head&& head, Tail&&...\
-    \ tail) {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n \
-    \   debug_out(move(tail)...);\n}\n#ifdef LOCAL\n#define debug(...)           \
-    \                                                        \\\n    cerr << \" \"\
-    ;                                                                     \\\n   \
-    \ cerr << #__VA_ARGS__ << \" :[\" << __LINE__ << \":\" << __FUNCTION__ << \"]\"\
-    \ << '\\n'; \\\n    cerr << \" \";                                           \
-    \                          \\\n    debug_out(__VA_ARGS__)\n#else\n#define debug(...)\
-    \ 42\n#endif\n\ntemplate <typename T> T gcd(T x, T y) { return y != 0 ? gcd(y,\
-    \ x % y) : x; }\ntemplate <typename T> T lcm(T x, T y) { return x / gcd(x, y)\
-    \ * y; }\n\nint topbit(signed t) { return t == 0 ? -1 : 31 - __builtin_clz(t);\
-    \ }\nint topbit(long long t) { return t == 0 ? -1 : 63 - __builtin_clzll(t); }\n\
-    int botbit(signed a) { return a == 0 ? 32 : __builtin_ctz(a); }\nint botbit(long\
-    \ long a) { return a == 0 ? 64 : __builtin_ctzll(a); }\nint popcount(signed t)\
-    \ { return __builtin_popcount(t); }\nint popcount(long long t) { return __builtin_popcountll(t);\
-    \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
-    \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
-    \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
-    \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
-    \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"datastructure/PartiallyPersistentUnionFind.hpp\"\
-    \n\n/**\n * @brief Partially Persistent UnionFind\n * @docs docs/datastructure/PartiallyPersistentUnionFind.md\n\
-    \ */\nstruct PartiallyPersistentUnionFind {\n    const int inf = numeric_limits<int>::max()\
-    \ / 2;\n    int now, num;\n    vector<int> par, time;\n    vector<vector<pair<int,\
-    \ int>>> Size;\n    PartiallyPersistentUnionFind(int n) : now(0), num(n), par(n,\
-    \ -1), Size(n), time(n, inf) {\n        for (int i = 0; i < n; i++) Size[i].emplace_back(0,\
-    \ -1);\n    }\n    int root(int t, int x) {\n        if (t < time[x]) return x;\n\
-    \        return root(t, par[x]);\n    }\n    int merge(int x, int y) {\n     \
-    \   now++;\n        x = root(now, x), y = root(now, y);\n        if (x == y) return\
-    \ 0;\n        if (par[x] > par[y]) swap(x, y);\n        par[x] += par[y];\n  \
-    \      par[y] = x;\n        time[y] = now;\n        Size[x].emplace_back(now,\
-    \ par[x]);\n        num--;\n        return now;\n    }\n    bool same(int t, int\
-    \ x, int y) { return root(t, x) == root(t, y); }\n    int size(int t, int x) {\n\
-    \        x = root(t, x);\n        return -prev(lower_bound(Size[x].begin(), Size[x].end(),\
-    \ make_pair(t, 0)))->second;\n    }\n    int count() { return num; }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Partially Persistent\
-    \ UnionFind\n * @docs docs/datastructure/PartiallyPersistentUnionFind.md\n */\n\
-    struct PartiallyPersistentUnionFind {\n    const int inf = numeric_limits<int>::max()\
-    \ / 2;\n    int now, num;\n    vector<int> par, time;\n    vector<vector<pair<int,\
-    \ int>>> Size;\n    PartiallyPersistentUnionFind(int n) : now(0), num(n), par(n,\
-    \ -1), Size(n), time(n, inf) {\n        for (int i = 0; i < n; i++) Size[i].emplace_back(0,\
-    \ -1);\n    }\n    int root(int t, int x) {\n        if (t < time[x]) return x;\n\
-    \        return root(t, par[x]);\n    }\n    int merge(int x, int y) {\n     \
-    \   now++;\n        x = root(now, x), y = root(now, y);\n        if (x == y) return\
-    \ 0;\n        if (par[x] > par[y]) swap(x, y);\n        par[x] += par[y];\n  \
-    \      par[y] = x;\n        time[y] = now;\n        Size[x].emplace_back(now,\
-    \ par[x]);\n        num--;\n        return now;\n    }\n    bool same(int t, int\
-    \ x, int y) { return root(t, x) == root(t, y); }\n    int size(int t, int x) {\n\
-    \        x = root(t, x);\n        return -prev(lower_bound(Size[x].begin(), Size[x].end(),\
-    \ make_pair(t, 0)))->second;\n    }\n    int count() { return num; }\n};"
-  dependsOn:
-  - base.hpp
+  bundledCode: "#line 2 \"datastructure/PartiallyPersistentUnionFind.hpp\"\n#include\
+    \ <cassert>\n#include <limits>\n#include <vector>\n\nstruct PartiallyPersistentUnionFind\
+    \ {\n    PartiallyPersistentUnionFind(int n)\n        : n(n), time(0), data(n,\
+    \ -1), last(n, std::numeric_limits<int>::max()), history(n) {\n        for (auto&\
+    \ v : history) v.emplace_back(-1, -1);\n    }\n\n    int find(int t, int x) const\
+    \ {\n        assert(0 <= x && x < n);\n        return t < last[x] ? x : find(t,\
+    \ data[x]);\n    }\n\n    bool merge(int x, int y) {\n        assert(0 <= x &&\
+    \ x < n);\n        assert(0 <= y && y < n);\n        time++;\n        if ((x =\
+    \ find(time, x)) == (y = find(time, y))) return false;\n        if (-data[x] <\
+    \ -data[y]) std::swap(x, y);\n        data[x] += data[y];\n        history[x].emplace_back(time,\
+    \ data[x]);\n        data[y] = x;\n        last[y] = time;\n        return true;\n\
+    \    }\n\n    bool same(int t, int x, int y) const {\n        assert(0 <= x &&\
+    \ x < n);\n        assert(0 <= y && y < n);\n        return find(t, x) == find(t,\
+    \ y);\n    }\n\n    int size(int t, int x) const {\n        assert(0 <= x && x\
+    \ < n);\n        x = find(t, x);\n        return -prev(lower_bound(history[x].begin(),\
+    \ history[x].end(), std::make_pair(t, 0)))->second;\n    }\n\nprivate:\n    int\
+    \ n, time;\n    std::vector<int> data, last;\n    std::vector<std::vector<std::pair<int,\
+    \ int>>> history;\n};\n\n/**\n * @brief Partially Persistent Union Find\n * @docs\
+    \ docs/datastructure/PartiallyPersistentUnionFind.md\n */\n"
+  code: "#pragma once\n#include <cassert>\n#include <limits>\n#include <vector>\n\n\
+    struct PartiallyPersistentUnionFind {\n    PartiallyPersistentUnionFind(int n)\n\
+    \        : n(n), time(0), data(n, -1), last(n, std::numeric_limits<int>::max()),\
+    \ history(n) {\n        for (auto& v : history) v.emplace_back(-1, -1);\n    }\n\
+    \n    int find(int t, int x) const {\n        assert(0 <= x && x < n);\n     \
+    \   return t < last[x] ? x : find(t, data[x]);\n    }\n\n    bool merge(int x,\
+    \ int y) {\n        assert(0 <= x && x < n);\n        assert(0 <= y && y < n);\n\
+    \        time++;\n        if ((x = find(time, x)) == (y = find(time, y))) return\
+    \ false;\n        if (-data[x] < -data[y]) std::swap(x, y);\n        data[x] +=\
+    \ data[y];\n        history[x].emplace_back(time, data[x]);\n        data[y] =\
+    \ x;\n        last[y] = time;\n        return true;\n    }\n\n    bool same(int\
+    \ t, int x, int y) const {\n        assert(0 <= x && x < n);\n        assert(0\
+    \ <= y && y < n);\n        return find(t, x) == find(t, y);\n    }\n\n    int\
+    \ size(int t, int x) const {\n        assert(0 <= x && x < n);\n        x = find(t,\
+    \ x);\n        return -prev(lower_bound(history[x].begin(), history[x].end(),\
+    \ std::make_pair(t, 0)))->second;\n    }\n\nprivate:\n    int n, time;\n    std::vector<int>\
+    \ data, last;\n    std::vector<std::vector<std::pair<int, int>>> history;\n};\n\
+    \n/**\n * @brief Partially Persistent Union Find\n * @docs docs/datastructure/PartiallyPersistentUnionFind.md\n\
+    \ */\n"
+  dependsOn: []
   isVerificationFile: false
   path: datastructure/PartiallyPersistentUnionFind.hpp
   requiredBy:
   - test/atcoder/agc002_d.cpp
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-10-04 17:13:22+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: datastructure/PartiallyPersistentUnionFind.hpp
@@ -117,8 +64,23 @@ layout: document
 redirect_from:
 - /library/datastructure/PartiallyPersistentUnionFind.hpp
 - /library/datastructure/PartiallyPersistentUnionFind.hpp.html
-title: Partially Persistent UnionFind
+title: Partially Persistent Union Find
 ---
 ## 概要
+経路圧縮を行わずにマージテクを利用して集合を管理する際に, 変更される値が少ないことを利用してタイムスタンプを用いて過去の頂点の連結成分やその頂点数といったデータを取得できるようにしたデータ構造.
 
-## 計算量
+以下に記す内容について, 時刻 $t$ は 0 からスタートし `merge` が呼び出されるごとに操作直前にインクリメントされる. すなわち $i$ 回目 (1-indexed) のマージ後の関係を調べるためには引数 $t$ はそのまま $i$ でよく,  1-indexed であることに注意が必要である.
+
+| メンバ関数                        | 効果                                                             | 時間計算量  |
+| --------------------------------- | ---------------------------------------------------------------- | ----------- |
+| `PartiallyPersistentUnionFind(n)` | 要素数 $n$ で初期化する.                                         | $O(n)$      |
+| `find(t, x)`                      | 時刻 $t$ において頂点 $x$ が属していた集合の代表元を返す.        | $O(\log n)$ |
+| `merge(x, y)`                     | 頂点 $x, y$ が属する集合を併合する.                              | $O(\log n)$ |
+| `same(t, x, y)`                   | 時刻 $t$ において頂点 $x, y$ が同一の集合に属していたか判定する. | $O(\log n)$ |
+| `size(t, x)`                      | 時刻 $t$ において頂点 $x$ が属していた集合の要素数を返す.        | $O(\log n)$ |
+
+## 問題例
+- [AtCoder Grand Contest 002 D - Stamp Rally](https://atcoder.jp/contests/agc002/tasks/agc002_d)
+
+## Links
+- [UnionFindTree に関する知見の諸々 - noshi91のメモ](https://noshi91.hatenablog.com/entry/2018/05/30/191943)

@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':warning:'
     path: datastructure/PartiallyPersistentUnionFind.hpp
-    title: Partially Persistent UnionFind
+    title: Partially Persistent Union Find
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -74,30 +74,33 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"datastructure/PartiallyPersistentUnionFind.hpp\"\
-    \n\n/**\n * @brief Partially Persistent UnionFind\n * @docs docs/datastructure/PartiallyPersistentUnionFind.md\n\
-    \ */\nstruct PartiallyPersistentUnionFind {\n    const int inf = numeric_limits<int>::max()\
-    \ / 2;\n    int now, num;\n    vector<int> par, time;\n    vector<vector<pair<int,\
-    \ int>>> Size;\n    PartiallyPersistentUnionFind(int n) : now(0), num(n), par(n,\
-    \ -1), Size(n), time(n, inf) {\n        for (int i = 0; i < n; i++) Size[i].emplace_back(0,\
-    \ -1);\n    }\n    int root(int t, int x) {\n        if (t < time[x]) return x;\n\
-    \        return root(t, par[x]);\n    }\n    int merge(int x, int y) {\n     \
-    \   now++;\n        x = root(now, x), y = root(now, y);\n        if (x == y) return\
-    \ 0;\n        if (par[x] > par[y]) swap(x, y);\n        par[x] += par[y];\n  \
-    \      par[y] = x;\n        time[y] = now;\n        Size[x].emplace_back(now,\
-    \ par[x]);\n        num--;\n        return now;\n    }\n    bool same(int t, int\
-    \ x, int y) { return root(t, x) == root(t, y); }\n    int size(int t, int x) {\n\
-    \        x = root(t, x);\n        return -prev(lower_bound(Size[x].begin(), Size[x].end(),\
-    \ make_pair(t, 0)))->second;\n    }\n    int count() { return num; }\n};\n#line\
-    \ 7 \"test/atcoder/agc002_d.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int N, M;\n    cin >> N >> M;\n\n    PartiallyPersistentUnionFind UF(N);\n\
-    \n    for (int i = 0; i < M; i++) {\n        int a, b;\n        cin >> a >> b;\n\
-    \        UF.merge(--a, --b);\n    }\n\n    int Q;\n    cin >> Q;\n    for (; Q--;)\
-    \ {\n        int x, y, z;\n        cin >> x >> y >> z;\n        --x, --y;\n  \
-    \      int lb = 0, ub = M + 1;\n        while (ub - lb > 1) {\n            int\
-    \ mid = (ub + lb) >> 1;\n            int s = UF.size(mid, x);\n            if\
-    \ (!UF.same(mid, x, y)) s += UF.size(mid, y);\n            (s >= z ? ub : lb)\
-    \ = mid;\n        }\n        cout << ub << '\\n';\n    }\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 5 \"datastructure/PartiallyPersistentUnionFind.hpp\"\
+    \n\nstruct PartiallyPersistentUnionFind {\n    PartiallyPersistentUnionFind(int\
+    \ n)\n        : n(n), time(0), data(n, -1), last(n, std::numeric_limits<int>::max()),\
+    \ history(n) {\n        for (auto& v : history) v.emplace_back(-1, -1);\n    }\n\
+    \n    int find(int t, int x) const {\n        assert(0 <= x && x < n);\n     \
+    \   return t < last[x] ? x : find(t, data[x]);\n    }\n\n    bool merge(int x,\
+    \ int y) {\n        assert(0 <= x && x < n);\n        assert(0 <= y && y < n);\n\
+    \        time++;\n        if ((x = find(time, x)) == (y = find(time, y))) return\
+    \ false;\n        if (-data[x] < -data[y]) std::swap(x, y);\n        data[x] +=\
+    \ data[y];\n        history[x].emplace_back(time, data[x]);\n        data[y] =\
+    \ x;\n        last[y] = time;\n        return true;\n    }\n\n    bool same(int\
+    \ t, int x, int y) const {\n        assert(0 <= x && x < n);\n        assert(0\
+    \ <= y && y < n);\n        return find(t, x) == find(t, y);\n    }\n\n    int\
+    \ size(int t, int x) const {\n        assert(0 <= x && x < n);\n        x = find(t,\
+    \ x);\n        return -prev(lower_bound(history[x].begin(), history[x].end(),\
+    \ std::make_pair(t, 0)))->second;\n    }\n\nprivate:\n    int n, time;\n    std::vector<int>\
+    \ data, last;\n    std::vector<std::vector<std::pair<int, int>>> history;\n};\n\
+    \n/**\n * @brief Partially Persistent Union Find\n * @docs docs/datastructure/PartiallyPersistentUnionFind.md\n\
+    \ */\n#line 7 \"test/atcoder/agc002_d.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N, M;\n    cin >> N >> M;\n\n    PartiallyPersistentUnionFind\
+    \ UF(N);\n\n    for (int i = 0; i < M; i++) {\n        int a, b;\n        cin\
+    \ >> a >> b;\n        UF.merge(--a, --b);\n    }\n\n    int Q;\n    cin >> Q;\n\
+    \    for (; Q--;) {\n        int x, y, z;\n        cin >> x >> y >> z;\n     \
+    \   --x, --y;\n        int lb = 0, ub = M + 1;\n        while (ub - lb > 1) {\n\
+    \            int mid = (ub + lb) >> 1;\n            int s = UF.size(mid, x);\n\
+    \            if (!UF.same(mid, x, y)) s += UF.size(mid, y);\n            (s >=\
+    \ z ? ub : lb) = mid;\n        }\n        cout << ub << '\\n';\n    }\n}\n"
   code: "#define IGNORE\n\n#define PROBLEM \"https://atcoder.jp/contests/agc002/tasks/agc002_d\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/PartiallyPersistentUnionFind.hpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
@@ -115,7 +118,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/agc002_d.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-10-04 17:13:22+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/agc002_d.cpp
