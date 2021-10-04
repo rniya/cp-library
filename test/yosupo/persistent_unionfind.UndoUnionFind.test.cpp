@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/persistent_unionfind"
 
 #include "../../base.hpp"
-#include "../../datastructure/UnionFindUndo.hpp"
+#include "../../datastructure/UndoUnionFind.hpp"
 
 int main() {
     cin.tie(0);
@@ -16,7 +16,7 @@ int main() {
         G[++k].emplace_back(i + 1);
     }
 
-    UnionFindUndo UF(N);
+    UndoUnionFind UF(N);
     vector<int> ans(Q, -1);
     auto dfs = [&](auto self, int cur) -> void {
         if (cur) {
@@ -34,4 +34,5 @@ int main() {
             cout << ans[i] << '\n';
         }
     }
+    return 0;
 }

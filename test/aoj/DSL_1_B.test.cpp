@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_B"
 
 #include "../../base.hpp"
-#include "../../datastructure/WeightedUnionFind.hpp"
+#include "../../datastructure/PotentializedUnionFind.hpp"
 
 int main() {
     cin.tie(0);
@@ -9,7 +9,7 @@ int main() {
     int n, q;
     cin >> n >> q;
 
-    WeightedUnionFind<int> UF(n);
+    PotentializedUnionFind<int> UF(n);
 
     for (; q--;) {
         int c, x, y, z;
@@ -24,4 +24,5 @@ int main() {
                 cout << '?' << '\n';
         }
     }
+    return 0;
 }
