@@ -1,5 +1,6 @@
 {
 "test/aoj/1181.test.cpp": "2021-07-19 14:45:19 +0900",
+"test/aoj/2306.test.cpp": "2021-10-03 22:16:57 +0900",
 "test/aoj/2313.test.cpp": "2021-09-21 23:36:40 +0900",
 "test/aoj/2667.test.cpp": "2021-10-01 11:32:51 +0900",
 "test/aoj/2891.test.cpp": "2021-07-19 14:45:19 +0900",
@@ -88,7 +89,7 @@
 "test/yosupo/enumerate_palindromes.test.cpp": "2021-07-19 14:45:19 +0900",
 "test/yosupo/exp_of_formal_power_series.test.cpp": "2021-10-01 20:18:39 +0900",
 "test/yosupo/factorize.test.cpp": "2021-09-16 21:38:19 +0900",
-"test/yosupo/frequency_table_of_tree_distance.test.cpp": "2021-07-19 14:45:19 +0900",
+"test/yosupo/frequency_table_of_tree_distance.test.cpp": "2021-10-03 22:16:57 +0900",
 "test/yosupo/inv_of_formal_power_series.test.cpp": "2021-10-01 20:18:39 +0900",
 "test/yosupo/lca.test.cpp": "2021-07-19 14:45:19 +0900",
 "test/yosupo/log_of_formal_power_series.test.cpp": "2021-10-01 20:18:39 +0900",
