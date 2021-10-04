@@ -18,4 +18,5 @@ int main() {
     }
 
     cout << K.build() << '\n';
+    return 0;
 }

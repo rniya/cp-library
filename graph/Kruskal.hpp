@@ -1,61 +1,53 @@
 #pragma once
-#include "../base.hpp"
+#include <cassert>
+#include <vector>
+#include "../datastructure/UnionFind.hpp"
+
+template <typename T> struct Kruskal {
+    Kruskal(int n) : n(n), called_build(false) {}
+
+    void add_edge(int u, int v, T cost, int idx = 0) {
+        assert(0 <= u && u < n);
+        assert(0 <= v && v < n);
+        es.emplace_back(u, v, cost, idx);
+    }
+
+    T build() {
+        called_build = true;
+        std::sort(es.begin(), es.end());
+        UnionFind uf(n);
+        T res = 0;
+        for (auto& e : es) {
+            if (uf.merge(e.u, e.v)) {
+                res += e.cost;
+                e.used = true;
+            }
+        }
+        return res;
+    }
+
+    std::vector<int> used_edges() {
+        assert(called_build);
+        int m = es.size();
+        std::vector<int> res(m);
+        for (int i = 0; i < m; i++) res[es[i].idx] = es[i].used;
+        return res;
+    }
+
+private:
+    struct edge {
+        int u, v;
+        T cost;
+        int idx, used;
+        edge(int u, int v, T cost, int idx) : u(u), v(v), cost(cost), idx(idx), used(false) {}
+        bool operator<(const edge& e) const { return cost < e.cost; }
+    };
+    int n;
+    bool called_build;
+    std::vector<edge> es;
+};
 
 /**
  * @brief Kruskal
  * @docs docs/graph/Kruskal.md
  */
-template <typename T> struct Kruskal {
-private:
-    struct edge {
-        int from, to, used, id;
-        T cost;
-        edge(int from, int to, T cost, int id) : from(from), to(to), cost(cost), id(id), used(0) {}
-        bool operator<(const edge& e) const {
-            if (cost != e.cost)
-                return cost < e.cost;
-            else if (from != e.from)
-                return from < e.from;
-            else
-                return to < e.to;
-        }
-    };
-    vector<edge> es;
-    vector<int> par, rank;
-    int root(int x) {
-        if (par[x] == x) return x;
-        return par[x] = root(par[x]);
-    }
-    bool merge(int x, int y) {
-        x = root(x), y = root(y);
-        if (x == y) return false;
-        if (rank[x] < rank[y]) swap(x, y);
-        par[y] = x;
-        rank[x] += rank[y];
-        return true;
-    }
-    bool same(int x, int y) { return root(x) == root(y); }
-    int size(int x) { return rank[root(x)]; }
-
-public:
-    Kruskal(int n) : par(n), rank(n, 1) { iota(par.begin(), par.end(), 0); }
-    void add_edge(int u, int v, T c, int id = 0) { es.emplace_back(u, v, c, id); }
-    T build() {
-        sort(es.begin(), es.end());
-        T res = 0;
-        for (auto& e : es) {
-            if (!same(e.from, e.to)) {
-                res += e.cost;
-                e.used = 1;
-                merge(e.from, e.to);
-            }
-        }
-        return res;
-    }
-    vector<int> restore(T& c) {
-        int m = es.size();
-        vector<int> res(m);
-        for (int i = 0; i < m; i++) res[es[i].id] = es[i].used;
-        return res;
-    }
-};

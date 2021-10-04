@@ -18,4 +18,5 @@ int main() {
     }
 
     cout << P.build() << '\n';
+    return 0;
 }
