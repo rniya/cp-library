@@ -125,9 +125,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/BellmanFord.hpp
       title: Bellman Ford
-    - icon: ':warning:'
-      path: graph/BiConnectedComponents.hpp
-      title: graph/BiConnectedComponents.hpp
     - icon: ':heavy_check_mark:'
       path: graph/BlockCutTree.hpp
       title: Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected
@@ -145,9 +142,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/Kruskal.hpp
       title: Kruskal
-    - icon: ':warning:'
-      path: graph/LowLink.hpp
-      title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
     - icon: ':heavy_check_mark:'
       path: graph/Prim.hpp
       title: Prim
@@ -160,9 +154,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/TopologicalSort.hpp
       title: Topological Sort
-    - icon: ':warning:'
-      path: graph/TwoEdgeConnectedComponents.hpp
-      title: Two Edge Connected Components
     - icon: ':heavy_check_mark:'
       path: graph/TwoSatisfiability.hpp
       title: 2-SAT

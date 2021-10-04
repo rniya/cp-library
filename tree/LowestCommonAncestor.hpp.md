@@ -4,10 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/atcoder/arc039_d.cpp
-    title: test/atcoder/arc039_d.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_C.test.cpp
@@ -129,8 +126,7 @@ data:
   - base.hpp
   isVerificationFile: false
   path: tree/LowestCommonAncestor.hpp
-  requiredBy:
-  - test/atcoder/arc039_d.cpp
+  requiredBy: []
   timestamp: '2021-07-19 14:45:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

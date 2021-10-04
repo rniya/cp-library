@@ -41,9 +41,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/BellmanFord.hpp
     title: Bellman Ford
-  - icon: ':warning:'
-    path: graph/BiConnectedComponents.hpp
-    title: graph/BiConnectedComponents.hpp
   - icon: ':heavy_check_mark:'
     path: graph/CycleDetection.hpp
     title: Cycle Detection
@@ -55,14 +52,8 @@ data:
     title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u30FB\u6E96\u30AA\u30A4\u30E9\u30FC\u8DEF\
       \u306E\u69CB\u7BC9"
   - icon: ':warning:'
-    path: graph/LowLink.hpp
-    title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
-  - icon: ':warning:'
     path: graph/RangeEdgeGraph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
-  - icon: ':warning:'
-    path: graph/TwoEdgeConnectedComponents.hpp
-    title: Two Edge Connected Components
   - icon: ':heavy_check_mark:'
     path: graph/TwoSatisfiability.hpp
     title: 2-SAT
@@ -130,9 +121,6 @@ data:
   - icon: ':warning:'
     path: test/atcoder/abc137_e.cpp
     title: test/atcoder/abc137_e.cpp
-  - icon: ':warning:'
-    path: test/atcoder/arc039_d.cpp
-    title: test/atcoder/arc039_d.cpp
   - icon: ':warning:'
     path: test/atcoder/arc085_c.cpp
     title: test/atcoder/arc085_c.cpp
@@ -739,10 +727,7 @@ data:
   - graph/CycleDetection.hpp
   - graph/BellmanFord.hpp
   - graph/Dijkstra.hpp
-  - graph/BiConnectedComponents.hpp
-  - graph/TwoEdgeConnectedComponents.hpp
   - graph/RangeEdgeGraph.hpp
-  - graph/LowLink.hpp
   - graph/TwoSatisfiability.hpp
   - graph/EulerianTrail.hpp
   - graph/WarshallFloyd.hpp
@@ -767,7 +752,6 @@ data:
   - polynomial/lagrange_interpolation.hpp
   - polynomial/StirlingSecond.hpp
   - test/atcoder/abc061_d.cpp
-  - test/atcoder/arc039_d.cpp
   - test/atcoder/abc137_e.cpp
   - test/atcoder/ukuku09_d.cpp
   - test/atcoder/tdpc_fibonacci.cpp
