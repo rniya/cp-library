@@ -5,6 +5,9 @@ data:
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
+    path: datastructure/UnionFind.hpp
+    title: Union Find (Disjoint Set Union)
+  - icon: ':heavy_check_mark:'
     path: graph/Kruskal.hpp
     title: Kruskal
   _extendedRequiredBy: []
@@ -75,46 +78,59 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"graph/Kruskal.hpp\"\
-    \n\n/**\n * @brief Kruskal\n * @docs docs/graph/Kruskal.md\n */\ntemplate <typename\
-    \ T> struct Kruskal {\nprivate:\n    struct edge {\n        int from, to, used,\
-    \ id;\n        T cost;\n        edge(int from, int to, T cost, int id) : from(from),\
-    \ to(to), cost(cost), id(id), used(0) {}\n        bool operator<(const edge& e)\
-    \ const {\n            if (cost != e.cost)\n                return cost < e.cost;\n\
-    \            else if (from != e.from)\n                return from < e.from;\n\
-    \            else\n                return to < e.to;\n        }\n    };\n    vector<edge>\
-    \ es;\n    vector<int> par, rank;\n    int root(int x) {\n        if (par[x] ==\
-    \ x) return x;\n        return par[x] = root(par[x]);\n    }\n    bool merge(int\
-    \ x, int y) {\n        x = root(x), y = root(y);\n        if (x == y) return false;\n\
-    \        if (rank[x] < rank[y]) swap(x, y);\n        par[y] = x;\n        rank[x]\
-    \ += rank[y];\n        return true;\n    }\n    bool same(int x, int y) { return\
-    \ root(x) == root(y); }\n    int size(int x) { return rank[root(x)]; }\n\npublic:\n\
-    \    Kruskal(int n) : par(n), rank(n, 1) { iota(par.begin(), par.end(), 0); }\n\
-    \    void add_edge(int u, int v, T c, int id = 0) { es.emplace_back(u, v, c, id);\
-    \ }\n    T build() {\n        sort(es.begin(), es.end());\n        T res = 0;\n\
-    \        for (auto& e : es) {\n            if (!same(e.from, e.to)) {\n      \
-    \          res += e.cost;\n                e.used = 1;\n                merge(e.from,\
-    \ e.to);\n            }\n        }\n        return res;\n    }\n    vector<int>\
-    \ restore(T& c) {\n        int m = es.size();\n        vector<int> res(m);\n \
-    \       for (int i = 0; i < m; i++) res[es[i].id] = es[i].used;\n        return\
-    \ res;\n    }\n};\n#line 5 \"test/aoj/GRL_2_A.test.cpp\"\n\nint main() {\n   \
-    \ cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin >> V >>\
-    \ E;\n\n    Kruskal<int> K(V);\n\n    for (int i = 0; i < E; i++) {\n        int\
-    \ s, t, w;\n        cin >> s >> t >> w;\n        K.add_edge(s, t, w);\n    }\n\
-    \n    cout << K.build() << '\\n';\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 5 \"datastructure/UnionFind.hpp\"\
+    \n\nstruct UnionFind {\n    UnionFind(int n) : n(n), num(n), data(n, -1) {}\n\n\
+    \    int find(int x) {\n        assert(0 <= x && x < n);\n        return data[x]\
+    \ < 0 ? x : data[x] = find(data[x]);\n    }\n\n    bool merge(int x, int y) {\n\
+    \        assert(0 <= x && x < n);\n        assert(0 <= y && y < n);\n        if\
+    \ ((x = find(x)) == (y = find(y))) return false;\n        if (-data[x] < -data[y])\
+    \ std::swap(x, y);\n        data[x] += data[y];\n        data[y] = x;\n      \
+    \  num--;\n        return true;\n    }\n\n    bool same(int x, int y) {\n    \
+    \    assert(0 <= x && x < n);\n        assert(0 <= y && y < n);\n        return\
+    \ find(x) == find(y);\n    }\n\n    int size(int x) {\n        assert(0 <= x &&\
+    \ x < n);\n        return -data[find(x)];\n    }\n\n    int count() const { return\
+    \ num; }\n\n    std::vector<std::vector<int>> groups() {\n        std::vector<std::vector<int>>\
+    \ res(n);\n        for (int i = 0; i < n; i++) res[find(i)].emplace_back(i);\n\
+    \        res.erase(std::remove_if(res.begin(), res.end(), [&](const std::vector<int>&\
+    \ v) { return v.empty(); }));\n        return res;\n    }\n\n    int operator[](int\
+    \ x) { return find(x); }\n\nprivate:\n    int n, num;\n    // root node : -1 *\
+    \ component size\n    // otherwise : parent\n    std::vector<int> data;\n};\n\n\
+    /**\n * @brief Union Find (Disjoint Set Union)\n * @docs docs/datastructure/UnionFind.md\n\
+    \ */\n#line 5 \"graph/Kruskal.hpp\"\n\ntemplate <typename T> struct Kruskal {\n\
+    \    Kruskal(int n) : n(n), called_build(false) {}\n\n    void add_edge(int u,\
+    \ int v, T cost, int idx = 0) {\n        assert(0 <= u && u < n);\n        assert(0\
+    \ <= v && v < n);\n        es.emplace_back(u, v, cost, idx);\n    }\n\n    T build()\
+    \ {\n        called_build = true;\n        std::sort(es.begin(), es.end());\n\
+    \        UnionFind uf(n);\n        T res = 0;\n        for (auto& e : es) {\n\
+    \            if (uf.merge(e.u, e.v)) {\n                res += e.cost;\n     \
+    \           e.used = true;\n            }\n        }\n        return res;\n  \
+    \  }\n\n    std::vector<int> used_edges() {\n        assert(called_build);\n \
+    \       int m = es.size();\n        std::vector<int> res(m);\n        for (int\
+    \ i = 0; i < m; i++) res[es[i].idx] = es[i].used;\n        return res;\n    }\n\
+    \nprivate:\n    struct edge {\n        int u, v;\n        T cost;\n        int\
+    \ idx, used;\n        edge(int u, int v, T cost, int idx) : u(u), v(v), cost(cost),\
+    \ idx(idx), used(false) {}\n        bool operator<(const edge& e) const { return\
+    \ cost < e.cost; }\n    };\n    int n;\n    bool called_build;\n    std::vector<edge>\
+    \ es;\n};\n\n/**\n * @brief Kruskal\n * @docs docs/graph/Kruskal.md\n */\n#line\
+    \ 5 \"test/aoj/GRL_2_A.test.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int V, E;\n    cin >> V >> E;\n\n    Kruskal<int> K(V);\n\n    for (int i\
+    \ = 0; i < E; i++) {\n        int s, t, w;\n        cin >> s >> t >> w;\n    \
+    \    K.add_edge(s, t, w);\n    }\n\n    cout << K.build() << '\\n';\n    return\
+    \ 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/Kruskal.hpp\"\n\nint main()\
     \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
     \ >> V >> E;\n\n    Kruskal<int> K(V);\n\n    for (int i = 0; i < E; i++) {\n\
     \        int s, t, w;\n        cin >> s >> t >> w;\n        K.add_edge(s, t, w);\n\
-    \    }\n\n    cout << K.build() << '\\n';\n}"
+    \    }\n\n    cout << K.build() << '\\n';\n    return 0;\n}"
   dependsOn:
   - base.hpp
   - graph/Kruskal.hpp
+  - datastructure/UnionFind.hpp
   isVerificationFile: true
   path: test/aoj/GRL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-10-04 09:56:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_2_A.test.cpp

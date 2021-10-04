@@ -75,35 +75,40 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"graph/Prim.hpp\"\
-    \n\n/**\n * @brief Prim\n * @docs docs/graph/Prim.md\n */\ntemplate <typename\
-    \ T> struct Prim {\n    using P = pair<T, int>;\n    int n;\n    vector<vector<pair<int,\
-    \ T>>> G;\n    vector<bool> used;\n    Prim(int n) : n(n), G(n), used(n, false)\
-    \ {}\n    void add_edge(int u, int v, T c) {\n        G[u].emplace_back(v, c);\n\
-    \        G[v].emplace_back(u, c);\n    }\n    T build() {\n        T res = 0;\n\
-    \        priority_queue<P, vector<P>, greater<P>> pq;\n        pq.emplace(0, 0);\n\
-    \        while (!pq.empty()) {\n            P p = pq.top();\n            pq.pop();\n\
-    \            if (used[p.second]) continue;\n            used[p.second] = true;\n\
-    \            res += p.first;\n            for (auto e : G[p.second]) {\n     \
-    \           pq.emplace(e.second, e.first);\n            }\n        }\n       \
-    \ return res;\n    }\n};\n#line 5 \"test/aoj/GRL_2_A.Prim.test.cpp\"\n\nint main()\
-    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
-    \ >> V >> E;\n\n    Prim<int> P(V);\n\n    for (int i = 0; i < E; i++) {\n   \
-    \     int s, t, w;\n        cin >> s >> t >> w;\n        P.add_edge(s, t, w);\n\
-    \    }\n\n    cout << P.build() << '\\n';\n}\n"
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 6 \"graph/Prim.hpp\"\
+    \n\ntemplate <typename T> struct Prim {\n    Prim(int n) : n(n), G(n), dist(n,\
+    \ std::numeric_limits<T>::max()), used(n, false) {}\n\n    void add_edge(int u,\
+    \ int v, T cost) {\n        assert(0 <= u && u < n);\n        assert(0 <= v &&\
+    \ v < n);\n        G[u].emplace_back(v, cost);\n        G[v].emplace_back(u, cost);\n\
+    \    }\n\n    T build() {\n        T res = 0;\n        std::priority_queue<std::pair<T,\
+    \ int>, std::vector<std::pair<T, int>>, std::greater<std::pair<T, int>>> pq;\n\
+    \        dist[0] = 0;\n        pq.emplace(0, 0);\n        while (!pq.empty())\
+    \ {\n            auto p = pq.top();\n            pq.pop();\n            int v\
+    \ = p.second;\n            if (used[v]) continue;\n            used[v] = true;\n\
+    \            res += p.first;\n            for (auto& e : G[v]) {\n           \
+    \     int u = e.first;\n                if (!used[u] && e.second < dist[u]) {\n\
+    \                    dist[u] = e.second;\n                    pq.emplace(e.second,\
+    \ u);\n                }\n            }\n        }\n        return res;\n    }\n\
+    \nprivate:\n    int n;\n    std::vector<std::vector<std::pair<int, T>>> G;\n \
+    \   std::vector<T> dist;\n    std::vector<bool> used;\n};\n\n/**\n * @brief Prim\n\
+    \ * @docs docs/graph/Prim.md\n */\n#line 5 \"test/aoj/GRL_2_A.Prim.test.cpp\"\n\
+    \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
+    \ E;\n    cin >> V >> E;\n\n    Prim<int> P(V);\n\n    for (int i = 0; i < E;\
+    \ i++) {\n        int s, t, w;\n        cin >> s >> t >> w;\n        P.add_edge(s,\
+    \ t, w);\n    }\n\n    cout << P.build() << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/Prim.hpp\"\n\nint main()\
     \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
     \ >> V >> E;\n\n    Prim<int> P(V);\n\n    for (int i = 0; i < E; i++) {\n   \
     \     int s, t, w;\n        cin >> s >> t >> w;\n        P.add_edge(s, t, w);\n\
-    \    }\n\n    cout << P.build() << '\\n';\n}"
+    \    }\n\n    cout << P.build() << '\\n';\n    return 0;\n}"
   dependsOn:
   - base.hpp
   - graph/Prim.hpp
   isVerificationFile: true
   path: test/aoj/GRL_2_A.Prim.test.cpp
   requiredBy: []
-  timestamp: '2021-07-19 14:45:19+09:00'
+  timestamp: '2021-10-04 09:56:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_2_A.Prim.test.cpp

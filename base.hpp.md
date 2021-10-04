@@ -64,14 +64,8 @@ data:
     title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u30FB\u6E96\u30AA\u30A4\u30E9\u30FC\u8DEF\
       \u306E\u69CB\u7BC9"
   - icon: ':heavy_check_mark:'
-    path: graph/Kruskal.hpp
-    title: Kruskal
-  - icon: ':heavy_check_mark:'
     path: graph/LowLink.hpp
     title: "Low Link (\u6A4B/\u95A2\u7BC0\u70B9)"
-  - icon: ':heavy_check_mark:'
-    path: graph/Prim.hpp
-    title: Prim
   - icon: ':warning:'
     path: graph/RangeEdgeGraph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
@@ -761,13 +755,11 @@ data:
   - string/Knuth_Morris_Pratt.hpp
   - string/Z_Algorithm.hpp
   - graph/CycleDetection.hpp
-  - graph/Kruskal.hpp
   - graph/BellmanFord.hpp
   - graph/Dijkstra.hpp
   - graph/BiConnectedComponents.hpp
   - graph/TwoEdgeConnectedComponents.hpp
   - graph/RangeEdgeGraph.hpp
-  - graph/Prim.hpp
   - graph/LowLink.hpp
   - graph/TwoSatisfiability.hpp
   - graph/EulerianTrail.hpp

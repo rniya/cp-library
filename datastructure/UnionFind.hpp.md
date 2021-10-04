@@ -1,11 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: graph/Kruskal.hpp
+    title: Kruskal
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_1_A.test.cpp
     title: test/aoj/DSL_1_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL_2_A.test.cpp
+    title: test/aoj/GRL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
@@ -57,11 +63,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: datastructure/UnionFind.hpp
-  requiredBy: []
+  requiredBy:
+  - graph/Kruskal.hpp
   timestamp: '2021-09-20 21:09:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_1_A.test.cpp
+  - test/aoj/GRL_2_A.test.cpp
   - test/yosupo/unionfind.test.cpp
 documentation_of: datastructure/UnionFind.hpp
 layout: document
