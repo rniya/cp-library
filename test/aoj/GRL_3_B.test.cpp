@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B"
 
 #include "../../base.hpp"
-#include "../../graph/LowLink.hpp"
+#include "../../graph/BlockCutTree.hpp"
 
 int main() {
     cin.tie(0);
@@ -9,21 +9,22 @@ int main() {
     int V, E;
     cin >> V >> E;
 
-    LowLink L(V);
+    BlockCutTree BCT(V);
+    vector<int> s(E), t(E);
     for (int i = 0; i < E; i++) {
-        int s, t;
-        cin >> s >> t;
-        L.add_edge(s, t);
+        cin >> s[i] >> t[i];
+        if (s[i] > t[i]) swap(s[i], t[i]);
+        BCT.add_edge(s[i], t[i]);
     }
 
-    L.build();
-    vector<pair<int, int>> ans = L.bridge;
-    for (auto& e : ans) {
-        if (e.second < e.first) {
-            swap(e.first, e.second);
+    BCT.build();
+    vector<pair<int, int>> ans;
+    for (int i = 0; i < E; i++) {
+        if (BCT.is_bridge[i]) {
+            ans.emplace_back(s[i], t[i]);
         }
     }
-
     sort(ans.begin(), ans.end());
-    for (auto e : ans) cout << e.first << ' ' << e.second << '\n';
+    for (auto& e : ans) cout << e.first << ' ' << e.second << '\n';
+    return 0;
 }

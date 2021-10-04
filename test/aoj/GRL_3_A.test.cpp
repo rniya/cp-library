@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_A"
 
 #include "../../base.hpp"
-#include "../../graph/LowLink.hpp"
+#include "../../graph/BlockCutTree.hpp"
 
 int main() {
     cin.tie(0);
@@ -9,15 +9,18 @@ int main() {
     int V, E;
     cin >> V >> E;
 
-    LowLink L(V);
+    BlockCutTree BCT(V);
+    vector<int> s(E), t(E);
     for (int i = 0; i < E; i++) {
-        int s, t;
-        cin >> s >> t;
-        L.add_edge(s, t);
+        cin >> s[i] >> t[i];
+        BCT.add_edge(s[i], t[i]);
     }
 
-    L.build();
-    vector<int> ans = L.articulation;
-    sort(ans.begin(), ans.end());
-    for (int v : ans) cout << v << '\n';
+    BCT.build();
+    for (int i = 0; i < V; i++) {
+        if (BCT.is_articulation[i]) {
+            cout << i << '\n';
+        }
+    }
+    return 0;
 }

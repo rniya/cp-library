@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/two_edge_connected_components"
 
 #include "../../base.hpp"
-#include "../../graph/TwoEdgeConnectedComponents.hpp"
+#include "../../graph/BlockCutTree.hpp"
 
 int main() {
     cin.tie(0);
@@ -9,18 +9,19 @@ int main() {
     int N, M;
     cin >> N >> M;
 
-    TwoEdgeConnectedComponents TECC(N);
-    for (int i = 0; i < M; i++) {
+    BlockCutTree BCT(N);
+    for (; M--;) {
         int a, b;
         cin >> a >> b;
-        TECC.add_edge(a, b);
+        BCT.add_edge(a, b);
     }
 
-    int K = TECC.build();
-    cout << K << '\n';
-    for (int i = 0; i < K; i++) {
-        cout << TECC.C[i].size();
-        for (int v : TECC.C[i]) cout << ' ' << v;
+    BCT.build();
+    auto ans = BCT.two_edge_connected_components();
+    cout << ans.size() << '\n';
+    for (auto& v : ans) {
+        cout << v.size();
+        for (int& x : v) cout << ' ' << x;
         cout << '\n';
     }
 }
