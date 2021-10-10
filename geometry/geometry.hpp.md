@@ -409,24 +409,24 @@ data:
   timestamp: '2021-10-01 16:25:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/CGL_4_B.test.cpp
-  - test/aoj/CGL_1_C.test.cpp
-  - test/aoj/CGL_3_C.test.cpp
-  - test/aoj/CGL_2_A.test.cpp
-  - test/aoj/CGL_7_A.test.cpp
-  - test/aoj/CGL_3_A.test.cpp
-  - test/aoj/CGL_7_D.test.cpp
-  - test/aoj/CGL_2_C.test.cpp
-  - test/aoj/CGL_4_C.test.cpp
   - test/aoj/CGL_7_F.test.cpp
-  - test/aoj/CGL_7_C.test.cpp
-  - test/aoj/CGL_2_D.test.cpp
+  - test/aoj/CGL_4_B.test.cpp
+  - test/aoj/CGL_3_A.test.cpp
   - test/aoj/CGL_1_B.test.cpp
-  - test/aoj/CGL_7_E.test.cpp
-  - test/aoj/CGL_3_B.test.cpp
+  - test/aoj/CGL_7_A.test.cpp
   - test/aoj/CGL_1_A.test.cpp
-  - test/aoj/CGL_4_A.test.cpp
+  - test/aoj/CGL_2_D.test.cpp
+  - test/aoj/CGL_4_C.test.cpp
+  - test/aoj/CGL_7_C.test.cpp
+  - test/aoj/CGL_3_B.test.cpp
+  - test/aoj/CGL_7_D.test.cpp
+  - test/aoj/CGL_2_A.test.cpp
   - test/aoj/CGL_2_B.test.cpp
+  - test/aoj/CGL_4_A.test.cpp
+  - test/aoj/CGL_7_E.test.cpp
+  - test/aoj/CGL_2_C.test.cpp
+  - test/aoj/CGL_3_C.test.cpp
+  - test/aoj/CGL_1_C.test.cpp
 documentation_of: geometry/geometry.hpp
 layout: document
 redirect_from:
@@ -435,5 +435,4 @@ redirect_from:
 title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
 ---
 ## 概要
-
-## 計算量
+2 次元幾何ライブラリ.

@@ -17,4 +17,4 @@
 - [Codeforces Round #680 (Div. 1, based on Moscow Team Olympiad) C. Team-Building](https://codeforces.com/contest/1444/problem/C)
 
 ## 参照
-[Mo's algorithm とその上位互換の話 - あなたは嘘つきですかと聞かれたら「YES」と答えるブログ](https://snuke.hatenablog.com/entry/2016/07/01/000000)
+- [Mo's algorithm とその上位互換の話 - あなたは嘘つきですかと聞かれたら「YES」と答えるブログ](https://snuke.hatenablog.com/entry/2016/07/01/000000)

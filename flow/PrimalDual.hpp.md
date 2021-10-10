@@ -129,9 +129,9 @@ data:
   timestamp: '2021-09-21 23:36:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_6_B.PrimalDual.test.cpp
   - test/yukicoder/1301.test.cpp
   - test/yukicoder/1288.test.cpp
+  - test/aoj/GRL_6_B.PrimalDual.test.cpp
 documentation_of: flow/PrimalDual.hpp
 layout: document
 redirect_from:

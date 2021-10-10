@@ -162,11 +162,11 @@ data:
   timestamp: '2021-10-01 11:32:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
   - test/aoj/2667.test.cpp
   - test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
-  - test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
-  - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/vertex_add_path_sum.test.cpp
+  - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/vertex_set_path_composite.test.cpp
 documentation_of: tree/HeavyLightDecomposition.hpp
 layout: document
@@ -176,7 +176,7 @@ redirect_from:
 title: Heavy Light Decomposition
 ---
 ## 概要
-木構造を分解する手法の一つ. 各 edge を Heavy と Light の 2 種類に分けて, Heavy な edge で繋がれた頂点群を一つにまとめるとみなして新たな木を構築すると, 任意の頂点の深さを高々 $O(\log n)$ で抑えることができ (子供の方向に向かって辺を辿るごとに, もとの木における部分木のサイズが半分未満になっていくため) , もとの木でのパスや部分木に対するクエリを効率的に処理することができる. 現在見ている頂点と結ばれている子供の中で最も部分木のサイズが大きい頂点とを結ぶ edge を Heavy, それ以外を Light と分類している. 頂点及び辺のどちらについてのクエリについても対応しており, 辺の場合は子孫側の頂点に値を載せるとして処理している.
+木構造を分解する手法の一つ. 任意に根を取り dfs していき, 各 edge を現在見ている頂点と結ばれている子供の中で最も部分木のサイズが大きい頂点とを結ぶ edge を Heavy, それ以外を Light と分類する. このとき, Heavy edge を縮約して頂点群を一つにまとめるとみなして新たな木を構築すると, 任意の頂点の深さを高々 $O(\log n)$ で抑えることができる (Heavy edge の取り方から, 子供の方向に向かって辺を辿るごとに, もとの木における部分木のサイズが半分未満になっていくため) . 実装において Heavy edge から優先的に探索していくようにすると, この頂点群は dfs-order において連続するようになり, ある頂点からその先祖の頂点までのパスを, 新たに生成された木において $O(\log n)$ 個の連続する頂点群の集合とみなすことができる. 結果的に任意の 2 頂点間のパスを lowest common ancestor を経由することで $O(\log n)$ 個の連続する頂点群の集合に分解できる (必要があれば順序を保持することも可能) ので, パスに対するクエリを連続部分列に対して操作を適用するデータ構造と併せて効率的に処理することができる. また, 1 頂点に対する操作は言うまでもなく, 部分木に対する操作も任意の頂点の部分木内の頂点は dfs-order において必ず連続していることから容易に扱うことが可能である. 頂点及び辺のどちらについてのクエリにも対応しており, 辺の場合は子孫側の頂点に値を載せるとして処理している.
 
 以下に記す内容について, 時間計算量は区間 $[l,r)$ に対する更新や総積の取得といった操作が 1 区間あたり $O(\log n)$ で行えるとしたうえでの計算量である. また, 各種クエリ操作についての関数において頂点についての情報を得たい際には引数の `vertex` を `true` にする必要がある (デフォルトでは `false` になっているので辺についてのクエリ操作を扱うことになる) .
 

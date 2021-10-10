@@ -64,11 +64,11 @@ data:
   timestamp: '2021-09-20 21:09:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yukicoder/1270.test.cpp
   - test/aoj/DSL_2_B.test.cpp
   - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
   - test/yosupo/point_add_rectangle_sum.test.cpp
-  - test/yukicoder/1270.test.cpp
 documentation_of: datastructure/BinaryIndexedTree.hpp
 layout: document
 redirect_from:

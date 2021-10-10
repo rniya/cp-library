@@ -8,5 +8,9 @@
 ## 計算量
 どれも$O(V+E)$
 
+## 問題例
+- [Codeforces Round #647 (Div. 1) - Thanks, Algo Muse! C. Johnny and Megan's Necklace](https://codeforces.com/contest/1361/problem/C)
+  - 無向グラフにおけるオイラー路の復元.
+
 ## 参照
-[競プロにおけるオイラー路とその応用について - Learning Algorithms](https://kokiymgch.hatenablog.com/entry/2017/12/07/193238)
+- [競プロにおけるオイラー路とその応用について - Learning Algorithms](https://kokiymgch.hatenablog.com/entry/2017/12/07/193238)

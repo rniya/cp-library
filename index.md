@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -120,6 +120,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/geometry.hpp
       title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
+    - icon: ':warning:'
+      path: geometry/geometry3D.hpp
+      title: "3 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
+    - icon: ':warning:'
+      path: geometry/sort_points_by_argument.hpp
+      title: geometry/sort_points_by_argument.hpp
   - name: graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -135,10 +141,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/Dijkstra.hpp
       title: Dijkstra
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/EulerianTrail.hpp
-      title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u30FB\u6E96\u30AA\u30A4\u30E9\u30FC\u8DEF\
-        \u306E\u69CB\u7BC9"
+      title: Eulerian Trail
     - icon: ':heavy_check_mark:'
       path: graph/Kruskal.hpp
       title: Kruskal
@@ -194,6 +199,9 @@ data:
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
+      path: math/discrete_logarithm.hpp
+      title: "Discrete Logarithm (\u96E2\u6563\u5BFE\u6570)"
+    - icon: ':heavy_check_mark:'
       path: math/elementary_math.hpp
       title: elementary math
     - icon: ':heavy_check_mark:'
@@ -248,6 +256,9 @@ data:
       path: string/RollingHash.hpp
       title: Rolling Hash
     - icon: ':heavy_check_mark:'
+      path: string/RollingHash2D.hpp
+      title: Rolling Hash 2D
+    - icon: ':heavy_check_mark:'
       path: string/SuffixArray.hpp
       title: Suffix Array + Longest Common Prefix Array
     - icon: ':heavy_check_mark:'
@@ -281,9 +292,6 @@ data:
       title: test/atcoder/ukuku09_d.cpp
   - name: test/codeforces
     pages:
-    - icon: ':warning:'
-      path: test/codeforces/1361_C.cpp
-      title: test/codeforces/1361_C.cpp
     - icon: ':warning:'
       path: test/codeforces/1404_E.cpp
       title: test/codeforces/1404_E.cpp
@@ -351,6 +359,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_14_B.test.cpp
       title: test/aoj/ALDS1_14_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_14_C.test.cpp
+      title: test/aoj/ALDS1_14_C.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_1_A.test.cpp
       title: test/aoj/CGL_1_A.test.cpp
@@ -594,6 +605,9 @@ data:
       path: test/yosupo/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution_mod_1000000007.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/discrete_logarithm_mod.test.cpp
+      title: test/yosupo/discrete_logarithm_mod.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/enumerate_palindromes.test.cpp
       title: test/yosupo/enumerate_palindromes.test.cpp
     - icon: ':heavy_check_mark:'
@@ -745,7 +759,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/526.test.cpp
       title: test/yukicoder/526.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/583.test.cpp
       title: test/yukicoder/583.test.cpp
     - icon: ':heavy_check_mark:'
