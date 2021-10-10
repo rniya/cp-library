@@ -6,7 +6,7 @@ $$x^k \equiv y \pmod{m}$$
 を満たす最小の非負整数 $k$ を求める問題である. 以下の実装は Baby-step Giant-step のアルゴリズムに基づいている.
 
 ### $x$ と $m$ が互いに素の場合
-$x$ と $m$ が互いに素かつ $0 \leq x < m$ であるから, $x \cdot \bar{x} \equiv 1 \pmod{m}$ なる整数 $\bar{x} \in [0, m)$ がただ一つ存在する ($(\mathbb{Z}/m\mathbb{Z})^\times$ における $x$ の逆元に対応). これを $x^{-1}$ とするとする.
+$x$ と $m$ が互いに素かつ $0 \leq x < m$ であるから, $x \cdot \bar{x} \equiv 1 \pmod{m}$ なる整数 $\bar{x} \in [0, m)$ がただ一つ存在する ($(\mathbb{Z}/m\mathbb{Z})^\times$ における $x$ の逆元に対応). これを $x^{-1}$ とする.
 
 また, $n = \lceil \sqrt{m} \rceil$ として, $k = pn + q\ (0 \leq q < n)$ と表すことにすると, $p, q$ は一意に定まり, さらに $a^k \bmod{m}$ の周期性から $p$ としては $0 \leq p < n$ のみ考えれば良い.
 
@@ -59,7 +59,7 @@ $$\begin{aligned}
 
 となり, $\tilde{x}$ の逆元を求める必要がなくなる.
 
-時間計算量は平方分割のパートがボトルネックとなって $O(\sqrt{m})$ となる ( `std::unordered_map` の計算量についてはよくわかってない) .
+時間計算量は平方分割のパートがボトルネックとなって $O(\sqrt{m})$ となる ( `std::unordered_map` の計算量についてはよくわかっていない) .
 
 ### Remark
 時間計算量は $O(\sqrt{m})$ だが, $m > 10^9$ の際には内部演算で 64 bit に収まらないケースがあるので `__int128_t` を用いるべきである.

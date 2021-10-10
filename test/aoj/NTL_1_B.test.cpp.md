@@ -76,7 +76,7 @@ data:
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
     \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 4 \"math/elementary_math.hpp\"\
-    \n\nnamespace elementary_math {\ntemplate <typename T> std::vector<T> divisor(T\
+    \n\nnamespace elementary_math {\n\ntemplate <typename T> std::vector<T> divisor(T\
     \ n) {\n    std::vector<T> res;\n    for (T i = 1; i * i <= n; i++) {\n      \
     \  if (n % i == 0) {\n            res.emplace_back(i);\n            if (i * i\
     \ != n) res.emplace_back(n / i);\n        }\n    }\n    return res;\n}\n\ntemplate\
@@ -107,11 +107,14 @@ data:
     \ n) {\n    std::vector<int> res(n + 1, 0);\n    iota(res.begin(), res.end(),\
     \ 0);\n    for (int i = 2; i <= n; i++) {\n        if (res[i] != i) continue;\n\
     \        for (int j = i; j <= n; j += i) res[j] = res[j] / i * (i - 1);\n    }\n\
-    \    return res;\n}\n}  // namespace elementary_math\n\n/**\n * @brief elementary\
-    \ math\n * @docs docs/math/elementary_math.md\n */\n#line 5 \"test/aoj/NTL_1_B.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int m,\
-    \ n;\n    cin >> m >> n;\n    cout << elementary_math::modpow(m, n, 1000000007)\
-    \ << '\\n';\n    return 0;\n}\n"
+    \    return res;\n}\n\n// minimum i > 0 s.t. x^i \\equiv 1 \\pmod{m}\ntemplate\
+    \ <typename T> T order(T x, T m) {\n    T n = euler_phi(m);\n    auto cand = divisor(n);\n\
+    \    sort(cand.begin(), cand.end());\n    for (auto& i : cand) {\n        if (modpow(x,\
+    \ i, m) == 1) {\n            return i;\n        }\n    }\n    return -1;\n}\n\n\
+    }  // namespace elementary_math\n\n/**\n * @brief elementary math\n * @docs docs/math/elementary_math.md\n\
+    \ */\n#line 5 \"test/aoj/NTL_1_B.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int m, n;\n    cin >> m >> n;\n    cout\
+    \ << elementary_math::modpow(m, n, 1000000007) << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../math/elementary_math.hpp\"\n\
     \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int m,\
@@ -123,7 +126,7 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-09-21 16:26:52+09:00'
+  timestamp: '2021-10-10 17:22:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_B.test.cpp
