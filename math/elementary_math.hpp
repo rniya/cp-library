@@ -3,6 +3,7 @@
 #include <vector>
 
 namespace elementary_math {
+
 template <typename T> std::vector<T> divisor(T n) {
     std::vector<T> res;
     for (T i = 1; i * i <= n; i++) {
@@ -100,6 +101,20 @@ std::vector<int> euler_phi_table(int n) {
     }
     return res;
 }
+
+// minimum i > 0 s.t. x^i \equiv 1 \pmod{m}
+template <typename T> T order(T x, T m) {
+    T n = euler_phi(m);
+    auto cand = divisor(n);
+    sort(cand.begin(), cand.end());
+    for (auto& i : cand) {
+        if (modpow(x, i, m) == 1) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 }  // namespace elementary_math
 
 /**
