@@ -1,3 +1,4 @@
+#pragma once
 #include <algorithm>
 #include <cassert>
 #include <vector>
@@ -59,6 +60,7 @@ private:
     std::vector<bool> used_vertex, used_edge, checked_vertex;
 
     bool dfs(int v, int& s, int& t) {
+        checked_vertex[v] = true;
         if (directed) {
             if (deg[v] < -1 or 1 < deg[v]) return false;
             if (deg[v] == 1) {
