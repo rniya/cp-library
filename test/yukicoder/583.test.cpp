@@ -16,5 +16,5 @@ int main() {
         ET.add_edge(a, b);
     }
 
-    cout << (ET.build_semi().size() == 1 ? "YES" : "NO") << '\n';
+    cout << (ET.solve_semi().size() == 1 ? "YES" : "NO") << '\n';
 }
