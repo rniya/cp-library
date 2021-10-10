@@ -138,6 +138,7 @@
 "test/yukicoder/430.AhoCorasick.test.cpp": "2021-10-01 16:25:03 +0900",
 "test/yukicoder/430.test.cpp": "2021-10-01 18:13:28 +0900",
 "test/yukicoder/526.test.cpp": "2021-10-01 20:18:39 +0900",
+"test/yukicoder/583.test.cpp": "2021-10-10 16:06:54 +0900",
 "test/yukicoder/665.test.cpp": "2021-10-01 20:18:39 +0900",
 "test/yukicoder/803.test.cpp": "2021-10-01 20:18:39 +0900",
 "test/yukicoder/886.test.cpp": "2021-10-03 17:00:08 +0900",
