@@ -69,7 +69,7 @@ $$x^k \equiv y \pmod{m}$$
 ### $x$ と $m$ が互いに素の場合
 $x$ と $m$ が互いに素かつ $0 \leq x < m$ であるから, $x \cdot \bar{x} \equiv 1 \pmod{m}$ なる整数 $\bar{x} \in [0, m)$ がただ一つ存在する ($(\mathbb{Z}/m\mathbb{Z})^\times$ における $x$ の逆元に対応). これを $x^{-1}$ とするとする.
 
-また, $n \coloneqq \lceil \sqrt{m} \rceil$ として, $k = pn + q\ (0 \leq q < n)$ と表すことにすると, $p, q$ は一意に定まり, さらに $a^k \bmod{m}$ の周期性から $p$ としては $0 \leq p < n$ のみ考えれば良い.
+また, $n = \lceil \sqrt{m} \rceil$ として, $k = pn + q\ (0 \leq q < n)$ と表すことにすると, $p, q$ は一意に定まり, さらに $a^k \bmod{m}$ の周期性から $p$ としては $0 \leq p < n$ のみ考えれば良い.
 
 以上を踏まえると,
 
@@ -84,7 +84,7 @@ $$\begin{aligned}
 ### 一般の場合
 $x$ と $m$ が互いに素とは限らない場合も工夫すれば互いに素な場合に帰着することができる.
 
-天下りになってしまうが, $g \coloneqq \gcd(x^d, m)$ として, $x$ と $m/g \in \mathbb{Z}$ が互いに素となるような整数 $d$ を取ることを考える. これは素因数ごとに考えた際に $x$ における指数が 0 もしくは $x^d$ における指数が $m$ における指数以上となればよく ($m/g$ における指数が 0 となる) , $m$ における指数は高々 $\lfloor \log_2 m \rfloor$ であることから $d \geq \log_2 m$ であれば十分であり, 以下でもこの値を取るとする.
+天下りになってしまうが, $g = \gcd(x^d, m)$ として, $x$ と $m/g \in \mathbb{Z}$ が互いに素となるような整数 $d$ を取ることを考える. これは素因数ごとに考えた際に $x$ における指数が 0 もしくは $x^d$ における指数が $m$ における指数以上となればよく ($m/g$ における指数が 0 となる) , $m$ における指数は高々 $\lfloor \log_2 m \rfloor$ であることから $d \geq \log_2 m$ であれば十分であり, 以下でもこの値を取るとする.
 
 このとき, まず $k \in [0, d)$ の範囲に解となりうる $k$ が存在しないか判定する. 存在する場合にはそこでアルゴリズムは停止する. 以下では存在しない場合について考える.
 
@@ -92,7 +92,7 @@ $$x^d \cdot x^k \equiv y \pmod{m}$$
 
 を満たす最小の非負整数 $k$ を求めれば良い. まず, $g \| x^d,\ g \| m$ であるから $g \not\| y$ であれば明らかに解は存在しない. そうでない場合,
 
-$$\tilde{x} \coloneqq x^d/g,\ \tilde{y} \coloneqq y/g,\ \tilde{m} \coloneqq m/g$$
+$$\tilde{x} = x^d/g,\ \tilde{y} = y/g,\ \tilde{m} = m/g$$
 
 とすると, $x$ と $\tilde{m}$ は互いに素だから$\tilde{x}$ と $\tilde{m}$ も互いに素であり, $\tilde{x} \cdot \bar{\tilde{x}} \equiv 1 \pmod{\tilde{m}}$ を満たす整数 $\bar{\tilde{x}} \in [0, \tilde{m})$ が存在し, これを $\tilde{x}^{-1}$ とする. このとき,
 
@@ -108,9 +108,9 @@ $$\begin{aligned}
 
 以上が概略で世の実装はこれに従うものが多いが, 実装においては簡潔さのためにもう少々変形している.
 
-まず, $d$ 及び $g \coloneqq \gcd(x^d, m)$ の取り方は変わらない. この後, $d$ としては $g \| x^d$ でさえあれば良いのでこのような最小の $d$ に取り替えている (このときの $x^d$ を $t$ としている) .
+まず, $d$ 及び $g = \gcd(x^d, m)$ の取り方は変わらない. この後, $d$ としては $g \| x^d$ でさえあれば良いのでこのような最小の $d$ に取り替えている (このときの $x^d$ を $t$ としている) .
 
-また, $n \coloneqq \lceil \sqrt{m} \rceil$ として, $k = (p + 1)n - q\ (1 \leq q \leq n)$ として表すことにする. このとき,
+また, $n = \lceil \sqrt{m} \rceil$ として, $k = (p + 1)n - q\ (1 \leq q \leq n)$ として表すことにする. このとき,
 
 $$\begin{aligned}
     \tilde{x} \cdot x^k \equiv \tilde{y} \pmod{\tilde{m}}

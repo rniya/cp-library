@@ -3,17 +3,17 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/583.test.cpp
     title: test/yukicoder/583.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/EulerianTrail.md
     document_title: Eulerian Trail
     links: []
-  bundledCode: "#line 1 \"graph/EulerianTrail.hpp\"\n#include <algorithm>\n#include\
+  bundledCode: "#line 2 \"graph/EulerianTrail.hpp\"\n#include <algorithm>\n#include\
     \ <cassert>\n#include <vector>\n\ntemplate <bool directed> struct EulerianTrail\
     \ {\n    std::vector<std::vector<std::pair<int, int>>> G;\n\n    EulerianTrail(int\
     \ n) : G(n), n(n), m(0), deg(n, 0), used_vertex(n, false) {}\n\n    void add_edge(int\
@@ -37,27 +37,27 @@ data:
     \ const { return edges[k]; }\n\nprivate:\n    int n, m;\n    std::vector<int>\
     \ deg;\n    std::vector<std::pair<int, int>> edges;\n    std::vector<bool> used_vertex,\
     \ used_edge, checked_vertex;\n\n    bool dfs(int v, int& s, int& t) {\n      \
-    \  if (directed) {\n            if (deg[v] < -1 or 1 < deg[v]) return false;\n\
-    \            if (deg[v] == 1) {\n                if (s >= 0) return false;\n \
-    \               s = v;\n            }\n        } else {\n            if (deg[v]\
-    \ & 1) {\n                if (s == -1)\n                    s = v;\n         \
-    \       else if (t == -1)\n                    t = v;\n                else\n\
-    \                    return false;\n            }\n        }\n        for (const\
-    \ auto& e : G[v]) {\n            int u = e.first;\n            if (checked_vertex[u])\
-    \ continue;\n            if (!dfs(u, s, t)) return false;\n        }\n       \
-    \ return true;\n    }\n\n    std::vector<int> go(int s) {\n        std::vector<std::pair<int,\
-    \ int>> st;\n        std::vector<int> order;\n        st.emplace_back(s, -1);\n\
-    \        while (!st.empty()) {\n            int v = st.back().first;\n       \
-    \     used_vertex[v] = true;\n            if (G[v].empty()) {\n              \
-    \  order.emplace_back(st.back().second);\n                st.pop_back();\n   \
-    \         } else {\n                auto e = G[v].back();\n                G[v].pop_back();\n\
-    \                if (used_edge[e.second]) continue;\n                used_edge[e.second]\
-    \ = true;\n                st.emplace_back(e);\n            }\n        }\n   \
-    \     order.pop_back();\n        reverse(order.begin(), order.end());\n      \
-    \  return order;\n    }\n};\n\n/**\n * @brief Eulerian Trail\n * @docs docs/graph/EulerianTrail.md\n\
-    \ */\n"
-  code: "#include <algorithm>\n#include <cassert>\n#include <vector>\n\ntemplate <bool\
-    \ directed> struct EulerianTrail {\n    std::vector<std::vector<std::pair<int,\
+    \  checked_vertex[v] = true;\n        if (directed) {\n            if (deg[v]\
+    \ < -1 or 1 < deg[v]) return false;\n            if (deg[v] == 1) {\n        \
+    \        if (s >= 0) return false;\n                s = v;\n            }\n  \
+    \      } else {\n            if (deg[v] & 1) {\n                if (s == -1)\n\
+    \                    s = v;\n                else if (t == -1)\n             \
+    \       t = v;\n                else\n                    return false;\n    \
+    \        }\n        }\n        for (const auto& e : G[v]) {\n            int u\
+    \ = e.first;\n            if (checked_vertex[u]) continue;\n            if (!dfs(u,\
+    \ s, t)) return false;\n        }\n        return true;\n    }\n\n    std::vector<int>\
+    \ go(int s) {\n        std::vector<std::pair<int, int>> st;\n        std::vector<int>\
+    \ order;\n        st.emplace_back(s, -1);\n        while (!st.empty()) {\n   \
+    \         int v = st.back().first;\n            used_vertex[v] = true;\n     \
+    \       if (G[v].empty()) {\n                order.emplace_back(st.back().second);\n\
+    \                st.pop_back();\n            } else {\n                auto e\
+    \ = G[v].back();\n                G[v].pop_back();\n                if (used_edge[e.second])\
+    \ continue;\n                used_edge[e.second] = true;\n                st.emplace_back(e);\n\
+    \            }\n        }\n        order.pop_back();\n        reverse(order.begin(),\
+    \ order.end());\n        return order;\n    }\n};\n\n/**\n * @brief Eulerian Trail\n\
+    \ * @docs docs/graph/EulerianTrail.md\n */\n"
+  code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <vector>\n\
+    \ntemplate <bool directed> struct EulerianTrail {\n    std::vector<std::vector<std::pair<int,\
     \ int>>> G;\n\n    EulerianTrail(int n) : G(n), n(n), m(0), deg(n, 0), used_vertex(n,\
     \ false) {}\n\n    void add_edge(int u, int v) {\n        assert(0 <= u and u\
     \ < n);\n        assert(0 <= v and v < n);\n        edges.emplace_back(u, v);\n\
@@ -79,31 +79,31 @@ data:
     \ int> operator[](int k) const { return edges[k]; }\n\nprivate:\n    int n, m;\n\
     \    std::vector<int> deg;\n    std::vector<std::pair<int, int>> edges;\n    std::vector<bool>\
     \ used_vertex, used_edge, checked_vertex;\n\n    bool dfs(int v, int& s, int&\
-    \ t) {\n        if (directed) {\n            if (deg[v] < -1 or 1 < deg[v]) return\
-    \ false;\n            if (deg[v] == 1) {\n                if (s >= 0) return false;\n\
-    \                s = v;\n            }\n        } else {\n            if (deg[v]\
-    \ & 1) {\n                if (s == -1)\n                    s = v;\n         \
-    \       else if (t == -1)\n                    t = v;\n                else\n\
-    \                    return false;\n            }\n        }\n        for (const\
-    \ auto& e : G[v]) {\n            int u = e.first;\n            if (checked_vertex[u])\
-    \ continue;\n            if (!dfs(u, s, t)) return false;\n        }\n       \
-    \ return true;\n    }\n\n    std::vector<int> go(int s) {\n        std::vector<std::pair<int,\
-    \ int>> st;\n        std::vector<int> order;\n        st.emplace_back(s, -1);\n\
-    \        while (!st.empty()) {\n            int v = st.back().first;\n       \
-    \     used_vertex[v] = true;\n            if (G[v].empty()) {\n              \
-    \  order.emplace_back(st.back().second);\n                st.pop_back();\n   \
-    \         } else {\n                auto e = G[v].back();\n                G[v].pop_back();\n\
-    \                if (used_edge[e.second]) continue;\n                used_edge[e.second]\
-    \ = true;\n                st.emplace_back(e);\n            }\n        }\n   \
-    \     order.pop_back();\n        reverse(order.begin(), order.end());\n      \
-    \  return order;\n    }\n};\n\n/**\n * @brief Eulerian Trail\n * @docs docs/graph/EulerianTrail.md\n\
-    \ */\n"
+    \ t) {\n        checked_vertex[v] = true;\n        if (directed) {\n         \
+    \   if (deg[v] < -1 or 1 < deg[v]) return false;\n            if (deg[v] == 1)\
+    \ {\n                if (s >= 0) return false;\n                s = v;\n     \
+    \       }\n        } else {\n            if (deg[v] & 1) {\n                if\
+    \ (s == -1)\n                    s = v;\n                else if (t == -1)\n \
+    \                   t = v;\n                else\n                    return false;\n\
+    \            }\n        }\n        for (const auto& e : G[v]) {\n            int\
+    \ u = e.first;\n            if (checked_vertex[u]) continue;\n            if (!dfs(u,\
+    \ s, t)) return false;\n        }\n        return true;\n    }\n\n    std::vector<int>\
+    \ go(int s) {\n        std::vector<std::pair<int, int>> st;\n        std::vector<int>\
+    \ order;\n        st.emplace_back(s, -1);\n        while (!st.empty()) {\n   \
+    \         int v = st.back().first;\n            used_vertex[v] = true;\n     \
+    \       if (G[v].empty()) {\n                order.emplace_back(st.back().second);\n\
+    \                st.pop_back();\n            } else {\n                auto e\
+    \ = G[v].back();\n                G[v].pop_back();\n                if (used_edge[e.second])\
+    \ continue;\n                used_edge[e.second] = true;\n                st.emplace_back(e);\n\
+    \            }\n        }\n        order.pop_back();\n        reverse(order.begin(),\
+    \ order.end());\n        return order;\n    }\n};\n\n/**\n * @brief Eulerian Trail\n\
+    \ * @docs docs/graph/EulerianTrail.md\n */\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/EulerianTrail.hpp
   requiredBy: []
-  timestamp: '2021-10-10 15:55:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-10-10 16:06:54+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/583.test.cpp
 documentation_of: graph/EulerianTrail.hpp
