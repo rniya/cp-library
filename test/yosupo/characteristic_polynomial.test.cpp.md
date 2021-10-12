@@ -140,7 +140,7 @@ data:
     \ T betas = 1;\n        for (int j = i - 1; j >= 0; j--) {\n            betas\
     \ *= M[j + 1][j];\n            T coef = -betas * M[j][i];\n            for (int\
     \ k = 0; k <= j; k++) p[i + 1][k] += coef * p[j][k];\n        }\n    }\n    return\
-    \ p[n];\n}\n\n/**\n * @brief Characteristic Polynomial\n * @docs docs/matrix/characteristic_polynomial.md\n\
+    \ p[n];\n}\n\n/**\n * @brief Characteristic Polynomial\n * @docs docs/linearalgebra/characteristic_polynomial.md\n\
     \ * @see https://arxiv.org/abs/1104.3769\n */\n#line 6 \"test/yosupo/characteristic_polynomial.test.cpp\"\
     \n\nusing mint = modint<998244353>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    int N;\n    cin >> N;\n    vector<vector<mint>> a(N, vector<mint>(N));\n\
@@ -164,7 +164,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/characteristic_polynomial.test.cpp
   requiredBy: []
-  timestamp: '2021-10-12 17:52:02+09:00'
+  timestamp: '2021-10-12 17:56:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/characteristic_polynomial.test.cpp
