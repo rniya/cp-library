@@ -196,6 +196,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: linearalgebra/SquareMatrix.hpp
       title: Square Matrix
+    - icon: ':heavy_check_mark:'
+      path: linearalgebra/characteristic_polynomial.hpp
+      title: Characteristic Polynomial
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
@@ -598,6 +601,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/bitwise_xor_convolution.test.cpp
       title: test/yosupo/bitwise_xor_convolution.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/characteristic_polynomial.test.cpp
+      title: test/yosupo/characteristic_polynomial.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod.test.cpp
       title: test/yosupo/convolution_mod.test.cpp

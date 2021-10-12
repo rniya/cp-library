@@ -410,6 +410,9 @@ data:
     path: test/yosupo/bitwise_xor_convolution.test.cpp
     title: test/yosupo/bitwise_xor_convolution.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/characteristic_polynomial.test.cpp
+    title: test/yosupo/characteristic_polynomial.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
   - icon: ':heavy_check_mark:'
@@ -905,6 +908,7 @@ data:
   - test/yosupo/shortest_path.test.cpp
   - test/yosupo/associative_array.test.cpp
   - test/yosupo/static_range_sum.test.cpp
+  - test/yosupo/characteristic_polynomial.test.cpp
   - test/yosupo/point_add_rectangle_sum.test.cpp
   - test/yosupo/set_xor_min.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
