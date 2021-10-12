@@ -44,6 +44,6 @@ template <typename T> std::vector<T> characteristic_polynomial(std::vector<std::
 
 /**
  * @brief Characteristic Polynomial
- * @docs docs/matrix/characteristic_polynomial.md
+ * @docs docs/linearalgebra/characteristic_polynomial.md
  * @see https://arxiv.org/abs/1104.3769
  */
