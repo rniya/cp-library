@@ -17,6 +17,7 @@ struct HeavyLightDecomposition {
           tree_id(n, -1),
           vertex_id(n, -1),
           vertex_id_inv(n) {}
+
     void add_edge(int u, int v) {
         assert(0 <= u && u < n);
         assert(0 <= v && v < n);
