@@ -201,6 +201,9 @@ data:
       title: Characteristic Polynomial
   - name: math
     pages:
+    - icon: ':warning:'
+      path: math/binary_gcd.hpp
+      title: binary $\gcd$
     - icon: ':heavy_check_mark:'
       path: math/discrete_logarithm.hpp
       title: "Discrete Logarithm (\u96E2\u6563\u5BFE\u6570)"

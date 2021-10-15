@@ -82,7 +82,7 @@ data:
     \    HeavyLightDecomposition(int n)\n        : G(n),\n          n(n),\n      \
     \    time(0),\n          par(n, -1),\n          sub(n),\n          dep(n, 0),\n\
     \          head(n),\n          tree_id(n, -1),\n          vertex_id(n, -1),\n\
-    \          vertex_id_inv(n) {}\n    void add_edge(int u, int v) {\n        assert(0\
+    \          vertex_id_inv(n) {}\n\n    void add_edge(int u, int v) {\n        assert(0\
     \ <= u && u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n\
     \        G[v].emplace_back(u);\n    }\n\n    void build(std::vector<int> roots\
     \ = {0}) {\n        int tree_id_cur = 0;\n        for (int& r : roots) {\n   \
@@ -162,7 +162,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
   requiredBy: []
-  timestamp: '2021-10-01 11:32:51+09:00'
+  timestamp: '2021-10-15 21:18:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
