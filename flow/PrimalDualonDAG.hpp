@@ -30,6 +30,7 @@ template <typename Cap, typename Cost> struct PrimalDualonDAG {
     std::vector<std::tuple<int, int, Cap, Cap, Cost>> edges() {
         std::vector<std::tuple<int, int, Cap, Cap, Cost>> res;
         for (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));
+        return res;
     }
 
     Cost min_cost_flow(int s, int t, Cap flow) {

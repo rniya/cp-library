@@ -15,6 +15,6 @@ template <typename T> T binary_gcd(T x_, T y_) {
 }
 
 /**
- * @brief binary $\gcd$
+ * @brief binary gcd
  * @docs docs/math/binary_gcd.md
  */

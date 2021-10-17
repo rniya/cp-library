@@ -4,7 +4,7 @@
 #include "../../linearalgebra/BitMatrix.hpp"
 #include "../../modulo/modint.hpp"
 
-const int MAX_LOG = 30, MAX_N = 305;
+const int MAX_LOG = 30, MAX_N = 305, MAX = MAX_LOG + MAX_N;
 using BM = BitMatrix<MAX_N>;
 using mint = modint<1000000007>;
 
@@ -13,8 +13,8 @@ int main() {
     ios::sync_with_stdio(false);
     int N, M, X;
     cin >> N >> M >> X;
-    BM A(MAX_LOG + MAX_N);
-    vector<int> b(MAX_LOG + MAX_N);
+    BM A(MAX_LOG + MAX_N, N);
+    vector<bool> b(MAX_LOG + MAX_N);
     for (int i = 0; i < MAX_LOG; i++, X >>= 1) b[i] = X & 1;
     for (int i = 0; i < N; i++) {
         int a;
@@ -28,7 +28,7 @@ int main() {
         b[MAX_LOG + i] = t;
     }
 
-    int rank = A.linear_equation(b).first;
+    int rank = A.system_of_linear_equations(b).first;
     if (rank == -1) {
         cout << 0 << '\n';
         return 0;

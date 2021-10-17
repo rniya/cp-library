@@ -36,6 +36,7 @@ template <typename Cap, bool directed> struct Dinic {
     std::vector<std::tuple<int, int, Cap, Cap>> edges() {
         std::vector<std::tuple<int, int, Cap, Cap>> res;
         for (size_t i = 0; i < pos.size(); i++) res.emplace_back(get_edge(i));
+        return res;
     }
 
     void change_edge(int i, Cap new_cap, Cap new_flow) {
