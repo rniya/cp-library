@@ -30,7 +30,7 @@ data:
       title: Number Theoretic Transform
     - icon: ':heavy_check_mark:'
       path: convolution/gcd_convolution.hpp
-      title: "$\\gcd$ convolution (\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F)"
+      title: "gcd convolution (\u6DFB\u5B57 gcd \u7573\u307F\u8FBC\u307F)"
     - icon: ':heavy_check_mark:'
       path: convolution/set_function.hpp
       title: set function (FZT, FMT, FWHT)
@@ -186,7 +186,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: linearalgebra/BitMatrix.hpp
-      title: BitMatrix
+      title: Bit Matrix
     - icon: ':warning:'
       path: linearalgebra/Kitamasa.hpp
       title: Kitamasa
@@ -195,7 +195,7 @@ data:
       title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
     - icon: ':heavy_check_mark:'
       path: linearalgebra/SquareMatrix.hpp
-      title: Square Matrix
+      title: "\u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
     - icon: ':heavy_check_mark:'
       path: linearalgebra/characteristic_polynomial.hpp
       title: Characteristic Polynomial
@@ -203,7 +203,7 @@ data:
     pages:
     - icon: ':warning:'
       path: math/binary_gcd.hpp
-      title: binary $\gcd$
+      title: binary gcd
     - icon: ':heavy_check_mark:'
       path: math/discrete_logarithm.hpp
       title: "Discrete Logarithm (\u96E2\u6563\u5BFE\u6570)"

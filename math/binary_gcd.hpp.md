@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/math/binary_gcd.md
-    document_title: binary $\gcd$
+    document_title: binary gcd
     links: []
   bundledCode: "#line 2 \"math/binary_gcd.hpp\"\n\ntemplate <typename T> T binary_gcd(T\
     \ x_, T y_) {\n    unsigned long long x = x_ < 0 ? -x_ : x_, y = y_ < 0 ? -y_\
@@ -16,20 +16,20 @@ data:
     \ __builtin_ctzll(y);\n    x >>= n, y >>= m;\n    while (x != y) {\n        if\
     \ (x > y)\n            x = (x - y) >> __builtin_ctzll(x - y);\n        else\n\
     \            y = (y - x) >> __builtin_ctzll(y - x);\n    }\n    return x << (n\
-    \ > m ? m : n);\n}\n\n/**\n * @brief binary $\\gcd$\n * @docs docs/math/binary_gcd.md\n\
+    \ > m ? m : n);\n}\n\n/**\n * @brief binary gcd\n * @docs docs/math/binary_gcd.md\n\
     \ */\n"
   code: "#pragma once\n\ntemplate <typename T> T binary_gcd(T x_, T y_) {\n    unsigned\
     \ long long x = x_ < 0 ? -x_ : x_, y = y_ < 0 ? -y_ : y_;\n    if (!x or !y) return\
     \ x + y;\n    int n = __builtin_ctzll(x), m = __builtin_ctzll(y);\n    x >>= n,\
     \ y >>= m;\n    while (x != y) {\n        if (x > y)\n            x = (x - y)\
     \ >> __builtin_ctzll(x - y);\n        else\n            y = (y - x) >> __builtin_ctzll(y\
-    \ - x);\n    }\n    return x << (n > m ? m : n);\n}\n\n/**\n * @brief binary $\\\
-    gcd$\n * @docs docs/math/binary_gcd.md\n */\n"
+    \ - x);\n    }\n    return x << (n > m ? m : n);\n}\n\n/**\n * @brief binary gcd\n\
+    \ * @docs docs/math/binary_gcd.md\n */\n"
   dependsOn: []
   isVerificationFile: false
   path: math/binary_gcd.hpp
   requiredBy: []
-  timestamp: '2021-10-15 21:18:36+09:00'
+  timestamp: '2021-10-17 17:14:51+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/binary_gcd.hpp
@@ -37,7 +37,7 @@ layout: document
 redirect_from:
 - /library/math/binary_gcd.hpp
 - /library/math/binary_gcd.hpp.html
-title: binary $\gcd$
+title: binary gcd
 ---
 ## 概要
 2 数の最大公約数を求める. 一般的な Euclid の互除法による実装と異なり, 非再帰かつ除算が 2 で割るものしか登場しないので bit shift で済み, 約 3 から 4 倍程度高速である.

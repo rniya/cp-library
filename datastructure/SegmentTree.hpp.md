@@ -135,7 +135,7 @@ title: Segment Tree
 モノイド $(S, \cdot)$ を扱うデータ構造. 集合 $S$ とその上の二項演算 $\cdot : S \times S \to S$ について,
 
 - 結合律 : $\forall a, b, c \in S,\ (a \cdot b) \cdot c = a \cdot (b \cdot c)$
-- 単位元の存在 : $\exist e \in S,\ \forall a \in S,\ a \cdot e = e \cdot a = a$
+- 単位元の存在 : $\exists e \in S,\ \forall a \in S,\ a \cdot e = e \cdot a = a$
 
 といった群に対する要求の一部をを満たすとき, 組 $(S,\cdot)$ はモノイドと呼ばれる. また, 単位元をもつ半群という認識でも良い.
 

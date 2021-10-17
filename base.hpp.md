@@ -68,15 +68,9 @@ data:
   - icon: ':warning:'
     path: hold/SuffixArray_old.hpp
     title: Suffix Array
-  - icon: ':heavy_check_mark:'
-    path: linearalgebra/BitMatrix.hpp
-    title: BitMatrix
   - icon: ':warning:'
     path: linearalgebra/Kitamasa.hpp
     title: Kitamasa
-  - icon: ':heavy_check_mark:'
-    path: linearalgebra/SquareMatrix.hpp
-    title: Square Matrix
   - icon: ':heavy_check_mark:'
     path: math/fast_factorize.hpp
     title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
@@ -744,9 +738,7 @@ data:
   - graph/WarshallFloyd.hpp
   - graph/Dijkstra.hpp
   - flow/ProjectSelectionProblem.hpp
-  - linearalgebra/SquareMatrix.hpp
   - linearalgebra/Kitamasa.hpp
-  - linearalgebra/BitMatrix.hpp
   - test/codeforces/1404_E.cpp
   - test/atcoder/nikkei2019_2_qual_d.cpp
   - test/atcoder/arc085_c.cpp
