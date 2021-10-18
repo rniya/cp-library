@@ -322,7 +322,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: util/Dice.hpp
-      title: "\u30B5\u30A4\u30B3\u30ED"
+      title: Dice
     - icon: ':warning:'
       path: util/RandomNumberGenerator_32.hpp
       title: "\u4E71\u6570\u751F\u6210\u5668(32bit)"
@@ -572,6 +572,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_B.PrimalDual.test.cpp
       title: test/aoj/GRL_6_B.PrimalDual.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ITP1_11_A.test.cpp
+      title: test/aoj/ITP1_11_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ITP1_11_B.test.cpp
+      title: test/aoj/ITP1_11_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ITP1_11_C.test.cpp
+      title: test/aoj/ITP1_11_C.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ITP1_11_D.test.cpp
+      title: test/aoj/ITP1_11_D.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_A.test.cpp
       title: test/aoj/NTL_1_A.test.cpp

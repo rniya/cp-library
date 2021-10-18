@@ -14,10 +14,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/1181
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/ITP1_11_A
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/1181
-  bundledCode: "#line 1 \"test/aoj/1181.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/1181\"\
+    - https://onlinejudge.u-aizu.ac.jp/problems/ITP1_11_A
+  bundledCode: "#line 1 \"test/aoj/ITP1_11_A.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/ITP1_11_A\"\
     \n\n#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n#pragma\
     \ region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned\
     \ int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
@@ -116,61 +116,30 @@ data:
     \ 1, 0, 0, 6, 2}, {3, 0, 6, 1, 0, 4}, {0, 4, 2, 5, 3, 0}};\n    const int code[6][4]\
     \ = {{0, 3, 5, 2}, {0, 2, 5, 3}, {0, 1, 5, 4}, {0, 4, 5, 1}, {1, 2, 4, 3}, {1,\
     \ 3, 4, 2}};\n    const char direction[6] = {'E', 'W', 'N', 'S', 'R', 'L'};\n\
-    };\n\n/**\n * @brief Dice\n * @docs docs/util/Dice.md\n */\n#line 5 \"test/aoj/1181.test.cpp\"\
-    \n\nconst int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};\nconst int MAX = 110;\n\
-    const int aspect[4] = {2, 4, 3, 1};\nconst string S = \"ENWS\";\n\nvoid solve(int\
-    \ n) {\n    vector<vector<int>> top(2 * MAX, vector<int>(2 * MAX, -1));\n    vector<vector<int>>\
-    \ cnt(2 * MAX, vector<int>(2 * MAX, 0));\n\n    auto ROLL = [&](int t, int f)\
-    \ {\n        int x = MAX, y = MAX;\n        Dice d(t, f);\n        while (1) {\n\
-    \            cnt[x][y]++;\n            int nxt = -1, Max = 0;\n            for\
-    \ (int i = 0; i < 4; i++) {\n                int nx = x + dx[i], ny = y + dy[i];\n\
-    \                if (cnt[nx][ny] >= cnt[x][y] - 1) continue;\n               \
-    \ int s = d[aspect[i]];\n                if (4 <= s && Max < s) {\n          \
-    \          Max = s;\n                    nxt = i;\n                }\n       \
-    \     }\n            if (nxt < 0) break;\n            d.rollc(S[nxt]);\n     \
-    \       --cnt[x][y];\n            x += dx[nxt];\n            y += dy[nxt];\n \
-    \       }\n        top[x][y] = d.top();\n    };\n    for (; n--;) {\n        int\
-    \ t, f;\n        cin >> t >> f;\n        ROLL(t, f);\n    }\n\n    vector<int>\
-    \ ans(6, 0);\n    for (int i = 0; i < 2 * MAX; i++) {\n        for (int j = 0;\
-    \ j < 2 * MAX; j++) {\n            if (~top[i][j]) {\n                ans[top[i][j]\
-    \ - 1]++;\n            }\n        }\n    }\n\n    for (int i = 0; i < 6; i++)\
-    \ cout << ans[i] << (i + 1 == 6 ? '\\n' : ' ');\n}\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int n;\n    while (cin >> n, n) {\n   \
-    \     solve(n);\n    }\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/1181\"\n\n#include\
-    \ \"../../base.hpp\"\n#include \"../../util/Dice.hpp\"\n\nconst int dx[4] = {1,\
-    \ 0, -1, 0}, dy[4] = {0, 1, 0, -1};\nconst int MAX = 110;\nconst int aspect[4]\
-    \ = {2, 4, 3, 1};\nconst string S = \"ENWS\";\n\nvoid solve(int n) {\n    vector<vector<int>>\
-    \ top(2 * MAX, vector<int>(2 * MAX, -1));\n    vector<vector<int>> cnt(2 * MAX,\
-    \ vector<int>(2 * MAX, 0));\n\n    auto ROLL = [&](int t, int f) {\n        int\
-    \ x = MAX, y = MAX;\n        Dice d(t, f);\n        while (1) {\n            cnt[x][y]++;\n\
-    \            int nxt = -1, Max = 0;\n            for (int i = 0; i < 4; i++) {\n\
-    \                int nx = x + dx[i], ny = y + dy[i];\n                if (cnt[nx][ny]\
-    \ >= cnt[x][y] - 1) continue;\n                int s = d[aspect[i]];\n       \
-    \         if (4 <= s && Max < s) {\n                    Max = s;\n           \
-    \         nxt = i;\n                }\n            }\n            if (nxt < 0)\
-    \ break;\n            d.rollc(S[nxt]);\n            --cnt[x][y];\n           \
-    \ x += dx[nxt];\n            y += dy[nxt];\n        }\n        top[x][y] = d.top();\n\
-    \    };\n    for (; n--;) {\n        int t, f;\n        cin >> t >> f;\n     \
-    \   ROLL(t, f);\n    }\n\n    vector<int> ans(6, 0);\n    for (int i = 0; i <\
-    \ 2 * MAX; i++) {\n        for (int j = 0; j < 2 * MAX; j++) {\n            if\
-    \ (~top[i][j]) {\n                ans[top[i][j] - 1]++;\n            }\n     \
-    \   }\n    }\n\n    for (int i = 0; i < 6; i++) cout << ans[i] << (i + 1 == 6\
-    \ ? '\\n' : ' ');\n}\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int n;\n    while (cin >> n, n) {\n        solve(n);\n    }\n}"
+    };\n\n/**\n * @brief Dice\n * @docs docs/util/Dice.md\n */\n#line 5 \"test/aoj/ITP1_11_A.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    vector<int>\
+    \ v(6);\n    for (int& x : v) cin >> x;\n    Dice d(v);\n    string S;\n    cin\
+    \ >> S;\n    for (char& c : S) d.rollc(c);\n    cout << d.top() << '\\n';\n  \
+    \  return 0;\n}\n"
+  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/ITP1_11_A\"\n\
+    \n#include \"../../base.hpp\"\n#include \"../../util/Dice.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    vector<int> v(6);\n\
+    \    for (int& x : v) cin >> x;\n    Dice d(v);\n    string S;\n    cin >> S;\n\
+    \    for (char& c : S) d.rollc(c);\n    cout << d.top() << '\\n';\n    return\
+    \ 0;\n}"
   dependsOn:
   - base.hpp
   - util/Dice.hpp
   isVerificationFile: true
-  path: test/aoj/1181.test.cpp
+  path: test/aoj/ITP1_11_A.test.cpp
   requiredBy: []
   timestamp: '2021-10-18 19:33:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/1181.test.cpp
+documentation_of: test/aoj/ITP1_11_A.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/1181.test.cpp
-- /verify/test/aoj/1181.test.cpp.html
-title: test/aoj/1181.test.cpp
+- /verify/test/aoj/ITP1_11_A.test.cpp
+- /verify/test/aoj/ITP1_11_A.test.cpp.html
+title: test/aoj/ITP1_11_A.test.cpp
 ---
