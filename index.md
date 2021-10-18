@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -103,7 +103,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/BipartiteMatching.hpp
       title: Bipartite Matching
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: flow/Dinic.hpp
       title: Dinic (Maximum flow)
     - icon: ':heavy_check_mark:'
@@ -112,7 +112,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/PrimalDualonDAG.hpp
       title: Primal Dual on DAG (allow negative-cost edge)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem
   - name: geometry
@@ -345,7 +345,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/2891.test.cpp
       title: test/aoj/2891.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/2903.test.cpp
       title: test/aoj/2903.test.cpp
     - icon: ':heavy_check_mark:'
