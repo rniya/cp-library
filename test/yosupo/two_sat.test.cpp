@@ -1,31 +1,30 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/two_sat"
 
 #include "../../base.hpp"
-#include "../../graph/StronglyConnectedComponents.hpp"
-#include "../../graph/TwoSatisfiability.hpp"
+#include "../../graph/TwoSAT.hpp"
 
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
     string p, cnf;
-    cin >> p >> cnf;
     int N, M;
-    cin >> N >> M;
+    cin >> p >> cnf >> N >> M;
 
-    TwoSatisfiability TS(N + 1);
+    TwoSAT TS(N + 1);
     for (int i = 0; i < M; i++) {
         int a, b, c;
         cin >> a >> b >> c;
-        TS.add_or((a < 0 ? TS.neg(-a) : a), (b < 0 ? TS.neg(-b) : b));
+        TS.add_clause(abs(a), (a > 0), abs(b), (b > 0));
     }
 
-    vector<int> ans = TS.build();
-    if (ans.empty()) {
+    if (!TS.satisfiable()) {
         cout << "s UNSATISFIABLE" << '\n';
         return 0;
     }
     cout << "s SATISFIABLE" << '\n';
     cout << "v ";
+    auto ans = TS.answer();
     for (int i = 1; i <= N; i++) cout << (ans[i] ? i : -i) << ' ';
     cout << "0\n";
+    return 0;
 }
