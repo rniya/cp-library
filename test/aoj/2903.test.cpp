@@ -30,5 +30,5 @@ int main() {
         }
     }
 
-    cout << ans + PSP.build() << '\n';
+    cout << ans + PSP.solve() << '\n';
 }

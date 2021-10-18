@@ -3,7 +3,7 @@
 #include "Dinic.hpp"
 
 template <typename T> struct ProjectSelectionProblem {
-    ProjectSelectionProblem(int n) : n(n), s(n), t(n + 1), dinic(n + 2) {}
+    ProjectSelectionProblem(int n) : n(n + 2), s(n), t(n + 1), sum(T(0)), dinic(n + 2) {}
 
     void x_false_loss(int x, T z) {
         assert(0 <= x and x < n);
@@ -37,10 +37,6 @@ template <typename T> struct ProjectSelectionProblem {
         assert(0 <= x and x < n);
         assert(0 <= y and y < n);
         dinic.add_edge(y, x, z);
-        int w = dinic.add_vertex();
-        x_false_loss(w, z);
-        x_true_y_false_loss(w, x, inf);
-        x_true_y_false_loss(w, y, inf);
     }
 
     void x_false_y_false_profit(int x, int y, T z) {
@@ -48,6 +44,7 @@ template <typename T> struct ProjectSelectionProblem {
         assert(0 <= y and y < n);
         sum += z;
         int w = dinic.add_vertex();
+        n++;
         x_true_loss(w, z);
         x_false_y_true_loss(w, x, inf);
         x_false_y_true_loss(w, y, inf);
@@ -56,9 +53,15 @@ template <typename T> struct ProjectSelectionProblem {
     void x_true_y_true_profit(int x, int y, T z) {
         assert(0 <= x and x < n);
         assert(0 <= y and y < n);
+        sum += z;
+        int w = dinic.add_vertex();
+        n++;
+        x_false_loss(w, z);
+        x_true_y_false_loss(w, x, inf);
+        x_true_y_false_loss(w, y, inf);
     }
 
-    T solve() {}
+    T solve() { return dinic.max_flow(s, t) - sum; }
 
 private:
     int n, s, t;
@@ -69,5 +72,5 @@ private:
 
 /**
  * @brief Project Selection Problem
- * @docs docs/flow/ProjectSelectionPorblem.md
+ * @docs docs/flow/ProjectSelectionProblem.md
  */

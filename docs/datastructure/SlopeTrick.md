@@ -15,13 +15,6 @@
 | `get_destructive(x)`   | $f$ を破壊する代わりに $f(x)$ を返す.                                                          | $O(N)$                                                                  |
 | `merge_destructive(g)` | $g$ を破壊する代わりに $f(x)$ に $g(x)$ を加算する.                                            | $f, g$ の大きさをそれぞれ $N, M$ として $O(\min(N, M) \log \max(N, M))$ |
 
-## 計算量
-- `query(), add_all()` : $O(1)$
-- `add_x_minus_a(a), add_a_minus_x(a), add_abs(a)` : $O(\log Q)$
-- `cumulative_min_left(), cumulative_min_right()` : $O(Q)$
-- `shift(a, b), shift(a)` : $O(1)$
-- `get(x)` : $O(Q)$
-
 ## 問題例
 - [AtCoder Beginner Contest 217 H- Snuketoon](https://atcoder.jp/contests/abc217/tasks/abc217_h)
 - [Codeforces LATOKEN Round 1 (Div. 1 + Div. 2) G. A New Beginning](https://codeforces.com/contest/1534/problem/G)
