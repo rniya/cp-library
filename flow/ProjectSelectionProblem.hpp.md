@@ -1,98 +1,34 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: flow/Dinic.hpp
     title: Dinic (Maximum flow)
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/atcoder/arc085_c.cpp
-    title: test/atcoder/arc085_c.cpp
-  - icon: ':warning:'
-    path: test/codeforces/1404_E.cpp
-    title: test/codeforces/1404_E.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/2903.test.cpp
     title: test/aoj/2903.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    _deprecated_at_docs: docs/flow/ProjectSelectionProblem.md
+    _deprecated_at_docs: docs/flow/ProjectSelectionPorblem.md
     document_title: Project Selection Problem
     links: []
-  bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
-    #pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef\
-    \ unsigned int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(),\
-    \ (x).end()\n\ntemplate <typename T> istream& operator>>(istream& is, vector<T>&\
-    \ v) {\n    for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T>\
-    \ ostream& operator<<(ostream& os, const vector<T>& v) {\n    for (int i = 0;\
-    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
-    \" : \" \");\n    }\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const pair<T, U>& p) {\n    os << '(' << p.first <<\
-    \ ',' << p.second << ')';\n    return os;\n}\ntemplate <typename T, typename U>\
-    \ ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os << '{';\n   \
-    \ for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
-    \ operator<<(ostream& os, const unordered_map<T, U>& m) {\n    os << '{';\n  \
-    \  for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
-    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
-    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
-    \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
-    \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const multiset<T>& s) {\n    os << '{';\n    for (auto itr = s.begin();\
-    \ itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os <<\
-    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
-    \ operator<<(ostream& os, const unordered_set<T>& s) {\n    os << '{';\n    for\
-    \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
-    \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
-    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
-    \" : \" \");\n    }\n    return os;\n}\n\ntemplate <int i, typename T> void print_tuple(ostream&,\
-    \ const T&) {}\ntemplate <int i, typename T, typename H, class... Args> void print_tuple(ostream&\
-    \ os, const T& t) {\n    if (i) os << ',';\n    os << get<i>(t);\n    print_tuple<i\
-    \ + 1, T, Args...>(os, t);\n}\ntemplate <typename... Args> ostream& operator<<(ostream&\
-    \ os, const tuple<Args...>& t) {\n    os << '{';\n    print_tuple<0, tuple<Args...>,\
-    \ Args...>(os, t);\n    return os << '}';\n}\n\nvoid debug_out() { cerr << '\\\
-    n'; }\ntemplate <class Head, class... Tail> void debug_out(Head&& head, Tail&&...\
-    \ tail) {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n \
-    \   debug_out(move(tail)...);\n}\n#ifdef LOCAL\n#define debug(...)           \
-    \                                                        \\\n    cerr << \" \"\
-    ;                                                                     \\\n   \
-    \ cerr << #__VA_ARGS__ << \" :[\" << __LINE__ << \":\" << __FUNCTION__ << \"]\"\
-    \ << '\\n'; \\\n    cerr << \" \";                                           \
-    \                          \\\n    debug_out(__VA_ARGS__)\n#else\n#define debug(...)\
-    \ 42\n#endif\n\ntemplate <typename T> T gcd(T x, T y) { return y != 0 ? gcd(y,\
-    \ x % y) : x; }\ntemplate <typename T> T lcm(T x, T y) { return x / gcd(x, y)\
-    \ * y; }\n\nint topbit(signed t) { return t == 0 ? -1 : 31 - __builtin_clz(t);\
-    \ }\nint topbit(long long t) { return t == 0 ? -1 : 63 - __builtin_clzll(t); }\n\
-    int botbit(signed a) { return a == 0 ? 32 : __builtin_ctz(a); }\nint botbit(long\
-    \ long a) { return a == 0 ? 64 : __builtin_ctzll(a); }\nint popcount(signed t)\
-    \ { return __builtin_popcount(t); }\nint popcount(long long t) { return __builtin_popcountll(t);\
-    \ }\nbool ispow2(int i) { return i && (i & -i) == i; }\n\ntemplate <class T> T\
-    \ ceil(T x, T y) {\n    assert(y >= 1);\n    return (x > 0 ? (x + y - 1) / y :\
-    \ x / y);\n}\ntemplate <class T> T floor(T x, T y) {\n    assert(y >= 1);\n  \
-    \  return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\ntemplate <class T1, class T2>\
-    \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
-    \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
-    \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 6 \"flow/Dinic.hpp\"\
-    \n\ntemplate <typename Cap, bool directed> struct Dinic {\n    Dinic(int n) :\
-    \ n(n), G(n), level(n), iter(n) {}\n\n    int add_edge(int from, int to, Cap cap)\
-    \ {\n        assert(0 <= from && from < n);\n        assert(0 <= to && to < n);\n\
-    \        assert(0 <= cap);\n        assert(from != to);\n        int m = pos.size(),\
-    \ from_id = G[from].size(), to_id = G[to].size();\n        pos.emplace_back(from,\
-    \ G[from].size());\n        G[from].emplace_back(to, cap, to_id);\n        G[to].emplace_back(from,\
-    \ directed ? 0 : cap, from_id);\n        return m;\n    }\n\n    int add_vertex()\
-    \ {\n        G.emplace_back();\n        level.emplace_back();\n        iter.emplace_back();\n\
-    \        return n++;\n    }\n\n    std::tuple<int, int, Cap, Cap> get_edge(int\
-    \ i) {\n        assert(0 <= i && i < (int)pos.size());\n        auto e = G[pos[i].first][pos[i].second];\n\
+  bundledCode: "#line 2 \"flow/ProjectSelectionProblem.hpp\"\n#include <limits>\n\
+    #line 2 \"flow/Dinic.hpp\"\n#include <cassert>\n#line 4 \"flow/Dinic.hpp\"\n#include\
+    \ <queue>\n#include <vector>\n\ntemplate <typename Cap, bool directed> struct\
+    \ Dinic {\n    Dinic(int n) : n(n), G(n), level(n), iter(n) {}\n\n    int add_edge(int\
+    \ from, int to, Cap cap) {\n        assert(0 <= from && from < n);\n        assert(0\
+    \ <= to && to < n);\n        assert(0 <= cap);\n        assert(from != to);\n\
+    \        int m = pos.size(), from_id = G[from].size(), to_id = G[to].size();\n\
+    \        pos.emplace_back(from, G[from].size());\n        G[from].emplace_back(to,\
+    \ cap, to_id);\n        G[to].emplace_back(from, directed ? 0 : cap, from_id);\n\
+    \        return m;\n    }\n\n    int add_vertex() {\n        G.emplace_back();\n\
+    \        level.emplace_back();\n        iter.emplace_back();\n        return n++;\n\
+    \    }\n\n    std::tuple<int, int, Cap, Cap> get_edge(int i) {\n        assert(0\
+    \ <= i && i < (int)pos.size());\n        auto e = G[pos[i].first][pos[i].second];\n\
     \        auto re = G[e.to][e.rev];\n        return {pos[i].first, e.to, e.cap\
     \ + re.cap, re.cap};\n    }\n\n    std::vector<std::tuple<int, int, Cap, Cap>>\
     \ edges() {\n        std::vector<std::tuple<int, int, Cap, Cap>> res;\n      \
@@ -133,49 +69,60 @@ data:
     \ min(f, e.cap));\n            if (d <= 0) continue;\n            e.cap -= d;\n\
     \            G[e.to][e.rev].cap += d;\n            return d;\n        }\n    \
     \    return 0;\n    }\n};\n\n/**\n * @brief Dinic (Maximum flow)\n * @docs docs/flow/Dinic.md\n\
-    \ */\n#line 4 \"flow/ProjectSelectionProblem.hpp\"\n\n/**\n * @brief Project Selection\
-    \ Problem\n * @docs docs/flow/ProjectSelectionProblem.md\n */\ntemplate <typename\
-    \ T> struct ProjectSelectionProblem {\n    int s, t;\n    T sum = 0;\n    const\
-    \ T inf = numeric_limits<T>::max() / 2;\n    Dinic<T, true> D;\n    ProjectSelectionProblem(int\
-    \ n) : s(n), t(n + 1), D(n + 2) {}\n    void x_false_loss(int x, T z) { D.add_edge(x,\
-    \ t, z); }\n    void x_false_profit(int x, T z) {\n        sum += z;\n       \
-    \ x_true_loss(x, z);\n    }\n    void x_true_loss(int x, T z) { D.add_edge(s,\
-    \ x, z); }\n    void x_true_profit(int x, T z) {\n        sum += z;\n        x_false_loss(x,\
-    \ z);\n    }\n    void x_false_y_true_loss(int x, int y, T z) { D.add_edge(x,\
-    \ y, z); }\n    void x_true_y_false_loss(int x, int y, T z) { D.add_edge(y, x,\
-    \ z); }\n    void x_true_y_true_profit(int x, int y, T z) {\n        sum += z;\n\
-    \        int w = D.add_vertex();\n        x_false_loss(w, z);\n        x_true_y_false_loss(w,\
-    \ x, inf);\n        x_true_y_false_loss(w, y, inf);\n    }\n    void x_false_y_false_profit(int\
-    \ x, int y, T z) {\n        sum += z;\n        int w = D.add_vertex();\n     \
-    \   x_true_loss(w, z);\n        x_false_y_true_loss(w, x, inf);\n        x_false_y_true_loss(w,\
-    \ y, inf);\n    }\n    T build() { return D.max_flow(s, t) - sum; }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n#include \"Dinic.hpp\"\n\n/**\n *\
-    \ @brief Project Selection Problem\n * @docs docs/flow/ProjectSelectionProblem.md\n\
-    \ */\ntemplate <typename T> struct ProjectSelectionProblem {\n    int s, t;\n\
-    \    T sum = 0;\n    const T inf = numeric_limits<T>::max() / 2;\n    Dinic<T,\
-    \ true> D;\n    ProjectSelectionProblem(int n) : s(n), t(n + 1), D(n + 2) {}\n\
-    \    void x_false_loss(int x, T z) { D.add_edge(x, t, z); }\n    void x_false_profit(int\
-    \ x, T z) {\n        sum += z;\n        x_true_loss(x, z);\n    }\n    void x_true_loss(int\
-    \ x, T z) { D.add_edge(s, x, z); }\n    void x_true_profit(int x, T z) {\n   \
-    \     sum += z;\n        x_false_loss(x, z);\n    }\n    void x_false_y_true_loss(int\
-    \ x, int y, T z) { D.add_edge(x, y, z); }\n    void x_true_y_false_loss(int x,\
-    \ int y, T z) { D.add_edge(y, x, z); }\n    void x_true_y_true_profit(int x, int\
-    \ y, T z) {\n        sum += z;\n        int w = D.add_vertex();\n        x_false_loss(w,\
-    \ z);\n        x_true_y_false_loss(w, x, inf);\n        x_true_y_false_loss(w,\
-    \ y, inf);\n    }\n    void x_false_y_false_profit(int x, int y, T z) {\n    \
-    \    sum += z;\n        int w = D.add_vertex();\n        x_true_loss(w, z);\n\
-    \        x_false_y_true_loss(w, x, inf);\n        x_false_y_true_loss(w, y, inf);\n\
-    \    }\n    T build() { return D.max_flow(s, t) - sum; }\n};"
+    \ */\n#line 4 \"flow/ProjectSelectionProblem.hpp\"\n\ntemplate <typename T> struct\
+    \ ProjectSelectionProblem {\n    ProjectSelectionProblem(int n) : n(n), s(n),\
+    \ t(n + 1), dinic(n + 2) {}\n\n    void x_false_loss(int x, T z) {\n        assert(0\
+    \ <= x and x < n);\n        dinic.add_edge(x, t, z);\n    }\n\n    void x_false_profit(int\
+    \ x, T z) {\n        assert(0 <= x and x < n);\n        sum += z;\n        x_true_loss(x,\
+    \ z);\n    }\n\n    void x_true_loss(int x, T z) {\n        assert(0 <= x and\
+    \ x < n);\n        dinic.add_edge(s, x, z);\n    }\n\n    void x_true_profit(int\
+    \ x, T z) {\n        assert(0 <= x and x < n);\n        sum += z;\n        x_false_loss(x,\
+    \ z);\n    }\n\n    void x_false_y_true_loss(int x, int y, T z) {\n        assert(0\
+    \ <= x and x < n);\n        assert(0 <= y and y < n);\n        dinic.add_edge(x,\
+    \ y, z);\n    }\n\n    void x_true_y_false_loss(int x, int y, T z) {\n       \
+    \ assert(0 <= x and x < n);\n        assert(0 <= y and y < n);\n        dinic.add_edge(y,\
+    \ x, z);\n        int w = dinic.add_vertex();\n        x_false_loss(w, z);\n \
+    \       x_true_y_false_loss(w, x, inf);\n        x_true_y_false_loss(w, y, inf);\n\
+    \    }\n\n    void x_false_y_false_profit(int x, int y, T z) {\n        assert(0\
+    \ <= x and x < n);\n        assert(0 <= y and y < n);\n        sum += z;\n   \
+    \     int w = dinic.add_vertex();\n        x_true_loss(w, z);\n        x_false_y_true_loss(w,\
+    \ x, inf);\n        x_false_y_true_loss(w, y, inf);\n    }\n\n    void x_true_y_true_profit(int\
+    \ x, int y, T z) {\n        assert(0 <= x and x < n);\n        assert(0 <= y and\
+    \ y < n);\n    }\n\n    T solve() {}\n\nprivate:\n    int n, s, t;\n    T sum;\n\
+    \    const T inf = std::numeric_limits<T>::max() / 2;\n    Dinic<T, true> dinic;\n\
+    };\n\n/**\n * @brief Project Selection Problem\n * @docs docs/flow/ProjectSelectionPorblem.md\n\
+    \ */\n"
+  code: "#pragma once\n#include <limits>\n#include \"Dinic.hpp\"\n\ntemplate <typename\
+    \ T> struct ProjectSelectionProblem {\n    ProjectSelectionProblem(int n) : n(n),\
+    \ s(n), t(n + 1), dinic(n + 2) {}\n\n    void x_false_loss(int x, T z) {\n   \
+    \     assert(0 <= x and x < n);\n        dinic.add_edge(x, t, z);\n    }\n\n \
+    \   void x_false_profit(int x, T z) {\n        assert(0 <= x and x < n);\n   \
+    \     sum += z;\n        x_true_loss(x, z);\n    }\n\n    void x_true_loss(int\
+    \ x, T z) {\n        assert(0 <= x and x < n);\n        dinic.add_edge(s, x, z);\n\
+    \    }\n\n    void x_true_profit(int x, T z) {\n        assert(0 <= x and x <\
+    \ n);\n        sum += z;\n        x_false_loss(x, z);\n    }\n\n    void x_false_y_true_loss(int\
+    \ x, int y, T z) {\n        assert(0 <= x and x < n);\n        assert(0 <= y and\
+    \ y < n);\n        dinic.add_edge(x, y, z);\n    }\n\n    void x_true_y_false_loss(int\
+    \ x, int y, T z) {\n        assert(0 <= x and x < n);\n        assert(0 <= y and\
+    \ y < n);\n        dinic.add_edge(y, x, z);\n        int w = dinic.add_vertex();\n\
+    \        x_false_loss(w, z);\n        x_true_y_false_loss(w, x, inf);\n      \
+    \  x_true_y_false_loss(w, y, inf);\n    }\n\n    void x_false_y_false_profit(int\
+    \ x, int y, T z) {\n        assert(0 <= x and x < n);\n        assert(0 <= y and\
+    \ y < n);\n        sum += z;\n        int w = dinic.add_vertex();\n        x_true_loss(w,\
+    \ z);\n        x_false_y_true_loss(w, x, inf);\n        x_false_y_true_loss(w,\
+    \ y, inf);\n    }\n\n    void x_true_y_true_profit(int x, int y, T z) {\n    \
+    \    assert(0 <= x and x < n);\n        assert(0 <= y and y < n);\n    }\n\n \
+    \   T solve() {}\n\nprivate:\n    int n, s, t;\n    T sum;\n    const T inf =\
+    \ std::numeric_limits<T>::max() / 2;\n    Dinic<T, true> dinic;\n};\n\n/**\n *\
+    \ @brief Project Selection Problem\n * @docs docs/flow/ProjectSelectionPorblem.md\n\
+    \ */\n"
   dependsOn:
-  - base.hpp
   - flow/Dinic.hpp
   isVerificationFile: false
   path: flow/ProjectSelectionProblem.hpp
-  requiredBy:
-  - test/codeforces/1404_E.cpp
-  - test/atcoder/arc085_c.cpp
-  timestamp: '2021-10-17 17:14:51+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  requiredBy: []
+  timestamp: '2021-10-18 22:54:27+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/2903.test.cpp
 documentation_of: flow/ProjectSelectionProblem.hpp
@@ -185,28 +132,3 @@ redirect_from:
 - /library/flow/ProjectSelectionProblem.hpp.html
 title: Project Selection Problem
 ---
-## 概要
-Project Selection Problem, いわゆる燃やす埋める問題を解く際の補助ライブラリ.
-- `x_false_loss(x, z)`：$x$が$0$のときに$z$失う
-- `x_false_profit(x, z)`：$x$が$0$のときに$z$得る
-- `x_true_loss(x, z)`：$x$が$1$のときに$z$失う
-- `x_true_profit(x, z)`：$x$が$1$のときに$z$得る
-- `x_false_y_true_loss(x, y, z)`：$x$が$0$かつ$y$が$1$のときに$z$失う
-- `x_true_y_false_loss(x, y, z)`：$x$が$1$かつ$y$が$0$のときに$z$失う
-- `x_true_y_true_profit(x, y, z)`：$x$が$1$かつ$y$が$1$のときに$z$得る
-- `x_false_y_false_profit(x, y, z)`：$x$が$0$かつ$y$が$0$のときに$z$得る
-
-といった条件に対応している. 一般にこれ以外の条件に対応する際には$2$部グラフなどの制約が必要になる.
-
-## 計算量
-$O(EV^2)$だが, 概ねこれより高速に動作する.
-
-## 問題例
-- [ARC107 F Sum of Abs](https://atcoder.jp/contests/arc107/tasks/arc107_f)
-  - 絶対値については, 各頂点に対して$0$(削除), $+1$(連結成分内での$B_i$の合計が正), $-1$(連結成分内での$B_i$の合計が正負)として, 各連結成分内に$+1$と$-1$が割り当てられた頂点が混在することがないようにすれば問題ない. これは$3$つのうちどれかに割り当てる問題になるが, 各頂点に対して$+1$か$+1$以外, $-1$以外か$-1$という2つの選択肢の直積として表現することで解くことができる. ([参照](http://tokoharuland.hateblo.jp/entry/2017/11/13/220607))
-
-## 参照
-- [最小カットを使って「燃やす埋める問題」を解く](https://www.slideshare.net/shindannin/project-selection-problem)
-- [最小カットについて - よすぽの日記](https://yosupo.hatenablog.com/entry/2015/03/31/134336)
-- [Project Selection (燃やす埋める) 周りの話についてもう少し考えた - とこはるのまとめ](http://tokoharuland.hateblo.jp/entry/2017/12/25/000003)
-- [続：『燃やす埋める』と『ProjectSelectionProblem』 - とこはるのまとめ](http://tokoharuland.hateblo.jp/entry/2017/11/13/220607)

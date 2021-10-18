@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: graph/StronglyConnectedComponents.hpp
     title: Strongly Connected Components
   - icon: ':heavy_check_mark:'
-    path: graph/TwoSatisfiability.hpp
+    path: graph/TwoSAT.hpp
     title: 2-SAT
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -105,45 +105,52 @@ data:
     \   visited.pop_back();\n                comp[u] = group_num;\n              \
     \  if (u == v) break;\n            }\n            group_num++;\n        }\n  \
     \  }\n};\n\n/**\n * @brief Strongly Connected Components\n * @docs docs/graph/StronglyConnectedComponents.md\n\
-    \ */\n#line 4 \"graph/TwoSatisfiability.hpp\"\n\n/**\n * @brief 2-SAT\n * @docs\
-    \ docs/graph/TwoSatisfiability.md\n */\nstruct TwoSatisfiability {\n    int n;\n\
-    \    StronglyConnectedComponents SCC;\n    TwoSatisfiability(int n) : n(n), SCC(n\
-    \ * 2) {}\n    int neg(int v) { return (n + v) % (n * 2); }\n    void add_if(int\
-    \ u, int v) {\n        SCC.add_edge(u, v);\n        SCC.add_edge(neg(v), neg(u));\n\
-    \    }\n    void add_or(int u, int v) { add_if(neg(u), v); }\n    void add_nand(int\
-    \ u, int v) { add_if(u, neg(v)); }\n    void set_true(int v) { SCC.add_edge(neg(v),\
-    \ v); }\n    void set_false(int v) { SCC.add_edge(v, neg(v)); }\n    vector<int>\
-    \ build() {\n        SCC.build();\n        vector<int> res(n);\n        for (int\
-    \ i = 0; i < n; i++) {\n            if (SCC[i] == SCC[n + i]) return {};\n   \
-    \         res[i] = SCC[i] > SCC[n + i];\n        }\n        return res;\n    }\n\
-    };\n#line 6 \"test/yosupo/two_sat.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    string p, cnf;\n    cin >> p >> cnf;\n\
-    \    int N, M;\n    cin >> N >> M;\n\n    TwoSatisfiability TS(N + 1);\n    for\
-    \ (int i = 0; i < M; i++) {\n        int a, b, c;\n        cin >> a >> b >> c;\n\
-    \        TS.add_or((a < 0 ? TS.neg(-a) : a), (b < 0 ? TS.neg(-b) : b));\n    }\n\
-    \n    vector<int> ans = TS.build();\n    if (ans.empty()) {\n        cout << \"\
-    s UNSATISFIABLE\" << '\\n';\n        return 0;\n    }\n    cout << \"s SATISFIABLE\"\
-    \ << '\\n';\n    cout << \"v \";\n    for (int i = 1; i <= N; i++) cout << (ans[i]\
-    \ ? i : -i) << ' ';\n    cout << \"0\\n\";\n}\n"
+    \ */\n#line 5 \"graph/TwoSAT.hpp\"\n\nstruct TwoSAT {\n    TwoSAT(int n) : n(n),\
+    \ called_satisfiable(false), ans(n), scc(2 * n) {}\n\n    // (i = f or j = g)\n\
+    \    void add_clause(int i, bool f, int j, bool g) {\n        assert(0 <= i and\
+    \ i < n);\n        assert(0 <= j and j < n);\n        scc.add_edge(i << 1 | (f\
+    \ ? 0 : 1), j << 1 | (g ? 1 : 0));\n        scc.add_edge(j << 1 | (g ? 0 : 1),\
+    \ i << 1 | (f ? 1 : 0));\n    }\n\n    // (i = f) -> (j = g) <=> (i = !f) or (j\
+    \ = g)\n    void add_if(int i, bool f, int j, bool g) {\n        assert(0 <= i\
+    \ and i < n);\n        assert(0 <= j and j < n);\n        add_clause(i, f ^ 1,\
+    \ j, g);\n    }\n\n    // i <=> !i -> i\n    void set_true(int i) {\n        assert(0\
+    \ <= i and i < n);\n        scc.add_edge(i << 1 | 1, i << 1 | 0);\n    }\n\n \
+    \   // !i <=> i -> !i\n    void set_false(int i) {\n        assert(0 <= i and\
+    \ i < n);\n        scc.add_edge(i << 1 | 0, i << 1 | 1);\n    }\n\n    bool satisfiable()\
+    \ {\n        called_satisfiable = true;\n        scc.build();\n        for (int\
+    \ i = 0; i < n; i++) {\n            if (scc[i << 1] == scc[i << 1 | 1]) return\
+    \ false;\n            ans[i] = (scc[i << 1] < scc[i << 1 | 1]);\n        }\n \
+    \       return true;\n    }\n\n    std::vector<bool> answer() const {\n      \
+    \  assert(called_satisfiable);\n        return ans;\n    }\n\nprivate:\n    int\
+    \ n;\n    bool called_satisfiable;\n    std::vector<bool> ans;\n    StronglyConnectedComponents\
+    \ scc;\n};\n\n/**\n * @brief 2-SAT\n * @docs docs/graph/TwoSAT.md\n */\n#line\
+    \ 5 \"test/yosupo/two_sat.test.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    string p, cnf;\n    int N, M;\n    cin >> p >> cnf >> N >> M;\n\n    TwoSAT\
+    \ TS(N + 1);\n    for (int i = 0; i < M; i++) {\n        int a, b, c;\n      \
+    \  cin >> a >> b >> c;\n        TS.add_clause(abs(a), (a > 0), abs(b), (b > 0));\n\
+    \    }\n\n    if (!TS.satisfiable()) {\n        cout << \"s UNSATISFIABLE\" <<\
+    \ '\\n';\n        return 0;\n    }\n    cout << \"s SATISFIABLE\" << '\\n';\n\
+    \    cout << \"v \";\n    auto ans = TS.answer();\n    for (int i = 1; i <= N;\
+    \ i++) cout << (ans[i] ? i : -i) << ' ';\n    cout << \"0\\n\";\n    return 0;\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/two_sat\"\n\n#include \"\
-    ../../base.hpp\"\n#include \"../../graph/StronglyConnectedComponents.hpp\"\n#include\
-    \ \"../../graph/TwoSatisfiability.hpp\"\n\nint main() {\n    cin.tie(0);\n   \
-    \ ios::sync_with_stdio(false);\n    string p, cnf;\n    cin >> p >> cnf;\n   \
-    \ int N, M;\n    cin >> N >> M;\n\n    TwoSatisfiability TS(N + 1);\n    for (int\
-    \ i = 0; i < M; i++) {\n        int a, b, c;\n        cin >> a >> b >> c;\n  \
-    \      TS.add_or((a < 0 ? TS.neg(-a) : a), (b < 0 ? TS.neg(-b) : b));\n    }\n\
-    \n    vector<int> ans = TS.build();\n    if (ans.empty()) {\n        cout << \"\
-    s UNSATISFIABLE\" << '\\n';\n        return 0;\n    }\n    cout << \"s SATISFIABLE\"\
-    \ << '\\n';\n    cout << \"v \";\n    for (int i = 1; i <= N; i++) cout << (ans[i]\
-    \ ? i : -i) << ' ';\n    cout << \"0\\n\";\n}"
+    ../../base.hpp\"\n#include \"../../graph/TwoSAT.hpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    string p, cnf;\n    int N, M;\n    cin\
+    \ >> p >> cnf >> N >> M;\n\n    TwoSAT TS(N + 1);\n    for (int i = 0; i < M;\
+    \ i++) {\n        int a, b, c;\n        cin >> a >> b >> c;\n        TS.add_clause(abs(a),\
+    \ (a > 0), abs(b), (b > 0));\n    }\n\n    if (!TS.satisfiable()) {\n        cout\
+    \ << \"s UNSATISFIABLE\" << '\\n';\n        return 0;\n    }\n    cout << \"s\
+    \ SATISFIABLE\" << '\\n';\n    cout << \"v \";\n    auto ans = TS.answer();\n\
+    \    for (int i = 1; i <= N; i++) cout << (ans[i] ? i : -i) << ' ';\n    cout\
+    \ << \"0\\n\";\n    return 0;\n}"
   dependsOn:
   - base.hpp
+  - graph/TwoSAT.hpp
   - graph/StronglyConnectedComponents.hpp
-  - graph/TwoSatisfiability.hpp
   isVerificationFile: true
   path: test/yosupo/two_sat.test.cpp
   requiredBy: []
-  timestamp: '2021-09-22 03:05:43+09:00'
+  timestamp: '2021-10-18 22:54:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/two_sat.test.cpp

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: graph/TwoSatisfiability.hpp
+    path: graph/TwoSAT.hpp
     title: 2-SAT
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -83,7 +83,7 @@ data:
   isVerificationFile: false
   path: graph/StronglyConnectedComponents.hpp
   requiredBy:
-  - graph/TwoSatisfiability.hpp
+  - graph/TwoSAT.hpp
   timestamp: '2021-09-22 03:05:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

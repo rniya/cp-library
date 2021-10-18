@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -103,7 +103,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/BipartiteMatching.hpp
       title: Bipartite Matching
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: flow/Dinic.hpp
       title: Dinic (Maximum flow)
     - icon: ':heavy_check_mark:'
@@ -112,7 +112,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/PrimalDualonDAG.hpp
       title: Primal Dual on DAG (allow negative-cost edge)
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem
   - name: geometry
@@ -160,7 +160,7 @@ data:
       path: graph/TopologicalSort.hpp
       title: Topological Sort
     - icon: ':heavy_check_mark:'
-      path: graph/TwoSatisfiability.hpp
+      path: graph/TwoSAT.hpp
       title: 2-SAT
     - icon: ':heavy_check_mark:'
       path: graph/WarshallFloyd.hpp
@@ -282,12 +282,6 @@ data:
       path: test/atcoder/abc137_e.cpp
       title: test/atcoder/abc137_e.cpp
     - icon: ':warning:'
-      path: test/atcoder/arc039_d.cpp
-      title: test/atcoder/arc039_d.cpp
-    - icon: ':warning:'
-      path: test/atcoder/arc085_c.cpp
-      title: test/atcoder/arc085_c.cpp
-    - icon: ':warning:'
       path: test/atcoder/nikkei2019_2_qual_d.cpp
       title: test/atcoder/nikkei2019_2_qual_d.cpp
     - icon: ':warning:'
@@ -296,14 +290,6 @@ data:
     - icon: ':warning:'
       path: test/atcoder/ukuku09_d.cpp
       title: test/atcoder/ukuku09_d.cpp
-  - name: test/codeforces
-    pages:
-    - icon: ':warning:'
-      path: test/codeforces/1404_E.cpp
-      title: test/codeforces/1404_E.cpp
-    - icon: ':warning:'
-      path: test/codeforces/1444_C.cpp
-      title: test/codeforces/1444_C.cpp
   - name: tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -359,7 +345,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/2891.test.cpp
       title: test/aoj/2891.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/2903.test.cpp
       title: test/aoj/2903.test.cpp
     - icon: ':heavy_check_mark:'

@@ -36,9 +36,6 @@ data:
     path: datastructure/SparseTable.hpp
     title: Sparse table
   - icon: ':heavy_check_mark:'
-    path: flow/ProjectSelectionProblem.hpp
-    title: Project Selection Problem
-  - icon: ':heavy_check_mark:'
     path: graph/BellmanFord.hpp
     title: Bellman Ford
   - icon: ':heavy_check_mark:'
@@ -50,9 +47,6 @@ data:
   - icon: ':warning:'
     path: graph/RangeEdgeGraph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
-  - icon: ':heavy_check_mark:'
-    path: graph/TwoSatisfiability.hpp
-    title: 2-SAT
   - icon: ':heavy_check_mark:'
     path: graph/WarshallFloyd.hpp
     title: Warshall Floyd
@@ -112,9 +106,6 @@ data:
     path: test/atcoder/abc137_e.cpp
     title: test/atcoder/abc137_e.cpp
   - icon: ':warning:'
-    path: test/atcoder/arc085_c.cpp
-    title: test/atcoder/arc085_c.cpp
-  - icon: ':warning:'
     path: test/atcoder/nikkei2019_2_qual_d.cpp
     title: test/atcoder/nikkei2019_2_qual_d.cpp
   - icon: ':warning:'
@@ -123,9 +114,6 @@ data:
   - icon: ':warning:'
     path: test/atcoder/ukuku09_d.cpp
     title: test/atcoder/ukuku09_d.cpp
-  - icon: ':warning:'
-    path: test/codeforces/1404_E.cpp
-    title: test/codeforces/1404_E.cpp
   - icon: ':heavy_check_mark:'
     path: tree/LowestCommonAncestor.hpp
     title: Lowest Common Ancestor
@@ -160,7 +148,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2891.test.cpp
     title: test/aoj/2891.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/2903.test.cpp
     title: test/aoj/2903.test.cpp
   - icon: ':heavy_check_mark:'
@@ -592,9 +580,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -743,14 +731,10 @@ data:
   - graph/CycleDetection.hpp
   - graph/RangeEdgeGraph.hpp
   - graph/BellmanFord.hpp
-  - graph/TwoSatisfiability.hpp
   - graph/WarshallFloyd.hpp
   - graph/Dijkstra.hpp
-  - flow/ProjectSelectionProblem.hpp
   - linearalgebra/Kitamasa.hpp
-  - test/codeforces/1404_E.cpp
   - test/atcoder/nikkei2019_2_qual_d.cpp
-  - test/atcoder/arc085_c.cpp
   - test/atcoder/abc061_d.cpp
   - test/atcoder/tdpc_fibonacci.cpp
   - test/atcoder/ukuku09_d.cpp
@@ -765,7 +749,7 @@ data:
   - util/gray_code.hpp
   - util/ZobristHash.hpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1269.test.cpp
   - test/yukicoder/952.test.cpp
