@@ -28,7 +28,7 @@ void solve(int n) {
                 }
             }
             if (nxt < 0) break;
-            d.roll(S[nxt]);
+            d.rollc(S[nxt]);
             --cnt[x][y];
             x += dx[nxt];
             y += dy[nxt];
