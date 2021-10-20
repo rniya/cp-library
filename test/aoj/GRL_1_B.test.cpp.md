@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/BellmanFord.hpp
     title: Bellman-Ford
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_B
@@ -85,18 +85,20 @@ data:
     \ + e.cost < d[e.to]) {\n                    d[e.to] = d[e.from] + e.cost;\n \
     \                   updated = 1;\n                }\n            }\n         \
     \   if (!updated) return true;\n            if (i == n - 1) return false;\n  \
-    \      }\n    }\n\n    std::vector<T> solve(int s) {\n        fill(d.begin(),\
-    \ d.end(), inf);\n        d[s] = 0;\n        for (int i = 0, updated = 1; i <\
-    \ n and std::exchange(updated, 0); i++) {\n            for (auto& e : es) {\n\
-    \                if (d[e.from] + e.cost < d[e.to]) {\n                    d[e.to]\
-    \ = d[e.from] + e.cost;\n                    updated = 1;\n                }\n\
-    \            }\n            if (!updated) return d;\n            if (i == n -\
-    \ 1) return {};\n        }\n    }\n\n    std::vector<T> shortest_path(int s, int\
-    \ t) {\n        fill(d.begin(), d.end(), inf);\n        d[s] = 0;\n        for\
-    \ (int i = 0; i < 2 * n - 1; i++) {\n            for (auto& e : es) {\n      \
-    \          if (d[e.from] + e.cost < d[e.to]) {\n                    d[e.to] =\
-    \ d[e.from] + e.cost;\n                    if (i >= n - 1) {\n               \
-    \         if (e.to == t) return {};\n                        d[e.to] = -inf;\n\
+    \      }\n    }\n\n    std::vector<T> solve(int s) {\n        assert(0 <= s and\
+    \ s < n);\n        fill(d.begin(), d.end(), inf);\n        d[s] = 0;\n       \
+    \ for (int i = 0, updated = 1; i < n and std::exchange(updated, 0); i++) {\n \
+    \           for (auto& e : es) {\n                if (d[e.from] != inf and d[e.from]\
+    \ + e.cost < d[e.to]) {\n                    d[e.to] = d[e.from] + e.cost;\n \
+    \                   updated = 1;\n                }\n            }\n         \
+    \   if (!updated) break;\n            if (i == n - 1) return {};\n        }\n\
+    \        return d;\n    }\n\n    std::vector<T> shortest_path(int s, int t) {\n\
+    \        assert(0 <= s and s < n);\n        assert(0 <= t and t < n);\n      \
+    \  fill(d.begin(), d.end(), inf);\n        d[s] = 0;\n        for (int i = 0;\
+    \ i < 2 * n - 1; i++) {\n            for (auto& e : es) {\n                if\
+    \ (d[e.from] != inf and d[e.from] + e.cost < d[e.to]) {\n                    d[e.to]\
+    \ = d[e.from] + e.cost;\n                    if (i >= n - 1) {\n             \
+    \           if (e.to == t) return {};\n                        d[e.to] = -inf;\n\
     \                    }\n                }\n            }\n        }\n        return\
     \ d;\n    }\n\nprivate:\n    struct edge {\n        int from, to;\n        T cost;\n\
     \        edge(int from, int to, T cost) : from(from), to(to), cost(cost) {}\n\
@@ -127,8 +129,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-10-20 18:28:56+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-10-20 18:48:33+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_1_B.test.cpp
 layout: document

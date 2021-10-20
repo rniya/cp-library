@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_1_B.test.cpp
     title: test/aoj/GRL_1_B.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/BellmanFord.md
     document_title: Bellman-Ford
@@ -24,21 +24,23 @@ data:
     \                    d[e.to] = d[e.from] + e.cost;\n                    updated\
     \ = 1;\n                }\n            }\n            if (!updated) return true;\n\
     \            if (i == n - 1) return false;\n        }\n    }\n\n    std::vector<T>\
-    \ solve(int s) {\n        fill(d.begin(), d.end(), inf);\n        d[s] = 0;\n\
-    \        for (int i = 0, updated = 1; i < n and std::exchange(updated, 0); i++)\
-    \ {\n            for (auto& e : es) {\n                if (d[e.from] + e.cost\
-    \ < d[e.to]) {\n                    d[e.to] = d[e.from] + e.cost;\n          \
-    \          updated = 1;\n                }\n            }\n            if (!updated)\
-    \ return d;\n            if (i == n - 1) return {};\n        }\n    }\n\n    std::vector<T>\
-    \ shortest_path(int s, int t) {\n        fill(d.begin(), d.end(), inf);\n    \
-    \    d[s] = 0;\n        for (int i = 0; i < 2 * n - 1; i++) {\n            for\
-    \ (auto& e : es) {\n                if (d[e.from] + e.cost < d[e.to]) {\n    \
-    \                d[e.to] = d[e.from] + e.cost;\n                    if (i >= n\
-    \ - 1) {\n                        if (e.to == t) return {};\n                \
-    \        d[e.to] = -inf;\n                    }\n                }\n         \
-    \   }\n        }\n        return d;\n    }\n\nprivate:\n    struct edge {\n  \
-    \      int from, to;\n        T cost;\n        edge(int from, int to, T cost)\
-    \ : from(from), to(to), cost(cost) {}\n    };\n    int n;\n    const T inf = std::numeric_limits<T>::max()\
+    \ solve(int s) {\n        assert(0 <= s and s < n);\n        fill(d.begin(), d.end(),\
+    \ inf);\n        d[s] = 0;\n        for (int i = 0, updated = 1; i < n and std::exchange(updated,\
+    \ 0); i++) {\n            for (auto& e : es) {\n                if (d[e.from]\
+    \ != inf and d[e.from] + e.cost < d[e.to]) {\n                    d[e.to] = d[e.from]\
+    \ + e.cost;\n                    updated = 1;\n                }\n           \
+    \ }\n            if (!updated) break;\n            if (i == n - 1) return {};\n\
+    \        }\n        return d;\n    }\n\n    std::vector<T> shortest_path(int s,\
+    \ int t) {\n        assert(0 <= s and s < n);\n        assert(0 <= t and t < n);\n\
+    \        fill(d.begin(), d.end(), inf);\n        d[s] = 0;\n        for (int i\
+    \ = 0; i < 2 * n - 1; i++) {\n            for (auto& e : es) {\n             \
+    \   if (d[e.from] != inf and d[e.from] + e.cost < d[e.to]) {\n               \
+    \     d[e.to] = d[e.from] + e.cost;\n                    if (i >= n - 1) {\n \
+    \                       if (e.to == t) return {};\n                        d[e.to]\
+    \ = -inf;\n                    }\n                }\n            }\n        }\n\
+    \        return d;\n    }\n\nprivate:\n    struct edge {\n        int from, to;\n\
+    \        T cost;\n        edge(int from, int to, T cost) : from(from), to(to),\
+    \ cost(cost) {}\n    };\n    int n;\n    const T inf = std::numeric_limits<T>::max()\
     \ / 2;\n    std::vector<T> d;\n    std::vector<edge> es;\n};\n\n/**\n * @brief\
     \ Bellman-Ford\n * @docs docs/graph/BellmanFord.md\n */\n"
   code: "#pragma once\n#include <cassert>\n#include <limits>\n#include <utility>\n\
@@ -52,29 +54,31 @@ data:
     \ d[e.to] = d[e.from] + e.cost;\n                    updated = 1;\n          \
     \      }\n            }\n            if (!updated) return true;\n            if\
     \ (i == n - 1) return false;\n        }\n    }\n\n    std::vector<T> solve(int\
-    \ s) {\n        fill(d.begin(), d.end(), inf);\n        d[s] = 0;\n        for\
-    \ (int i = 0, updated = 1; i < n and std::exchange(updated, 0); i++) {\n     \
-    \       for (auto& e : es) {\n                if (d[e.from] + e.cost < d[e.to])\
-    \ {\n                    d[e.to] = d[e.from] + e.cost;\n                    updated\
-    \ = 1;\n                }\n            }\n            if (!updated) return d;\n\
-    \            if (i == n - 1) return {};\n        }\n    }\n\n    std::vector<T>\
-    \ shortest_path(int s, int t) {\n        fill(d.begin(), d.end(), inf);\n    \
-    \    d[s] = 0;\n        for (int i = 0; i < 2 * n - 1; i++) {\n            for\
-    \ (auto& e : es) {\n                if (d[e.from] + e.cost < d[e.to]) {\n    \
-    \                d[e.to] = d[e.from] + e.cost;\n                    if (i >= n\
-    \ - 1) {\n                        if (e.to == t) return {};\n                \
-    \        d[e.to] = -inf;\n                    }\n                }\n         \
-    \   }\n        }\n        return d;\n    }\n\nprivate:\n    struct edge {\n  \
-    \      int from, to;\n        T cost;\n        edge(int from, int to, T cost)\
-    \ : from(from), to(to), cost(cost) {}\n    };\n    int n;\n    const T inf = std::numeric_limits<T>::max()\
+    \ s) {\n        assert(0 <= s and s < n);\n        fill(d.begin(), d.end(), inf);\n\
+    \        d[s] = 0;\n        for (int i = 0, updated = 1; i < n and std::exchange(updated,\
+    \ 0); i++) {\n            for (auto& e : es) {\n                if (d[e.from]\
+    \ != inf and d[e.from] + e.cost < d[e.to]) {\n                    d[e.to] = d[e.from]\
+    \ + e.cost;\n                    updated = 1;\n                }\n           \
+    \ }\n            if (!updated) break;\n            if (i == n - 1) return {};\n\
+    \        }\n        return d;\n    }\n\n    std::vector<T> shortest_path(int s,\
+    \ int t) {\n        assert(0 <= s and s < n);\n        assert(0 <= t and t < n);\n\
+    \        fill(d.begin(), d.end(), inf);\n        d[s] = 0;\n        for (int i\
+    \ = 0; i < 2 * n - 1; i++) {\n            for (auto& e : es) {\n             \
+    \   if (d[e.from] != inf and d[e.from] + e.cost < d[e.to]) {\n               \
+    \     d[e.to] = d[e.from] + e.cost;\n                    if (i >= n - 1) {\n \
+    \                       if (e.to == t) return {};\n                        d[e.to]\
+    \ = -inf;\n                    }\n                }\n            }\n        }\n\
+    \        return d;\n    }\n\nprivate:\n    struct edge {\n        int from, to;\n\
+    \        T cost;\n        edge(int from, int to, T cost) : from(from), to(to),\
+    \ cost(cost) {}\n    };\n    int n;\n    const T inf = std::numeric_limits<T>::max()\
     \ / 2;\n    std::vector<T> d;\n    std::vector<edge> es;\n};\n\n/**\n * @brief\
     \ Bellman-Ford\n * @docs docs/graph/BellmanFord.md\n */\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/BellmanFord.hpp
   requiredBy: []
-  timestamp: '2021-10-20 18:28:56+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-10-20 18:48:33+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_1_B.test.cpp
 documentation_of: graph/BellmanFord.hpp
@@ -134,7 +138,7 @@ H_{ij} = \begin{cases}
 \end{cases}
 $$
 
-及びベクトル $\bm{w}, \bm{a}$
+及びベクトル $\boldsymbol{w}, \boldsymbol{a}$
 
 $$
 w_i = w_{e_i}
@@ -150,9 +154,9 @@ $$
 
 $$
 \begin{alignedat}{5}
-    & \mathrm{Minimize}     & \quad & \bm{w}^\top\bm{x} \\
-    & \mathrm{subject\ to}  & \quad & -H\bm{x} = \bm{a} \\
-    &                       & \quad & \bm{x} \in \{0, 1\}^n
+    & \mathrm{Minimize}     & \quad & \boldsymbol{w}^\top\boldsymbol{x} \\
+    & \mathrm{subject\ to}  & \quad & -H\boldsymbol{x} = \boldsymbol{a} \\
+    &                       & \quad & \boldsymbol{x} \in \{0, 1\}^n
 \end{alignedat}
 $$
 
@@ -178,7 +182,7 @@ $\blacksquare$
 
 その他にも 2 部グラフの無向接続行列も完全単模行列である.
 
-(LP) を単体法で解く過程について考えると, 単模行列 $H$ の逆行列 $H^{-1}$ が整数行列であることが効いて (LP) が整数最適解 $\bm{x}^\ast \in \mathbb{Z}^n$ をもつことがわかる (流石に単体法について書いているとキリがないので省略) . グラフに負閉路がない場合は $x_e \in \{0, 1\}$ であり, 以上より, $\text{(LP)} = \text{(IP)}$ が成立する. 以降は (LP) について考えいく.
+(LP) を単体法で解く過程について考えると, 単模行列 $H$ の逆行列 $H^{-1}$ が整数行列であることが効いて (LP) が整数最適解 $\boldsymbol{x}^\ast \in \mathbb{Z}^n$ をもつことがわかる (流石に単体法について書いているとキリがないので省略) . グラフに負閉路がない場合は $x_e \in \{0, 1\}$ であり, 以上より, $\text{(LP)} = \text{(IP)}$ が成立する. 以降は (LP) について考えいく.
 
 (LP) の各点での次数制約式に $d_v$ をかけて足し合わせて, $\sum_{e \in E} w_ex_e$ のできるだけ大きい下界を設けることを考える ($x_e$ の係数の総和が $w_e$ 以下でないといけないことに注意)と, 双対問題 (DP) は以下のように表せる.
 
@@ -196,3 +200,7 @@ $$
 ## 問題例
 - [AtCoder Beginner Contest 137 E - Coins Respawn](https://atcoder.jp/contests/abc137/tasks/abc137_e)
   - `shortest_path` の verify 問題. なお, これを呼ぶ際には値型は無難に `long long` 等に取るのが良い.
+
+## Links
+- [双対性](https://www.slideshare.net/wata_orz/ss-91375739)
+- [競プロとLP双対まわりの話で最近知ったこと - とこはるのまとめ](https://tokoharuland.hateblo.jp/entry/2016/12/06/223614)
