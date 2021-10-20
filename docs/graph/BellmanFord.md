@@ -48,7 +48,7 @@ H_{ij} = \begin{cases}
 \end{cases}
 $$
 
-及びベクトル $\bm{w}, \bm{a}$
+及びベクトル $\boldsymbol{w}, \boldsymbol{a}$
 
 $$
 w_i = w_{e_i}
@@ -64,9 +64,9 @@ $$
 
 $$
 \begin{alignedat}{5}
-    & \mathrm{Minimize}     & \quad & \bm{w}^\top\bm{x} \\
-    & \mathrm{subject\ to}  & \quad & -H\bm{x} = \bm{a} \\
-    &                       & \quad & \bm{x} \in \{0, 1\}^n
+    & \mathrm{Minimize}     & \quad & \boldsymbol{w}^\top\boldsymbol{x} \\
+    & \mathrm{subject\ to}  & \quad & -H\boldsymbol{x} = \boldsymbol{a} \\
+    &                       & \quad & \boldsymbol{x} \in \{0, 1\}^n
 \end{alignedat}
 $$
 
@@ -92,7 +92,7 @@ $\blacksquare$
 
 その他にも 2 部グラフの無向接続行列も完全単模行列である.
 
-(LP) を単体法で解く過程について考えると, 単模行列 $H$ の逆行列 $H^{-1}$ が整数行列であることが効いて (LP) が整数最適解 $\bm{x}^\ast \in \mathbb{Z}^n$ をもつことがわかる (流石に単体法について書いているとキリがないので省略) . グラフに負閉路がない場合は $x_e \in \{0, 1\}$ であり, 以上より, $\text{(LP)} = \text{(IP)}$ が成立する. 以降は (LP) について考えいく.
+(LP) を単体法で解く過程について考えると, 単模行列 $H$ の逆行列 $H^{-1}$ が整数行列であることが効いて (LP) が整数最適解 $\boldsymbol{x}^\ast \in \mathbb{Z}^n$ をもつことがわかる (流石に単体法について書いているとキリがないので省略) . グラフに負閉路がない場合は $x_e \in \{0, 1\}$ であり, 以上より, $\text{(LP)} = \text{(IP)}$ が成立する. 以降は (LP) について考えいく.
 
 (LP) の各点での次数制約式に $d_v$ をかけて足し合わせて, $\sum_{e \in E} w_ex_e$ のできるだけ大きい下界を設けることを考える ($x_e$ の係数の総和が $w_e$ 以下でないといけないことに注意)と, 双対問題 (DP) は以下のように表せる.
 
@@ -110,3 +110,7 @@ $$
 ## 問題例
 - [AtCoder Beginner Contest 137 E - Coins Respawn](https://atcoder.jp/contests/abc137/tasks/abc137_e)
   - `shortest_path` の verify 問題. なお, これを呼ぶ際には値型は無難に `long long` 等に取るのが良い.
+
+## Links
+- [双対性](https://www.slideshare.net/wata_orz/ss-91375739)
+- [競プロとLP双対まわりの話で最近知ったこと - とこはるのまとめ](https://tokoharuland.hateblo.jp/entry/2016/12/06/223614)

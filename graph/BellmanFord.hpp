@@ -28,26 +28,30 @@ template <typename T> struct BellmanFord {
     }
 
     std::vector<T> solve(int s) {
+        assert(0 <= s and s < n);
         fill(d.begin(), d.end(), inf);
         d[s] = 0;
         for (int i = 0, updated = 1; i < n and std::exchange(updated, 0); i++) {
             for (auto& e : es) {
-                if (d[e.from] + e.cost < d[e.to]) {
+                if (d[e.from] != inf and d[e.from] + e.cost < d[e.to]) {
                     d[e.to] = d[e.from] + e.cost;
                     updated = 1;
                 }
             }
-            if (!updated) return d;
+            if (!updated) break;
             if (i == n - 1) return {};
         }
+        return d;
     }
 
     std::vector<T> shortest_path(int s, int t) {
+        assert(0 <= s and s < n);
+        assert(0 <= t and t < n);
         fill(d.begin(), d.end(), inf);
         d[s] = 0;
         for (int i = 0; i < 2 * n - 1; i++) {
             for (auto& e : es) {
-                if (d[e.from] + e.cost < d[e.to]) {
+                if (d[e.from] != inf and d[e.from] + e.cost < d[e.to]) {
                     d[e.to] = d[e.from] + e.cost;
                     if (i >= n - 1) {
                         if (e.to == t) return {};
