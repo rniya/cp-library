@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -128,9 +128,9 @@ data:
       title: geometry/sort_points_by_argument.hpp
   - name: graph
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/BellmanFord.hpp
-      title: Bellman Ford
+      title: Bellman-Ford
     - icon: ':heavy_check_mark:'
       path: graph/BlockCutTree.hpp
       title: Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected
@@ -275,12 +275,6 @@ data:
       title: Z-Algorithm
   - name: test/atcoder
     pages:
-    - icon: ':warning:'
-      path: test/atcoder/abc061_d.cpp
-      title: test/atcoder/abc061_d.cpp
-    - icon: ':warning:'
-      path: test/atcoder/abc137_e.cpp
-      title: test/atcoder/abc137_e.cpp
     - icon: ':warning:'
       path: test/atcoder/nikkei2019_2_qual_d.cpp
       title: test/atcoder/nikkei2019_2_qual_d.cpp
@@ -510,7 +504,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_1_A.test.cpp
       title: test/aoj/GRL_1_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL_1_B.test.cpp
       title: test/aoj/GRL_1_B.test.cpp
     - icon: ':heavy_check_mark:'

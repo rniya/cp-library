@@ -36,9 +36,6 @@ data:
     path: datastructure/SparseTable.hpp
     title: Sparse table
   - icon: ':heavy_check_mark:'
-    path: graph/BellmanFord.hpp
-    title: Bellman Ford
-  - icon: ':heavy_check_mark:'
     path: graph/CycleDetection.hpp
     title: Cycle Detection
   - icon: ':heavy_check_mark:'
@@ -99,12 +96,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/Z_Algorithm.hpp
     title: Z-Algorithm
-  - icon: ':warning:'
-    path: test/atcoder/abc061_d.cpp
-    title: test/atcoder/abc061_d.cpp
-  - icon: ':warning:'
-    path: test/atcoder/abc137_e.cpp
-    title: test/atcoder/abc137_e.cpp
   - icon: ':warning:'
     path: test/atcoder/nikkei2019_2_qual_d.cpp
     title: test/atcoder/nikkei2019_2_qual_d.cpp
@@ -313,7 +304,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_1_A.test.cpp
     title: test/aoj/GRL_1_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL_1_B.test.cpp
     title: test/aoj/GRL_1_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -580,9 +571,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -730,15 +721,12 @@ data:
   - modulo/montgomery64.hpp
   - graph/CycleDetection.hpp
   - graph/RangeEdgeGraph.hpp
-  - graph/BellmanFord.hpp
   - graph/WarshallFloyd.hpp
   - graph/Dijkstra.hpp
   - linearalgebra/Kitamasa.hpp
   - test/atcoder/nikkei2019_2_qual_d.cpp
-  - test/atcoder/abc061_d.cpp
   - test/atcoder/tdpc_fibonacci.cpp
   - test/atcoder/ukuku09_d.cpp
-  - test/atcoder/abc137_e.cpp
   - polynomial/FormalPowerSeries.hpp
   - polynomial/StirlingSecond.hpp
   - polynomial/lagrange_interpolation.hpp
@@ -749,7 +737,7 @@ data:
   - util/gray_code.hpp
   - util/ZobristHash.hpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1269.test.cpp
   - test/yukicoder/952.test.cpp

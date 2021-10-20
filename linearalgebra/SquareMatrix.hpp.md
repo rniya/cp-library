@@ -158,5 +158,3 @@ redirect_from:
 title: "\u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
 ---
 ## 概要
-
-## 計算量

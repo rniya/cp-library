@@ -155,7 +155,7 @@ title: Dinic (Maximum flow)
 | `add_vertex()`                      | 頂点を 1 つ追加する.                                                                                                                                      | $O(1)$     |
 | `get_edge(i)`                       | $i$ 番目に追加された辺の始点, 終点, 容量, 実際に流れている量をまとめて返す.                                                                               | $O(1)$     |
 | `edges()`                           | `get_edge` で返されるデータをすべての辺について配列にして返す.                                                                                            | $O(m)$     |
-| `change_edge(i, new_cap, new_flow)` | $i$ 番目に追加された辺の容量を $new_cap$ に, 流れている量を $new_flow$ に変更する.                                                                        | $O(1)$     |
+| `change_edge(i, new_cap, new_flow)` | $i$ 番目に追加された辺の容量を $new cap$ に, 流れている量を $new flow$ に変更する.                                                                        | $O(1)$     |
 | `max_flow(s, t)`                    | 頂点 $s$ から 頂点 $t$ へ流れる最大流を求める.                                                                                                            | $O(n^2m)$  |
 | `min_cut(s)`                        | 頂点 $s$ から到達できる頂点群を返す. 頂点の全体集合を $V$ , この関数が返す頂点集合を $S$ とすると, $S$ と $V \setminus S$ を結ぶ辺が最小カットに相等する. | $O(n + m)$ |
 
