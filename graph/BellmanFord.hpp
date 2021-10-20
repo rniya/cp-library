@@ -1,58 +1,77 @@
 #pragma once
-#include "../base.hpp"
+#include <cassert>
+#include <limits>
+#include <utility>
+#include <vector>
 
-/**
- * @brief Bellman Ford
- * @docs docs/graph/BellmanFord.md
- */
 template <typename T> struct BellmanFord {
-    const T inf = numeric_limits<T>::max();
-    struct edge {
-        int u, v;
-        T w;
-        edge(int u, int v, T w) : u(u), v(v), w(w) {}
-    };
-    int n;
-    vector<vector<int>> G;
-    vector<int> check, reach;
-    vector<edge> es;
-    BellmanFord(int n) : n(n), G(n), check(n), reach(n, 1) {}
-    void add_edge(int u, int v, T w) {
-        es.emplace_back(u, v, w);
-        G[u].emplace_back(v);
+    BellmanFord(int n) : n(n), d(n) {}
+
+    void add_edge(int from, int to, T cost) {
+        assert(0 <= from and from < n);
+        assert(0 <= to and to < n);
+        es.emplace_back(from, to, cost);
     }
-    vector<T> build(int s, int& neg_loop) {
-        vector<T> d(n, inf);
-        d[s] = 0;
-        for (int i = 0; i < n; i++) {
-            bool update = false;
-            for (auto e : es) {
-                if (!reach[e.u] || !reach[e.v] || d[e.u] == inf) continue;
-                if (d[e.u] + e.w < d[e.v]) {
-                    d[e.v] = d[e.u] + e.w;
-                    update = true;
+
+    bool find_negative_loop() {
+        fill(d.begin(), d.end(), 0);
+        for (int i = 0, updated = 1; i < n and std::exchange(updated, 0); i++) {
+            for (auto& e : es) {
+                if (d[e.from] + e.cost < d[e.to]) {
+                    d[e.to] = d[e.from] + e.cost;
+                    updated = 1;
                 }
             }
-            if (!update) break;
-            if (i == n - 1) {
-                neg_loop = 1;
-                return d;
+            if (!updated) return true;
+            if (i == n - 1) return false;
+        }
+    }
+
+    std::vector<T> solve(int s) {
+        fill(d.begin(), d.end(), inf);
+        d[s] = 0;
+        for (int i = 0, updated = 1; i < n and std::exchange(updated, 0); i++) {
+            for (auto& e : es) {
+                if (d[e.from] + e.cost < d[e.to]) {
+                    d[e.to] = d[e.from] + e.cost;
+                    updated = 1;
+                }
+            }
+            if (!updated) return d;
+            if (i == n - 1) return {};
+        }
+    }
+
+    std::vector<T> shortest_path(int s, int t) {
+        fill(d.begin(), d.end(), inf);
+        d[s] = 0;
+        for (int i = 0; i < 2 * n - 1; i++) {
+            for (auto& e : es) {
+                if (d[e.from] + e.cost < d[e.to]) {
+                    d[e.to] = d[e.from] + e.cost;
+                    if (i >= n - 1) {
+                        if (e.to == t) return {};
+                        d[e.to] = -inf;
+                    }
+                }
             }
         }
-        neg_loop = 0;
         return d;
     }
-    void dfs(int v) {
-        if (check[v]) return;
-        check[v] = 1;
-        for (int u : G[v]) dfs(u);
-    }
-    T shortest_path(int s, int t, int& neg_loop) {
-        for (int i = 0; i < n; i++) {
-            fill(check.begin(), check.end(), 0);
-            dfs(i);
-            reach[i] = check[t];
-        }
-        return build(s, neg_loop)[t];
-    }
+
+private:
+    struct edge {
+        int from, to;
+        T cost;
+        edge(int from, int to, T cost) : from(from), to(to), cost(cost) {}
+    };
+    int n;
+    const T inf = std::numeric_limits<T>::max() / 2;
+    std::vector<T> d;
+    std::vector<edge> es;
 };
+
+/**
+ * @brief Bellman-Ford
+ * @docs docs/graph/BellmanFord.md
+ */

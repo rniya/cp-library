@@ -1,13 +1,13 @@
 ## 概要
 ベル数$B\left(n,k\right)$は$n$個の区別できる玉を$k$個の区別できない箱に入れる組合せ数, すなわち整数$1$から$n$を$k$個以下のグループに分割する場合の数である. これは, スターリング数$S\left(n,k\right)$をもとに,
-$$\begin{aligned}
-B\left(n,k\right)&=\sum_{j=0}^k S\left(n,k\right)\\
-&=\sum_{j=0}^k \dfrac{1}{j!} \sum_{i=0}^j \left(-1\right)^{j-i}\binom{j}{i}i^n\\
-&=\sum_{j=0}^k \sum_{i=0}^j \dfrac{\left(-1\right)^{j-i}}{i!\left(j-i\right)!}i^n\\
-&=\sum_{i=0}^k \sum_{j=i}^k \dfrac{\left(-1\right)^{j-i}}{i!\left(j-i\right)!}i^n\\
-&=\sum_{i=0}^k \sum_{j=0}^{k-i} \dfrac{\left(-1\right)^j}{i!j!}i^n\\
-&=\sum_{i=0}^k \dfrac{i^n}{i!} \sum_{j=0}^{k-1} \dfrac{\left(-1\right)^j}{j!}
-\end{aligned}$$
+$$ \begin{aligned}
+    B\left(n,k\right)&=\sum_{j=0}^k S\left(n,k\right)\\
+    &=\sum_{j=0}^k \frac{1}{j!} \sum_{i=0}^j \left(-1\right)^{j-i}\binom{j}{i}i^n\\
+    &=\sum_{j=0}^k \sum_{i=0}^j \frac{\left(-1\right)^{j-i}}{i!\left(j-i\right)!}i^n\\
+    &=\sum_{i=0}^k \sum_{j=i}^k \frac{\left(-1\right)^{j-i}}{i!\left(j-i\right)!}i^n\\
+    &=\sum_{i=0}^k \sum_{j=0}^{k-i} \frac{\left(-1\right)^j}{i!j!}i^n\\
+    &=\sum_{i=0}^k \frac{i^n}{i!} \sum_{j=0}^{k-1} \frac{\left(-1\right)^j}{j!}
+\end{aligned} $$
 と計算できる. $\sum_{j=0}^{k-1} \frac{\left(-1\right)^j}{j!}$は累積和のように前計算できる.
 
 ## 計算量

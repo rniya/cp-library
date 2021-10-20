@@ -17,9 +17,8 @@ int main() {
         BF.add_edge(s, t, d);
     }
 
-    int neg;
-    vector<int> ans = BF.build(r, neg);
-    if (neg) {
+    auto ans = BF.solve(r);
+    if (ans.empty()) {
         cout << "NEGATIVE CYCLE" << '\n';
         return 0;
     }
@@ -29,4 +28,5 @@ int main() {
         else
             cout << ans[i] << '\n';
     }
+    return 0;
 }
