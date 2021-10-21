@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: algorithm/Mo.hpp
     title: Mo's algorithm
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexd Tree (Fenwick Tree)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: util/compress.hpp
     title: "compress (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -25,56 +25,56 @@ data:
     - https://judge.yosupo.jp/problem/static_range_inversions_query
   bundledCode: "#line 1 \"test/yosupo/static_range_inversions_query.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\n\n\
-    #line 2 \"algorithm/Mo.hpp\"\n#include <cassert>\n#include <cmath>\n#include <numeric>\n\
-    #include <vector>\n\nstruct Mo {\n    Mo(int n) : n(n) {}\n\n    void add(int\
-    \ l, int r) {\n        assert(l <= r);\n        left.emplace_back(l);\n      \
-    \  right.emplace_back(r);\n    }\n\n    template <typename AL, typename AR, typename\
-    \ DL, typename DR, typename REM>\n    void run(const AL& add_left, const AR& add_right,\
-    \ const DL& del_left, const DR del_right, const REM& rem) {\n        int q = left.size(),\
-    \ width = n / std::min(std::max<int>(sqrt(q * 2 / 3), 1), n);\n        std::vector<int>\
-    \ order(q);\n        std::iota(order.begin(), order.end(), 0);\n        std::sort(order.begin(),\
-    \ order.end(), [&](int a, int b) {\n            int ablock = left[a] / width,\
-    \ bblock = left[b] / width;\n            if (ablock != bblock) return ablock <\
-    \ bblock;\n            return (ablock & 1) ? (right[a] > right[b]) : (right[a]\
-    \ < right[b]);\n        });\n\n        int l = 0, r = 0;\n        for (auto idx\
-    \ : order) {\n            while (l > left[idx]) add_left(--l);\n            while\
-    \ (r < right[idx]) add_right(r++);\n            while (l < left[idx]) del_left(l++);\n\
-    \            while (r > right[idx]) del_right(--r);\n            rem(idx);\n \
-    \       }\n    }\n\n    template <typename A, typename D, typename REM> void run(const\
-    \ A& add, const D& del, const REM& rem) {\n        run(add, add, del, del, rem);\n\
-    \    }\n\nprivate:\n    int n;\n    std::vector<int> left, right;\n};\n\n/**\n\
-    \ * @brief Mo's algorithm\n * @docs docs/other/Mo.md\n */\n#line 2 \"base.hpp\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n#pragma region Macros\ntypedef\
-    \ long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\ntypedef\
-    \ unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate <typename\
-    \ T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x : v) is >>\
-    \ x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream& os,\
-    \ const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n     \
-    \   os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
-    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
-    \ pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return\
-    \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
-    \ map<T, U>& m) {\n    os << '{';\n    for (auto itr = m.begin(); itr != m.end();)\
-    \ {\n        os << '(' << itr->first << ',' << itr->second << ')';\n        if\
-    \ (++itr != m.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate\
-    \ <typename T, typename U> ostream& operator<<(ostream& os, const unordered_map<T,\
-    \ U>& m) {\n    os << '{';\n    for (auto itr = m.begin(); itr != m.end();) {\n\
-    \        os << '(' << itr->first << ',' << itr->second << ')';\n        if (++itr\
-    \ != m.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const set<T>& s) {\n    os << '{';\n   \
-    \ for (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n       \
-    \ if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\n\
-    template <typename T> ostream& operator<<(ostream& os, const multiset<T>& s) {\n\
-    \    os << '{';\n    for (auto itr = s.begin(); itr != s.end();) {\n        os\
-    \ << *itr;\n        if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n\
-    \    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream& os, const\
-    \ unordered_set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
+    #line 2 \"algorithm/Mo.hpp\"\n#include <algorithm>\n#include <cassert>\n#include\
+    \ <cmath>\n#include <numeric>\n#include <vector>\n\nstruct Mo {\n    Mo(int n)\
+    \ : n(n) {}\n\n    void add(int l, int r) {\n        assert(l <= r);\n       \
+    \ left.emplace_back(l);\n        right.emplace_back(r);\n    }\n\n    template\
+    \ <typename AL, typename AR, typename DL, typename DR, typename REM>\n    void\
+    \ run(const AL& add_left, const AR& add_right, const DL& del_left, const DR del_right,\
+    \ const REM& rem) {\n        int q = left.size(), width = n / std::min(std::max<int>(sqrt(q\
+    \ * 2 / 3), 1), n);\n        std::vector<int> order(q);\n        std::iota(order.begin(),\
+    \ order.end(), 0);\n        std::sort(order.begin(), order.end(), [&](int a, int\
+    \ b) {\n            int ablock = left[a] / width, bblock = left[b] / width;\n\
+    \            if (ablock != bblock) return ablock < bblock;\n            return\
+    \ (ablock & 1) ? (right[a] > right[b]) : (right[a] < right[b]);\n        });\n\
+    \n        int l = 0, r = 0;\n        for (auto idx : order) {\n            while\
+    \ (l > left[idx]) add_left(--l);\n            while (r < right[idx]) add_right(r++);\n\
+    \            while (l < left[idx]) del_left(l++);\n            while (r > right[idx])\
+    \ del_right(--r);\n            rem(idx);\n        }\n    }\n\n    template <typename\
+    \ A, typename D, typename REM> void run(const A& add, const D& del, const REM&\
+    \ rem) {\n        run(add, add, del, del, rem);\n    }\n\nprivate:\n    int n;\n\
+    \    std::vector<int> left, right;\n};\n\n/**\n * @brief Mo's algorithm\n * @docs\
+    \ docs/other/Mo.md\n */\n#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing\
+    \ namespace std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t\
+    \ i128;\ntypedef unsigned int uint;\ntypedef unsigned long long ull;\n#define\
+    \ ALL(x) (x).begin(), (x).end()\n\ntemplate <typename T> istream& operator>>(istream&\
+    \ is, vector<T>& v) {\n    for (T& x : v) is >> x;\n    return is;\n}\ntemplate\
+    \ <typename T> ostream& operator<<(ostream& os, const vector<T>& v) {\n    for\
+    \ (int i = 0; i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size()\
+    \ ? \"\" : \" \");\n    }\n    return os;\n}\ntemplate <typename T, typename U>\
+    \ ostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os << '(' << p.first\
+    \ << ',' << p.second << ')';\n    return os;\n}\ntemplate <typename T, typename\
+    \ U> ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os << '{';\n\
+    \    for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
+    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
+    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T, typename U> ostream&\
+    \ operator<<(ostream& os, const unordered_map<T, U>& m) {\n    os << '{';\n  \
+    \  for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' << itr->first\
+    \ << ',' << itr->second << ')';\n        if (++itr != m.end()) os << ',';\n  \
+    \  }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
+    \ os, const set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
     \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
     \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const deque<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n  \
-    \      os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
-    \ os;\n}\n\ntemplate <int i, typename T> void print_tuple(ostream&, const T&)\
-    \ {}\ntemplate <int i, typename T, typename H, class... Args> void print_tuple(ostream&\
+    \ os, const multiset<T>& s) {\n    os << '{';\n    for (auto itr = s.begin();\
+    \ itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os <<\
+    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
+    \ operator<<(ostream& os, const unordered_set<T>& s) {\n    os << '{';\n    for\
+    \ (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr\
+    \ != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
+    \ T> ostream& operator<<(ostream& os, const deque<T>& v) {\n    for (int i = 0;\
+    \ i < (int)v.size(); i++) {\n        os << v[i] << (i + 1 == (int)v.size() ? \"\
+    \" : \" \");\n    }\n    return os;\n}\n\ntemplate <int i, typename T> void print_tuple(ostream&,\
+    \ const T&) {}\ntemplate <int i, typename T, typename H, class... Args> void print_tuple(ostream&\
     \ os, const T& t) {\n    if (i) os << ',';\n    os << get<i>(t);\n    print_tuple<i\
     \ + 1, T, Args...>(os, t);\n}\ntemplate <typename... Args> ostream& operator<<(ostream&\
     \ os, const tuple<Args...>& t) {\n    os << '{';\n    print_tuple<0, tuple<Args...>,\
@@ -164,8 +164,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2021-10-21 16:13:48+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-10-21 18:14:56+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp
 layout: document

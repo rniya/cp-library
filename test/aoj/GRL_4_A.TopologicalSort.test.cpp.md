@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -76,7 +76,7 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 5 \"graph/TopologicalSort.hpp\"\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 6 \"graph/TopologicalSort.hpp\"\
     \n\nstruct TopologicalSort {\n    std::vector<std::vector<int>> G;\n\n    TopologicalSort(int\
     \ n) : G(n), n(n), indeg(n, 0) {}\n\n    void add_edge(int u, int v) {\n     \
     \   assert(0 <= u && u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n\
@@ -86,7 +86,7 @@ data:
     \ order;\n        while (!que.empty()) {\n            int v = que.front();\n \
     \           que.pop();\n            order.emplace_back(v);\n            for (int&\
     \ u : G[v]) {\n                if (--indeg[u] == 0) {\n                    que.emplace(u);\n\
-    \                }\n            }\n        }\n        if (*max_element(indeg.begin(),\
+    \                }\n            }\n        }\n        if (*std::max_element(indeg.begin(),\
     \ indeg.end()) != 0) return {};\n        return order;\n    }\n\nprivate:\n  \
     \  int n;\n    std::vector<int> indeg;\n};\n\n/**\n * @brief Topological Sort\n\
     \ * @docs docs/graph/TopologicalSort.md\n */\n#line 5 \"test/aoj/GRL_4_A.TopologicalSort.test.cpp\"\
@@ -108,7 +108,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_4_A.TopologicalSort.test.cpp
   requiredBy: []
-  timestamp: '2021-09-22 20:47:22+09:00'
+  timestamp: '2021-10-21 18:14:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_4_A.TopologicalSort.test.cpp

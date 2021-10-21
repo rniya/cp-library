@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -96,7 +96,7 @@ data:
     \ x) { return find(x); }\n\nprivate:\n    int n, num;\n    // root node : -1 *\
     \ component size\n    // otherwise : parent\n    std::vector<int> data;\n};\n\n\
     /**\n * @brief Union Find (Disjoint Set Union)\n * @docs docs/datastructure/UnionFind.md\n\
-    \ */\n#line 5 \"graph/Kruskal.hpp\"\n\ntemplate <typename T> struct Kruskal {\n\
+    \ */\n#line 6 \"graph/Kruskal.hpp\"\n\ntemplate <typename T> struct Kruskal {\n\
     \    Kruskal(int n) : n(n), called_build(false) {}\n\n    void add_edge(int u,\
     \ int v, T cost, int idx = 0) {\n        assert(0 <= u && u < n);\n        assert(0\
     \ <= v && v < n);\n        es.emplace_back(u, v, cost, idx);\n    }\n\n    T build()\
@@ -130,7 +130,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2021-10-04 09:56:29+09:00'
+  timestamp: '2021-10-21 18:14:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_2_A.test.cpp

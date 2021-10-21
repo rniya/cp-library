@@ -9,18 +9,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_rectangle_sum.test.cpp
     title: test/yosupo/point_add_rectangle_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/static_range_inversions_query.test.cpp
     title: test/yosupo/static_range_inversions_query.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/vertex_add_subtree_sum.test.cpp
     title: test/yosupo/vertex_add_subtree_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1270.test.cpp
     title: test/yukicoder/1270.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/datastructure/BinaryIndexedTree.md
     document_title: Binary Indexd Tree (Fenwick Tree)
@@ -62,7 +62,7 @@ data:
   path: datastructure/BinaryIndexedTree.hpp
   requiredBy: []
   timestamp: '2021-09-20 21:09:19+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1270.test.cpp
   - test/aoj/DSL_2_B.test.cpp

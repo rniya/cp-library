@@ -13,8 +13,23 @@ data:
     _deprecated_at_docs: docs/graph/TopologicalSort.md
     document_title: Topological Sort
     links: []
-  bundledCode: "#line 2 \"graph/TopologicalSort.hpp\"\n#include <cassert>\n#include\
-    \ <queue>\n#include <vector>\n\nstruct TopologicalSort {\n    std::vector<std::vector<int>>\
+  bundledCode: "#line 2 \"graph/TopologicalSort.hpp\"\n#include <algorithm>\n#include\
+    \ <cassert>\n#include <queue>\n#include <vector>\n\nstruct TopologicalSort {\n\
+    \    std::vector<std::vector<int>> G;\n\n    TopologicalSort(int n) : G(n), n(n),\
+    \ indeg(n, 0) {}\n\n    void add_edge(int u, int v) {\n        assert(0 <= u &&\
+    \ u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n \
+    \       indeg[v]++;\n    }\n\n    std::vector<int> build() {\n        std::queue<int>\
+    \ que;\n        for (int i = 0; i < n; i++) {\n            if (indeg[i] == 0)\
+    \ {\n                que.emplace(i);\n            }\n        }\n        std::vector<int>\
+    \ order;\n        while (!que.empty()) {\n            int v = que.front();\n \
+    \           que.pop();\n            order.emplace_back(v);\n            for (int&\
+    \ u : G[v]) {\n                if (--indeg[u] == 0) {\n                    que.emplace(u);\n\
+    \                }\n            }\n        }\n        if (*std::max_element(indeg.begin(),\
+    \ indeg.end()) != 0) return {};\n        return order;\n    }\n\nprivate:\n  \
+    \  int n;\n    std::vector<int> indeg;\n};\n\n/**\n * @brief Topological Sort\n\
+    \ * @docs docs/graph/TopologicalSort.md\n */\n"
+  code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <queue>\n\
+    #include <vector>\n\nstruct TopologicalSort {\n    std::vector<std::vector<int>>\
     \ G;\n\n    TopologicalSort(int n) : G(n), n(n), indeg(n, 0) {}\n\n    void add_edge(int\
     \ u, int v) {\n        assert(0 <= u && u < n);\n        assert(0 <= v && v <\
     \ n);\n        G[u].emplace_back(v);\n        indeg[v]++;\n    }\n\n    std::vector<int>\
@@ -24,29 +39,15 @@ data:
     \ {\n            int v = que.front();\n            que.pop();\n            order.emplace_back(v);\n\
     \            for (int& u : G[v]) {\n                if (--indeg[u] == 0) {\n \
     \                   que.emplace(u);\n                }\n            }\n      \
-    \  }\n        if (*max_element(indeg.begin(), indeg.end()) != 0) return {};\n\
+    \  }\n        if (*std::max_element(indeg.begin(), indeg.end()) != 0) return {};\n\
     \        return order;\n    }\n\nprivate:\n    int n;\n    std::vector<int> indeg;\n\
     };\n\n/**\n * @brief Topological Sort\n * @docs docs/graph/TopologicalSort.md\n\
     \ */\n"
-  code: "#pragma once\n#include <cassert>\n#include <queue>\n#include <vector>\n\n\
-    struct TopologicalSort {\n    std::vector<std::vector<int>> G;\n\n    TopologicalSort(int\
-    \ n) : G(n), n(n), indeg(n, 0) {}\n\n    void add_edge(int u, int v) {\n     \
-    \   assert(0 <= u && u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n\
-    \        indeg[v]++;\n    }\n\n    std::vector<int> build() {\n        std::queue<int>\
-    \ que;\n        for (int i = 0; i < n; i++) {\n            if (indeg[i] == 0)\
-    \ {\n                que.emplace(i);\n            }\n        }\n        std::vector<int>\
-    \ order;\n        while (!que.empty()) {\n            int v = que.front();\n \
-    \           que.pop();\n            order.emplace_back(v);\n            for (int&\
-    \ u : G[v]) {\n                if (--indeg[u] == 0) {\n                    que.emplace(u);\n\
-    \                }\n            }\n        }\n        if (*max_element(indeg.begin(),\
-    \ indeg.end()) != 0) return {};\n        return order;\n    }\n\nprivate:\n  \
-    \  int n;\n    std::vector<int> indeg;\n};\n\n/**\n * @brief Topological Sort\n\
-    \ * @docs docs/graph/TopologicalSort.md\n */"
   dependsOn: []
   isVerificationFile: false
   path: graph/TopologicalSort.hpp
   requiredBy: []
-  timestamp: '2021-09-22 03:15:23+09:00'
+  timestamp: '2021-10-21 18:14:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_4_A.TopologicalSort.test.cpp

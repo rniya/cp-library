@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: algorithm
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: algorithm/Mo.hpp
       title: Mo's algorithm
     - icon: ':warning:'
@@ -11,7 +11,7 @@ data:
       title: monotone minima
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -44,7 +44,7 @@ data:
       title: set function (FZT, FMT, FWHT)
   - name: datastructure
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/BinaryIndexedTree.hpp
       title: Binary Indexd Tree (Fenwick Tree)
     - icon: ':heavy_check_mark:'
@@ -59,7 +59,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/DualSegmentTree.hpp
       title: Dual Segment Tree
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: datastructure/LazySegmentTree.hpp
       title: Lazy Segment Tree
     - icon: ':warning:'
@@ -299,7 +299,7 @@ data:
     - icon: ':warning:'
       path: util/binary_conversion.hpp
       title: "\u6587\u5B57\u5217\u306E2\u9032\u5909\u63DB"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: util/compress.hpp
       title: "compress (\u5EA7\u6A19\u5727\u7E2E)"
     - icon: ':warning:'
@@ -661,7 +661,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/static_range_inversions_query.test.cpp
       title: test/yosupo/static_range_inversions_query.test.cpp
     - icon: ':heavy_check_mark:'
@@ -717,7 +717,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1269.test.cpp
       title: test/yukicoder/1269.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1270.test.cpp
       title: test/yukicoder/1270.test.cpp
     - icon: ':heavy_check_mark:'
