@@ -11,6 +11,7 @@
 | `change_edge(i, new_cap, new_flow)` | $i$ 番目に追加された辺の容量を $new cap$ に, 流れている量を $new flow$ に変更する.                                                                        | $O(1)$     |
 | `max_flow(s, t)`                    | 頂点 $s$ から 頂点 $t$ へ流れる最大流を求める.                                                                                                            | $O(n^2m)$  |
 | `min_cut(s)`                        | 頂点 $s$ から到達できる頂点群を返す. 頂点の全体集合を $V$ , この関数が返す頂点集合を $S$ とすると, $S$ と $V \setminus S$ を結ぶ辺が最小カットに相等する. | $O(n + m)$ |
+| `dump_graphviz()`                   | グラフを `.dot` 形式で出力する. 容量丁度の流量が流れる辺は赤色, そうでなく正の流量が流れる辺は青, 全く流れない辺は黒で出力される.                         | $O(m)$     |
 
 `max_flow` の計算量はケースごとにかなり異なり, 一般的には上記の計算量より高速に動作することが多い. 詳しくは Links にもある[Dinic 法とその時間計算量 - みさわめも](https://misawa.github.io/others/flow/dinic_time_complexity.html)を参照.
 

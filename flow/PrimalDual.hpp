@@ -1,7 +1,9 @@
 #pragma once
 #include <cassert>
+#include <fstream>
 #include <limits>
 #include <queue>
+#include <tuple>
 #include <vector>
 
 template <typename Cap, typename Cost> struct PrimalDual {
@@ -40,6 +42,27 @@ template <typename Cap, typename Cost> struct PrimalDual {
     std::pair<Cap, Cost> min_cost_max_flow(int s, int t) { return slope(s, t, std::numeric_limits<Cap>::max()).back(); }
 
     std::vector<std::pair<Cap, Cost>> slope(int s, int t) { return slope(s, t, std::numeric_limits<Cap>::max()); }
+
+    void dump_graphviz(std::string filename = "mincostflow") {
+        std::ofstream ofs(filename + ".dot");
+        ofs << "digraph {\n";
+        auto es = edges();
+        for (const auto& e : es) {
+            int from, to;
+            Cap cap, flow;
+            Cost cost;
+            std::tie(from, to, cap, flow, cost) = e;
+            ofs << from << " -> " << to << " [label = \"" << flow << "/" << cap << "(" << flow << "*" << cost << ")"
+                << "\", color = "
+                << (flow == cap ? "red"
+                    : flow > 0  ? "blue"
+                                : "black")
+                << "];\n";
+        }
+        ofs << "}\n";
+        ofs.close();
+        return;
+    }
 
 private:
     struct edge {

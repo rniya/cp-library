@@ -1,7 +1,10 @@
 #pragma once
 #include <cassert>
+#include <fstream>
 #include <limits>
 #include <queue>
+#include <string>
+#include <tuple>
 #include <vector>
 
 template <typename Cap, bool directed> struct Dinic {
@@ -87,6 +90,25 @@ template <typename Cap, bool directed> struct Dinic {
         return visited;
     }
 
+    void dump_graphviz(std::string filename = "maxflow") {
+        std::ofstream ofs(filename + ".dot");
+        ofs << "digraph {\n";
+        auto es = edges();
+        for (const auto& e : es) {
+            int from, to;
+            Cap cap, flow;
+            std::tie(from, to, cap, flow) = e;
+            ofs << from << " -> " << to << " [label = \"" << flow << "/" << cap << "\", color = "
+                << (flow == cap ? "red"
+                    : flow > 0  ? "blue"
+                                : "black")
+                << "];\n";
+        }
+        ofs << "}\n";
+        ofs.close();
+        return;
+    }
+
 private:
     struct edge {
         int to;
@@ -123,7 +145,7 @@ private:
         for (int& i = iter[v]; i < (int)G[v].size(); i++) {
             auto& e = G[v][i];
             if (e.cap <= 0 || level[v] >= level[e.to]) continue;
-            Cap d = dfs(e.to, t, min(f, e.cap));
+            Cap d = dfs(e.to, t, std::min(f, e.cap));
             if (d <= 0) continue;
             e.cap -= d;
             G[e.to][e.rev].cap += d;

@@ -1,8 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_inversions_query"
 
+#include "../../algorithm/Mo.hpp"
 #include "../../base.hpp"
 #include "../../datastructure/BinaryIndexedTree.hpp"
-#include "../../other/Mo.hpp"
 #include "../../util/compress.hpp"
 
 int main() {

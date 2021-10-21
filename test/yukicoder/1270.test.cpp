@@ -1,9 +1,9 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1270"
 
+#include "../../algorithm/Mo.hpp"
 #include "../../base.hpp"
 #include "../../datastructure/BinaryIndexedTree.hpp"
 #include "../../datastructure/LazySegmentTree.hpp"
-#include "../../other/Mo.hpp"
 
 const int inf = 1e9;
 

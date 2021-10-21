@@ -7,7 +7,7 @@
 #include <vector>
 
 namespace geometry {
-using Real = double;
+using Real = double;  // change this     flexibly if you want more precision
 constexpr Real EPS = 1e-8;
 constexpr Real PI = 3.14159265358979323846L;
 
@@ -52,6 +52,8 @@ struct Point {
 
     Point operator/(const Real& k) const { return Point(*this) /= k; }
 
+    Point operator*(const Point& p) const { return Point(x * p.x - y * p.y, x * p.y + y * p.x); }
+
     Point operator-() const { return Point(-x, -y); }
 
     bool operator==(const Point& p) const { return (compare(x, p.x) == 0 && compare(y, p.y) == 0); }
@@ -79,6 +81,8 @@ struct Point {
     Point normal() const { return Point(-y, x); }
 
     Point unit() const { return *this / abs(); }
+
+    Point conj() const { return Point(x, -y); }
 
     Point rotate(Real theta) const {
         return Point(x * std::cos(theta) - y * std::sin(theta), x * std::sin(theta) + y * std::cos(theta));
@@ -254,6 +258,22 @@ std::vector<Point> crosspoint(const Circle& c1, const Circle& c2) {
     return {p, q};
 }
 
+Real commonarea(Circle c1, Circle c2) {
+    Real r1 = c1.radius, r2 = c2.radius;
+    Real d = (c1.center - c2.center).abs();
+    if (compare(r1 + r2, d) <= 0) return 0;
+    if (compare(std::fabs(r1 - r2), d) >= 0) return PI * min(r1, r2) * min(r1, r2);
+    Real res = 0;
+    for (int _ = 0; _ < 2; _++) {
+        r1 = c1.radius, r2 = c2.radius;
+        Real cosine = (d * d + r1 * r1 - r2 * r2) / (2 * d * r1);
+        Real theta = std::acos(cosine) * 2;
+        res += (theta - std::sin(theta)) * r1 * r1 / 2;
+        swap(c1, c2);
+    }
+    return res;
+}
+
 Line bisector(const Point& p, const Point& q) {
     Point c = (p + q) * 0.5;
     Point v = (q - p).normal();
@@ -263,6 +283,12 @@ Line bisector(const Point& p, const Point& q) {
 Circle circumcircle(Point a, Point b, const Point& c) {
     Point center = crosspoint(bisector(a, c), bisector(b, c));
     return Circle(center, distance(c, center));
+}
+
+Circle incircle(const Point& a, const Point& b, const Point& c) {
+    Real A = (b - c).abs(), B = (c - a).abs(), C = (a - b).abs();
+    Point center = (a * A + b * B + c * C) / (A + B + C);
+    return Circle(center, distance(Segment(a, b), center));
 }
 
 std::vector<Point> center_given_radius(const Point& a, const Point& b, const Real& r) {
@@ -289,6 +315,25 @@ int count_tangent(const Circle& c1, const Circle& c2) {
 
 std::vector<Point> tangent_to_circle(const Circle& c, const Point& p) {
     return crosspoint(c, Circle(p, sqrt((c.center - p).norm() - c.radius * c.radius)));
+}
+
+std::vector<Line> common_tangent(const Circle& c1, const Circle& c2) {
+    if (c1.radius < c2.radius) return common_tangent(c2, c1);
+    std::vector<Line> res;
+    Real g = distance(c1.center, c2.center);
+    if (equals(g, 0)) return res;
+    Point u = (c2.center - c1.center) / g, v = u.normal();
+    for (int s : {-1, 1}) {
+        Real h = (c1.radius + c2.radius * s) / g;
+        if (equals(1 - h * h, 0))
+            res.emplace_back(c1.center + u * c1.radius, c1.center + (u + v) * c1.radius);
+        else if (compare(1 - h * h, 0) > 0) {
+            Point U = u * h, V = v * std::sqrt(1 - h * h);
+            res.emplace_back(c1.center + (U + V) * c1.radius, c2.center - (U + V) * c2.radius * s);
+            res.emplace_back(c1.center + (U - V) * c1.radius, c2.center - (U - V) * c2.radius * s);
+        }
+    }
+    return res;
 }
 
 enum Contain { OUT, ON, IN };
@@ -337,6 +382,14 @@ Contain contain(const Polygon& P, const Point& p) {
         if (sgn(a.y) <= 0 && sgn(b.y) > 0 && sgn(cross(a, b)) < 0) in = !in;
     }
     return in ? IN : OUT;
+}
+
+Contain contain(const Circle& c, const Point& p) {
+    Real d = distance(c.center, p);
+    int cp = compare(d, c.radius);
+    if (cp > 0) return OUT;
+    if (cp < 0) return IN;
+    return ON;
 }
 
 Polygon convex_hull(Polygon& P, bool accept_on_segment = false) {
@@ -405,6 +458,59 @@ Polygon voronoi(const Polygon& P, const std::vector<Point>& ps, size_t idx) {
         res = convex_cut(res, bisector(ps[idx], ps[i]));
     }
     return res;
+}
+
+namespace internal {
+
+Real commonarea_impl(const Circle& c, const Point& a, const Point& b) {
+    auto va = c.center - a, vb = c.center - b;
+    Real f = cross(va, vb), res = 0;
+    if (equals(f, 0)) return res;
+    if (compare(std::max(va.abs(), vb.abs()), c.radius) <= 0) return f;
+    if (compare(distance(Segment(a, b), c.center), c.radius) >= 0) return c.radius * c.radius * (vb * va.conj()).arg();
+    auto cand = crosspoint(c, Segment(a, b));
+    cand.emplace(cand.begin(), a);
+    cand.emplace_back(b);
+    for (size_t i = 0; i + 1 < cand.size(); i++) res += commonarea_impl(c, cand[i], cand[i + 1]);
+    return res;
+}
+
+}  // namespace internal
+
+Real commonarea(const Circle& c, const Polygon& P) {
+    if (P.size() < 3) return 0;
+    Real res = 0;
+    int n = P.size();
+    for (int i = 0; i < n; i++) res += internal::commonarea_impl(c, P[i], P[(i + 1) % n]);
+    return res / 2;
+}
+
+Real closest_pair(std::vector<Point> ps) {
+    int n = ps.size();
+    if (n == 1) return 0;
+    sort(ps.begin(), ps.end());
+    auto compare_y = [&](const Point& p, const Point& q) { return p.y < q.y; };
+    vector<Point> cand(n);
+    const Real inf = 1e18;
+
+    auto dfs = [&](auto self, int l, int r) -> Real {
+        if (r - l <= 1) return inf;
+        int mid = (l + r) >> 1;
+        auto x_mid = ps[mid].x;
+        auto res = std::min(self(self, l, mid), self(self, mid, r));
+        std::inplace_merge(ps.begin() + l, ps.begin() + mid, ps.begin() + r, compare_y);
+        for (int i = l, cur = 0; i < r; i++) {
+            if (std::fabs(ps[i].x - x_mid) >= res) continue;
+            for (int j = cur - 1; j >= 0; j--) {
+                auto diff = ps[i] - cand[j];
+                if (diff.y >= res) break;
+                res = std::min(res, diff.abs());
+            }
+            cand[cur++] = ps[i];
+        }
+        return res;
+    };
+    return dfs(dfs, 0, n);
 }
 
 }  // namespace geometry
