@@ -1,4 +1,5 @@
 #pragma once
+#include <algorithm>
 #include <cassert>
 #include <queue>
 #include <vector>
@@ -33,7 +34,7 @@ struct TopologicalSort {
                 }
             }
         }
-        if (*max_element(indeg.begin(), indeg.end()) != 0) return {};
+        if (*std::max_element(indeg.begin(), indeg.end()) != 0) return {};
         return order;
     }
 
