@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/static_range_inversions_query.test.cpp
     title: test/yosupo/static_range_inversions_query.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "compress (\u5EA7\u6A19\u5727\u7E2E)"
     links: []
@@ -28,7 +28,7 @@ data:
   path: util/compress.hpp
   requiredBy: []
   timestamp: '2021-09-25 17:45:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/static_range_inversions_query.test.cpp
 documentation_of: util/compress.hpp

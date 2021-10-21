@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   - icon: ':heavy_check_mark:'
@@ -75,7 +75,7 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 6 \"flow/Dinic.hpp\"\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 9 \"flow/Dinic.hpp\"\
     \n\ntemplate <typename Cap, bool directed> struct Dinic {\n    Dinic(int n) :\
     \ n(n), G(n), level(n), iter(n) {}\n\n    int add_edge(int from, int to, Cap cap)\
     \ {\n        assert(0 <= from && from < n);\n        assert(0 <= to && to < n);\n\
@@ -109,28 +109,37 @@ data:
     \            que.pop();\n            for (const auto& e : G[v]) {\n          \
     \      if (e.cap && !visited[e.to]) {\n                    visited[e.to] = true;\n\
     \                    que.emplace(e.to);\n                }\n            }\n  \
-    \      }\n        return visited;\n    }\n\nprivate:\n    struct edge {\n    \
-    \    int to;\n        Cap cap;\n        int rev;\n        edge(int to, Cap cap,\
-    \ int rev) : to(to), cap(cap), rev(rev) {}\n    };\n\n    int n;\n    std::vector<std::vector<edge>>\
-    \ G;\n    std::vector<std::pair<int, int>> pos;\n    std::vector<int> level, iter;\n\
-    \n    void bfs(int s, int t) {\n        std::fill(level.begin(), level.end(),\
-    \ -1);\n        std::queue<int> que;\n        level[s] = 0;\n        que.emplace(s);\n\
-    \        while (!que.empty()) {\n            int v = que.front();\n          \
-    \  que.pop();\n            for (const auto& e : G[v]) {\n                if (e.cap\
-    \ > 0 && level[e.to] < 0) {\n                    level[e.to] = level[v] + 1;\n\
-    \                    if (e.to == t) return;\n                    que.emplace(e.to);\n\
-    \                }\n            }\n        }\n    }\n\n    Cap dfs(int v, int\
-    \ t, Cap f) {\n        if (v == t) return f;\n        for (int& i = iter[v]; i\
-    \ < (int)G[v].size(); i++) {\n            auto& e = G[v][i];\n            if (e.cap\
-    \ <= 0 || level[v] >= level[e.to]) continue;\n            Cap d = dfs(e.to, t,\
-    \ min(f, e.cap));\n            if (d <= 0) continue;\n            e.cap -= d;\n\
-    \            G[e.to][e.rev].cap += d;\n            return d;\n        }\n    \
-    \    return 0;\n    }\n};\n\n/**\n * @brief Dinic (Maximum flow)\n * @docs docs/flow/Dinic.md\n\
-    \ */\n#line 5 \"test/aoj/GRL_6_A.Dinic.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int V, E;\n    cin >> V >> E;\n\n    Dinic<int,\
-    \ true> D(V);\n\n    for (int i = 0; i < E; i++) {\n        int u, v, c;\n   \
-    \     cin >> u >> v >> c;\n        D.add_edge(u, v, c);\n    }\n\n    cout <<\
-    \ D.max_flow(0, V - 1) << '\\n';\n}\n"
+    \      }\n        return visited;\n    }\n\n    void dump_graphviz(std::string\
+    \ filename = \"maxflow\") {\n        std::ofstream ofs(filename + \".dot\");\n\
+    \        ofs << \"digraph {\\n\";\n        auto es = edges();\n        for (const\
+    \ auto& e : es) {\n            int from, to;\n            Cap cap, flow;\n   \
+    \         std::tie(from, to, cap, flow) = e;\n            ofs << from << \" ->\
+    \ \" << to << \" [label = \\\"\" << flow << \"/\" << cap << \"\\\", color = \"\
+    \n                << (flow == cap ? \"red\"\n                    : flow > 0  ?\
+    \ \"blue\"\n                                : \"black\")\n                << \"\
+    ];\\n\";\n        }\n        ofs << \"}\\n\";\n        ofs.close();\n        return;\n\
+    \    }\n\nprivate:\n    struct edge {\n        int to;\n        Cap cap;\n   \
+    \     int rev;\n        edge(int to, Cap cap, int rev) : to(to), cap(cap), rev(rev)\
+    \ {}\n    };\n\n    int n;\n    std::vector<std::vector<edge>> G;\n    std::vector<std::pair<int,\
+    \ int>> pos;\n    std::vector<int> level, iter;\n\n    void bfs(int s, int t)\
+    \ {\n        std::fill(level.begin(), level.end(), -1);\n        std::queue<int>\
+    \ que;\n        level[s] = 0;\n        que.emplace(s);\n        while (!que.empty())\
+    \ {\n            int v = que.front();\n            que.pop();\n            for\
+    \ (const auto& e : G[v]) {\n                if (e.cap > 0 && level[e.to] < 0)\
+    \ {\n                    level[e.to] = level[v] + 1;\n                    if (e.to\
+    \ == t) return;\n                    que.emplace(e.to);\n                }\n \
+    \           }\n        }\n    }\n\n    Cap dfs(int v, int t, Cap f) {\n      \
+    \  if (v == t) return f;\n        for (int& i = iter[v]; i < (int)G[v].size();\
+    \ i++) {\n            auto& e = G[v][i];\n            if (e.cap <= 0 || level[v]\
+    \ >= level[e.to]) continue;\n            Cap d = dfs(e.to, t, std::min(f, e.cap));\n\
+    \            if (d <= 0) continue;\n            e.cap -= d;\n            G[e.to][e.rev].cap\
+    \ += d;\n            return d;\n        }\n        return 0;\n    }\n};\n\n/**\n\
+    \ * @brief Dinic (Maximum flow)\n * @docs docs/flow/Dinic.md\n */\n#line 5 \"\
+    test/aoj/GRL_6_A.Dinic.test.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int V, E;\n    cin >> V >> E;\n\n    Dinic<int, true> D(V);\n\n    for (int\
+    \ i = 0; i < E; i++) {\n        int u, v, c;\n        cin >> u >> v >> c;\n  \
+    \      D.add_edge(u, v, c);\n    }\n\n    cout << D.max_flow(0, V - 1) << '\\\
+    n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../flow/Dinic.hpp\"\n\nint main()\
     \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
@@ -143,7 +152,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_6_A.Dinic.test.cpp
   requiredBy: []
-  timestamp: '2021-10-17 17:14:51+09:00'
+  timestamp: '2021-10-21 16:13:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_A.Dinic.test.cpp

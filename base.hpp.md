@@ -35,6 +35,21 @@ data:
   - icon: ':heavy_check_mark:'
     path: datastructure/SparseTable.hpp
     title: Sparse table
+  - icon: ':warning:'
+    path: gomi/BipartiteMatching.hpp
+    title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
+  - icon: ':warning:'
+    path: gomi/FordFulkerson.hpp
+    title: Ford Fulkerson
+  - icon: ':warning:'
+    path: gomi/LowestCommonAncestor.hpp
+    title: Lowest Common Ancestor
+  - icon: ':warning:'
+    path: gomi/MinCostFlow.hpp
+    title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
+  - icon: ':warning:'
+    path: gomi/SuffixArray_old.hpp
+    title: Suffix Array
   - icon: ':heavy_check_mark:'
     path: graph/CycleDetection.hpp
     title: Cycle Detection
@@ -47,18 +62,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/WarshallFloyd.hpp
     title: Warshall Floyd
-  - icon: ':warning:'
-    path: hold/BipartiteMatching.hpp
-    title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-  - icon: ':warning:'
-    path: hold/FordFulkerson.hpp
-    title: Ford Fulkerson
-  - icon: ':warning:'
-    path: hold/MinCostFlow.hpp
-    title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
-  - icon: ':warning:'
-    path: hold/SuffixArray_old.hpp
-    title: Suffix Array
   - icon: ':warning:'
     path: linearalgebra/Kitamasa.hpp
     title: Kitamasa
@@ -96,18 +99,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/Z_Algorithm.hpp
     title: Z-Algorithm
-  - icon: ':warning:'
-    path: test/atcoder/nikkei2019_2_qual_d.cpp
-    title: test/atcoder/nikkei2019_2_qual_d.cpp
-  - icon: ':warning:'
-    path: test/atcoder/tdpc_fibonacci.cpp
-    title: test/atcoder/tdpc_fibonacci.cpp
-  - icon: ':warning:'
-    path: test/atcoder/ukuku09_d.cpp
-    title: test/atcoder/ukuku09_d.cpp
-  - icon: ':heavy_check_mark:'
-    path: tree/LowestCommonAncestor.hpp
-    title: Lowest Common Ancestor
   - icon: ':warning:'
     path: util/RandomNumberGenerator_32.hpp
     title: "\u4E71\u6570\u751F\u6210\u5668(32bit)"
@@ -188,8 +179,14 @@ data:
     path: test/aoj/CGL_4_C.test.cpp
     title: test/aoj/CGL_4_C.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_5_A.test.cpp
+    title: test/aoj/CGL_5_A.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_A.test.cpp
     title: test/aoj/CGL_7_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_7_B.test.cpp
+    title: test/aoj/CGL_7_B.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_C.test.cpp
     title: test/aoj/CGL_7_C.test.cpp
@@ -202,6 +199,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_F.test.cpp
     title: test/aoj/CGL_7_F.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_7_G.test.cpp
+    title: test/aoj/CGL_7_G.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_7_H.test.cpp
+    title: test/aoj/CGL_7_H.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL_7_I.test.cpp
+    title: test/aoj/CGL_7_I.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_A.test.cpp
     title: test/aoj/DPL_5_A.test.cpp
@@ -341,9 +347,6 @@ data:
     path: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
     title: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_5_C.test.cpp
-    title: test/aoj/GRL_5_C.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
     title: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
   - icon: ':heavy_check_mark:'
@@ -419,9 +422,6 @@ data:
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/lca.test.cpp
-    title: test/yosupo/lca.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -463,7 +463,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/static_range_inversions_query.test.cpp
     title: test/yosupo/static_range_inversions_query.test.cpp
   - icon: ':heavy_check_mark:'
@@ -517,7 +517,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1269.test.cpp
     title: test/yukicoder/1269.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1270.test.cpp
     title: test/yukicoder/1270.test.cpp
   - icon: ':heavy_check_mark:'
@@ -571,9 +571,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -710,23 +710,20 @@ data:
   - string/Knuth_Morris_Pratt.hpp
   - string/Z_Algorithm.hpp
   - string/SuffixArray.hpp
-  - tree/LowestCommonAncestor.hpp
   - math/fast_factorize.hpp
   - math/quotient_ranges.hpp
   - math/floor_sum.hpp
-  - hold/MinCostFlow.hpp
-  - hold/BipartiteMatching.hpp
-  - hold/SuffixArray_old.hpp
-  - hold/FordFulkerson.hpp
+  - gomi/MinCostFlow.hpp
+  - gomi/BipartiteMatching.hpp
+  - gomi/LowestCommonAncestor.hpp
+  - gomi/SuffixArray_old.hpp
+  - gomi/FordFulkerson.hpp
   - modulo/montgomery64.hpp
   - graph/CycleDetection.hpp
   - graph/RangeEdgeGraph.hpp
   - graph/WarshallFloyd.hpp
   - graph/Dijkstra.hpp
   - linearalgebra/Kitamasa.hpp
-  - test/atcoder/nikkei2019_2_qual_d.cpp
-  - test/atcoder/tdpc_fibonacci.cpp
-  - test/atcoder/ukuku09_d.cpp
   - polynomial/FormalPowerSeries.hpp
   - polynomial/StirlingSecond.hpp
   - polynomial/lagrange_interpolation.hpp
@@ -737,7 +734,7 @@ data:
   - util/gray_code.hpp
   - util/ZobristHash.hpp
   timestamp: '2021-07-19 14:45:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1269.test.cpp
   - test/yukicoder/952.test.cpp
@@ -773,14 +770,17 @@ data:
   - test/aoj/DSL_1_B.test.cpp
   - test/aoj/CGL_4_B.test.cpp
   - test/aoj/GRL_2_A.test.cpp
+  - test/aoj/CGL_7_H.test.cpp
   - test/aoj/ALDS1_14_C.test.cpp
   - test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
+  - test/aoj/CGL_7_I.test.cpp
   - test/aoj/CGL_3_A.test.cpp
   - test/aoj/DPL_5_F.test.cpp
   - test/aoj/CGL_1_B.test.cpp
   - test/aoj/GRL_3_A.test.cpp
   - test/aoj/GRL_6_A.Dinic.test.cpp
   - test/aoj/DPL_5_D.test.cpp
+  - test/aoj/CGL_7_G.test.cpp
   - test/aoj/CGL_7_A.test.cpp
   - test/aoj/DPL_5_I.test.cpp
   - test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
@@ -824,8 +824,10 @@ data:
   - test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
   - test/aoj/DPL_5_J.test.cpp
   - test/aoj/GRL_4_A.TopologicalSort.test.cpp
+  - test/aoj/CGL_5_A.test.cpp
   - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
+  - test/aoj/CGL_7_B.test.cpp
   - test/aoj/NTL_1_B.test.cpp
   - test/aoj/DPL_5_C.test.cpp
   - test/aoj/DSL_2_F.test.cpp
@@ -834,7 +836,6 @@ data:
   - test/aoj/GRL_5_B.test.cpp
   - test/aoj/ITP1_11_A.test.cpp
   - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
-  - test/aoj/GRL_5_C.test.cpp
   - test/aoj/DSL_2_G.test.cpp
   - test/aoj/CGL_3_C.test.cpp
   - test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
@@ -860,7 +861,6 @@ data:
   - test/yosupo/factorize.test.cpp
   - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/two_sat.test.cpp
-  - test/yosupo/lca.test.cpp
   - test/yosupo/number_of_substrings.test.cpp
   - test/yosupo/aplusb.test.cpp
   - test/yosupo/two_edge_connected_components.test.cpp

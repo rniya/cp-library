@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -70,7 +70,7 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"hold/FordFulkerson.hpp\"\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"gomi/FordFulkerson.hpp\"\
     \n\n/**\n * @brief Ford Fulkerson\n * @docs docs/flow/FordFulkerson.md\n */\n\
     template <typename Cap, bool directed> struct FordFulkerson {\n    struct edge\
     \ {\n        int to;\n        Cap cap;\n        int rev;\n        edge(int to,\
@@ -123,15 +123,15 @@ data:
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: hold/FordFulkerson.hpp
+  path: gomi/FordFulkerson.hpp
   requiredBy: []
-  timestamp: '2021-09-21 16:26:52+09:00'
+  timestamp: '2021-10-21 16:13:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: hold/FordFulkerson.hpp
+documentation_of: gomi/FordFulkerson.hpp
 layout: document
 redirect_from:
-- /library/hold/FordFulkerson.hpp
-- /library/hold/FordFulkerson.hpp.html
+- /library/gomi/FordFulkerson.hpp
+- /library/gomi/FordFulkerson.hpp.html
 title: Ford Fulkerson
 ---

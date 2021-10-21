@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -70,7 +70,7 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"hold/SuffixArray_old.hpp\"\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"gomi/SuffixArray_old.hpp\"\
     \n\n/**\n * @brief Suffix Array\n * @docs docs/string/SuffixArray.md\n */\nstruct\
     \ SuffixArray {\n    string s;\n    vector<int> SA;\n    SuffixArray(const string&\
     \ S) : s(S) {\n        int n = s.size();\n        s.push_back('$');\n        SA.resize(n\
@@ -131,16 +131,16 @@ data:
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: hold/SuffixArray_old.hpp
+  path: gomi/SuffixArray_old.hpp
   requiredBy: []
-  timestamp: '2021-09-12 18:03:48+09:00'
+  timestamp: '2021-10-21 16:13:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: hold/SuffixArray_old.hpp
+documentation_of: gomi/SuffixArray_old.hpp
 layout: document
 redirect_from:
-- /library/hold/SuffixArray_old.hpp
-- /library/hold/SuffixArray_old.hpp.html
+- /library/gomi/SuffixArray_old.hpp
+- /library/gomi/SuffixArray_old.hpp.html
 title: Suffix Array
 ---
 ## 概要

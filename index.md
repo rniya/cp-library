@@ -1,9 +1,17 @@
 ---
 data:
   libraryCategories:
+  - name: algorithm
+    pages:
+    - icon: ':x:'
+      path: algorithm/Mo.hpp
+      title: Mo's algorithm
+    - icon: ':warning:'
+      path: algorithm/monotone_minima.hpp
+      title: monotone minima
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
@@ -36,7 +44,7 @@ data:
       title: set function (FZT, FMT, FWHT)
   - name: datastructure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: datastructure/BinaryIndexedTree.hpp
       title: Binary Indexd Tree (Fenwick Tree)
     - icon: ':heavy_check_mark:'
@@ -51,7 +59,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/DualSegmentTree.hpp
       title: Dual Segment Tree
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: datastructure/LazySegmentTree.hpp
       title: Lazy Segment Tree
     - icon: ':warning:'
@@ -93,11 +101,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/UnionFind.hpp
       title: Union Find (Disjoint Set Union)
-  - name: dp
-    pages:
-    - icon: ':warning:'
-      path: dp/monotone_minima.hpp
-      title: monotone minima
   - name: flow
     pages:
     - icon: ':heavy_check_mark:'
@@ -123,9 +126,23 @@ data:
     - icon: ':warning:'
       path: geometry/geometry3D.hpp
       title: "3 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
+  - name: gomi
+    pages:
     - icon: ':warning:'
-      path: geometry/sort_points_by_argument.hpp
-      title: geometry/sort_points_by_argument.hpp
+      path: gomi/BipartiteMatching.hpp
+      title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
+    - icon: ':warning:'
+      path: gomi/FordFulkerson.hpp
+      title: Ford Fulkerson
+    - icon: ':warning:'
+      path: gomi/LowestCommonAncestor.hpp
+      title: Lowest Common Ancestor
+    - icon: ':warning:'
+      path: gomi/MinCostFlow.hpp
+      title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
+    - icon: ':warning:'
+      path: gomi/SuffixArray_old.hpp
+      title: Suffix Array
   - name: graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -168,20 +185,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/enumerate_cliques.hpp
       title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
-  - name: hold
-    pages:
-    - icon: ':warning:'
-      path: hold/BipartiteMatching.hpp
-      title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-    - icon: ':warning:'
-      path: hold/FordFulkerson.hpp
-      title: Ford Fulkerson
-    - icon: ':warning:'
-      path: hold/MinCostFlow.hpp
-      title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
-    - icon: ':warning:'
-      path: hold/SuffixArray_old.hpp
-      title: Suffix Array
   - name: linearalgebra
     pages:
     - icon: ':heavy_check_mark:'
@@ -231,11 +234,6 @@ data:
     - icon: ':warning:'
       path: modulo/montgomery64.hpp
       title: montgomery modint (64 bit)
-  - name: other
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: other/Mo.hpp
-      title: Mo's algorithm
   - name: polynomial
     pages:
     - icon: ':heavy_check_mark:'
@@ -273,17 +271,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/Z_Algorithm.hpp
       title: Z-Algorithm
-  - name: test/atcoder
-    pages:
-    - icon: ':warning:'
-      path: test/atcoder/nikkei2019_2_qual_d.cpp
-      title: test/atcoder/nikkei2019_2_qual_d.cpp
-    - icon: ':warning:'
-      path: test/atcoder/tdpc_fibonacci.cpp
-      title: test/atcoder/tdpc_fibonacci.cpp
-    - icon: ':warning:'
-      path: test/atcoder/ukuku09_d.cpp
-      title: test/atcoder/ukuku09_d.cpp
   - name: tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -292,9 +279,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: tree/HeavyLightDecomposition.hpp
       title: Heavy Light Decomposition
-    - icon: ':heavy_check_mark:'
-      path: tree/LowestCommonAncestor.hpp
-      title: Lowest Common Ancestor
     - icon: ':heavy_check_mark:'
       path: tree/TreeDiameter.hpp
       title: Tree Diameter
@@ -315,7 +299,7 @@ data:
     - icon: ':warning:'
       path: util/binary_conversion.hpp
       title: "\u6587\u5B57\u5217\u306E2\u9032\u5909\u63DB"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: util/compress.hpp
       title: "compress (\u5EA7\u6A19\u5727\u7E2E)"
     - icon: ':warning:'
@@ -388,8 +372,14 @@ data:
       path: test/aoj/CGL_4_C.test.cpp
       title: test/aoj/CGL_4_C.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/aoj/CGL_5_A.test.cpp
+      title: test/aoj/CGL_5_A.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_A.test.cpp
       title: test/aoj/CGL_7_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/CGL_7_B.test.cpp
+      title: test/aoj/CGL_7_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_C.test.cpp
       title: test/aoj/CGL_7_C.test.cpp
@@ -402,6 +392,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_F.test.cpp
       title: test/aoj/CGL_7_F.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/CGL_7_G.test.cpp
+      title: test/aoj/CGL_7_G.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/CGL_7_H.test.cpp
+      title: test/aoj/CGL_7_H.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/CGL_7_I.test.cpp
+      title: test/aoj/CGL_7_I.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_A.test.cpp
       title: test/aoj/DPL_5_A.test.cpp
@@ -541,9 +540,6 @@ data:
       path: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
       title: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/aoj/GRL_5_C.test.cpp
-      title: test/aoj/GRL_5_C.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
       title: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
     - icon: ':heavy_check_mark:'
@@ -624,9 +620,6 @@ data:
       path: test/yosupo/inv_of_formal_power_series.test.cpp
       title: test/yosupo/inv_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/yosupo/lca.test.cpp
-      title: test/yosupo/lca.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/yosupo/log_of_formal_power_series.test.cpp
       title: test/yosupo/log_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -668,7 +661,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/static_range_inversions_query.test.cpp
       title: test/yosupo/static_range_inversions_query.test.cpp
     - icon: ':heavy_check_mark:'
@@ -724,7 +717,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1269.test.cpp
       title: test/yukicoder/1269.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/1270.test.cpp
       title: test/yukicoder/1270.test.cpp
     - icon: ':heavy_check_mark:'

@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: algorithm/Mo.hpp
+    title: Mo's algorithm
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexd Tree (Fenwick Tree)
-  - icon: ':heavy_check_mark:'
-    path: other/Mo.hpp
-    title: Mo's algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: util/compress.hpp
     title: "compress (\u5EA7\u6A19\u5727\u7E2E)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -25,13 +25,32 @@ data:
     - https://judge.yosupo.jp/problem/static_range_inversions_query
   bundledCode: "#line 1 \"test/yosupo/static_range_inversions_query.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\n\n\
-    #line 2 \"base.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n#pragma\
-    \ region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned\
-    \ int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
-    \ntemplate <typename T> istream& operator>>(istream& is, vector<T>& v) {\n   \
-    \ for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n \
-    \       os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
+    #line 2 \"algorithm/Mo.hpp\"\n#include <cassert>\n#include <cmath>\n#include <numeric>\n\
+    #include <vector>\n\nstruct Mo {\n    Mo(int n) : n(n) {}\n\n    void add(int\
+    \ l, int r) {\n        assert(l <= r);\n        left.emplace_back(l);\n      \
+    \  right.emplace_back(r);\n    }\n\n    template <typename AL, typename AR, typename\
+    \ DL, typename DR, typename REM>\n    void run(const AL& add_left, const AR& add_right,\
+    \ const DL& del_left, const DR del_right, const REM& rem) {\n        int q = left.size(),\
+    \ width = n / std::min(std::max<int>(sqrt(q * 2 / 3), 1), n);\n        std::vector<int>\
+    \ order(q);\n        std::iota(order.begin(), order.end(), 0);\n        std::sort(order.begin(),\
+    \ order.end(), [&](int a, int b) {\n            int ablock = left[a] / width,\
+    \ bblock = left[b] / width;\n            if (ablock != bblock) return ablock <\
+    \ bblock;\n            return (ablock & 1) ? (right[a] > right[b]) : (right[a]\
+    \ < right[b]);\n        });\n\n        int l = 0, r = 0;\n        for (auto idx\
+    \ : order) {\n            while (l > left[idx]) add_left(--l);\n            while\
+    \ (r < right[idx]) add_right(r++);\n            while (l < left[idx]) del_left(l++);\n\
+    \            while (r > right[idx]) del_right(--r);\n            rem(idx);\n \
+    \       }\n    }\n\n    template <typename A, typename D, typename REM> void run(const\
+    \ A& add, const D& del, const REM& rem) {\n        run(add, add, del, del, rem);\n\
+    \    }\n\nprivate:\n    int n;\n    std::vector<int> left, right;\n};\n\n/**\n\
+    \ * @brief Mo's algorithm\n * @docs docs/other/Mo.md\n */\n#line 2 \"base.hpp\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n#pragma region Macros\ntypedef\
+    \ long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int uint;\ntypedef\
+    \ unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\ntemplate <typename\
+    \ T> istream& operator>>(istream& is, vector<T>& v) {\n    for (T& x : v) is >>\
+    \ x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream& os,\
+    \ const vector<T>& v) {\n    for (int i = 0; i < (int)v.size(); i++) {\n     \
+    \   os << v[i] << (i + 1 == (int)v.size() ? \"\" : \" \");\n    }\n    return\
     \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
     \ pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return\
     \ os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const\
@@ -97,29 +116,11 @@ data:
     \ data;\n\n    T sum(int r) const {\n        T res = 0;\n        for (; r > 0;\
     \ r -= r & -r) res += data[r - 1];\n        return res;\n    }\n};\n\n/**\n *\
     \ @brief Binary Indexd Tree (Fenwick Tree)\n * @docs docs/datastructure/BinaryIndexedTree.md\n\
-    \ */\n#line 6 \"other/Mo.hpp\"\n\nstruct Mo {\n    Mo(int n) : n(n) {}\n\n   \
-    \ void add(int l, int r) {\n        assert(l <= r);\n        left.emplace_back(l);\n\
-    \        right.emplace_back(r);\n    }\n\n    template <typename AL, typename\
-    \ AR, typename DL, typename DR, typename REM>\n    void run(const AL& add_left,\
-    \ const AR& add_right, const DL& del_left, const DR del_right, const REM& rem)\
-    \ {\n        int q = left.size(), width = n / std::min(std::max<int>(sqrt(q *\
-    \ 2 / 3), 1), n);\n        std::vector<int> order(q);\n        std::iota(order.begin(),\
-    \ order.end(), 0);\n        std::sort(order.begin(), order.end(), [&](int a, int\
-    \ b) {\n            int ablock = left[a] / width, bblock = left[b] / width;\n\
-    \            if (ablock != bblock) return ablock < bblock;\n            return\
-    \ (ablock & 1) ? (right[a] > right[b]) : (right[a] < right[b]);\n        });\n\
-    \n        int l = 0, r = 0;\n        for (auto idx : order) {\n            while\
-    \ (l > left[idx]) add_left(--l);\n            while (r < right[idx]) add_right(r++);\n\
-    \            while (l < left[idx]) del_left(l++);\n            while (r > right[idx])\
-    \ del_right(--r);\n            rem(idx);\n        }\n    }\n\n    template <typename\
-    \ A, typename D, typename REM> void run(const A& add, const D& del, const REM&\
-    \ rem) {\n        run(add, add, del, del, rem);\n    }\n\nprivate:\n    int n;\n\
-    \    std::vector<int> left, right;\n};\n\n/**\n * @brief Mo's algorithm\n * @docs\
-    \ docs/other/Mo.md\n */\n#line 5 \"util/compress.hpp\"\n\ntemplate <typename T>\
-    \ std::map<T, int> compress(std::vector<T>& v) {\n    std::sort(v.begin(), v.end());\n\
-    \    v.erase(unique(v.begin(), v.end()), v.end());\n    std::map<T, int> res;\n\
-    \    for (size_t i = 0; i < v.size(); i++) res[v[i]] = i;\n    return res;\n}\n\
-    \n/**\n * @brief compress (\u5EA7\u6A19\u5727\u7E2E)\n */\n#line 7 \"test/yosupo/static_range_inversions_query.test.cpp\"\
+    \ */\n#line 5 \"util/compress.hpp\"\n\ntemplate <typename T> std::map<T, int>\
+    \ compress(std::vector<T>& v) {\n    std::sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
+    \ v.end()), v.end());\n    std::map<T, int> res;\n    for (size_t i = 0; i < v.size();\
+    \ i++) res[v[i]] = i;\n    return res;\n}\n\n/**\n * @brief compress (\u5EA7\u6A19\
+    \u5727\u7E2E)\n */\n#line 7 \"test/yosupo/static_range_inversions_query.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
     \ Q;\n    cin >> N >> Q;\n    vector<int> A(N);\n    for (int i = 0; i < N; i++)\
     \ cin >> A[i];\n\n    Mo mo(N);\n    for (int i = 0; i < Q; i++) {\n        int\
@@ -137,12 +138,12 @@ data:
     \ = inv; };\n\n    mo.run(add_left, add_right, del_left, del_right, rem);\n\n\
     \    for (int i = 0; i < Q; i++) cout << ans[i] << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/BinaryIndexedTree.hpp\"\
-    \n#include \"../../other/Mo.hpp\"\n#include \"../../util/compress.hpp\"\n\nint\
-    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n\
-    \    cin >> N >> Q;\n    vector<int> A(N);\n    for (int i = 0; i < N; i++) cin\
-    \ >> A[i];\n\n    Mo mo(N);\n    for (int i = 0; i < Q; i++) {\n        int l,\
-    \ r;\n        cin >> l >> r;\n        mo.add(l, r);\n    }\n\n    vector<int>\
+    \n\n#include \"../../algorithm/Mo.hpp\"\n#include \"../../base.hpp\"\n#include\
+    \ \"../../datastructure/BinaryIndexedTree.hpp\"\n#include \"../../util/compress.hpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ Q;\n    cin >> N >> Q;\n    vector<int> A(N);\n    for (int i = 0; i < N; i++)\
+    \ cin >> A[i];\n\n    Mo mo(N);\n    for (int i = 0; i < Q; i++) {\n        int\
+    \ l, r;\n        cin >> l >> r;\n        mo.add(l, r);\n    }\n\n    vector<int>\
     \ B = A;\n    map<int, int> mp = compress(B);\n    for (int i = 0; i < N; i++)\
     \ A[i] = mp[A[i]];\n    int n = mp.size();\n    BinaryIndexedTree<int> BIT(n);\n\
     \    vector<long long> ans(Q);\n    long long inv = 0;\n    int sum = 0;\n\n \
@@ -156,15 +157,15 @@ data:
     \ = inv; };\n\n    mo.run(add_left, add_right, del_left, del_right, rem);\n\n\
     \    for (int i = 0; i < Q; i++) cout << ans[i] << '\\n';\n    return 0;\n}"
   dependsOn:
+  - algorithm/Mo.hpp
   - base.hpp
   - datastructure/BinaryIndexedTree.hpp
-  - other/Mo.hpp
   - util/compress.hpp
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2021-09-27 16:06:03+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-10-21 16:13:48+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp
 layout: document

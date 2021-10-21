@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -70,7 +70,7 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"hold/MinCostFlow.hpp\"\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"gomi/MinCostFlow.hpp\"\
     \n\n/**\n * @brief \u6700\u5C0F\u8CBB\u7528\u6D41\n * @docs docs/flow/MinCostFlow.md\n\
     \ */\ntemplate <typename Cap, typename Cost> struct MinCostFlow {\n    const Cost\
     \ inf = numeric_limits<Cost>::max() / 2;\n    struct edge {\n        int to;\n\
@@ -141,15 +141,15 @@ data:
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: hold/MinCostFlow.hpp
+  path: gomi/MinCostFlow.hpp
   requiredBy: []
-  timestamp: '2021-09-21 16:26:52+09:00'
+  timestamp: '2021-10-21 16:13:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: hold/MinCostFlow.hpp
+documentation_of: gomi/MinCostFlow.hpp
 layout: document
 redirect_from:
-- /library/hold/MinCostFlow.hpp
-- /library/hold/MinCostFlow.hpp.html
+- /library/gomi/MinCostFlow.hpp
+- /library/gomi/MinCostFlow.hpp.html
 title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
 ---

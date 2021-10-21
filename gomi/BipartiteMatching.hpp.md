@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
   _extendedRequiredBy: []
@@ -71,7 +71,7 @@ data:
     \ inline bool chmin(T1& a, T2 b) {\n    if (a > b) {\n        a = b;\n       \
     \ return true;\n    }\n    return false;\n}\ntemplate <class T1, class T2> inline\
     \ bool chmax(T1& a, T2 b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"hold/BipartiteMatching.hpp\"\
+    \ true;\n    }\n    return false;\n}\n#pragma endregion\n#line 3 \"gomi/BipartiteMatching.hpp\"\
     \n\n/**\n * @brief 2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\
     \u30F3\u30B0\n * @docs docs/flow/BipartiteMatching.md\n */\nstruct BipartiteMatching\
     \ {\n    vector<vector<int>> G;\n    vector<int> match, alive, used;\n    int\
@@ -111,16 +111,16 @@ data:
   dependsOn:
   - base.hpp
   isVerificationFile: false
-  path: hold/BipartiteMatching.hpp
+  path: gomi/BipartiteMatching.hpp
   requiredBy: []
-  timestamp: '2021-09-21 16:26:52+09:00'
+  timestamp: '2021-10-21 16:13:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: hold/BipartiteMatching.hpp
+documentation_of: gomi/BipartiteMatching.hpp
 layout: document
 redirect_from:
-- /library/hold/BipartiteMatching.hpp
-- /library/hold/BipartiteMatching.hpp.html
+- /library/gomi/BipartiteMatching.hpp
+- /library/gomi/BipartiteMatching.hpp.html
 title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
 ---
 # TODO

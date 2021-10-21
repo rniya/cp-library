@@ -10,20 +10,21 @@ data:
     _deprecated_at_docs: docs/dp/monotone_minima.md
     document_title: monotone minima
     links: []
-  bundledCode: "#line 2 \"dp/monotone_minima.hpp\"\n#include <numeric>\n#include <vector>\n\
-    \ntemplate <class Select> std::vector<size_t> monotone_minima(const size_t H,\
-    \ const size_t W, const Select& select) {\n    auto solve = [&](auto self, const\
-    \ std::vector<size_t>& v) -> std::vector<size_t> {\n        const size_t n = v.size();\n\
-    \        if (n == 0) return {};\n        std::vector<size_t> u;\n        for (size_t\
-    \ i = 1; i < n; i += 2) u.emplace_back(v[i]);\n        const auto ch = self(self,\
-    \ u);\n        std::vector<size_t> res(n);\n        for (size_t i = 0; i < ch.size();\
-    \ i++) res[i << 1 | 1] = ch[i];\n        for (size_t i = 0, cur = 0; i < n; i\
-    \ += 2) {\n            size_t nxt = (i + 1 == n ? W - 1 : res[i + 1]);\n     \
-    \       for (res[i] = cur; cur < nxt;) {\n                if (select(v[i], res[i],\
-    \ ++cur)) {\n                    res[i] = cur;\n                }\n          \
-    \  }\n        }\n        return res;\n    };\n\n    std::vector<size_t> dp(H);\n\
-    \    std::iota(dp.begin(), dp.end(), 0);\n    return solve(solve, dp);\n}\n\n\
-    /**\n * @brief monotone minima\n * @docs docs/dp/monotone_minima.md\n */\n"
+  bundledCode: "#line 2 \"algorithm/monotone_minima.hpp\"\n#include <numeric>\n#include\
+    \ <vector>\n\ntemplate <class Select> std::vector<size_t> monotone_minima(const\
+    \ size_t H, const size_t W, const Select& select) {\n    auto solve = [&](auto\
+    \ self, const std::vector<size_t>& v) -> std::vector<size_t> {\n        const\
+    \ size_t n = v.size();\n        if (n == 0) return {};\n        std::vector<size_t>\
+    \ u;\n        for (size_t i = 1; i < n; i += 2) u.emplace_back(v[i]);\n      \
+    \  const auto ch = self(self, u);\n        std::vector<size_t> res(n);\n     \
+    \   for (size_t i = 0; i < ch.size(); i++) res[i << 1 | 1] = ch[i];\n        for\
+    \ (size_t i = 0, cur = 0; i < n; i += 2) {\n            size_t nxt = (i + 1 ==\
+    \ n ? W - 1 : res[i + 1]);\n            for (res[i] = cur; cur < nxt;) {\n   \
+    \             if (select(v[i], res[i], ++cur)) {\n                    res[i] =\
+    \ cur;\n                }\n            }\n        }\n        return res;\n   \
+    \ };\n\n    std::vector<size_t> dp(H);\n    std::iota(dp.begin(), dp.end(), 0);\n\
+    \    return solve(solve, dp);\n}\n\n/**\n * @brief monotone minima\n * @docs docs/dp/monotone_minima.md\n\
+    \ */\n"
   code: "#pragma once\n#include <numeric>\n#include <vector>\n\ntemplate <class Select>\
     \ std::vector<size_t> monotone_minima(const size_t H, const size_t W, const Select&\
     \ select) {\n    auto solve = [&](auto self, const std::vector<size_t>& v) ->\
@@ -40,16 +41,16 @@ data:
     /**\n * @brief monotone minima\n * @docs docs/dp/monotone_minima.md\n */"
   dependsOn: []
   isVerificationFile: false
-  path: dp/monotone_minima.hpp
+  path: algorithm/monotone_minima.hpp
   requiredBy: []
-  timestamp: '2021-09-22 20:47:22+09:00'
+  timestamp: '2021-10-21 16:13:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: dp/monotone_minima.hpp
+documentation_of: algorithm/monotone_minima.hpp
 layout: document
 redirect_from:
-- /library/dp/monotone_minima.hpp
-- /library/dp/monotone_minima.hpp.html
+- /library/algorithm/monotone_minima.hpp
+- /library/algorithm/monotone_minima.hpp.html
 title: monotone minima
 ---
 ## 概要

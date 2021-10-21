@@ -3,22 +3,22 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/static_range_inversions_query.test.cpp
     title: test/yosupo/static_range_inversions_query.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1270.test.cpp
     title: test/yukicoder/1270.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/other/Mo.md
     document_title: Mo's algorithm
     links: []
-  bundledCode: "#line 2 \"other/Mo.hpp\"\n#include <cassert>\n#include <cmath>\n#include\
-    \ <numeric>\n#include <vector>\n\nstruct Mo {\n    Mo(int n) : n(n) {}\n\n   \
-    \ void add(int l, int r) {\n        assert(l <= r);\n        left.emplace_back(l);\n\
+  bundledCode: "#line 2 \"algorithm/Mo.hpp\"\n#include <cassert>\n#include <cmath>\n\
+    #include <numeric>\n#include <vector>\n\nstruct Mo {\n    Mo(int n) : n(n) {}\n\
+    \n    void add(int l, int r) {\n        assert(l <= r);\n        left.emplace_back(l);\n\
     \        right.emplace_back(r);\n    }\n\n    template <typename AL, typename\
     \ AR, typename DL, typename DR, typename REM>\n    void run(const AL& add_left,\
     \ const AR& add_right, const DL& del_left, const DR del_right, const REM& rem)\
@@ -57,18 +57,18 @@ data:
     \ * @brief Mo's algorithm\n * @docs docs/other/Mo.md\n */\n"
   dependsOn: []
   isVerificationFile: false
-  path: other/Mo.hpp
+  path: algorithm/Mo.hpp
   requiredBy: []
-  timestamp: '2021-09-27 16:06:03+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-10-21 16:13:48+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/1270.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
-documentation_of: other/Mo.hpp
+documentation_of: algorithm/Mo.hpp
 layout: document
 redirect_from:
-- /library/other/Mo.hpp
-- /library/other/Mo.hpp.html
+- /library/algorithm/Mo.hpp
+- /library/algorithm/Mo.hpp.html
 title: Mo's algorithm
 ---
 ## 概要
