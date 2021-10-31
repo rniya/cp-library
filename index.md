@@ -293,21 +293,27 @@ data:
     - icon: ':warning:'
       path: util/RandomNumberGenerator_64.hpp
       title: "\u4E71\u6570\u751F\u6210\u5668(64bit)"
+    - icon: ':heavy_check_mark:'
+      path: util/Rational.hpp
+      title: Rational Number
     - icon: ':warning:'
       path: util/ZobristHash.hpp
       title: Zobrist Hash
     - icon: ':warning:'
       path: util/binary_conversion.hpp
       title: "\u6587\u5B57\u5217\u306E2\u9032\u5909\u63DB"
-    - icon: ':heavy_check_mark:'
-      path: util/compress.hpp
-      title: "compress (\u5EA7\u6A19\u5727\u7E2E)"
     - icon: ':warning:'
       path: util/gray_code.hpp
       title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"
+    - icon: ':warning:'
+      path: util/stack_extend.hpp
+      title: "\u30B9\u30BF\u30C3\u30AF\u62E1\u5F35\u30DE\u30AF\u30ED"
   verificationCategories:
   - name: test/aoj
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/1131.test.cpp
+      title: test/aoj/1131.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/1181.test.cpp
       title: test/aoj/1181.test.cpp
