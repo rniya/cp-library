@@ -1,4 +1,5 @@
 #pragma once
+#define LOCAL
 #include <bits/stdc++.h>
 using namespace std;
 #pragma region Macros
@@ -13,8 +14,8 @@ template <typename T> istream& operator>>(istream& is, vector<T>& v) {
     return is;
 }
 template <typename T> ostream& operator<<(ostream& os, const vector<T>& v) {
-    for (int i = 0; i < (int)v.size(); i++) {
-        os << v[i] << (i + 1 == (int)v.size() ? "" : " ");
+    for (size_t i = 0; i < v.size(); i++) {
+        os << v[i] << (i + 1 == v.size() ? "" : " ");
     }
     return os;
 }
@@ -68,8 +69,14 @@ template <typename T> ostream& operator<<(ostream& os, const unordered_set<T>& s
     return os;
 }
 template <typename T> ostream& operator<<(ostream& os, const deque<T>& v) {
-    for (int i = 0; i < (int)v.size(); i++) {
-        os << v[i] << (i + 1 == (int)v.size() ? "" : " ");
+    for (size_t i = 0; i < v.size(); i++) {
+        os << v[i] << (i + 1 == v.size() ? "" : " ");
+    }
+    return os;
+}
+template <typename T, size_t N> ostream& operator<<(ostream& os, const array<T, N>& v) {
+    for (size_t i = 0; i < N; i++) {
+        os << v[i] << (i + 1 == N ? "" : " ");
     }
     return os;
 }
@@ -99,7 +106,7 @@ template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)
     cerr << " ";                                                                     \
     debug_out(__VA_ARGS__)
 #else
-#define debug(...) 42
+#define debug(...) void(0)
 #endif
 
 template <typename T> T gcd(T x, T y) { return y != 0 ? gcd(y, x % y) : x; }
@@ -112,6 +119,7 @@ int botbit(long long a) { return a == 0 ? 64 : __builtin_ctzll(a); }
 int popcount(signed t) { return __builtin_popcount(t); }
 int popcount(long long t) { return __builtin_popcountll(t); }
 bool ispow2(int i) { return i && (i & -i) == i; }
+long long MSK(int n) { return (1LL << n) - 1; }
 
 template <class T> T ceil(T x, T y) {
     assert(y >= 1);
@@ -136,4 +144,10 @@ template <class T1, class T2> inline bool chmax(T1& a, T2 b) {
     }
     return false;
 }
+
+template <typename T> void mkuni(vector<T>& v) {
+    sort(v.begin(), v.end());
+    v.erase(unique(v.begin(), v.end()), v.end());
+}
+template <typename T> int lwb(const vector<T>& v, const T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }
 #pragma endregion

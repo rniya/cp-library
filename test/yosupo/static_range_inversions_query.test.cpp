@@ -3,7 +3,6 @@
 #include "../../algorithm/Mo.hpp"
 #include "../../base.hpp"
 #include "../../datastructure/BinaryIndexedTree.hpp"
-#include "../../util/compress.hpp"
 
 int main() {
     cin.tie(0);
@@ -21,9 +20,10 @@ int main() {
     }
 
     vector<int> B = A;
-    map<int, int> mp = compress(B);
-    for (int i = 0; i < N; i++) A[i] = mp[A[i]];
-    int n = mp.size();
+    sort(B.begin(), B.end());
+    B.erase(unique(B.begin(), B.end()), B.end());
+    for (int i = 0; i < N; i++) A[i] = lower_bound(B.begin(), B.end(), A[i]) - B.begin();
+    int n = B.size();
     BinaryIndexedTree<int> BIT(n);
     vector<long long> ans(Q);
     long long inv = 0;
