@@ -83,63 +83,63 @@ data:
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
     #line 8 \"geometry/geometry.hpp\"\n\nnamespace geometry {\nusing Real = double;\
-    \  // change this     flexibly if you want more precision\nconstexpr Real EPS\
-    \ = 1e-8;\nconstexpr Real PI = 3.14159265358979323846L;\n\ninline int sgn(Real\
-    \ x) { return x < -EPS ? -1 : x > EPS ? 1 : 0; }\n\ninline int compare(Real a,\
-    \ Real b) { return sgn(a - b); }\n\ninline bool equals(Real a, Real b) { return\
-    \ compare(a, b) == 0; }\n\nstruct Point {\n    Real x, y;\n\n    Point() {}\n\n\
-    \    Point(Real x, Real y) : x(x), y(y) {}\n\n    Point& operator+=(const Point&\
-    \ p) {\n        x += p.x, y += p.y;\n        return *this;\n    }\n\n    Point&\
-    \ operator-=(const Point& p) {\n        x -= p.x, y -= p.y;\n        return *this;\n\
-    \    }\n\n    Point& operator*=(const Real& k) {\n        x *= k, y *= k;\n  \
-    \      return *this;\n    }\n\n    Point& operator/=(const Real& k) {\n      \
-    \  x /= k, y /= k;\n        return *this;\n    }\n\n    Point operator+(const\
-    \ Point& p) const { return Point(*this) += p; }\n\n    Point operator-(const Point&\
-    \ p) const { return Point(*this) -= p; }\n\n    Point operator*(const Real& k)\
-    \ const { return Point(*this) *= k; }\n\n    Point operator/(const Real& k) const\
-    \ { return Point(*this) /= k; }\n\n    Point operator*(const Point& p) const {\
-    \ return Point(x * p.x - y * p.y, x * p.y + y * p.x); }\n\n    Point operator-()\
-    \ const { return Point(-x, -y); }\n\n    bool operator==(const Point& p) const\
-    \ { return (compare(x, p.x) == 0 && compare(y, p.y) == 0); }\n\n    bool operator!=(const\
-    \ Point& p) const { return !(*this == p); }\n\n    bool operator<(const Point&\
-    \ p) const {\n        return compare(x, p.x) < 0 || (compare(x, p.x) == 0 && compare(y,\
-    \ p.y) < 0);\n    }\n\n    bool operator>(const Point& p) const {\n        return\
-    \ compare(x, p.x) > 0 || (compare(x, p.x) == 0 && compare(y, p.y) > 0);\n    }\n\
-    \n    friend std::istream& operator>>(std::istream& is, Point& p) { return is\
-    \ >> p.x >> p.y; }\n\n    friend std::ostream& operator<<(std::ostream& os, const\
-    \ Point& p) { return os << p.x << ' ' << p.y; }\n\n    Real norm() const { return\
-    \ x * x + y * y; }\n\n    Real abs() const { return std::hypot(x, y); }\n\n  \
-    \  Real arg() const { return std::atan2(y, x); }\n\n    Point normal() const {\
-    \ return Point(-y, x); }\n\n    Point unit() const { return *this / abs(); }\n\
-    \n    Point conj() const { return Point(x, -y); }\n\n    Point rotate(Real theta)\
-    \ const {\n        return Point(x * std::cos(theta) - y * std::sin(theta), x *\
-    \ std::sin(theta) + y * std::cos(theta));\n    }\n};\n\nPoint polar(const Real&\
-    \ r, const Real& theta) { return Point(cos(theta), sin(theta)) * r; }\n\nReal\
-    \ dot(const Point& p, const Point& q) { return p.x * q.x + p.y * q.y; }\n\nReal\
-    \ cross(const Point& p, const Point& q) { return p.x * q.y - p.y * q.x; }\n\n\
-    Real distance(const Point& p, const Point& q) { return (p - q).abs(); }\n\nstruct\
-    \ Line {\n    Point a, b;\n\n    Line() {}\n\n    Line(const Point& a, const Point&\
-    \ b) : a(a), b(b) {}\n\n    Line(const Real& A, const Real& B, const Real& C)\
-    \ {  // Ax + By = c\n        if (equals(A, 0)) {\n            assert(!equals(B,\
-    \ 0));\n            a = Point(0, C / B);\n            b = Point(1, C / B);\n \
-    \       } else if (equals(B, 0)) {\n            a = Point(C / A, 0);\n       \
-    \     b = Point(C / A, 1);\n        } else {\n            a = Point(0, C / B);\n\
-    \            b = Point(C / A, 0);\n        }\n    }\n\n    friend std::istream&\
-    \ operator>>(std::istream& is, Line& l) { return is >> l.a >> l.b; }\n\n    friend\
-    \ std::ostream& operator<<(std::ostream& os, const Line& l) { return os << l.a\
-    \ << \" to \" << l.b; }\n\n    Point diff() const { return b - a; }\n};\n\nstruct\
-    \ Segment : Line {\n    Segment() {}\n\n    Segment(Point a, Point b) : Line(a,\
-    \ b) {}\n\n    Real length() const { return diff().abs(); }\n};\n\nPoint proj(const\
-    \ Line& l, const Point& p) {\n    Point v = l.diff().unit();\n    return l.a +\
-    \ v * dot(v, p - l.a);\n}\n\nPoint refl(const Line& l, const Point& p) {\n   \
-    \ Point h = proj(l, p);\n    return h + (h - p);\n}\n\nbool orthogonal(const Line&\
-    \ l, const Line& m) { return equals(dot(l.diff(), m.diff()), 0); }\n\nbool parallel(const\
-    \ Line& l, const Line& m) { return equals(cross(l.diff(), m.diff()), 0); }\n\n\
-    enum Position { COUNTER_CLOCKWISE = +1, CLOCKWISE = -1, ONLINE_BACK = +2, ONLINE_FRONT\
-    \ = -2, ON_SEGMENT = 0 };\n\nPosition ccw(const Point& a, Point b, Point c) {\n\
-    \    b -= a, c -= a;\n    if (sgn(cross(b, c)) == +1) return COUNTER_CLOCKWISE;\n\
-    \    if (sgn(cross(b, c)) == -1) return CLOCKWISE;\n    if (sgn(dot(b, c)) ==\
-    \ -1) return ONLINE_BACK;\n    if (compare(b.norm(), c.norm()) == -1) return ONLINE_FRONT;\n\
+    \  // change this flexibly if you want more precision\nconstexpr Real EPS = 1e-8;\n\
+    constexpr Real PI = 3.14159265358979323846L;\n\ninline int sgn(Real x) { return\
+    \ x < -EPS ? -1 : x > EPS ? 1 : 0; }\n\ninline int compare(Real a, Real b) { return\
+    \ sgn(a - b); }\n\ninline bool equals(Real a, Real b) { return compare(a, b) ==\
+    \ 0; }\n\nstruct Point {\n    Real x, y;\n\n    Point() {}\n\n    Point(Real x,\
+    \ Real y) : x(x), y(y) {}\n\n    Point& operator+=(const Point& p) {\n       \
+    \ x += p.x, y += p.y;\n        return *this;\n    }\n\n    Point& operator-=(const\
+    \ Point& p) {\n        x -= p.x, y -= p.y;\n        return *this;\n    }\n\n \
+    \   Point& operator*=(const Real& k) {\n        x *= k, y *= k;\n        return\
+    \ *this;\n    }\n\n    Point& operator/=(const Real& k) {\n        x /= k, y /=\
+    \ k;\n        return *this;\n    }\n\n    Point operator+(const Point& p) const\
+    \ { return Point(*this) += p; }\n\n    Point operator-(const Point& p) const {\
+    \ return Point(*this) -= p; }\n\n    Point operator*(const Real& k) const { return\
+    \ Point(*this) *= k; }\n\n    Point operator/(const Real& k) const { return Point(*this)\
+    \ /= k; }\n\n    Point operator*(const Point& p) const { return Point(x * p.x\
+    \ - y * p.y, x * p.y + y * p.x); }\n\n    Point operator-() const { return Point(-x,\
+    \ -y); }\n\n    bool operator==(const Point& p) const { return (compare(x, p.x)\
+    \ == 0 && compare(y, p.y) == 0); }\n\n    bool operator!=(const Point& p) const\
+    \ { return !(*this == p); }\n\n    bool operator<(const Point& p) const {\n  \
+    \      return compare(x, p.x) < 0 || (compare(x, p.x) == 0 && compare(y, p.y)\
+    \ < 0);\n    }\n\n    bool operator>(const Point& p) const {\n        return compare(x,\
+    \ p.x) > 0 || (compare(x, p.x) == 0 && compare(y, p.y) > 0);\n    }\n\n    friend\
+    \ std::istream& operator>>(std::istream& is, Point& p) { return is >> p.x >> p.y;\
+    \ }\n\n    friend std::ostream& operator<<(std::ostream& os, const Point& p) {\
+    \ return os << p.x << ' ' << p.y; }\n\n    Real norm() const { return x * x +\
+    \ y * y; }\n\n    Real abs() const { return std::hypot(x, y); }\n\n    Real arg()\
+    \ const { return std::atan2(y, x); }\n\n    Point normal() const { return Point(-y,\
+    \ x); }\n\n    Point unit() const { return *this / abs(); }\n\n    Point conj()\
+    \ const { return Point(x, -y); }\n\n    Point rotate(Real theta) const {\n   \
+    \     return Point(x * std::cos(theta) - y * std::sin(theta), x * std::sin(theta)\
+    \ + y * std::cos(theta));\n    }\n};\n\nPoint polar(const Real& r, const Real&\
+    \ theta) { return Point(cos(theta), sin(theta)) * r; }\n\nReal dot(const Point&\
+    \ p, const Point& q) { return p.x * q.x + p.y * q.y; }\n\nReal cross(const Point&\
+    \ p, const Point& q) { return p.x * q.y - p.y * q.x; }\n\nReal distance(const\
+    \ Point& p, const Point& q) { return (p - q).abs(); }\n\nstruct Line {\n    Point\
+    \ a, b;\n\n    Line() {}\n\n    Line(const Point& a, const Point& b) : a(a), b(b)\
+    \ {}\n\n    Line(const Real& A, const Real& B, const Real& C) {  // Ax + By =\
+    \ c\n        if (equals(A, 0)) {\n            assert(!equals(B, 0));\n       \
+    \     a = Point(0, C / B);\n            b = Point(1, C / B);\n        } else if\
+    \ (equals(B, 0)) {\n            a = Point(C / A, 0);\n            b = Point(C\
+    \ / A, 1);\n        } else {\n            a = Point(0, C / B);\n            b\
+    \ = Point(C / A, 0);\n        }\n    }\n\n    Point diff() const { return b -\
+    \ a; }\n\n    friend std::istream& operator>>(std::istream& is, Line& l) { return\
+    \ is >> l.a >> l.b; }\n\n    friend std::ostream& operator<<(std::ostream& os,\
+    \ const Line& l) { return os << l.a << \" to \" << l.b; }\n};\n\nstruct Segment\
+    \ : Line {\n    Segment() {}\n\n    Segment(Point a, Point b) : Line(a, b) {}\n\
+    \n    Real length() const { return diff().abs(); }\n};\n\nPoint proj(const Line&\
+    \ l, const Point& p) {\n    Point v = l.diff().unit();\n    return l.a + v * dot(v,\
+    \ p - l.a);\n}\n\nPoint refl(const Line& l, const Point& p) {\n    Point h = proj(l,\
+    \ p);\n    return h + (h - p);\n}\n\nbool orthogonal(const Line& l, const Line&\
+    \ m) { return equals(dot(l.diff(), m.diff()), 0); }\n\nbool parallel(const Line&\
+    \ l, const Line& m) { return equals(cross(l.diff(), m.diff()), 0); }\n\nenum Position\
+    \ { COUNTER_CLOCKWISE = +1, CLOCKWISE = -1, ONLINE_BACK = +2, ONLINE_FRONT = -2,\
+    \ ON_SEGMENT = 0 };\n\nPosition ccw(const Point& a, Point b, Point c) {\n    b\
+    \ -= a, c -= a;\n    if (sgn(cross(b, c)) == +1) return COUNTER_CLOCKWISE;\n \
+    \   if (sgn(cross(b, c)) == -1) return CLOCKWISE;\n    if (sgn(dot(b, c)) == -1)\
+    \ return ONLINE_BACK;\n    if (compare(b.norm(), c.norm()) == -1) return ONLINE_FRONT;\n\
     \    return ON_SEGMENT;\n}\n\nbool intersect(const Line& l, const Point& p) {\
     \ return abs(ccw(l.a, l.b, p)) != 1; }\n\nbool intersect(const Line& l, const\
     \ Line& m) {\n    Real A = cross(l.diff(), m.diff()), B = cross(l.diff(), l.b\
@@ -327,7 +327,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-11-04 01:39:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_1_C.test.cpp

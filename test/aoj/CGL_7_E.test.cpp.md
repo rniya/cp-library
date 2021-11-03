@@ -84,8 +84,8 @@ data:
     \    v.erase(unique(v.begin(), v.end()), v.end());\n}\ntemplate <typename T> int\
     \ lwb(const vector<T>& v, const T& x) { return lower_bound(v.begin(), v.end(),\
     \ x) - v.begin(); }\n#pragma endregion\n#line 8 \"geometry/geometry.hpp\"\n\n\
-    namespace geometry {\nusing Real = double;  // change this     flexibly if you\
-    \ want more precision\nconstexpr Real EPS = 1e-8;\nconstexpr Real PI = 3.14159265358979323846L;\n\
+    namespace geometry {\nusing Real = double;  // change this flexibly if you want\
+    \ more precision\nconstexpr Real EPS = 1e-8;\nconstexpr Real PI = 3.14159265358979323846L;\n\
     \ninline int sgn(Real x) { return x < -EPS ? -1 : x > EPS ? 1 : 0; }\n\ninline\
     \ int compare(Real a, Real b) { return sgn(a - b); }\n\ninline bool equals(Real\
     \ a, Real b) { return compare(a, b) == 0; }\n\nstruct Point {\n    Real x, y;\n\
@@ -125,22 +125,22 @@ data:
     \ 0));\n            a = Point(0, C / B);\n            b = Point(1, C / B);\n \
     \       } else if (equals(B, 0)) {\n            a = Point(C / A, 0);\n       \
     \     b = Point(C / A, 1);\n        } else {\n            a = Point(0, C / B);\n\
-    \            b = Point(C / A, 0);\n        }\n    }\n\n    friend std::istream&\
-    \ operator>>(std::istream& is, Line& l) { return is >> l.a >> l.b; }\n\n    friend\
-    \ std::ostream& operator<<(std::ostream& os, const Line& l) { return os << l.a\
-    \ << \" to \" << l.b; }\n\n    Point diff() const { return b - a; }\n};\n\nstruct\
-    \ Segment : Line {\n    Segment() {}\n\n    Segment(Point a, Point b) : Line(a,\
-    \ b) {}\n\n    Real length() const { return diff().abs(); }\n};\n\nPoint proj(const\
-    \ Line& l, const Point& p) {\n    Point v = l.diff().unit();\n    return l.a +\
-    \ v * dot(v, p - l.a);\n}\n\nPoint refl(const Line& l, const Point& p) {\n   \
-    \ Point h = proj(l, p);\n    return h + (h - p);\n}\n\nbool orthogonal(const Line&\
-    \ l, const Line& m) { return equals(dot(l.diff(), m.diff()), 0); }\n\nbool parallel(const\
-    \ Line& l, const Line& m) { return equals(cross(l.diff(), m.diff()), 0); }\n\n\
-    enum Position { COUNTER_CLOCKWISE = +1, CLOCKWISE = -1, ONLINE_BACK = +2, ONLINE_FRONT\
-    \ = -2, ON_SEGMENT = 0 };\n\nPosition ccw(const Point& a, Point b, Point c) {\n\
-    \    b -= a, c -= a;\n    if (sgn(cross(b, c)) == +1) return COUNTER_CLOCKWISE;\n\
-    \    if (sgn(cross(b, c)) == -1) return CLOCKWISE;\n    if (sgn(dot(b, c)) ==\
-    \ -1) return ONLINE_BACK;\n    if (compare(b.norm(), c.norm()) == -1) return ONLINE_FRONT;\n\
+    \            b = Point(C / A, 0);\n        }\n    }\n\n    Point diff() const\
+    \ { return b - a; }\n\n    friend std::istream& operator>>(std::istream& is, Line&\
+    \ l) { return is >> l.a >> l.b; }\n\n    friend std::ostream& operator<<(std::ostream&\
+    \ os, const Line& l) { return os << l.a << \" to \" << l.b; }\n};\n\nstruct Segment\
+    \ : Line {\n    Segment() {}\n\n    Segment(Point a, Point b) : Line(a, b) {}\n\
+    \n    Real length() const { return diff().abs(); }\n};\n\nPoint proj(const Line&\
+    \ l, const Point& p) {\n    Point v = l.diff().unit();\n    return l.a + v * dot(v,\
+    \ p - l.a);\n}\n\nPoint refl(const Line& l, const Point& p) {\n    Point h = proj(l,\
+    \ p);\n    return h + (h - p);\n}\n\nbool orthogonal(const Line& l, const Line&\
+    \ m) { return equals(dot(l.diff(), m.diff()), 0); }\n\nbool parallel(const Line&\
+    \ l, const Line& m) { return equals(cross(l.diff(), m.diff()), 0); }\n\nenum Position\
+    \ { COUNTER_CLOCKWISE = +1, CLOCKWISE = -1, ONLINE_BACK = +2, ONLINE_FRONT = -2,\
+    \ ON_SEGMENT = 0 };\n\nPosition ccw(const Point& a, Point b, Point c) {\n    b\
+    \ -= a, c -= a;\n    if (sgn(cross(b, c)) == +1) return COUNTER_CLOCKWISE;\n \
+    \   if (sgn(cross(b, c)) == -1) return CLOCKWISE;\n    if (sgn(dot(b, c)) == -1)\
+    \ return ONLINE_BACK;\n    if (compare(b.norm(), c.norm()) == -1) return ONLINE_FRONT;\n\
     \    return ON_SEGMENT;\n}\n\nbool intersect(const Line& l, const Point& p) {\
     \ return abs(ccw(l.a, l.b, p)) != 1; }\n\nbool intersect(const Line& l, const\
     \ Line& m) {\n    Real A = cross(l.diff(), m.diff()), B = cross(l.diff(), l.b\
@@ -322,7 +322,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_7_E.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-11-04 01:39:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_7_E.test.cpp

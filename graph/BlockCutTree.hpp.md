@@ -193,8 +193,8 @@ data:
   timestamp: '2021-10-04 21:58:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_3_A.test.cpp
   - test/aoj/GRL_3_B.test.cpp
+  - test/aoj/GRL_3_A.test.cpp
   - test/yosupo/two_edge_connected_components.test.cpp
 documentation_of: graph/BlockCutTree.hpp
 layout: document
