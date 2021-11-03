@@ -7,7 +7,7 @@
 #include <vector>
 
 namespace geometry {
-using Real = double;  // change this     flexibly if you want more precision
+using Real = double;  // change this flexibly if you want more precision
 constexpr Real EPS = 1e-8;
 constexpr Real PI = 3.14159265358979323846L;
 
@@ -118,11 +118,11 @@ struct Line {
         }
     }
 
+    Point diff() const { return b - a; }
+
     friend std::istream& operator>>(std::istream& is, Line& l) { return is >> l.a >> l.b; }
 
     friend std::ostream& operator<<(std::ostream& os, const Line& l) { return os << l.a << " to " << l.b; }
-
-    Point diff() const { return b - a; }
 };
 
 struct Segment : Line {
