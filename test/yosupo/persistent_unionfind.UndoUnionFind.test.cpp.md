@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/UndoUnionFind.hpp
     title: Union Find with Undo operation
@@ -125,6 +128,7 @@ data:
     \    };\n    dfs(dfs, 0);\n    for (int i = 0; i < Q; i++) {\n        if (~ans[i])\
     \ {\n            cout << ans[i] << '\\n';\n        }\n    }\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - datastructure/UndoUnionFind.hpp
   isVerificationFile: true
   path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp

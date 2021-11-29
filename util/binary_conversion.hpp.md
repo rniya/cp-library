@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -98,7 +101,8 @@ data:
     \ 0; i < num.size(); i++) {\n        for (size_t j = 0; j < 32; j++) {\n     \
     \       res[i * 32 + j] = num[i] >> j & 1;\n        }\n    }\n\n    while (!res.empty()\
     \ && !res.back()) res.pop_back();\n    return res;\n};"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: util/binary_conversion.hpp
   requiredBy: []

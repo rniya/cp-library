@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -120,7 +123,8 @@ data:
     \ {\n            res.emplace_back(t);\n            t = pre[t];\n        }\n  \
     \      reverse(res.begin(), res.end());\n        return res;\n    }\n    T operator[](int\
     \ to) { return dp[to]; }\n};"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: graph/Dijkstra.hpp
   requiredBy: []

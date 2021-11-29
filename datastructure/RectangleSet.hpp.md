@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -102,7 +105,8 @@ data:
     \            val.emplace(nx + y);\n            s.emplace(x, ny);\n           \
     \ val.emplace(x + ny);\n        }\n    }\n    T query() { return *val.begin();\
     \ }\n};"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: datastructure/RectangleSet.hpp
   requiredBy: []

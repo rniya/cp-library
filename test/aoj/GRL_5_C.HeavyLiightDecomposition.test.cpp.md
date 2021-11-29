@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: tree/HeavyLightDecomposition.hpp
     title: Heavy Light Decomposition
@@ -160,6 +163,7 @@ data:
     \ {\n        int u, v;\n        cin >> u >> v;\n        cout << HLD.lca(u, v)\
     \ << '\\n';\n    }\n}"
   dependsOn:
+  - base.hpp
   - tree/HeavyLightDecomposition.hpp
   isVerificationFile: true
   path: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp

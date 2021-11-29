@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
@@ -135,6 +138,7 @@ data:
     \        seg.update(x, y);\n        else\n            cout << seg.query(x, y +\
     \ 1) << '\\n';\n    }\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - datastructure/SegmentTree.hpp
   isVerificationFile: true
   path: test/aoj/DSL_2_A.test.cpp

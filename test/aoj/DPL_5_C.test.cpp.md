@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: combinatorics/binomial.hpp
     title: binomial
@@ -161,6 +164,7 @@ data:
     \        if (i & 1)\n            ans -= add;\n        else\n            ans +=\
     \ add;\n    }\n\n    cout << ans << '\\n';\n}"
   dependsOn:
+  - base.hpp
   - combinatorics/binomial.hpp
   - modulo/modint.hpp
   isVerificationFile: true

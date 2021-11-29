@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexd Tree (Fenwick Tree)
@@ -107,6 +110,7 @@ data:
     \        BIT.add(--x, y);\n        else\n            cout << BIT.query(--x, y)\
     \ << '\\n';\n    }\n}"
   dependsOn:
+  - base.hpp
   - datastructure/BinaryIndexedTree.hpp
   isVerificationFile: true
   path: test/aoj/DSL_2_B.test.cpp

@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: tree/TreeDiameter.hpp
     title: Tree Diameter
@@ -112,6 +115,7 @@ data:
     \ t, w);\n    }\n\n    int ans = TD.get_diameter_path().first;\n    cout << ans\
     \ << '\\n';\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - tree/TreeDiameter.hpp
   isVerificationFile: true
   path: test/aoj/GRL_5_A.test.cpp

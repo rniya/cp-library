@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: graph/BellmanFord.hpp
     title: Bellman-Ford
@@ -127,6 +130,7 @@ data:
     \ << \"INF\" << '\\n';\n        else\n            cout << ans[i] << '\\n';\n \
     \   }\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - graph/BellmanFord.hpp
   isVerificationFile: true
   path: test/aoj/GRL_1_B.test.cpp

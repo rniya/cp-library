@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -87,7 +90,8 @@ data:
     \ {}\n    uint64_t operator()(uint64_t a, uint64_t b) {\n        uniform_int_distribution<uint64_t>\
     \ dist(a, b - 1);\n        return dist(mt);\n    }\n    uint64_t operator()(uint64_t\
     \ b) { return (*this)(0, b); }\n};"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: util/RandomNumberGenerator_64.hpp
   requiredBy: []

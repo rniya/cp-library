@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -91,7 +94,8 @@ data:
     \                if (d[i][k] == id || d[k][j] == id) continue;\n             \
     \   d[i][j] = min(d[i][j], d[i][k] + d[k][j]);\n            }\n        }\n   \
     \ }\n}"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: graph/WarshallFloyd.hpp
   requiredBy: []

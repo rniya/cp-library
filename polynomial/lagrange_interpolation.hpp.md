@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -111,7 +114,8 @@ data:
     \ i++) {\n        M add = y[i] * left[i] * right[i] * finv[i] * finv[n - i];\n\
     \        if ((n - i) & 1)\n            res -= add;\n        else\n           \
     \ res += add;\n    }\n    return res;\n}"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: polynomial/lagrange_interpolation.hpp
   requiredBy: []

@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: graph/StronglyConnectedComponents.hpp
     title: Strongly Connected Components
@@ -148,6 +151,7 @@ data:
     \    for (int i = 1; i <= N; i++) cout << (ans[i] ? i : -i) << ' ';\n    cout\
     \ << \"0\\n\";\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - graph/TwoSAT.hpp
   - graph/StronglyConnectedComponents.hpp
   isVerificationFile: true

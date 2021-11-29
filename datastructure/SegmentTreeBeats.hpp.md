@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -302,7 +305,8 @@ data:
     \ }\n    T query_max(int a, int b) { return query_max(a, b, 0, 0, n); }\n    T\
     \ query_sum(int a, int b) { return query_sum(a, b, 0, 0, n); }\n    T operator[](int\
     \ i) { return query_sum(i, i + 1); }\n};"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: datastructure/SegmentTreeBeats.hpp
   requiredBy: []

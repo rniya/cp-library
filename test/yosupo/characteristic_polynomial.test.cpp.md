@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: linearalgebra/characteristic_polynomial.hpp
     title: Characteristic Polynomial
@@ -162,6 +165,7 @@ data:
     \    for (int i = 0; i <= N; i++) cout << p[i] << (i == N ? '\\n' : ' ');\n  \
     \  return 0;\n}"
   dependsOn:
+  - base.hpp
   - modulo/modint.hpp
   - linearalgebra/characteristic_polynomial.hpp
   isVerificationFile: true

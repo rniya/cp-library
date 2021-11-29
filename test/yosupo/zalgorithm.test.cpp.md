@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: string/Z_Algorithm.hpp
     title: Z-Algorithm
@@ -100,6 +103,7 @@ data:
     \ >> S;\n    vector<int> ans = Z_Algorithm(S);\n\n    for (int i = 0; i < ans.size();\
     \ i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n}"
   dependsOn:
+  - base.hpp
   - string/Z_Algorithm.hpp
   isVerificationFile: true
   path: test/yosupo/zalgorithm.test.cpp

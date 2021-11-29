@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
@@ -218,6 +221,7 @@ data:
     \            HLD.query_path(u, v, q, true);\n            cout << ans << '\\n';\n\
     \        }\n    }\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - datastructure/SegmentTree.hpp
   - tree/HeavyLightDecomposition.hpp
   isVerificationFile: true

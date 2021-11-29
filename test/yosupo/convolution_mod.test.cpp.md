@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
@@ -176,6 +179,7 @@ data:
     \ NTT;\n    vector<mint> c = NTT.multiply(a, b);\n\n    for (int i = 0; i < N\
     \ + M - 1; i++) cout << c[i] << (i == N + M - 2 ? '\\n' : ' ');\n}"
   dependsOn:
+  - base.hpp
   - convolution/NumberTheoreticTransform.hpp
   - modulo/modint.hpp
   isVerificationFile: true

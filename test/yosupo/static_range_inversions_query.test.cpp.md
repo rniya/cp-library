@@ -4,6 +4,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: algorithm/Mo.hpp
     title: Mo's algorithm
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexd Tree (Fenwick Tree)
@@ -157,6 +160,7 @@ data:
     \ << ans[i] << '\\n';\n    return 0;\n}"
   dependsOn:
   - algorithm/Mo.hpp
+  - base.hpp
   - datastructure/BinaryIndexedTree.hpp
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp

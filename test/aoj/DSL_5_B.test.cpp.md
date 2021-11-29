@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/CumulativeSum2D.hpp
     title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
@@ -110,6 +113,7 @@ data:
     \ {\n            ans = max(ans, CS.query(0, i, 0, j));\n        }\n    }\n\n \
     \   cout << ans << '\\n';\n}"
   dependsOn:
+  - base.hpp
   - datastructure/CumulativeSum2D.hpp
   isVerificationFile: true
   path: test/aoj/DSL_5_B.test.cpp

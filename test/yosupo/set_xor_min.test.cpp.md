@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/BinaryTrie.hpp
     title: Binary Trie
@@ -126,6 +129,7 @@ data:
     \ continue;\n            BT.erase(x);\n        } else\n            cout << (BT.min_element(x)\
     \ ^ x) << '\\n';\n    }\n}"
   dependsOn:
+  - base.hpp
   - datastructure/BinaryTrie.hpp
   isVerificationFile: true
   path: test/yosupo/set_xor_min.test.cpp

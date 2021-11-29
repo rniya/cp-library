@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -145,7 +148,8 @@ data:
     \ s, montgomery64& rhs) {\n        i64 v;\n        rhs = montgomery64{(s >> v,\
     \ v)};\n        return s;\n    }\n    friend ostream& operator<<(ostream& s, const\
     \ montgomery64& rhs) { return s << rhs.v; }\n};"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: modulo/montgomery64.hpp
   requiredBy: []

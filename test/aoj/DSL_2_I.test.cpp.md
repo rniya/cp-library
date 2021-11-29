@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/LazySegmentTree.hpp
     title: Lazy Segment Tree
@@ -163,6 +166,7 @@ data:
     \       seg.update(s, t + 1, x);\n        } else\n            cout << seg.query(s,\
     \ t + 1).a << '\\n';\n    }\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - datastructure/LazySegmentTree.hpp
   isVerificationFile: true
   path: test/aoj/DSL_2_I.test.cpp

@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: math/floor_sum.hpp
     title: Sum of Floor of Linear
@@ -98,6 +101,7 @@ data:
     \  cin >> T;\n\n    for (; T--;) {\n        int N, M, A, B;\n        cin >> N\
     \ >> M >> A >> B;\n        cout << floor_sum(N, M, A, B) << '\\n';\n    }\n}"
   dependsOn:
+  - base.hpp
   - math/floor_sum.hpp
   isVerificationFile: true
   path: test/yosupo/sum_of_floor_of_linear.test.cpp

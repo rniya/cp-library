@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -100,7 +103,8 @@ data:
     \ t) {\n    T u(s);\n    u.insert(u.begin(), t.begin(), t.end());\n    vector<int>\
     \ z = Z_Algorithm(u);\n    for (int& i : z) i = min(i, (int)t.size());\n    return\
     \ vector<int>(z.begin() + t.size(), z.end());\n}\n"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: string/Z_Algorithm.hpp
   requiredBy: []

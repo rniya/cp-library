@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
@@ -12,9 +15,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/3046.test.cpp
-    title: test/yukicoder/3046.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -204,6 +204,7 @@ data:
     \ - v0) - inv1 * v1).val();\n        res[i] = v0 + m0 * v1 + m0m1 * v2;\n    }\n\
     \    return res;\n}"
   dependsOn:
+  - base.hpp
   - modulo/modint.hpp
   - convolution/NumberTheoreticTransform.hpp
   isVerificationFile: false
@@ -212,7 +213,6 @@ data:
   timestamp: '2021-10-31 14:57:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/3046.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
 documentation_of: convolution/ArbitaryModConvolution.hpp
 layout: document

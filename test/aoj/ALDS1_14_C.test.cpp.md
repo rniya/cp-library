@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: string/RollingHash2D.hpp
     title: Rolling Hash 2D
@@ -132,6 +135,7 @@ data:
     \ C) == correct) {\n                cout << i << ' ' << j << '\\n';\n        \
     \    }\n        }\n    }\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - string/RollingHash2D.hpp
   isVerificationFile: true
   path: test/aoj/ALDS1_14_C.test.cpp

@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/PotentializedUnionFind.hpp
     title: Potentialized Union Find
@@ -115,6 +118,7 @@ data:
     \ '\\n';\n            else\n                cout << '?' << '\\n';\n        }\n\
     \    }\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - datastructure/PotentializedUnionFind.hpp
   isVerificationFile: true
   path: test/aoj/DSL_1_B.test.cpp

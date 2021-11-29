@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: util/Dice.hpp
     title: Dice
@@ -132,6 +135,7 @@ data:
     \ 6; i++) cin >> v[i];\n\n    Dice d1(u), d2(v);\n    cout << (d1.identifier()\
     \ == d2.identifier() ? \"Yes\" : \"No\") << '\\n';\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - util/Dice.hpp
   isVerificationFile: true
   path: test/aoj/ITP1_11_C.test.cpp

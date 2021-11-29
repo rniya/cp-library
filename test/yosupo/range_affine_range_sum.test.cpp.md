@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/LazySegmentTree.hpp
     title: Lazy Segment Tree
@@ -216,6 +219,7 @@ data:
     \   seg.update(l, r, add(b, c));\n        } else\n            cout << seg.query(l,\
     \ r).sum << '\\n';\n    }\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - datastructure/LazySegmentTree.hpp
   - modulo/modint.hpp
   isVerificationFile: true

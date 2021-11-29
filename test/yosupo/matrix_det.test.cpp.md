@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: linearalgebra/Matrix.hpp
     title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
@@ -208,6 +211,7 @@ data:
     \ = 0; j < N; j++) {\n            cin >> a[i][j];\n        }\n    }\n\n    cout\
     \ << a.determinant() << '\\n';\n}"
   dependsOn:
+  - base.hpp
   - linearalgebra/Matrix.hpp
   - modulo/modint.hpp
   isVerificationFile: true

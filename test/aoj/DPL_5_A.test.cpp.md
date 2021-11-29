@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: modulo/modint.hpp
     title: modint
@@ -129,6 +132,7 @@ data:
     \ mint = modint<1000000007>;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    int n, k;\n    cin >> n >> k;\n\n    cout << mint(k).pow(n) << '\\n';\n}"
   dependsOn:
+  - base.hpp
   - modulo/modint.hpp
   isVerificationFile: true
   path: test/aoj/DPL_5_A.test.cpp

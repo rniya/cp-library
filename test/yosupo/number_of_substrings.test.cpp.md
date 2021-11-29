@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: string/SuffixArray.hpp
     title: Suffix Array + Longest Common Prefix Array
@@ -150,6 +153,7 @@ data:
     \ (int i = 0; i < N; i++) {\n        ans += N - sa[i];\n        if (i < N - 1)\
     \ ans -= lcp[i];\n    }\n\n    cout << ans << '\\n';\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - string/SuffixArray.hpp
   isVerificationFile: true
   path: test/yosupo/number_of_substrings.test.cpp

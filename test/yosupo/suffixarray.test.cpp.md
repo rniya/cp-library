@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: string/SuffixArray.hpp
     title: Suffix Array + Longest Common Prefix Array
@@ -148,6 +151,7 @@ data:
     }"
   dependsOn:
   - string/SuffixArray.hpp
+  - base.hpp
   isVerificationFile: true
   path: test/yosupo/suffixarray.test.cpp
   requiredBy: []

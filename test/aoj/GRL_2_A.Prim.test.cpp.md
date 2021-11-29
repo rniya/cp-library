@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: graph/Prim.hpp
     title: Prim
@@ -106,6 +109,7 @@ data:
     \     int s, t, w;\n        cin >> s >> t >> w;\n        P.add_edge(s, t, w);\n\
     \    }\n\n    cout << P.build() << '\\n';\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - graph/Prim.hpp
   isVerificationFile: true
   path: test/aoj/GRL_2_A.Prim.test.cpp

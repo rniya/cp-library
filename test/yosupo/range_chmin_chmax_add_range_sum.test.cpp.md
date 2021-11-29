@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTreeBeats.hpp
     title: Segment Tree Beats
@@ -201,6 +204,7 @@ data:
     \ r, b);\n        } else\n            cout << seg.query_sum(l, r) << '\\n';\n\
     \    }\n}"
   dependsOn:
+  - base.hpp
   - datastructure/SegmentTreeBeats.hpp
   isVerificationFile: true
   path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp

@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/UnionFind.hpp
     title: Union Find (Disjoint Set Union)
@@ -108,6 +111,7 @@ data:
     \   int c, x, y;\n        cin >> c >> x >> y;\n        if (!c)\n            UF.merge(x,\
     \ y);\n        else\n            cout << UF.same(x, y) << '\\n';\n    }\n}"
   dependsOn:
+  - base.hpp
   - datastructure/UnionFind.hpp
   isVerificationFile: true
   path: test/aoj/DSL_1_A.test.cpp

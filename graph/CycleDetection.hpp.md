@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -112,7 +115,8 @@ data:
     \ (!hist.empty()) {\n            int t = hist.top();\n            hist.pop();\n\
     \            res.emplace_back(t);\n            if (t == pos) break;\n        }\n\
     \        return res;\n    }\n};"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: graph/CycleDetection.hpp
   requiredBy: []

@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: graph/StronglyConnectedComponents.hpp
     title: Strongly Connected Components
@@ -122,6 +125,7 @@ data:
     \ (auto& group : res) {\n        cout << group.size();\n        for (int& v :\
     \ group) cout << ' ' << v;\n        cout << '\\n';\n    }\n}"
   dependsOn:
+  - base.hpp
   - graph/StronglyConnectedComponents.hpp
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp

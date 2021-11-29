@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -207,7 +210,8 @@ data:
     \ r.end(), back_inserter(l));\n    return l;\n}\nvector<u64> factorize(u64 n)\
     \ {\n    auto res = inner_factorize(n);\n    sort(res.begin(), res.end());\n \
     \   return res;\n}\n}  // namespace fast_factorize"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: math/fast_factorize.hpp
   requiredBy: []

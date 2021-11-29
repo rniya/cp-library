@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
@@ -310,6 +313,7 @@ data:
     \ q--;) {\n        Segment s_1, s_2;\n        cin >> s_1 >> s_2;\n        cout\
     \ << crosspoint(s_1, s_2) << '\\n';\n    }\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - geometry/geometry.hpp
   isVerificationFile: true
   path: test/aoj/CGL_2_C.test.cpp

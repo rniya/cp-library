@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -107,7 +110,8 @@ data:
     \                front_stack.emplace(t, calc);\n                back_stack.pop();\n\
     \            }\n        }\n        front_stack.pop();\n    }\n    Monoid fold()\
     \ { return f(front_stack.top().second, back_stack.top().second); }\n};"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: datastructure/SlidingWindowAggregation.hpp
   requiredBy: []

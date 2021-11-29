@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
@@ -312,6 +315,7 @@ data:
     \ q--;) {\n        Line l;\n        cin >> l;\n        cout << convex_cut(g, l).area()\
     \ << '\\n';\n    }\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - geometry/geometry.hpp
   isVerificationFile: true
   path: test/aoj/CGL_4_C.test.cpp

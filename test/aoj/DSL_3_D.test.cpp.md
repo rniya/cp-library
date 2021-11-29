@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':x:'
     path: datastructure/Slide_Min.hpp
     title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
@@ -89,20 +92,23 @@ data:
     \n * @docs docs/datastructure/Slide_Min.md\n */\n#line 5 \"test/aoj/DSL_3_D.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
     \ L;\n    cin >> N >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
-    \ cin >> a[i];\n\n    vector<int> ans = Slide_Min(a, L);\n    for (int i = 0;\
-    \ i < N - L + 1; i++) cout << ans[i] << (i == N - L ? '\\n' : ' ');\n}\n"
+    \ cin >> a[i];\n\n    vector<int> ans = Slide_Min(a, L);\n    for (size_t i =\
+    \ 0; i < ans.size(); i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n\
+    }\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/Slide_Min.hpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
     \ L;\n    cin >> N >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
-    \ cin >> a[i];\n\n    vector<int> ans = Slide_Min(a, L);\n    for (int i = 0;\
-    \ i < N - L + 1; i++) cout << ans[i] << (i == N - L ? '\\n' : ' ');\n}"
+    \ cin >> a[i];\n\n    vector<int> ans = Slide_Min(a, L);\n    for (size_t i =\
+    \ 0; i < ans.size(); i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n\
+    }"
   dependsOn:
+  - base.hpp
   - datastructure/Slide_Min.hpp
   isVerificationFile: true
   path: test/aoj/DSL_3_D.test.cpp
   requiredBy: []
-  timestamp: '2021-11-29 17:18:10+09:00'
+  timestamp: '2021-11-29 17:40:57+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL_3_D.test.cpp

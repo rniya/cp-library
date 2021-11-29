@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -194,7 +197,8 @@ data:
     \ = h;\n    }\n    return lcp;\n}\n\nvector<int> lcp_array(const string& s, const\
     \ vector<int>& sa) {\n    vector<int> ns;\n    for (char c : s) ns.emplace_back(c);\n\
     \    return lcp_array(ns, sa);\n}\n}  // namespace SuffixArray"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: string/SuffixArray.hpp
   requiredBy: []

@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: flow/PrimalDual.hpp
     title: Primal Dual (Minimum-cost flow)
@@ -152,6 +155,7 @@ data:
     \        PD.add_edge(u, v, c, d);\n    }\n\n    cout << PD.min_cost_flow(0, V\
     \ - 1, F) << '\\n';\n}"
   dependsOn:
+  - base.hpp
   - flow/PrimalDual.hpp
   isVerificationFile: true
   path: test/aoj/GRL_6_B.PrimalDual.test.cpp

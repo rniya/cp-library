@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: flow/BipartiteMatching.hpp
     title: Bipartite Matching
@@ -119,6 +122,7 @@ data:
     n';\n    return 0;\n}"
   dependsOn:
   - flow/BipartiteMatching.hpp
+  - base.hpp
   isVerificationFile: true
   path: test/yosupo/bipartitematching.test.cpp
   requiredBy: []

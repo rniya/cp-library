@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -90,7 +93,8 @@ data:
     \ i = 0; i < N; i++) sum[i + 1] = sum[i] + a[i];\n\n    for (; Q--;) {\n     \
     \   int l, r;\n        cin >> l >> r;\n        cout << sum[r] - sum[l] << '\\\
     n';\n    }\n}"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: true
   path: test/yosupo/static_range_sum.test.cpp
   requiredBy: []

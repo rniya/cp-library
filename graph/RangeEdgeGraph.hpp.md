@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -128,7 +131,8 @@ data:
     \ = dp[v] + e.cost;\n                    pq.emplace(u, dp[u]);\n             \
     \   }\n            }\n        }\n        vector<T> res(dp.begin() + n, dp.begin()\
     \ + 2 * n);\n        return res;\n    }\n};"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: graph/RangeEdgeGraph.hpp
   requiredBy: []

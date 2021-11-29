@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: math/fast_factorize.hpp
     title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
@@ -157,6 +160,7 @@ data:
     \ (auto& x : res) cout << ' ' << x;\n        cout << '\\n';\n    }\n    return\
     \ 0;\n}"
   dependsOn:
+  - base.hpp
   - math/fast_factorize.hpp
   isVerificationFile: true
   path: test/yosupo/factorize.test.cpp

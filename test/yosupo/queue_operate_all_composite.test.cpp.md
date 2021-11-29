@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
@@ -162,6 +165,7 @@ data:
     \ {\n            int x;\n            cin >> x;\n            node ans = SWAG.fold();\n\
     \            cout << ans.a * x + ans.b << '\\n';\n        }\n    }\n}"
   dependsOn:
+  - base.hpp
   - datastructure/SlidingWindowAggregation.hpp
   - modulo/modint.hpp
   isVerificationFile: true

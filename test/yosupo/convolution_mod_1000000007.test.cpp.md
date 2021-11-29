@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
@@ -196,6 +199,7 @@ data:
     \n    vector<mint> c = ArbitaryModConvolution(a, b);\n    for (int i = 0; i <\
     \ N + M - 1; i++) cout << c[i] << (i == N + M - 2 ? '\\n' : ' ');\n}"
   dependsOn:
+  - base.hpp
   - convolution/ArbitaryModConvolution.hpp
   - modulo/modint.hpp
   - convolution/NumberTheoreticTransform.hpp

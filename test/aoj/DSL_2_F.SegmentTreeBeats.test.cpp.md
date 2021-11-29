@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTreeBeats.hpp
     title: Segment Tree Beats
@@ -197,6 +200,7 @@ data:
     \            int s, t;\n            cin >> s >> t;\n            cout << seg.query_min(s,\
     \ t + 1) << '\\n';\n        }\n    }\n}"
   dependsOn:
+  - base.hpp
   - datastructure/SegmentTreeBeats.hpp
   isVerificationFile: true
   path: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp

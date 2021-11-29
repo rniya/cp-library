@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -102,7 +105,8 @@ data:
     \ {\n                if (++j != n) continue;\n                res.emplace_back(i);\n\
     \            }\n            i += j - kmp[j];\n            j = max(kmp[j], 0);\n\
     \        }\n        return res;\n    }\n};"
-  dependsOn: []
+  dependsOn:
+  - base.hpp
   isVerificationFile: false
   path: string/Knuth_Morris_Pratt.hpp
   requiredBy: []

@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: graph/TopologicalSort.hpp
     title: Topological Sort
@@ -106,6 +109,7 @@ data:
     \    auto res = TS.build();\n    cout << res.empty() << '\\n';\n    return 0;\n\
     }"
   dependsOn:
+  - base.hpp
   - graph/TopologicalSort.hpp
   isVerificationFile: true
   path: test/aoj/GRL_4_A.TopologicalSort.test.cpp

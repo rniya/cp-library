@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: string/RollingHash.hpp
     title: Rolling Hash
@@ -121,6 +124,7 @@ data:
     \ t <= s; i++) {\n        if (RH.query(a, i, i + t) == RH.query(b, 0, t)) {\n\
     \            cout << i << '\\n';\n        }\n    }\n    return 0;\n}"
   dependsOn:
+  - base.hpp
   - string/RollingHash.hpp
   isVerificationFile: true
   path: test/aoj/ALDS1_14_B.test.cpp

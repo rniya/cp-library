@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: base.hpp
+    title: base.hpp
   - icon: ':heavy_check_mark:'
     path: math/elementary_math.hpp
     title: elementary math
@@ -129,6 +132,7 @@ data:
     \ {\n            cout << ' ' << p.first;\n        }\n    }\n    cout << '\\n';\n\
     \    return 0;\n}"
   dependsOn:
+  - base.hpp
   - math/elementary_math.hpp
   isVerificationFile: true
   path: test/aoj/NTL_1_A.test.cpp
