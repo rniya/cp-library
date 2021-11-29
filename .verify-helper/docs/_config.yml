@@ -1,1 +1,1 @@
-exclude: ["ac-library", "trash"]
+exclude: ["atcoder", "trash", "expander.py"]
