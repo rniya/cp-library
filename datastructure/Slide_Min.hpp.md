@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_3_D.test.cpp
     title: test/aoj/DSL_3_D.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/datastructure/Slide_Min.md
     document_title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
@@ -35,7 +35,7 @@ data:
   path: datastructure/Slide_Min.hpp
   requiredBy: []
   timestamp: '2021-11-29 17:18:10+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_3_D.test.cpp
 documentation_of: datastructure/Slide_Min.hpp

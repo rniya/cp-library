@@ -4,11 +4,11 @@ data:
   - icon: ':question:'
     path: base.hpp
     title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: modulo/modint.hpp
     title: modint
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   _extendedVerifiedWith:
@@ -18,15 +18,24 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
+    title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1068.test.cpp
     title: test/yukicoder/1068.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/1302.test.cpp
+    title: test/yukicoder/1302.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/3046.test.cpp
+    title: test/yukicoder/3046.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/931.test.cpp
     title: test/yukicoder/931.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/convolution/NumberTheoreticTransform.md
     document_title: Number Theoretic Transform
@@ -217,10 +226,13 @@ data:
   requiredBy:
   - convolution/ArbitaryModConvolution.hpp
   timestamp: '2021-10-31 14:57:50+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/yukicoder/3046.test.cpp
   - test/yukicoder/1068.test.cpp
   - test/yukicoder/931.test.cpp
+  - test/yukicoder/1302.test.cpp
+  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
 documentation_of: convolution/NumberTheoreticTransform.hpp

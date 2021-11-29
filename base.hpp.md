@@ -2,13 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':heavy_check_mark:'
     path: convolution/FastFourierTransform.hpp
     title: Fast Fourier Transform
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
@@ -54,6 +54,9 @@ data:
   - icon: ':warning:'
     path: modulo/montgomery64.hpp
     title: montgomery modint (64 bit)
+  - icon: ':x:'
+    path: polynomial/StirlingSecond.hpp
+    title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
   - icon: ':heavy_check_mark:'
     path: polynomial/lagrange_interpolation.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
@@ -265,7 +268,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
     title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_3_D.test.cpp
     title: test/aoj/DSL_3_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -424,6 +427,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
+    title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/suffixarray.test.cpp
     title: test/yosupo/suffixarray.test.cpp
@@ -478,6 +484,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1301.test.cpp
     title: test/yukicoder/1301.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/1302.test.cpp
+    title: test/yukicoder/1302.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1307.test.cpp
     title: test/yukicoder/1307.test.cpp
@@ -487,6 +496,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/206.test.cpp
     title: test/yukicoder/206.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/3046.test.cpp
+    title: test/yukicoder/3046.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/430.AhoCorasick.test.cpp
     title: test/yukicoder/430.AhoCorasick.test.cpp
@@ -654,6 +666,7 @@ data:
   requiredBy:
   - linearalgebra/Kitamasa.hpp
   - polynomial/lagrange_interpolation.hpp
+  - polynomial/StirlingSecond.hpp
   - convolution/FastFourierTransform.hpp
   - convolution/ArbitaryModConvolution.hpp
   - convolution/NumberTheoreticTransform.hpp
@@ -691,12 +704,14 @@ data:
   - test/yukicoder/1269.test.cpp
   - test/yukicoder/430.AhoCorasick.test.cpp
   - test/yukicoder/1289.test.cpp
+  - test/yukicoder/3046.test.cpp
   - test/yukicoder/1050.test.cpp
   - test/yukicoder/1068.test.cpp
   - test/yukicoder/952.test.cpp
   - test/yukicoder/665.test.cpp
   - test/yukicoder/931.test.cpp
   - test/yukicoder/1288.test.cpp
+  - test/yukicoder/1302.test.cpp
   - test/yukicoder/1678.test.cpp
   - test/yukicoder/1301.test.cpp
   - test/yukicoder/206.test.cpp
@@ -796,6 +811,7 @@ data:
   - test/yosupo/matrix_det.test.cpp
   - test/yosupo/enumerate_palindromes.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
+  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yosupo/point_add_range_sum.test.cpp
   - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp

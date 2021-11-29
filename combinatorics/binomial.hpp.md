@@ -21,9 +21,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_I.test.cpp
     title: test/aoj/DPL_5_I.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yukicoder/1302.test.cpp
+    title: test/yukicoder/1302.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/combinatorics/binomial.md
     document_title: binomial
@@ -80,8 +83,9 @@ data:
   path: combinatorics/binomial.hpp
   requiredBy: []
   timestamp: '2021-09-26 16:55:29+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/yukicoder/1302.test.cpp
   - test/aoj/DPL_5_B.test.cpp
   - test/aoj/DPL_5_I.test.cpp
   - test/aoj/DPL_5_F.test.cpp
