@@ -279,6 +279,9 @@ data:
     - icon: ':warning:'
       path: util/gray_code.hpp
       title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"
+    - icon: ':heavy_check_mark:'
+      path: util/modint.hpp
+      title: util/modint.hpp
     - icon: ':warning:'
       path: util/stack_extend.hpp
       title: "\u30B9\u30BF\u30C3\u30AF\u62E1\u5F35\u30DE\u30AF\u30ED"

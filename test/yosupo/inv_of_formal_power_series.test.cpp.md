@@ -4,6 +4,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/FormalPowerSeries.hpp
     title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
+  - icon: ':heavy_check_mark:'
+    path: util/modint.hpp
+    title: util/modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -15,9 +18,9 @@ data:
     links:
     - https://judge.yosupo.jp/problem/inv_of_formal_power_series
   bundledCode: "#line 1 \"test/yosupo/inv_of_formal_power_series.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/inv_of_formal_power_series\"\n\n#include\
-    \ <iostream>\n#line 1 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n\
-    #include <cassert>\n#include <functional>\n#include <vector>\n\n#line 1 \"atcoder/convolution.hpp\"\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/inv_of_formal_power_series\"\n\n#line\
+    \ 1 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n#include <cassert>\n\
+    #include <functional>\n#include <vector>\n\n#line 1 \"atcoder/convolution.hpp\"\
     \n\n\n\n#line 5 \"atcoder/convolution.hpp\"\n#include <array>\n#line 7 \"atcoder/convolution.hpp\"\
     \n#include <type_traits>\n#line 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\
     \n\n\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\n\
@@ -498,36 +501,33 @@ data:
     \ < deg) ret.resize(deg, T(0));\n                return ret;\n            }\n\
     \        }\n        return FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n\
     \        T ret = 0, w = 1;\n        for (const auto& v : *this) ret += w * v,\
-    \ w *= x;\n        return ret;\n    }\n};\n#line 5 \"test/yosupo/inv_of_formal_power_series.test.cpp\"\
-    \n\nnamespace atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream&\
-    \ is, static_modint<MOD>& x) {\n    int64_t v;\n    x = static_modint<MOD>{(is\
-    \ >> v, v)};\n    return is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream&\
-    \ os, const static_modint<MOD>& x) { return os << x.val(); }\n\ntemplate <int\
-    \ ID> std::ostream& operator<<(std::ostream& os, const dynamic_modint<ID>& x)\
-    \ { return os << x.val(); }\n\n}  // namespace atcoder\n\nusing mint = atcoder::modint998244353;\n\
-    using FPS = FormalPowerSeries<mint>;\n\nint main() {\n    std::cin.tie(0);\n \
-    \   std::ios::sync_with_stdio(false);\n    int N;\n    std::cin >> N;\n    FPS\
-    \ a(N);\n    for (int i = 0; i < N; i++) std::cin >> a[i];\n    FPS b = a.inv();\n\
-    \    for (int i = 0; i < N; i++) std::cout << b[i] << (i + 1 == N ? '\\n' : '\
-    \ ');\n}\n"
+    \ w *= x;\n        return ret;\n    }\n};\n#line 1 \"util/modint.hpp\"\n#include\
+    \ <iostream>\n#line 3 \"util/modint.hpp\"\n\nnamespace atcoder {\n\ntemplate <int\
+    \ MOD> std::istream& operator>>(std::istream& is, static_modint<MOD>& x) {\n \
+    \   int64_t v;\n    x = static_modint<MOD>{(is >> v, v)};\n    return is;\n}\n\
+    \ntemplate <int MOD> std::ostream& operator<<(std::ostream& os, const static_modint<MOD>&\
+    \ x) { return os << x.val(); }\n\ntemplate <int ID> std::ostream& operator<<(std::ostream&\
+    \ os, const dynamic_modint<ID>& x) { return os << x.val(); }\n\n}  // namespace\
+    \ atcoder\n#line 5 \"test/yosupo/inv_of_formal_power_series.test.cpp\"\n\nusing\
+    \ mint = atcoder::modint998244353;\nusing FPS = FormalPowerSeries<mint>;\n\nint\
+    \ main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int\
+    \ N;\n    std::cin >> N;\n    FPS a(N);\n    for (int i = 0; i < N; i++) std::cin\
+    \ >> a[i];\n    FPS b = a.inv();\n    for (int i = 0; i < N; i++) std::cout <<\
+    \ b[i] << (i + 1 == N ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/inv_of_formal_power_series\"\
-    \n\n#include <iostream>\n#include \"polynomial/FormalPowerSeries.hpp\"\n\nnamespace\
-    \ atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream& is, static_modint<MOD>&\
-    \ x) {\n    int64_t v;\n    x = static_modint<MOD>{(is >> v, v)};\n    return\
-    \ is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream& os, const\
-    \ static_modint<MOD>& x) { return os << x.val(); }\n\ntemplate <int ID> std::ostream&\
-    \ operator<<(std::ostream& os, const dynamic_modint<ID>& x) { return os << x.val();\
-    \ }\n\n}  // namespace atcoder\n\nusing mint = atcoder::modint998244353;\nusing\
-    \ FPS = FormalPowerSeries<mint>;\n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \n\n#include \"polynomial/FormalPowerSeries.hpp\"\n#include \"util/modint.hpp\"\
+    \n\nusing mint = atcoder::modint998244353;\nusing FPS = FormalPowerSeries<mint>;\n\
+    \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
     \    int N;\n    std::cin >> N;\n    FPS a(N);\n    for (int i = 0; i < N; i++)\
     \ std::cin >> a[i];\n    FPS b = a.inv();\n    for (int i = 0; i < N; i++) std::cout\
     \ << b[i] << (i + 1 == N ? '\\n' : ' ');\n}"
   dependsOn:
   - polynomial/FormalPowerSeries.hpp
+  - util/modint.hpp
   isVerificationFile: true
   path: test/yosupo/inv_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2021-11-29 18:17:34+09:00'
+  timestamp: '2021-11-29 20:12:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/inv_of_formal_power_series.test.cpp
