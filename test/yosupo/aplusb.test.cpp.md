@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -85,8 +82,7 @@ data:
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n\n#include \"\
     ../../base.hpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    int A, B;\n    cin >> A >> B;\n\n    cout << A + B << '\\n';\n}"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: true
   path: test/yosupo/aplusb.test.cpp
   requiredBy: []

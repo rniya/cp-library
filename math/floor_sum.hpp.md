@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -96,8 +93,7 @@ data:
     \    long long y_max = (a * n + b) / m, x_max = y_max * m - b;\n    if (y_max\
     \ == 0) return ans;\n    ans += (n - (x_max + a - 1) / a) * y_max;\n    ans +=\
     \ floor_sum(y_max, a, m, (a - x_max % a) % a);\n    return ans;\n}"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: math/floor_sum.hpp
   requiredBy: []

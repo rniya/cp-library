@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: polynomial/FormalPowerSeries.hpp
     title: Formal Power Series
   _extendedRequiredBy: []
@@ -185,7 +182,6 @@ data:
     \ & 1) b[i] *= -1;\n        prod *= i + 1;\n    }\n    return (a * b).pre(n +\
     \ 1);\n}"
   dependsOn:
-  - base.hpp
   - polynomial/FormalPowerSeries.hpp
   isVerificationFile: false
   path: polynomial/StirlingSecond.hpp

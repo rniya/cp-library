@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: tree/TreeDiameter.hpp
     title: Tree Diameter
   _extendedRequiredBy: []
@@ -120,7 +117,6 @@ data:
     \    cout << X << ' ' << Y << '\\n';\n    for (int i = 0; i < Y; i++) cout <<\
     \ ans[i] << (i + 1 == Y ? '\\n' : ' ');\n    return 0;\n}"
   dependsOn:
-  - base.hpp
   - tree/TreeDiameter.hpp
   isVerificationFile: true
   path: test/yosupo/tree_diameter.test.cpp

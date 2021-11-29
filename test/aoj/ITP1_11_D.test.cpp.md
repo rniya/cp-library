@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: util/Dice.hpp
     title: Dice
   _extendedRequiredBy: []
@@ -137,7 +134,6 @@ data:
     \        s.emplace(d.identifier());\n    }\n    cout << (s.size() == n ? \"Yes\"\
     \ : \"No\") << '\\n';\n    return 0;\n}"
   dependsOn:
-  - base.hpp
   - util/Dice.hpp
   isVerificationFile: true
   path: test/aoj/ITP1_11_D.test.cpp

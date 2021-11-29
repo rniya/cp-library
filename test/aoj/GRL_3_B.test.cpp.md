@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: graph/BlockCutTree.hpp
     title: Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected
       Components)
@@ -184,7 +181,6 @@ data:
     \    }\n    sort(ans.begin(), ans.end());\n    for (auto& e : ans) cout << e.first\
     \ << ' ' << e.second << '\\n';\n    return 0;\n}"
   dependsOn:
-  - base.hpp
   - graph/BlockCutTree.hpp
   isVerificationFile: true
   path: test/aoj/GRL_3_B.test.cpp

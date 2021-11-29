@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
   _extendedRequiredBy: []
@@ -313,7 +310,6 @@ data:
     \   Circle c(Point(0, 0), r);\n    Polygon P(n);\n    for (auto& p : P) cin >>\
     \ p;\n    cout << commonarea(c, P) << '\\n';\n    return 0;\n}"
   dependsOn:
-  - base.hpp
   - geometry/geometry.hpp
   isVerificationFile: true
   path: test/aoj/CGL_7_H.test.cpp

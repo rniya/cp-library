@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -105,8 +102,7 @@ data:
     \ {\n                if (++j != n) continue;\n                res.emplace_back(i);\n\
     \            }\n            i += j - kmp[j];\n            j = max(kmp[j], 0);\n\
     \        }\n        return res;\n    }\n};"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: string/Knuth_Morris_Pratt.hpp
   requiredBy: []

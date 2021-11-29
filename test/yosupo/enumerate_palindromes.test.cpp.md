@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: string/Manacher.hpp
     title: Manacher
   _extendedRequiredBy: []
@@ -104,7 +101,6 @@ data:
     \ 0; i < ans.size(); i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n\
     }"
   dependsOn:
-  - base.hpp
   - string/Manacher.hpp
   isVerificationFile: true
   path: test/yosupo/enumerate_palindromes.test.cpp

@@ -153,8 +153,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_6_A.Dinic.test.cpp
-  - test/aoj/2313.test.cpp
   - test/aoj/2903.test.cpp
+  - test/aoj/2313.test.cpp
 documentation_of: flow/Dinic.hpp
 layout: document
 redirect_from:

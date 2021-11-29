@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: graph/BlockCutTree.hpp
     title: Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected
       Components)
@@ -181,7 +178,6 @@ data:
     \ '\\n';\n    for (auto& v : ans) {\n        cout << v.size();\n        for (int&\
     \ x : v) cout << ' ' << x;\n        cout << '\\n';\n    }\n}"
   dependsOn:
-  - base.hpp
   - graph/BlockCutTree.hpp
   isVerificationFile: true
   path: test/yosupo/two_edge_connected_components.test.cpp

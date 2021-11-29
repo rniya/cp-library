@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
@@ -207,7 +204,6 @@ data:
     \ - v0) - inv1 * v1).val();\n        res[i] = v0 + m0 * v1 + m0m1 * v2;\n    }\n\
     \    return res;\n}"
   dependsOn:
-  - base.hpp
   - modulo/modint.hpp
   - convolution/NumberTheoreticTransform.hpp
   isVerificationFile: false

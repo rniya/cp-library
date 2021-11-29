@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: graph/Dijkstra.hpp
     title: Dijkstra
   _extendedRequiredBy: []
@@ -116,7 +113,6 @@ data:
     \  if (D[i] > 1e18)\n            cout << \"INF\" << '\\n';\n        else\n   \
     \         cout << D[i] << '\\n';\n    }\n}"
   dependsOn:
-  - base.hpp
   - graph/Dijkstra.hpp
   isVerificationFile: true
   path: test/aoj/GRL_1_A.test.cpp

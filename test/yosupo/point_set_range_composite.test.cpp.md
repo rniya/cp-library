@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
   - icon: ':heavy_check_mark:'
@@ -197,7 +194,6 @@ data:
     \ r);\n            cout << x * ans.a + ans.b << '\\n';\n        }\n    }\n   \
     \ return 0;\n}"
   dependsOn:
-  - base.hpp
   - datastructure/SegmentTree.hpp
   - modulo/modint.hpp
   isVerificationFile: true

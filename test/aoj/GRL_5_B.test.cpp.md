@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: tree/TreeDiameter.hpp
     title: Tree Diameter
   _extendedRequiredBy: []
@@ -115,7 +112,6 @@ data:
     \ t, w);\n    }\n\n    vector<int> ans = TD.farthest_distance();\n    for (int\
     \ i = 0; i < n; i++) cout << ans[i] << '\\n';\n    return 0;\n}"
   dependsOn:
-  - base.hpp
   - tree/TreeDiameter.hpp
   isVerificationFile: true
   path: test/aoj/GRL_5_B.test.cpp

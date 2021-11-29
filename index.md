@@ -9,19 +9,8 @@ data:
     - icon: ':warning:'
       path: algorithm/monotone_minima.hpp
       title: monotone minima
-  - name: .
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: base.hpp
-      title: base.hpp
   - name: combinatorics
     pages:
-    - icon: ':heavy_check_mark:'
-      path: combinatorics/BellNumber.hpp
-      title: "\u30D9\u30EB\u6570"
-    - icon: ':heavy_check_mark:'
-      path: combinatorics/PartitionTable.hpp
-      title: "\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB"
     - icon: ':heavy_check_mark:'
       path: combinatorics/binomial.hpp
       title: binomial
@@ -83,7 +72,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/SegmentTreeBeats.hpp
       title: Segment Tree Beats
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: datastructure/Slide_Min.hpp
       title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
     - icon: ':heavy_check_mark:'
@@ -126,23 +115,6 @@ data:
     - icon: ':warning:'
       path: geometry/geometry3D.hpp
       title: "3 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
-  - name: gomi
-    pages:
-    - icon: ':warning:'
-      path: gomi/BipartiteMatching.hpp
-      title: "2\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-    - icon: ':warning:'
-      path: gomi/FordFulkerson.hpp
-      title: Ford Fulkerson
-    - icon: ':warning:'
-      path: gomi/LowestCommonAncestor.hpp
-      title: Lowest Common Ancestor
-    - icon: ':warning:'
-      path: gomi/MinCostFlow.hpp
-      title: "\u6700\u5C0F\u8CBB\u7528\u6D41"
-    - icon: ':warning:'
-      path: gomi/SuffixArray_old.hpp
-      title: Suffix Array
   - name: graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -426,17 +398,8 @@ data:
       path: test/aoj/DPL_5_F.test.cpp
       title: test/aoj/DPL_5_F.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/aoj/DPL_5_G.test.cpp
-      title: test/aoj/DPL_5_G.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_I.test.cpp
       title: test/aoj/DPL_5_I.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/DPL_5_J.test.cpp
-      title: test/aoj/DPL_5_J.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/DPL_5_L.test.cpp
-      title: test/aoj/DPL_5_L.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_1_A.test.cpp
       title: test/aoj/DSL_1_A.test.cpp
@@ -500,7 +463,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
       title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL_3_D.test.cpp
       title: test/aoj/DSL_3_D.test.cpp
     - icon: ':heavy_check_mark:'

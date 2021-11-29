@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -144,8 +141,7 @@ data:
     \ - 1; i >= 0; i--) {\n            node = node->ch[(val >> (T)i) & (T)1];\n  \
     \          if (!node) return 0;\n        }\n        return node->cnt;\n    }\n\
     };"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: datastructure/BinaryTrie.hpp
   requiredBy: []

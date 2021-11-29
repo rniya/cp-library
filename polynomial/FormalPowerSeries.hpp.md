@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: polynomial/StirlingSecond.hpp
@@ -275,8 +272,7 @@ data:
     \ {\n        M res = 0, power = 1;\n        for (int i = 0; i < (int)this->size();\
     \ i++, power *= x) {\n            res += (*this)[i] * power;\n        }\n    \
     \    return res;\n    }\n};"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: polynomial/FormalPowerSeries.hpp
   requiredBy:
@@ -284,13 +280,13 @@ data:
   timestamp: '2021-10-31 14:57:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/1302.test.cpp
   - test/yukicoder/3046.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yukicoder/1302.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
 documentation_of: polynomial/FormalPowerSeries.hpp
 layout: document
 redirect_from:

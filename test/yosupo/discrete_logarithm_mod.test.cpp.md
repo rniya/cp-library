@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: math/discrete_logarithm.hpp
     title: "Discrete Logarithm (\u96E2\u6563\u5BFE\u6570)"
   _extendedRequiredBy: []
@@ -108,7 +105,6 @@ data:
     \ Y >> M;\n        cout << discrete_logarithm(X, Y, M) << '\\n';\n    }\n    return\
     \ 0;\n}"
   dependsOn:
-  - base.hpp
   - math/discrete_logarithm.hpp
   isVerificationFile: true
   path: test/yosupo/discrete_logarithm_mod.test.cpp

@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: graph/Dijkstra.hpp
     title: Dijkstra
   _extendedRequiredBy: []
@@ -121,7 +118,6 @@ data:
     \ < ans.size(); i++) {\n        cout << ans[i] << ' ' << ans[i + 1] << '\\n';\n\
     \    }\n}"
   dependsOn:
-  - base.hpp
   - graph/Dijkstra.hpp
   isVerificationFile: true
   path: test/yosupo/shortest_path.test.cpp

@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTreeBeats.hpp
     title: Segment Tree Beats
   _extendedRequiredBy: []
@@ -199,7 +196,6 @@ data:
     \    }\n}"
   dependsOn:
   - datastructure/SegmentTreeBeats.hpp
-  - base.hpp
   isVerificationFile: true
   path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
   requiredBy: []

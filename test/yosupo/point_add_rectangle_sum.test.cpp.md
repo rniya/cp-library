@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: datastructure/BinaryIndexedTree.hpp
     title: Binary Indexd Tree (Fenwick Tree)
   - icon: ':heavy_check_mark:'
@@ -179,7 +176,6 @@ data:
     \            cout << RT.query(s[i], u[i], t[i], v[i]) << '\\n';\n    }\n    return\
     \ 0;\n}"
   dependsOn:
-  - base.hpp
   - datastructure/BinaryIndexedTree.hpp
   - datastructure/RangeTree.hpp
   isVerificationFile: true

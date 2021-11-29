@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -111,8 +108,7 @@ data:
     \ continue;\n            res = merge(res, pcs[i]);\n        }\n        K ans =\
     \ K(0);\n        for (int i = 1; i <= k; i++) ans += res[i] * A[i - 1];\n    \
     \    return ans;\n    }\n};"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: linearalgebra/Kitamasa.hpp
   requiredBy: []

@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -120,8 +117,7 @@ data:
     \  }\n    void set_val(int k, OperatorMonoid x) {\n        thrust(k += n);\n \
     \       laz[k] = x;\n    }\n    OperatorMonoid operator[](int k) {\n        thrust(k\
     \ += n);\n        return laz[k];\n    }\n};"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: datastructure/DualSegmentTree.hpp
   requiredBy: []

@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -106,8 +103,7 @@ data:
     \ 1)]);\n            }\n        }\n    }\n    T query(int a, int b) {\n      \
     \  int d = lookup[b - a];\n        return f(dat[d][a], dat[d][b - (1 << d)]);\n\
     \    }\n};"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: datastructure/SparseTable.hpp
   requiredBy: []

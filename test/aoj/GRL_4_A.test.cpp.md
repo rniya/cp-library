@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: graph/CycleDetection.hpp
     title: Cycle Detection
   _extendedRequiredBy: []
@@ -109,7 +106,6 @@ data:
     \ 0; i < E; i++) {\n        int s, t;\n        cin >> s >> t;\n        CD.add_edge(s,\
     \ t);\n    }\n\n    cout << (CD.build().empty() ? 0 : 1) << '\\n';\n}"
   dependsOn:
-  - base.hpp
   - graph/CycleDetection.hpp
   isVerificationFile: true
   path: test/aoj/GRL_4_A.test.cpp

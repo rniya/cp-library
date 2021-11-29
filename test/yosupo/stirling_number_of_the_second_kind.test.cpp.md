@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
@@ -279,7 +276,6 @@ data:
     \    };\n    FPS::set_mul(mul);\n\n    int N;\n    cin >> N;\n    FPS ans = StirlingSecond<mint>(N);\n\
     \    for (int i = 0; i <= N; i++) cout << ans[i] << (i == N ? '\\n' : ' ');\n}"
   dependsOn:
-  - base.hpp
   - convolution/NumberTheoreticTransform.hpp
   - modulo/modint.hpp
   - polynomial/StirlingSecond.hpp

@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   - icon: ':heavy_check_mark:'
@@ -271,7 +268,6 @@ data:
     \    for (int i = 0; i < N; i++) cin >> a[i];\n    FPS b = a.inv();\n    for (int\
     \ i = 0; i < N; i++) cout << b[i] << (i + 1 == N ? '\\n' : ' ');\n}"
   dependsOn:
-  - base.hpp
   - convolution/NumberTheoreticTransform.hpp
   - modulo/modint.hpp
   - polynomial/FormalPowerSeries.hpp

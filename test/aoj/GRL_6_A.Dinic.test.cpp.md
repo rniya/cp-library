@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: flow/Dinic.hpp
     title: Dinic (Maximum flow)
   _extendedRequiredBy: []
@@ -154,7 +151,6 @@ data:
     \ {\n        int u, v, c;\n        cin >> u >> v >> c;\n        D.add_edge(u,\
     \ v, c);\n    }\n\n    cout << D.max_flow(0, V - 1) << '\\n';\n}\n"
   dependsOn:
-  - base.hpp
   - flow/Dinic.hpp
   isVerificationFile: true
   path: test/aoj/GRL_6_A.Dinic.test.cpp

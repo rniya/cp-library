@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: datastructure/DualSegmentTree.hpp
     title: Dual Segment Tree
   _extendedRequiredBy: []
@@ -116,7 +113,6 @@ data:
     \ t >> x;\n            seg.update(s, t + 1, x);\n        } else {\n          \
     \  cin >> i;\n            cout << seg[i] << '\\n';\n        }\n    }\n}"
   dependsOn:
-  - base.hpp
   - datastructure/DualSegmentTree.hpp
   isVerificationFile: true
   path: test/aoj/DSL_2_D.DualSegmentTree.test.cpp

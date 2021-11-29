@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: graph/StronglyConnectedComponents.hpp
     title: Strongly Connected Components
   _extendedRequiredBy: []
@@ -124,7 +121,6 @@ data:
     \ {\n        int u, v;\n        cin >> u >> v;\n        cout << (SCC[u] == SCC[v])\
     \ << '\\n';\n    }\n}"
   dependsOn:
-  - base.hpp
   - graph/StronglyConnectedComponents.hpp
   isVerificationFile: true
   path: test/aoj/GRL_3_C.test.cpp

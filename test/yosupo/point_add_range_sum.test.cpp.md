@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTree.hpp
     title: Segment Tree
   _extendedRequiredBy: []
@@ -145,7 +142,6 @@ data:
     \          cin >> l >> r;\n            cout << seg.query(l, r) << '\\n';\n   \
     \     }\n    }\n    return 0;\n}"
   dependsOn:
-  - base.hpp
   - datastructure/SegmentTree.hpp
   isVerificationFile: true
   path: test/yosupo/point_add_range_sum.test.cpp

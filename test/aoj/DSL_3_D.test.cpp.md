@@ -1,17 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: datastructure/Slide_Min.hpp
     title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D
@@ -82,18 +79,18 @@ data:
     \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 3 \"datastructure/Slide_Min.hpp\"\n\n/**\n * @brief \u30B9\u30E9\u30A4\u30C9\
-    \u6700\u5C0F\u5024\n * @docs docs/datastructure/Slide_Min.md\n */\ntemplate <typename\
-    \ T> vector<T> Slide_Min(const vector<T>& v, int k) {\n    deque<int> deq;\n \
-    \   vector<T> res;\n    for (int i = 0; i < (int)v.size(); i++) {\n        while\
-    \ (!deq.empty() && v[deq.back()] >= v[i]) deq.pop_back();\n        deq.push_back(i);\n\
-    \        if (i - k + 1 >= 0) {\n            res.push_back(v[deq.front()]);\n \
-    \           if (deq.front() == i - k + 1) deq.pop_front();\n        }\n    }\n\
-    \    return res;\n}\n#line 5 \"test/aoj/DSL_3_D.test.cpp\"\n\nint main() {\n \
-    \   cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, L;\n    cin >> N\
-    \ >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\
-    \n    vector<int> ans = Slide_Min(a, L);\n    for (int i = 0; i < N - L + 1; i++)\
-    \ cout << ans[i] << (i == N - L ? '\\n' : ' ');\n}\n"
+    #line 4 \"datastructure/Slide_Min.hpp\"\n\ntemplate <typename T> std::vector<T>\
+    \ Slide_Min(const std::vector<T>& v, int k) {\n    std::deque<int> deq;\n    std::vector<T>\
+    \ res;\n    for (int i = 0; i < (int)v.size(); i++) {\n        while (!deq.empty()\
+    \ and v[deq.back()] >= v[i]) deq.pop_back();\n        deq.emplace_back(i);\n \
+    \       if (i - k + 1 >= 0) {\n            res.emplace_back(v[deq.front()]);\n\
+    \            if (deq.front() == i - k + 1) deq.pop_front();\n        }\n    }\n\
+    \    return res;\n}\n\n/**\n * @brief \u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024\
+    \n * @docs docs/datastructure/Slide_Min.md\n */\n#line 5 \"test/aoj/DSL_3_D.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ L;\n    cin >> N >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
+    \ cin >> a[i];\n\n    vector<int> ans = Slide_Min(a, L);\n    for (int i = 0;\
+    \ i < N - L + 1; i++) cout << ans[i] << (i == N - L ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/Slide_Min.hpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
@@ -101,13 +98,12 @@ data:
     \ cin >> a[i];\n\n    vector<int> ans = Slide_Min(a, L);\n    for (int i = 0;\
     \ i < N - L + 1; i++) cout << ans[i] << (i == N - L ? '\\n' : ' ');\n}"
   dependsOn:
-  - base.hpp
   - datastructure/Slide_Min.hpp
   isVerificationFile: true
   path: test/aoj/DSL_3_D.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-11-29 17:18:10+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL_3_D.test.cpp
 layout: document

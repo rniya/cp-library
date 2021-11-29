@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -92,8 +89,7 @@ data:
     \ {\n        int t;\n        long long k;\n        cin >> t >> k;\n        if\
     \ (!t) {\n            long long v;\n            cin >> v;\n            a[k] =\
     \ v;\n        } else\n            cout << a[k] << '\\n';\n    }\n}"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: true
   path: test/yosupo/associative_array.test.cpp
   requiredBy: []

@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: datastructure/LazySegmentTree.hpp
     title: Lazy Segment Tree
   - icon: ':heavy_check_mark:'
@@ -247,7 +244,6 @@ data:
     \ r).a; };\n            HLD.query_path(0, u, q);\n            cout << ans << '\\\
     n';\n        }\n    }\n    return 0;\n}"
   dependsOn:
-  - base.hpp
   - datastructure/LazySegmentTree.hpp
   - tree/HeavyLightDecomposition.hpp
   isVerificationFile: true

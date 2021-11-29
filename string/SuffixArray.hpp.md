@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -197,16 +194,15 @@ data:
     \ = h;\n    }\n    return lcp;\n}\n\nvector<int> lcp_array(const string& s, const\
     \ vector<int>& sa) {\n    vector<int> ns;\n    for (char c : s) ns.emplace_back(c);\n\
     \    return lcp_array(ns, sa);\n}\n}  // namespace SuffixArray"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: string/SuffixArray.hpp
   requiredBy: []
   timestamp: '2021-10-31 14:57:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/number_of_substrings.test.cpp
   - test/yosupo/suffixarray.test.cpp
+  - test/yosupo/number_of_substrings.test.cpp
 documentation_of: string/SuffixArray.hpp
 layout: document
 redirect_from:

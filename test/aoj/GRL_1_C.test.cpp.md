@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: graph/WarshallFloyd.hpp
     title: Warshall Floyd
   _extendedRequiredBy: []
@@ -113,7 +110,6 @@ data:
     \     else\n                cout << ans[i][j];\n            cout << (j + 1 ==\
     \ V ? '\\n' : ' ');\n        }\n    }\n}"
   dependsOn:
-  - base.hpp
   - graph/WarshallFloyd.hpp
   isVerificationFile: true
   path: test/aoj/GRL_1_C.test.cpp

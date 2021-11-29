@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -84,8 +81,7 @@ data:
     vector<uint64_t> ZobristHash(int n) {\n    random_device seed_gen;\n    mt19937_64\
     \ engine(seed_gen());\n    vector<uint64_t> base(n);\n    for (int i = 0; i <\
     \ n; i++) base[i] = engine();\n    return base;\n}"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: util/ZobristHash.hpp
   requiredBy: []

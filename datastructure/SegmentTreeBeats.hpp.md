@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -305,22 +302,21 @@ data:
     \ }\n    T query_max(int a, int b) { return query_max(a, b, 0, 0, n); }\n    T\
     \ query_sum(int a, int b) { return query_sum(a, b, 0, 0, n); }\n    T operator[](int\
     \ i) { return query_sum(i, i + 1); }\n};"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: datastructure/SegmentTreeBeats.hpp
   requiredBy: []
   timestamp: '2021-10-31 14:57:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
+  - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
 documentation_of: datastructure/SegmentTreeBeats.hpp
 layout: document

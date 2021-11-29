@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: combinatorics/BellNumber.hpp
-    title: "\u30D9\u30EB\u6570"
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_B.test.cpp
@@ -21,9 +18,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_F.test.cpp
     title: test/aoj/DPL_5_F.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_G.test.cpp
-    title: test/aoj/DPL_5_G.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_I.test.cpp
     title: test/aoj/DPL_5_I.test.cpp
@@ -87,19 +81,17 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: combinatorics/binomial.hpp
-  requiredBy:
-  - combinatorics/BellNumber.hpp
+  requiredBy: []
   timestamp: '2021-09-26 16:55:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1302.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
-  - test/aoj/DPL_5_G.test.cpp
   - test/aoj/DPL_5_B.test.cpp
-  - test/aoj/DPL_5_F.test.cpp
   - test/aoj/DPL_5_I.test.cpp
-  - test/aoj/DPL_5_C.test.cpp
+  - test/aoj/DPL_5_F.test.cpp
   - test/aoj/DPL_5_D.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/DPL_5_C.test.cpp
 documentation_of: combinatorics/binomial.hpp
 layout: document
 redirect_from:

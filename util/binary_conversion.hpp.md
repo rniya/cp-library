@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -101,8 +98,7 @@ data:
     \ 0; i < num.size(); i++) {\n        for (size_t j = 0; j < 32; j++) {\n     \
     \       res[i * 32 + j] = num[i] >> j & 1;\n        }\n    }\n\n    while (!res.empty()\
     \ && !res.back()) res.pop_back();\n    return res;\n};"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: util/binary_conversion.hpp
   requiredBy: []

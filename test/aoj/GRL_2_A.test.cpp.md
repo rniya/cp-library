@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: datastructure/UnionFind.hpp
     title: Union Find (Disjoint Set Union)
   - icon: ':heavy_check_mark:'
@@ -130,7 +127,6 @@ data:
     \        int s, t, w;\n        cin >> s >> t >> w;\n        K.add_edge(s, t, w);\n\
     \    }\n\n    cout << K.build() << '\\n';\n    return 0;\n}"
   dependsOn:
-  - base.hpp
   - graph/Kruskal.hpp
   - datastructure/UnionFind.hpp
   isVerificationFile: true

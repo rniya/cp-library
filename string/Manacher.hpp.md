@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -101,8 +98,7 @@ data:
     \    int n = s.size();\n    string t(n * 2 + 1, '$');\n    for (int i = 0; i <\
     \ n; i++) t[i * 2 + 1] = s[i];\n    vector<int> v = Manacher(t), res;\n    for\
     \ (int i = 1; i < n * 2; i++) res.emplace_back(v[i] - 1);\n    return res;\n}"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: string/Manacher.hpp
   requiredBy: []

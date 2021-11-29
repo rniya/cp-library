@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: convolution/FastFourierTransform.hpp
     title: Fast Fourier Transform
   - icon: ':heavy_check_mark:'
@@ -185,7 +182,6 @@ data:
     \   }\n\n    for (int i = 1; i < N; i++) cout << ans[i] / 2 << (i + 1 == N ? '\\\
     n' : ' ');\n}"
   dependsOn:
-  - base.hpp
   - convolution/FastFourierTransform.hpp
   - tree/CentroidDecomposition.hpp
   isVerificationFile: true

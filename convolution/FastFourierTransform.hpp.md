@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -166,8 +163,7 @@ data:
     \ res(need);\n    for (int i = 0; i < need; i++) {\n        res[i] = llround(i\
     \ & 1 ? C[i >> 1].y : C[i >> 1].x);\n    }\n    return res;\n}\n}  // namespace\
     \ FastFourierTransform"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: convolution/FastFourierTransform.hpp
   requiredBy: []

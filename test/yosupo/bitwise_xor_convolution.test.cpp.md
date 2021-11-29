@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: convolution/set_function.hpp
     title: set function (FZT, FMT, FWHT)
   - icon: ':heavy_check_mark:'
@@ -184,7 +181,6 @@ data:
     \ (int i = 0; i < (1 << N); i++) cout << c[i] << (i + 1 == (1 << N) ? '\\n' :\
     \ ' ');\n    return 0;\n}"
   dependsOn:
-  - base.hpp
   - convolution/set_function.hpp
   - modulo/modint.hpp
   isVerificationFile: true

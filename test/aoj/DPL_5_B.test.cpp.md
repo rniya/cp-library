@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: combinatorics/binomial.hpp
     title: binomial
   - icon: ':heavy_check_mark:'
@@ -160,7 +157,6 @@ data:
     \ BINOM;\n    int n, k;\n    cin >> n >> k;\n\n    cout << BINOM.P(k, n) << '\\\
     n';\n}"
   dependsOn:
-  - base.hpp
   - combinatorics/binomial.hpp
   - modulo/modint.hpp
   isVerificationFile: true

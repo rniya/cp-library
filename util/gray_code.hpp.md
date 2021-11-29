@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -85,8 +82,7 @@ data:
     \u30B3\u30FC\u30C9\n * @docs docs/util/gray_code.md\n */\nvector<int> gray_code(int\
     \ n) {\n    vector<int> res(1 << n);\n    for (int i = 0; i < (int)res.size();\
     \ i++) res[i] = i ^ (i >> 1);\n    return res;\n}"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: util/gray_code.hpp
   requiredBy: []

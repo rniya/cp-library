@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: datastructure/SegmentTreeBeats.hpp
     title: Segment Tree Beats
   _extendedRequiredBy: []
@@ -200,7 +197,6 @@ data:
     \      int s, t;\n            cin >> s >> t;\n            cout << seg.query_sum(s,\
     \ t + 1) << '\\n';\n        }\n    }\n}"
   dependsOn:
-  - base.hpp
   - datastructure/SegmentTreeBeats.hpp
   isVerificationFile: true
   path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp

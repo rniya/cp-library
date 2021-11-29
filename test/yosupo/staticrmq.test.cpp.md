@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: datastructure/SparseTable.hpp
     title: Sparse table
   _extendedRequiredBy: []
@@ -108,7 +105,6 @@ data:
     \    ST.build(a);\n\n    for (; Q--;) {\n        int l, r;\n        cin >> l >>\
     \ r;\n        cout << ST.query(l, r) << '\\n';\n    }\n}"
   dependsOn:
-  - base.hpp
   - datastructure/SparseTable.hpp
   isVerificationFile: true
   path: test/yosupo/staticrmq.test.cpp

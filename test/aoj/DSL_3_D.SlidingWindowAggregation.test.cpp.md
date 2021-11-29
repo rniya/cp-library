@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
     path: datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation (SWAG)
   _extendedRequiredBy: []
@@ -113,7 +110,6 @@ data:
     \    for (int i = L - 1; i < N; i++) {\n        SWAG.push(a[i]);\n        cout\
     \ << SWAG.fold() << (i + 1 == N ? '\\n' : ' ');\n        SWAG.pop();\n    }\n}"
   dependsOn:
-  - base.hpp
   - datastructure/SlidingWindowAggregation.hpp
   isVerificationFile: true
   path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
