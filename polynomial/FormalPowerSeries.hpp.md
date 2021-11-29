@@ -17,10 +17,10 @@ data:
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution.hpp:\
     \ line -1: no such header\n"
   code: "#include <algorithm>\n#include <cassert>\n#include <functional>\n#include\
-    \ <vector>\n\n#include \"atcoder/convolution\"\n\ntemplate <typename T> struct\
+    \ <vector>\n\n#include \"atcoder/convolution.hpp\"\n\ntemplate <typename T> struct\
     \ FormalPowerSeries : std::vector<T> {\nprivate:\n    using std::vector<T>::vector;\n\
     \    using FPS = FormalPowerSeries;\n    void shrink() {\n        while (this->size()\
     \ and this->back() == T(0)) this->pop_back();\n    }\n\n    FPS pre(size_t sz)\
@@ -322,7 +322,7 @@ $$
 - [Codeforces Round #250 (Div. 1) E. The Child and Binary Tree](https://codeforces.com/contest/438/problem/E)
 
 ## Reference
-- [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
+[1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
 
 ## Links
 - [Operations on Formal Power Series - Codeforces](https://codeforces.com/blog/entry/56422)

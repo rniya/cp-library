@@ -14,10 +14,10 @@ data:
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/exp_of_formal_power_series\"\
-    \n\n#include <iostream>\n#include \"atcoder/modint\"\n#include \"polynomial/FormalPowerSeries.hpp\"\
+    \n\n#include <iostream>\n#include \"atcoder/modint.hpp\"\n#include \"polynomial/FormalPowerSeries.hpp\"\
     \n\nnamespace atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream&\
     \ is, static_modint<MOD>& x) {\n    int64_t v;\n    x = static_modint<MOD>{(is\
     \ >> v, v)};\n    return is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream&\
