@@ -1,0 +1,1 @@
+exclude: ["base.hpp", "ac-library", "trash"]
