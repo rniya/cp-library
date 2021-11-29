@@ -175,7 +175,7 @@ $$
 - [Codeforces Round #250 (Div. 1) E. The Child and Binary Tree](https://codeforces.com/contest/438/problem/E)
 
 ## Reference
-- [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
+[1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
 
 ## Links
 - [Operations on Formal Power Series - Codeforces](https://codeforces.com/blog/entry/56422)
