@@ -12,5 +12,5 @@ int main() {
     for (int i = 0; i < N; i++) cin >> a[i];
 
     vector<int> ans = Slide_Min(a, L);
-    for (int i = 0; i < N - L + 1; i++) cout << ans[i] << (i == N - L ? '\n' : ' ');
+    for (size_t i = 0; i < ans.size(); i++) cout << ans[i] << (i + 1 == ans.size() ? '\n' : ' ');
 }

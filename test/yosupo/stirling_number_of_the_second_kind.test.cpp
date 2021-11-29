@@ -1,4 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind"
+#define IGNORE
 
 #include "../../base.hpp"
 #include "../../convolution/NumberTheoreticTransform.hpp"

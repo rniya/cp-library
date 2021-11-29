@@ -1,27 +1,33 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/exp_of_formal_power_series"
 
-#include "../../base.hpp"
-#include "../../convolution/NumberTheoreticTransform.hpp"
-#include "../../modulo/modint.hpp"
-#include "../../polynomial/FormalPowerSeries.hpp"
+#include <iostream>
+#include "atcoder/modint"
+#include "polynomial/FormalPowerSeries.hpp"
 
-using mint = modint<998244353>;
+namespace atcoder {
+
+template <int MOD> std::istream& operator>>(std::istream& is, static_modint<MOD>& x) {
+    int64_t v;
+    x = static_modint<MOD>{(is >> v, v)};
+    return is;
+}
+
+template <int MOD> std::ostream& operator<<(std::ostream& os, const static_modint<MOD>& x) { return os << x.val(); }
+
+template <int ID> std::ostream& operator<<(std::ostream& os, const dynamic_modint<ID>& x) { return os << x.val(); }
+
+}  // namespace atcoder
+
+using mint = atcoder::modint998244353;
 using FPS = FormalPowerSeries<mint>;
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    NumberTheoreticTransform<998244353> NTT;
-    auto mul = [&](const FPS::Poly& a, const FPS::Poly& b) {
-        auto res = NTT.multiply(a, b);
-        return FPS::Poly(res.begin(), res.end());
-    };
-    FPS::set_mul(mul);
-
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int N;
-    cin >> N;
+    std::cin >> N;
     FPS a(N);
-    for (int i = 0; i < N; i++) cin >> a[i];
+    for (int i = 0; i < N; i++) std::cin >> a[i];
     FPS b = a.exp();
-    for (int i = 0; i < N; i++) cout << b[i] << (i + 1 == N ? '\n' : ' ');
+    for (int i = 0; i < N; i++) std::cout << b[i] << (i + 1 == N ? '\n' : ' ');
 }
