@@ -11,23 +11,23 @@ data:
       title: monotone minima
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
   - name: combinatorics
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: combinatorics/binomial.hpp
       title: binomial
   - name: convolution
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: convolution/ArbitaryModConvolution.hpp
       title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
     - icon: ':heavy_check_mark:'
       path: convolution/FastFourierTransform.hpp
       title: Fast Fourier Transform
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: convolution/NumberTheoreticTransform.hpp
       title: Number Theoretic Transform
     - icon: ':heavy_check_mark:'
@@ -205,7 +205,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: modulo/dynamic_modint.hpp
       title: "\u5B9F\u884C\u6642 modint"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: modulo/modint.hpp
       title: modint
     - icon: ':warning:'
@@ -213,12 +213,9 @@ data:
       title: montgomery modint (64 bit)
   - name: polynomial
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: polynomial/FormalPowerSeries.hpp
       title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':x:'
-      path: polynomial/StirlingSecond.hpp
-      title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
     - icon: ':heavy_check_mark:'
       path: polynomial/lagrange_interpolation.hpp
       title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
@@ -647,9 +644,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq.test.cpp
       title: test/yosupo/staticrmq.test.cpp
-    - icon: ':x:'
-      path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-      title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/suffixarray.test.cpp
       title: test/yosupo/suffixarray.test.cpp
@@ -706,9 +700,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1301.test.cpp
       title: test/yukicoder/1301.test.cpp
-    - icon: ':x:'
-      path: test/yukicoder/1302.test.cpp
-      title: test/yukicoder/1302.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1307.test.cpp
       title: test/yukicoder/1307.test.cpp
@@ -718,9 +709,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/206.test.cpp
       title: test/yukicoder/206.test.cpp
-    - icon: ':x:'
-      path: test/yukicoder/3046.test.cpp
-      title: test/yukicoder/3046.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/430.AhoCorasick.test.cpp
       title: test/yukicoder/430.AhoCorasick.test.cpp

@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':x:'
-    path: polynomial/StirlingSecond.hpp
-    title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
@@ -21,18 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
-  - icon: ':x:'
-    path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-    title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-  - icon: ':x:'
-    path: test/yukicoder/1302.test.cpp
-    title: test/yukicoder/1302.test.cpp
-  - icon: ':x:'
-    path: test/yukicoder/3046.test.cpp
-    title: test/yukicoder/3046.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Exp of Formal Power Series
     links:
@@ -642,15 +630,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: polynomial/FormalPowerSeries.hpp
-  requiredBy:
-  - polynomial/StirlingSecond.hpp
+  requiredBy: []
   timestamp: '2021-11-29 18:17:34+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/3046.test.cpp
-  - test/yukicoder/1302.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp

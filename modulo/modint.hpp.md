@@ -2,10 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/ArbitaryModConvolution.hpp
     title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: convolution/NumberTheoreticTransform.hpp
     title: Number Theoretic Transform
   _extendedVerifiedWith:
@@ -57,9 +57,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-    title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/vertex_set_path_composite.test.cpp
     title: test/yosupo/vertex_set_path_composite.test.cpp
@@ -75,12 +72,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1289.test.cpp
     title: test/yukicoder/1289.test.cpp
-  - icon: ':x:'
-    path: test/yukicoder/1302.test.cpp
-    title: test/yukicoder/1302.test.cpp
-  - icon: ':x:'
-    path: test/yukicoder/3046.test.cpp
-    title: test/yukicoder/3046.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
@@ -93,9 +84,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/931.test.cpp
     title: test/yukicoder/931.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/modulo/modint.md
     document_title: modint
@@ -193,17 +184,15 @@ data:
   - convolution/ArbitaryModConvolution.hpp
   - convolution/NumberTheoreticTransform.hpp
   timestamp: '2021-10-01 20:18:39+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/886.test.cpp
   - test/yukicoder/1269.test.cpp
   - test/yukicoder/1289.test.cpp
-  - test/yukicoder/3046.test.cpp
   - test/yukicoder/1050.test.cpp
   - test/yukicoder/1068.test.cpp
   - test/yukicoder/665.test.cpp
   - test/yukicoder/931.test.cpp
-  - test/yukicoder/1302.test.cpp
   - test/yukicoder/803.test.cpp
   - test/aoj/DPL_5_B.test.cpp
   - test/aoj/DPL_5_I.test.cpp
@@ -215,7 +204,6 @@ data:
   - test/yosupo/bitwise_and_convolution.test.cpp
   - test/yosupo/matrix_det.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
-  - test/yosupo/stirling_number_of_the_second_kind.test.cpp
   - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/vertex_set_path_composite.test.cpp
