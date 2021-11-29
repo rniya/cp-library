@@ -1,4 +1,5 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1302"
+#define IGNORE
 
 #include "../../base.hpp"
 #include "../../combinatorics/binomial.hpp"

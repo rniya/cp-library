@@ -1,7 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/pow_of_formal_power_series"
 
 #include <iostream>
-#include "atcoder/modint.hpp"
 #include "polynomial/FormalPowerSeries.hpp"
 
 namespace atcoder {

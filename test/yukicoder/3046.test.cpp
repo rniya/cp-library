@@ -1,4 +1,5 @@
 #define PROBLEM "https://yukicoder.me/problems/no/3046"
+#define IGNORE
 
 #include "../../base.hpp"
 #include "../../convolution/ArbitaryModConvolution.hpp"

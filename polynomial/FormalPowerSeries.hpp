@@ -3,7 +3,7 @@
 #include <functional>
 #include <vector>
 
-#include "atcoder/convolution.hpp"
+#include "atcoder/convolution"
 
 template <typename T> struct FormalPowerSeries : std::vector<T> {
 private:
