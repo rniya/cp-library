@@ -50,12 +50,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: datastructure/CumulativeSum2D.hpp
       title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
-    - icon: ':heavy_check_mark:'
-      path: datastructure/DualSegmentTree.hpp
-      title: Dual Segment Tree
-    - icon: ':heavy_check_mark:'
-      path: datastructure/LazySegmentTree.hpp
-      title: Lazy Segment Tree
     - icon: ':warning:'
       path: datastructure/LineContainer.hpp
       title: Line Container (based on kactl)
@@ -71,9 +65,6 @@ data:
     - icon: ':warning:'
       path: datastructure/RectangleSet.hpp
       title: Rectangle Set
-    - icon: ':heavy_check_mark:'
-      path: datastructure/SegmentTree.hpp
-      title: Segment Tree
     - icon: ':heavy_check_mark:'
       path: datastructure/SegmentTreeBeats.hpp
       title: Segment Tree Beats
@@ -415,56 +406,29 @@ data:
       path: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/aoj/DSL_2_A.test.cpp
-      title: test/aoj/DSL_2_A.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_B.test.cpp
       title: test/aoj/DSL_2_B.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/aoj/DSL_2_D.DualSegmentTree.test.cpp
-      title: test/aoj/DSL_2_D.DualSegmentTree.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/DSL_2_D.test.cpp
-      title: test/aoj/DSL_2_D.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/DSL_2_E.DualSegmentTree.test.cpp
-      title: test/aoj/DSL_2_E.DualSegmentTree.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/aoj/DSL_2_E.test.cpp
-      title: test/aoj/DSL_2_E.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/DSL_2_F.test.cpp
-      title: test/aoj/DSL_2_F.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/aoj/DSL_2_G.test.cpp
-      title: test/aoj/DSL_2_G.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/aoj/DSL_2_H.test.cpp
-      title: test/aoj/DSL_2_H.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/DSL_2_I.test.cpp
-      title: test/aoj/DSL_2_I.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
       title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
@@ -513,9 +477,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
       title: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
-      title: test/aoj/GRL_5_E.HeavyLightDecomposition.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_A.Dinic.test.cpp
       title: test/aoj/GRL_6_A.Dinic.test.cpp
@@ -606,23 +567,14 @@ data:
       path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
       title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/yosupo/point_add_range_sum.test.cpp
-      title: test/yosupo/point_add_range_sum.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_rectangle_sum.test.cpp
       title: test/yosupo/point_add_rectangle_sum.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/yosupo/point_set_range_composite.test.cpp
-      title: test/yosupo/point_set_range_composite.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/queue_operate_all_composite.test.cpp
       title: test/yosupo/queue_operate_all_composite.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/yosupo/range_affine_range_sum.test.cpp
-      title: test/yosupo/range_affine_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
       title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
@@ -691,9 +643,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1269.test.cpp
       title: test/yukicoder/1269.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/yukicoder/1270.test.cpp
-      title: test/yukicoder/1270.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1288.test.cpp
       title: test/yukicoder/1288.test.cpp

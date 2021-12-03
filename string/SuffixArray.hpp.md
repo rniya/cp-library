@@ -205,8 +205,8 @@ data:
   timestamp: '2021-10-31 14:57:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/suffixarray.test.cpp
   - test/yosupo/number_of_substrings.test.cpp
+  - test/yosupo/suffixarray.test.cpp
 documentation_of: string/SuffixArray.hpp
 layout: document
 redirect_from:

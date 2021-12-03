@@ -49,17 +49,8 @@ data:
     path: test/yosupo/matrix_det.test.cpp
     title: test/yosupo/matrix_det.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/point_set_range_composite.test.cpp
-    title: test/yosupo/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/range_affine_range_sum.test.cpp
-    title: test/yosupo/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/vertex_set_path_composite.test.cpp
-    title: test/yosupo/vertex_set_path_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
@@ -186,31 +177,28 @@ data:
   timestamp: '2021-10-01 20:18:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/886.test.cpp
-  - test/yukicoder/1269.test.cpp
-  - test/yukicoder/1289.test.cpp
-  - test/yukicoder/1050.test.cpp
-  - test/yukicoder/1068.test.cpp
-  - test/yukicoder/665.test.cpp
-  - test/yukicoder/931.test.cpp
-  - test/yukicoder/803.test.cpp
-  - test/aoj/DPL_5_B.test.cpp
-  - test/aoj/DPL_5_I.test.cpp
-  - test/aoj/DPL_5_A.test.cpp
-  - test/aoj/DPL_5_F.test.cpp
-  - test/aoj/DPL_5_D.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
-  - test/aoj/DPL_5_C.test.cpp
   - test/yosupo/bitwise_and_convolution.test.cpp
-  - test/yosupo/matrix_det.test.cpp
-  - test/yosupo/range_affine_range_sum.test.cpp
-  - test/yosupo/bitwise_xor_convolution.test.cpp
-  - test/yosupo/convolution_mod.test.cpp
-  - test/yosupo/vertex_set_path_composite.test.cpp
-  - test/yosupo/point_set_range_composite.test.cpp
-  - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/characteristic_polynomial.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
+  - test/yosupo/convolution_mod.test.cpp
+  - test/yosupo/convolution_mod_1000000007.test.cpp
+  - test/yosupo/bitwise_xor_convolution.test.cpp
+  - test/yosupo/matrix_det.test.cpp
+  - test/yukicoder/1289.test.cpp
+  - test/yukicoder/803.test.cpp
+  - test/yukicoder/1269.test.cpp
+  - test/yukicoder/1050.test.cpp
+  - test/yukicoder/1068.test.cpp
+  - test/yukicoder/886.test.cpp
+  - test/yukicoder/931.test.cpp
+  - test/yukicoder/665.test.cpp
+  - test/aoj/DPL_5_F.test.cpp
+  - test/aoj/DPL_5_A.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/DPL_5_C.test.cpp
+  - test/aoj/DPL_5_I.test.cpp
+  - test/aoj/DPL_5_B.test.cpp
+  - test/aoj/DPL_5_D.test.cpp
 documentation_of: modulo/modint.hpp
 layout: document
 redirect_from:

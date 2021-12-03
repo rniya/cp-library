@@ -18,6 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/vertex_set_path_composite.test.cpp
+    title: test/yosupo/vertex_set_path_composite.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -250,10 +253,11 @@ data:
   timestamp: '2021-11-29 20:12:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/vertex_set_path_composite.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
 documentation_of: util/modint.hpp
 layout: document

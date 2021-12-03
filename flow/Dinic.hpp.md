@@ -152,9 +152,9 @@ data:
   timestamp: '2021-10-21 16:13:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_6_A.Dinic.test.cpp
-  - test/aoj/2903.test.cpp
   - test/aoj/2313.test.cpp
+  - test/aoj/2903.test.cpp
+  - test/aoj/GRL_6_A.Dinic.test.cpp
 documentation_of: flow/Dinic.hpp
 layout: document
 redirect_from:

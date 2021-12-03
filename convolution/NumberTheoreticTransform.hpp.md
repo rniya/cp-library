@@ -219,10 +219,10 @@ data:
   timestamp: '2021-10-31 14:57:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/1068.test.cpp
-  - test/yukicoder/931.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
+  - test/yukicoder/1068.test.cpp
+  - test/yukicoder/931.test.cpp
 documentation_of: convolution/NumberTheoreticTransform.hpp
 layout: document
 redirect_from:
