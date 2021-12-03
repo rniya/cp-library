@@ -8,10 +8,6 @@ using FPS = FormalPowerSeries<mint>;
 
 // https://ei1333.github.io/library/math/combinatorics/mod-sqrt.cpp
 
-/**
- * @brief Mod Pow(べき乗)
- * @docs docs/mod-pow.md
- */
 template <typename T> T mod_pow(T x, int64_t n, const T& p) {
     T ret = 1;
     while (n > 0) {
@@ -22,9 +18,6 @@ template <typename T> T mod_pow(T x, int64_t n, const T& p) {
     return ret % p;
 }
 
-/**
- * @brief Mod Sqrt
- */
 template <typename T> T mod_sqrt(const T& a, const T& p) {
     if (a == 0) return 0;
     if (p == 2) return a;

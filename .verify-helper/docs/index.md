@@ -1,5 +1,3 @@
-# competitive-programming-library
-
 競技プログラミングで使用するライブラリ集です。
 
 C++ 14 でコーディング及びテストされています。

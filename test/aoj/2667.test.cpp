@@ -1,5 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/2667"
 
+#include <iostream>
 #include "atcoder/lazysegtree"
 #include "tree/HeavyLightDecomposition.hpp"
 
