@@ -17,7 +17,7 @@ data:
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
-    title: "Mod Pow(\u3079\u304D\u4E57)"
+    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'

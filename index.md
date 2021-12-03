@@ -475,8 +475,8 @@ data:
       path: test/aoj/GRL_5_B.test.cpp
       title: test/aoj/GRL_5_B.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
-      title: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+      path: test/aoj/GRL_5_C.test.cpp
+      title: test/aoj/GRL_5_C.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_A.Dinic.test.cpp
       title: test/aoj/GRL_6_A.Dinic.test.cpp
@@ -589,7 +589,7 @@ data:
       title: test/yosupo/shortest_path.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/sqrt_of_formal_power_series.test.cpp
-      title: "Mod Pow(\u3079\u304D\u4E57)"
+      title: test/yosupo/sqrt_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/static_range_inversions_query.test.cpp
       title: test/yosupo/static_range_inversions_query.test.cpp
@@ -690,3 +690,13 @@ data:
       title: test/yukicoder/952.test.cpp
 layout: toppage
 ---
+競技プログラミングで使用するライブラリ集です。
+
+C++ 14 でコーディング及びテストされています。
+
+[ac-library](https://github.com/atcoder/ac-library) の `segtree, lazysegtree, convolution, modint` に準拠しています。
+
+[![Actions Status](https://github.com/rniya/competitive-programming-library/workflows/verify/badge.svg)](https://github.com/rniya/competitive-programming-library/actions)
+[![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://rniya.github.io/competitive-programming-library/)
+[![rniya](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Frniya)](https://atcoder.jp/users/rniya)
+[![rniya](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fcodeforces%2Fjson%2Frniya)](https://codeforces.com/profile/rniya)

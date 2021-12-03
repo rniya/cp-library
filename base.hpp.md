@@ -275,9 +275,6 @@ data:
     path: test/aoj/GRL_5_B.test.cpp
     title: test/aoj/GRL_5_B.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
-    title: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_6_A.Dinic.test.cpp
     title: test/aoj/GRL_6_A.Dinic.test.cpp
   - icon: ':heavy_check_mark:'
@@ -715,7 +712,6 @@ data:
   - test/aoj/GRL_6_B.PrimalDual.test.cpp
   - test/aoj/CGL_2_D.test.cpp
   - test/aoj/DPL_5_C.test.cpp
-  - test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
   - test/aoj/CGL_7_H.test.cpp
   - test/aoj/GRL_1_B.test.cpp
   - test/aoj/DSL_1_A.test.cpp

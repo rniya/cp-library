@@ -7,8 +7,8 @@ data:
     path: test/aoj/2667.test.cpp
     title: test/aoj/2667.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
-    title: test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+    path: test/aoj/GRL_5_C.test.cpp
+    title: test/aoj/GRL_5_C.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/vertex_add_path_sum.test.cpp
     title: test/yosupo/vertex_add_path_sum.test.cpp
@@ -162,7 +162,7 @@ data:
   - test/yosupo/vertex_set_path_composite.test.cpp
   - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/vertex_add_path_sum.test.cpp
-  - test/aoj/GRL_5_C.HeavyLiightDecomposition.test.cpp
+  - test/aoj/GRL_5_C.test.cpp
   - test/aoj/2667.test.cpp
 documentation_of: tree/HeavyLightDecomposition.hpp
 layout: document
