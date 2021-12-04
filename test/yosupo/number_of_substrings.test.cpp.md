@@ -1,150 +1,21 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
-    path: string/SuffixArray.hpp
-    title: Suffix Array + Longest Common Prefix Array
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
-  attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/number_of_substrings
-    links:
-    - https://judge.yosupo.jp/problem/number_of_substrings
-  bundledCode: "#line 1 \"test/yosupo/number_of_substrings.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/number_of_substrings\"\n\n#line 2 \"base.hpp\"\
-    \n#define LOCAL\n#include <bits/stdc++.h>\nusing namespace std;\n#pragma region\
-    \ Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int\
-    \ uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
-    \ntemplate <typename T> istream& operator>>(istream& is, vector<T>& v) {\n   \
-    \ for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    for (size_t i = 0; i < v.size(); i++) {\n   \
-    \     os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const pair<T,\
-    \ U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const map<T,\
-    \ U>& m) {\n    os << '{';\n    for (auto itr = m.begin(); itr != m.end();) {\n\
-    \        os << '(' << itr->first << ',' << itr->second << ')';\n        if (++itr\
-    \ != m.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T, typename U> ostream& operator<<(ostream& os, const unordered_map<T, U>& m)\
-    \ {\n    os << '{';\n    for (auto itr = m.begin(); itr != m.end();) {\n     \
-    \   os << '(' << itr->first << ',' << itr->second << ')';\n        if (++itr !=\
-    \ m.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const set<T>& s) {\n    os << '{';\n   \
-    \ for (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n       \
-    \ if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\n\
-    template <typename T> ostream& operator<<(ostream& os, const multiset<T>& s) {\n\
-    \    os << '{';\n    for (auto itr = s.begin(); itr != s.end();) {\n        os\
-    \ << *itr;\n        if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n\
-    \    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream& os, const\
-    \ unordered_set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
-    \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
-    \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const deque<T>& v) {\n    for (size_t i = 0; i < v.size(); i++) {\n    \
-    \    os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, size_t N> ostream& operator<<(ostream& os, const array<T,\
-    \ N>& v) {\n    for (size_t i = 0; i < N; i++) {\n        os << v[i] << (i + 1\
-    \ == N ? \"\" : \" \");\n    }\n    return os;\n}\n\ntemplate <int i, typename\
-    \ T> void print_tuple(ostream&, const T&) {}\ntemplate <int i, typename T, typename\
-    \ H, class... Args> void print_tuple(ostream& os, const T& t) {\n    if (i) os\
-    \ << ',';\n    os << get<i>(t);\n    print_tuple<i + 1, T, Args...>(os, t);\n\
-    }\ntemplate <typename... Args> ostream& operator<<(ostream& os, const tuple<Args...>&\
-    \ t) {\n    os << '{';\n    print_tuple<0, tuple<Args...>, Args...>(os, t);\n\
-    \    return os << '}';\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate <class\
-    \ Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n    cerr\
-    \ << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
-    }\n#ifdef LOCAL\n#define debug(...)                                          \
-    \                         \\\n    cerr << \" \";                             \
-    \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
-    \ << __LINE__ << \":\" << __FUNCTION__ << \"]\" << '\\n'; \\\n    cerr << \" \"\
-    ;                                                                     \\\n   \
-    \ debug_out(__VA_ARGS__)\n#else\n#define debug(...) void(0)\n#endif\n\ntemplate\
-    \ <typename T> T gcd(T x, T y) { return y != 0 ? gcd(y, x % y) : x; }\ntemplate\
-    \ <typename T> T lcm(T x, T y) { return x / gcd(x, y) * y; }\n\nint topbit(signed\
-    \ t) { return t == 0 ? -1 : 31 - __builtin_clz(t); }\nint topbit(long long t)\
-    \ { return t == 0 ? -1 : 63 - __builtin_clzll(t); }\nint botbit(signed a) { return\
-    \ a == 0 ? 32 : __builtin_ctz(a); }\nint botbit(long long a) { return a == 0 ?\
-    \ 64 : __builtin_ctzll(a); }\nint popcount(signed t) { return __builtin_popcount(t);\
-    \ }\nint popcount(long long t) { return __builtin_popcountll(t); }\nbool ispow2(int\
-    \ i) { return i && (i & -i) == i; }\nlong long MSK(int n) { return (1LL << n)\
-    \ - 1; }\n\ntemplate <class T> T ceil(T x, T y) {\n    assert(y >= 1);\n    return\
-    \ (x > 0 ? (x + y - 1) / y : x / y);\n}\ntemplate <class T> T floor(T x, T y)\
-    \ {\n    assert(y >= 1);\n    return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\n\
-    template <class T1, class T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b)\
-    \ {\n        a = b;\n        return true;\n    }\n    return false;\n}\ntemplate\
-    \ <class T1, class T2> inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n  \
-    \      a = b;\n        return true;\n    }\n    return false;\n}\n\ntemplate <typename\
-    \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
-    \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
-    \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 3 \"string/SuffixArray.hpp\"\n\n/**\n * @brief Suffix Array + Longest Common\
-    \ Prefix Array\n * @docs docs/string/SuffixArray.md\n */\nnamespace SuffixArray\
-    \ {\nvector<int> sa_is(const vector<int>& s, int upper) {\n    int n = s.size();\n\
-    \    if (n == 0) return {};\n    if (n == 1) return {0};\n    if (n == 2) return\
-    \ {s[0] < s[1] ? vector<int>{0, 1} : vector<int>{1, 0}};\n\n    vector<int> sa(n),\
-    \ lms, lms_map(n, -1), sum_l(upper + 1, 0), sum_s(upper + 1, 0);\n    vector<bool>\
-    \ is_s(n, false);\n    int m = 0;\n    for (int i = n - 2; i >= 0; i--) is_s[i]\
-    \ = (s[i] == s[i + 1] ? is_s[i + 1] : (s[i] < s[i + 1]));\n    for (int i = 0;\
-    \ i < n; i++) {\n        if (!is_s[i])\n            sum_s[s[i]]++;\n        else\
-    \ {\n            sum_l[s[i] + 1]++;\n            if (!i || !is_s[i - 1]) {\n \
-    \               lms_map[i] = m++;\n                lms.emplace_back(i);\n    \
-    \        }\n        }\n    }\n    for (int i = 0; i <= upper; i++) {\n       \
-    \ sum_s[i] += sum_l[i];\n        if (i < upper) sum_l[i + 1] += sum_s[i];\n  \
-    \  }\n\n    auto induced_sort = [&](const vector<int>& lms) {\n        fill(sa.begin(),\
-    \ sa.end(), -1);\n        vector<int> buf(upper + 1);\n        copy(sum_s.begin(),\
-    \ sum_s.end(), buf.begin());\n        for (int idx : lms) sa[buf[s[idx]]++] =\
-    \ idx;\n\n        copy(sum_l.begin(), sum_l.end(), buf.begin());\n        sa[buf[s[n\
-    \ - 1]]++] = n - 1;\n        for (int i = 0; i < n; i++) {\n            if (sa[i]\
-    \ < 1 || is_s[sa[i] - 1]) continue;\n            int c = s[sa[i] - 1];\n     \
-    \       sa[buf[c]++] = sa[i] - 1;\n        }\n\n        copy(sum_l.begin(), sum_l.end(),\
-    \ buf.begin());\n        for (int i = n - 1; i >= 0; i--) {\n            if (sa[i]\
-    \ < 1 || !is_s[sa[i] - 1]) continue;\n            int c = s[sa[i] - 1];\n    \
-    \        sa[--buf[c + 1]] = sa[i] - 1;\n        }\n    };\n\n    induced_sort(lms);\n\
-    \    if (m) {\n        vector<int> sorted_lms;\n        for (int& idx : sa) {\n\
-    \            if (~lms_map[idx]) {\n                sorted_lms.emplace_back(idx);\n\
-    \            }\n        }\n        vector<int> rec_s(m);\n        int rec_upper\
-    \ = 0;\n        rec_s[lms_map[sorted_lms[0]]] = rec_upper;\n\n        for (int\
-    \ i = 1; i < m; i++) {\n            int l = sorted_lms[i - 1], r = sorted_lms[i];\n\
-    \            int end_l = (lms_map[l] + 1 < m ? lms[lms_map[l] + 1] : n);\n   \
-    \         int end_r = (lms_map[r] + 1 < m ? lms[lms_map[r] + 1] : n);\n      \
-    \      bool same = true;\n            if (end_l - l != end_r - r)\n          \
-    \      same = false;\n            else {\n                for (; l < end_l; l++,\
-    \ r++) {\n                    if (s[l] != s[r]) {\n                        break;\n\
-    \                    }\n                }\n                if (l == n || s[l]\
-    \ != s[r]) same = false;\n            }\n            rec_s[lms_map[sorted_lms[i]]]\
-    \ = (same ? rec_upper : ++rec_upper);\n        }\n\n        if (rec_upper + 1\
-    \ != m) {\n            auto rec_sa = sa_is(rec_s, rec_upper);\n            for\
-    \ (int i = 0; i < m; i++) sorted_lms[i] = lms[rec_sa[i]];\n        }\n       \
-    \ induced_sort(sorted_lms);\n    }\n\n    return sa;\n}\n\nvector<int> suffix_array(const\
-    \ vector<int>& s, int upper) {\n    for (int x : s) assert(0 <= x && x <= upper);\n\
-    \    return sa_is(s, upper);\n}\ntemplate <class T> vector<int> suffix_array(const\
-    \ vector<T>& s) {\n    int n = s.size();\n    vector<int> idx(n);\n    iota(idx.begin(),\
-    \ idx.end(), 0);\n    sort(idx.begin(), idx.end(), [&](int x, int y) { return\
-    \ s[x] < s[y]; });\n    vector<int> ns(n);\n    int cur = 0;\n    for (int i =\
-    \ 0; i < n; i++) {\n        if (i && s[idx[i - 1]] != s[idx[i]]) cur++;\n    \
-    \    ns[idx[i]] = cur;\n    }\n    return sa_is(s, cur);\n}\nvector<int> suffix_array(const\
-    \ string& s) {\n    vector<int> ns;\n    for (char c : s) ns.emplace_back(c);\n\
-    \    return sa_is(ns, 255);\n}\n\ntemplate <class T> vector<int> lcp_array(const\
-    \ vector<T>& s, const vector<int>& sa) {\n    int n = s.size();\n    vector<int>\
-    \ rank(n);\n    for (int i = 0; i < n; i++) rank[sa[i]] = i;\n    vector<int>\
-    \ lcp(n - 1);\n    for (int i = 0, h = 0; i < n; i++) {\n        if (h > 0) h--;\n\
-    \        if (rank[i] == 0) continue;\n        int j = sa[rank[i] - 1];\n     \
-    \   for (; j + h < n && i + h < n; h++) {\n            if (s[j + h] != s[i + h])\
-    \ {\n                break;\n            }\n        }\n        lcp[rank[i] - 1]\
-    \ = h;\n    }\n    return lcp;\n}\n\nvector<int> lcp_array(const string& s, const\
-    \ vector<int>& sa) {\n    vector<int> ns;\n    for (char c : s) ns.emplace_back(c);\n\
-    \    return lcp_array(ns, sa);\n}\n}  // namespace SuffixArray\n#line 5 \"test/yosupo/number_of_substrings.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
-    \ S;\n    cin >> S;\n\n    int N = S.size();\n    auto sa = SuffixArray::suffix_array(S);\n\
-    \    auto lcp = SuffixArray::lcp_array(S, sa);\n    long long ans = 0;\n    for\
-    \ (int i = 0; i < N; i++) {\n        ans += N - sa[i];\n        if (i < N - 1)\
-    \ ans -= lcp[i];\n    }\n\n    cout << ans << '\\n';\n    return 0;\n}\n"
+  _verificationStatusIcon: ':x:'
+  attributes: {}
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../string/SuffixArray.hpp:\
+    \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/number_of_substrings\"\n\
     \n#include \"../../base.hpp\"\n#include \"../../string/SuffixArray.hpp\"\n\nint\
     \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S;\n\
@@ -152,14 +23,12 @@ data:
     \    auto lcp = SuffixArray::lcp_array(S, sa);\n    long long ans = 0;\n    for\
     \ (int i = 0; i < N; i++) {\n        ans += N - sa[i];\n        if (i < N - 1)\
     \ ans -= lcp[i];\n    }\n\n    cout << ans << '\\n';\n    return 0;\n}"
-  dependsOn:
-  - base.hpp
-  - string/SuffixArray.hpp
+  dependsOn: []
   isVerificationFile: true
   path: test/yosupo/number_of_substrings.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '1970-01-01 00:00:00+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/number_of_substrings.test.cpp
 layout: document

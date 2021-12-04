@@ -176,11 +176,6 @@ data:
     - icon: ':warning:'
       path: math/quotient_ranges.hpp
       title: "\u5546\u5217\u6319"
-  - name: modulo
-    pages:
-    - icon: ':warning:'
-      path: modulo/modint.hpp
-      title: modint
   - name: polynomial
     pages:
     - icon: ':heavy_check_mark:'
@@ -206,9 +201,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/RollingHash2D.hpp
       title: Rolling Hash 2D
-    - icon: ':heavy_check_mark:'
-      path: string/SuffixArray.hpp
-      title: Suffix Array + Longest Common Prefix Array
     - icon: ':heavy_check_mark:'
       path: string/Trie.hpp
       title: Trie
@@ -506,7 +498,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_det.test.cpp
       title: test/yosupo/matrix_det.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/number_of_substrings.test.cpp
       title: test/yosupo/number_of_substrings.test.cpp
     - icon: ':heavy_check_mark:'
@@ -545,7 +537,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq.test.cpp
       title: test/yosupo/staticrmq.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/suffixarray.test.cpp
       title: test/yosupo/suffixarray.test.cpp
     - icon: ':heavy_check_mark:'

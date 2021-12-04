@@ -40,9 +40,6 @@ data:
     path: string/Manacher.hpp
     title: Manacher
   - icon: ':heavy_check_mark:'
-    path: string/SuffixArray.hpp
-    title: Suffix Array + Longest Common Prefix Array
-  - icon: ':heavy_check_mark:'
     path: string/Z_Algorithm.hpp
     title: Z-Algorithm
   - icon: ':warning:'
@@ -272,9 +269,6 @@ data:
     path: test/yosupo/factorize.test.cpp
     title: test/yosupo/factorize.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/number_of_substrings.test.cpp
-    title: test/yosupo/number_of_substrings.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
     title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -295,9 +289,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/suffixarray.test.cpp
-    title: test/yosupo/suffixarray.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sum_of_floor_of_linear.test.cpp
     title: test/yosupo/sum_of_floor_of_linear.test.cpp
@@ -485,7 +476,6 @@ data:
   - datastructure/SegmentTreeBeats.hpp
   - datastructure/SparseTable.hpp
   - datastructure/RectangleSet.hpp
-  - string/SuffixArray.hpp
   - string/Manacher.hpp
   - string/Knuth_Morris_Pratt.hpp
   - string/Z_Algorithm.hpp
@@ -509,9 +499,7 @@ data:
   - test/yosupo/scc.test.cpp
   - test/yosupo/aplusb.test.cpp
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
-  - test/yosupo/number_of_substrings.test.cpp
   - test/yosupo/tree_diameter.test.cpp
-  - test/yosupo/suffixarray.test.cpp
   - test/yosupo/two_sat.test.cpp
   - test/yosupo/shortest_path.test.cpp
   - test/yosupo/static_range_sum.test.cpp
