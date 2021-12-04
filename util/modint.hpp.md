@@ -7,6 +7,15 @@ data:
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/bitwise_and_convolution.test.cpp
+    title: test/yosupo/bitwise_and_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/bitwise_xor_convolution.test.cpp
+    title: test/yosupo/bitwise_xor_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/characteristic_polynomial.test.cpp
+    title: test/yosupo/characteristic_polynomial.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -257,11 +266,14 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/bitwise_and_convolution.test.cpp
   - test/yosupo/vertex_set_path_composite.test.cpp
+  - test/yosupo/characteristic_polynomial.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/aoj/DPL_5_E.test.cpp
 documentation_of: util/modint.hpp
 layout: document

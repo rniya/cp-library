@@ -3,15 +3,6 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: convolution/ArbitaryModConvolution.hpp
-    title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
-    path: convolution/FastFourierTransform.hpp
-    title: Fast Fourier Transform
-  - icon: ':heavy_check_mark:'
-    path: convolution/NumberTheoreticTransform.hpp
-    title: Number Theoretic Transform
-  - icon: ':heavy_check_mark:'
     path: datastructure/BinaryTrie.hpp
     title: Binary Trie
   - icon: ':warning:'
@@ -35,9 +26,6 @@ data:
   - icon: ':warning:'
     path: graph/RangeEdgeGraph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
-  - icon: ':heavy_check_mark:'
-    path: graph/WarshallFloyd.hpp
-    title: Warshall Floyd
   - icon: ':warning:'
     path: linearalgebra/Kitamasa.hpp
     title: Kitamasa
@@ -212,14 +200,8 @@ data:
     path: test/aoj/DSL_5_B.test.cpp
     title: test/aoj/DSL_5_B.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_1_A.test.cpp
-    title: test/aoj/GRL_1_A.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_1_B.test.cpp
     title: test/aoj/GRL_1_B.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_1_C.test.cpp
-    title: test/aoj/GRL_1_C.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_2_A.Prim.test.cpp
     title: test/aoj/GRL_2_A.Prim.test.cpp
@@ -287,21 +269,6 @@ data:
     path: test/yosupo/bipartitematching.test.cpp
     title: test/yosupo/bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/bitwise_and_convolution.test.cpp
-    title: test/yosupo/bitwise_and_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/bitwise_xor_convolution.test.cpp
-    title: test/yosupo/bitwise_xor_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/characteristic_polynomial.test.cpp
-    title: test/yosupo/characteristic_polynomial.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/convolution_mod.test.cpp
-    title: test/yosupo/convolution_mod.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/convolution_mod_1000000007.test.cpp
-    title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/discrete_logarithm_mod.test.cpp
     title: test/yosupo/discrete_logarithm_mod.test.cpp
   - icon: ':heavy_check_mark:'
@@ -310,9 +277,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/factorize.test.cpp
     title: test/yosupo/factorize.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/frequency_table_of_tree_distance.test.cpp
-    title: test/yosupo/frequency_table_of_tree_distance.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix_det.test.cpp
     title: test/yosupo/matrix_det.test.cpp
@@ -368,9 +332,6 @@ data:
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1068.test.cpp
-    title: test/yukicoder/1068.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1240.test.cpp
     title: test/yukicoder/1240.test.cpp
   - icon: ':heavy_check_mark:'
@@ -386,14 +347,8 @@ data:
     path: test/yukicoder/1301.test.cpp
     title: test/yukicoder/1301.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1307.test.cpp
-    title: test/yukicoder/1307.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1678.test.cpp
     title: test/yukicoder/1678.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/206.test.cpp
-    title: test/yukicoder/206.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/430.AhoCorasick.test.cpp
     title: test/yukicoder/430.AhoCorasick.test.cpp
@@ -412,9 +367,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/886.test.cpp
     title: test/yukicoder/886.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/931.test.cpp
-    title: test/yukicoder/931.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
@@ -559,7 +511,6 @@ data:
   - polynomial/lagrange_interpolation.hpp
   - graph/Dijkstra.hpp
   - graph/RangeEdgeGraph.hpp
-  - graph/WarshallFloyd.hpp
   - graph/CycleDetection.hpp
   - datastructure/BinaryTrie.hpp
   - datastructure/SegmentTreeBeats.hpp
@@ -578,9 +529,6 @@ data:
   - math/fast_factorize.hpp
   - math/floor_sum.hpp
   - linearalgebra/Kitamasa.hpp
-  - convolution/ArbitaryModConvolution.hpp
-  - convolution/FastFourierTransform.hpp
-  - convolution/NumberTheoreticTransform.hpp
   timestamp: '2021-10-31 14:57:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -591,24 +539,18 @@ data:
   - test/yosupo/bipartitematching.test.cpp
   - test/yosupo/enumerate_palindromes.test.cpp
   - test/yosupo/scc.test.cpp
-  - test/yosupo/frequency_table_of_tree_distance.test.cpp
-  - test/yosupo/bitwise_and_convolution.test.cpp
   - test/yosupo/aplusb.test.cpp
-  - test/yosupo/characteristic_polynomial.test.cpp
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
   - test/yosupo/number_of_substrings.test.cpp
-  - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/suffixarray.test.cpp
   - test/yosupo/two_sat.test.cpp
-  - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/shortest_path.test.cpp
   - test/yosupo/static_range_sum.test.cpp
   - test/yosupo/factorize.test.cpp
   - test/yosupo/associative_array.test.cpp
   - test/yosupo/sum_of_floor_of_linear.test.cpp
-  - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/matrix_det.test.cpp
   - test/yosupo/zalgorithm.test.cpp
   - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
@@ -622,13 +564,9 @@ data:
   - test/yukicoder/430.AhoCorasick.test.cpp
   - test/yukicoder/1050.test.cpp
   - test/yukicoder/1288.test.cpp
-  - test/yukicoder/1068.test.cpp
   - test/yukicoder/583.test.cpp
   - test/yukicoder/1240.test.cpp
   - test/yukicoder/886.test.cpp
-  - test/yukicoder/1307.test.cpp
-  - test/yukicoder/206.test.cpp
-  - test/yukicoder/931.test.cpp
   - test/yukicoder/665.test.cpp
   - test/yukicoder/1301.test.cpp
   - test/aoj/CGL_7_A.test.cpp
@@ -677,7 +615,6 @@ data:
   - test/aoj/DSL_1_B.test.cpp
   - test/aoj/GRL_3_C.test.cpp
   - test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-  - test/aoj/GRL_1_A.test.cpp
   - test/aoj/NTL_1_D.test.cpp
   - test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
   - test/aoj/CGL_3_A.test.cpp
@@ -688,7 +625,6 @@ data:
   - test/aoj/ALDS1_14_B.test.cpp
   - test/aoj/CGL_4_B.test.cpp
   - test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
-  - test/aoj/GRL_1_C.test.cpp
   - test/aoj/GRL_3_B.test.cpp
   - test/aoj/NTL_1_E.test.cpp
   - test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp

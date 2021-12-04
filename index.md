@@ -22,15 +22,6 @@ data:
   - name: convolution
     pages:
     - icon: ':heavy_check_mark:'
-      path: convolution/ArbitaryModConvolution.hpp
-      title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':heavy_check_mark:'
-      path: convolution/FastFourierTransform.hpp
-      title: Fast Fourier Transform
-    - icon: ':heavy_check_mark:'
-      path: convolution/NumberTheoreticTransform.hpp
-      title: Number Theoretic Transform
-    - icon: ':heavy_check_mark:'
       path: convolution/gcd_convolution.hpp
       title: "gcd convolution (\u6DFB\u5B57 gcd \u7573\u307F\u8FBC\u307F)"
     - icon: ':heavy_check_mark:'
@@ -145,9 +136,6 @@ data:
       path: graph/TwoSAT.hpp
       title: 2-SAT
     - icon: ':heavy_check_mark:'
-      path: graph/WarshallFloyd.hpp
-      title: Warshall Floyd
-    - icon: ':heavy_check_mark:'
       path: graph/enumerate_cliques.hpp
       title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
   - name: linearalgebra
@@ -229,7 +217,7 @@ data:
       title: Z-Algorithm
   - name: tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: tree/CentroidDecomposition.hpp
       title: Centroid Decomposition
     - icon: ':heavy_check_mark:'
@@ -409,14 +397,8 @@ data:
       path: test/aoj/DSL_5_B.test.cpp
       title: test/aoj/DSL_5_B.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/aoj/GRL_1_A.test.cpp
-      title: test/aoj/GRL_1_A.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_1_B.test.cpp
       title: test/aoj/GRL_1_B.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/GRL_1_C.test.cpp
-      title: test/aoj/GRL_1_C.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_2_A.Prim.test.cpp
       title: test/aoj/GRL_2_A.Prim.test.cpp
@@ -501,12 +483,6 @@ data:
       path: test/yosupo/characteristic_polynomial.test.cpp
       title: test/yosupo/characteristic_polynomial.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/yosupo/convolution_mod.test.cpp
-      title: test/yosupo/convolution_mod.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/yosupo/convolution_mod_1000000007.test.cpp
-      title: test/yosupo/convolution_mod_1000000007.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/yosupo/discrete_logarithm_mod.test.cpp
       title: test/yosupo/discrete_logarithm_mod.test.cpp
     - icon: ':heavy_check_mark:'
@@ -518,7 +494,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/factorize.test.cpp
       title: test/yosupo/factorize.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/frequency_table_of_tree_distance.test.cpp
       title: test/yosupo/frequency_table_of_tree_distance.test.cpp
     - icon: ':heavy_check_mark:'
@@ -605,9 +581,6 @@ data:
       path: test/yukicoder/1050.test.cpp
       title: test/yukicoder/1050.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/yukicoder/1068.test.cpp
-      title: test/yukicoder/1068.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1240.test.cpp
       title: test/yukicoder/1240.test.cpp
     - icon: ':heavy_check_mark:'
@@ -623,14 +596,8 @@ data:
       path: test/yukicoder/1301.test.cpp
       title: test/yukicoder/1301.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/yukicoder/1307.test.cpp
-      title: test/yukicoder/1307.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1678.test.cpp
       title: test/yukicoder/1678.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/yukicoder/206.test.cpp
-      title: test/yukicoder/206.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/430.AhoCorasick.test.cpp
       title: test/yukicoder/430.AhoCorasick.test.cpp
@@ -649,9 +616,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/886.test.cpp
       title: test/yukicoder/886.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/yukicoder/931.test.cpp
-      title: test/yukicoder/931.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/952.test.cpp
       title: test/yukicoder/952.test.cpp

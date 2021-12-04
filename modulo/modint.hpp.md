@@ -1,29 +1,8 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: convolution/ArbitaryModConvolution.hpp
-    title: "Arbirary Mod Convolution (\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
-    path: convolution/NumberTheoreticTransform.hpp
-    title: Number Theoretic Transform
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/bitwise_and_convolution.test.cpp
-    title: test/yosupo/bitwise_and_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/bitwise_xor_convolution.test.cpp
-    title: test/yosupo/bitwise_xor_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/characteristic_polynomial.test.cpp
-    title: test/yosupo/characteristic_polynomial.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/convolution_mod.test.cpp
-    title: test/yosupo/convolution_mod.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/convolution_mod_1000000007.test.cpp
-    title: test/yosupo/convolution_mod_1000000007.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix_det.test.cpp
     title: test/yosupo/matrix_det.test.cpp
@@ -33,9 +12,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1068.test.cpp
-    title: test/yukicoder/1068.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1269.test.cpp
     title: test/yukicoder/1269.test.cpp
@@ -51,9 +27,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/886.test.cpp
     title: test/yukicoder/886.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/931.test.cpp
-    title: test/yukicoder/931.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -150,26 +123,17 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: modulo/modint.hpp
-  requiredBy:
-  - convolution/ArbitaryModConvolution.hpp
-  - convolution/NumberTheoreticTransform.hpp
+  requiredBy: []
   timestamp: '2021-10-01 20:18:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/bitwise_and_convolution.test.cpp
-  - test/yosupo/characteristic_polynomial.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
-  - test/yosupo/convolution_mod.test.cpp
-  - test/yosupo/convolution_mod_1000000007.test.cpp
-  - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/matrix_det.test.cpp
   - test/yukicoder/1289.test.cpp
   - test/yukicoder/803.test.cpp
   - test/yukicoder/1269.test.cpp
   - test/yukicoder/1050.test.cpp
-  - test/yukicoder/1068.test.cpp
   - test/yukicoder/886.test.cpp
-  - test/yukicoder/931.test.cpp
   - test/yukicoder/665.test.cpp
 documentation_of: modulo/modint.hpp
 layout: document
