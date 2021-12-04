@@ -6,9 +6,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix_det.test.cpp
     title: test/yosupo/matrix_det.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/526.test.cpp
-    title: test/yukicoder/526.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -170,7 +167,6 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/matrix_det.test.cpp
-  - test/yukicoder/526.test.cpp
 documentation_of: linearalgebra/Matrix.hpp
 layout: document
 redirect_from:

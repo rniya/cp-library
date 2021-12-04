@@ -39,9 +39,6 @@ data:
   - name: datastructure
     pages:
     - icon: ':heavy_check_mark:'
-      path: datastructure/BinaryIndexedTree.hpp
-      title: Binary Indexd Tree (Fenwick Tree)
-    - icon: ':heavy_check_mark:'
       path: datastructure/BinaryTrie.hpp
       title: Binary Trie
     - icon: ':heavy_check_mark:'
@@ -194,14 +191,8 @@ data:
   - name: modulo
     pages:
     - icon: ':heavy_check_mark:'
-      path: modulo/dynamic_modint.hpp
-      title: "\u5B9F\u884C\u6642 modint"
-    - icon: ':heavy_check_mark:'
       path: modulo/modint.hpp
       title: modint
-    - icon: ':warning:'
-      path: modulo/montgomery64.hpp
-      title: montgomery modint (64 bit)
   - name: polynomial
     pages:
     - icon: ':heavy_check_mark:'
@@ -376,26 +367,8 @@ data:
       path: test/aoj/CGL_7_I.test.cpp
       title: test/aoj/CGL_7_I.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/aoj/DPL_5_A.test.cpp
-      title: test/aoj/DPL_5_A.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/DPL_5_B.test.cpp
-      title: test/aoj/DPL_5_B.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/DPL_5_C.test.cpp
-      title: test/aoj/DPL_5_C.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/DPL_5_D.test.cpp
-      title: test/aoj/DPL_5_D.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_E.test.cpp
       title: test/aoj/DPL_5_E.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/DPL_5_F.test.cpp
-      title: test/aoj/DPL_5_F.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/DPL_5_I.test.cpp
-      title: test/aoj/DPL_5_I.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_1_A.test.cpp
       title: test/aoj/DSL_1_A.test.cpp
@@ -408,9 +381,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/DSL_2_B.test.cpp
-      title: test/aoj/DSL_2_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
@@ -668,9 +638,6 @@ data:
       path: test/yukicoder/430.test.cpp
       title: test/yukicoder/430.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/yukicoder/526.test.cpp
-      title: test/yukicoder/526.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/yukicoder/583.test.cpp
       title: test/yukicoder/583.test.cpp
     - icon: ':heavy_check_mark:'
@@ -694,9 +661,7 @@ layout: toppage
 
 C++ 14 でコーディング及びテストされています。
 
-[ac-library](https://github.com/atcoder/ac-library) の `segtree, lazysegtree, convolution, modint` に準拠しています。
+[ac-library](https://github.com/atcoder/ac-library) に一部準拠しています。
 
-[![Actions Status](https://github.com/rniya/competitive-programming-library/workflows/verify/badge.svg)](https://github.com/rniya/competitive-programming-library/actions)
-[![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://rniya.github.io/competitive-programming-library/)
 [![rniya](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Frniya)](https://atcoder.jp/users/rniya)
 [![rniya](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fcodeforces%2Fjson%2Frniya)](https://codeforces.com/profile/rniya)

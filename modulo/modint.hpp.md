@@ -10,27 +10,6 @@ data:
     title: Number Theoretic Transform
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_A.test.cpp
-    title: test/aoj/DPL_5_A.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_B.test.cpp
-    title: test/aoj/DPL_5_B.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_C.test.cpp
-    title: test/aoj/DPL_5_C.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_D.test.cpp
-    title: test/aoj/DPL_5_D.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_E.test.cpp
-    title: test/aoj/DPL_5_E.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_F.test.cpp
-    title: test/aoj/DPL_5_F.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_I.test.cpp
-    title: test/aoj/DPL_5_I.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/bitwise_and_convolution.test.cpp
     title: test/yosupo/bitwise_and_convolution.test.cpp
   - icon: ':heavy_check_mark:'
@@ -192,13 +171,6 @@ data:
   - test/yukicoder/886.test.cpp
   - test/yukicoder/931.test.cpp
   - test/yukicoder/665.test.cpp
-  - test/aoj/DPL_5_F.test.cpp
-  - test/aoj/DPL_5_A.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
-  - test/aoj/DPL_5_C.test.cpp
-  - test/aoj/DPL_5_I.test.cpp
-  - test/aoj/DPL_5_B.test.cpp
-  - test/aoj/DPL_5_D.test.cpp
 documentation_of: modulo/modint.hpp
 layout: document
 redirect_from:

@@ -2,12 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
-    path: datastructure/BinaryIndexedTree.hpp
-    title: Binary Indexd Tree (Fenwick Tree)
-  - icon: ':heavy_check_mark:'
     path: tree/HeavyLightDecomposition.hpp
     title: Heavy Light Decomposition
   _extendedRequiredBy: []
@@ -21,103 +15,80 @@ data:
     links:
     - https://judge.yosupo.jp/problem/vertex_add_subtree_sum
   bundledCode: "#line 1 \"test/yosupo/vertex_add_subtree_sum.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\n\n#line 2 \"base.hpp\"\
-    \n#define LOCAL\n#include <bits/stdc++.h>\nusing namespace std;\n#pragma region\
-    \ Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int\
-    \ uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
-    \ntemplate <typename T> istream& operator>>(istream& is, vector<T>& v) {\n   \
-    \ for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    for (size_t i = 0; i < v.size(); i++) {\n   \
-    \     os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const pair<T,\
-    \ U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const map<T,\
-    \ U>& m) {\n    os << '{';\n    for (auto itr = m.begin(); itr != m.end();) {\n\
-    \        os << '(' << itr->first << ',' << itr->second << ')';\n        if (++itr\
-    \ != m.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T, typename U> ostream& operator<<(ostream& os, const unordered_map<T, U>& m)\
-    \ {\n    os << '{';\n    for (auto itr = m.begin(); itr != m.end();) {\n     \
-    \   os << '(' << itr->first << ',' << itr->second << ')';\n        if (++itr !=\
-    \ m.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const set<T>& s) {\n    os << '{';\n   \
-    \ for (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n       \
-    \ if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\n\
-    template <typename T> ostream& operator<<(ostream& os, const multiset<T>& s) {\n\
-    \    os << '{';\n    for (auto itr = s.begin(); itr != s.end();) {\n        os\
-    \ << *itr;\n        if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n\
-    \    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream& os, const\
-    \ unordered_set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
-    \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
-    \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const deque<T>& v) {\n    for (size_t i = 0; i < v.size(); i++) {\n    \
-    \    os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, size_t N> ostream& operator<<(ostream& os, const array<T,\
-    \ N>& v) {\n    for (size_t i = 0; i < N; i++) {\n        os << v[i] << (i + 1\
-    \ == N ? \"\" : \" \");\n    }\n    return os;\n}\n\ntemplate <int i, typename\
-    \ T> void print_tuple(ostream&, const T&) {}\ntemplate <int i, typename T, typename\
-    \ H, class... Args> void print_tuple(ostream& os, const T& t) {\n    if (i) os\
-    \ << ',';\n    os << get<i>(t);\n    print_tuple<i + 1, T, Args...>(os, t);\n\
-    }\ntemplate <typename... Args> ostream& operator<<(ostream& os, const tuple<Args...>&\
-    \ t) {\n    os << '{';\n    print_tuple<0, tuple<Args...>, Args...>(os, t);\n\
-    \    return os << '}';\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate <class\
-    \ Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n    cerr\
-    \ << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
-    }\n#ifdef LOCAL\n#define debug(...)                                          \
-    \                         \\\n    cerr << \" \";                             \
-    \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
-    \ << __LINE__ << \":\" << __FUNCTION__ << \"]\" << '\\n'; \\\n    cerr << \" \"\
-    ;                                                                     \\\n   \
-    \ debug_out(__VA_ARGS__)\n#else\n#define debug(...) void(0)\n#endif\n\ntemplate\
-    \ <typename T> T gcd(T x, T y) { return y != 0 ? gcd(y, x % y) : x; }\ntemplate\
-    \ <typename T> T lcm(T x, T y) { return x / gcd(x, y) * y; }\n\nint topbit(signed\
-    \ t) { return t == 0 ? -1 : 31 - __builtin_clz(t); }\nint topbit(long long t)\
-    \ { return t == 0 ? -1 : 63 - __builtin_clzll(t); }\nint botbit(signed a) { return\
-    \ a == 0 ? 32 : __builtin_ctz(a); }\nint botbit(long long a) { return a == 0 ?\
-    \ 64 : __builtin_ctzll(a); }\nint popcount(signed t) { return __builtin_popcount(t);\
-    \ }\nint popcount(long long t) { return __builtin_popcountll(t); }\nbool ispow2(int\
-    \ i) { return i && (i & -i) == i; }\nlong long MSK(int n) { return (1LL << n)\
-    \ - 1; }\n\ntemplate <class T> T ceil(T x, T y) {\n    assert(y >= 1);\n    return\
-    \ (x > 0 ? (x + y - 1) / y : x / y);\n}\ntemplate <class T> T floor(T x, T y)\
-    \ {\n    assert(y >= 1);\n    return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\n\
-    template <class T1, class T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b)\
-    \ {\n        a = b;\n        return true;\n    }\n    return false;\n}\ntemplate\
-    \ <class T1, class T2> inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n  \
-    \      a = b;\n        return true;\n    }\n    return false;\n}\n\ntemplate <typename\
-    \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
-    \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
-    \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 4 \"datastructure/BinaryIndexedTree.hpp\"\n\ntemplate <typename T> struct\
-    \ BinaryIndexedTree {\n    BinaryIndexedTree(int n) : n(n), data(n) {}\n\n   \
-    \ void add(int k, T x) {\n        assert(0 <= k && k < n);\n        for (k++;\
-    \ k <= n; k += k & -k) data[k - 1] += x;\n    }\n\n    T query(int l, int r) const\
-    \ {\n        assert(0 <= l && l <= r && r <= n);\n        return sum(r) - sum(l);\n\
-    \    }\n\n    T operator[](int i) const { return query(i, i + 1); }\n\n    int\
-    \ lower_bound(T x) const {\n        if (x <= 0) return 0;\n        int cur = 0,\
-    \ k = 1;\n        while (k < n) k <<= 1;\n        for (; k > 0; k >>= 1) {\n \
-    \           if (cur + k <= n && data[cur + k - 1] < x) {\n                x -=\
-    \ data[cur + k - 1];\n                cur += k;\n            }\n        }\n  \
-    \      return cur;\n    }\n    int upper_bound(T x) const { return lower_bound(x\
-    \ + 1); }\n\nprivate:\n    int n;\n    std::vector<T> data;\n\n    T sum(int r)\
-    \ const {\n        T res = 0;\n        for (; r > 0; r -= r & -r) res += data[r\
-    \ - 1];\n        return res;\n    }\n};\n\n/**\n * @brief Binary Indexd Tree (Fenwick\
-    \ Tree)\n * @docs docs/datastructure/BinaryIndexedTree.md\n */\n#line 5 \"tree/HeavyLightDecomposition.hpp\"\
-    \n\nstruct HeavyLightDecomposition {\n    std::vector<std::vector<int>> G;  //\
-    \ child of vertex v on heavy edge is G[v].front() if it is not parent of v\n\n\
-    \    HeavyLightDecomposition(int n)\n        : G(n),\n          n(n),\n      \
-    \    time(0),\n          par(n, -1),\n          sub(n),\n          dep(n, 0),\n\
-    \          head(n),\n          tree_id(n, -1),\n          vertex_id(n, -1),\n\
-    \          vertex_id_inv(n) {}\n\n    void add_edge(int u, int v) {\n        assert(0\
-    \ <= u && u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n\
-    \        G[v].emplace_back(u);\n    }\n\n    void build(std::vector<int> roots\
-    \ = {0}) {\n        int tree_id_cur = 0;\n        for (int& r : roots) {\n   \
-    \         assert(0 <= r && r < n);\n            dfs_sz(r);\n            head[r]\
-    \ = r;\n            dfs_hld(r, tree_id_cur++);\n        }\n        assert(time\
-    \ == n);\n        for (int v = 0; v < n; v++) vertex_id_inv[vertex_id[v]] = v;\n\
-    \    }\n\n    int idx(int v) const { return vertex_id[v]; }\n\n    int la(int\
-    \ v, int k) {\n        assert(0 <= v && v < n);\n        assert(0 <= k && k <=\
-    \ dep[v]);\n        while (1) {\n            int u = head[v];\n            if\
-    \ (vertex_id[v] - k >= vertex_id[u]) return vertex_id_inv[vertex_id[v] - k];\n\
-    \            k -= vertex_id[v] - vertex_id[u] + 1;\n            v = par[u];\n\
+    \ \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\n\n#include <iostream>\n\
+    #line 1 \"atcoder/fenwicktree.hpp\"\n\n\n\n#include <cassert>\n#include <vector>\n\
+    \n#line 1 \"atcoder/internal_type_traits.hpp\"\n\n\n\n#line 5 \"atcoder/internal_type_traits.hpp\"\
+    \n#include <numeric>\n#include <type_traits>\n\nnamespace atcoder {\n\nnamespace\
+    \ internal {\n\n#ifndef _MSC_VER\ntemplate <class T>\nusing is_signed_int128 =\n\
+    \    typename std::conditional<std::is_same<T, __int128_t>::value ||\n       \
+    \                           std::is_same<T, __int128>::value,\n              \
+    \                std::true_type,\n                              std::false_type>::type;\n\
+    \ntemplate <class T>\nusing is_unsigned_int128 =\n    typename std::conditional<std::is_same<T,\
+    \ __uint128_t>::value ||\n                                  std::is_same<T, unsigned\
+    \ __int128>::value,\n                              std::true_type,\n         \
+    \                     std::false_type>::type;\n\ntemplate <class T>\nusing make_unsigned_int128\
+    \ =\n    typename std::conditional<std::is_same<T, __int128_t>::value,\n     \
+    \                         __uint128_t,\n                              unsigned\
+    \ __int128>;\n\ntemplate <class T>\nusing is_integral = typename std::conditional<std::is_integral<T>::value\
+    \ ||\n                                                  is_signed_int128<T>::value\
+    \ ||\n                                                  is_unsigned_int128<T>::value,\n\
+    \                                              std::true_type,\n             \
+    \                                 std::false_type>::type;\n\ntemplate <class T>\n\
+    using is_signed_int = typename std::conditional<(is_integral<T>::value &&\n  \
+    \                                               std::is_signed<T>::value) ||\n\
+    \                                                    is_signed_int128<T>::value,\n\
+    \                                                std::true_type,\n           \
+    \                                     std::false_type>::type;\n\ntemplate <class\
+    \ T>\nusing is_unsigned_int =\n    typename std::conditional<(is_integral<T>::value\
+    \ &&\n                               std::is_unsigned<T>::value) ||\n        \
+    \                          is_unsigned_int128<T>::value,\n                   \
+    \           std::true_type,\n                              std::false_type>::type;\n\
+    \ntemplate <class T>\nusing to_unsigned = typename std::conditional<\n    is_signed_int128<T>::value,\n\
+    \    make_unsigned_int128<T>,\n    typename std::conditional<std::is_signed<T>::value,\n\
+    \                              std::make_unsigned<T>,\n                      \
+    \        std::common_type<T>>::type>::type;\n\n#else\n\ntemplate <class T> using\
+    \ is_integral = typename std::is_integral<T>;\n\ntemplate <class T>\nusing is_signed_int\
+    \ =\n    typename std::conditional<is_integral<T>::value && std::is_signed<T>::value,\n\
+    \                              std::true_type,\n                             \
+    \ std::false_type>::type;\n\ntemplate <class T>\nusing is_unsigned_int =\n   \
+    \ typename std::conditional<is_integral<T>::value &&\n                       \
+    \           std::is_unsigned<T>::value,\n                              std::true_type,\n\
+    \                              std::false_type>::type;\n\ntemplate <class T>\n\
+    using to_unsigned = typename std::conditional<is_signed_int<T>::value,\n     \
+    \                                         std::make_unsigned<T>,\n           \
+    \                                   std::common_type<T>>::type;\n\n#endif\n\n\
+    template <class T>\nusing is_signed_int_t = std::enable_if_t<is_signed_int<T>::value>;\n\
+    \ntemplate <class T>\nusing is_unsigned_int_t = std::enable_if_t<is_unsigned_int<T>::value>;\n\
+    \ntemplate <class T> using to_unsigned_t = typename to_unsigned<T>::type;\n\n\
+    }  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 8 \"atcoder/fenwicktree.hpp\"\
+    \n\nnamespace atcoder {\n\n// Reference: https://en.wikipedia.org/wiki/Fenwick_tree\n\
+    template <class T> struct fenwick_tree {\n    using U = internal::to_unsigned_t<T>;\n\
+    \n  public:\n    fenwick_tree() : _n(0) {}\n    explicit fenwick_tree(int n) :\
+    \ _n(n), data(n) {}\n\n    void add(int p, T x) {\n        assert(0 <= p && p\
+    \ < _n);\n        p++;\n        while (p <= _n) {\n            data[p - 1] +=\
+    \ U(x);\n            p += p & -p;\n        }\n    }\n\n    T sum(int l, int r)\
+    \ {\n        assert(0 <= l && l <= r && r <= _n);\n        return sum(r) - sum(l);\n\
+    \    }\n\n  private:\n    int _n;\n    std::vector<U> data;\n\n    U sum(int r)\
+    \ {\n        U s = 0;\n        while (r > 0) {\n            s += data[r - 1];\n\
+    \            r -= r & -r;\n        }\n        return s;\n    }\n};\n\n}  // namespace\
+    \ atcoder\n\n\n#line 3 \"tree/HeavyLightDecomposition.hpp\"\n#include <utility>\n\
+    #line 5 \"tree/HeavyLightDecomposition.hpp\"\n\nstruct HeavyLightDecomposition\
+    \ {\n    std::vector<std::vector<int>> G;  // child of vertex v on heavy edge\
+    \ is G[v].front() if it is not parent of v\n\n    HeavyLightDecomposition(int\
+    \ n)\n        : G(n),\n          n(n),\n          time(0),\n          par(n, -1),\n\
+    \          sub(n),\n          dep(n, 0),\n          head(n),\n          tree_id(n,\
+    \ -1),\n          vertex_id(n, -1),\n          vertex_id_inv(n) {}\n\n    void\
+    \ add_edge(int u, int v) {\n        assert(0 <= u && u < n);\n        assert(0\
+    \ <= v && v < n);\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n\
+    \    }\n\n    void build(std::vector<int> roots = {0}) {\n        int tree_id_cur\
+    \ = 0;\n        for (int& r : roots) {\n            assert(0 <= r && r < n);\n\
+    \            dfs_sz(r);\n            head[r] = r;\n            dfs_hld(r, tree_id_cur++);\n\
+    \        }\n        assert(time == n);\n        for (int v = 0; v < n; v++) vertex_id_inv[vertex_id[v]]\
+    \ = v;\n    }\n\n    int idx(int v) const { return vertex_id[v]; }\n\n    int\
+    \ la(int v, int k) {\n        assert(0 <= v && v < n);\n        assert(0 <= k\
+    \ && k <= dep[v]);\n        while (1) {\n            int u = head[v];\n      \
+    \      if (vertex_id[v] - k >= vertex_id[u]) return vertex_id_inv[vertex_id[v]\
+    \ - k];\n            k -= vertex_id[v] - vertex_id[u] + 1;\n            v = par[u];\n\
     \        }\n    }\n\n    int lca(int u, int v) const {\n        assert(0 <= u\
     \ && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
     \        for (;; v = par[head[v]]) {\n            if (vertex_id[u] > vertex_id[v])\
@@ -164,39 +135,38 @@ data:
     \ par[head[v]]);\n        res.emplace_back(vertex_id[head[v]], vertex_id[v]);\n\
     \        return res;\n    }\n};\n\n/**\n * @brief Heavy Light Decomposition\n\
     \ * @docs docs/tree/HeavyLightDecomposition.md\n */\n#line 6 \"test/yosupo/vertex_add_subtree_sum.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
-    \ Q;\n    cin >> N >> Q;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
-    \ cin >> a[i];\n\n    HeavyLightDecomposition HLD(N);\n    for (int i = 1; i <\
-    \ N; i++) {\n        int p;\n        cin >> p;\n        HLD.add_edge(p, i);\n\
-    \    }\n    HLD.build();\n\n    BinaryIndexedTree<long long> BIT(N);\n    for\
-    \ (int i = 0; i < N; i++) BIT.add(HLD.idx(i), a[i]);\n\n    for (; Q--;) {\n \
-    \       int t, u;\n        cin >> t >> u;\n        if (!t) {\n            int\
-    \ x;\n            cin >> x;\n            BIT.add(HLD.idx(u), x);\n        } else\
-    \ {\n            long long ans = 0;\n            auto q = [&](int l, int r) {\
-    \ ans += BIT.query(l, r); };\n            HLD.query_subtree(u, q, true);\n   \
-    \         cout << ans << '\\n';\n        }\n    }\n    return 0;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/BinaryIndexedTree.hpp\"\
-    \n#include \"../../tree/HeavyLightDecomposition.hpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N, Q;\n    cin >> N >> Q;\n    vector<int>\
-    \ a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\n    HeavyLightDecomposition\
-    \ HLD(N);\n    for (int i = 1; i < N; i++) {\n        int p;\n        cin >> p;\n\
-    \        HLD.add_edge(p, i);\n    }\n    HLD.build();\n\n    BinaryIndexedTree<long\
-    \ long> BIT(N);\n    for (int i = 0; i < N; i++) BIT.add(HLD.idx(i), a[i]);\n\n\
-    \    for (; Q--;) {\n        int t, u;\n        cin >> t >> u;\n        if (!t)\
-    \ {\n            int x;\n            cin >> x;\n            BIT.add(HLD.idx(u),\
+    \n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \    int N, Q;\n    std::cin >> N >> Q;\n    std::vector<int> a(N);\n    for (int\
+    \ i = 0; i < N; i++) std::cin >> a[i];\n    HeavyLightDecomposition HLD(N);\n\
+    \    for (int i = 1; i < N; i++) {\n        int p;\n        std::cin >> p;\n \
+    \       HLD.add_edge(p, i);\n    }\n    HLD.build();\n\n    atcoder::fenwick_tree<long\
+    \ long> FT(N);\n    for (int i = 0; i < N; i++) FT.add(HLD.idx(i), a[i]);\n\n\
+    \    for (; Q--;) {\n        int t, u;\n        std::cin >> t >> u;\n        if\
+    \ (!t) {\n            int x;\n            std::cin >> x;\n            FT.add(HLD.idx(u),\
     \ x);\n        } else {\n            long long ans = 0;\n            auto q =\
-    \ [&](int l, int r) { ans += BIT.query(l, r); };\n            HLD.query_subtree(u,\
-    \ q, true);\n            cout << ans << '\\n';\n        }\n    }\n    return 0;\n\
-    }"
+    \ [&](int l, int r) { ans += FT.sum(l, r); };\n            HLD.query_subtree(u,\
+    \ q, true);\n            std::cout << ans << '\\n';\n        }\n    }\n    return\
+    \ 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\
+    \n\n#include <iostream>\n#include \"atcoder/fenwicktree\"\n#include \"tree/HeavyLightDecomposition.hpp\"\
+    \n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \    int N, Q;\n    std::cin >> N >> Q;\n    std::vector<int> a(N);\n    for (int\
+    \ i = 0; i < N; i++) std::cin >> a[i];\n    HeavyLightDecomposition HLD(N);\n\
+    \    for (int i = 1; i < N; i++) {\n        int p;\n        std::cin >> p;\n \
+    \       HLD.add_edge(p, i);\n    }\n    HLD.build();\n\n    atcoder::fenwick_tree<long\
+    \ long> FT(N);\n    for (int i = 0; i < N; i++) FT.add(HLD.idx(i), a[i]);\n\n\
+    \    for (; Q--;) {\n        int t, u;\n        std::cin >> t >> u;\n        if\
+    \ (!t) {\n            int x;\n            std::cin >> x;\n            FT.add(HLD.idx(u),\
+    \ x);\n        } else {\n            long long ans = 0;\n            auto q =\
+    \ [&](int l, int r) { ans += FT.sum(l, r); };\n            HLD.query_subtree(u,\
+    \ q, true);\n            std::cout << ans << '\\n';\n        }\n    }\n    return\
+    \ 0;\n}"
   dependsOn:
-  - base.hpp
-  - datastructure/BinaryIndexedTree.hpp
   - tree/HeavyLightDecomposition.hpp
   isVerificationFile: true
   path: test/yosupo/vertex_add_subtree_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-04 17:03:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/vertex_add_subtree_sum.test.cpp

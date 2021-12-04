@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/aoj/DPL_5_E.test.cpp
+    title: test/aoj/DPL_5_E.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -259,6 +262,7 @@ data:
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
 documentation_of: util/modint.hpp
 layout: document
 redirect_from:

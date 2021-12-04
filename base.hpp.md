@@ -48,9 +48,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/floor_sum.hpp
     title: Sum of Floor of Linear
-  - icon: ':warning:'
-    path: modulo/montgomery64.hpp
-    title: montgomery modint (64 bit)
   - icon: ':heavy_check_mark:'
     path: polynomial/lagrange_interpolation.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
@@ -176,27 +173,6 @@ data:
     path: test/aoj/CGL_7_I.test.cpp
     title: test/aoj/CGL_7_I.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_A.test.cpp
-    title: test/aoj/DPL_5_A.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_B.test.cpp
-    title: test/aoj/DPL_5_B.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_C.test.cpp
-    title: test/aoj/DPL_5_C.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_D.test.cpp
-    title: test/aoj/DPL_5_D.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_E.test.cpp
-    title: test/aoj/DPL_5_E.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_F.test.cpp
-    title: test/aoj/DPL_5_F.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_I.test.cpp
-    title: test/aoj/DPL_5_I.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_1_A.test.cpp
     title: test/aoj/DSL_1_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -208,9 +184,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_B.test.cpp
-    title: test/aoj/DSL_2_B.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
     title: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
@@ -350,9 +323,6 @@ data:
     path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
     title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/point_add_rectangle_sum.test.cpp
-    title: test/yosupo/point_add_rectangle_sum.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -367,9 +337,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/static_range_inversions_query.test.cpp
-    title: test/yosupo/static_range_inversions_query.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/static_range_sum.test.cpp
     title: test/yosupo/static_range_sum.test.cpp
@@ -394,9 +361,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/vertex_add_subtree_sum.test.cpp
-    title: test/yosupo/vertex_add_subtree_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/zalgorithm.test.cpp
     title: test/yosupo/zalgorithm.test.cpp
@@ -436,9 +400,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/430.test.cpp
     title: test/yukicoder/430.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/526.test.cpp
-    title: test/yukicoder/526.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/583.test.cpp
     title: test/yukicoder/583.test.cpp
@@ -596,7 +557,6 @@ data:
   path: base.hpp
   requiredBy:
   - polynomial/lagrange_interpolation.hpp
-  - modulo/montgomery64.hpp
   - graph/Dijkstra.hpp
   - graph/RangeEdgeGraph.hpp
   - graph/WarshallFloyd.hpp
@@ -627,8 +587,6 @@ data:
   - test/yosupo/two_edge_connected_components.test.cpp
   - test/yosupo/set_xor_min.test.cpp
   - test/yosupo/discrete_logarithm_mod.test.cpp
-  - test/yosupo/point_add_rectangle_sum.test.cpp
-  - test/yosupo/static_range_inversions_query.test.cpp
   - test/yosupo/staticrmq.test.cpp
   - test/yosupo/bipartitematching.test.cpp
   - test/yosupo/enumerate_palindromes.test.cpp
@@ -654,11 +612,9 @@ data:
   - test/yosupo/matrix_det.test.cpp
   - test/yosupo/zalgorithm.test.cpp
   - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
-  - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/unionfind.test.cpp
   - test/yukicoder/1289.test.cpp
   - test/yukicoder/803.test.cpp
-  - test/yukicoder/526.test.cpp
   - test/yukicoder/1269.test.cpp
   - test/yukicoder/952.test.cpp
   - test/yukicoder/1678.test.cpp
@@ -687,20 +643,17 @@ data:
   - test/aoj/CGL_3_B.test.cpp
   - test/aoj/CGL_2_A.test.cpp
   - test/aoj/GRL_4_A.test.cpp
-  - test/aoj/DPL_5_F.test.cpp
   - test/aoj/ITP1_11_C.test.cpp
   - test/aoj/2313.test.cpp
   - test/aoj/GRL_5_B.test.cpp
   - test/aoj/ITP1_11_D.test.cpp
   - test/aoj/CGL_1_B.test.cpp
-  - test/aoj/DPL_5_A.test.cpp
   - test/aoj/2306.test.cpp
   - test/aoj/CGL_7_C.test.cpp
   - test/aoj/CGL_1_C.test.cpp
   - test/aoj/NTL_1_A.test.cpp
   - test/aoj/CGL_4_C.test.cpp
   - test/aoj/2903.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
   - test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
   - test/aoj/CGL_3_C.test.cpp
   - test/aoj/GRL_2_A.Prim.test.cpp
@@ -711,17 +664,12 @@ data:
   - test/aoj/1181.test.cpp
   - test/aoj/GRL_6_B.PrimalDual.test.cpp
   - test/aoj/CGL_2_D.test.cpp
-  - test/aoj/DPL_5_C.test.cpp
   - test/aoj/CGL_7_H.test.cpp
   - test/aoj/GRL_1_B.test.cpp
   - test/aoj/DSL_1_A.test.cpp
   - test/aoj/GRL_5_A.test.cpp
-  - test/aoj/DSL_2_B.test.cpp
-  - test/aoj/DPL_5_I.test.cpp
   - test/aoj/CGL_7_D.test.cpp
-  - test/aoj/DPL_5_B.test.cpp
   - test/aoj/GRL_4_A.TopologicalSort.test.cpp
-  - test/aoj/DPL_5_D.test.cpp
   - test/aoj/DSL_5_B.test.cpp
   - test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp

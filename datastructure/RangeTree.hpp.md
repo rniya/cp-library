@@ -37,7 +37,7 @@ data:
     \ x, coordinate_t y, value_t val) {\n        int i = std::distance(points.begin(),\
     \ std::lower_bound(points.begin(), points.end(), std::make_pair(x, y)));\n   \
     \     assert(i < n && points[i] == std::make_pair(x, y));\n        for (i += n;\
-    \ i; i >>= 1) st_set(*segs[i], zip(i, x, y), val);\n    }\n\n    value_t query(coordinate_t\
+    \ i; i >>= 1) st_set(*segs[i], zip(i, x, y), val);\n    }\n\n    value_t prod(coordinate_t\
     \ xl, coordinate_t xr, coordinate_t yl, coordinate_t yr) {\n        assert(xl\
     \ <= xr && yl <= yr);\n        value_t L = e, R = e;\n        int l = zip(xl),\
     \ r = zip(xr);\n        for (l += n, r += n; l < r; l >>= 1, r >>= 1) {\n    \
@@ -48,16 +48,16 @@ data:
     \ st_prod;\n    const value_merge op;\n    const value_t e;\n    std::vector<Pt>\
     \ points;\n    std::vector<std::vector<Pt>> yxs;\n    std::vector<structure_t*>\
     \ segs;\n\n    int zip(coordinate_t x) {\n        auto compare = [](const Pt&\
-    \ l, const Pt& r) { return l.first < r.first; };\n        return std::distance(points.begin(),\n\
-    \                             std::lower_bound(points.begin(), points.end(), make_pair(x,\
+    \ l, const Pt& r) { return l.first < r.first; };\n        return std::distance(\n\
+    \            points.begin(), std::lower_bound(points.begin(), points.end(), std::make_pair(x,\
     \ coordinate_t()), compare));\n    }\n\n    int zip(int i, coordinate_t y) {\n\
     \        auto compare = [](const Pt& l, const Pt& r) { return l.first < r.first;\
-    \ };\n        return std::distance(yxs[i].begin(),\n                         \
-    \    std::lower_bound(yxs[i].begin(), yxs[i].end(), make_pair(y, coordinate_t()),\
-    \ compare));\n    }\n\n    int zip(int i, coordinate_t x, coordinate_t y) {\n\
-    \        return std::distance(yxs[i].begin(), std::lower_bound(yxs[i].begin(),\
-    \ yxs[i].end(), make_pair(y, x)));\n    }\n};\n\n/**\n * @brief Range Tree (\u62BD\
-    \u8C61\u5316\u9818\u57DF\u6728)\n * @docs docs/datastructure/RangeTree.md\n */\n"
+    \ };\n        return std::distance(\n            yxs[i].begin(), std::lower_bound(yxs[i].begin(),\
+    \ yxs[i].end(), std::make_pair(y, coordinate_t()), compare));\n    }\n\n    int\
+    \ zip(int i, coordinate_t x, coordinate_t y) {\n        return std::distance(yxs[i].begin(),\
+    \ std::lower_bound(yxs[i].begin(), yxs[i].end(), std::make_pair(y, x)));\n   \
+    \ }\n};\n\n/**\n * @brief Range Tree (\u62BD\u8C61\u5316\u9818\u57DF\u6728)\n\
+    \ * @docs docs/datastructure/RangeTree.md\n */\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <functional>\n\
     #include <vector>\n\ntemplate <typename structure_t, typename value_t, typename\
     \ coordinate_t> struct RangeTree {\nprivate:\n    using structure_new = std::function<structure_t*(int)>;\n\
@@ -82,7 +82,7 @@ data:
     \  int i = std::distance(points.begin(), std::lower_bound(points.begin(), points.end(),\
     \ std::make_pair(x, y)));\n        assert(i < n && points[i] == std::make_pair(x,\
     \ y));\n        for (i += n; i; i >>= 1) st_set(*segs[i], zip(i, x, y), val);\n\
-    \    }\n\n    value_t query(coordinate_t xl, coordinate_t xr, coordinate_t yl,\
+    \    }\n\n    value_t prod(coordinate_t xl, coordinate_t xr, coordinate_t yl,\
     \ coordinate_t yr) {\n        assert(xl <= xr && yl <= yr);\n        value_t L\
     \ = e, R = e;\n        int l = zip(xl), r = zip(xr);\n        for (l += n, r +=\
     \ n; l < r; l >>= 1, r >>= 1) {\n            if (l & 1) L = op(L, st_prod(*segs[l],\
@@ -93,20 +93,21 @@ data:
     \ value_t e;\n    std::vector<Pt> points;\n    std::vector<std::vector<Pt>> yxs;\n\
     \    std::vector<structure_t*> segs;\n\n    int zip(coordinate_t x) {\n      \
     \  auto compare = [](const Pt& l, const Pt& r) { return l.first < r.first; };\n\
-    \        return std::distance(points.begin(),\n                             std::lower_bound(points.begin(),\
-    \ points.end(), make_pair(x, coordinate_t()), compare));\n    }\n\n    int zip(int\
-    \ i, coordinate_t y) {\n        auto compare = [](const Pt& l, const Pt& r) {\
-    \ return l.first < r.first; };\n        return std::distance(yxs[i].begin(),\n\
-    \                             std::lower_bound(yxs[i].begin(), yxs[i].end(), make_pair(y,\
+    \        return std::distance(\n            points.begin(), std::lower_bound(points.begin(),\
+    \ points.end(), std::make_pair(x, coordinate_t()), compare));\n    }\n\n    int\
+    \ zip(int i, coordinate_t y) {\n        auto compare = [](const Pt& l, const Pt&\
+    \ r) { return l.first < r.first; };\n        return std::distance(\n         \
+    \   yxs[i].begin(), std::lower_bound(yxs[i].begin(), yxs[i].end(), std::make_pair(y,\
     \ coordinate_t()), compare));\n    }\n\n    int zip(int i, coordinate_t x, coordinate_t\
     \ y) {\n        return std::distance(yxs[i].begin(), std::lower_bound(yxs[i].begin(),\
-    \ yxs[i].end(), make_pair(y, x)));\n    }\n};\n\n/**\n * @brief Range Tree (\u62BD\
-    \u8C61\u5316\u9818\u57DF\u6728)\n * @docs docs/datastructure/RangeTree.md\n */\n"
+    \ yxs[i].end(), std::make_pair(y, x)));\n    }\n};\n\n/**\n * @brief Range Tree\
+    \ (\u62BD\u8C61\u5316\u9818\u57DF\u6728)\n * @docs docs/datastructure/RangeTree.md\n\
+    \ */\n"
   dependsOn: []
   isVerificationFile: false
   path: datastructure/RangeTree.hpp
   requiredBy: []
-  timestamp: '2021-10-01 11:32:51+09:00'
+  timestamp: '2021-12-04 17:03:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/point_add_rectangle_sum.test.cpp
@@ -131,25 +132,5 @@ title: "Range Tree (\u62BD\u8C61\u5316\u9818\u57DF\u6728)"
 | `build()`                                   | 追加された候補点の情報をもとにデータ構造を構築する.                                                                                                                                                                  | $O(n \log n)$    |
 | `set(x, y, val)`                            | 点 $(x, y)$ の値を $val$ をもとに更新する.                                                                                                                                                                           | $O(n(\log n)^2)$ |
 | `query(xl, xr, yl, yr)`                     | 長方形領域 $[x_l, x_r) \times [y_l, y_r)$ のクエリに答える.                                                                                                                                                          | $O(n(\log n)^2)$ |
-
-### 使用例
-- [Aizu Competitive Programming Camp 2021 Day 2 H - RangeMinimumQuery](https://onlinejudge.u-aizu.ac.jp/services/room.html#ACPC2021Day2/problems/H)
-
-```c++
-struct node {
-    int min, sum;
-    node(int min, int sum) : min(min), sum(sum) {}
-};
-const node id = node(int(1e9), 0);
-auto f = [](node a, node b) { return node(min(a.min, b.min), a.sum + b.sum); };
-using SEG = SegmentTree<node, decltype(f)>;
-auto st_new = [&](int n) { return new SEG(n, f, id); };
-auto st_set = [](SEG& seg, int i, node x) { seg.update(i, x); };
-auto st_prod = [](SEG& seg, int l, int r) { return seg.query(l, r); };
-RangeTree<SEG, node, int> RT(st_new, st_set, st_prod, f, id);
-for (int i = 0; i < M; i++) RT.add_point(X[i], Y[i]);
-RT.build();
-for (int i = 0; i < M; i++) RT.set(X[i], Y[i], node(A[i], 1));
-```
 
 引数の渡し方がかなり複雑なのでテストファイルも併せて参考にするのが良い.
