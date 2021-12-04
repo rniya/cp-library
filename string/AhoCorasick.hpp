@@ -1,4 +1,5 @@
 #pragma once
+#include <algorithm>
 #include <map>
 #include <queue>
 #include "Trie.hpp"
@@ -32,7 +33,7 @@ template <size_t char_size, char margin = 'a'> struct AhoCorasick : Trie<char_si
                     auto& u = nodes[nxt].idxs;
                     auto& v = nodes[next(fail, i)].idxs;
                     std::vector<int> w;
-                    set_union(u.begin(), u.end(), v.begin(), v.end(), back_inserter(w));
+                    std::set_union(u.begin(), u.end(), v.begin(), v.end(), back_inserter(w));
                     u = w;
                 }
                 que.emplace(nxt);

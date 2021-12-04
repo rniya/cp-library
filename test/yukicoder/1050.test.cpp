@@ -1,16 +1,15 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1050"
 
-#include "../../base.hpp"
-#include "../../linearalgebra/SquareMatrix.hpp"
-#include "../../modulo/modint.hpp"
+#include "linearalgebra/SquareMatrix.hpp"
+#include "util/modint.hpp"
 
-using mint = modint<1000000007>;
+using mint = atcoder::modint1000000007;
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int M, K;
-    cin >> M >> K;
+    std::cin >> M >> K;
 
     SquareMatrix<mint, 55> SM;
     for (int i = 0; i < M; i++) {
@@ -21,5 +20,5 @@ int main() {
     }
 
     SM ^= K;
-    cout << SM[0][0] << '\n';
+    std::cout << SM[0][0] << '\n';
 }

@@ -18,7 +18,7 @@ int main() {
 
     std::vector<int> alive(N, true);
     auto& G = CD.G;
-    auto calc = [&](auto self, int v, int p, int d, std::vector<int>& cnt) -> void {
+    auto calc = [&](auto self, int v, int p, int d, std::vector<long long>& cnt) -> void {
         while ((int)cnt.size() <= d) cnt.emplace_back(0);
         cnt[d]++;
         for (int& u : G[v]) {
@@ -32,17 +32,17 @@ int main() {
 
     for (int& root : cs) {
         alive[root] = 0;
-        std::vector<int> sum{1};
+        std::vector<long long> sum{1};
         for (int& ch : G[root]) {
             if (!alive[ch]) continue;
-            std::vector<int> cnt;
+            std::vector<long long> cnt;
             calc(calc, ch, root, 1, cnt);
-            auto sub = atcoder::convolution(cnt, cnt);
+            auto sub = atcoder::convolution_ll(cnt, cnt);
             for (size_t i = 0; i < sub.size(); i++) ans[i] -= sub[i];
             while (sum.size() < cnt.size()) sum.emplace_back(0);
             for (size_t i = 0; i < cnt.size(); i++) sum[i] += cnt[i];
         }
-        auto add = atcoder::convolution(sum, sum);
+        auto add = atcoder::convolution_ll(sum, sum);
         for (size_t i = 0; i < add.size(); i++) ans[i] += add[i];
     }
 

@@ -1,13 +1,10 @@
 #pragma once
-#include "../base.hpp"
+#include <functional>
+#include <stack>
 
-/**
- * @brief Sliding Window Aggregation (SWAG)
- * @docs docs/datastructure/SlidingWindowAggregation.md
- */
 template <typename Monoid> struct SlidingWindowAggregation {
-    typedef function<Monoid(Monoid, Monoid)> F;
-    stack<pair<Monoid, Monoid>> front_stack, back_stack;
+    typedef std::function<Monoid(Monoid, Monoid)> F;
+    std::stack<std::pair<Monoid, Monoid>> front_stack, back_stack;
     F f;
     Monoid id;
     SlidingWindowAggregation(F f, Monoid id) : f(f), id(id), front_stack(), back_stack() {
@@ -28,3 +25,8 @@ template <typename Monoid> struct SlidingWindowAggregation {
     }
     Monoid fold() { return f(front_stack.top().second, back_stack.top().second); }
 };
+
+/**
+ * @brief Sliding Window Aggregation (SWAG)
+ * @docs docs/datastructure/SlidingWindowAggregation.md
+ */

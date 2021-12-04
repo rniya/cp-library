@@ -1,11 +1,7 @@
 #pragma once
-#include "../base.hpp"
+#include <vector>
 
-/**
- * @brief ラグランジュ補間
- * @docs docs/polynomial/lagrange_interpolation.md
- */
-template <typename M> M lagrange_interpolation(vector<M> x, vector<M> y, M T) {
+template <typename M> M lagrange_interpolation(std::vector<M> x, std::vector<M> y, M T) {
     int n = x.size() - 1;
     M res = 0;
     for (int i = 0; i <= n; i++) {
@@ -19,10 +15,10 @@ template <typename M> M lagrange_interpolation(vector<M> x, vector<M> y, M T) {
     return res;
 }
 
-template <typename M> M lagrange_interpolation_arithmetic(vector<M>& y, M T) {
+template <typename M> M lagrange_interpolation_arithmetic(std::vector<M>& y, M T) {
     int n = y.size() - 1;
     if (T.val() <= n) return y[T.val()];
-    vector<M> left(n + 1, 1), right(n + 1, 1), fac(n + 1, 1), finv(n + 1, 1);
+    std::vector<M> left(n + 1, 1), right(n + 1, 1), fac(n + 1, 1), finv(n + 1, 1);
     for (int i = 0; i < n; i++) left[i + 1] = left[i] * (T - i);
     for (int i = n - 1; i >= 0; --i) right[i] = right[i + 1] * (T - (i + 1));
     for (int i = 1; i <= n; i++) fac[i] = fac[i - 1] * i;
@@ -38,3 +34,8 @@ template <typename M> M lagrange_interpolation_arithmetic(vector<M>& y, M T) {
     }
     return res;
 }
+
+/**
+ * @brief Lagrange Interpolation
+ * @docs docs/polynomial/lagrange_interpolation.md
+ */

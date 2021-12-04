@@ -1,34 +1,33 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1289"
 
-#include "../../base.hpp"
-#include "../../convolution/set_function.hpp"
-#include "../../modulo/modint.hpp"
+#include "convolution/set_function.hpp"
+#include "util/modint.hpp"
 
-using mint = modint<998244353>;
+using mint = atcoder::modint998244353;
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int N;
-    cin >> N;
-    vector<int> A(1 << N);
+    std::cin >> N;
+    std::vector<int> A(1 << N);
     int sum = 0;
     for (int i = 0; i < (1 << N); i++) {
-        cin >> A[i];
+        std::cin >> A[i];
         sum += A[i];
     }
 
     set_function::subset_zeta_transform(A);
-    mint ans = 0, inv = mint(1) / sum;
+    mint ans = 0, inv = mint(sum).inv();
 
     for (int mask = 0; mask < (1 << N) - 1; mask++) {
-        mint add = mint(1) / (1 - inv * A[mask]);
+        mint add = (1 - inv * A[mask]).inv();
         if (__builtin_popcount((1 << N) - 1 - mask) & 1)
             ans += add;
         else
             ans -= add;
     }
 
-    cout << ans << '\n';
+    std::cout << ans << '\n';
     return 0;
 }
