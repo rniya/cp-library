@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/CentroidDecomposition.hpp
     title: Centroid Decomposition
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/frequency_table_of_tree_distance
@@ -403,39 +403,39 @@ data:
     \ N;\n    std::cin >> N;\n    CentroidDecomposition CD(N);\n    for (int i = 0;\
     \ i < N - 1; i++) {\n        int a, b;\n        std::cin >> a >> b;\n        CD.add_edge(a,\
     \ b);\n    }\n\n    std::vector<int> alive(N, true);\n    auto& G = CD.G;\n  \
-    \  auto calc = [&](auto self, int v, int p, int d, std::vector<int>& cnt) -> void\
-    \ {\n        while ((int)cnt.size() <= d) cnt.emplace_back(0);\n        cnt[d]++;\n\
-    \        for (int& u : G[v]) {\n            if (u == p || !alive[u]) continue;\n\
-    \            self(self, u, v, d + 1, cnt);\n        }\n    };\n\n    auto cs =\
-    \ CD.build();\n    std::vector<long long> ans(2 * N, 0);\n\n    for (int& root\
-    \ : cs) {\n        alive[root] = 0;\n        std::vector<int> sum{1};\n      \
-    \  for (int& ch : G[root]) {\n            if (!alive[ch]) continue;\n        \
-    \    std::vector<int> cnt;\n            calc(calc, ch, root, 1, cnt);\n      \
-    \      auto sub = atcoder::convolution(cnt, cnt);\n            for (size_t i =\
-    \ 0; i < sub.size(); i++) ans[i] -= sub[i];\n            while (sum.size() < cnt.size())\
-    \ sum.emplace_back(0);\n            for (size_t i = 0; i < cnt.size(); i++) sum[i]\
-    \ += cnt[i];\n        }\n        auto add = atcoder::convolution(sum, sum);\n\
-    \        for (size_t i = 0; i < add.size(); i++) ans[i] += add[i];\n    }\n\n\
-    \    for (int i = 1; i < N; i++) std::cout << ans[i] / 2 << (i + 1 == N ? '\\\
-    n' : ' ');\n}\n"
+    \  auto calc = [&](auto self, int v, int p, int d, std::vector<long long>& cnt)\
+    \ -> void {\n        while ((int)cnt.size() <= d) cnt.emplace_back(0);\n     \
+    \   cnt[d]++;\n        for (int& u : G[v]) {\n            if (u == p || !alive[u])\
+    \ continue;\n            self(self, u, v, d + 1, cnt);\n        }\n    };\n\n\
+    \    auto cs = CD.build();\n    std::vector<long long> ans(2 * N, 0);\n\n    for\
+    \ (int& root : cs) {\n        alive[root] = 0;\n        std::vector<long long>\
+    \ sum{1};\n        for (int& ch : G[root]) {\n            if (!alive[ch]) continue;\n\
+    \            std::vector<long long> cnt;\n            calc(calc, ch, root, 1,\
+    \ cnt);\n            auto sub = atcoder::convolution_ll(cnt, cnt);\n         \
+    \   for (size_t i = 0; i < sub.size(); i++) ans[i] -= sub[i];\n            while\
+    \ (sum.size() < cnt.size()) sum.emplace_back(0);\n            for (size_t i =\
+    \ 0; i < cnt.size(); i++) sum[i] += cnt[i];\n        }\n        auto add = atcoder::convolution_ll(sum,\
+    \ sum);\n        for (size_t i = 0; i < add.size(); i++) ans[i] += add[i];\n \
+    \   }\n\n    for (int i = 1; i < N; i++) std::cout << ans[i] / 2 << (i + 1 ==\
+    \ N ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/frequency_table_of_tree_distance\"\
     \n\n#include <iostream>\n#include \"atcoder/convolution\"\n#include \"tree/CentroidDecomposition.hpp\"\
     \n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
     \    int N;\n    std::cin >> N;\n    CentroidDecomposition CD(N);\n    for (int\
     \ i = 0; i < N - 1; i++) {\n        int a, b;\n        std::cin >> a >> b;\n \
     \       CD.add_edge(a, b);\n    }\n\n    std::vector<int> alive(N, true);\n  \
-    \  auto& G = CD.G;\n    auto calc = [&](auto self, int v, int p, int d, std::vector<int>&\
-    \ cnt) -> void {\n        while ((int)cnt.size() <= d) cnt.emplace_back(0);\n\
+    \  auto& G = CD.G;\n    auto calc = [&](auto self, int v, int p, int d, std::vector<long\
+    \ long>& cnt) -> void {\n        while ((int)cnt.size() <= d) cnt.emplace_back(0);\n\
     \        cnt[d]++;\n        for (int& u : G[v]) {\n            if (u == p || !alive[u])\
     \ continue;\n            self(self, u, v, d + 1, cnt);\n        }\n    };\n\n\
     \    auto cs = CD.build();\n    std::vector<long long> ans(2 * N, 0);\n\n    for\
-    \ (int& root : cs) {\n        alive[root] = 0;\n        std::vector<int> sum{1};\n\
-    \        for (int& ch : G[root]) {\n            if (!alive[ch]) continue;\n  \
-    \          std::vector<int> cnt;\n            calc(calc, ch, root, 1, cnt);\n\
-    \            auto sub = atcoder::convolution(cnt, cnt);\n            for (size_t\
-    \ i = 0; i < sub.size(); i++) ans[i] -= sub[i];\n            while (sum.size()\
-    \ < cnt.size()) sum.emplace_back(0);\n            for (size_t i = 0; i < cnt.size();\
-    \ i++) sum[i] += cnt[i];\n        }\n        auto add = atcoder::convolution(sum,\
+    \ (int& root : cs) {\n        alive[root] = 0;\n        std::vector<long long>\
+    \ sum{1};\n        for (int& ch : G[root]) {\n            if (!alive[ch]) continue;\n\
+    \            std::vector<long long> cnt;\n            calc(calc, ch, root, 1,\
+    \ cnt);\n            auto sub = atcoder::convolution_ll(cnt, cnt);\n         \
+    \   for (size_t i = 0; i < sub.size(); i++) ans[i] -= sub[i];\n            while\
+    \ (sum.size() < cnt.size()) sum.emplace_back(0);\n            for (size_t i =\
+    \ 0; i < cnt.size(); i++) sum[i] += cnt[i];\n        }\n        auto add = atcoder::convolution_ll(sum,\
     \ sum);\n        for (size_t i = 0; i < add.size(); i++) ans[i] += add[i];\n \
     \   }\n\n    for (int i = 1; i < N; i++) std::cout << ans[i] / 2 << (i + 1 ==\
     \ N ? '\\n' : ' ');\n}"
@@ -444,8 +444,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/frequency_table_of_tree_distance.test.cpp
   requiredBy: []
-  timestamp: '2021-12-05 01:41:45+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-12-05 02:04:54+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/frequency_table_of_tree_distance.test.cpp
 layout: document

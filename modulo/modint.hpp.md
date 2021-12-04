@@ -2,34 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/matrix_det.test.cpp
-    title: test/yosupo/matrix_det.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/queue_operate_all_composite.test.cpp
-    title: test/yosupo/queue_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1050.test.cpp
-    title: test/yukicoder/1050.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1269.test.cpp
-    title: test/yukicoder/1269.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1289.test.cpp
-    title: test/yukicoder/1289.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/665.test.cpp
-    title: test/yukicoder/665.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/803.test.cpp
-    title: test/yukicoder/803.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/886.test.cpp
-    title: test/yukicoder/886.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/modulo/modint.md
     document_title: modint
@@ -125,16 +101,8 @@ data:
   path: modulo/modint.hpp
   requiredBy: []
   timestamp: '2021-10-01 20:18:39+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/yosupo/queue_operate_all_composite.test.cpp
-  - test/yosupo/matrix_det.test.cpp
-  - test/yukicoder/1289.test.cpp
-  - test/yukicoder/803.test.cpp
-  - test/yukicoder/1269.test.cpp
-  - test/yukicoder/1050.test.cpp
-  - test/yukicoder/886.test.cpp
-  - test/yukicoder/665.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: modulo/modint.hpp
 layout: document
 redirect_from:

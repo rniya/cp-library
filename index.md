@@ -178,7 +178,7 @@ data:
       title: "\u5546\u5217\u6319"
   - name: modulo
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: modulo/modint.hpp
       title: modint
   - name: polynomial
@@ -188,7 +188,7 @@ data:
       title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
       path: polynomial/lagrange_interpolation.hpp
-      title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
+      title: Lagrange Interpolation
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
@@ -217,7 +217,7 @@ data:
       title: Z-Algorithm
   - name: tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tree/CentroidDecomposition.hpp
       title: Centroid Decomposition
     - icon: ':heavy_check_mark:'
@@ -494,7 +494,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/factorize.test.cpp
       title: test/yosupo/factorize.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/frequency_table_of_tree_distance.test.cpp
       title: test/yosupo/frequency_table_of_tree_distance.test.cpp
     - icon: ':heavy_check_mark:'

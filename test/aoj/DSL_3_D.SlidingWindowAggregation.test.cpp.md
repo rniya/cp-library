@@ -83,27 +83,27 @@ data:
     \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 3 \"datastructure/SlidingWindowAggregation.hpp\"\n\n/**\n * @brief Sliding\
-    \ Window Aggregation (SWAG)\n * @docs docs/datastructure/SlidingWindowAggregation.md\n\
-    \ */\ntemplate <typename Monoid> struct SlidingWindowAggregation {\n    typedef\
-    \ function<Monoid(Monoid, Monoid)> F;\n    stack<pair<Monoid, Monoid>> front_stack,\
-    \ back_stack;\n    F f;\n    Monoid id;\n    SlidingWindowAggregation(F f, Monoid\
-    \ id) : f(f), id(id), front_stack(), back_stack() {\n        front_stack.emplace(id,\
-    \ id);\n        back_stack.emplace(id, id);\n    }\n    void push(const Monoid&\
-    \ x) { back_stack.emplace(x, f(back_stack.top().second, x)); }\n    void pop()\
-    \ {\n        if (front_stack.size() == 1) {\n            while (1 < (int)back_stack.size())\
+    #line 4 \"datastructure/SlidingWindowAggregation.hpp\"\n\ntemplate <typename Monoid>\
+    \ struct SlidingWindowAggregation {\n    typedef std::function<Monoid(Monoid,\
+    \ Monoid)> F;\n    std::stack<std::pair<Monoid, Monoid>> front_stack, back_stack;\n\
+    \    F f;\n    Monoid id;\n    SlidingWindowAggregation(F f, Monoid id) : f(f),\
+    \ id(id), front_stack(), back_stack() {\n        front_stack.emplace(id, id);\n\
+    \        back_stack.emplace(id, id);\n    }\n    void push(const Monoid& x) {\
+    \ back_stack.emplace(x, f(back_stack.top().second, x)); }\n    void pop() {\n\
+    \        if (front_stack.size() == 1) {\n            while (1 < (int)back_stack.size())\
     \ {\n                Monoid t = back_stack.top().first;\n                Monoid\
     \ calc = f(t, front_stack.top().second);\n                front_stack.emplace(t,\
     \ calc);\n                back_stack.pop();\n            }\n        }\n      \
     \  front_stack.pop();\n    }\n    Monoid fold() { return f(front_stack.top().second,\
-    \ back_stack.top().second); }\n};\n#line 5 \"test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
-    \ L;\n    cin >> N >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
-    \ cin >> a[i];\n\n    SlidingWindowAggregation<int> SWAG([](int a, int b) { return\
-    \ min(a, b); }, INT_MAX);\n\n    for (int i = 0; i < L - 1; i++) SWAG.push(a[i]);\n\
-    \    for (int i = L - 1; i < N; i++) {\n        SWAG.push(a[i]);\n        cout\
-    \ << SWAG.fold() << (i + 1 == N ? '\\n' : ' ');\n        SWAG.pop();\n    }\n\
-    }\n"
+    \ back_stack.top().second); }\n};\n\n/**\n * @brief Sliding Window Aggregation\
+    \ (SWAG)\n * @docs docs/datastructure/SlidingWindowAggregation.md\n */\n#line\
+    \ 5 \"test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp\"\n\nint main() {\n \
+    \   cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, L;\n    cin >> N\
+    \ >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\
+    \n    SlidingWindowAggregation<int> SWAG([](int a, int b) { return min(a, b);\
+    \ }, INT_MAX);\n\n    for (int i = 0; i < L - 1; i++) SWAG.push(a[i]);\n    for\
+    \ (int i = L - 1; i < N; i++) {\n        SWAG.push(a[i]);\n        cout << SWAG.fold()\
+    \ << (i + 1 == N ? '\\n' : ' ');\n        SWAG.pop();\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/SlidingWindowAggregation.hpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
@@ -118,7 +118,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-05 02:04:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp

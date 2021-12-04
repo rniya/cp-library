@@ -12,9 +12,6 @@ data:
     path: datastructure/SegmentTreeBeats.hpp
     title: Segment Tree Beats
   - icon: ':heavy_check_mark:'
-    path: datastructure/SlidingWindowAggregation.hpp
-    title: Sliding Window Aggregation (SWAG)
-  - icon: ':heavy_check_mark:'
     path: datastructure/SparseTable.hpp
     title: Sparse table
   - icon: ':heavy_check_mark:'
@@ -36,9 +33,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/floor_sum.hpp
     title: Sum of Floor of Linear
-  - icon: ':heavy_check_mark:'
-    path: polynomial/lagrange_interpolation.hpp
-    title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593"
   - icon: ':warning:'
     path: string/Knuth_Morris_Pratt.hpp
     title: "Knuth Moriss Pratt (KMP\u6CD5)"
@@ -278,17 +272,11 @@ data:
     path: test/yosupo/factorize.test.cpp
     title: test/yosupo/factorize.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/matrix_det.test.cpp
-    title: test/yosupo/matrix_det.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/number_of_substrings.test.cpp
     title: test/yosupo/number_of_substrings.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
     title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/queue_operate_all_composite.test.cpp
-    title: test/yosupo/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
     title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
@@ -329,20 +317,11 @@ data:
     path: test/yosupo/zalgorithm.test.cpp
     title: test/yosupo/zalgorithm.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1050.test.cpp
-    title: test/yukicoder/1050.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1240.test.cpp
     title: test/yukicoder/1240.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1269.test.cpp
-    title: test/yukicoder/1269.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1288.test.cpp
     title: test/yukicoder/1288.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1289.test.cpp
-    title: test/yukicoder/1289.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1301.test.cpp
     title: test/yukicoder/1301.test.cpp
@@ -358,15 +337,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/583.test.cpp
     title: test/yukicoder/583.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/665.test.cpp
-    title: test/yukicoder/665.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/803.test.cpp
-    title: test/yukicoder/803.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/886.test.cpp
-    title: test/yukicoder/886.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
@@ -508,13 +478,11 @@ data:
   isVerificationFile: false
   path: base.hpp
   requiredBy:
-  - polynomial/lagrange_interpolation.hpp
   - graph/Dijkstra.hpp
   - graph/RangeEdgeGraph.hpp
   - graph/CycleDetection.hpp
   - datastructure/BinaryTrie.hpp
   - datastructure/SegmentTreeBeats.hpp
-  - datastructure/SlidingWindowAggregation.hpp
   - datastructure/SparseTable.hpp
   - datastructure/RectangleSet.hpp
   - string/SuffixArray.hpp
@@ -541,7 +509,6 @@ data:
   - test/yosupo/scc.test.cpp
   - test/yosupo/aplusb.test.cpp
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
-  - test/yosupo/queue_operate_all_composite.test.cpp
   - test/yosupo/number_of_substrings.test.cpp
   - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/suffixarray.test.cpp
@@ -551,23 +518,16 @@ data:
   - test/yosupo/factorize.test.cpp
   - test/yosupo/associative_array.test.cpp
   - test/yosupo/sum_of_floor_of_linear.test.cpp
-  - test/yosupo/matrix_det.test.cpp
   - test/yosupo/zalgorithm.test.cpp
   - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
   - test/yosupo/unionfind.test.cpp
-  - test/yukicoder/1289.test.cpp
-  - test/yukicoder/803.test.cpp
-  - test/yukicoder/1269.test.cpp
   - test/yukicoder/952.test.cpp
   - test/yukicoder/1678.test.cpp
   - test/yukicoder/430.test.cpp
   - test/yukicoder/430.AhoCorasick.test.cpp
-  - test/yukicoder/1050.test.cpp
   - test/yukicoder/1288.test.cpp
   - test/yukicoder/583.test.cpp
   - test/yukicoder/1240.test.cpp
-  - test/yukicoder/886.test.cpp
-  - test/yukicoder/665.test.cpp
   - test/yukicoder/1301.test.cpp
   - test/aoj/CGL_7_A.test.cpp
   - test/aoj/1131.test.cpp
