@@ -1,40 +1,39 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_subtree_sum"
 
-#include "../../base.hpp"
-#include "../../datastructure/BinaryIndexedTree.hpp"
-#include "../../tree/HeavyLightDecomposition.hpp"
+#include <iostream>
+#include "atcoder/fenwicktree"
+#include "tree/HeavyLightDecomposition.hpp"
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int N, Q;
-    cin >> N >> Q;
-    vector<int> a(N);
-    for (int i = 0; i < N; i++) cin >> a[i];
-
+    std::cin >> N >> Q;
+    std::vector<int> a(N);
+    for (int i = 0; i < N; i++) std::cin >> a[i];
     HeavyLightDecomposition HLD(N);
     for (int i = 1; i < N; i++) {
         int p;
-        cin >> p;
+        std::cin >> p;
         HLD.add_edge(p, i);
     }
     HLD.build();
 
-    BinaryIndexedTree<long long> BIT(N);
-    for (int i = 0; i < N; i++) BIT.add(HLD.idx(i), a[i]);
+    atcoder::fenwick_tree<long long> FT(N);
+    for (int i = 0; i < N; i++) FT.add(HLD.idx(i), a[i]);
 
     for (; Q--;) {
         int t, u;
-        cin >> t >> u;
+        std::cin >> t >> u;
         if (!t) {
             int x;
-            cin >> x;
-            BIT.add(HLD.idx(u), x);
+            std::cin >> x;
+            FT.add(HLD.idx(u), x);
         } else {
             long long ans = 0;
-            auto q = [&](int l, int r) { ans += BIT.query(l, r); };
+            auto q = [&](int l, int r) { ans += FT.sum(l, r); };
             HLD.query_subtree(u, q, true);
-            cout << ans << '\n';
+            std::cout << ans << '\n';
         }
     }
     return 0;

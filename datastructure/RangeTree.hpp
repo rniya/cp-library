@@ -44,7 +44,7 @@ public:
         for (i += n; i; i >>= 1) st_set(*segs[i], zip(i, x, y), val);
     }
 
-    value_t query(coordinate_t xl, coordinate_t xr, coordinate_t yl, coordinate_t yr) {
+    value_t prod(coordinate_t xl, coordinate_t xr, coordinate_t yl, coordinate_t yr) {
         assert(xl <= xr && yl <= yr);
         value_t L = e, R = e;
         int l = zip(xl), r = zip(xr);
@@ -68,18 +68,18 @@ private:
 
     int zip(coordinate_t x) {
         auto compare = [](const Pt& l, const Pt& r) { return l.first < r.first; };
-        return std::distance(points.begin(),
-                             std::lower_bound(points.begin(), points.end(), make_pair(x, coordinate_t()), compare));
+        return std::distance(
+            points.begin(), std::lower_bound(points.begin(), points.end(), std::make_pair(x, coordinate_t()), compare));
     }
 
     int zip(int i, coordinate_t y) {
         auto compare = [](const Pt& l, const Pt& r) { return l.first < r.first; };
-        return std::distance(yxs[i].begin(),
-                             std::lower_bound(yxs[i].begin(), yxs[i].end(), make_pair(y, coordinate_t()), compare));
+        return std::distance(
+            yxs[i].begin(), std::lower_bound(yxs[i].begin(), yxs[i].end(), std::make_pair(y, coordinate_t()), compare));
     }
 
     int zip(int i, coordinate_t x, coordinate_t y) {
-        return std::distance(yxs[i].begin(), std::lower_bound(yxs[i].begin(), yxs[i].end(), make_pair(y, x)));
+        return std::distance(yxs[i].begin(), std::lower_bound(yxs[i].begin(), yxs[i].end(), std::make_pair(y, x)));
     }
 };
 

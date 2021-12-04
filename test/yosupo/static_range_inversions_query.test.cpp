@@ -1,58 +1,58 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_inversions_query"
 
-#include "../../algorithm/Mo.hpp"
-#include "../../base.hpp"
-#include "../../datastructure/BinaryIndexedTree.hpp"
+#include <iostream>
+#include "algorithm/Mo.hpp"
+#include "atcoder/fenwicktree"
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int N, Q;
-    cin >> N >> Q;
-    vector<int> A(N);
-    for (int i = 0; i < N; i++) cin >> A[i];
+    std::cin >> N >> Q;
+    std::vector<int> A(N);
+    for (int i = 0; i < N; i++) std::cin >> A[i];
 
     Mo mo(N);
     for (int i = 0; i < Q; i++) {
         int l, r;
-        cin >> l >> r;
+        std::cin >> l >> r;
         mo.add(l, r);
     }
 
-    vector<int> B = A;
+    std::vector<int> B = A;
     sort(B.begin(), B.end());
     B.erase(unique(B.begin(), B.end()), B.end());
     for (int i = 0; i < N; i++) A[i] = lower_bound(B.begin(), B.end(), A[i]) - B.begin();
     int n = B.size();
-    BinaryIndexedTree<int> BIT(n);
-    vector<long long> ans(Q);
+    atcoder::fenwick_tree<int> FT(n);
+    std::vector<long long> ans(Q);
     long long inv = 0;
     int sum = 0;
 
     auto add_left = [&](int idx) {
-        inv += BIT.query(0, A[idx]);
+        inv += FT.sum(0, A[idx]);
         sum++;
-        BIT.add(A[idx], 1);
+        FT.add(A[idx], 1);
     };
     auto add_right = [&](int idx) {
-        inv += BIT.query(A[idx] + 1, n);
+        inv += FT.sum(A[idx] + 1, n);
         sum++;
-        BIT.add(A[idx], 1);
+        FT.add(A[idx], 1);
     };
     auto del_left = [&](int idx) {
-        inv -= BIT.query(0, A[idx]);
+        inv -= FT.sum(0, A[idx]);
         sum--;
-        BIT.add(A[idx], -1);
+        FT.add(A[idx], -1);
     };
     auto del_right = [&](int idx) {
-        inv -= BIT.query(A[idx] + 1, n);
+        inv -= FT.sum(A[idx] + 1, n);
         sum--;
-        BIT.add(A[idx], -1);
+        FT.add(A[idx], -1);
     };
     auto rem = [&](int idx) { ans[idx] = inv; };
 
     mo.run(add_left, add_right, del_left, del_right, rem);
 
-    for (int i = 0; i < Q; i++) cout << ans[i] << '\n';
+    for (int i = 0; i < Q; i++) std::cout << ans[i] << '\n';
     return 0;
 }

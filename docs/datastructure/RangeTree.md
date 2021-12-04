@@ -13,24 +13,4 @@
 | `set(x, y, val)`                            | 点 $(x, y)$ の値を $val$ をもとに更新する.                                                                                                                                                                           | $O(n(\log n)^2)$ |
 | `query(xl, xr, yl, yr)`                     | 長方形領域 $[x_l, x_r) \times [y_l, y_r)$ のクエリに答える.                                                                                                                                                          | $O(n(\log n)^2)$ |
 
-### 使用例
-- [Aizu Competitive Programming Camp 2021 Day 2 H - RangeMinimumQuery](https://onlinejudge.u-aizu.ac.jp/services/room.html#ACPC2021Day2/problems/H)
-
-```c++
-struct node {
-    int min, sum;
-    node(int min, int sum) : min(min), sum(sum) {}
-};
-const node id = node(int(1e9), 0);
-auto f = [](node a, node b) { return node(min(a.min, b.min), a.sum + b.sum); };
-using SEG = SegmentTree<node, decltype(f)>;
-auto st_new = [&](int n) { return new SEG(n, f, id); };
-auto st_set = [](SEG& seg, int i, node x) { seg.update(i, x); };
-auto st_prod = [](SEG& seg, int l, int r) { return seg.query(l, r); };
-RangeTree<SEG, node, int> RT(st_new, st_set, st_prod, f, id);
-for (int i = 0; i < M; i++) RT.add_point(X[i], Y[i]);
-RT.build();
-for (int i = 0; i < M; i++) RT.set(X[i], Y[i], node(A[i], 1));
-```
-
 引数の渡し方がかなり複雑なのでテストファイルも併せて参考にするのが良い.

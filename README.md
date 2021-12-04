@@ -4,7 +4,7 @@
 
 C++ 14 でコーディング及びテストされています。
 
-[ac-library](https://github.com/atcoder/ac-library) の `segtree, lazysegtree, convolution, modint` に準拠しています。
+[ac-library](https://github.com/atcoder/ac-library) に一部準拠しています。
 
 [![Actions Status](https://github.com/rniya/competitive-programming-library/workflows/verify/badge.svg)](https://github.com/rniya/competitive-programming-library/actions)
 [![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://rniya.github.io/competitive-programming-library/)
