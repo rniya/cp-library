@@ -1,24 +1,24 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/frequency_table_of_tree_distance"
 
-#include "../../base.hpp"
-#include "../../convolution/FastFourierTransform.hpp"
-#include "../../tree/CentroidDecomposition.hpp"
+#include <iostream>
+#include "atcoder/convolution"
+#include "tree/CentroidDecomposition.hpp"
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int N;
-    cin >> N;
+    std::cin >> N;
     CentroidDecomposition CD(N);
     for (int i = 0; i < N - 1; i++) {
         int a, b;
-        cin >> a >> b;
+        std::cin >> a >> b;
         CD.add_edge(a, b);
     }
 
-    vector<int> alive(N, true);
+    std::vector<int> alive(N, true);
     auto& G = CD.G;
-    auto calc = [&](auto self, int v, int p, int d, vector<int>& cnt) -> void {
+    auto calc = [&](auto self, int v, int p, int d, std::vector<int>& cnt) -> void {
         while ((int)cnt.size() <= d) cnt.emplace_back(0);
         cnt[d]++;
         for (int& u : G[v]) {
@@ -28,23 +28,23 @@ int main() {
     };
 
     auto cs = CD.build();
-    vector<long long> ans(2 * N, 0);
+    std::vector<long long> ans(2 * N, 0);
 
     for (int& root : cs) {
         alive[root] = 0;
-        vector<int> sum{1};
+        std::vector<int> sum{1};
         for (int& ch : G[root]) {
             if (!alive[ch]) continue;
-            vector<int> cnt;
+            std::vector<int> cnt;
             calc(calc, ch, root, 1, cnt);
-            auto sub = FastFourierTransform::multiply(cnt, cnt);
+            auto sub = atcoder::convolution(cnt, cnt);
             for (size_t i = 0; i < sub.size(); i++) ans[i] -= sub[i];
             while (sum.size() < cnt.size()) sum.emplace_back(0);
             for (size_t i = 0; i < cnt.size(); i++) sum[i] += cnt[i];
         }
-        auto add = FastFourierTransform::multiply(sum, sum);
+        auto add = atcoder::convolution(sum, sum);
         for (size_t i = 0; i < add.size(); i++) ans[i] += add[i];
     }
 
-    for (int i = 1; i < N; i++) cout << ans[i] / 2 << (i + 1 == N ? '\n' : ' ');
+    for (int i = 1; i < N; i++) std::cout << ans[i] / 2 << (i + 1 == N ? '\n' : ' ');
 }
