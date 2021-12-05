@@ -80,17 +80,11 @@ data:
       path: flow/BipartiteMatching.hpp
       title: Bipartite Matching
     - icon: ':heavy_check_mark:'
-      path: flow/Dinic.hpp
-      title: Dinic (Maximum flow)
-    - icon: ':heavy_check_mark:'
-      path: flow/PrimalDual.hpp
-      title: Primal Dual (Minimum-cost flow)
-    - icon: ':heavy_check_mark:'
       path: flow/PrimalDualonDAG.hpp
       title: Primal Dual on DAG (allow negative-cost edge)
     - icon: ':heavy_check_mark:'
       path: flow/ProjectSelectionProblem.hpp
-      title: Project Selection Problem
+      title: Project Selection Problem (based on ac-library)
   - name: geometry
     pages:
     - icon: ':heavy_check_mark:'
@@ -170,9 +164,6 @@ data:
       path: math/fast_factorize.hpp
       title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
         \ + Pollard's rho algorithm)"
-    - icon: ':heavy_check_mark:'
-      path: math/floor_sum.hpp
-      title: Sum of Floor of Linear
     - icon: ':warning:'
       path: math/quotient_ranges.hpp
       title: "\u5546\u5217\u6319"
@@ -239,6 +230,9 @@ data:
       path: util/binary_conversion.hpp
       title: "\u6587\u5B57\u5217\u306E2\u9032\u5909\u63DB"
     - icon: ':warning:'
+      path: util/flow_graphviz.hpp
+      title: util/flow_graphviz.hpp
+    - icon: ':warning:'
       path: util/gray_code.hpp
       title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"
     - icon: ':heavy_check_mark:'
@@ -259,9 +253,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/2306.test.cpp
       title: test/aoj/2306.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/2313.test.cpp
-      title: test/aoj/2313.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/2667.test.cpp
       title: test/aoj/2667.test.cpp
@@ -421,10 +412,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_C.test.cpp
       title: test/aoj/GRL_5_C.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/GRL_6_A.Dinic.test.cpp
-      title: test/aoj/GRL_6_A.Dinic.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL_6_B.PrimalDual.test.cpp
       title: test/aoj/GRL_6_B.PrimalDual.test.cpp
     - icon: ':heavy_check_mark:'
@@ -535,9 +523,6 @@ data:
       path: test/yosupo/staticrmq.test.cpp
       title: test/yosupo/staticrmq.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/yosupo/sum_of_floor_of_linear.test.cpp
-      title: test/yosupo/sum_of_floor_of_linear.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/yosupo/tree_diameter.test.cpp
       title: test/yosupo/tree_diameter.test.cpp
     - icon: ':heavy_check_mark:'
@@ -572,13 +557,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1269.test.cpp
       title: test/yukicoder/1269.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/1288.test.cpp
       title: test/yukicoder/1288.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1289.test.cpp
       title: test/yukicoder/1289.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/1301.test.cpp
       title: test/yukicoder/1301.test.cpp
     - icon: ':heavy_check_mark:'

@@ -41,7 +41,7 @@ data:
     \ m - 2; i >= n; i--) {\n            finvs[i] = finvs[i + 1] * (i + 1);\n    \
     \        invs[i] = finvs[i] * facs[i - 1];\n        }\n        n = m;\n    }\n\
     };\n\n/**\n * @brief binomial\n * @docs docs/combinatorics/binomial.md\n */\n\
-    #line 1 \"util/modint.hpp\"\n#include <iostream>\n#line 1 \"atcoder/modint.hpp\"\
+    #line 2 \"util/modint.hpp\"\n#include <iostream>\n#line 1 \"atcoder/modint.hpp\"\
     \n\n\n\n#line 5 \"atcoder/modint.hpp\"\n#include <numeric>\n#include <type_traits>\n\
     \n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\n#line 1 \"atcoder/internal_math.hpp\"\
     \n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\n\
@@ -247,7 +247,7 @@ data:
     \ntemplate <class> struct is_dynamic_modint : public std::false_type {};\ntemplate\
     \ <int id>\nstruct is_dynamic_modint<dynamic_modint<id>> : public std::true_type\
     \ {};\n\ntemplate <class T>\nusing is_dynamic_modint_t = std::enable_if_t<is_dynamic_modint<T>::value>;\n\
-    \n}  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 3 \"util/modint.hpp\"\
+    \n}  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 4 \"util/modint.hpp\"\
     \n\nnamespace atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream&\
     \ is, static_modint<MOD>& x) {\n    int64_t v;\n    x = static_modint<MOD>{(is\
     \ >> v, v)};\n    return is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream&\
@@ -268,7 +268,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL_5_E.test.cpp
   requiredBy: []
-  timestamp: '2021-12-04 17:03:44+09:00'
+  timestamp: '2021-12-05 15:22:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_E.test.cpp

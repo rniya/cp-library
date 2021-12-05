@@ -39,7 +39,7 @@ data:
     \ *= M[j + 1][j];\n            T coef = -betas * M[j][i];\n            for (int\
     \ k = 0; k <= j; k++) p[i + 1][k] += coef * p[j][k];\n        }\n    }\n    return\
     \ p[n];\n}\n\n/**\n * @brief Characteristic Polynomial\n * @docs docs/linearalgebra/characteristic_polynomial.md\n\
-    \ * @see https://arxiv.org/abs/1104.3769\n */\n#line 1 \"util/modint.hpp\"\n#include\
+    \ * @see https://arxiv.org/abs/1104.3769\n */\n#line 2 \"util/modint.hpp\"\n#include\
     \ <iostream>\n#line 1 \"atcoder/modint.hpp\"\n\n\n\n#line 5 \"atcoder/modint.hpp\"\
     \n#include <numeric>\n#include <type_traits>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n\
     #endif\n\n#line 1 \"atcoder/internal_math.hpp\"\n\n\n\n#include <utility>\n\n\
@@ -246,7 +246,7 @@ data:
     \ntemplate <class> struct is_dynamic_modint : public std::false_type {};\ntemplate\
     \ <int id>\nstruct is_dynamic_modint<dynamic_modint<id>> : public std::true_type\
     \ {};\n\ntemplate <class T>\nusing is_dynamic_modint_t = std::enable_if_t<is_dynamic_modint<T>::value>;\n\
-    \n}  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 3 \"util/modint.hpp\"\
+    \n}  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 4 \"util/modint.hpp\"\
     \n\nnamespace atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream&\
     \ is, static_modint<MOD>& x) {\n    int64_t v;\n    x = static_modint<MOD>{(is\
     \ >> v, v)};\n    return is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream&\
@@ -273,7 +273,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/characteristic_polynomial.test.cpp
   requiredBy: []
-  timestamp: '2021-12-05 01:41:45+09:00'
+  timestamp: '2021-12-05 15:22:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/characteristic_polynomial.test.cpp

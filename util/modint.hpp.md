@@ -62,7 +62,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"util/modint.hpp\"\n#include <iostream>\n#line 1 \"atcoder/modint.hpp\"\
+  bundledCode: "#line 2 \"util/modint.hpp\"\n#include <iostream>\n#line 1 \"atcoder/modint.hpp\"\
     \n\n\n\n#include <cassert>\n#include <numeric>\n#include <type_traits>\n\n#ifdef\
     \ _MSC_VER\n#include <intrin.h>\n#endif\n\n#line 1 \"atcoder/internal_math.hpp\"\
     \n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\n\
@@ -268,15 +268,15 @@ data:
     \ntemplate <class> struct is_dynamic_modint : public std::false_type {};\ntemplate\
     \ <int id>\nstruct is_dynamic_modint<dynamic_modint<id>> : public std::true_type\
     \ {};\n\ntemplate <class T>\nusing is_dynamic_modint_t = std::enable_if_t<is_dynamic_modint<T>::value>;\n\
-    \n}  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 3 \"util/modint.hpp\"\
+    \n}  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 4 \"util/modint.hpp\"\
     \n\nnamespace atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream&\
     \ is, static_modint<MOD>& x) {\n    int64_t v;\n    x = static_modint<MOD>{(is\
     \ >> v, v)};\n    return is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream&\
     \ os, const static_modint<MOD>& x) { return os << x.val(); }\n\ntemplate <int\
     \ ID> std::ostream& operator<<(std::ostream& os, const dynamic_modint<ID>& x)\
     \ { return os << x.val(); }\n\n}  // namespace atcoder\n"
-  code: "#include <iostream>\n#include \"atcoder/modint\"\n\nnamespace atcoder {\n\
-    \ntemplate <int MOD> std::istream& operator>>(std::istream& is, static_modint<MOD>&\
+  code: "#pragma once\n#include <iostream>\n#include \"atcoder/modint\"\n\nnamespace\
+    \ atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream& is, static_modint<MOD>&\
     \ x) {\n    int64_t v;\n    x = static_modint<MOD>{(is >> v, v)};\n    return\
     \ is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream& os, const\
     \ static_modint<MOD>& x) { return os << x.val(); }\n\ntemplate <int ID> std::ostream&\
@@ -286,7 +286,7 @@ data:
   isVerificationFile: false
   path: util/modint.hpp
   requiredBy: []
-  timestamp: '2021-11-29 20:12:26+09:00'
+  timestamp: '2021-12-05 15:22:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/exp_of_formal_power_series.test.cpp

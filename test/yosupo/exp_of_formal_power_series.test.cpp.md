@@ -501,8 +501,8 @@ data:
     \ < deg) ret.resize(deg, T(0));\n                return ret;\n            }\n\
     \        }\n        return FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n\
     \        T ret = 0, w = 1;\n        for (const auto& v : *this) ret += w * v,\
-    \ w *= x;\n        return ret;\n    }\n};\n#line 1 \"util/modint.hpp\"\n#include\
-    \ <iostream>\n#line 3 \"util/modint.hpp\"\n\nnamespace atcoder {\n\ntemplate <int\
+    \ w *= x;\n        return ret;\n    }\n};\n#line 2 \"util/modint.hpp\"\n#include\
+    \ <iostream>\n#line 4 \"util/modint.hpp\"\n\nnamespace atcoder {\n\ntemplate <int\
     \ MOD> std::istream& operator>>(std::istream& is, static_modint<MOD>& x) {\n \
     \   int64_t v;\n    x = static_modint<MOD>{(is >> v, v)};\n    return is;\n}\n\
     \ntemplate <int MOD> std::ostream& operator<<(std::ostream& os, const static_modint<MOD>&\
@@ -527,7 +527,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/exp_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2021-11-29 20:12:26+09:00'
+  timestamp: '2021-12-05 15:22:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/exp_of_formal_power_series.test.cpp

@@ -30,9 +30,6 @@ data:
     path: math/fast_factorize.hpp
     title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
       \ + Pollard's rho algorithm)"
-  - icon: ':heavy_check_mark:'
-    path: math/floor_sum.hpp
-    title: Sum of Floor of Linear
   - icon: ':warning:'
     path: string/Knuth_Morris_Pratt.hpp
     title: "Knuth Moriss Pratt (KMP\u6CD5)"
@@ -68,14 +65,8 @@ data:
     path: test/aoj/2306.test.cpp
     title: test/aoj/2306.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/2313.test.cpp
-    title: test/aoj/2313.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/2891.test.cpp
     title: test/aoj/2891.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/2903.test.cpp
-    title: test/aoj/2903.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_14_B.test.cpp
     title: test/aoj/ALDS1_14_B.test.cpp
@@ -221,12 +212,6 @@ data:
     path: test/aoj/GRL_5_B.test.cpp
     title: test/aoj/GRL_5_B.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_6_A.Dinic.test.cpp
-    title: test/aoj/GRL_6_A.Dinic.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_6_B.PrimalDual.test.cpp
-    title: test/aoj/GRL_6_B.PrimalDual.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/ITP1_11_A.test.cpp
     title: test/aoj/ITP1_11_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -290,9 +275,6 @@ data:
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/sum_of_floor_of_linear.test.cpp
-    title: test/yosupo/sum_of_floor_of_linear.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
   - icon: ':heavy_check_mark:'
@@ -310,12 +292,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1240.test.cpp
     title: test/yukicoder/1240.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1288.test.cpp
-    title: test/yukicoder/1288.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1301.test.cpp
-    title: test/yukicoder/1301.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1678.test.cpp
     title: test/yukicoder/1678.test.cpp
@@ -485,7 +461,6 @@ data:
   - util/RandomNumberGenerator_64.hpp
   - util/binary_conversion.hpp
   - math/fast_factorize.hpp
-  - math/floor_sum.hpp
   - linearalgebra/Kitamasa.hpp
   timestamp: '2021-10-31 14:57:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
@@ -505,7 +480,6 @@ data:
   - test/yosupo/static_range_sum.test.cpp
   - test/yosupo/factorize.test.cpp
   - test/yosupo/associative_array.test.cpp
-  - test/yosupo/sum_of_floor_of_linear.test.cpp
   - test/yosupo/zalgorithm.test.cpp
   - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
   - test/yosupo/unionfind.test.cpp
@@ -513,10 +487,8 @@ data:
   - test/yukicoder/1678.test.cpp
   - test/yukicoder/430.test.cpp
   - test/yukicoder/430.AhoCorasick.test.cpp
-  - test/yukicoder/1288.test.cpp
   - test/yukicoder/583.test.cpp
   - test/yukicoder/1240.test.cpp
-  - test/yukicoder/1301.test.cpp
   - test/aoj/CGL_7_A.test.cpp
   - test/aoj/1131.test.cpp
   - test/aoj/2891.test.cpp
@@ -530,7 +502,6 @@ data:
   - test/aoj/CGL_2_A.test.cpp
   - test/aoj/GRL_4_A.test.cpp
   - test/aoj/ITP1_11_C.test.cpp
-  - test/aoj/2313.test.cpp
   - test/aoj/GRL_5_B.test.cpp
   - test/aoj/ITP1_11_D.test.cpp
   - test/aoj/CGL_1_B.test.cpp
@@ -539,7 +510,6 @@ data:
   - test/aoj/CGL_1_C.test.cpp
   - test/aoj/NTL_1_A.test.cpp
   - test/aoj/CGL_4_C.test.cpp
-  - test/aoj/2903.test.cpp
   - test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
   - test/aoj/CGL_3_C.test.cpp
   - test/aoj/GRL_2_A.Prim.test.cpp
@@ -548,7 +518,6 @@ data:
   - test/aoj/ITP1_11_A.test.cpp
   - test/aoj/CGL_7_I.test.cpp
   - test/aoj/1181.test.cpp
-  - test/aoj/GRL_6_B.PrimalDual.test.cpp
   - test/aoj/CGL_2_D.test.cpp
   - test/aoj/CGL_7_H.test.cpp
   - test/aoj/GRL_1_B.test.cpp
@@ -567,7 +536,6 @@ data:
   - test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
   - test/aoj/CGL_3_A.test.cpp
   - test/aoj/DSL_3_D.test.cpp
-  - test/aoj/GRL_6_A.Dinic.test.cpp
   - test/aoj/ALDS1_14_C.test.cpp
   - test/aoj/CGL_4_A.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
