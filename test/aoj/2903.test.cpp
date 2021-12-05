@@ -1,15 +1,15 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/2903"
 
-#include "../../base.hpp"
-#include "../../flow/ProjectSelectionProblem.hpp"
+#include <iostream>
+#include "flow/ProjectSelectionProblem.hpp"
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int R, C;
-    cin >> R >> C;
-    vector<string> S(R);
-    for (int i = 0; i < R; i++) cin >> S[i];
+    std::cin >> R >> C;
+    std::vector<std::string> S(R);
+    for (int i = 0; i < R; i++) std::cin >> S[i];
 
     auto id = [&](int i, int j) { return i * C + j; };
     ProjectSelectionProblem<int> PSP(R * C);
@@ -30,5 +30,5 @@ int main() {
         }
     }
 
-    cout << ans + PSP.solve() << '\n';
+    std::cout << ans - PSP.max_profit() << '\n';
 }

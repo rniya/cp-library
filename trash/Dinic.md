@@ -15,6 +15,10 @@
 
 `max_flow` の計算量はケースごとにかなり異なり, 一般的には上記の計算量より高速に動作することが多い. 詳しくは Links にもある[Dinic 法とその時間計算量 - みさわめも](https://misawa.github.io/others/flow/dinic_time_complexity.html)を参照.
 
+## 問題例
+- [AOJ 2313 ハコの魔女](https://onlinejudge.u-aizu.ac.jp/problems/2313)
+  - 流し戻しが必要．
+
 ## Links
 - [Dinic 法の速さ - れんしゅうちょう.  - TopCoder部](https://topcoder-g-hatena-ne-jp.jag-icpc.org/Mi_Sawa/20140311/1394730337.html)
 - [Dinic 法とその時間計算量 - みさわめも](https://misawa.github.io/others/flow/dinic_time_complexity.html)

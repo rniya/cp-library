@@ -7,6 +7,7 @@ using mint = atcoder::modint998244353;
 using FPS = FormalPowerSeries<mint>;
 
 // https://ei1333.github.io/library/math/combinatorics/mod-sqrt.cpp
+namespace ei1333 {
 
 template <typename T> T mod_pow(T x, int64_t n, const T& p) {
     T ret = 1;
@@ -45,6 +46,8 @@ template <typename T> T mod_sqrt(const T& a, const T& p) {
     return x;
 }
 
+}  // namespace ei1333
+
 int main() {
     std::cin.tie(0);
     std::ios::sync_with_stdio(false);
@@ -52,7 +55,7 @@ int main() {
     std::cin >> N;
     FPS a(N);
     for (int i = 0; i < N; i++) std::cin >> a[i];
-    auto get_sqrt = [&](mint x) { return mod_sqrt<int64_t>(x.val(), mint::mod()); };
+    auto get_sqrt = [&](mint x) { return ei1333::mod_sqrt<int64_t>(x.val(), mint::mod()); };
     FPS b = a.sqrt(get_sqrt);
     if (b.empty()) {
         std::cout << -1 << '\n';
