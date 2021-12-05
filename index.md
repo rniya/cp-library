@@ -412,9 +412,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_C.test.cpp
       title: test/aoj/GRL_5_C.test.cpp
-    - icon: ':x:'
-      path: test/aoj/GRL_6_B.PrimalDual.test.cpp
-      title: test/aoj/GRL_6_B.PrimalDual.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/ITP1_11_A.test.cpp
       title: test/aoj/ITP1_11_A.test.cpp
@@ -557,15 +554,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1269.test.cpp
       title: test/yukicoder/1269.test.cpp
-    - icon: ':x:'
-      path: test/yukicoder/1288.test.cpp
-      title: test/yukicoder/1288.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1289.test.cpp
       title: test/yukicoder/1289.test.cpp
-    - icon: ':x:'
-      path: test/yukicoder/1301.test.cpp
-      title: test/yukicoder/1301.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1678.test.cpp
       title: test/yukicoder/1678.test.cpp
