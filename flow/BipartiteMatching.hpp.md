@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/flow/BipartiteMatching.md
-    document_title: Bipartite Matching
     links: []
   bundledCode: "#line 2 \"flow/BipartiteMatching.hpp\"\n#include <algorithm>\n#include\
     \ <cassert>\n#include <queue>\n#include <random>\n#include <utility>\n#include\
@@ -35,8 +33,7 @@ data:
     \ == -1) {\n                L[u] = v, R[v] = u;\n                return true;\n\
     \            }\n        }\n        for (int& v : G[u]) {\n            if (dfs(R[v]))\
     \ {\n                L[u] = v, R[v] = u;\n                return true;\n     \
-    \       }\n        }\n        return false;\n    }\n};\n\n/**\n * @brief Bipartite\
-    \ Matching\n * @docs docs/flow/BipartiteMatching.md\n */\n"
+    \       }\n        }\n        return false;\n    }\n};\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <queue>\n\
     #include <random>\n#include <utility>\n#include <vector>\n\nstruct BipartiteMatching\
     \ {\n    BipartiteMatching(int U, int V) : U(U), V(V), t(0), solved(false), G(U),\
@@ -59,23 +56,20 @@ data:
     \            return true;\n            }\n        }\n        for (int& v : G[u])\
     \ {\n            if (dfs(R[v])) {\n                L[u] = v, R[v] = u;\n     \
     \           return true;\n            }\n        }\n        return false;\n  \
-    \  }\n};\n\n/**\n * @brief Bipartite Matching\n * @docs docs/flow/BipartiteMatching.md\n\
-    \ */\n"
+    \  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: flow/BipartiteMatching.hpp
   requiredBy: []
-  timestamp: '2021-10-03 20:29:18+09:00'
+  timestamp: '2021-12-29 23:38:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/bipartitematching.test.cpp
 documentation_of: flow/BipartiteMatching.hpp
 layout: document
-redirect_from:
-- /library/flow/BipartiteMatching.hpp
-- /library/flow/BipartiteMatching.hpp.html
 title: Bipartite Matching
 ---
+
 # TODO
 最小点被覆, 最大独立集合, 最小辺被覆の実装
 

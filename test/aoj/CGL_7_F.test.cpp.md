@@ -299,13 +299,12 @@ data:
     \                auto diff = ps[i] - cand[j];\n                if (diff.y >= res)\
     \ break;\n                res = std::min(res, diff.abs());\n            }\n  \
     \          cand[cur++] = ps[i];\n        }\n        return res;\n    };\n    return\
-    \ dfs(dfs, 0, n);\n}\n\n}  // namespace geometry\n\n/**\n * @brief 2 \u6B21\u5143\
-    \u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA\n * @docs docs/geometry/geometry.md\n\
-    \ */\n#line 6 \"test/aoj/CGL_7_F.test.cpp\"\n\nusing namespace geometry;\n\nint\
-    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    cout << fixed\
-    \ << setprecision(10);\n    Point p;\n    Circle c;\n    cin >> p >> c;\n    auto\
-    \ res = tangent_to_circle(c, p);\n    if (res[0] > res[1]) swap(res[0], res[1]);\n\
-    \    cout << res[0] << '\\n' << res[1] << '\\n';\n    return 0;\n}\n"
+    \ dfs(dfs, 0, n);\n}\n\n}  // namespace geometry\n#line 6 \"test/aoj/CGL_7_F.test.cpp\"\
+    \n\nusing namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    cout << fixed << setprecision(10);\n    Point p;\n    Circle c;\n    cin\
+    \ >> p >> c;\n    auto res = tangent_to_circle(c, p);\n    if (res[0] > res[1])\
+    \ swap(res[0], res[1]);\n    cout << res[0] << '\\n' << res[1] << '\\n';\n   \
+    \ return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_F\"\
     \n#define ERROR 0.00001\n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\
     \n\nusing namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
@@ -319,7 +318,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_7_F.test.cpp
   requiredBy: []
-  timestamp: '2021-11-04 01:39:18+09:00'
+  timestamp: '2021-12-29 23:38:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_7_F.test.cpp

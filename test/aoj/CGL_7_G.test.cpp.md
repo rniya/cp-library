@@ -299,12 +299,10 @@ data:
     \                auto diff = ps[i] - cand[j];\n                if (diff.y >= res)\
     \ break;\n                res = std::min(res, diff.abs());\n            }\n  \
     \          cand[cur++] = ps[i];\n        }\n        return res;\n    };\n    return\
-    \ dfs(dfs, 0, n);\n}\n\n}  // namespace geometry\n\n/**\n * @brief 2 \u6B21\u5143\
-    \u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA\n * @docs docs/geometry/geometry.md\n\
-    \ */\n#line 6 \"test/aoj/CGL_7_G.test.cpp\"\n\nusing namespace geometry;\n\nint\
-    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    cout << fixed\
-    \ << setprecision(10);\n    Circle c1, c2;\n    cin >> c1 >> c2;\n    vector<Point>\
-    \ res;\n    for (auto l : common_tangent(c1, c2)) res.emplace_back(contain(c1,\
+    \ dfs(dfs, 0, n);\n}\n\n}  // namespace geometry\n#line 6 \"test/aoj/CGL_7_G.test.cpp\"\
+    \n\nusing namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    cout << fixed << setprecision(10);\n    Circle c1, c2;\n    cin >> c1 >>\
+    \ c2;\n    vector<Point> res;\n    for (auto l : common_tangent(c1, c2)) res.emplace_back(contain(c1,\
     \ l.a) ? l.a : l.b);\n    sort(res.begin(), res.end());\n    for (auto p : res)\
     \ cout << p << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_G\"\
@@ -320,7 +318,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_7_G.test.cpp
   requiredBy: []
-  timestamp: '2021-11-04 01:39:18+09:00'
+  timestamp: '2021-12-29 23:38:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_7_G.test.cpp

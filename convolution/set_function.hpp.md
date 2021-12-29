@@ -19,8 +19,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/convolution/set_function.md
-    document_title: set function (FZT, FMT, FWHT)
     links: []
   bundledCode: "#line 2 \"convolution/set_function.hpp\"\n#include <cassert>\n#include\
     \ <vector>\n\nnamespace set_function {\n\n// subset sum : f(S) <- \\sum_{T \\\
@@ -60,8 +58,7 @@ data:
     \ T> std::vector<T> xor_convolution(std::vector<T> f, std::vector<T> g) {\n  \
     \  assert(f.size() == g.size());\n    walsh_hadamard_transform(f);\n    walsh_hadamard_transform(g);\n\
     \    for (size_t i = 0; i < f.size(); i++) f[i] *= g[i];\n    walsh_hadamard_transform(f,\
-    \ true);\n    return f;\n}\n\n}  // namespace set_function\n\n/**\n * @brief set\
-    \ function (FZT, FMT, FWHT)\n * @docs docs/convolution/set_function.md\n */\n"
+    \ true);\n    return f;\n}\n\n}  // namespace set_function\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\nnamespace set_function\
     \ {\n\n// subset sum : f(S) <- \\sum_{T \\subseteq S} f(T)\ntemplate <typename\
     \ T> void subset_zeta_transform(std::vector<T>& f) {\n    int n = f.size();\n\
@@ -100,13 +97,12 @@ data:
     \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    walsh_hadamard_transform(f);\n\
     \    walsh_hadamard_transform(g);\n    for (size_t i = 0; i < f.size(); i++) f[i]\
     \ *= g[i];\n    walsh_hadamard_transform(f, true);\n    return f;\n}\n\n}  //\
-    \ namespace set_function\n\n/**\n * @brief set function (FZT, FMT, FWHT)\n * @docs\
-    \ docs/convolution/set_function.md\n */\n"
+    \ namespace set_function\n"
   dependsOn: []
   isVerificationFile: false
   path: convolution/set_function.hpp
   requiredBy: []
-  timestamp: '2021-10-03 17:00:08+09:00'
+  timestamp: '2021-12-29 23:38:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1289.test.cpp
@@ -115,11 +111,9 @@ data:
   - test/yosupo/bitwise_and_convolution.test.cpp
 documentation_of: convolution/set_function.hpp
 layout: document
-redirect_from:
-- /library/convolution/set_function.hpp
-- /library/convolution/set_function.hpp.html
 title: set function (FZT, FMT, FWHT)
 ---
+
 ## 概要
 高速ゼータ変換 (Fast Zeta Transform) , 高速メビウス変換 (Fast Mobius Transform) や 高速ウォルシュ-アダマール変換 (Fast Walsh-Hadamard Transform) といった集合に関する諸変換及びそれに関連して bitwise な演算上の畳み込みを扱うライブラリ.
 

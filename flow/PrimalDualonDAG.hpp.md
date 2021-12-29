@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/flow/PrimalDualonDAG.md
-    document_title: Primal Dual on DAG (allow negative-cost edge)
     links: []
   bundledCode: "#line 2 \"flow/PrimalDualonDAG.hpp\"\n#include <cassert>\n#include\
     \ <limits>\n#include <queue>\n#include <vector>\n\ntemplate <typename Cap, typename\
@@ -76,8 +74,7 @@ data:
     \    }\n            flow += d;\n            cost += d * h[t];\n            if\
     \ (prev_cost_pre_flow == d) res.pop_back();\n            res.emplace_back(flow,\
     \ cost);\n            prev_cost_pre_flow = d;\n        }\n        return res;\n\
-    \    }\n};\n\n/**\n * @brief Primal Dual on DAG (allow negative-cost edge)\n *\
-    \ @docs docs/flow/PrimalDualonDAG.md\n */\n"
+    \    }\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <limits>\n#include <queue>\n#include\
     \ <vector>\n\ntemplate <typename Cap, typename Cost> struct PrimalDualonDAG {\n\
     \    PrimalDualonDAG(int n) : n(n), G(n), h(n), dist(n), prevv(n), preve(n), indeg(n,\
@@ -141,23 +138,21 @@ data:
     \    }\n            flow += d;\n            cost += d * h[t];\n            if\
     \ (prev_cost_pre_flow == d) res.pop_back();\n            res.emplace_back(flow,\
     \ cost);\n            prev_cost_pre_flow = d;\n        }\n        return res;\n\
-    \    }\n};\n\n/**\n * @brief Primal Dual on DAG (allow negative-cost edge)\n *\
-    \ @docs docs/flow/PrimalDualonDAG.md\n */\n"
+    \    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: flow/PrimalDualonDAG.hpp
   requiredBy: []
-  timestamp: '2021-10-17 17:14:51+09:00'
+  timestamp: '2021-12-29 23:38:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1678.test.cpp
 documentation_of: flow/PrimalDualonDAG.hpp
 layout: document
-redirect_from:
-- /library/flow/PrimalDualonDAG.hpp
-- /library/flow/PrimalDualonDAG.hpp.html
-title: Primal Dual on DAG (allow negative-cost edge)
+title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\u6D41\
+  \uFF09"
 ---
+
 ## 概要
 負辺を含む最小費用流を計算する際に, 各頂点のポテンシャルの初期値さえ計算できれば後は Dijkstra 法で問題ない. このポテンシャルの初期値の計算について, 負辺があったとしても Bellman-Ford 法を用いれば負閉路がない限りは $O(nm)$ で問題なく計算できる. ここで, 最小費用流において負辺が登場するのはグラフが特殊な形状, 特に DAG であるケースが多く, この場合はさらに高速に $O(n + m)$ で前計算が可能となる.
 

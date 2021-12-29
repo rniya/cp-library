@@ -23,7 +23,8 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: convolution/gcd_convolution.hpp
-      title: "gcd convolution (\u6DFB\u5B57 gcd \u7573\u307F\u8FBC\u307F)"
+      title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\
+        \uFF09"
     - icon: ':heavy_check_mark:'
       path: convolution/set_function.hpp
       title: set function (FZT, FMT, FWHT)
@@ -81,7 +82,8 @@ data:
       title: Bipartite Matching
     - icon: ':heavy_check_mark:'
       path: flow/PrimalDualonDAG.hpp
-      title: Primal Dual on DAG (allow negative-cost edge)
+      title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\
+        \u6D41\uFF09"
     - icon: ':heavy_check_mark:'
       path: flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem (based on ac-library)

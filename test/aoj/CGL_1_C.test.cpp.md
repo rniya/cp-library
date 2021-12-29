@@ -298,18 +298,16 @@ data:
     \                auto diff = ps[i] - cand[j];\n                if (diff.y >= res)\
     \ break;\n                res = std::min(res, diff.abs());\n            }\n  \
     \          cand[cur++] = ps[i];\n        }\n        return res;\n    };\n    return\
-    \ dfs(dfs, 0, n);\n}\n\n}  // namespace geometry\n\n/**\n * @brief 2 \u6B21\u5143\
-    \u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA\n * @docs docs/geometry/geometry.md\n\
-    \ */\n#line 5 \"test/aoj/CGL_1_C.test.cpp\"\n\nusing namespace geometry;\n\nint\
-    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    Point p_0,\
-    \ p_1;\n    cin >> p_0 >> p_1;\n    int q;\n    cin >> q;\n    for (; q--;) {\n\
-    \        Point p_2;\n        cin >> p_2;\n        int res = ccw(p_0, p_1, p_2);\n\
-    \        if (res == 1)\n            cout << \"COUNTER_CLOCKWISE\" << '\\n';\n\
-    \        else if (res == -1)\n            cout << \"CLOCKWISE\" << '\\n';\n  \
-    \      else if (res == 2)\n            cout << \"ONLINE_BACK\" << '\\n';\n   \
-    \     else if (res == -2)\n            cout << \"ONLINE_FRONT\" << '\\n';\n  \
-    \      else\n            cout << \"ON_SEGMENT\" << '\\n';\n    }\n    return 0;\n\
-    }\n"
+    \ dfs(dfs, 0, n);\n}\n\n}  // namespace geometry\n#line 5 \"test/aoj/CGL_1_C.test.cpp\"\
+    \n\nusing namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    Point p_0, p_1;\n    cin >> p_0 >> p_1;\n    int q;\n    cin >> q;\n    for\
+    \ (; q--;) {\n        Point p_2;\n        cin >> p_2;\n        int res = ccw(p_0,\
+    \ p_1, p_2);\n        if (res == 1)\n            cout << \"COUNTER_CLOCKWISE\"\
+    \ << '\\n';\n        else if (res == -1)\n            cout << \"CLOCKWISE\" <<\
+    \ '\\n';\n        else if (res == 2)\n            cout << \"ONLINE_BACK\" << '\\\
+    n';\n        else if (res == -2)\n            cout << \"ONLINE_FRONT\" << '\\\
+    n';\n        else\n            cout << \"ON_SEGMENT\" << '\\n';\n    }\n    return\
+    \ 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\n\n\
     using namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
@@ -327,7 +325,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2021-11-04 01:39:18+09:00'
+  timestamp: '2021-12-29 23:38:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_1_C.test.cpp

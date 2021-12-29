@@ -298,13 +298,11 @@ data:
     \                auto diff = ps[i] - cand[j];\n                if (diff.y >= res)\
     \ break;\n                res = std::min(res, diff.abs());\n            }\n  \
     \          cand[cur++] = ps[i];\n        }\n        return res;\n    };\n    return\
-    \ dfs(dfs, 0, n);\n}\n\n}  // namespace geometry\n\n/**\n * @brief 2 \u6B21\u5143\
-    \u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA\n * @docs docs/geometry/geometry.md\n\
-    \ */\n#line 5 \"test/aoj/CGL_2_B.test.cpp\"\n\nusing namespace geometry;\n\nint\
-    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int q;\n  \
-    \  cin >> q;\n    for (; q--;) {\n        Segment s_1, s_2;\n        cin >> s_1\
-    \ >> s_2;\n        cout << intersect(s_1, s_2) << '\\n';\n    }\n    return 0;\n\
-    }\n"
+    \ dfs(dfs, 0, n);\n}\n\n}  // namespace geometry\n#line 5 \"test/aoj/CGL_2_B.test.cpp\"\
+    \n\nusing namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int q;\n    cin >> q;\n    for (; q--;) {\n        Segment s_1, s_2;\n  \
+    \      cin >> s_1 >> s_2;\n        cout << intersect(s_1, s_2) << '\\n';\n   \
+    \ }\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../geometry/geometry.hpp\"\n\n\
     using namespace geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
@@ -317,7 +315,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_2_B.test.cpp
   requiredBy: []
-  timestamp: '2021-11-04 01:39:18+09:00'
+  timestamp: '2021-12-29 23:38:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_2_B.test.cpp

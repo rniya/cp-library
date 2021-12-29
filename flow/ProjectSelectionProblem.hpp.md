@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/flow/ProjectSelectionProblem.md
-    document_title: Project Selection Problem (based on ac-library)
     links: []
   bundledCode: "#line 2 \"flow/ProjectSelectionProblem.hpp\"\n#include <algorithm>\n\
     #include <cassert>\n#include <limits>\n#include <queue>\n#include <vector>\n\n\
@@ -99,9 +97,7 @@ data:
     \ t) - sum; }\n\n    T max_profit() { return -min_loss(); }\n\nprivate:\n    int\
     \ n, s, t;\n    T sum;\n    const T inf = std::numeric_limits<T>::max() / 2;\n\
     \    mf_graph<T> graph;\n};\n\n}  // namespace ProjectSelectionProblem_Impl\n\n\
-    using ProjectSelectionProblem_Impl::ProjectSelectionProblem;\n\n/**\n * @brief\
-    \ Project Selection Problem (based on ac-library)\n * @docs docs/flow/ProjectSelectionProblem.md\n\
-    \ */\n"
+    using ProjectSelectionProblem_Impl::ProjectSelectionProblem;\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <limits>\n\
     #include <queue>\n#include <vector>\n\n#include \"atcoder/internal_queue\"\n\n\
     namespace ProjectSelectionProblem_Impl {\n\ntemplate <class Cap> struct mf_graph\
@@ -180,24 +176,20 @@ data:
     \ t) - sum; }\n\n    T max_profit() { return -min_loss(); }\n\nprivate:\n    int\
     \ n, s, t;\n    T sum;\n    const T inf = std::numeric_limits<T>::max() / 2;\n\
     \    mf_graph<T> graph;\n};\n\n}  // namespace ProjectSelectionProblem_Impl\n\n\
-    using ProjectSelectionProblem_Impl::ProjectSelectionProblem;\n\n/**\n * @brief\
-    \ Project Selection Problem (based on ac-library)\n * @docs docs/flow/ProjectSelectionProblem.md\n\
-    \ */\n"
+    using ProjectSelectionProblem_Impl::ProjectSelectionProblem;\n"
   dependsOn: []
   isVerificationFile: false
   path: flow/ProjectSelectionProblem.hpp
   requiredBy: []
-  timestamp: '2021-12-05 15:22:47+09:00'
+  timestamp: '2021-12-29 23:38:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp
 documentation_of: flow/ProjectSelectionProblem.hpp
 layout: document
-redirect_from:
-- /library/flow/ProjectSelectionProblem.hpp
-- /library/flow/ProjectSelectionProblem.hpp.html
 title: Project Selection Problem (based on ac-library)
 ---
+
 ## 概要
 Project Selection Problem, いわゆる燃やす埋める問題を解く際の補助ライブラリ.
 

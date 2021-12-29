@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/convolution/gcd_convolution.md
-    document_title: "gcd convolution (\u6DFB\u5B57 gcd \u7573\u307F\u8FBC\u307F)"
     links: []
   bundledCode: "#line 2 \"convolution/gcd_convolution.hpp\"\n#include <cassert>\n\
     #include <vector>\n\nnamespace gcd_convolution {\n\n// f(k) <- \\sum_{k | i} f(i)\n\
@@ -29,8 +27,7 @@ data:
     \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    divisor_transform(f);\n\
     \    divisor_transform(g);\n    for (size_t i = 0; i < f.size(); i++) f[i] *=\
     \ g[i];\n    inverse_divisor_transform(f);\n    return f;\n}\n\n}  // namespace\
-    \ gcd_convolution\n\n/**\n * @brief gcd convolution (\u6DFB\u5B57 gcd \u7573\u307F\
-    \u8FBC\u307F)\n * @docs docs/convolution/gcd_convolution.md\n */\n"
+    \ gcd_convolution\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\nnamespace gcd_convolution\
     \ {\n\n// f(k) <- \\sum_{k | i} f(i)\ntemplate <typename T> void divisor_transform(std::vector<T>&\
     \ f) {\n    int n = f.size();\n    std::vector<bool> sieve(n, true);\n    for\
@@ -47,23 +44,20 @@ data:
     \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    divisor_transform(f);\n\
     \    divisor_transform(g);\n    for (size_t i = 0; i < f.size(); i++) f[i] *=\
     \ g[i];\n    inverse_divisor_transform(f);\n    return f;\n}\n\n}  // namespace\
-    \ gcd_convolution\n\n/**\n * @brief gcd convolution (\u6DFB\u5B57 gcd \u7573\u307F\
-    \u8FBC\u307F)\n * @docs docs/convolution/gcd_convolution.md\n */"
+    \ gcd_convolution\n"
   dependsOn: []
   isVerificationFile: false
   path: convolution/gcd_convolution.hpp
   requiredBy: []
-  timestamp: '2021-10-17 17:14:51+09:00'
+  timestamp: '2021-12-29 23:38:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/886.test.cpp
 documentation_of: convolution/gcd_convolution.hpp
 layout: document
-redirect_from:
-- /library/convolution/gcd_convolution.hpp
-- /library/convolution/gcd_convolution.hpp.html
-title: "gcd convolution (\u6DFB\u5B57 gcd \u7573\u307F\u8FBC\u307F)"
+title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\uFF09"
 ---
+
 ## 概要
 数列を添字の $\gcd$ 演算に関して畳み込む.
 

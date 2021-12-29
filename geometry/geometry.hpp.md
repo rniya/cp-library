@@ -76,8 +76,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/geometry/geometry.md
-    document_title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
     links: []
   bundledCode: "#line 2 \"geometry/geometry.hpp\"\n#include <algorithm>\n#include\
     \ <cassert>\n#include <cmath>\n#include <iostream>\n#include <tuple>\n#include\
@@ -296,9 +294,7 @@ data:
     \                auto diff = ps[i] - cand[j];\n                if (diff.y >= res)\
     \ break;\n                res = std::min(res, diff.abs());\n            }\n  \
     \          cand[cur++] = ps[i];\n        }\n        return res;\n    };\n    return\
-    \ dfs(dfs, 0, n);\n}\n\n}  // namespace geometry\n\n/**\n * @brief 2 \u6B21\u5143\
-    \u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA\n * @docs docs/geometry/geometry.md\n\
-    \ */\n"
+    \ dfs(dfs, 0, n);\n}\n\n}  // namespace geometry\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <cmath>\n\
     #include <iostream>\n#include <tuple>\n#include <vector>\n\nnamespace geometry\
     \ {\nusing Real = double;  // change this flexibly if you want more precision\n\
@@ -516,14 +512,12 @@ data:
     \                auto diff = ps[i] - cand[j];\n                if (diff.y >= res)\
     \ break;\n                res = std::min(res, diff.abs());\n            }\n  \
     \          cand[cur++] = ps[i];\n        }\n        return res;\n    };\n    return\
-    \ dfs(dfs, 0, n);\n}\n\n}  // namespace geometry\n\n/**\n * @brief 2 \u6B21\u5143\
-    \u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA\n * @docs docs/geometry/geometry.md\n\
-    \ */\n"
+    \ dfs(dfs, 0, n);\n}\n\n}  // namespace geometry\n"
   dependsOn: []
   isVerificationFile: false
   path: geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2021-11-04 01:39:18+09:00'
+  timestamp: '2021-12-29 23:38:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL_7_E.test.cpp
@@ -551,11 +545,10 @@ data:
   - test/aoj/CGL_7_C.test.cpp
 documentation_of: geometry/geometry.hpp
 layout: document
-redirect_from:
-- /library/geometry/geometry.hpp
-- /library/geometry/geometry.hpp.html
 title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
 ---
+
+
 ## 概要
 2 次元幾何ライブラリ. 主に ICPC 用.
 

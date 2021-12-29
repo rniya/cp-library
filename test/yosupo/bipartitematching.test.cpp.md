@@ -40,9 +40,8 @@ data:
     \ == -1) {\n                L[u] = v, R[v] = u;\n                return true;\n\
     \            }\n        }\n        for (int& v : G[u]) {\n            if (dfs(R[v]))\
     \ {\n                L[u] = v, R[v] = u;\n                return true;\n     \
-    \       }\n        }\n        return false;\n    }\n};\n\n/**\n * @brief Bipartite\
-    \ Matching\n * @docs docs/flow/BipartiteMatching.md\n */\n#line 2 \"base.hpp\"\
-    \n#define LOCAL\n#include <bits/stdc++.h>\nusing namespace std;\n#pragma region\
+    \       }\n        }\n        return false;\n    }\n};\n#line 2 \"base.hpp\"\n\
+    #define LOCAL\n#include <bits/stdc++.h>\nusing namespace std;\n#pragma region\
     \ Macros\ntypedef long long ll;\ntypedef __int128_t i128;\ntypedef unsigned int\
     \ uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(), (x).end()\n\
     \ntemplate <typename T> istream& operator>>(istream& is, vector<T>& v) {\n   \
@@ -126,7 +125,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-29 23:38:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/bipartitematching.test.cpp
