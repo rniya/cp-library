@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/tree/CentroidDecomposition.md
-    document_title: Centroid Decomposition
     links: []
   bundledCode: "#line 2 \"tree/CentroidDecomposition.hpp\"\n#include <cassert>\n#include\
     \ <vector>\n\nstruct CentroidDecomposition {\n    std::vector<std::vector<int>>\
@@ -31,8 +29,7 @@ data:
     \ r) {\n        int centroid = dfs_search_centroid(r, -1, dfs_sz(r, -1) / 2);\n\
     \        centroids.emplace_back(centroid);\n        is_centroid[centroid] = true;\n\
     \        for (int& ch : G[centroid]) {\n            if (is_centroid[ch]) continue;\n\
-    \            centroid_decomposition(ch);\n        }\n    }\n};\n\n/**\n * @brief\
-    \ Centroid Decomposition\n * @docs docs/tree/CentroidDecomposition.md\n */\n"
+    \            centroid_decomposition(ch);\n        }\n    }\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\nstruct CentroidDecomposition\
     \ {\n    std::vector<std::vector<int>> G;\n\n    CentroidDecomposition(int n)\
     \ : G(n), n(n), sub(n), is_centroid(n) {}\n\n    void add_edge(int u, int v) {\n\
@@ -51,23 +48,20 @@ data:
     \ = dfs_search_centroid(r, -1, dfs_sz(r, -1) / 2);\n        centroids.emplace_back(centroid);\n\
     \        is_centroid[centroid] = true;\n        for (int& ch : G[centroid]) {\n\
     \            if (is_centroid[ch]) continue;\n            centroid_decomposition(ch);\n\
-    \        }\n    }\n};\n\n/**\n * @brief Centroid Decomposition\n * @docs docs/tree/CentroidDecomposition.md\n\
-    \ */\n"
+    \        }\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: tree/CentroidDecomposition.hpp
   requiredBy: []
-  timestamp: '2021-10-03 22:16:57+09:00'
+  timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/frequency_table_of_tree_distance.test.cpp
 documentation_of: tree/CentroidDecomposition.hpp
 layout: document
-redirect_from:
-- /library/tree/CentroidDecomposition.hpp
-- /library/tree/CentroidDecomposition.hpp.html
-title: Centroid Decomposition
+title: "Centroid Decomposition\uFF08\u6728\u306E\u91CD\u5FC3\u5206\u89E3\uFF09"
 ---
+
 ## 概要
 木の重心分解を扱う.
 

@@ -5,7 +5,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: algorithm/Mo.hpp
-      title: Mo's algorithm
+      title: Mo's Algorithm
     - icon: ':warning:'
       path: algorithm/monotone_minima.hpp
       title: monotone minima
@@ -85,6 +85,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem (based on ac-library)
+    - icon: ':warning:'
+      path: flow/Simplex.hpp
+      title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"
   - name: geometry
     pages:
     - icon: ':heavy_check_mark:'
@@ -171,7 +174,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: polynomial/FormalPowerSeries.hpp
-      title: "Formal Power Series (\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
+      title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
     - icon: ':heavy_check_mark:'
       path: polynomial/lagrange_interpolation.hpp
       title: Lagrange Interpolation
@@ -202,10 +205,10 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: tree/CentroidDecomposition.hpp
-      title: Centroid Decomposition
+      title: "Centroid Decomposition\uFF08\u6728\u306E\u91CD\u5FC3\u5206\u89E3\uFF09"
     - icon: ':heavy_check_mark:'
       path: tree/HeavyLightDecomposition.hpp
-      title: Heavy Light Decomposition
+      title: tree/HeavyLightDecomposition.hpp
     - icon: ':heavy_check_mark:'
       path: tree/TreeDiameter.hpp
       title: Tree Diameter

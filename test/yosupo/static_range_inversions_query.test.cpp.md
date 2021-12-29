@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: algorithm/Mo.hpp
-    title: Mo's algorithm
+    title: Mo's Algorithm
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -34,28 +34,28 @@ data:
     \ del_right(--r);\n            rem(idx);\n        }\n    }\n\n    template <typename\
     \ A, typename D, typename REM> void run(const A& add, const D& del, const REM&\
     \ rem) {\n        run(add, add, del, del, rem);\n    }\n\nprivate:\n    int n;\n\
-    \    std::vector<int> left, right;\n};\n\n/**\n * @brief Mo's algorithm\n * @docs\
-    \ docs/other/Mo.md\n */\n#line 1 \"atcoder/fenwicktree.hpp\"\n\n\n\n#line 6 \"\
-    atcoder/fenwicktree.hpp\"\n\n#line 1 \"atcoder/internal_type_traits.hpp\"\n\n\n\
-    \n#line 6 \"atcoder/internal_type_traits.hpp\"\n#include <type_traits>\n\nnamespace\
-    \ atcoder {\n\nnamespace internal {\n\n#ifndef _MSC_VER\ntemplate <class T>\n\
-    using is_signed_int128 =\n    typename std::conditional<std::is_same<T, __int128_t>::value\
-    \ ||\n                                  std::is_same<T, __int128>::value,\n  \
-    \                            std::true_type,\n                              std::false_type>::type;\n\
-    \ntemplate <class T>\nusing is_unsigned_int128 =\n    typename std::conditional<std::is_same<T,\
-    \ __uint128_t>::value ||\n                                  std::is_same<T, unsigned\
-    \ __int128>::value,\n                              std::true_type,\n         \
-    \                     std::false_type>::type;\n\ntemplate <class T>\nusing make_unsigned_int128\
-    \ =\n    typename std::conditional<std::is_same<T, __int128_t>::value,\n     \
-    \                         __uint128_t,\n                              unsigned\
-    \ __int128>;\n\ntemplate <class T>\nusing is_integral = typename std::conditional<std::is_integral<T>::value\
-    \ ||\n                                                  is_signed_int128<T>::value\
-    \ ||\n                                                  is_unsigned_int128<T>::value,\n\
-    \                                              std::true_type,\n             \
-    \                                 std::false_type>::type;\n\ntemplate <class T>\n\
-    using is_signed_int = typename std::conditional<(is_integral<T>::value &&\n  \
-    \                                               std::is_signed<T>::value) ||\n\
-    \                                                    is_signed_int128<T>::value,\n\
+    \    std::vector<int> left, right;\n};\n#line 1 \"atcoder/fenwicktree.hpp\"\n\n\
+    \n\n#line 6 \"atcoder/fenwicktree.hpp\"\n\n#line 1 \"atcoder/internal_type_traits.hpp\"\
+    \n\n\n\n#line 6 \"atcoder/internal_type_traits.hpp\"\n#include <type_traits>\n\
+    \nnamespace atcoder {\n\nnamespace internal {\n\n#ifndef _MSC_VER\ntemplate <class\
+    \ T>\nusing is_signed_int128 =\n    typename std::conditional<std::is_same<T,\
+    \ __int128_t>::value ||\n                                  std::is_same<T, __int128>::value,\n\
+    \                              std::true_type,\n                             \
+    \ std::false_type>::type;\n\ntemplate <class T>\nusing is_unsigned_int128 =\n\
+    \    typename std::conditional<std::is_same<T, __uint128_t>::value ||\n      \
+    \                            std::is_same<T, unsigned __int128>::value,\n    \
+    \                          std::true_type,\n                              std::false_type>::type;\n\
+    \ntemplate <class T>\nusing make_unsigned_int128 =\n    typename std::conditional<std::is_same<T,\
+    \ __int128_t>::value,\n                              __uint128_t,\n          \
+    \                    unsigned __int128>;\n\ntemplate <class T>\nusing is_integral\
+    \ = typename std::conditional<std::is_integral<T>::value ||\n                \
+    \                                  is_signed_int128<T>::value ||\n           \
+    \                                       is_unsigned_int128<T>::value,\n      \
+    \                                        std::true_type,\n                   \
+    \                           std::false_type>::type;\n\ntemplate <class T>\nusing\
+    \ is_signed_int = typename std::conditional<(is_integral<T>::value &&\n      \
+    \                                           std::is_signed<T>::value) ||\n   \
+    \                                                 is_signed_int128<T>::value,\n\
     \                                                std::true_type,\n           \
     \                                     std::false_type>::type;\n\ntemplate <class\
     \ T>\nusing is_unsigned_int =\n    typename std::conditional<(is_integral<T>::value\
@@ -134,7 +134,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2021-12-04 17:03:44+09:00'
+  timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: tree/HeavyLightDecomposition.hpp
-    title: Heavy Light Decomposition
+    title: tree/HeavyLightDecomposition.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -77,12 +77,11 @@ data:
     \ // (u, v], u is ancestor of v\n        if (u == v) return {};\n        if (head[u]\
     \ == head[v]) return {{vertex_id[u] + 1, vertex_id[v]}};\n        auto res = descend(u,\
     \ par[head[v]]);\n        res.emplace_back(vertex_id[head[v]], vertex_id[v]);\n\
-    \        return res;\n    }\n};\n\n/**\n * @brief Heavy Light Decomposition\n\
-    \ * @docs docs/tree/HeavyLightDecomposition.md\n */\n#line 5 \"test/aoj/GRL_5_C.test.cpp\"\
-    \n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
-    \    int n;\n    std::cin >> n;\n    HeavyLightDecomposition HLD(n);\n    for\
-    \ (int i = 0; i < n; i++) {\n        int k;\n        std::cin >> k;\n        for\
-    \ (; k--;) {\n            int c;\n            std::cin >> c;\n            HLD.add_edge(i,\
+    \        return res;\n    }\n};\n#line 5 \"test/aoj/GRL_5_C.test.cpp\"\n\nint\
+    \ main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int\
+    \ n;\n    std::cin >> n;\n    HeavyLightDecomposition HLD(n);\n    for (int i\
+    \ = 0; i < n; i++) {\n        int k;\n        std::cin >> k;\n        for (; k--;)\
+    \ {\n            int c;\n            std::cin >> c;\n            HLD.add_edge(i,\
     \ c);\n        }\n    }\n    HLD.build();\n\n    int q;\n    std::cin >> q;\n\
     \    for (; q--;) {\n        int u, v;\n        std::cin >> u >> v;\n        std::cout\
     \ << HLD.lca(u, v) << '\\n';\n    }\n}\n"
@@ -100,7 +99,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_C.test.cpp
   requiredBy: []
-  timestamp: '2021-12-04 01:02:29+09:00'
+  timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_C.test.cpp

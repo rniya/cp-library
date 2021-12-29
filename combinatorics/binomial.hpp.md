@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/combinatorics/binomial.md
-    document_title: binomial
     links: []
   bundledCode: "#line 2 \"combinatorics/binomial.hpp\"\n#include <cassert>\n#include\
     \ <vector>\n\ntemplate <typename T> struct Binomial {\n    Binomial(int MAX =\
@@ -35,8 +33,7 @@ data:
     \ - 1] = T(1) / facs[m - 1];\n        invs[m - 1] = finvs[m - 1] * facs[m - 2];\n\
     \        for (int i = m - 2; i >= n; i--) {\n            finvs[i] = finvs[i +\
     \ 1] * (i + 1);\n            invs[i] = finvs[i] * facs[i - 1];\n        }\n  \
-    \      n = m;\n    }\n};\n\n/**\n * @brief binomial\n * @docs docs/combinatorics/binomial.md\n\
-    \ */\n"
+    \      n = m;\n    }\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\ntemplate <typename\
     \ T> struct Binomial {\n    Binomial(int MAX = 0) : n(1), facs(1, T(1)), finvs(1,\
     \ T(1)), invs(1, T(1)) {\n        while (n <= MAX) extend();\n    }\n\n    T fac(int\
@@ -58,23 +55,20 @@ data:
     \ - 1] * i;\n        finvs[m - 1] = T(1) / facs[m - 1];\n        invs[m - 1] =\
     \ finvs[m - 1] * facs[m - 2];\n        for (int i = m - 2; i >= n; i--) {\n  \
     \          finvs[i] = finvs[i + 1] * (i + 1);\n            invs[i] = finvs[i]\
-    \ * facs[i - 1];\n        }\n        n = m;\n    }\n};\n\n/**\n * @brief binomial\n\
-    \ * @docs docs/combinatorics/binomial.md\n */\n"
+    \ * facs[i - 1];\n        }\n        n = m;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: combinatorics/binomial.hpp
   requiredBy: []
-  timestamp: '2021-09-26 16:55:29+09:00'
+  timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DPL_5_E.test.cpp
 documentation_of: combinatorics/binomial.hpp
 layout: document
-redirect_from:
-- /library/combinatorics/binomial.hpp
-- /library/combinatorics/binomial.hpp.html
 title: binomial
 ---
+
 ## 概要
 $\mathbb{Z}/p\mathbb{Z}$ における二項係数を扱うライブラリ. $n$ の上限等を指定する必要はなく, 不十分な場合に適宜上限を 2 倍にしていくことで効率的に計算する. 上限 $n$ , クエリ数 $q$ の際の時間計算量は $O(q + n + \log n\log p)$ となる.
 

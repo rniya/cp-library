@@ -101,8 +101,7 @@ data:
     \ = p;\n        if (p < 0) dist[v] = T(0);\n        if (dist[argmax] < dist[v])\
     \ argmax = v;\n        for (auto& e : G[v]) {\n            int u = e.first;\n\
     \            if (u == p) continue;\n            dist[u] = dist[v] + e.second;\n\
-    \            dfs(u, v);\n        }\n    }\n};\n\n/**\n * @brief Tree Diameter\n\
-    \ * @docs docs/tree/TreeDiameter.md\n */\n#line 5 \"test/yosupo/tree_diameter.test.cpp\"\
+    \            dfs(u, v);\n        }\n    }\n};\n#line 5 \"test/yosupo/tree_diameter.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\n\
     \    cin >> N;\n\n    TreeDiameter<long long> TD(N);\n    for (int i = 0; i <\
     \ N - 1; i++) {\n        int a, b;\n        long long c;\n        cin >> a >>\
@@ -125,7 +124,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/tree_diameter.test.cpp

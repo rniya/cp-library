@@ -16,8 +16,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/tree/TreeDiameter.md
-    document_title: Tree Diameter
     links: []
   bundledCode: "#line 2 \"tree/TreeDiameter.hpp\"\n#include <cassert>\n#include <vector>\n\
     \ntemplate <typename T = int> struct TreeDiameter {\n    std::vector<std::vector<std::pair<int,\
@@ -38,8 +36,7 @@ data:
     \ dist[v] = T(0);\n        if (dist[argmax] < dist[v]) argmax = v;\n        for\
     \ (auto& e : G[v]) {\n            int u = e.first;\n            if (u == p) continue;\n\
     \            dist[u] = dist[v] + e.second;\n            dfs(u, v);\n        }\n\
-    \    }\n};\n\n/**\n * @brief Tree Diameter\n * @docs docs/tree/TreeDiameter.md\n\
-    \ */\n"
+    \    }\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\ntemplate <typename\
     \ T = int> struct TreeDiameter {\n    std::vector<std::vector<std::pair<int, T>>>\
     \ G;\n\n    TreeDiameter(int n) : G(n), n(n), dist(n), par(n) {}\n\n    void add_edge(int\
@@ -59,25 +56,22 @@ data:
     \ dist[v] = T(0);\n        if (dist[argmax] < dist[v]) argmax = v;\n        for\
     \ (auto& e : G[v]) {\n            int u = e.first;\n            if (u == p) continue;\n\
     \            dist[u] = dist[v] + e.second;\n            dfs(u, v);\n        }\n\
-    \    }\n};\n\n/**\n * @brief Tree Diameter\n * @docs docs/tree/TreeDiameter.md\n\
-    \ */"
+    \    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: tree/TreeDiameter.hpp
   requiredBy: []
-  timestamp: '2021-09-27 13:41:22+09:00'
+  timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/tree_diameter.test.cpp
-  - test/aoj/GRL_5_B.test.cpp
   - test/aoj/GRL_5_A.test.cpp
+  - test/aoj/GRL_5_B.test.cpp
+  - test/yosupo/tree_diameter.test.cpp
 documentation_of: tree/TreeDiameter.hpp
 layout: document
-redirect_from:
-- /library/tree/TreeDiameter.hpp
-- /library/tree/TreeDiameter.hpp.html
 title: Tree Diameter
 ---
+
 ## 概要
 木の直径を計算するライブラリ.
 

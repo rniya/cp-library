@@ -100,8 +100,7 @@ data:
     \ = p;\n        if (p < 0) dist[v] = T(0);\n        if (dist[argmax] < dist[v])\
     \ argmax = v;\n        for (auto& e : G[v]) {\n            int u = e.first;\n\
     \            if (u == p) continue;\n            dist[u] = dist[v] + e.second;\n\
-    \            dfs(u, v);\n        }\n    }\n};\n\n/**\n * @brief Tree Diameter\n\
-    \ * @docs docs/tree/TreeDiameter.md\n */\n#line 5 \"test/aoj/GRL_5_A.test.cpp\"\
+    \            dfs(u, v);\n        }\n    }\n};\n#line 5 \"test/aoj/GRL_5_A.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\n\
     \    cin >> n;\n\n    TreeDiameter<> TD(n);\n    for (int i = 0; i < n - 1; i++)\
     \ {\n        int s, t, w;\n        cin >> s >> t >> w;\n        TD.add_edge(s,\
@@ -120,7 +119,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_A.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_A.test.cpp

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: tree/HeavyLightDecomposition.hpp
-    title: Heavy Light Decomposition
+    title: tree/HeavyLightDecomposition.hpp
   - icon: ':heavy_check_mark:'
     path: util/modint.hpp
     title: util/modint.hpp
@@ -131,10 +131,9 @@ data:
     \ // (u, v], u is ancestor of v\n        if (u == v) return {};\n        if (head[u]\
     \ == head[v]) return {{vertex_id[u] + 1, vertex_id[v]}};\n        auto res = descend(u,\
     \ par[head[v]]);\n        res.emplace_back(vertex_id[head[v]], vertex_id[v]);\n\
-    \        return res;\n    }\n};\n\n/**\n * @brief Heavy Light Decomposition\n\
-    \ * @docs docs/tree/HeavyLightDecomposition.md\n */\n#line 2 \"util/modint.hpp\"\
-    \n#include <iostream>\n#line 1 \"atcoder/modint.hpp\"\n\n\n\n#line 5 \"atcoder/modint.hpp\"\
-    \n#include <numeric>\n#include <type_traits>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n\
+    \        return res;\n    }\n};\n#line 2 \"util/modint.hpp\"\n#include <iostream>\n\
+    #line 1 \"atcoder/modint.hpp\"\n\n\n\n#line 5 \"atcoder/modint.hpp\"\n#include\
+    \ <numeric>\n#include <type_traits>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n\
     #endif\n\n#line 1 \"atcoder/internal_math.hpp\"\n\n\n\n#line 5 \"atcoder/internal_math.hpp\"\
     \n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace\
     \ internal {\n\n// @param m `1 <= m`\n// @return x mod m\nconstexpr long long\
@@ -399,7 +398,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2021-12-05 15:22:47+09:00'
+  timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/vertex_set_path_composite.test.cpp

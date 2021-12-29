@@ -62,6 +62,3 @@ redirect_from:
 - /library/polynomial/lagrange_interpolation.hpp.html
 title: Lagrange Interpolation
 ---
-## 概要
-
-## 計算量

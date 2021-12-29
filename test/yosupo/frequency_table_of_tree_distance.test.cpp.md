@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: tree/CentroidDecomposition.hpp
-    title: Centroid Decomposition
+    title: "Centroid Decomposition\uFF08\u6728\u306E\u91CD\u5FC3\u5206\u89E3\uFF09"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -397,15 +397,14 @@ data:
     \ centroid = dfs_search_centroid(r, -1, dfs_sz(r, -1) / 2);\n        centroids.emplace_back(centroid);\n\
     \        is_centroid[centroid] = true;\n        for (int& ch : G[centroid]) {\n\
     \            if (is_centroid[ch]) continue;\n            centroid_decomposition(ch);\n\
-    \        }\n    }\n};\n\n/**\n * @brief Centroid Decomposition\n * @docs docs/tree/CentroidDecomposition.md\n\
-    \ */\n#line 6 \"test/yosupo/frequency_table_of_tree_distance.test.cpp\"\n\nint\
-    \ main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int\
-    \ N;\n    std::cin >> N;\n    CentroidDecomposition CD(N);\n    for (int i = 0;\
-    \ i < N - 1; i++) {\n        int a, b;\n        std::cin >> a >> b;\n        CD.add_edge(a,\
-    \ b);\n    }\n\n    std::vector<int> alive(N, true);\n    auto& G = CD.G;\n  \
-    \  auto calc = [&](auto self, int v, int p, int d, std::vector<long long>& cnt)\
-    \ -> void {\n        while ((int)cnt.size() <= d) cnt.emplace_back(0);\n     \
-    \   cnt[d]++;\n        for (int& u : G[v]) {\n            if (u == p || !alive[u])\
+    \        }\n    }\n};\n#line 6 \"test/yosupo/frequency_table_of_tree_distance.test.cpp\"\
+    \n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \    int N;\n    std::cin >> N;\n    CentroidDecomposition CD(N);\n    for (int\
+    \ i = 0; i < N - 1; i++) {\n        int a, b;\n        std::cin >> a >> b;\n \
+    \       CD.add_edge(a, b);\n    }\n\n    std::vector<int> alive(N, true);\n  \
+    \  auto& G = CD.G;\n    auto calc = [&](auto self, int v, int p, int d, std::vector<long\
+    \ long>& cnt) -> void {\n        while ((int)cnt.size() <= d) cnt.emplace_back(0);\n\
+    \        cnt[d]++;\n        for (int& u : G[v]) {\n            if (u == p || !alive[u])\
     \ continue;\n            self(self, u, v, d + 1, cnt);\n        }\n    };\n\n\
     \    auto cs = CD.build();\n    std::vector<long long> ans(2 * N, 0);\n\n    for\
     \ (int& root : cs) {\n        alive[root] = 0;\n        std::vector<long long>\
@@ -444,7 +443,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/frequency_table_of_tree_distance.test.cpp
   requiredBy: []
-  timestamp: '2021-12-05 02:04:54+09:00'
+  timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/frequency_table_of_tree_distance.test.cpp

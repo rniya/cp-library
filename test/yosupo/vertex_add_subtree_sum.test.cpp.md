@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: tree/HeavyLightDecomposition.hpp
-    title: Heavy Light Decomposition
+    title: tree/HeavyLightDecomposition.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -133,8 +133,7 @@ data:
     \ // (u, v], u is ancestor of v\n        if (u == v) return {};\n        if (head[u]\
     \ == head[v]) return {{vertex_id[u] + 1, vertex_id[v]}};\n        auto res = descend(u,\
     \ par[head[v]]);\n        res.emplace_back(vertex_id[head[v]], vertex_id[v]);\n\
-    \        return res;\n    }\n};\n\n/**\n * @brief Heavy Light Decomposition\n\
-    \ * @docs docs/tree/HeavyLightDecomposition.md\n */\n#line 6 \"test/yosupo/vertex_add_subtree_sum.test.cpp\"\
+    \        return res;\n    }\n};\n#line 6 \"test/yosupo/vertex_add_subtree_sum.test.cpp\"\
     \n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
     \    int N, Q;\n    std::cin >> N >> Q;\n    std::vector<int> a(N);\n    for (int\
     \ i = 0; i < N; i++) std::cin >> a[i];\n    HeavyLightDecomposition HLD(N);\n\
@@ -166,7 +165,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/vertex_add_subtree_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-12-04 17:03:44+09:00'
+  timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/vertex_add_subtree_sum.test.cpp

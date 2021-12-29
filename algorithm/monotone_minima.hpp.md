@@ -7,8 +7,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/dp/monotone_minima.md
-    document_title: monotone minima
     links: []
   bundledCode: "#line 2 \"algorithm/monotone_minima.hpp\"\n#include <numeric>\n#include\
     \ <vector>\n\ntemplate <class Select> std::vector<size_t> monotone_minima(const\
@@ -23,8 +21,7 @@ data:
     \             if (select(v[i], res[i], ++cur)) {\n                    res[i] =\
     \ cur;\n                }\n            }\n        }\n        return res;\n   \
     \ };\n\n    std::vector<size_t> dp(H);\n    std::iota(dp.begin(), dp.end(), 0);\n\
-    \    return solve(solve, dp);\n}\n\n/**\n * @brief monotone minima\n * @docs docs/dp/monotone_minima.md\n\
-    \ */\n"
+    \    return solve(solve, dp);\n}\n"
   code: "#pragma once\n#include <numeric>\n#include <vector>\n\ntemplate <class Select>\
     \ std::vector<size_t> monotone_minima(const size_t H, const size_t W, const Select&\
     \ select) {\n    auto solve = [&](auto self, const std::vector<size_t>& v) ->\
@@ -37,22 +34,19 @@ data:
     \       for (res[i] = cur; cur < nxt;) {\n                if (select(v[i], res[i],\
     \ ++cur)) {\n                    res[i] = cur;\n                }\n          \
     \  }\n        }\n        return res;\n    };\n\n    std::vector<size_t> dp(H);\n\
-    \    std::iota(dp.begin(), dp.end(), 0);\n    return solve(solve, dp);\n}\n\n\
-    /**\n * @brief monotone minima\n * @docs docs/dp/monotone_minima.md\n */"
+    \    std::iota(dp.begin(), dp.end(), 0);\n    return solve(solve, dp);\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: algorithm/monotone_minima.hpp
   requiredBy: []
-  timestamp: '2021-10-21 16:13:48+09:00'
+  timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: algorithm/monotone_minima.hpp
 layout: document
-redirect_from:
-- /library/algorithm/monotone_minima.hpp
-- /library/algorithm/monotone_minima.hpp.html
 title: monotone minima
 ---
+
 ## 概要
 $N \times M$ 行列 $A$ が, $1 \leq i < k \leq H,\ 1 \leq j < l \leq W$ を満たす任意の $i, j, k, l$ について,
 $$A_{i, j} + A_{k, l} \leq A_{i, l} + A_{j, k}$$

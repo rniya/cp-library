@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/other/Mo.md
-    document_title: Mo's algorithm
     links: []
   bundledCode: "#line 2 \"algorithm/Mo.hpp\"\n#include <algorithm>\n#include <cassert>\n\
     #include <cmath>\n#include <numeric>\n#include <vector>\n\nstruct Mo {\n    Mo(int\
@@ -31,8 +29,7 @@ data:
     \ del_right(--r);\n            rem(idx);\n        }\n    }\n\n    template <typename\
     \ A, typename D, typename REM> void run(const A& add, const D& del, const REM&\
     \ rem) {\n        run(add, add, del, del, rem);\n    }\n\nprivate:\n    int n;\n\
-    \    std::vector<int> left, right;\n};\n\n/**\n * @brief Mo's algorithm\n * @docs\
-    \ docs/other/Mo.md\n */\n"
+    \    std::vector<int> left, right;\n};\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <cmath>\n\
     #include <numeric>\n#include <vector>\n\nstruct Mo {\n    Mo(int n) : n(n) {}\n\
     \n    void add(int l, int r) {\n        assert(l <= r);\n        left.emplace_back(l);\n\
@@ -51,23 +48,20 @@ data:
     \ del_right(--r);\n            rem(idx);\n        }\n    }\n\n    template <typename\
     \ A, typename D, typename REM> void run(const A& add, const D& del, const REM&\
     \ rem) {\n        run(add, add, del, del, rem);\n    }\n\nprivate:\n    int n;\n\
-    \    std::vector<int> left, right;\n};\n\n/**\n * @brief Mo's algorithm\n * @docs\
-    \ docs/other/Mo.md\n */\n"
+    \    std::vector<int> left, right;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: algorithm/Mo.hpp
   requiredBy: []
-  timestamp: '2021-10-21 18:14:56+09:00'
+  timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/static_range_inversions_query.test.cpp
 documentation_of: algorithm/Mo.hpp
 layout: document
-redirect_from:
-- /library/algorithm/Mo.hpp
-- /library/algorithm/Mo.hpp.html
-title: Mo's algorithm
+title: Mo's Algorithm
 ---
+
 ## 概要
 区間の伸縮による更新が容易にできるときに, 事前にクエリの区間を適切に並び替えることで効率的に処理するアルゴリズム.
 

@@ -51,8 +51,8 @@ data:
   timestamp: '2021-12-05 02:04:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/queue_operate_all_composite.test.cpp
   - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
+  - test/yosupo/queue_operate_all_composite.test.cpp
 documentation_of: datastructure/SlidingWindowAggregation.hpp
 layout: document
 redirect_from:
