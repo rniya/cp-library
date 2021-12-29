@@ -26,8 +26,3 @@ template <class Select> std::vector<size_t> monotone_minima(const size_t H, cons
     std::iota(dp.begin(), dp.end(), 0);
     return solve(solve, dp);
 }
-
-/**
- * @brief monotone minima
- * @docs docs/dp/monotone_minima.md
- */

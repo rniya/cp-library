@@ -55,8 +55,3 @@ private:
         }
     }
 };
-
-/**
- * @brief Tree Diameter
- * @docs docs/tree/TreeDiameter.md
- */

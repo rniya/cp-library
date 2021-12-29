@@ -43,8 +43,3 @@ private:
     int n;
     std::vector<int> left, right;
 };
-
-/**
- * @brief Mo's algorithm
- * @docs docs/other/Mo.md
- */

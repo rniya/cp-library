@@ -1,3 +1,8 @@
+---
+title: monotone minima
+documentation_of: ./monotone_minima.hpp
+---
+
 ## 概要
 $N \times M$ 行列 $A$ が, $1 \leq i < k \leq H,\ 1 \leq j < l \leq W$ を満たす任意の $i, j, k, l$ について,
 $$A_{i, j} + A_{k, l} \leq A_{i, l} + A_{j, k}$$

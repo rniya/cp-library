@@ -67,8 +67,3 @@ private:
         n = m;
     }
 };
-
-/**
- * @brief binomial
- * @docs docs/combinatorics/binomial.md
- */

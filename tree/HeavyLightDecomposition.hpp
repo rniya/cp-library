@@ -143,8 +143,3 @@ private:
         return res;
     }
 };
-
-/**
- * @brief Heavy Light Decomposition
- * @docs docs/tree/HeavyLightDecomposition.md
- */

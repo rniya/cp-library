@@ -53,8 +53,3 @@ private:
         }
     }
 };
-
-/**
- * @brief Centroid Decomposition
- * @docs docs/tree/CentroidDecomposition.md
- */

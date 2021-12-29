@@ -1,3 +1,8 @@
+---
+title: Tree Diameter
+documentation_of: ./TreeDiameter.hpp
+---
+
 ## 概要
 木の直径を計算するライブラリ.
 

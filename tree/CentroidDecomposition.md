@@ -1,3 +1,8 @@
+---
+title: Centroid Decomposition（木の重心分解）
+documentation_of: ./CentroidDecomposition.hpp
+---
+
 ## 概要
 木の重心分解を扱う.
 

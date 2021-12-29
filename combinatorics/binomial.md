@@ -1,3 +1,8 @@
+---
+title: binomial
+documentation_of: ./binomial.hpp
+---
+
 ## 概要
 $\mathbb{Z}/p\mathbb{Z}$ における二項係数を扱うライブラリ. $n$ の上限等を指定する必要はなく, 不十分な場合に適宜上限を 2 倍にしていくことで効率的に計算する. 上限 $n$ , クエリ数 $q$ の際の時間計算量は $O(q + n + \log n\log p)$ となる.
 
