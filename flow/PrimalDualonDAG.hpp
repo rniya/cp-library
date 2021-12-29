@@ -150,8 +150,3 @@ private:
         return res;
     }
 };
-
-/**
- * @brief Primal Dual on DAG (allow negative-cost edge)
- * @docs docs/flow/PrimalDualonDAG.md
- */

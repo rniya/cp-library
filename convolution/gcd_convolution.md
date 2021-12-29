@@ -1,3 +1,8 @@
+---
+title: $\gcd$ convolution（添字 $\gcd$ 畳み込み）
+documentation_of: ./gcd_convolution.hpp
+---
+
 ## 概要
 数列を添字の $\gcd$ 演算に関して畳み込む.
 

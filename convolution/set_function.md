@@ -1,3 +1,8 @@
+---
+title: set function (FZT, FMT, FWHT)
+documentation_of: ./set_function.hpp
+---
+
 ## 概要
 高速ゼータ変換 (Fast Zeta Transform) , 高速メビウス変換 (Fast Mobius Transform) や 高速ウォルシュ-アダマール変換 (Fast Walsh-Hadamard Transform) といった集合に関する諸変換及びそれに関連して bitwise な演算上の畳み込みを扱うライブラリ.
 

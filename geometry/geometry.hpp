@@ -514,8 +514,3 @@ Real closest_pair(std::vector<Point> ps) {
 }
 
 }  // namespace geometry
-
-/**
- * @brief 2 次元幾何ライブラリ
- * @docs docs/geometry/geometry.md
- */

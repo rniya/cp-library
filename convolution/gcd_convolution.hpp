@@ -44,8 +44,3 @@ template <typename T> std::vector<T> gcd_convolution(std::vector<T> f, std::vect
 }
 
 }  // namespace gcd_convolution
-
-/**
- * @brief gcd convolution (添字 gcd 畳み込み)
- * @docs docs/convolution/gcd_convolution.md
- */

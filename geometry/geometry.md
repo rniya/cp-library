@@ -1,3 +1,9 @@
+---
+title: 2 次元幾何ライブラリ
+documentation_of: ./geometry.hpp
+---
+
+
 ## 概要
 2 次元幾何ライブラリ. 主に ICPC 用.
 

@@ -1,3 +1,8 @@
+---
+title: Bipartite Matching
+documentation_of: ./BipartiteMatching.hpp
+---
+
 # TODO
 最小点被覆, 最大独立集合, 最小辺被覆の実装
 

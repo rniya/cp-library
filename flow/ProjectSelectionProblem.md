@@ -1,3 +1,8 @@
+---
+title: Project Selection Problem (based on ac-library)
+documentation_of: ./ProjectSelectionProblem.hpp
+---
+
 ## 概要
 Project Selection Problem, いわゆる燃やす埋める問題を解く際の補助ライブラリ.
 

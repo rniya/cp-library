@@ -218,8 +218,3 @@ private:
 }  // namespace ProjectSelectionProblem_Impl
 
 using ProjectSelectionProblem_Impl::ProjectSelectionProblem;
-
-/**
- * @brief Project Selection Problem (based on ac-library)
- * @docs docs/flow/ProjectSelectionProblem.md
- */

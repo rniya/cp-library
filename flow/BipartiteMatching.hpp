@@ -66,8 +66,3 @@ private:
         return false;
     }
 };
-
-/**
- * @brief Bipartite Matching
- * @docs docs/flow/BipartiteMatching.md
- */

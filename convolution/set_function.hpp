@@ -107,8 +107,3 @@ template <typename T> std::vector<T> xor_convolution(std::vector<T> f, std::vect
 }
 
 }  // namespace set_function
-
-/**
- * @brief set function (FZT, FMT, FWHT)
- * @docs docs/convolution/set_function.md
- */
