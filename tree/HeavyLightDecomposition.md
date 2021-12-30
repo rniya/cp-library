@@ -1,6 +1,6 @@
 ---
 title: Heavy Light Decomposition
-documentation_of: ./HeavyLightDecoposition.hpp
+documentation_of: ./HeavyLightDecomposition.hpp
 ---
 
 ## 概要
