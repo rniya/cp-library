@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/SlidingWindowAggregation.hpp
-    title: Sliding Window Aggregation (SWAG)
+    title: Sliding Window Aggregation
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -95,15 +95,14 @@ data:
     \ calc = f(t, front_stack.top().second);\n                front_stack.emplace(t,\
     \ calc);\n                back_stack.pop();\n            }\n        }\n      \
     \  front_stack.pop();\n    }\n    Monoid fold() { return f(front_stack.top().second,\
-    \ back_stack.top().second); }\n};\n\n/**\n * @brief Sliding Window Aggregation\
-    \ (SWAG)\n * @docs docs/datastructure/SlidingWindowAggregation.md\n */\n#line\
-    \ 5 \"test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp\"\n\nint main() {\n \
-    \   cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, L;\n    cin >> N\
-    \ >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\
-    \n    SlidingWindowAggregation<int> SWAG([](int a, int b) { return min(a, b);\
-    \ }, INT_MAX);\n\n    for (int i = 0; i < L - 1; i++) SWAG.push(a[i]);\n    for\
-    \ (int i = L - 1; i < N; i++) {\n        SWAG.push(a[i]);\n        cout << SWAG.fold()\
-    \ << (i + 1 == N ? '\\n' : ' ');\n        SWAG.pop();\n    }\n}\n"
+    \ back_stack.top().second); }\n};\n#line 5 \"test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    \ L;\n    cin >> N >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
+    \ cin >> a[i];\n\n    SlidingWindowAggregation<int> SWAG([](int a, int b) { return\
+    \ min(a, b); }, INT_MAX);\n\n    for (int i = 0; i < L - 1; i++) SWAG.push(a[i]);\n\
+    \    for (int i = L - 1; i < N; i++) {\n        SWAG.push(a[i]);\n        cout\
+    \ << SWAG.fold() << (i + 1 == N ? '\\n' : ' ');\n        SWAG.pop();\n    }\n\
+    }\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/SlidingWindowAggregation.hpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
@@ -118,7 +117,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   requiredBy: []
-  timestamp: '2021-12-05 02:04:54+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp

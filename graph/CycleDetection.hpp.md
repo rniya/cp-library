@@ -16,8 +16,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/CycleDetection.md
-    document_title: Cycle Detection
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#define LOCAL\n#include <bits/stdc++.h>\nusing\
     \ namespace std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t\
@@ -84,8 +82,7 @@ data:
     \    v.erase(unique(v.begin(), v.end()), v.end());\n}\ntemplate <typename T> int\
     \ lwb(const vector<T>& v, const T& x) { return lower_bound(v.begin(), v.end(),\
     \ x) - v.begin(); }\n#pragma endregion\n#line 3 \"graph/CycleDetection.hpp\"\n\
-    \n/**\n * @brief Cycle Detection\n * @docs docs/graph/CycleDetection.md\n */\n\
-    template <bool directed> struct CycleDetection {\n    vector<vector<int>> G;\n\
+    \ntemplate <bool directed> struct CycleDetection {\n    vector<vector<int>> G;\n\
     \    vector<int> seen, finished;\n    stack<int> hist;\n    int pos;\n    CycleDetection(int\
     \ n) : G(n), seen(n, 0), finished(n, 0), pos(-1) {}\n    void add_edge(int u,\
     \ int v) { G[u].emplace_back(v); }\n    void dfs(int v, int p) {\n        seen[v]\
@@ -99,12 +96,11 @@ data:
     \ }\n        vector<int> res;\n        while (!hist.empty()) {\n            int\
     \ t = hist.top();\n            hist.pop();\n            res.emplace_back(t);\n\
     \            if (t == pos) break;\n        }\n        return res;\n    }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Cycle Detection\n\
-    \ * @docs docs/graph/CycleDetection.md\n */\ntemplate <bool directed> struct CycleDetection\
-    \ {\n    vector<vector<int>> G;\n    vector<int> seen, finished;\n    stack<int>\
-    \ hist;\n    int pos;\n    CycleDetection(int n) : G(n), seen(n, 0), finished(n,\
-    \ 0), pos(-1) {}\n    void add_edge(int u, int v) { G[u].emplace_back(v); }\n\
-    \    void dfs(int v, int p) {\n        seen[v] = 1;\n        hist.emplace(v);\n\
+  code: "#pragma once\n#include \"../base.hpp\"\n\ntemplate <bool directed> struct\
+    \ CycleDetection {\n    vector<vector<int>> G;\n    vector<int> seen, finished;\n\
+    \    stack<int> hist;\n    int pos;\n    CycleDetection(int n) : G(n), seen(n,\
+    \ 0), finished(n, 0), pos(-1) {}\n    void add_edge(int u, int v) { G[u].emplace_back(v);\
+    \ }\n    void dfs(int v, int p) {\n        seen[v] = 1;\n        hist.emplace(v);\n\
     \        for (int u : G[v]) {\n            if (!directed && u == p) continue;\n\
     \            if (finished[u]) continue;\n            if (seen[u] && !finished[u])\
     \ {\n                pos = u;\n                return;\n            }\n      \
@@ -114,24 +110,20 @@ data:
     \          if (~pos) break;\n        }\n        vector<int> res;\n        while\
     \ (!hist.empty()) {\n            int t = hist.top();\n            hist.pop();\n\
     \            res.emplace_back(t);\n            if (t == pos) break;\n        }\n\
-    \        return res;\n    }\n};"
+    \        return res;\n    }\n};\n"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: graph/CycleDetection.hpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2891.test.cpp
   - test/aoj/GRL_4_A.test.cpp
 documentation_of: graph/CycleDetection.hpp
 layout: document
-redirect_from:
-- /library/graph/CycleDetection.hpp
-- /library/graph/CycleDetection.hpp.html
 title: Cycle Detection
 ---
-## 概要
 
-## 計算量
+## 概要

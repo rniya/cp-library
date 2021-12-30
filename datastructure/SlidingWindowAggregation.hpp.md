@@ -13,8 +13,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/datastructure/SlidingWindowAggregation.md
-    document_title: Sliding Window Aggregation (SWAG)
     links: []
   bundledCode: "#line 2 \"datastructure/SlidingWindowAggregation.hpp\"\n#include <functional>\n\
     #include <stack>\n\ntemplate <typename Monoid> struct SlidingWindowAggregation\
@@ -28,8 +26,7 @@ data:
     \ calc = f(t, front_stack.top().second);\n                front_stack.emplace(t,\
     \ calc);\n                back_stack.pop();\n            }\n        }\n      \
     \  front_stack.pop();\n    }\n    Monoid fold() { return f(front_stack.top().second,\
-    \ back_stack.top().second); }\n};\n\n/**\n * @brief Sliding Window Aggregation\
-    \ (SWAG)\n * @docs docs/datastructure/SlidingWindowAggregation.md\n */\n"
+    \ back_stack.top().second); }\n};\n"
   code: "#pragma once\n#include <functional>\n#include <stack>\n\ntemplate <typename\
     \ Monoid> struct SlidingWindowAggregation {\n    typedef std::function<Monoid(Monoid,\
     \ Monoid)> F;\n    std::stack<std::pair<Monoid, Monoid>> front_stack, back_stack;\n\
@@ -42,24 +39,19 @@ data:
     \ calc = f(t, front_stack.top().second);\n                front_stack.emplace(t,\
     \ calc);\n                back_stack.pop();\n            }\n        }\n      \
     \  front_stack.pop();\n    }\n    Monoid fold() { return f(front_stack.top().second,\
-    \ back_stack.top().second); }\n};\n\n/**\n * @brief Sliding Window Aggregation\
-    \ (SWAG)\n * @docs docs/datastructure/SlidingWindowAggregation.md\n */\n"
+    \ back_stack.top().second); }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: datastructure/SlidingWindowAggregation.hpp
   requiredBy: []
-  timestamp: '2021-12-05 02:04:54+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
 documentation_of: datastructure/SlidingWindowAggregation.hpp
 layout: document
-redirect_from:
-- /library/datastructure/SlidingWindowAggregation.hpp
-- /library/datastructure/SlidingWindowAggregation.hpp.html
-title: Sliding Window Aggregation (SWAG)
+title: Sliding Window Aggregation
 ---
-## 概要
 
-## 計算量
+## 概要

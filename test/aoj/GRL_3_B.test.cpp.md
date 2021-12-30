@@ -162,17 +162,15 @@ data:
     \                     edge_stack.pop_back();\n                            bcc_id[cur]\
     \ = bcc_num;\n                            if (edges[cur] == edges[e.second]) break;\n\
     \                        }\n                        bcc_num++;\n             \
-    \       }\n                }\n            }\n        }\n    }\n};\n\n/**\n * @brief\
-    \ Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected Components)\n\
-    \ * @docs docs/graph/BlockCutTree.md\n */\n#line 5 \"test/aoj/GRL_3_B.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
-    \ E;\n    cin >> V >> E;\n\n    BlockCutTree BCT(V);\n    vector<int> s(E), t(E);\n\
-    \    for (int i = 0; i < E; i++) {\n        cin >> s[i] >> t[i];\n        if (s[i]\
-    \ > t[i]) swap(s[i], t[i]);\n        BCT.add_edge(s[i], t[i]);\n    }\n\n    BCT.build();\n\
-    \    vector<pair<int, int>> ans;\n    for (int i = 0; i < E; i++) {\n        if\
-    \ (BCT.is_bridge[i]) {\n            ans.emplace_back(s[i], t[i]);\n        }\n\
-    \    }\n    sort(ans.begin(), ans.end());\n    for (auto& e : ans) cout << e.first\
-    \ << ' ' << e.second << '\\n';\n    return 0;\n}\n"
+    \       }\n                }\n            }\n        }\n    }\n};\n#line 5 \"\
+    test/aoj/GRL_3_B.test.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int V, E;\n    cin >> V >> E;\n\n    BlockCutTree BCT(V);\n    vector<int>\
+    \ s(E), t(E);\n    for (int i = 0; i < E; i++) {\n        cin >> s[i] >> t[i];\n\
+    \        if (s[i] > t[i]) swap(s[i], t[i]);\n        BCT.add_edge(s[i], t[i]);\n\
+    \    }\n\n    BCT.build();\n    vector<pair<int, int>> ans;\n    for (int i =\
+    \ 0; i < E; i++) {\n        if (BCT.is_bridge[i]) {\n            ans.emplace_back(s[i],\
+    \ t[i]);\n        }\n    }\n    sort(ans.begin(), ans.end());\n    for (auto&\
+    \ e : ans) cout << e.first << ' ' << e.second << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/BlockCutTree.hpp\"\n\n\
     int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n\
@@ -189,7 +187,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_3_B.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_3_B.test.cpp

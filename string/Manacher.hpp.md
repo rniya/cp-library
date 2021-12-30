@@ -13,8 +13,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/string/Manacher.md
-    document_title: Manacher
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#define LOCAL\n#include <bits/stdc++.h>\nusing\
     \ namespace std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t\
@@ -80,43 +78,38 @@ data:
     }\n\ntemplate <typename T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n\
     \    v.erase(unique(v.begin(), v.end()), v.end());\n}\ntemplate <typename T> int\
     \ lwb(const vector<T>& v, const T& x) { return lower_bound(v.begin(), v.end(),\
-    \ x) - v.begin(); }\n#pragma endregion\n#line 3 \"string/Manacher.hpp\"\n\n/**\n\
-    \ * @brief Manacher\n * @docs docs/string/Manacher.md\n */\nvector<int> Manacher(const\
-    \ string& s) {\n    int n = s.size();\n    vector<int> res(n);\n    for (int i\
-    \ = 0, j = 0; i < n;) {\n        while (i - j >= 0 && i + j < n && s[i - j] ==\
-    \ s[i + j]) j++;\n        res[i] = j;\n        int k = 1;\n        while (i -\
-    \ k >= 0 && i + k < n && k + res[i - k] < j) res[i + k] = res[i - k], k++;\n \
-    \       i += k, j -= k;\n    }\n    return res;\n}\n\nvector<int> PalindromeTable(const\
+    \ x) - v.begin(); }\n#pragma endregion\n#line 3 \"string/Manacher.hpp\"\n\nvector<int>\
+    \ Manacher(const string& s) {\n    int n = s.size();\n    vector<int> res(n);\n\
+    \    for (int i = 0, j = 0; i < n;) {\n        while (i - j >= 0 && i + j < n\
+    \ && s[i - j] == s[i + j]) j++;\n        res[i] = j;\n        int k = 1;\n   \
+    \     while (i - k >= 0 && i + k < n && k + res[i - k] < j) res[i + k] = res[i\
+    \ - k], k++;\n        i += k, j -= k;\n    }\n    return res;\n}\n\nvector<int>\
+    \ PalindromeTable(const string& s) {\n    int n = s.size();\n    string t(n *\
+    \ 2 + 1, '$');\n    for (int i = 0; i < n; i++) t[i * 2 + 1] = s[i];\n    vector<int>\
+    \ v = Manacher(t), res;\n    for (int i = 1; i < n * 2; i++) res.emplace_back(v[i]\
+    \ - 1);\n    return res;\n}\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n\nvector<int> Manacher(const string&\
+    \ s) {\n    int n = s.size();\n    vector<int> res(n);\n    for (int i = 0, j\
+    \ = 0; i < n;) {\n        while (i - j >= 0 && i + j < n && s[i - j] == s[i +\
+    \ j]) j++;\n        res[i] = j;\n        int k = 1;\n        while (i - k >= 0\
+    \ && i + k < n && k + res[i - k] < j) res[i + k] = res[i - k], k++;\n        i\
+    \ += k, j -= k;\n    }\n    return res;\n}\n\nvector<int> PalindromeTable(const\
     \ string& s) {\n    int n = s.size();\n    string t(n * 2 + 1, '$');\n    for\
     \ (int i = 0; i < n; i++) t[i * 2 + 1] = s[i];\n    vector<int> v = Manacher(t),\
     \ res;\n    for (int i = 1; i < n * 2; i++) res.emplace_back(v[i] - 1);\n    return\
     \ res;\n}\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Manacher\n * @docs\
-    \ docs/string/Manacher.md\n */\nvector<int> Manacher(const string& s) {\n    int\
-    \ n = s.size();\n    vector<int> res(n);\n    for (int i = 0, j = 0; i < n;) {\n\
-    \        while (i - j >= 0 && i + j < n && s[i - j] == s[i + j]) j++;\n      \
-    \  res[i] = j;\n        int k = 1;\n        while (i - k >= 0 && i + k < n &&\
-    \ k + res[i - k] < j) res[i + k] = res[i - k], k++;\n        i += k, j -= k;\n\
-    \    }\n    return res;\n}\n\nvector<int> PalindromeTable(const string& s) {\n\
-    \    int n = s.size();\n    string t(n * 2 + 1, '$');\n    for (int i = 0; i <\
-    \ n; i++) t[i * 2 + 1] = s[i];\n    vector<int> v = Manacher(t), res;\n    for\
-    \ (int i = 1; i < n * 2; i++) res.emplace_back(v[i] - 1);\n    return res;\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: string/Manacher.hpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/enumerate_palindromes.test.cpp
 documentation_of: string/Manacher.hpp
 layout: document
-redirect_from:
-- /library/string/Manacher.hpp
-- /library/string/Manacher.hpp.html
-title: Manacher
+title: "Manacher\uFF08\u56DE\u5206\u534A\u5F84\uFF09"
 ---
-## 概要
 
-## 計算量
+## 概要

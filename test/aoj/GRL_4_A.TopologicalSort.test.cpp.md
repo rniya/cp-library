@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: graph/TopologicalSort.hpp
-    title: Topological Sort
+    title: graph/TopologicalSort.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -95,11 +95,10 @@ data:
     \                   que.emplace(u);\n                }\n            }\n      \
     \  }\n        if (*std::max_element(indeg.begin(), indeg.end()) != 0) return {};\n\
     \        return order;\n    }\n\nprivate:\n    int n;\n    std::vector<int> indeg;\n\
-    };\n\n/**\n * @brief Topological Sort\n * @docs docs/graph/TopologicalSort.md\n\
-    \ */\n#line 5 \"test/aoj/GRL_4_A.TopologicalSort.test.cpp\"\n\nint main() {\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin >>\
-    \ V >> E;\n    TopologicalSort TS(V);\n    for (; E--;) {\n        int s, t;\n\
-    \        cin >> s >> t;\n        TS.add_edge(s, t);\n    }\n\n    auto res = TS.build();\n\
+    };\n#line 5 \"test/aoj/GRL_4_A.TopologicalSort.test.cpp\"\n\nint main() {\n  \
+    \  cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin >> V\
+    \ >> E;\n    TopologicalSort TS(V);\n    for (; E--;) {\n        int s, t;\n \
+    \       cin >> s >> t;\n        TS.add_edge(s, t);\n    }\n\n    auto res = TS.build();\n\
     \    cout << res.empty() << '\\n';\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/TopologicalSort.hpp\"\n\
@@ -114,7 +113,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_4_A.TopologicalSort.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_4_A.TopologicalSort.test.cpp

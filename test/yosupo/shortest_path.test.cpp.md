@@ -83,26 +83,26 @@ data:
     \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 3 \"graph/Dijkstra.hpp\"\n\n/**\n * @brief Dijkstra\n * @docs docs/graph/Dijkstra.md\n\
-    \ */\ntemplate <typename T> struct Dijkstra {\n    struct edge {\n        int\
-    \ to;\n        T cost;\n        edge(int to, T cost) : to(to), cost(cost) {}\n\
-    \        bool operator<(const edge& e) const { return cost > e.cost; }\n    };\n\
-    \    vector<vector<edge>> G;\n    vector<T> dp;\n    vector<int> pre;\n    Dijkstra(int\
-    \ n) : G(n), dp(n), pre(n) {}\n    void add_edge(int u, int v, T c) { G[u].emplace_back(v,\
-    \ c); }\n    vector<T> build(int s) {\n        int n = G.size();\n        fill(dp.begin(),\
-    \ dp.end(), numeric_limits<T>::max());\n        fill(pre.begin(), pre.end(), -1);\n\
-    \        priority_queue<edge> pq;\n        dp[s] = 0;\n        pq.emplace(s, dp[s]);\n\
-    \        while (!pq.empty()) {\n            auto p = pq.top();\n            pq.pop();\n\
-    \            int v = p.to;\n            if (dp[v] < p.cost) continue;\n      \
-    \      for (auto e : G[v]) {\n                if (dp[v] + e.cost < dp[e.to]) {\n\
-    \                    dp[e.to] = dp[v] + e.cost;\n                    pre[e.to]\
-    \ = v;\n                    pq.emplace(e.to, dp[e.to]);\n                }\n \
-    \           }\n        }\n        return dp;\n    }\n    vector<int> restore(int\
-    \ t) {\n        vector<int> res;\n        if (pre[t] < 0) return res;\n      \
-    \  while (~t) {\n            res.emplace_back(t);\n            t = pre[t];\n \
-    \       }\n        reverse(res.begin(), res.end());\n        return res;\n   \
-    \ }\n    T operator[](int to) { return dp[to]; }\n};\n#line 5 \"test/yosupo/shortest_path.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
+    #line 3 \"graph/Dijkstra.hpp\"\n\ntemplate <typename T> struct Dijkstra {\n  \
+    \  struct edge {\n        int to;\n        T cost;\n        edge(int to, T cost)\
+    \ : to(to), cost(cost) {}\n        bool operator<(const edge& e) const { return\
+    \ cost > e.cost; }\n    };\n    vector<vector<edge>> G;\n    vector<T> dp;\n \
+    \   vector<int> pre;\n    Dijkstra(int n) : G(n), dp(n), pre(n) {}\n    void add_edge(int\
+    \ u, int v, T c) { G[u].emplace_back(v, c); }\n    vector<T> build(int s) {\n\
+    \        int n = G.size();\n        fill(dp.begin(), dp.end(), numeric_limits<T>::max());\n\
+    \        fill(pre.begin(), pre.end(), -1);\n        priority_queue<edge> pq;\n\
+    \        dp[s] = 0;\n        pq.emplace(s, dp[s]);\n        while (!pq.empty())\
+    \ {\n            auto p = pq.top();\n            pq.pop();\n            int v\
+    \ = p.to;\n            if (dp[v] < p.cost) continue;\n            for (auto e\
+    \ : G[v]) {\n                if (dp[v] + e.cost < dp[e.to]) {\n              \
+    \      dp[e.to] = dp[v] + e.cost;\n                    pre[e.to] = v;\n      \
+    \              pq.emplace(e.to, dp[e.to]);\n                }\n            }\n\
+    \        }\n        return dp;\n    }\n    vector<int> restore(int t) {\n    \
+    \    vector<int> res;\n        if (pre[t] < 0) return res;\n        while (~t)\
+    \ {\n            res.emplace_back(t);\n            t = pre[t];\n        }\n  \
+    \      reverse(res.begin(), res.end());\n        return res;\n    }\n    T operator[](int\
+    \ to) { return dp[to]; }\n};\n#line 5 \"test/yosupo/shortest_path.test.cpp\"\n\
+    \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
     \ M, s, t;\n    cin >> N >> M >> s >> t;\n\n    Dijkstra<long long> D(N);\n  \
     \  for (int i = 0; i < M; i++) {\n        int a, b, c;\n        cin >> a >> b\
     \ >> c;\n        D.add_edge(a, b, c);\n    }\n\n    D.build(s);\n    vector<int>\
@@ -126,7 +126,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/shortest_path.test.cpp

@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/SparseTable.hpp
-    title: Sparse table
+    title: Sparse Table
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -82,8 +82,7 @@ data:
     \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 3 \"datastructure/SparseTable.hpp\"\n\n/**\n * @brief Sparse table\n * @docs\
-    \ docs/datastructure/SparseTable.md\n */\ntemplate <typename T> struct SparseTable\
+    #line 3 \"datastructure/SparseTable.hpp\"\n\ntemplate <typename T> struct SparseTable\
     \ {\n    typedef function<T(T, T)> F;\n    vector<vector<T>> dat;\n    vector<int>\
     \ lookup;\n    const F f;\n    SparseTable(F f) : f(f) {}\n    void build(const\
     \ vector<T>& v) {\n        int n = v.size(), h = 1;\n        while ((1 << h) <=\
@@ -113,7 +112,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/staticrmq.test.cpp

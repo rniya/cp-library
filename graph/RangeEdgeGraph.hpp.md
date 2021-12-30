@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/graph/RangeEdgeGraph.md
-    document_title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#define LOCAL\n#include <bits/stdc++.h>\nusing\
     \ namespace std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t\
@@ -78,8 +76,31 @@ data:
     \    v.erase(unique(v.begin(), v.end()), v.end());\n}\ntemplate <typename T> int\
     \ lwb(const vector<T>& v, const T& x) { return lower_bound(v.begin(), v.end(),\
     \ x) - v.begin(); }\n#pragma endregion\n#line 3 \"graph/RangeEdgeGraph.hpp\"\n\
-    \n/**\n * @brief \u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5\n\
-    \ * @docs docs/graph/RangeEdgeGraph.md\n */\ntemplate <typename T> class RangeEdgeGraph\
+    \ntemplate <typename T> class RangeEdgeGraph {\n    struct edge {\n        int\
+    \ to;\n        T cost;\n        edge(int to, T cost) : to(to), cost(cost) {}\n\
+    \        bool operator<(const edge& rhs) const { return cost > rhs.cost; }\n \
+    \   };\n    int n;\n    vector<vector<edge>> G;\n    void add_edge(int u, int\
+    \ v, T cost) { G[(3 * n <= u ? u - 2 * n : u)].emplace_back(v, cost); }\n\npublic:\n\
+    \    RangeEdgeGraph(int n) : n(n), G(3 * n) {\n        for (int i = 1; i < n;\
+    \ i++) {\n            int l = i << 1 | 0, r = i << 1 | 1;\n            add_edge(i,\
+    \ l, 0);\n            add_edge(i, r, 0);\n            add_edge(l + 2 * n, i +\
+    \ 2 * n, 0);\n            add_edge(r + 2 * n, i + 2 * n, 0);\n        }\n    }\n\
+    \    void add_edge(int l1, int r1, int l2, int r2, T cost) {\n        int add\
+    \ = G.size();\n        G.emplace_back();\n        for (l1 += n, r1 += n; l1 <\
+    \ r1; l1 >>= 1, r1 >>= 1) {\n            if (l1 & 1) add_edge((l1++) + 2 * n,\
+    \ add, 0);\n            if (r1 & 1) add_edge((--r1) + 2 * n, add, 0);\n      \
+    \  }\n        for (l2 += n, r2 += n; l2 < r2; l2 >>= 1, r2 >>= 1) {\n        \
+    \    if (l2 & 1) G[add].emplace_back(l2++, cost);\n            if (r2 & 1) G[add].emplace_back(--r2,\
+    \ cost);\n        }\n    }\n    vector<T> build(int s) {\n        vector<T> dp(G.size(),\
+    \ numeric_limits<T>::max());\n        s += n;\n        dp[s] = 0;\n        priority_queue<edge>\
+    \ pq;\n        pq.emplace(s, dp[s]);\n        while (!pq.empty()) {\n        \
+    \    auto p = pq.top();\n            pq.pop();\n            int v = p.to;\n  \
+    \          if (dp[v] < p.cost) continue;\n            for (const auto& e : G[v])\
+    \ {\n                int u = e.to;\n                if (dp[v] + e.cost < dp[u])\
+    \ {\n                    dp[u] = dp[v] + e.cost;\n                    pq.emplace(u,\
+    \ dp[u]);\n                }\n            }\n        }\n        vector<T> res(dp.begin()\
+    \ + n, dp.begin() + 2 * n);\n        return res;\n    }\n};\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n\ntemplate <typename T> class RangeEdgeGraph\
     \ {\n    struct edge {\n        int to;\n        T cost;\n        edge(int to,\
     \ T cost) : to(to), cost(cost) {}\n        bool operator<(const edge& rhs) const\
     \ { return cost > rhs.cost; }\n    };\n    int n;\n    vector<vector<edge>> G;\n\
@@ -104,48 +125,19 @@ data:
     \ = dp[v] + e.cost;\n                    pq.emplace(u, dp[u]);\n             \
     \   }\n            }\n        }\n        vector<T> res(dp.begin() + n, dp.begin()\
     \ + 2 * n);\n        return res;\n    }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u533A\u9593\u306B\
-    \u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5\n * @docs docs/graph/RangeEdgeGraph.md\n\
-    \ */\ntemplate <typename T> class RangeEdgeGraph {\n    struct edge {\n      \
-    \  int to;\n        T cost;\n        edge(int to, T cost) : to(to), cost(cost)\
-    \ {}\n        bool operator<(const edge& rhs) const { return cost > rhs.cost;\
-    \ }\n    };\n    int n;\n    vector<vector<edge>> G;\n    void add_edge(int u,\
-    \ int v, T cost) { G[(3 * n <= u ? u - 2 * n : u)].emplace_back(v, cost); }\n\n\
-    public:\n    RangeEdgeGraph(int n) : n(n), G(3 * n) {\n        for (int i = 1;\
-    \ i < n; i++) {\n            int l = i << 1 | 0, r = i << 1 | 1;\n           \
-    \ add_edge(i, l, 0);\n            add_edge(i, r, 0);\n            add_edge(l +\
-    \ 2 * n, i + 2 * n, 0);\n            add_edge(r + 2 * n, i + 2 * n, 0);\n    \
-    \    }\n    }\n    void add_edge(int l1, int r1, int l2, int r2, T cost) {\n \
-    \       int add = G.size();\n        G.emplace_back();\n        for (l1 += n,\
-    \ r1 += n; l1 < r1; l1 >>= 1, r1 >>= 1) {\n            if (l1 & 1) add_edge((l1++)\
-    \ + 2 * n, add, 0);\n            if (r1 & 1) add_edge((--r1) + 2 * n, add, 0);\n\
-    \        }\n        for (l2 += n, r2 += n; l2 < r2; l2 >>= 1, r2 >>= 1) {\n  \
-    \          if (l2 & 1) G[add].emplace_back(l2++, cost);\n            if (r2 &\
-    \ 1) G[add].emplace_back(--r2, cost);\n        }\n    }\n    vector<T> build(int\
-    \ s) {\n        vector<T> dp(G.size(), numeric_limits<T>::max());\n        s +=\
-    \ n;\n        dp[s] = 0;\n        priority_queue<edge> pq;\n        pq.emplace(s,\
-    \ dp[s]);\n        while (!pq.empty()) {\n            auto p = pq.top();\n   \
-    \         pq.pop();\n            int v = p.to;\n            if (dp[v] < p.cost)\
-    \ continue;\n            for (const auto& e : G[v]) {\n                int u =\
-    \ e.to;\n                if (dp[v] + e.cost < dp[u]) {\n                    dp[u]\
-    \ = dp[v] + e.cost;\n                    pq.emplace(u, dp[u]);\n             \
-    \   }\n            }\n        }\n        vector<T> res(dp.begin() + n, dp.begin()\
-    \ + 2 * n);\n        return res;\n    }\n};"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: graph/RangeEdgeGraph.hpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/RangeEdgeGraph.hpp
 layout: document
-redirect_from:
-- /library/graph/RangeEdgeGraph.hpp
-- /library/graph/RangeEdgeGraph.hpp.html
-title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
+title: Range Edge Graph
 ---
+
 ## 概要
 区間から区間に辺が伸びるようなグラフ上での最短路を計算する. Segment Treeの構造を利用して頂点数$3n+q$, 辺数$4n+q\log n$のグラフを構成している.
 

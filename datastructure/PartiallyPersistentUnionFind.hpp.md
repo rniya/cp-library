@@ -7,8 +7,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/datastructure/PartiallyPersistentUnionFind.md
-    document_title: Partially Persistent Union Find
     links: []
   bundledCode: "#line 2 \"datastructure/PartiallyPersistentUnionFind.hpp\"\n#include\
     \ <cassert>\n#include <limits>\n#include <vector>\n\nstruct PartiallyPersistentUnionFind\
@@ -27,8 +25,7 @@ data:
     \ < n);\n        x = find(t, x);\n        return -prev(lower_bound(history[x].begin(),\
     \ history[x].end(), std::make_pair(t, 0)))->second;\n    }\n\nprivate:\n    int\
     \ n, time;\n    std::vector<int> data, last;\n    std::vector<std::vector<std::pair<int,\
-    \ int>>> history;\n};\n\n/**\n * @brief Partially Persistent Union Find\n * @docs\
-    \ docs/datastructure/PartiallyPersistentUnionFind.md\n */\n"
+    \ int>>> history;\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <limits>\n#include <vector>\n\n\
     struct PartiallyPersistentUnionFind {\n    PartiallyPersistentUnionFind(int n)\n\
     \        : n(n), time(0), data(n, -1), last(n, std::numeric_limits<int>::max()),\
@@ -45,23 +42,19 @@ data:
     \ size(int t, int x) const {\n        assert(0 <= x && x < n);\n        x = find(t,\
     \ x);\n        return -prev(lower_bound(history[x].begin(), history[x].end(),\
     \ std::make_pair(t, 0)))->second;\n    }\n\nprivate:\n    int n, time;\n    std::vector<int>\
-    \ data, last;\n    std::vector<std::vector<std::pair<int, int>>> history;\n};\n\
-    \n/**\n * @brief Partially Persistent Union Find\n * @docs docs/datastructure/PartiallyPersistentUnionFind.md\n\
-    \ */\n"
+    \ data, last;\n    std::vector<std::vector<std::pair<int, int>>> history;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: datastructure/PartiallyPersistentUnionFind.hpp
   requiredBy: []
-  timestamp: '2021-10-04 17:13:22+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: datastructure/PartiallyPersistentUnionFind.hpp
 layout: document
-redirect_from:
-- /library/datastructure/PartiallyPersistentUnionFind.hpp
-- /library/datastructure/PartiallyPersistentUnionFind.hpp.html
 title: Partially Persistent Union Find
 ---
+
 ## 概要
 経路圧縮を行わずにマージテクを利用して集合を管理する際に, 変更される値が少ないことを利用してタイムスタンプを用いて過去の頂点の連結成分やその頂点数といったデータを取得できるようにしたデータ構造.
 

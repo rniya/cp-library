@@ -13,8 +13,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/datastructure/SparseTable.md
-    document_title: Sparse table
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#define LOCAL\n#include <bits/stdc++.h>\nusing\
     \ namespace std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t\
@@ -81,8 +79,7 @@ data:
     \    v.erase(unique(v.begin(), v.end()), v.end());\n}\ntemplate <typename T> int\
     \ lwb(const vector<T>& v, const T& x) { return lower_bound(v.begin(), v.end(),\
     \ x) - v.begin(); }\n#pragma endregion\n#line 3 \"datastructure/SparseTable.hpp\"\
-    \n\n/**\n * @brief Sparse table\n * @docs docs/datastructure/SparseTable.md\n\
-    \ */\ntemplate <typename T> struct SparseTable {\n    typedef function<T(T, T)>\
+    \n\ntemplate <typename T> struct SparseTable {\n    typedef function<T(T, T)>\
     \ F;\n    vector<vector<T>> dat;\n    vector<int> lookup;\n    const F f;\n  \
     \  SparseTable(F f) : f(f) {}\n    void build(const vector<T>& v) {\n        int\
     \ n = v.size(), h = 1;\n        while ((1 << h) <= n) h++;\n        dat.assign(h,\
@@ -93,8 +90,7 @@ data:
     \ - 1][j], dat[i - 1][min(j + mask, n - 1)]);\n            }\n        }\n    }\n\
     \    T query(int a, int b) {\n        int d = lookup[b - a];\n        return f(dat[d][a],\
     \ dat[d][b - (1 << d)]);\n    }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Sparse table\n *\
-    \ @docs docs/datastructure/SparseTable.md\n */\ntemplate <typename T> struct SparseTable\
+  code: "#pragma once\n#include \"../base.hpp\"\n\ntemplate <typename T> struct SparseTable\
     \ {\n    typedef function<T(T, T)> F;\n    vector<vector<T>> dat;\n    vector<int>\
     \ lookup;\n    const F f;\n    SparseTable(F f) : f(f) {}\n    void build(const\
     \ vector<T>& v) {\n        int n = v.size(), h = 1;\n        while ((1 << h) <=\
@@ -111,17 +107,13 @@ data:
   isVerificationFile: false
   path: datastructure/SparseTable.hpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/staticrmq.test.cpp
 documentation_of: datastructure/SparseTable.hpp
 layout: document
-redirect_from:
-- /library/datastructure/SparseTable.hpp
-- /library/datastructure/SparseTable.hpp.html
-title: Sparse table
+title: Sparse Table
 ---
-## 概要
 
-## 計算量
+## 概要

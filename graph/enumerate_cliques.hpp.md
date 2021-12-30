@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/enumerate_cliques.md
-    document_title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
     links: []
   bundledCode: "#line 2 \"graph/enumerate_cliques.hpp\"\n#include <queue>\n#include\
     \ <vector>\n\nstd::vector<std::vector<int>> enumerate_cliques(std::vector<std::vector<bool>>\
@@ -44,8 +42,7 @@ data:
     \                que.emplace(u);\n            }\n        }\n    }\n    std::vector<int>\
     \ rest;\n    for (int i = 0; i < n; i++) {\n        if (!used[i]) {\n        \
     \    rest.emplace_back(i);\n        }\n    }\n    add_clique(rest, false);\n \
-    \   return cliques;\n}\n\n/**\n * @brief \u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319\
-    \n * @docs docs/graph/enumerate_cliques.md\n */\n"
+    \   return cliques;\n}\n"
   code: "#pragma once\n#include <queue>\n#include <vector>\n\nstd::vector<std::vector<int>>\
     \ enumerate_cliques(std::vector<std::vector<bool>> G) {\n    int n = G.size(),\
     \ m = 0;\n    std::vector<int> deg(n, 0);\n    for (int i = 0; i < n; i++) {\n\
@@ -76,24 +73,20 @@ data:
     \                used[u] = true;\n                que.emplace(u);\n          \
     \  }\n        }\n    }\n    std::vector<int> rest;\n    for (int i = 0; i < n;\
     \ i++) {\n        if (!used[i]) {\n            rest.emplace_back(i);\n       \
-    \ }\n    }\n    add_clique(rest, false);\n    return cliques;\n}\n\n/**\n * @brief\
-    \ \u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319\n * @docs docs/graph/enumerate_cliques.md\n\
-    \ */"
+    \ }\n    }\n    add_clique(rest, false);\n    return cliques;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/enumerate_cliques.hpp
   requiredBy: []
-  timestamp: '2021-10-01 11:32:51+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2306.test.cpp
 documentation_of: graph/enumerate_cliques.hpp
 layout: document
-redirect_from:
-- /library/graph/enumerate_cliques.hpp
-- /library/graph/enumerate_cliques.hpp.html
 title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
 ---
+
 ## 概要
 グラフのクリークを全列挙する. 時間計算量は頂点数 $n$, 辺数 $m$ として $O(2^{\sqrt{2m}} n)$ となる. あまり見ない計算量だが, $n, m \sim 200$ でも高速に動作する.
 

@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/TopologicalSort.md
-    document_title: Topological Sort
     links: []
   bundledCode: "#line 2 \"graph/TopologicalSort.hpp\"\n#include <algorithm>\n#include\
     \ <cassert>\n#include <queue>\n#include <vector>\n\nstruct TopologicalSort {\n\
@@ -26,8 +24,7 @@ data:
     \ u : G[v]) {\n                if (--indeg[u] == 0) {\n                    que.emplace(u);\n\
     \                }\n            }\n        }\n        if (*std::max_element(indeg.begin(),\
     \ indeg.end()) != 0) return {};\n        return order;\n    }\n\nprivate:\n  \
-    \  int n;\n    std::vector<int> indeg;\n};\n\n/**\n * @brief Topological Sort\n\
-    \ * @docs docs/graph/TopologicalSort.md\n */\n"
+    \  int n;\n    std::vector<int> indeg;\n};\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <queue>\n\
     #include <vector>\n\nstruct TopologicalSort {\n    std::vector<std::vector<int>>\
     \ G;\n\n    TopologicalSort(int n) : G(n), n(n), indeg(n, 0) {}\n\n    void add_edge(int\
@@ -41,13 +38,12 @@ data:
     \                   que.emplace(u);\n                }\n            }\n      \
     \  }\n        if (*std::max_element(indeg.begin(), indeg.end()) != 0) return {};\n\
     \        return order;\n    }\n\nprivate:\n    int n;\n    std::vector<int> indeg;\n\
-    };\n\n/**\n * @brief Topological Sort\n * @docs docs/graph/TopologicalSort.md\n\
-    \ */\n"
+    };\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/TopologicalSort.hpp
   requiredBy: []
-  timestamp: '2021-10-21 18:14:56+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_4_A.TopologicalSort.test.cpp
@@ -56,13 +52,5 @@ layout: document
 redirect_from:
 - /library/graph/TopologicalSort.hpp
 - /library/graph/TopologicalSort.hpp.html
-title: Topological Sort
+title: graph/TopologicalSort.hpp
 ---
-## 概要
-有向グラフ $G$ が DAG (Directed Acyclic Graph, 有向閉路をもたないグラフ) であるかの判定及びそうである際に頂点をトポロジカル順序に並び替える.
-
-| メンバ関数           | 効果                                                                             | 時間計算量 |
-| -------------------- | -------------------------------------------------------------------------------- | ---------- |
-| `TopologicalSort(n)` | $n$ 頂点 0 辺のグラフとして初期化する.                                           | $O(n)$     |
-| `add_edge(u, v)`     | 頂点 $u$ から頂点 $v$ への有向辺を追加する.                                      | $O(1)$     |
-| `build()`            | 頂点をトポロジカル順序に並べ替えて返す. グラフが DAG でない場合には空配列を返す. | $O(n + m)$ |

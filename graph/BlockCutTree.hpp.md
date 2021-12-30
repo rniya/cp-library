@@ -16,9 +16,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/BlockCutTree.md
-    document_title: Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi
-      Connected Components)
     links: []
   bundledCode: "#line 2 \"graph/BlockCutTree.hpp\"\n#include <cassert>\n#include <queue>\n\
     #include <utility>\n#include <vector>\n\nstruct BlockCutTree {\n    std::vector<std::vector<std::pair<int,\
@@ -100,9 +97,7 @@ data:
     \                     edge_stack.pop_back();\n                            bcc_id[cur]\
     \ = bcc_num;\n                            if (edges[cur] == edges[e.second]) break;\n\
     \                        }\n                        bcc_num++;\n             \
-    \       }\n                }\n            }\n        }\n    }\n};\n\n/**\n * @brief\
-    \ Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected Components)\n\
-    \ * @docs docs/graph/BlockCutTree.md\n */\n"
+    \       }\n                }\n            }\n        }\n    }\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <queue>\n#include <utility>\n\
     #include <vector>\n\nstruct BlockCutTree {\n    std::vector<std::vector<std::pair<int,\
     \ int>>> G;\n    std::vector<std::vector<int>> tecc_tree,    // tree that consists\
@@ -183,14 +178,12 @@ data:
     \                     edge_stack.pop_back();\n                            bcc_id[cur]\
     \ = bcc_num;\n                            if (edges[cur] == edges[e.second]) break;\n\
     \                        }\n                        bcc_num++;\n             \
-    \       }\n                }\n            }\n        }\n    }\n};\n\n/**\n * @brief\
-    \ Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected Components)\n\
-    \ * @docs docs/graph/BlockCutTree.md\n */\n"
+    \       }\n                }\n            }\n        }\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/BlockCutTree.hpp
   requiredBy: []
-  timestamp: '2021-10-04 21:58:03+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_3_A.test.cpp
@@ -198,11 +191,9 @@ data:
   - test/yosupo/two_edge_connected_components.test.cpp
 documentation_of: graph/BlockCutTree.hpp
 layout: document
-redirect_from:
-- /library/graph/BlockCutTree.hpp
-- /library/graph/BlockCutTree.hpp.html
 title: Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected Components)
 ---
+
 # TODO
 Block Cut Tree の verify
 

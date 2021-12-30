@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/datastructure/RectangleSet.md
-    document_title: Rectangle Set
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#define LOCAL\n#include <bits/stdc++.h>\nusing\
     \ namespace std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t\
@@ -78,8 +76,7 @@ data:
     \    v.erase(unique(v.begin(), v.end()), v.end());\n}\ntemplate <typename T> int\
     \ lwb(const vector<T>& v, const T& x) { return lower_bound(v.begin(), v.end(),\
     \ x) - v.begin(); }\n#pragma endregion\n#line 3 \"datastructure/RectangleSet.hpp\"\
-    \n\n/**\n * @brief Rectangle Set\n * @docs docs/datastructure/RectangleSet.md\n\
-    \ */\ntemplate <typename T> struct RectangleSet {\n    constexpr T inf = numeric_limits<T>::max()\
+    \n\ntemplate <typename T> struct RectangleSet {\n    constexpr T inf = numeric_limits<T>::max()\
     \ / 2;\n    set<pair<T, T>> s;\n    multiset<T> val;\n    RectangleSet() {\n \
     \       s.emplace(-1, inf);\n        s.emplace(0, 0);\n        val.emplace(0);\n\
     \    }\n\n    void add(T x, T y) {\n        auto itr = s.lower_bound(make_pair(x,\
@@ -91,10 +88,9 @@ data:
     \ s.emplace(nx, y);\n            val.emplace(nx + y);\n            s.emplace(x,\
     \ ny);\n            val.emplace(x + ny);\n        }\n    }\n    T query() { return\
     \ *val.begin(); }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Rectangle Set\n\
-    \ * @docs docs/datastructure/RectangleSet.md\n */\ntemplate <typename T> struct\
-    \ RectangleSet {\n    constexpr T inf = numeric_limits<T>::max() / 2;\n    set<pair<T,\
-    \ T>> s;\n    multiset<T> val;\n    RectangleSet() {\n        s.emplace(-1, inf);\n\
+  code: "#pragma once\n#include \"../base.hpp\"\n\ntemplate <typename T> struct RectangleSet\
+    \ {\n    constexpr T inf = numeric_limits<T>::max() / 2;\n    set<pair<T, T>>\
+    \ s;\n    multiset<T> val;\n    RectangleSet() {\n        s.emplace(-1, inf);\n\
     \        s.emplace(0, 0);\n        val.emplace(0);\n    }\n\n    void add(T x,\
     \ T y) {\n        auto itr = s.lower_bound(make_pair(x, y));\n        bool flag\
     \ = false;\n        T nx = inf, ny = inf;\n        while (1) {\n            itr\
@@ -104,22 +100,20 @@ data:
     \ s.erase(itr);\n        }\n        if (flag) {\n            s.emplace(nx, y);\n\
     \            val.emplace(nx + y);\n            s.emplace(x, ny);\n           \
     \ val.emplace(x + ny);\n        }\n    }\n    T query() { return *val.begin();\
-    \ }\n};"
+    \ }\n};\n"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: datastructure/RectangleSet.hpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: datastructure/RectangleSet.hpp
 layout: document
-redirect_from:
-- /library/datastructure/RectangleSet.hpp
-- /library/datastructure/RectangleSet.hpp.html
 title: Rectangle Set
 ---
+
 ## 概要
 「$x \geqq a$または$y \geqq b$」という条件を追加して$\min x+y$を計算する.
 - `add(a, b)` : 「$x \geqq a$または$y \geqq b$」という条件を追加する.

@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/UnionFind.hpp
-    title: Union Find (Disjoint Set Union)
+    title: datastructure/UnionFind.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -98,11 +98,10 @@ data:
     \ res.end(), [&](const std::vector<int>& v) { return v.empty(); }));\n       \
     \ return res;\n    }\n\n    int operator[](int x) { return find(x); }\n\nprivate:\n\
     \    int n, num;\n    // root node : -1 * component size\n    // otherwise : parent\n\
-    \    std::vector<int> data;\n};\n\n/**\n * @brief Union Find (Disjoint Set Union)\n\
-    \ * @docs docs/datastructure/UnionFind.md\n */\n#line 5 \"test/aoj/DSL_1_A.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n,\
-    \ q;\n    cin >> n >> q;\n\n    UnionFind UF(n);\n\n    for (; q--;) {\n     \
-    \   int c, x, y;\n        cin >> c >> x >> y;\n        if (!c)\n            UF.merge(x,\
+    \    std::vector<int> data;\n};\n#line 5 \"test/aoj/DSL_1_A.test.cpp\"\n\nint\
+    \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n, q;\n\
+    \    cin >> n >> q;\n\n    UnionFind UF(n);\n\n    for (; q--;) {\n        int\
+    \ c, x, y;\n        cin >> c >> x >> y;\n        if (!c)\n            UF.merge(x,\
     \ y);\n        else\n            cout << UF.same(x, y) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/UnionFind.hpp\"\
@@ -116,7 +115,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_1_A.test.cpp

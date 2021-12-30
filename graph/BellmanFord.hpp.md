@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/BellmanFord.md
-    document_title: Bellman-Ford
     links: []
   bundledCode: "#line 2 \"graph/BellmanFord.hpp\"\n#include <cassert>\n#include <limits>\n\
     #include <utility>\n#include <vector>\n\ntemplate <typename T> struct BellmanFord\
@@ -41,8 +39,7 @@ data:
     \        return d;\n    }\n\nprivate:\n    struct edge {\n        int from, to;\n\
     \        T cost;\n        edge(int from, int to, T cost) : from(from), to(to),\
     \ cost(cost) {}\n    };\n    int n;\n    const T inf = std::numeric_limits<T>::max()\
-    \ / 2;\n    std::vector<T> d;\n    std::vector<edge> es;\n};\n\n/**\n * @brief\
-    \ Bellman-Ford\n * @docs docs/graph/BellmanFord.md\n */\n"
+    \ / 2;\n    std::vector<T> d;\n    std::vector<edge> es;\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <limits>\n#include <utility>\n\
     #include <vector>\n\ntemplate <typename T> struct BellmanFord {\n    BellmanFord(int\
     \ n) : n(n), d(n) {}\n\n    void add_edge(int from, int to, T cost) {\n      \
@@ -71,23 +68,20 @@ data:
     \        return d;\n    }\n\nprivate:\n    struct edge {\n        int from, to;\n\
     \        T cost;\n        edge(int from, int to, T cost) : from(from), to(to),\
     \ cost(cost) {}\n    };\n    int n;\n    const T inf = std::numeric_limits<T>::max()\
-    \ / 2;\n    std::vector<T> d;\n    std::vector<edge> es;\n};\n\n/**\n * @brief\
-    \ Bellman-Ford\n * @docs docs/graph/BellmanFord.md\n */\n"
+    \ / 2;\n    std::vector<T> d;\n    std::vector<edge> es;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/BellmanFord.hpp
   requiredBy: []
-  timestamp: '2021-10-20 18:48:33+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_1_B.test.cpp
 documentation_of: graph/BellmanFord.hpp
 layout: document
-redirect_from:
-- /library/graph/BellmanFord.hpp
-- /library/graph/BellmanFord.hpp.html
 title: Bellman-Ford
 ---
+
 ## 概要
 単一始点最短路問題を解くアルゴリズム. 同じく最短路問題を解く Dijkstra 法と比較すると, 計算量が悪化する代わりに Bellman-Ford 法は負辺があっても動作する.
 

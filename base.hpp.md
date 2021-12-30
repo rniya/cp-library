@@ -9,11 +9,8 @@ data:
     path: datastructure/RectangleSet.hpp
     title: Rectangle Set
   - icon: ':heavy_check_mark:'
-    path: datastructure/SegmentTreeBeats.hpp
-    title: Segment Tree Beats
-  - icon: ':heavy_check_mark:'
     path: datastructure/SparseTable.hpp
-    title: Sparse table
+    title: Sparse Table
   - icon: ':heavy_check_mark:'
     path: graph/CycleDetection.hpp
     title: Cycle Detection
@@ -22,17 +19,14 @@ data:
     title: Dijkstra
   - icon: ':warning:'
     path: graph/RangeEdgeGraph.hpp
-    title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
+    title: Range Edge Graph
   - icon: ':heavy_check_mark:'
     path: math/fast_factorize.hpp
     title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
       \ + Pollard's rho algorithm)"
-  - icon: ':warning:'
-    path: string/Knuth_Morris_Pratt.hpp
-    title: "Knuth Moriss Pratt (KMP\u6CD5)"
   - icon: ':heavy_check_mark:'
     path: string/Manacher.hpp
-    title: Manacher
+    title: "Manacher\uFF08\u56DE\u5206\u534A\u5F84\uFF09"
   - icon: ':heavy_check_mark:'
     path: string/Z_Algorithm.hpp
     title: Z-Algorithm
@@ -143,30 +137,6 @@ data:
     path: test/aoj/DSL_1_B.test.cpp
     title: test/aoj/DSL_1_B.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
-    title: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
-    title: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-    title: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
-    title: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-    title: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-    title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
-    title: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
-    title: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
     title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -250,9 +220,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
     title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
-    title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
@@ -442,13 +409,11 @@ data:
   - graph/CycleDetection.hpp
   - graph/RangeEdgeGraph.hpp
   - graph/Dijkstra.hpp
-  - string/Knuth_Morris_Pratt.hpp
   - string/Z_Algorithm.hpp
   - string/Manacher.hpp
   - math/fast_factorize.hpp
   - datastructure/BinaryTrie.hpp
   - datastructure/SparseTable.hpp
-  - datastructure/SegmentTreeBeats.hpp
   - datastructure/RectangleSet.hpp
   - util/RandomNumberGenerator_32.hpp
   - util/ZobristHash.hpp
@@ -463,11 +428,8 @@ data:
   - test/aoj/2891.test.cpp
   - test/aoj/DSL_5_B.test.cpp
   - test/aoj/CGL_7_E.test.cpp
-  - test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
   - test/aoj/CGL_1_C.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
-  - test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-  - test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
   - test/aoj/2306.test.cpp
   - test/aoj/NTL_1_B.test.cpp
   - test/aoj/CGL_7_G.test.cpp
@@ -495,25 +457,20 @@ data:
   - test/aoj/GRL_5_A.test.cpp
   - test/aoj/GRL_3_B.test.cpp
   - test/aoj/NTL_1_A.test.cpp
-  - test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
   - test/aoj/CGL_4_A.test.cpp
   - test/aoj/NTL_1_D.test.cpp
   - test/aoj/NTL_1_E.test.cpp
   - test/aoj/ITP1_11_C.test.cpp
   - test/aoj/CGL_7_F.test.cpp
-  - test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
   - test/aoj/CGL_2_B.test.cpp
   - test/aoj/CGL_1_B.test.cpp
   - test/aoj/GRL_4_A.test.cpp
   - test/aoj/GRL_2_A.test.cpp
   - test/aoj/CGL_7_A.test.cpp
-  - test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
   - test/aoj/DSL_1_B.test.cpp
   - test/aoj/DSL_1_A.test.cpp
   - test/aoj/CGL_3_B.test.cpp
-  - test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
   - test/aoj/ITP1_11_B.test.cpp
-  - test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
   - test/aoj/GRL_5_B.test.cpp
   - test/aoj/CGL_2_C.test.cpp
   - test/aoj/CGL_7_C.test.cpp
@@ -535,7 +492,6 @@ data:
   - test/yosupo/bipartitematching.test.cpp
   - test/yosupo/discrete_logarithm_mod.test.cpp
   - test/yosupo/scc.test.cpp
-  - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   - test/yosupo/shortest_path.test.cpp
   - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/associative_array.test.cpp

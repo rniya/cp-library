@@ -3,7 +3,8 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/StronglyConnectedComponents.hpp
-    title: Strongly Connected Components
+    title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\
+      \u89E3\uFF09"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -13,8 +14,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/TwoSAT.md
-    document_title: 2-SAT
     links: []
   bundledCode: "#line 2 \"graph/TwoSAT.hpp\"\n#include <cassert>\n#include <vector>\n\
     #line 2 \"graph/StronglyConnectedComponents.hpp\"\n#include <algorithm>\n#line\
@@ -44,26 +43,25 @@ data:
     \      while (true) {\n                int u = visited.back();\n             \
     \   visited.pop_back();\n                comp[u] = group_num;\n              \
     \  if (u == v) break;\n            }\n            group_num++;\n        }\n  \
-    \  }\n};\n\n/**\n * @brief Strongly Connected Components\n * @docs docs/graph/StronglyConnectedComponents.md\n\
-    \ */\n#line 5 \"graph/TwoSAT.hpp\"\n\nstruct TwoSAT {\n    TwoSAT(int n) : n(n),\
-    \ called_satisfiable(false), ans(n), scc(2 * n) {}\n\n    // (i = f or j = g)\n\
-    \    void add_clause(int i, bool f, int j, bool g) {\n        assert(0 <= i and\
-    \ i < n);\n        assert(0 <= j and j < n);\n        scc.add_edge(i << 1 | (f\
-    \ ? 0 : 1), j << 1 | (g ? 1 : 0));\n        scc.add_edge(j << 1 | (g ? 0 : 1),\
-    \ i << 1 | (f ? 1 : 0));\n    }\n\n    // (i = f) -> (j = g) <=> (i = !f) or (j\
-    \ = g)\n    void add_if(int i, bool f, int j, bool g) {\n        assert(0 <= i\
-    \ and i < n);\n        assert(0 <= j and j < n);\n        add_clause(i, f ^ 1,\
-    \ j, g);\n    }\n\n    // i <=> !i -> i\n    void set_true(int i) {\n        assert(0\
-    \ <= i and i < n);\n        scc.add_edge(i << 1 | 1, i << 1 | 0);\n    }\n\n \
-    \   // !i <=> i -> !i\n    void set_false(int i) {\n        assert(0 <= i and\
-    \ i < n);\n        scc.add_edge(i << 1 | 0, i << 1 | 1);\n    }\n\n    bool satisfiable()\
-    \ {\n        called_satisfiable = true;\n        scc.build();\n        for (int\
-    \ i = 0; i < n; i++) {\n            if (scc[i << 1] == scc[i << 1 | 1]) return\
-    \ false;\n            ans[i] = (scc[i << 1] < scc[i << 1 | 1]);\n        }\n \
-    \       return true;\n    }\n\n    std::vector<bool> answer() const {\n      \
-    \  assert(called_satisfiable);\n        return ans;\n    }\n\nprivate:\n    int\
-    \ n;\n    bool called_satisfiable;\n    std::vector<bool> ans;\n    StronglyConnectedComponents\
-    \ scc;\n};\n\n/**\n * @brief 2-SAT\n * @docs docs/graph/TwoSAT.md\n */\n"
+    \  }\n};\n#line 5 \"graph/TwoSAT.hpp\"\n\nstruct TwoSAT {\n    TwoSAT(int n) :\
+    \ n(n), called_satisfiable(false), ans(n), scc(2 * n) {}\n\n    // (i = f or j\
+    \ = g)\n    void add_clause(int i, bool f, int j, bool g) {\n        assert(0\
+    \ <= i and i < n);\n        assert(0 <= j and j < n);\n        scc.add_edge(i\
+    \ << 1 | (f ? 0 : 1), j << 1 | (g ? 1 : 0));\n        scc.add_edge(j << 1 | (g\
+    \ ? 0 : 1), i << 1 | (f ? 1 : 0));\n    }\n\n    // (i = f) -> (j = g) <=> (i\
+    \ = !f) or (j = g)\n    void add_if(int i, bool f, int j, bool g) {\n        assert(0\
+    \ <= i and i < n);\n        assert(0 <= j and j < n);\n        add_clause(i, f\
+    \ ^ 1, j, g);\n    }\n\n    // i <=> !i -> i\n    void set_true(int i) {\n   \
+    \     assert(0 <= i and i < n);\n        scc.add_edge(i << 1 | 1, i << 1 | 0);\n\
+    \    }\n\n    // !i <=> i -> !i\n    void set_false(int i) {\n        assert(0\
+    \ <= i and i < n);\n        scc.add_edge(i << 1 | 0, i << 1 | 1);\n    }\n\n \
+    \   bool satisfiable() {\n        called_satisfiable = true;\n        scc.build();\n\
+    \        for (int i = 0; i < n; i++) {\n            if (scc[i << 1] == scc[i <<\
+    \ 1 | 1]) return false;\n            ans[i] = (scc[i << 1] < scc[i << 1 | 1]);\n\
+    \        }\n        return true;\n    }\n\n    std::vector<bool> answer() const\
+    \ {\n        assert(called_satisfiable);\n        return ans;\n    }\n\nprivate:\n\
+    \    int n;\n    bool called_satisfiable;\n    std::vector<bool> ans;\n    StronglyConnectedComponents\
+    \ scc;\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n#include \"StronglyConnectedComponents.hpp\"\
     \n\nstruct TwoSAT {\n    TwoSAT(int n) : n(n), called_satisfiable(false), ans(n),\
     \ scc(2 * n) {}\n\n    // (i = f or j = g)\n    void add_clause(int i, bool f,\
@@ -82,24 +80,21 @@ data:
     \ = (scc[i << 1] < scc[i << 1 | 1]);\n        }\n        return true;\n    }\n\
     \n    std::vector<bool> answer() const {\n        assert(called_satisfiable);\n\
     \        return ans;\n    }\n\nprivate:\n    int n;\n    bool called_satisfiable;\n\
-    \    std::vector<bool> ans;\n    StronglyConnectedComponents scc;\n};\n\n/**\n\
-    \ * @brief 2-SAT\n * @docs docs/graph/TwoSAT.md\n */\n"
+    \    std::vector<bool> ans;\n    StronglyConnectedComponents scc;\n};\n"
   dependsOn:
   - graph/StronglyConnectedComponents.hpp
   isVerificationFile: false
   path: graph/TwoSAT.hpp
   requiredBy: []
-  timestamp: '2021-10-18 22:54:27+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/two_sat.test.cpp
 documentation_of: graph/TwoSAT.hpp
 layout: document
-redirect_from:
-- /library/graph/TwoSAT.hpp
-- /library/graph/TwoSAT.hpp.html
 title: 2-SAT
 ---
+
 ## 概要
 $(a \vee b \vee \cdots) \wedge (c \vee d \vee \cdots) \wedge \cdots$ のような形をした論理式, すなわち $x_{i,j}$ をリテラルとして $\bigwedge_i \bigvee_j x_{i,j}$ のように表される論理式を CNF 形式 (乗法標準形, 連言標準形とも) という. 内側の各 $\bigvee_j x_{i,j}$ をクロージャ (clause) という.
 

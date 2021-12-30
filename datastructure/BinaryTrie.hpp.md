@@ -13,8 +13,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/datastructure/BinaryTrie.md
-    document_title: Binary Trie
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#define LOCAL\n#include <bits/stdc++.h>\nusing\
     \ namespace std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t\
@@ -81,21 +79,20 @@ data:
     \    v.erase(unique(v.begin(), v.end()), v.end());\n}\ntemplate <typename T> int\
     \ lwb(const vector<T>& v, const T& x) { return lower_bound(v.begin(), v.end(),\
     \ x) - v.begin(); }\n#pragma endregion\n#line 3 \"datastructure/BinaryTrie.hpp\"\
-    \n\n/**\n * @brief Binary Trie\n * @docs docs/datastructure/BinaryTrie.md\n */\n\
-    template <typename T, int MAX_LOG> class BinaryTrie {\n    struct Node {\n   \
-    \     int cnt;\n        Node* ch[2];\n        Node() : cnt(0), ch{nullptr, nullptr}\
-    \ {}\n    };\n    Node* root;\n    Node* add(Node* node, T val, int b = MAX_LOG\
-    \ - 1) {\n        if (!node) node = new Node;\n        node->cnt += 1;\n     \
-    \   if (b < 0) return node;\n        bool f = (val >> (T)b) & (T)1;\n        node->ch[f]\
-    \ = add(node->ch[f], val, b - 1);\n        return node;\n    }\n    Node* sub(Node*\
-    \ node, T val, int b = MAX_LOG - 1) {\n        node->cnt -= 1;\n        if (node->cnt\
-    \ == 0) return nullptr;\n        if (b < 0) return node;\n        bool f = (val\
-    \ >> (T)b) & (T)1;\n        node->ch[f] = sub(node->ch[f], val, b - 1);\n    \
-    \    return node;\n    }\n    T get_min(Node* node, T val, int b = MAX_LOG - 1)\
-    \ const {\n        if (b < 0) return 0;\n        bool f = (val >> (T)b) & (T)1;\n\
-    \        f ^= !node->ch[f];\n        return get_min(node->ch[f], val, b - 1) |\
-    \ (T)f << (T)b;\n    }\n    T get(Node* node, int k, int b = MAX_LOG - 1) const\
-    \ {\n        if (b < 0) return 0;\n        int m = node->ch[0] ? node->ch[0]->cnt\
+    \n\ntemplate <typename T, int MAX_LOG> class BinaryTrie {\n    struct Node {\n\
+    \        int cnt;\n        Node* ch[2];\n        Node() : cnt(0), ch{nullptr,\
+    \ nullptr} {}\n    };\n    Node* root;\n    Node* add(Node* node, T val, int b\
+    \ = MAX_LOG - 1) {\n        if (!node) node = new Node;\n        node->cnt +=\
+    \ 1;\n        if (b < 0) return node;\n        bool f = (val >> (T)b) & (T)1;\n\
+    \        node->ch[f] = add(node->ch[f], val, b - 1);\n        return node;\n \
+    \   }\n    Node* sub(Node* node, T val, int b = MAX_LOG - 1) {\n        node->cnt\
+    \ -= 1;\n        if (node->cnt == 0) return nullptr;\n        if (b < 0) return\
+    \ node;\n        bool f = (val >> (T)b) & (T)1;\n        node->ch[f] = sub(node->ch[f],\
+    \ val, b - 1);\n        return node;\n    }\n    T get_min(Node* node, T val,\
+    \ int b = MAX_LOG - 1) const {\n        if (b < 0) return 0;\n        bool f =\
+    \ (val >> (T)b) & (T)1;\n        f ^= !node->ch[f];\n        return get_min(node->ch[f],\
+    \ val, b - 1) | (T)f << (T)b;\n    }\n    T get(Node* node, int k, int b = MAX_LOG\
+    \ - 1) const {\n        if (b < 0) return 0;\n        int m = node->ch[0] ? node->ch[0]->cnt\
     \ : 0;\n        return k < m ? get(node->ch[0], k, b - 1) : get(node->ch[1], k\
     \ - m, b - 1) | (T)1 << (T)b;\n    }\n    int count_lower(Node* node, T val, int\
     \ b = MAX_LOG - 1) {\n        if (!node || b < 0) return 0;\n        bool f =\
@@ -112,8 +109,7 @@ data:
     \        for (int i = MAX_LOG - 1; i >= 0; i--) {\n            node = node->ch[(val\
     \ >> (T)i) & (T)1];\n            if (!node) return 0;\n        }\n        return\
     \ node->cnt;\n    }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief Binary Trie\n *\
-    \ @docs docs/datastructure/BinaryTrie.md\n */\ntemplate <typename T, int MAX_LOG>\
+  code: "#pragma once\n#include \"../base.hpp\"\n\ntemplate <typename T, int MAX_LOG>\
     \ class BinaryTrie {\n    struct Node {\n        int cnt;\n        Node* ch[2];\n\
     \        Node() : cnt(0), ch{nullptr, nullptr} {}\n    };\n    Node* root;\n \
     \   Node* add(Node* node, T val, int b = MAX_LOG - 1) {\n        if (!node) node\
@@ -143,23 +139,19 @@ data:
     \ (!root) return 0;\n        Node* node = root;\n        for (int i = MAX_LOG\
     \ - 1; i >= 0; i--) {\n            node = node->ch[(val >> (T)i) & (T)1];\n  \
     \          if (!node) return 0;\n        }\n        return node->cnt;\n    }\n\
-    };"
+    };\n"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: datastructure/BinaryTrie.hpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/set_xor_min.test.cpp
 documentation_of: datastructure/BinaryTrie.hpp
 layout: document
-redirect_from:
-- /library/datastructure/BinaryTrie.hpp
-- /library/datastructure/BinaryTrie.hpp.html
 title: Binary Trie
 ---
-## 概要
 
-## 計算量
+## 概要

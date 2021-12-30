@@ -100,9 +100,8 @@ data:
     \     assert(0 <= x && x < n);\n        assert(0 <= y && y < n);\n        return\
     \ potential(y) - potential(x);\n    }\n\n    int operator[](int x) { return find(x);\
     \ }\n\nprivate:\n    int n;\n    std::vector<int> data;\n    std::vector<T> dist;\n\
-    };\n\n/**\n * @brief Potentialized Union Find\n * @docs docs/datastructure/PotentializedUnionFind.md\n\
-    \ */\n#line 5 \"test/aoj/DSL_1_B.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int n, q;\n    cin >> n >> q;\n\n    PotentializedUnionFind<int>\
+    };\n#line 5 \"test/aoj/DSL_1_B.test.cpp\"\n\nint main() {\n    cin.tie(0);\n \
+    \   ios::sync_with_stdio(false);\n    int n, q;\n    cin >> n >> q;\n\n    PotentializedUnionFind<int>\
     \ UF(n);\n\n    for (; q--;) {\n        int c, x, y, z;\n        cin >> c >> x\
     \ >> y;\n        if (!c) {\n            cin >> z;\n            UF.merge(x, y,\
     \ z);\n        } else {\n            if (UF.same(x, y))\n                cout\
@@ -123,7 +122,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_1_B.test.cpp

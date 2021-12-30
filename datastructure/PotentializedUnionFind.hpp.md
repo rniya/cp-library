@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/datastructure/PotentializedUnionFind.md
-    document_title: Potentialized Union Find
     links: []
   bundledCode: "#line 2 \"datastructure/PotentializedUnionFind.hpp\"\n#include <cassert>\n\
     #include <vector>\n\ntemplate <typename T> struct PotentializedUnionFind {\n \
@@ -31,9 +29,7 @@ data:
     \       return dist[x];\n    }\n\n    T diff(int x, int y) {\n        assert(0\
     \ <= x && x < n);\n        assert(0 <= y && y < n);\n        return potential(y)\
     \ - potential(x);\n    }\n\n    int operator[](int x) { return find(x); }\n\n\
-    private:\n    int n;\n    std::vector<int> data;\n    std::vector<T> dist;\n};\n\
-    \n/**\n * @brief Potentialized Union Find\n * @docs docs/datastructure/PotentializedUnionFind.md\n\
-    \ */\n"
+    private:\n    int n;\n    std::vector<int> data;\n    std::vector<T> dist;\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\ntemplate <typename\
     \ T> struct PotentializedUnionFind {\n    PotentializedUnionFind(int n) : n(n),\
     \ data(n, -1), dist(n, T()) {}\n\n    int find(int x) {\n        assert(0 <= x\
@@ -52,21 +48,18 @@ data:
     \     assert(0 <= x && x < n);\n        assert(0 <= y && y < n);\n        return\
     \ potential(y) - potential(x);\n    }\n\n    int operator[](int x) { return find(x);\
     \ }\n\nprivate:\n    int n;\n    std::vector<int> data;\n    std::vector<T> dist;\n\
-    };\n\n/**\n * @brief Potentialized Union Find\n * @docs docs/datastructure/PotentializedUnionFind.md\n\
-    \ */\n"
+    };\n"
   dependsOn: []
   isVerificationFile: false
   path: datastructure/PotentializedUnionFind.hpp
   requiredBy: []
-  timestamp: '2021-10-04 17:13:22+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_1_B.test.cpp
 documentation_of: datastructure/PotentializedUnionFind.hpp
 layout: document
-redirect_from:
-- /library/datastructure/PotentializedUnionFind.hpp
-- /library/datastructure/PotentializedUnionFind.hpp.html
 title: Potentialized Union Find
 ---
+
 ## 概要

@@ -96,12 +96,12 @@ data:
     \ && e.second < dist[u]) {\n                    dist[u] = e.second;\n        \
     \            pq.emplace(e.second, u);\n                }\n            }\n    \
     \    }\n        return res;\n    }\n\nprivate:\n    int n;\n    std::vector<std::vector<std::pair<int,\
-    \ T>>> G;\n    std::vector<T> dist;\n    std::vector<bool> used;\n};\n\n/**\n\
-    \ * @brief Prim\n * @docs docs/graph/Prim.md\n */\n#line 5 \"test/aoj/GRL_2_A.Prim.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
-    \ E;\n    cin >> V >> E;\n\n    Prim<int> P(V);\n\n    for (int i = 0; i < E;\
-    \ i++) {\n        int s, t, w;\n        cin >> s >> t >> w;\n        P.add_edge(s,\
-    \ t, w);\n    }\n\n    cout << P.build() << '\\n';\n    return 0;\n}\n"
+    \ T>>> G;\n    std::vector<T> dist;\n    std::vector<bool> used;\n};\n#line 5\
+    \ \"test/aoj/GRL_2_A.Prim.test.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int V, E;\n    cin >> V >> E;\n\n    Prim<int> P(V);\n\n    for (int i =\
+    \ 0; i < E; i++) {\n        int s, t, w;\n        cin >> s >> t >> w;\n      \
+    \  P.add_edge(s, t, w);\n    }\n\n    cout << P.build() << '\\n';\n    return\
+    \ 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/Prim.hpp\"\n\nint main()\
     \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n    cin\
@@ -114,7 +114,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_2_A.Prim.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_2_A.Prim.test.cpp

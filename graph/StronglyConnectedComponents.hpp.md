@@ -19,8 +19,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/StronglyConnectedComponents.md
-    document_title: Strongly Connected Components
     links: []
   bundledCode: "#line 2 \"graph/StronglyConnectedComponents.hpp\"\n#include <algorithm>\n\
     #include <cassert>\n#include <vector>\n\nstruct StronglyConnectedComponents {\n\
@@ -49,8 +47,7 @@ data:
     \      while (true) {\n                int u = visited.back();\n             \
     \   visited.pop_back();\n                comp[u] = group_num;\n              \
     \  if (u == v) break;\n            }\n            group_num++;\n        }\n  \
-    \  }\n};\n\n/**\n * @brief Strongly Connected Components\n * @docs docs/graph/StronglyConnectedComponents.md\n\
-    \ */\n"
+    \  }\n};\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <vector>\n\
     \nstruct StronglyConnectedComponents {\n    std::vector<std::vector<int>> G;\n\
     \    std::vector<int> comp;  // component id vertex v belongs to\n\n    StronglyConnectedComponents(int\
@@ -77,14 +74,13 @@ data:
     \      while (true) {\n                int u = visited.back();\n             \
     \   visited.pop_back();\n                comp[u] = group_num;\n              \
     \  if (u == v) break;\n            }\n            group_num++;\n        }\n  \
-    \  }\n};\n\n/**\n * @brief Strongly Connected Components\n * @docs docs/graph/StronglyConnectedComponents.md\n\
-    \ */"
+    \  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/StronglyConnectedComponents.hpp
   requiredBy:
   - graph/TwoSAT.hpp
-  timestamp: '2021-09-22 03:05:43+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_3_C.test.cpp
@@ -92,11 +88,10 @@ data:
   - test/yosupo/scc.test.cpp
 documentation_of: graph/StronglyConnectedComponents.hpp
 layout: document
-redirect_from:
-- /library/graph/StronglyConnectedComponents.hpp
-- /library/graph/StronglyConnectedComponents.hpp.html
-title: Strongly Connected Components
+title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
+  \uFF09"
 ---
+
 ## 概要
 有向グラフを強連結成分に分解する. 各強連結成分の番号は強連結成分を 1 つの頂点にするように縮約した DAG におけるトポロジカル順序を同時に表す. 実装は Tarjan の考案したアルゴリズムに沿っている.
 

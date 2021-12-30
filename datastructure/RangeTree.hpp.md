@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/datastructure/RangeTree.md
-    document_title: "Range Tree (\u62BD\u8C61\u5316\u9818\u57DF\u6728)"
     links: []
   bundledCode: "#line 2 \"datastructure/RangeTree.hpp\"\n#include <algorithm>\n#include\
     \ <cassert>\n#include <functional>\n#include <vector>\n\ntemplate <typename structure_t,\
@@ -56,8 +54,7 @@ data:
     \ yxs[i].end(), std::make_pair(y, coordinate_t()), compare));\n    }\n\n    int\
     \ zip(int i, coordinate_t x, coordinate_t y) {\n        return std::distance(yxs[i].begin(),\
     \ std::lower_bound(yxs[i].begin(), yxs[i].end(), std::make_pair(y, x)));\n   \
-    \ }\n};\n\n/**\n * @brief Range Tree (\u62BD\u8C61\u5316\u9818\u57DF\u6728)\n\
-    \ * @docs docs/datastructure/RangeTree.md\n */\n"
+    \ }\n};\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <functional>\n\
     #include <vector>\n\ntemplate <typename structure_t, typename value_t, typename\
     \ coordinate_t> struct RangeTree {\nprivate:\n    using structure_new = std::function<structure_t*(int)>;\n\
@@ -100,24 +97,20 @@ data:
     \   yxs[i].begin(), std::lower_bound(yxs[i].begin(), yxs[i].end(), std::make_pair(y,\
     \ coordinate_t()), compare));\n    }\n\n    int zip(int i, coordinate_t x, coordinate_t\
     \ y) {\n        return std::distance(yxs[i].begin(), std::lower_bound(yxs[i].begin(),\
-    \ yxs[i].end(), std::make_pair(y, x)));\n    }\n};\n\n/**\n * @brief Range Tree\
-    \ (\u62BD\u8C61\u5316\u9818\u57DF\u6728)\n * @docs docs/datastructure/RangeTree.md\n\
-    \ */\n"
+    \ yxs[i].end(), std::make_pair(y, x)));\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: datastructure/RangeTree.hpp
   requiredBy: []
-  timestamp: '2021-12-04 17:03:44+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/point_add_rectangle_sum.test.cpp
 documentation_of: datastructure/RangeTree.hpp
 layout: document
-redirect_from:
-- /library/datastructure/RangeTree.hpp
-- /library/datastructure/RangeTree.hpp.html
-title: "Range Tree (\u62BD\u8C61\u5316\u9818\u57DF\u6728)"
+title: Range Tree
 ---
+
 ## 概要
 2 次元平面上の一点更新及び長方形領域のクエリに答えるデータ構造. 事前に座標圧縮等を施す必要はないが, 一点更新が適用される点の候補を予め列挙しておく必要がある.
 

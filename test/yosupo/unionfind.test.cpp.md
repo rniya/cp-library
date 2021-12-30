@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/UnionFind.hpp
-    title: Union Find (Disjoint Set Union)
+    title: datastructure/UnionFind.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -98,11 +98,10 @@ data:
     \ res.end(), [&](const std::vector<int>& v) { return v.empty(); }));\n       \
     \ return res;\n    }\n\n    int operator[](int x) { return find(x); }\n\nprivate:\n\
     \    int n, num;\n    // root node : -1 * component size\n    // otherwise : parent\n\
-    \    std::vector<int> data;\n};\n\n/**\n * @brief Union Find (Disjoint Set Union)\n\
-    \ * @docs docs/datastructure/UnionFind.md\n */\n#line 5 \"test/yosupo/unionfind.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
-    \ Q;\n    cin >> N >> Q;\n\n    UnionFind UF(N);\n    for (; Q--;) {\n       \
-    \ int t, u, v;\n        cin >> t >> u >> v;\n        if (!t)\n            UF.merge(u,\
+    \    std::vector<int> data;\n};\n#line 5 \"test/yosupo/unionfind.test.cpp\"\n\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n\
+    \    cin >> N >> Q;\n\n    UnionFind UF(N);\n    for (; Q--;) {\n        int t,\
+    \ u, v;\n        cin >> t >> u >> v;\n        if (!t)\n            UF.merge(u,\
     \ v);\n        else\n            cout << UF.same(u, v) << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\n\n#include\
     \ \"../../base.hpp\"\n#include \"../../datastructure/UnionFind.hpp\"\n\nint main()\
@@ -116,7 +115,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/unionfind.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/unionfind.test.cpp

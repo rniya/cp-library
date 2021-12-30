@@ -88,13 +88,11 @@ data:
     \ and v[deq.back()] >= v[i]) deq.pop_back();\n        deq.emplace_back(i);\n \
     \       if (i - k + 1 >= 0) {\n            res.emplace_back(v[deq.front()]);\n\
     \            if (deq.front() == i - k + 1) deq.pop_front();\n        }\n    }\n\
-    \    return res;\n}\n\n/**\n * @brief \u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024\
-    \n * @docs docs/datastructure/Slide_Min.md\n */\n#line 5 \"test/aoj/DSL_3_D.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
-    \ L;\n    cin >> N >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
-    \ cin >> a[i];\n\n    vector<int> ans = Slide_Min(a, L);\n    for (size_t i =\
-    \ 0; i < ans.size(); i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n\
-    }\n"
+    \    return res;\n}\n#line 5 \"test/aoj/DSL_3_D.test.cpp\"\n\nint main() {\n \
+    \   cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, L;\n    cin >> N\
+    \ >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++) cin >> a[i];\n\
+    \n    vector<int> ans = Slide_Min(a, L);\n    for (size_t i = 0; i < ans.size();\
+    \ i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/Slide_Min.hpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
@@ -108,7 +106,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_3_D.test.cpp
   requiredBy: []
-  timestamp: '2021-11-29 17:40:57+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_3_D.test.cpp

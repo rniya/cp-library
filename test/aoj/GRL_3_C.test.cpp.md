@@ -6,7 +6,8 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: graph/StronglyConnectedComponents.hpp
-    title: Strongly Connected Components
+    title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\
+      \u89E3\uFF09"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -108,8 +109,7 @@ data:
     \      while (true) {\n                int u = visited.back();\n             \
     \   visited.pop_back();\n                comp[u] = group_num;\n              \
     \  if (u == v) break;\n            }\n            group_num++;\n        }\n  \
-    \  }\n};\n\n/**\n * @brief Strongly Connected Components\n * @docs docs/graph/StronglyConnectedComponents.md\n\
-    \ */\n#line 5 \"test/aoj/GRL_3_C.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \  }\n};\n#line 5 \"test/aoj/GRL_3_C.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
     \    ios::sync_with_stdio(false);\n    int V, E;\n    cin >> V >> E;\n\n    StronglyConnectedComponents\
     \ SCC(V);\n    for (int i = 0; i < E; i++) {\n        int s, t;\n        cin >>\
     \ s >> t;\n        SCC.add_edge(s, t);\n    }\n    SCC.build();\n\n    int Q;\n\
@@ -129,7 +129,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_3_C.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_3_C.test.cpp

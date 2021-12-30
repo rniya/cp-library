@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: datastructure/SlidingWindowAggregation.hpp
-    title: Sliding Window Aggregation (SWAG)
+    title: Sliding Window Aggregation
   - icon: ':heavy_check_mark:'
     path: util/modint.hpp
     title: util/modint.hpp
@@ -31,16 +31,14 @@ data:
     \ calc = f(t, front_stack.top().second);\n                front_stack.emplace(t,\
     \ calc);\n                back_stack.pop();\n            }\n        }\n      \
     \  front_stack.pop();\n    }\n    Monoid fold() { return f(front_stack.top().second,\
-    \ back_stack.top().second); }\n};\n\n/**\n * @brief Sliding Window Aggregation\
-    \ (SWAG)\n * @docs docs/datastructure/SlidingWindowAggregation.md\n */\n#line\
-    \ 2 \"util/modint.hpp\"\n#include <iostream>\n#line 1 \"atcoder/modint.hpp\"\n\
-    \n\n\n#include <cassert>\n#include <numeric>\n#include <type_traits>\n\n#ifdef\
-    \ _MSC_VER\n#include <intrin.h>\n#endif\n\n#line 1 \"atcoder/internal_math.hpp\"\
-    \n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\n\
-    namespace atcoder {\n\nnamespace internal {\n\n// @param m `1 <= m`\n// @return\
-    \ x mod m\nconstexpr long long safe_mod(long long x, long long m) {\n    x %=\
-    \ m;\n    if (x < 0) x += m;\n    return x;\n}\n\n// Fast modular multiplication\
-    \ by barrett reduction\n// Reference: https://en.wikipedia.org/wiki/Barrett_reduction\n\
+    \ back_stack.top().second); }\n};\n#line 2 \"util/modint.hpp\"\n#include <iostream>\n\
+    #line 1 \"atcoder/modint.hpp\"\n\n\n\n#include <cassert>\n#include <numeric>\n\
+    #include <type_traits>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\n#line\
+    \ 1 \"atcoder/internal_math.hpp\"\n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n\
+    #include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace internal {\n\n\
+    // @param m `1 <= m`\n// @return x mod m\nconstexpr long long safe_mod(long long\
+    \ x, long long m) {\n    x %= m;\n    if (x < 0) x += m;\n    return x;\n}\n\n\
+    // Fast modular multiplication by barrett reduction\n// Reference: https://en.wikipedia.org/wiki/Barrett_reduction\n\
     // NOTE: reconsider after Ice Lake\nstruct barrett {\n    unsigned int _m;\n \
     \   unsigned long long im;\n\n    // @param m `1 <= m < 2^31`\n    explicit barrett(unsigned\
     \ int m) : _m(m), im((unsigned long long)(-1) / m + 1) {}\n\n    // @return m\n\
@@ -274,7 +272,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/queue_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2021-12-05 15:22:47+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/queue_operate_all_composite.test.cpp

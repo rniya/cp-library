@@ -82,11 +82,10 @@ data:
     \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 3 \"datastructure/BinaryTrie.hpp\"\n\n/**\n * @brief Binary Trie\n * @docs\
-    \ docs/datastructure/BinaryTrie.md\n */\ntemplate <typename T, int MAX_LOG> class\
-    \ BinaryTrie {\n    struct Node {\n        int cnt;\n        Node* ch[2];\n  \
-    \      Node() : cnt(0), ch{nullptr, nullptr} {}\n    };\n    Node* root;\n   \
-    \ Node* add(Node* node, T val, int b = MAX_LOG - 1) {\n        if (!node) node\
+    #line 3 \"datastructure/BinaryTrie.hpp\"\n\ntemplate <typename T, int MAX_LOG>\
+    \ class BinaryTrie {\n    struct Node {\n        int cnt;\n        Node* ch[2];\n\
+    \        Node() : cnt(0), ch{nullptr, nullptr} {}\n    };\n    Node* root;\n \
+    \   Node* add(Node* node, T val, int b = MAX_LOG - 1) {\n        if (!node) node\
     \ = new Node;\n        node->cnt += 1;\n        if (b < 0) return node;\n    \
     \    bool f = (val >> (T)b) & (T)1;\n        node->ch[f] = add(node->ch[f], val,\
     \ b - 1);\n        return node;\n    }\n    Node* sub(Node* node, T val, int b\
@@ -134,7 +133,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/set_xor_min.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/set_xor_min.test.cpp

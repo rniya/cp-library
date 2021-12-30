@@ -163,15 +163,14 @@ data:
     \                     edge_stack.pop_back();\n                            bcc_id[cur]\
     \ = bcc_num;\n                            if (edges[cur] == edges[e.second]) break;\n\
     \                        }\n                        bcc_num++;\n             \
-    \       }\n                }\n            }\n        }\n    }\n};\n\n/**\n * @brief\
-    \ Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected Components)\n\
-    \ * @docs docs/graph/BlockCutTree.md\n */\n#line 5 \"test/yosupo/two_edge_connected_components.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
-    \ M;\n    cin >> N >> M;\n\n    BlockCutTree BCT(N);\n    for (; M--;) {\n   \
-    \     int a, b;\n        cin >> a >> b;\n        BCT.add_edge(a, b);\n    }\n\n\
-    \    BCT.build();\n    auto ans = BCT.two_edge_connected_components();\n    cout\
-    \ << ans.size() << '\\n';\n    for (auto& v : ans) {\n        cout << v.size();\n\
-    \        for (int& x : v) cout << ' ' << x;\n        cout << '\\n';\n    }\n}\n"
+    \       }\n                }\n            }\n        }\n    }\n};\n#line 5 \"\
+    test/yosupo/two_edge_connected_components.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N, M;\n    cin >> N >> M;\n\n    BlockCutTree\
+    \ BCT(N);\n    for (; M--;) {\n        int a, b;\n        cin >> a >> b;\n   \
+    \     BCT.add_edge(a, b);\n    }\n\n    BCT.build();\n    auto ans = BCT.two_edge_connected_components();\n\
+    \    cout << ans.size() << '\\n';\n    for (auto& v : ans) {\n        cout <<\
+    \ v.size();\n        for (int& x : v) cout << ' ' << x;\n        cout << '\\n';\n\
+    \    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/two_edge_connected_components\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../graph/BlockCutTree.hpp\"\n\n\
     int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, M;\n\
@@ -186,7 +185,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/two_edge_connected_components.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/two_edge_connected_components.test.cpp

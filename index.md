@@ -35,7 +35,7 @@ data:
       title: Binary Trie
     - icon: ':heavy_check_mark:'
       path: datastructure/ConvexHullTrick.hpp
-      title: Convex Hull Trick (Add-Monotonic Slope Optimization)
+      title: datastructure/ConvexHullTrick.hpp
     - icon: ':heavy_check_mark:'
       path: datastructure/CumulativeSum2D.hpp
       title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
@@ -50,31 +50,28 @@ data:
       title: Potentialized Union Find
     - icon: ':heavy_check_mark:'
       path: datastructure/RangeTree.hpp
-      title: "Range Tree (\u62BD\u8C61\u5316\u9818\u57DF\u6728)"
+      title: Range Tree
     - icon: ':warning:'
       path: datastructure/RectangleSet.hpp
       title: Rectangle Set
-    - icon: ':heavy_check_mark:'
-      path: datastructure/SegmentTreeBeats.hpp
-      title: Segment Tree Beats
     - icon: ':heavy_check_mark:'
       path: datastructure/Slide_Min.hpp
       title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
     - icon: ':heavy_check_mark:'
       path: datastructure/SlidingWindowAggregation.hpp
-      title: Sliding Window Aggregation (SWAG)
+      title: Sliding Window Aggregation
     - icon: ':warning:'
       path: datastructure/SlopeTrick.hpp
-      title: Slope Trick
+      title: datastructure/SlopeTrick.hpp
     - icon: ':heavy_check_mark:'
       path: datastructure/SparseTable.hpp
-      title: Sparse table
+      title: Sparse Table
     - icon: ':heavy_check_mark:'
       path: datastructure/UndoUnionFind.hpp
-      title: Union Find with Undo operation
+      title: Union Find with Undo Operation
     - icon: ':heavy_check_mark:'
       path: datastructure/UnionFind.hpp
-      title: Union Find (Disjoint Set Union)
+      title: datastructure/UnionFind.hpp
   - name: flow
     pages:
     - icon: ':heavy_check_mark:'
@@ -115,7 +112,7 @@ data:
       title: Dijkstra
     - icon: ':heavy_check_mark:'
       path: graph/EulerianTrail.hpp
-      title: Eulerian Trail
+      title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u306E\u69CB\u7BC9"
     - icon: ':heavy_check_mark:'
       path: graph/Kruskal.hpp
       title: Kruskal
@@ -124,13 +121,14 @@ data:
       title: Prim
     - icon: ':warning:'
       path: graph/RangeEdgeGraph.hpp
-      title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
+      title: Range Edge Graph
     - icon: ':heavy_check_mark:'
       path: graph/StronglyConnectedComponents.hpp
-      title: Strongly Connected Components
+      title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\
+        \u89E3\uFF09"
     - icon: ':heavy_check_mark:'
       path: graph/TopologicalSort.hpp
-      title: Topological Sort
+      title: graph/TopologicalSort.hpp
     - icon: ':heavy_check_mark:'
       path: graph/TwoSAT.hpp
       title: 2-SAT
@@ -185,12 +183,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/AhoCorasick.hpp
       title: Aho Corasick
-    - icon: ':warning:'
-      path: string/Knuth_Morris_Pratt.hpp
-      title: "Knuth Moriss Pratt (KMP\u6CD5)"
     - icon: ':heavy_check_mark:'
       path: string/Manacher.hpp
-      title: Manacher
+      title: "Manacher\uFF08\u56DE\u5206\u534A\u5F84\uFF09"
     - icon: ':heavy_check_mark:'
       path: string/RollingHash.hpp
       title: string/RollingHash.hpp
@@ -348,28 +343,28 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_1_B.test.cpp
       title: test/aoj/DSL_1_B.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
       title: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
     - icon: ':heavy_check_mark:'
@@ -500,7 +495,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/queue_operate_all_composite.test.cpp
       title: test/yosupo/queue_operate_all_composite.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
       title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
     - icon: ':heavy_check_mark:'

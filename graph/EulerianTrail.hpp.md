@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/EulerianTrail.md
-    document_title: Eulerian Trail
     links: []
   bundledCode: "#line 2 \"graph/EulerianTrail.hpp\"\n#include <algorithm>\n#include\
     \ <cassert>\n#include <vector>\n\ntemplate <bool directed> struct EulerianTrail\
@@ -54,8 +52,7 @@ data:
     \ = G[v].back();\n                G[v].pop_back();\n                if (used_edge[e.second])\
     \ continue;\n                used_edge[e.second] = true;\n                st.emplace_back(e);\n\
     \            }\n        }\n        order.pop_back();\n        reverse(order.begin(),\
-    \ order.end());\n        return order;\n    }\n};\n\n/**\n * @brief Eulerian Trail\n\
-    \ * @docs docs/graph/EulerianTrail.md\n */\n"
+    \ order.end());\n        return order;\n    }\n};\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <vector>\n\
     \ntemplate <bool directed> struct EulerianTrail {\n    std::vector<std::vector<std::pair<int,\
     \ int>>> G;\n\n    EulerianTrail(int n) : G(n), n(n), m(0), deg(n, 0), used_vertex(n,\
@@ -96,23 +93,20 @@ data:
     \ = G[v].back();\n                G[v].pop_back();\n                if (used_edge[e.second])\
     \ continue;\n                used_edge[e.second] = true;\n                st.emplace_back(e);\n\
     \            }\n        }\n        order.pop_back();\n        reverse(order.begin(),\
-    \ order.end());\n        return order;\n    }\n};\n\n/**\n * @brief Eulerian Trail\n\
-    \ * @docs docs/graph/EulerianTrail.md\n */\n"
+    \ order.end());\n        return order;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/EulerianTrail.hpp
   requiredBy: []
-  timestamp: '2021-10-10 16:06:54+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/583.test.cpp
 documentation_of: graph/EulerianTrail.hpp
 layout: document
-redirect_from:
-- /library/graph/EulerianTrail.hpp
-- /library/graph/EulerianTrail.hpp.html
-title: Eulerian Trail
+title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u306E\u69CB\u7BC9"
 ---
+
 ## 概要
 有向/無向グラフが与えられたときに, オイラー路/準オイラー路を構築するライブラリ.
 

@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/Prim.md
-    document_title: Prim
     links: []
   bundledCode: "#line 2 \"graph/Prim.hpp\"\n#include <cassert>\n#include <limits>\n\
     #include <queue>\n#include <vector>\n\ntemplate <typename T> struct Prim {\n \
@@ -28,8 +26,7 @@ data:
     \ && e.second < dist[u]) {\n                    dist[u] = e.second;\n        \
     \            pq.emplace(e.second, u);\n                }\n            }\n    \
     \    }\n        return res;\n    }\n\nprivate:\n    int n;\n    std::vector<std::vector<std::pair<int,\
-    \ T>>> G;\n    std::vector<T> dist;\n    std::vector<bool> used;\n};\n\n/**\n\
-    \ * @brief Prim\n * @docs docs/graph/Prim.md\n */\n"
+    \ T>>> G;\n    std::vector<T> dist;\n    std::vector<bool> used;\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <limits>\n#include <queue>\n#include\
     \ <vector>\n\ntemplate <typename T> struct Prim {\n    Prim(int n) : n(n), G(n),\
     \ dist(n, std::numeric_limits<T>::max()), used(n, false) {}\n\n    void add_edge(int\
@@ -45,23 +42,18 @@ data:
     \                    dist[u] = e.second;\n                    pq.emplace(e.second,\
     \ u);\n                }\n            }\n        }\n        return res;\n    }\n\
     \nprivate:\n    int n;\n    std::vector<std::vector<std::pair<int, T>>> G;\n \
-    \   std::vector<T> dist;\n    std::vector<bool> used;\n};\n\n/**\n * @brief Prim\n\
-    \ * @docs docs/graph/Prim.md\n */\n"
+    \   std::vector<T> dist;\n    std::vector<bool> used;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/Prim.hpp
   requiredBy: []
-  timestamp: '2021-10-04 09:56:29+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_2_A.Prim.test.cpp
 documentation_of: graph/Prim.hpp
 layout: document
-redirect_from:
-- /library/graph/Prim.hpp
-- /library/graph/Prim.hpp.html
 title: Prim
 ---
-## 概要
 
-## 計算量
+## 概要

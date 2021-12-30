@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/datastructure/UndoUnionFind.md
-    document_title: Union Find with Undo operation
     links: []
   bundledCode: "#line 2 \"datastructure/UndoUnionFind.hpp\"\n#include <cassert>\n\
     #include <stack>\n#include <vector>\n\nstruct UndoUnionFind {\n    UndoUnionFind(int\
@@ -31,8 +29,7 @@ data:
     \ {\n        while (!history.empty()) history.pop();\n    }\n\n    void rollback()\
     \ {\n        while (!history.empty()) undo();\n    }\n\n    int operator[](int\
     \ x) const { return find(x); }\n\nprivate:\n    int n;\n    std::vector<int> data;\n\
-    \    std::stack<std::pair<int, int>> history;\n};\n\n/**\n * @brief Union Find\
-    \ with Undo operation\n * @docs docs/datastructure/UndoUnionFind.md\n */\n"
+    \    std::stack<std::pair<int, int>> history;\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <stack>\n#include <vector>\n\n\
     struct UndoUnionFind {\n    UndoUnionFind(int n) : n(n), data(n, -1) {}\n\n  \
     \  int find(int x) const {\n        assert(0 <= x && x < n);\n        return data[x]\
@@ -51,23 +48,20 @@ data:
     \    }\n\n    void rollback() {\n        while (!history.empty()) undo();\n  \
     \  }\n\n    int operator[](int x) const { return find(x); }\n\nprivate:\n    int\
     \ n;\n    std::vector<int> data;\n    std::stack<std::pair<int, int>> history;\n\
-    };\n\n/**\n * @brief Union Find with Undo operation\n * @docs docs/datastructure/UndoUnionFind.md\n\
-    \ */\n"
+    };\n"
   dependsOn: []
   isVerificationFile: false
   path: datastructure/UndoUnionFind.hpp
   requiredBy: []
-  timestamp: '2021-10-04 17:13:22+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
 documentation_of: datastructure/UndoUnionFind.hpp
 layout: document
-redirect_from:
-- /library/datastructure/UndoUnionFind.hpp
-- /library/datastructure/UndoUnionFind.hpp.html
-title: Union Find with Undo operation
+title: Union Find with Undo Operation
 ---
+
 ## 概要
 経路圧縮せずにマージテクにより集合を管理する際,  1 回の `merge(x, y)` 操作で値が変更されるのは `x = find(x), y = find(y)` とした後の `data[x], data[y]` の 2 箇所のみであるから, 操作前の値を記憶しておくことで $O(1)$ で操作を巻き戻すことが可能である. これを踏まえて `snapshot` や `rollback` といった機能も搭載したデータ構造.
 

@@ -82,8 +82,7 @@ data:
     \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 3 \"graph/CycleDetection.hpp\"\n\n/**\n * @brief Cycle Detection\n * @docs\
-    \ docs/graph/CycleDetection.md\n */\ntemplate <bool directed> struct CycleDetection\
+    #line 3 \"graph/CycleDetection.hpp\"\n\ntemplate <bool directed> struct CycleDetection\
     \ {\n    vector<vector<int>> G;\n    vector<int> seen, finished;\n    stack<int>\
     \ hist;\n    int pos;\n    CycleDetection(int n) : G(n), seen(n, 0), finished(n,\
     \ 0), pos(-1) {}\n    void add_edge(int u, int v) { G[u].emplace_back(v); }\n\
@@ -114,7 +113,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_4_A.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_4_A.test.cpp

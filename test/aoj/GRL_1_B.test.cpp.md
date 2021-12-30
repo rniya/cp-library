@@ -109,8 +109,7 @@ data:
     \        return d;\n    }\n\nprivate:\n    struct edge {\n        int from, to;\n\
     \        T cost;\n        edge(int from, int to, T cost) : from(from), to(to),\
     \ cost(cost) {}\n    };\n    int n;\n    const T inf = std::numeric_limits<T>::max()\
-    \ / 2;\n    std::vector<T> d;\n    std::vector<edge> es;\n};\n\n/**\n * @brief\
-    \ Bellman-Ford\n * @docs docs/graph/BellmanFord.md\n */\n#line 5 \"test/aoj/GRL_1_B.test.cpp\"\
+    \ / 2;\n    std::vector<T> d;\n    std::vector<edge> es;\n};\n#line 5 \"test/aoj/GRL_1_B.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V,\
     \ E, r;\n    cin >> V >> E >> r;\n\n    BellmanFord<int> BF(V);\n\n    for (int\
     \ i = 0; i < E; i++) {\n        int s, t, d;\n        cin >> s >> t >> d;\n  \
@@ -135,7 +134,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_1_B.test.cpp

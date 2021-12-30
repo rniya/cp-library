@@ -7,10 +7,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/datastructure/LineContainer.md
-    document_title: Line Container (based on kactl)
-    links:
-    - https://github.com/kth-competitive-programming/kactl/blob/main/content/data-structures/LineContainer.h#L1
+    links: []
   bundledCode: "#line 2 \"datastructure/LineContainer.hpp\"\n#include <cassert>\n\
     #include <climits>\n#include <iterator>\n#include <set>\n\nstruct Line {\n   \
     \ mutable long long k, m, p;\n    bool operator<(const Line& o) const { return\
@@ -29,9 +26,7 @@ data:
     \ = x) != begin() && (--x)->p >= y->p) isect(x, erase(y));\n    }\n    long long\
     \ query(long long x) {\n        assert(!empty());\n        auto l = *lower_bound(x);\n\
     \        long long s = 1;\n        if (isMin) s = -1;\n        return s * (l.k\
-    \ * x + l.m);\n    }\n};\n\n/**\n * @brief Line Container (based on kactl)\n *\
-    \ @docs docs/datastructure/LineContainer.md\n * @see https://github.com/kth-competitive-programming/kactl/blob/main/content/data-structures/LineContainer.h#L1\n\
-    \ */\n"
+    \ * x + l.m);\n    }\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <climits>\n#include <iterator>\n\
     #include <set>\n\nstruct Line {\n    mutable long long k, m, p;\n    bool operator<(const\
     \ Line& o) const { return k < o.k; }\n    bool operator<(long long x) const {\
@@ -49,23 +44,19 @@ data:
     \        while ((y = x) != begin() && (--x)->p >= y->p) isect(x, erase(y));\n\
     \    }\n    long long query(long long x) {\n        assert(!empty());\n      \
     \  auto l = *lower_bound(x);\n        long long s = 1;\n        if (isMin) s =\
-    \ -1;\n        return s * (l.k * x + l.m);\n    }\n};\n\n/**\n * @brief Line Container\
-    \ (based on kactl)\n * @docs docs/datastructure/LineContainer.md\n * @see https://github.com/kth-competitive-programming/kactl/blob/main/content/data-structures/LineContainer.h#L1\n\
-    \ */"
+    \ -1;\n        return s * (l.k * x + l.m);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: datastructure/LineContainer.hpp
   requiredBy: []
-  timestamp: '2021-09-22 20:47:22+09:00'
+  timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: datastructure/LineContainer.hpp
 layout: document
-redirect_from:
-- /library/datastructure/LineContainer.hpp
-- /library/datastructure/LineContainer.hpp.html
 title: Line Container (based on kactl)
 ---
+
 ## 概要
 直線 $f(x) = ax + b$ の追加 (ただし, $a$ は単調増加もしくは単調減少) 及びある $x$ での最小値 (最大値) クエリを効率的に処理するデータ構造. Convex Hull Trick と異なり, 追加する直線の傾きの単調性は問わない.
 実装は [kactl](https://github.com/kth-competitive-programming/kactl/blob/main/content/data-structures/LineContainer.h#L1) から.
