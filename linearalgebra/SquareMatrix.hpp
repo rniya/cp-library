@@ -165,8 +165,3 @@ template <typename T, size_t N> struct SquareMatrix {
         return os;
     }
 };
-
-/**
- * @brief 正方行列ライブラリ
- * @docs docs/linearalgebra/SquareMatrix.md
- */

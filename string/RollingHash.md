@@ -1,3 +1,8 @@
+---
+title: Rolling Hash
+documentation_of: ./Rolling Hash.hpp
+---
+
 ## 概要
 $\bmod\ 2^{61}-1$ で基数は $\left[2, 2^{61}-1\right)$ の乱数によるRolling Hash.
 

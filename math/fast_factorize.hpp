@@ -1,10 +1,6 @@
 #pragma once
 #include "../base.hpp"
 
-/**
- * @brief 高速素因数分解 (Miller-Rabin primality test + Pollard's rho algorithm)
- * @docs docs/math/fast_factorize.md
- */
 namespace fast_factorize {
 using u64 = uint64_t;
 

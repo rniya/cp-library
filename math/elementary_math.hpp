@@ -116,8 +116,3 @@ template <typename T> T order(T x, T m) {
 }
 
 }  // namespace elementary_math
-
-/**
- * @brief elementary math
- * @docs docs/math/elementary_math.md
- */

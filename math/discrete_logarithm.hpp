@@ -29,8 +29,3 @@ int64_t discrete_logarithm(int64_t x, int64_t y, int64_t m) {
     }
     return -1;
 }
-
-/**
- * @brief Discrete Logarithm (離散対数)
- * @docs docs/math/discrete_logarithm.md
- */

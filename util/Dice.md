@@ -1,3 +1,8 @@
+---
+title: サイコロ
+documentation_of: ./Dice.hpp
+---
+
 ## 概要
 サイコロを扱うライブラリ. 主に ICPC 国内予選用.
 

@@ -1,3 +1,8 @@
+---
+title: binary gcd
+documentation_of: ./binary_gcd.hpp
+---
+
 ## 概要
 2 数の最大公約数を求める. 一般的な Euclid の互除法による実装と異なり, 非再帰かつ除算が 2 で割るものしか登場しないので bit shift で済み, 約 3 から 4 倍程度高速である.
 

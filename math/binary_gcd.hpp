@@ -13,8 +13,3 @@ template <typename T> T binary_gcd(T x_, T y_) {
     }
     return x << (n > m ? m : n);
 }
-
-/**
- * @brief binary gcd
- * @docs docs/math/binary_gcd.md
- */

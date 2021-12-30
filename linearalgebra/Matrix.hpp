@@ -186,8 +186,3 @@ template <typename T> struct Matrix {
         return os;
     }
 };
-
-/**
- * @brief 行列ライブラリ
- * @docs docs/linearalgebra/Matrix.md
- */

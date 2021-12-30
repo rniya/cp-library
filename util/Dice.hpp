@@ -97,8 +97,3 @@ private:
     const int code[6][4] = {{0, 3, 5, 2}, {0, 2, 5, 3}, {0, 1, 5, 4}, {0, 4, 5, 1}, {1, 2, 4, 3}, {1, 3, 4, 2}};
     const char direction[6] = {'E', 'W', 'N', 'S', 'R', 'L'};
 };
-
-/**
- * @brief Dice
- * @docs docs/util/Dice.md
- */

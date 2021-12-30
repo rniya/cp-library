@@ -41,9 +41,3 @@ template <typename T> std::vector<T> characteristic_polynomial(std::vector<std::
     }
     return p[n];
 }
-
-/**
- * @brief Characteristic Polynomial
- * @docs docs/linearalgebra/characteristic_polynomial.md
- * @see https://arxiv.org/abs/1104.3769
- */

@@ -1,10 +1,6 @@
 #pragma once
 #include "../base.hpp"
 
-/**
- * @brief 乱数生成器(64bit)
- * @docs docs/util/RandomNumberGenerator.md
- */
 struct RandomNumberGenerator {
     mt19937_64 mt;
     RandomNumberGenerator() : mt(chrono::steady_clock::now().time_since_epoch().count()) {}

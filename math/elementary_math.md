@@ -1,3 +1,8 @@
+---
+title: elementary math
+documentation_of: ./elementary_math.hpp
+---
+
 ## 概要
 基本的な数学関数の集合.
 

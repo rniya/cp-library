@@ -74,8 +74,3 @@ private:
         for (size_t i = pre - 1; i < len; i++) power[x][i + 1] = mul(power[x][i], basis[x]);
     }
 };
-
-/**
- * @brief Rolling Hash 2D
- * @docs docs/string/RollingHash2D.md
- */

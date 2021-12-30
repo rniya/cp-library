@@ -1,3 +1,8 @@
+---
+title: Characteristic Polynomial
+documentation_of: ./characteristic_polynomial.hpp
+---
+
 ## 概要
 $n$ 次正方行列 $M$ の特性多項式 $p(x) = \det(xI - M)$ を $O(n^3)$ で計算する.
 

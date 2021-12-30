@@ -92,8 +92,3 @@ template <size_t MAX_COL> struct BitMatrix {
         return {rank, res};
     }
 };
-
-/**
- * @brief Bit Matrix
- * @docs docs/linearalgebra/BitMatrix.md
- */

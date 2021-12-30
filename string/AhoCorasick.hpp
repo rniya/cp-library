@@ -71,8 +71,3 @@ private:
     const int FAIL = char_size;
     std::vector<int> cnt;
 };
-
-/**
- * @brief Aho Corasick
- * @docs docs/string/AhoCorasick.md
- */

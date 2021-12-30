@@ -71,8 +71,3 @@ private:
         for (size_t i = pre - 1; i < len; i++) power[i + 1] = mul(power[i], base);
     }
 };
-
-/**
- * @brief Rolling Hash
- * @docs docs/string/RollingHash.md
- */

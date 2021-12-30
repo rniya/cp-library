@@ -1,3 +1,8 @@
+---
+title: Discrete Logarithm（離散対数問題）
+documentation_of: ./discrete_logarithm.hpp
+---
+
 ## 概要
 離散対数問題を $O(\sqrt{m})$ で解く. 離散対数問題とは正整数 $m$ と $0 \leq x, y < m$ なる整数 $x, y$ が与えられた際に,
 

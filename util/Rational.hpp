@@ -88,8 +88,3 @@ public:
     explicit operator long double() const { return (long double)num / (long double)den; }
     friend std::ostream& operator<<(std::ostream& os, const Rational& r) { return os << r.num << '/' << r.den; }
 };
-
-/**
- * @brief Rational Number
- * @docs docs/util/Rational.md
- */

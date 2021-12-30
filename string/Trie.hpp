@@ -56,8 +56,3 @@ template <size_t char_size, char margin = 'a'> struct Trie {
 
     std::vector<int> idxs(int pos) { return pos < 0 ? std::vector<int>() : nodes[pos].idxs; }
 };
-
-/**
- * @brief Trie
- * @docs docs/string/Trie.md
- */
