@@ -16,7 +16,7 @@ data:
       title: base.hpp
   - name: combinatorics
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: combinatorics/binomial.hpp
       title: binomial
   - name: convolution
@@ -175,7 +175,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: polynomial/FormalPowerSeries.hpp
       title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: polynomial/lagrange_interpolation.hpp
       title: Lagrange Interpolation
   - name: string
@@ -232,7 +232,7 @@ data:
     - icon: ':warning:'
       path: util/gray_code.hpp
       title: Gray Code
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: util/modint.hpp
       title: util/modint.hpp
     - icon: ':warning:'
@@ -572,7 +572,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/583.test.cpp
       title: test/yukicoder/583.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/665.test.cpp
       title: test/yukicoder/665.test.cpp
     - icon: ':heavy_check_mark:'
