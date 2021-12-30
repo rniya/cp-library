@@ -21,4 +21,4 @@ int main(){
 ```
 
 ## Links
-- [スタック拡張マクロ | libalgo](https://tubo28.me/compprog/algorithm/extend-stack/)
+- [スタック拡張マクロ \| libalgo](https://tubo28.me/compprog/algorithm/extend-stack/)

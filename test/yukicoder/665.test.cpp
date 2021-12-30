@@ -13,5 +13,5 @@ int main() {
     std::cin >> n >> k;
     std::vector<mint> A(k + 2, 0);
     for (int i = 1; i <= k + 1; i++) A[i] = A[i - 1] + ((mint)i).pow(k);
-    std::cout << lagrange_interpolation_arithmetic(A, (mint)n) << '\n';
+    std::cout << lagrange_interpolation(A, (mint)n) << '\n';
 }
