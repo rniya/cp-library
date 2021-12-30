@@ -2,14 +2,17 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yukicoder/453.test.cpp
+    title: test/yukicoder/453.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: Construct a new Simplex object
     links: []
-  bundledCode: "#line 1 \"flow/Simplex.hpp\"\n#include <cassert>\n#include <numeric>\n\
+  bundledCode: "#line 2 \"flow/Simplex.hpp\"\n#include <cassert>\n#include <numeric>\n\
     #include <vector>\n\nstruct Simplex {\n    bool infinity,           // which the\
     \ problem is unbounded or not\n        infeasible;          // which the problem\
     \ is infeasible or not\n    int n,                   // the number of variables\n\
@@ -77,15 +80,15 @@ data:
     \           if (index[n + 1 + i] < n) {\n                x[index[n + 1 + i]] =\
     \ tableau[i][n + 1];\n            }\n        }\n        opt = tableau[m][n + 1];\n\
     \    }\n};\n"
-  code: "#include <cassert>\n#include <numeric>\n#include <vector>\n\nstruct Simplex\
-    \ {\n    bool infinity,           // which the problem is unbounded or not\n \
-    \       infeasible;          // which the problem is infeasible or not\n    int\
-    \ n,                   // the number of variables\n        m;                \
-    \   // the number of constraints\n    std::vector<double> x;   // optimal solution\n\
-    \    double opt;              // optimal value\n    std::vector<int> index;  //\
-    \ indices of non-basis (< n) and basis (otherwise)\n    int r, s;            \
-    \    // pivot row / column\n    std::vector<std::vector<double>> tableau;\n\n\
-    \    /**\n     * @brief Construct a new Simplex object\n     *\n     * @param\
+  code: "#pragma once\n#include <cassert>\n#include <numeric>\n#include <vector>\n\
+    \nstruct Simplex {\n    bool infinity,           // which the problem is unbounded\
+    \ or not\n        infeasible;          // which the problem is infeasible or not\n\
+    \    int n,                   // the number of variables\n        m;         \
+    \          // the number of constraints\n    std::vector<double> x;   // optimal\
+    \ solution\n    double opt;              // optimal value\n    std::vector<int>\
+    \ index;  // indices of non-basis (< n) and basis (otherwise)\n    int r, s; \
+    \               // pivot row / column\n    std::vector<std::vector<double>> tableau;\n\
+    \n    /**\n     * @brief Construct a new Simplex object\n     *\n     * @param\
     \ A Coefficients of constraints\n     * @param b Bounds of constraints\n     *\
     \ @param c Coefficients of objective function\n     * @param mode choose pivot\
     \ by smallest subscript rule if mode = 0, largest coefficient rule otherwise\n\
@@ -144,14 +147,15 @@ data:
     \        }\n        x.assign(n, 0);\n        for (int i = 0; i < m; i++) {\n \
     \           if (index[n + 1 + i] < n) {\n                x[index[n + 1 + i]] =\
     \ tableau[i][n + 1];\n            }\n        }\n        opt = tableau[m][n + 1];\n\
-    \    }\n};"
+    \    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: flow/Simplex.hpp
   requiredBy: []
-  timestamp: '2021-12-29 23:24:50+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2021-12-30 16:20:01+09:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yukicoder/453.test.cpp
 documentation_of: flow/Simplex.hpp
 layout: document
 title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"

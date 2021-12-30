@@ -87,7 +87,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem (based on ac-library)
-    - icon: ':warning:'
+    - icon: ':x:'
       path: flow/Simplex.hpp
       title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"
   - name: geometry
@@ -175,6 +175,9 @@ data:
   - name: polynomial
     pages:
     - icon: ':heavy_check_mark:'
+      path: polynomial/BostanMori.hpp
+      title: Bostan-Mori Algorithm
+    - icon: ':heavy_check_mark:'
       path: polynomial/FormalPowerSeries.hpp
       title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
     - icon: ':heavy_check_mark:'
@@ -210,7 +213,7 @@ data:
       title: "Centroid Decomposition\uFF08\u6728\u306E\u91CD\u5FC3\u5206\u89E3\uFF09"
     - icon: ':heavy_check_mark:'
       path: tree/HeavyLightDecomposition.hpp
-      title: tree/HeavyLightDecomposition.hpp
+      title: Heavy Light Decomposition
     - icon: ':heavy_check_mark:'
       path: tree/TreeDiameter.hpp
       title: Tree Diameter
@@ -483,6 +486,9 @@ data:
       path: test/yosupo/inv_of_formal_power_series.test.cpp
       title: test/yosupo/inv_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
+      title: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/log_of_formal_power_series.test.cpp
       title: test/yosupo/log_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -571,6 +577,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/430.test.cpp
       title: test/yukicoder/430.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/453.test.cpp
+      title: test/yukicoder/453.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/583.test.cpp
       title: test/yukicoder/583.test.cpp

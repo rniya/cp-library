@@ -4,70 +4,30 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_E.test.cpp
-    title: test/aoj/DPL_5_E.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/bitwise_and_convolution.test.cpp
-    title: test/yosupo/bitwise_and_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/bitwise_xor_convolution.test.cpp
-    title: test/yosupo/bitwise_xor_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/characteristic_polynomial.test.cpp
-    title: test/yosupo/characteristic_polynomial.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/exp_of_formal_power_series.test.cpp
-    title: test/yosupo/exp_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/inv_of_formal_power_series.test.cpp
-    title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/log_of_formal_power_series.test.cpp
-    title: test/yosupo/log_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/matrix_det.test.cpp
-    title: test/yosupo/matrix_det.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/pow_of_formal_power_series.test.cpp
-    title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/queue_operate_all_composite.test.cpp
-    title: test/yosupo/queue_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/sqrt_of_formal_power_series.test.cpp
-    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/vertex_set_path_composite.test.cpp
-    title: test/yosupo/vertex_set_path_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1050.test.cpp
-    title: test/yukicoder/1050.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1269.test.cpp
-    title: test/yukicoder/1269.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1289.test.cpp
-    title: test/yukicoder/1289.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/665.test.cpp
-    title: test/yukicoder/665.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/803.test.cpp
-    title: test/yukicoder/803.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/886.test.cpp
-    title: test/yukicoder/886.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    document_title: compute Nth term of linearly recurrent sequence a_n = \sum_{i
+      = 1}^d c_i a_{n - i}
     links: []
-  bundledCode: "#line 2 \"util/modint.hpp\"\n#include <iostream>\n#line 1 \"atcoder/modint.hpp\"\
-    \n\n\n\n#include <cassert>\n#include <numeric>\n#include <type_traits>\n\n#ifdef\
-    \ _MSC_VER\n#include <intrin.h>\n#endif\n\n#line 1 \"atcoder/internal_math.hpp\"\
+  bundledCode: "#line 1 \"atcoder/convolution.hpp\"\n\n\n\n#include <algorithm>\n\
+    #include <array>\n#include <cassert>\n#include <type_traits>\n#include <vector>\n\
+    \n#line 1 \"atcoder/internal_bit.hpp\"\n\n\n\n#ifdef _MSC_VER\n#include <intrin.h>\n\
+    #endif\n\nnamespace atcoder {\n\nnamespace internal {\n\n// @param n `0 <= n`\n\
+    // @return minimum non-negative `x` s.t. `n <= 2**x`\nint ceil_pow2(int n) {\n\
+    \    int x = 0;\n    while ((1U << x) < (unsigned int)(n)) x++;\n    return x;\n\
+    }\n\n// @param n `1 <= n`\n// @return minimum non-negative `x` s.t. `(n & (1 <<\
+    \ x)) != 0`\nconstexpr int bsf_constexpr(unsigned int n) {\n    int x = 0;\n \
+    \   while (!(n & (1 << x))) x++;\n    return x;\n}\n\n// @param n `1 <= n`\n//\
+    \ @return minimum non-negative `x` s.t. `(n & (1 << x)) != 0`\nint bsf(unsigned\
+    \ int n) {\n#ifdef _MSC_VER\n    unsigned long index;\n    _BitScanForward(&index,\
+    \ n);\n    return index;\n#else\n    return __builtin_ctz(n);\n#endif\n}\n\n}\
+    \  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 1 \"atcoder/modint.hpp\"\
+    \n\n\n\n#line 5 \"atcoder/modint.hpp\"\n#include <numeric>\n#line 7 \"atcoder/modint.hpp\"\
+    \n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\n#line 1 \"atcoder/internal_math.hpp\"\
     \n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\n\
     namespace atcoder {\n\nnamespace internal {\n\n// @param m `1 <= m`\n// @return\
     \ x mod m\nconstexpr long long safe_mod(long long x, long long m) {\n    x %=\
@@ -271,50 +231,222 @@ data:
     \ntemplate <class> struct is_dynamic_modint : public std::false_type {};\ntemplate\
     \ <int id>\nstruct is_dynamic_modint<dynamic_modint<id>> : public std::true_type\
     \ {};\n\ntemplate <class T>\nusing is_dynamic_modint_t = std::enable_if_t<is_dynamic_modint<T>::value>;\n\
-    \n}  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 4 \"util/modint.hpp\"\
-    \n\nnamespace atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream&\
-    \ is, static_modint<MOD>& x) {\n    int64_t v;\n    x = static_modint<MOD>{(is\
-    \ >> v, v)};\n    return is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream&\
-    \ os, const static_modint<MOD>& x) { return os << x.val(); }\n\ntemplate <int\
-    \ ID> std::ostream& operator<<(std::ostream& os, const dynamic_modint<ID>& x)\
-    \ { return os << x.val(); }\n\n}  // namespace atcoder\n"
-  code: "#pragma once\n#include <iostream>\n#include \"atcoder/modint\"\n\nnamespace\
-    \ atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream& is, static_modint<MOD>&\
-    \ x) {\n    int64_t v;\n    x = static_modint<MOD>{(is >> v, v)};\n    return\
-    \ is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream& os, const\
-    \ static_modint<MOD>& x) { return os << x.val(); }\n\ntemplate <int ID> std::ostream&\
-    \ operator<<(std::ostream& os, const dynamic_modint<ID>& x) { return os << x.val();\
-    \ }\n\n}  // namespace atcoder\n"
+    \n}  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 12 \"atcoder/convolution.hpp\"\
+    \n\nnamespace atcoder {\n\nnamespace internal {\n\ntemplate <class mint,\n   \
+    \       int g = internal::primitive_root<mint::mod()>,\n          internal::is_static_modint_t<mint>*\
+    \ = nullptr>\nstruct fft_info {\n    static constexpr int rank2 = bsf_constexpr(mint::mod()\
+    \ - 1);\n    std::array<mint, rank2 + 1> root;   // root[i]^(2^i) == 1\n    std::array<mint,\
+    \ rank2 + 1> iroot;  // root[i] * iroot[i] == 1\n\n    std::array<mint, std::max(0,\
+    \ rank2 - 2 + 1)> rate2;\n    std::array<mint, std::max(0, rank2 - 2 + 1)> irate2;\n\
+    \n    std::array<mint, std::max(0, rank2 - 3 + 1)> rate3;\n    std::array<mint,\
+    \ std::max(0, rank2 - 3 + 1)> irate3;\n\n    fft_info() {\n        root[rank2]\
+    \ = mint(g).pow((mint::mod() - 1) >> rank2);\n        iroot[rank2] = root[rank2].inv();\n\
+    \        for (int i = rank2 - 1; i >= 0; i--) {\n            root[i] = root[i\
+    \ + 1] * root[i + 1];\n            iroot[i] = iroot[i + 1] * iroot[i + 1];\n \
+    \       }\n\n        {\n            mint prod = 1, iprod = 1;\n            for\
+    \ (int i = 0; i <= rank2 - 2; i++) {\n                rate2[i] = root[i + 2] *\
+    \ prod;\n                irate2[i] = iroot[i + 2] * iprod;\n                prod\
+    \ *= iroot[i + 2];\n                iprod *= root[i + 2];\n            }\n   \
+    \     }\n        {\n            mint prod = 1, iprod = 1;\n            for (int\
+    \ i = 0; i <= rank2 - 3; i++) {\n                rate3[i] = root[i + 3] * prod;\n\
+    \                irate3[i] = iroot[i + 3] * iprod;\n                prod *= iroot[i\
+    \ + 3];\n                iprod *= root[i + 3];\n            }\n        }\n   \
+    \ }\n};\n\ntemplate <class mint, internal::is_static_modint_t<mint>* = nullptr>\n\
+    void butterfly(std::vector<mint>& a) {\n    int n = int(a.size());\n    int h\
+    \ = internal::ceil_pow2(n);\n\n    static const fft_info<mint> info;\n\n    int\
+    \ len = 0;  // a[i, i+(n>>len), i+2*(n>>len), ..] is transformed\n    while (len\
+    \ < h) {\n        if (h - len == 1) {\n            int p = 1 << (h - len - 1);\n\
+    \            mint rot = 1;\n            for (int s = 0; s < (1 << len); s++) {\n\
+    \                int offset = s << (h - len);\n                for (int i = 0;\
+    \ i < p; i++) {\n                    auto l = a[i + offset];\n               \
+    \     auto r = a[i + offset + p] * rot;\n                    a[i + offset] = l\
+    \ + r;\n                    a[i + offset + p] = l - r;\n                }\n  \
+    \              if (s + 1 != (1 << len))\n                    rot *= info.rate2[bsf(~(unsigned\
+    \ int)(s))];\n            }\n            len++;\n        } else {\n          \
+    \  // 4-base\n            int p = 1 << (h - len - 2);\n            mint rot =\
+    \ 1, imag = info.root[2];\n            for (int s = 0; s < (1 << len); s++) {\n\
+    \                mint rot2 = rot * rot;\n                mint rot3 = rot2 * rot;\n\
+    \                int offset = s << (h - len);\n                for (int i = 0;\
+    \ i < p; i++) {\n                    auto mod2 = 1ULL * mint::mod() * mint::mod();\n\
+    \                    auto a0 = 1ULL * a[i + offset].val();\n                 \
+    \   auto a1 = 1ULL * a[i + offset + p].val() * rot.val();\n                  \
+    \  auto a2 = 1ULL * a[i + offset + 2 * p].val() * rot2.val();\n              \
+    \      auto a3 = 1ULL * a[i + offset + 3 * p].val() * rot3.val();\n          \
+    \          auto a1na3imag =\n                        1ULL * mint(a1 + mod2 - a3).val()\
+    \ * imag.val();\n                    auto na2 = mod2 - a2;\n                 \
+    \   a[i + offset] = a0 + a2 + a1 + a3;\n                    a[i + offset + 1 *\
+    \ p] = a0 + a2 + (2 * mod2 - (a1 + a3));\n                    a[i + offset + 2\
+    \ * p] = a0 + na2 + a1na3imag;\n                    a[i + offset + 3 * p] = a0\
+    \ + na2 + (mod2 - a1na3imag);\n                }\n                if (s + 1 !=\
+    \ (1 << len))\n                    rot *= info.rate3[bsf(~(unsigned int)(s))];\n\
+    \            }\n            len += 2;\n        }\n    }\n}\n\ntemplate <class\
+    \ mint, internal::is_static_modint_t<mint>* = nullptr>\nvoid butterfly_inv(std::vector<mint>&\
+    \ a) {\n    int n = int(a.size());\n    int h = internal::ceil_pow2(n);\n\n  \
+    \  static const fft_info<mint> info;\n\n    int len = h;  // a[i, i+(n>>len),\
+    \ i+2*(n>>len), ..] is transformed\n    while (len) {\n        if (len == 1) {\n\
+    \            int p = 1 << (h - len);\n            mint irot = 1;\n           \
+    \ for (int s = 0; s < (1 << (len - 1)); s++) {\n                int offset = s\
+    \ << (h - len + 1);\n                for (int i = 0; i < p; i++) {\n         \
+    \           auto l = a[i + offset];\n                    auto r = a[i + offset\
+    \ + p];\n                    a[i + offset] = l + r;\n                    a[i +\
+    \ offset + p] =\n                        (unsigned long long)(mint::mod() + l.val()\
+    \ - r.val()) *\n                        irot.val();\n                    ;\n \
+    \               }\n                if (s + 1 != (1 << (len - 1)))\n          \
+    \          irot *= info.irate2[bsf(~(unsigned int)(s))];\n            }\n    \
+    \        len--;\n        } else {\n            // 4-base\n            int p =\
+    \ 1 << (h - len);\n            mint irot = 1, iimag = info.iroot[2];\n       \
+    \     for (int s = 0; s < (1 << (len - 2)); s++) {\n                mint irot2\
+    \ = irot * irot;\n                mint irot3 = irot2 * irot;\n               \
+    \ int offset = s << (h - len + 2);\n                for (int i = 0; i < p; i++)\
+    \ {\n                    auto a0 = 1ULL * a[i + offset + 0 * p].val();\n     \
+    \               auto a1 = 1ULL * a[i + offset + 1 * p].val();\n              \
+    \      auto a2 = 1ULL * a[i + offset + 2 * p].val();\n                    auto\
+    \ a3 = 1ULL * a[i + offset + 3 * p].val();\n\n                    auto a2na3iimag\
+    \ =\n                        1ULL *\n                        mint((mint::mod()\
+    \ + a2 - a3) * iimag.val()).val();\n\n                    a[i + offset] = a0 +\
+    \ a1 + a2 + a3;\n                    a[i + offset + 1 * p] =\n               \
+    \         (a0 + (mint::mod() - a1) + a2na3iimag) * irot.val();\n             \
+    \       a[i + offset + 2 * p] =\n                        (a0 + a1 + (mint::mod()\
+    \ - a2) + (mint::mod() - a3)) *\n                        irot2.val();\n      \
+    \              a[i + offset + 3 * p] =\n                        (a0 + (mint::mod()\
+    \ - a1) + (mint::mod() - a2na3iimag)) *\n                        irot3.val();\n\
+    \                }\n                if (s + 1 != (1 << (len - 2)))\n         \
+    \           irot *= info.irate3[bsf(~(unsigned int)(s))];\n            }\n   \
+    \         len -= 2;\n        }\n    }\n}\n\ntemplate <class mint, internal::is_static_modint_t<mint>*\
+    \ = nullptr>\nstd::vector<mint> convolution_naive(const std::vector<mint>& a,\n\
+    \                                    const std::vector<mint>& b) {\n    int n\
+    \ = int(a.size()), m = int(b.size());\n    std::vector<mint> ans(n + m - 1);\n\
+    \    if (n < m) {\n        for (int j = 0; j < m; j++) {\n            for (int\
+    \ i = 0; i < n; i++) {\n                ans[i + j] += a[i] * b[j];\n         \
+    \   }\n        }\n    } else {\n        for (int i = 0; i < n; i++) {\n      \
+    \      for (int j = 0; j < m; j++) {\n                ans[i + j] += a[i] * b[j];\n\
+    \            }\n        }\n    }\n    return ans;\n}\n\ntemplate <class mint,\
+    \ internal::is_static_modint_t<mint>* = nullptr>\nstd::vector<mint> convolution_fft(std::vector<mint>\
+    \ a, std::vector<mint> b) {\n    int n = int(a.size()), m = int(b.size());\n \
+    \   int z = 1 << internal::ceil_pow2(n + m - 1);\n    a.resize(z);\n    internal::butterfly(a);\n\
+    \    b.resize(z);\n    internal::butterfly(b);\n    for (int i = 0; i < z; i++)\
+    \ {\n        a[i] *= b[i];\n    }\n    internal::butterfly_inv(a);\n    a.resize(n\
+    \ + m - 1);\n    mint iz = mint(z).inv();\n    for (int i = 0; i < n + m - 1;\
+    \ i++) a[i] *= iz;\n    return a;\n}\n\n}  // namespace internal\n\ntemplate <class\
+    \ mint, internal::is_static_modint_t<mint>* = nullptr>\nstd::vector<mint> convolution(std::vector<mint>&&\
+    \ a, std::vector<mint>&& b) {\n    int n = int(a.size()), m = int(b.size());\n\
+    \    if (!n || !m) return {};\n    if (std::min(n, m) <= 60) return convolution_naive(a,\
+    \ b);\n    return internal::convolution_fft(a, b);\n}\n\ntemplate <class mint,\
+    \ internal::is_static_modint_t<mint>* = nullptr>\nstd::vector<mint> convolution(const\
+    \ std::vector<mint>& a,\n                              const std::vector<mint>&\
+    \ b) {\n    int n = int(a.size()), m = int(b.size());\n    if (!n || !m) return\
+    \ {};\n    if (std::min(n, m) <= 60) return convolution_naive(a, b);\n    return\
+    \ internal::convolution_fft(a, b);\n}\n\ntemplate <unsigned int mod = 998244353,\n\
+    \          class T,\n          std::enable_if_t<internal::is_integral<T>::value>*\
+    \ = nullptr>\nstd::vector<T> convolution(const std::vector<T>& a, const std::vector<T>&\
+    \ b) {\n    int n = int(a.size()), m = int(b.size());\n    if (!n || !m) return\
+    \ {};\n\n    using mint = static_modint<mod>;\n    std::vector<mint> a2(n), b2(m);\n\
+    \    for (int i = 0; i < n; i++) {\n        a2[i] = mint(a[i]);\n    }\n    for\
+    \ (int i = 0; i < m; i++) {\n        b2[i] = mint(b[i]);\n    }\n    auto c2 =\
+    \ convolution(move(a2), move(b2));\n    std::vector<T> c(n + m - 1);\n    for\
+    \ (int i = 0; i < n + m - 1; i++) {\n        c[i] = c2[i].val();\n    }\n    return\
+    \ c;\n}\n\nstd::vector<long long> convolution_ll(const std::vector<long long>&\
+    \ a,\n                                      const std::vector<long long>& b) {\n\
+    \    int n = int(a.size()), m = int(b.size());\n    if (!n || !m) return {};\n\
+    \n    static constexpr unsigned long long MOD1 = 754974721;  // 2^24\n    static\
+    \ constexpr unsigned long long MOD2 = 167772161;  // 2^25\n    static constexpr\
+    \ unsigned long long MOD3 = 469762049;  // 2^26\n    static constexpr unsigned\
+    \ long long M2M3 = MOD2 * MOD3;\n    static constexpr unsigned long long M1M3\
+    \ = MOD1 * MOD3;\n    static constexpr unsigned long long M1M2 = MOD1 * MOD2;\n\
+    \    static constexpr unsigned long long M1M2M3 = MOD1 * MOD2 * MOD3;\n\n    static\
+    \ constexpr unsigned long long i1 =\n        internal::inv_gcd(MOD2 * MOD3, MOD1).second;\n\
+    \    static constexpr unsigned long long i2 =\n        internal::inv_gcd(MOD1\
+    \ * MOD3, MOD2).second;\n    static constexpr unsigned long long i3 =\n      \
+    \  internal::inv_gcd(MOD1 * MOD2, MOD3).second;\n\n    auto c1 = convolution<MOD1>(a,\
+    \ b);\n    auto c2 = convolution<MOD2>(a, b);\n    auto c3 = convolution<MOD3>(a,\
+    \ b);\n\n    std::vector<long long> c(n + m - 1);\n    for (int i = 0; i < n +\
+    \ m - 1; i++) {\n        unsigned long long x = 0;\n        x += (c1[i] * i1)\
+    \ % MOD1 * M2M3;\n        x += (c2[i] * i2) % MOD2 * M1M3;\n        x += (c3[i]\
+    \ * i3) % MOD3 * M1M2;\n        // B = 2^63, -B <= x, r(real value) < B\n    \
+    \    // (x, x - M, x - 2M, or x - 3M) = r (mod 2B)\n        // r = c1[i] (mod\
+    \ MOD1)\n        // focus on MOD1\n        // r = x, x - M', x - 2M', x - 3M'\
+    \ (M' = M % 2^64) (mod 2B)\n        // r = x,\n        //     x - M' + (0 or 2B),\n\
+    \        //     x - 2M' + (0, 2B or 4B),\n        //     x - 3M' + (0, 2B, 4B\
+    \ or 6B) (without mod!)\n        // (r - x) = 0, (0)\n        //           - M'\
+    \ + (0 or 2B), (1)\n        //           -2M' + (0 or 2B or 4B), (2)\n       \
+    \ //           -3M' + (0 or 2B or 4B or 6B) (3) (mod MOD1)\n        // we checked\
+    \ that\n        //   ((1) mod MOD1) mod 5 = 2\n        //   ((2) mod MOD1) mod\
+    \ 5 = 3\n        //   ((3) mod MOD1) mod 5 = 4\n        long long diff =\n   \
+    \         c1[i] - internal::safe_mod((long long)(x), (long long)(MOD1));\n   \
+    \     if (diff < 0) diff += MOD1;\n        static constexpr unsigned long long\
+    \ offset[5] = {\n            0, 0, M1M2M3, 2 * M1M2M3, 3 * M1M2M3};\n        x\
+    \ -= offset[diff % 5];\n        c[i] = x;\n    }\n\n    return c;\n}\n\n}  //\
+    \ namespace atcoder\n\n\n#line 2 \"polynomial/BostanMori.hpp\"\n\ntemplate <typename\
+    \ T> T BostanMori(std::vector<T> Q, std::vector<T> P, long long N) {\n    assert(Q[0]\
+    \ == 1);\n    assert(P.size() < Q.size());\n    const int d = Q.size();\n    for\
+    \ (; N; N >>= 1) {\n        auto Q_neg = Q;\n        for (size_t i = 1; i < Q.size();\
+    \ i += 2) Q_neg[i] *= -1;\n        P = atcoder::convolution(P, Q_neg);\n     \
+    \   Q = atcoder::convolution(Q, Q_neg);\n        for (size_t i = N & 1; i < P.size();\
+    \ i += 2) P[i >> 1] = P[i];\n        for (size_t i = 0; i < Q.size(); i += 2)\
+    \ Q[i >> 1] = Q[i];\n        P.resize(d - 1);\n        Q.resize(d);\n    }\n \
+    \   return P[0];\n}\n\n/**\n * @brief compute Nth term of linearly recurrent sequence\
+    \ a_n = \\sum_{i = 1}^d c_i a_{n - i}\n *\n * @tparam T F_p\n * @param a first\
+    \ d elements of the sequence a_0, a_1, ... , a_{d - 1}\n * @param c coefficients\
+    \ of the linear recurrence c_1, c_2, ... , c_d\n * @param N the number of term\
+    \ you want to calculate\n * @return T Nth term of linearly recurrent sequence\n\
+    \ */\ntemplate <typename T> T LinearRecurrence(std::vector<T> a, std::vector<T>\
+    \ c, long long N) {\n    assert(a.size() >= c.size());\n    const int d = c.size();\n\
+    \    std::vector<T> Q(d + 1);\n    Q[0] = 1;\n    for (int i = 0; i < d; i++)\
+    \ Q[i + 1] = -c[i];\n    std::vector<T> P = atcoder::convolution(a, Q);\n    P.resize(d);\n\
+    \    return BostanMori(Q, P, N);\n}\n"
+  code: "#include \"atcoder/convolution\"\n\ntemplate <typename T> T BostanMori(std::vector<T>\
+    \ Q, std::vector<T> P, long long N) {\n    assert(Q[0] == 1);\n    assert(P.size()\
+    \ < Q.size());\n    const int d = Q.size();\n    for (; N; N >>= 1) {\n      \
+    \  auto Q_neg = Q;\n        for (size_t i = 1; i < Q.size(); i += 2) Q_neg[i]\
+    \ *= -1;\n        P = atcoder::convolution(P, Q_neg);\n        Q = atcoder::convolution(Q,\
+    \ Q_neg);\n        for (size_t i = N & 1; i < P.size(); i += 2) P[i >> 1] = P[i];\n\
+    \        for (size_t i = 0; i < Q.size(); i += 2) Q[i >> 1] = Q[i];\n        P.resize(d\
+    \ - 1);\n        Q.resize(d);\n    }\n    return P[0];\n}\n\n/**\n * @brief compute\
+    \ Nth term of linearly recurrent sequence a_n = \\sum_{i = 1}^d c_i a_{n - i}\n\
+    \ *\n * @tparam T F_p\n * @param a first d elements of the sequence a_0, a_1,\
+    \ ... , a_{d - 1}\n * @param c coefficients of the linear recurrence c_1, c_2,\
+    \ ... , c_d\n * @param N the number of term you want to calculate\n * @return\
+    \ T Nth term of linearly recurrent sequence\n */\ntemplate <typename T> T LinearRecurrence(std::vector<T>\
+    \ a, std::vector<T> c, long long N) {\n    assert(a.size() >= c.size());\n   \
+    \ const int d = c.size();\n    std::vector<T> Q(d + 1);\n    Q[0] = 1;\n    for\
+    \ (int i = 0; i < d; i++) Q[i + 1] = -c[i];\n    std::vector<T> P = atcoder::convolution(a,\
+    \ Q);\n    P.resize(d);\n    return BostanMori(Q, P, N);\n}\n"
   dependsOn: []
   isVerificationFile: false
-  path: util/modint.hpp
+  path: polynomial/BostanMori.hpp
   requiredBy: []
-  timestamp: '2021-12-05 15:22:47+09:00'
+  timestamp: '2021-12-30 16:20:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DPL_5_E.test.cpp
-  - test/yukicoder/1289.test.cpp
-  - test/yukicoder/1269.test.cpp
-  - test/yukicoder/665.test.cpp
-  - test/yukicoder/803.test.cpp
-  - test/yukicoder/886.test.cpp
-  - test/yukicoder/1050.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/bitwise_xor_convolution.test.cpp
-  - test/yosupo/bitwise_and_convolution.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/characteristic_polynomial.test.cpp
-  - test/yosupo/vertex_set_path_composite.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/queue_operate_all_composite.test.cpp
-  - test/yosupo/matrix_det.test.cpp
   - test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
-documentation_of: util/modint.hpp
+documentation_of: polynomial/BostanMori.hpp
 layout: document
-redirect_from:
-- /library/util/modint.hpp
-- /library/util/modint.hpp.html
-title: util/modint.hpp
+title: Bostan-Mori Algorithm
 ---
+
+## 概要
+線形漸化式の $N$ 項目を高速に計算するアルゴリズム．アルゴリズムの詳細については Links にあるページがわかりやすい．$d + 1$ 項間漸化式
+
+$$a_n = \sum_{i = 1}^d c_ia_{n - i}$$
+
+について，その数列の母関数を
+
+$$G(x) = \sum_{i = 0}^\infty a_ix^i$$
+
+とし，また
+
+$$Q(x) = 1 - \sum_{i = 1}^d c_ix^i$$
+
+と定めるとき，$G(x)Q(x)$ は漸化式の定義より高々 $d - 1$ 次の多項式 $P(x)$ に一致する．以上より，
+
+$$a_N = [x^N] \frac{P(x)}{Q(x)}$$
+
+となり，これは $O(d \log d \log N)$ で計算することが可能である．
+
+## TODO
+高速化
+
+## 問題例
+
+## Links
+- [線形漸化式を満たす数列の N 項目を計算するアルゴリズム](http://q.c.titech.ac.jp/docs/progs/polynomial_division.html)
