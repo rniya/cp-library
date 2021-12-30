@@ -25,8 +25,3 @@ template <typename Monoid> struct SlidingWindowAggregation {
     }
     Monoid fold() { return f(front_stack.top().second, back_stack.top().second); }
 };
-
-/**
- * @brief Sliding Window Aggregation (SWAG)
- * @docs docs/datastructure/SlidingWindowAggregation.md
- */

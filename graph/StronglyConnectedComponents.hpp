@@ -71,8 +71,3 @@ private:
         }
     }
 };
-
-/**
- * @brief Strongly Connected Components
- * @docs docs/graph/StronglyConnectedComponents.md
- */

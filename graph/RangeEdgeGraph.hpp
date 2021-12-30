@@ -1,10 +1,6 @@
 #pragma once
 #include "../base.hpp"
 
-/**
- * @brief 区間に辺を張るグラフ
- * @docs docs/graph/RangeEdgeGraph.md
- */
 template <typename T> class RangeEdgeGraph {
     struct edge {
         int to;

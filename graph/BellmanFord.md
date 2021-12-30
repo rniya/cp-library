@@ -1,3 +1,8 @@
+---
+title: Bellman-Ford
+documentation_of: ./BellmanFord.hpp
+---
+
 ## 概要
 単一始点最短路問題を解くアルゴリズム. 同じく最短路問題を解く Dijkstra 法と比較すると, 計算量が悪化する代わりに Bellman-Ford 法は負辺があっても動作する.
 

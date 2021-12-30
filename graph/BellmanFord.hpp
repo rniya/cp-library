@@ -74,8 +74,3 @@ private:
     std::vector<T> d;
     std::vector<edge> es;
 };
-
-/**
- * @brief Bellman-Ford
- * @docs docs/graph/BellmanFord.md
- */

@@ -1,10 +1,6 @@
 #pragma once
 #include "../base.hpp"
 
-/**
- * @brief Dijkstra
- * @docs docs/graph/Dijkstra.md
- */
 template <typename T> struct Dijkstra {
     struct edge {
         int to;

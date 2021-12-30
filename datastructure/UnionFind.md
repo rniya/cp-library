@@ -1,3 +1,8 @@
+---
+title: Union Find (Disjoint Set Union)
+documentation_of: ./Union Find.hpp
+---
+
 ## 概要
 各集合をその集合内の代表元によって特徴づけることで素集合を扱うデータ構造. 主に頂点 $x, y$ の属する集合のマージやそれらが同一の集合に属しているかの判定をならし $O(\alpha(n))$ で行うことができる. ここで, $\alpha(n)$ は Ackermann 関数 $A(n, n)$ の逆関数である.
 

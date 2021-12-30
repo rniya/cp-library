@@ -54,8 +54,3 @@ private:
     std::vector<bool> ans;
     StronglyConnectedComponents scc;
 };
-
-/**
- * @brief 2-SAT
- * @docs docs/graph/TwoSAT.md
- */

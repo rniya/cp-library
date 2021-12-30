@@ -79,8 +79,3 @@ std::vector<std::vector<int>> enumerate_cliques(std::vector<std::vector<bool>> G
     add_clique(rest, false);
     return cliques;
 }
-
-/**
- * @brief クリーク全列挙
- * @docs docs/graph/enumerate_cliques.md
- */

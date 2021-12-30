@@ -1,10 +1,6 @@
 #pragma once
 #include "../base.hpp"
 
-/**
- * @brief Rectangle Set
- * @docs docs/datastructure/RectangleSet.md
- */
 template <typename T> struct RectangleSet {
     constexpr T inf = numeric_limits<T>::max() / 2;
     set<pair<T, T>> s;

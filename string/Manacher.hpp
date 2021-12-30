@@ -1,10 +1,6 @@
 #pragma once
 #include "../base.hpp"
 
-/**
- * @brief Manacher
- * @docs docs/string/Manacher.md
- */
 vector<int> Manacher(const string& s) {
     int n = s.size();
     vector<int> res(n);

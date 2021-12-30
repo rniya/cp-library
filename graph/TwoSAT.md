@@ -1,3 +1,8 @@
+---
+title: 2-SAT
+documentation_of: ./TwoSAT.hpp
+---
+
 ## 概要
 $(a \vee b \vee \cdots) \wedge (c \vee d \vee \cdots) \wedge \cdots$ のような形をした論理式, すなわち $x_{i,j}$ をリテラルとして $\bigwedge_i \bigvee_j x_{i,j}$ のように表される論理式を CNF 形式 (乗法標準形, 連言標準形とも) という. 内側の各 $\bigvee_j x_{i,j}$ をクロージャ (clause) という.
 

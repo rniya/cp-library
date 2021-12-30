@@ -47,8 +47,3 @@ private:
     bool called_build;
     std::vector<edge> es;
 };
-
-/**
- * @brief Kruskal
- * @docs docs/graph/Kruskal.md
- */

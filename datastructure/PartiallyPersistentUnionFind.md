@@ -1,3 +1,8 @@
+---
+title: Partially Persistent Union Find
+documentation_of: ./PartiallyPersistentUnionFind.hpp
+---
+
 ## 概要
 経路圧縮を行わずにマージテクを利用して集合を管理する際に, 変更される値が少ないことを利用してタイムスタンプを用いて過去の頂点の連結成分やその頂点数といったデータを取得できるようにしたデータ構造.
 

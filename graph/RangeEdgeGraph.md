@@ -1,3 +1,8 @@
+---
+title: Range Edge Graph
+documentation_of: ./RangeEdgeGraph.hpp
+---
+
 ## 概要
 区間から区間に辺が伸びるようなグラフ上での最短路を計算する. Segment Treeの構造を利用して頂点数$3n+q$, 辺数$4n+q\log n$のグラフを構成している.
 

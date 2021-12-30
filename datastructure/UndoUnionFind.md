@@ -1,3 +1,8 @@
+---
+title: Union Find with Undo Operation
+documentation_of: ./UndoUnionFind.hpp
+---
+
 ## 概要
 経路圧縮せずにマージテクにより集合を管理する際,  1 回の `merge(x, y)` 操作で値が変更されるのは `x = find(x), y = find(y)` とした後の `data[x], data[y]` の 2 箇所のみであるから, 操作前の値を記憶しておくことで $O(1)$ で操作を巻き戻すことが可能である. これを踏まえて `snapshot` や `rollback` といった機能も搭載したデータ構造.
 

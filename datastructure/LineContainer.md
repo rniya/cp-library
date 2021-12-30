@@ -1,3 +1,8 @@
+---
+title: Line Container (based on kactl)
+documentation_of: ./LineContainer.hpp
+---
+
 ## 概要
 直線 $f(x) = ax + b$ の追加 (ただし, $a$ は単調増加もしくは単調減少) 及びある $x$ での最小値 (最大値) クエリを効率的に処理するデータ構造. Convex Hull Trick と異なり, 追加する直線の傾きの単調性は問わない.
 実装は [kactl](https://github.com/kth-competitive-programming/kactl/blob/main/content/data-structures/LineContainer.h#L1) から.

@@ -50,8 +50,3 @@ private:
     // otherwise : parent
     std::vector<int> data;
 };
-
-/**
- * @brief Union Find (Disjoint Set Union)
- * @docs docs/datastructure/UnionFind.md
- */

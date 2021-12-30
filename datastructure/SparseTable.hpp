@@ -1,10 +1,6 @@
 #pragma once
 #include "../base.hpp"
 
-/**
- * @brief Sparse table
- * @docs docs/datastructure/SparseTable.md
- */
 template <typename T> struct SparseTable {
     typedef function<T(T, T)> F;
     vector<vector<T>> dat;

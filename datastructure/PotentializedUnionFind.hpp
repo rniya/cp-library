@@ -58,8 +58,3 @@ private:
     std::vector<int> data;
     std::vector<T> dist;
 };
-
-/**
- * @brief Potentialized Union Find
- * @docs docs/datastructure/PotentializedUnionFind.md
- */

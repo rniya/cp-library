@@ -58,8 +58,3 @@ private:
     std::vector<int> data;
     std::stack<std::pair<int, int>> history;
 };
-
-/**
- * @brief Union Find with Undo operation
- * @docs docs/datastructure/UndoUnionFind.md
- */

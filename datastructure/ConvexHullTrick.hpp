@@ -85,8 +85,3 @@ private:
 
     inline T f(const std::pair<T, T>& l, T x) { return l.first * x + l.second; }
 };
-
-/**
- * @brief Convex Hull Trick (Add-Monotonic Slope Optimization)
- * @docs docs/datastructure/ConvexHullTrick.md
- */

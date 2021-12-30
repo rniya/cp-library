@@ -1,10 +1,6 @@
 #pragma once
 #include "../base.hpp"
 
-/**
- * @brief Cycle Detection
- * @docs docs/graph/CycleDetection.md
- */
 template <bool directed> struct CycleDetection {
     vector<vector<int>> G;
     vector<int> seen, finished;

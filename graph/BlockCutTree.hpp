@@ -159,8 +159,3 @@ private:
         }
     }
 };
-
-/**
- * @brief Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected Components)
- * @docs docs/graph/BlockCutTree.md
- */

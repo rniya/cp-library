@@ -1,3 +1,8 @@
+---
+title: Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected Components)
+documentation_of: ./BlockCutTree.hpp
+---
+
 # TODO
 Block Cut Tree の verify
 

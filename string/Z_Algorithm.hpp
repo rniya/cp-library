@@ -1,10 +1,6 @@
 #pragma once
 #include "../base.hpp"
 
-/**
- * @brief Z-Algorithm
- * @docs docs/string/Z_Algorithm.md
- */
 template <typename T> vector<int> Z_Algorithm(const T& s) {
     int n = s.size();
     vector<int> z(n);

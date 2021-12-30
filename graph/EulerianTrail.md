@@ -1,3 +1,8 @@
+---
+title: オイラー路の構築
+documentation_of: ./EulerianTrail.hpp
+---
+
 ## 概要
 有向/無向グラフが与えられたときに, オイラー路/準オイラー路を構築するライブラリ.
 

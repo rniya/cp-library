@@ -1,10 +1,6 @@
 #pragma once
 #include "../base.hpp"
 
-/**
- * @brief Binary Trie
- * @docs docs/datastructure/BinaryTrie.md
- */
 template <typename T, int MAX_LOG> class BinaryTrie {
     struct Node {
         int cnt;

@@ -1,3 +1,8 @@
+---
+title: Slope Trick
+documentation_of: ./Slope Trick.hpp
+---
+
 ## 概要
 区分線形凸関数 $f(x)$ を傾きの変化点の集合を管理することで, 諸操作を効率的に行えるようにしたデータ構造.
 

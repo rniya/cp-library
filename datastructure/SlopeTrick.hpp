@@ -104,8 +104,3 @@ private:
 
     size_t size() const { return L.size() + R.size(); }
 };
-
-/**
- * @brief Slope Trick
- * @docs docs/datastructure/SlopeTrick.md
- */

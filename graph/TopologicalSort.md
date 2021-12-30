@@ -1,3 +1,8 @@
+---
+title: Topological Sort
+documentation_of: ./Topological Sort.hpp
+---
+
 ## 概要
 有向グラフ $G$ が DAG (Directed Acyclic Graph, 有向閉路をもたないグラフ) であるかの判定及びそうである際に頂点をトポロジカル順序に並び替える.
 

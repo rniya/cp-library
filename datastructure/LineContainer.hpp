@@ -42,9 +42,3 @@ template <bool isMin = true> struct LineContainer : std::multiset<Line, std::les
         return s * (l.k * x + l.m);
     }
 };
-
-/**
- * @brief Line Container (based on kactl)
- * @docs docs/datastructure/LineContainer.md
- * @see https://github.com/kth-competitive-programming/kactl/blob/main/content/data-structures/LineContainer.h#L1
- */

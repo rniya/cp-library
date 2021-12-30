@@ -44,8 +44,3 @@ private:
     std::vector<int> data, last;
     std::vector<std::vector<std::pair<int, int>>> history;
 };
-
-/**
- * @brief Partially Persistent Union Find
- * @docs docs/datastructure/PartiallyPersistentUnionFind.md
- */

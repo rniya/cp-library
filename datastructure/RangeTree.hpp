@@ -82,8 +82,3 @@ private:
         return std::distance(yxs[i].begin(), std::lower_bound(yxs[i].begin(), yxs[i].end(), std::make_pair(y, x)));
     }
 };
-
-/**
- * @brief Range Tree (抽象化領域木)
- * @docs docs/datastructure/RangeTree.md
- */

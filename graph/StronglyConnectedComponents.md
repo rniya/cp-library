@@ -1,3 +1,8 @@
+---
+title: Strongly Connected Components（強連結成分分解）
+documentation_of: ./StronglyConnectedComponents.hpp
+---
+
 ## 概要
 有向グラフを強連結成分に分解する. 各強連結成分の番号は強連結成分を 1 つの頂点にするように縮約した DAG におけるトポロジカル順序を同時に表す. 実装は Tarjan の考案したアルゴリズムに沿っている.
 

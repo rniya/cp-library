@@ -43,8 +43,3 @@ private:
     std::vector<T> dist;
     std::vector<bool> used;
 };
-
-/**
- * @brief Prim
- * @docs docs/graph/Prim.md
- */

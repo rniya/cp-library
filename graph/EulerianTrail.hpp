@@ -108,8 +108,3 @@ private:
         return order;
     }
 };
-
-/**
- * @brief Eulerian Trail
- * @docs docs/graph/EulerianTrail.md
- */

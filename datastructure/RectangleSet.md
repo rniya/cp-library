@@ -1,3 +1,8 @@
+---
+title: Rectangle Set
+documentation_of: ./RectangleSet.hpp
+---
+
 ## 概要
 「$x \geqq a$または$y \geqq b$」という条件を追加して$\min x+y$を計算する.
 - `add(a, b)` : 「$x \geqq a$または$y \geqq b$」という条件を追加する.

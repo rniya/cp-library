@@ -42,8 +42,3 @@ private:
     int n;
     std::vector<int> indeg;
 };
-
-/**
- * @brief Topological Sort
- * @docs docs/graph/TopologicalSort.md
- */

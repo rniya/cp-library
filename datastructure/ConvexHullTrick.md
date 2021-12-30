@@ -1,3 +1,8 @@
+---
+title: Convex Hull Trick (Add-Monotonic Slope Optimization)
+documentation_of: ./Convex Hull Trick.hpp
+---
+
 ## 概要
 直線 $f(x) = ax + b$ の追加 (ただし, $a$ は単調増加もしくは単調減少) 及びある $x$ での最小値 (最大値) クエリを効率的に処理するデータ構造.
 最小値を求めることを考えると,

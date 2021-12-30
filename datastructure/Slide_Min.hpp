@@ -15,8 +15,3 @@ template <typename T> std::vector<T> Slide_Min(const std::vector<T>& v, int k) {
     }
     return res;
 }
-
-/**
- * @brief スライド最小値
- * @docs docs/datastructure/Slide_Min.md
- */
