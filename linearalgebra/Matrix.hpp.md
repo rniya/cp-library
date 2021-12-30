@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/linearalgebra/Matrix.md
-    document_title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
     links: []
   bundledCode: "#line 2 \"linearalgebra/Matrix.hpp\"\n#include <cassert>\n#include\
     \ <iostream>\n#include <vector>\n\ntemplate <typename T> struct Matrix {\n   \
@@ -84,8 +82,7 @@ data:
     \        for (size_t i = 0; i < n; i++) {\n            os << \"\\n[\";\n     \
     \       for (size_t j = 0; j < m; j++) os << p[i][j] << (j + 1 < m ? \",\" : \"\
     \");\n            os << \"]\";\n        }\n        os << \"]\\n\";\n        return\
-    \ os;\n    }\n};\n\n/**\n * @brief \u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA\n\
-    \ * @docs docs/linearalgebra/Matrix.md\n */\n"
+    \ os;\n    }\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <iostream>\n#include <vector>\n\
     \ntemplate <typename T> struct Matrix {\n    std::vector<std::vector<T>> A;\n\n\
     \    Matrix(size_t n, size_t m) : A(n, std::vector<T>(m, 0)) {}\n\n    Matrix(size_t\
@@ -157,22 +154,19 @@ data:
     \        for (size_t i = 0; i < n; i++) {\n            os << \"\\n[\";\n     \
     \       for (size_t j = 0; j < m; j++) os << p[i][j] << (j + 1 < m ? \",\" : \"\
     \");\n            os << \"]\";\n        }\n        os << \"]\\n\";\n        return\
-    \ os;\n    }\n};\n\n/**\n * @brief \u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA\n\
-    \ * @docs docs/linearalgebra/Matrix.md\n */\n"
+    \ os;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: linearalgebra/Matrix.hpp
   requiredBy: []
-  timestamp: '2021-09-25 17:45:48+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/matrix_det.test.cpp
 documentation_of: linearalgebra/Matrix.hpp
 layout: document
-redirect_from:
-- /library/linearalgebra/Matrix.hpp
-- /library/linearalgebra/Matrix.hpp.html
 title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
 ---
+
 ## 概要
 基本的な行列演算を搭載したライブラリ. 行列式も `determinant()` で $O(n^3)$ で求めることができる.

@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/linearalgebra/BitMatrix.md
-    document_title: Bit Matrix
     links: []
   bundledCode: "#line 2 \"linearalgebra/BitMatrix.hpp\"\n#include <bitset>\n#include\
     \ <cassert>\n#include <vector>\n\ntemplate <size_t MAX_COL> struct BitMatrix {\n\
@@ -47,8 +45,7 @@ data:
     \        for (size_t i = rank; i < n; i++) {\n            if (B[i][m]) {\n   \
     \             return {-1, std::bitset<MAX_COL>()};\n            }\n        }\n\
     \        std::bitset<MAX_COL> res;\n        for (size_t i = 0; i < rank; i++)\
-    \ res[i] = A[i][m];\n        return {rank, res};\n    }\n};\n\n/**\n * @brief\
-    \ Bit Matrix\n * @docs docs/linearalgebra/BitMatrix.md\n */\n"
+    \ res[i] = A[i][m];\n        return {rank, res};\n    }\n};\n"
   code: "#pragma once\n#include <bitset>\n#include <cassert>\n#include <vector>\n\n\
     template <size_t MAX_COL> struct BitMatrix {\n    size_t n, m;\n    std::vector<std::bitset<MAX_COL>>\
     \ A;\n\n    BitMatrix(size_t n, size_t m) : n(n), m(m), A(n) { assert(m <= MAX_COL);\
@@ -82,23 +79,20 @@ data:
     \        for (size_t i = rank; i < n; i++) {\n            if (B[i][m]) {\n   \
     \             return {-1, std::bitset<MAX_COL>()};\n            }\n        }\n\
     \        std::bitset<MAX_COL> res;\n        for (size_t i = 0; i < rank; i++)\
-    \ res[i] = A[i][m];\n        return {rank, res};\n    }\n};\n\n/**\n * @brief\
-    \ Bit Matrix\n * @docs docs/linearalgebra/BitMatrix.md\n */\n"
+    \ res[i] = A[i][m];\n        return {rank, res};\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: linearalgebra/BitMatrix.hpp
   requiredBy: []
-  timestamp: '2021-10-17 17:14:51+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/803.test.cpp
 documentation_of: linearalgebra/BitMatrix.hpp
 layout: document
-redirect_from:
-- /library/linearalgebra/BitMatrix.hpp
-- /library/linearalgebra/BitMatrix.hpp.html
 title: Bit Matrix
 ---
+
 ## 概要
 $\mathbb{F}_2$ 上での掃き出し法を行うためのライブラリ. $\mathbb{F}_2$ に特化させるために内部では `bitset` でデータを保持している.
 - `gauss_jordan(extended)` : 掃き出し法を行い, その結果得られた $\operatorname{rank}$ を返す. `extended` は `linear_equtation(b)` などで最後の行を除外して掃き出す機会があるのでそのための変数.

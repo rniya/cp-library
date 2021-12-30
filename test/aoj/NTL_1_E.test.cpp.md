@@ -118,11 +118,10 @@ data:
     \ {\n    T n = euler_phi(m);\n    auto cand = divisor(n);\n    sort(cand.begin(),\
     \ cand.end());\n    for (auto& i : cand) {\n        if (modpow(x, i, m) == 1)\
     \ {\n            return i;\n        }\n    }\n    return -1;\n}\n\n}  // namespace\
-    \ elementary_math\n\n/**\n * @brief elementary math\n * @docs docs/math/elementary_math.md\n\
-    \ */\n#line 5 \"test/aoj/NTL_1_E.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    long long a, b, x, y;\n    cin >> a >>\
-    \ b;\n    elementary_math::extgcd(a, b, x, y);\n    cout << x << ' ' << y << '\\\
-    n';\n}\n"
+    \ elementary_math\n#line 5 \"test/aoj/NTL_1_E.test.cpp\"\n\nint main() {\n   \
+    \ cin.tie(0);\n    ios::sync_with_stdio(false);\n    long long a, b, x, y;\n \
+    \   cin >> a >> b;\n    elementary_math::extgcd(a, b, x, y);\n    cout << x <<\
+    \ ' ' << y << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_E\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../math/elementary_math.hpp\"\n\
     \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    long long\
@@ -134,7 +133,7 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL_1_E.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_E.test.cpp

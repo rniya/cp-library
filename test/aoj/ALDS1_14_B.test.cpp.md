@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: string/RollingHash.hpp
-    title: Rolling Hash
+    title: string/RollingHash.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -109,8 +109,7 @@ data:
     \ * b;\n        return add(c >> 61, c & mod);\n    }\n\n    inline void extend(size_t\
     \ len) {\n        if (power.size() > len) return;\n        size_t pre = power.size();\n\
     \        power.resize(len + 1);\n        for (size_t i = pre - 1; i < len; i++)\
-    \ power[i + 1] = mul(power[i], base);\n    }\n};\n\n/**\n * @brief Rolling Hash\n\
-    \ * @docs docs/string/RollingHash.md\n */\n#line 5 \"test/aoj/ALDS1_14_B.test.cpp\"\
+    \ power[i + 1] = mul(power[i], base);\n    }\n};\n#line 5 \"test/aoj/ALDS1_14_B.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
     \ T, P;\n    cin >> T >> P;\n\n    RollingHash RH;\n    auto a = RH.build(T),\
     \ b = RH.build(P);\n    int s = T.size(), t = P.size();\n\n    for (int i = 0;\
@@ -129,7 +128,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1_14_B.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1_14_B.test.cpp

@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/string/RollingHash2D.md
-    document_title: Rolling Hash 2D
     links: []
   bundledCode: "#line 2 \"string/RollingHash2D.hpp\"\n#include <cassert>\n#include\
     \ <chrono>\n#include <random>\n#include <string>\n#include <vector>\n\nstruct\
@@ -47,8 +45,7 @@ data:
     \  inline void extend(int x, size_t len) {\n        if (power[x].size() > len)\
     \ return;\n        size_t pre = power[x].size();\n        power[x].resize(len\
     \ + 1);\n        for (size_t i = pre - 1; i < len; i++) power[x][i + 1] = mul(power[x][i],\
-    \ basis[x]);\n    }\n};\n\n/**\n * @brief Rolling Hash 2D\n * @docs docs/string/RollingHash2D.md\n\
-    \ */\n"
+    \ basis[x]);\n    }\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <chrono>\n#include <random>\n\
     #include <string>\n#include <vector>\n\nstruct RollingHash2D {\n    static inline\
     \ uint64_t generate_base() {\n        std::mt19937_64 mt(std::chrono::steady_clock::now().time_since_epoch().count());\n\
@@ -82,21 +79,18 @@ data:
     \  inline void extend(int x, size_t len) {\n        if (power[x].size() > len)\
     \ return;\n        size_t pre = power[x].size();\n        power[x].resize(len\
     \ + 1);\n        for (size_t i = pre - 1; i < len; i++) power[x][i + 1] = mul(power[x][i],\
-    \ basis[x]);\n    }\n};\n\n/**\n * @brief Rolling Hash 2D\n * @docs docs/string/RollingHash2D.md\n\
-    \ */\n"
+    \ basis[x]);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: string/RollingHash2D.hpp
   requiredBy: []
-  timestamp: '2021-10-10 15:55:16+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_14_C.test.cpp
 documentation_of: string/RollingHash2D.hpp
 layout: document
-redirect_from:
-- /library/string/RollingHash2D.hpp
-- /library/string/RollingHash2D.hpp.html
 title: Rolling Hash 2D
 ---
+
 ## 概要

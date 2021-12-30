@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/util/gray_code.md
-    document_title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#define LOCAL\n#include <bits/stdc++.h>\nusing\
     \ namespace std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t\
@@ -77,29 +75,25 @@ data:
     }\n\ntemplate <typename T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n\
     \    v.erase(unique(v.begin(), v.end()), v.end());\n}\ntemplate <typename T> int\
     \ lwb(const vector<T>& v, const T& x) { return lower_bound(v.begin(), v.end(),\
-    \ x) - v.begin(); }\n#pragma endregion\n#line 3 \"util/gray_code.hpp\"\n\n/**\n\
-    \ * @brief \u30B0\u30EC\u30A4\u30B3\u30FC\u30C9\n * @docs docs/util/gray_code.md\n\
-    \ */\nvector<int> gray_code(int n) {\n    vector<int> res(1 << n);\n    for (int\
-    \ i = 0; i < (int)res.size(); i++) res[i] = i ^ (i >> 1);\n    return res;\n}\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u30B0\u30EC\u30A4\
-    \u30B3\u30FC\u30C9\n * @docs docs/util/gray_code.md\n */\nvector<int> gray_code(int\
-    \ n) {\n    vector<int> res(1 << n);\n    for (int i = 0; i < (int)res.size();\
-    \ i++) res[i] = i ^ (i >> 1);\n    return res;\n}"
+    \ x) - v.begin(); }\n#pragma endregion\n#line 3 \"util/gray_code.hpp\"\n\nvector<int>\
+    \ gray_code(int n) {\n    vector<int> res(1 << n);\n    for (int i = 0; i < (int)res.size();\
+    \ i++) res[i] = i ^ (i >> 1);\n    return res;\n}\n"
+  code: "#pragma once\n#include \"../base.hpp\"\n\nvector<int> gray_code(int n) {\n\
+    \    vector<int> res(1 << n);\n    for (int i = 0; i < (int)res.size(); i++) res[i]\
+    \ = i ^ (i >> 1);\n    return res;\n}"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: util/gray_code.hpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: util/gray_code.hpp
 layout: document
-redirect_from:
-- /library/util/gray_code.hpp
-- /library/util/gray_code.hpp.html
-title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"
+title: Gray Code
 ---
+
 ## 概要
 Gray Code とは数値の符号化法の一つで, 前後に隣接する符号間のハミング距離が必ず 1 となるという特徴をもつ.
 

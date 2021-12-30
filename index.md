@@ -142,9 +142,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: linearalgebra/BitMatrix.hpp
       title: Bit Matrix
-    - icon: ':warning:'
-      path: linearalgebra/Kitamasa.hpp
-      title: Kitamasa
     - icon: ':heavy_check_mark:'
       path: linearalgebra/Matrix.hpp
       title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
@@ -161,7 +158,7 @@ data:
       title: binary gcd
     - icon: ':heavy_check_mark:'
       path: math/discrete_logarithm.hpp
-      title: "Discrete Logarithm (\u96E2\u6563\u5BFE\u6570)"
+      title: "Discrete Logarithm\uFF08\u96E2\u6563\u5BFE\u6570\u554F\u984C\uFF09"
     - icon: ':heavy_check_mark:'
       path: math/elementary_math.hpp
       title: elementary math
@@ -196,7 +193,7 @@ data:
       title: Manacher
     - icon: ':heavy_check_mark:'
       path: string/RollingHash.hpp
-      title: Rolling Hash
+      title: string/RollingHash.hpp
     - icon: ':heavy_check_mark:'
       path: string/RollingHash2D.hpp
       title: Rolling Hash 2D
@@ -221,28 +218,25 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: util/Dice.hpp
-      title: Dice
+      title: "\u30B5\u30A4\u30B3\u30ED"
     - icon: ':warning:'
       path: util/RandomNumberGenerator_32.hpp
-      title: "\u4E71\u6570\u751F\u6210\u5668(32bit)"
+      title: "\u4E71\u6570\u751F\u6210"
     - icon: ':warning:'
       path: util/RandomNumberGenerator_64.hpp
-      title: "\u4E71\u6570\u751F\u6210\u5668(64bit)"
+      title: util/RandomNumberGenerator_64.hpp
     - icon: ':heavy_check_mark:'
       path: util/Rational.hpp
-      title: Rational Number
+      title: "\u6709\u7406\u6570\u30E9\u30A4\u30D6\u30E9\u30EA"
     - icon: ':warning:'
       path: util/ZobristHash.hpp
       title: Zobrist Hash
-    - icon: ':warning:'
-      path: util/binary_conversion.hpp
-      title: "\u6587\u5B57\u5217\u306E2\u9032\u5909\u63DB"
     - icon: ':warning:'
       path: util/flow_graphviz.hpp
       title: util/flow_graphviz.hpp
     - icon: ':warning:'
       path: util/gray_code.hpp
-      title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"
+      title: Gray Code
     - icon: ':heavy_check_mark:'
       path: util/modint.hpp
       title: util/modint.hpp

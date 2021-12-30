@@ -447,6 +447,7 @@ $$a_N = [x^N] \frac{P(x)}{Q(x)}$$
 高速化
 
 ## 問題例
+- [競プロ典型 90 問 090 - Tenkei90's Last Problem](https://atcoder.jp/contests/typical90/tasks/typical90_cl)
 
 ## Links
 - [線形漸化式を満たす数列の N 項目を計算するアルゴリズム](http://q.c.titech.ac.jp/docs/progs/polynomial_division.html)

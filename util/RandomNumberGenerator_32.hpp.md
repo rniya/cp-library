@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/util/RandomNumberGenerator.md
-    document_title: "\u4E71\u6570\u751F\u6210\u5668(32bit)"
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#define LOCAL\n#include <bits/stdc++.h>\nusing\
     \ namespace std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t\
@@ -78,15 +76,13 @@ data:
     \    v.erase(unique(v.begin(), v.end()), v.end());\n}\ntemplate <typename T> int\
     \ lwb(const vector<T>& v, const T& x) { return lower_bound(v.begin(), v.end(),\
     \ x) - v.begin(); }\n#pragma endregion\n#line 3 \"util/RandomNumberGenerator_32.hpp\"\
-    \n\n/**\n * @brief \u4E71\u6570\u751F\u6210\u5668(32bit)\n * @docs docs/util/RandomNumberGenerator.md\n\
-    \ */\nstruct RandomNumberGenerator {\n    mt19937 mt;\n    RandomNumberGenerator()\
+    \n\nstruct RandomNumberGenerator {\n    mt19937 mt;\n    RandomNumberGenerator()\
     \ : mt(chrono::steady_clock::now().time_since_epoch().count()) {}\n    uint32_t\
     \ operator()(uint32_t a, uint32_t b) {\n        uniform_int_distribution<uint32_t>\
     \ dist(a, b - 1);\n        return dist(mt);\n    }\n    uint32_t operator()(uint32_t\
     \ b) { return (*this)(0, b); }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u4E71\u6570\u751F\
-    \u6210\u5668(32bit)\n * @docs docs/util/RandomNumberGenerator.md\n */\nstruct\
-    \ RandomNumberGenerator {\n    mt19937 mt;\n    RandomNumberGenerator() : mt(chrono::steady_clock::now().time_since_epoch().count())\
+  code: "#pragma once\n#include \"../base.hpp\"\n\nstruct RandomNumberGenerator {\n\
+    \    mt19937 mt;\n    RandomNumberGenerator() : mt(chrono::steady_clock::now().time_since_epoch().count())\
     \ {}\n    uint32_t operator()(uint32_t a, uint32_t b) {\n        uniform_int_distribution<uint32_t>\
     \ dist(a, b - 1);\n        return dist(mt);\n    }\n    uint32_t operator()(uint32_t\
     \ b) { return (*this)(0, b); }\n};"
@@ -95,16 +91,14 @@ data:
   isVerificationFile: false
   path: util/RandomNumberGenerator_32.hpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: util/RandomNumberGenerator_32.hpp
 layout: document
-redirect_from:
-- /library/util/RandomNumberGenerator_32.hpp
-- /library/util/RandomNumberGenerator_32.hpp.html
-title: "\u4E71\u6570\u751F\u6210\u5668(32bit)"
+title: "\u4E71\u6570\u751F\u6210"
 ---
+
 ## 概要
 一様乱数を生成する.
 

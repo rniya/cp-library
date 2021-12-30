@@ -83,10 +83,8 @@ data:
     \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 3 \"math/fast_factorize.hpp\"\n\n/**\n * @brief \u9AD8\u901F\u7D20\u56E0\
-    \u6570\u5206\u89E3 (Miller-Rabin primality test + Pollard's rho algorithm)\n *\
-    \ @docs docs/math/fast_factorize.md\n */\nnamespace fast_factorize {\nusing u64\
-    \ = uint64_t;\n\nmt19937_64 mt(random_device{}());\nu64 rng(u64 n) { return uniform_int_distribution<u64>(0,\
+    #line 3 \"math/fast_factorize.hpp\"\n\nnamespace fast_factorize {\nusing u64 =\
+    \ uint64_t;\n\nmt19937_64 mt(random_device{}());\nu64 rng(u64 n) { return uniform_int_distribution<u64>(0,\
     \ n - 1)(mt); }\n\nstruct montgomery64 {\n    using i64 = int64_t;\n    using\
     \ u64 = uint64_t;\n    using u128 = __uint128_t;\n\n    static u64 mod, r, n2;\n\
     \n    static u64 get_r() {\n        u64 res = mod;\n        for (int _ = 0; _\
@@ -165,7 +163,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/factorize.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/factorize.test.cpp

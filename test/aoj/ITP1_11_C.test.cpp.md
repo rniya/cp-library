@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: util/Dice.hpp
-    title: Dice
+    title: "\u30B5\u30A4\u30B3\u30ED"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -122,12 +122,12 @@ data:
     \ 6, 0, 3}, {2, 6, 0, 0, 1, 5},\n                            {5, 1, 0, 0, 6, 2},\
     \ {3, 0, 6, 1, 0, 4}, {0, 4, 2, 5, 3, 0}};\n    const int code[6][4] = {{0, 3,\
     \ 5, 2}, {0, 2, 5, 3}, {0, 1, 5, 4}, {0, 4, 5, 1}, {1, 2, 4, 3}, {1, 3, 4, 2}};\n\
-    \    const char direction[6] = {'E', 'W', 'N', 'S', 'R', 'L'};\n};\n\n/**\n *\
-    \ @brief Dice\n * @docs docs/util/Dice.md\n */\n#line 5 \"test/aoj/ITP1_11_C.test.cpp\"\
-    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    vector<int>\
-    \ u(6), v(6);\n    for (int i = 0; i < 6; i++) cin >> u[i];\n    for (int i =\
-    \ 0; i < 6; i++) cin >> v[i];\n\n    Dice d1(u), d2(v);\n    cout << (d1.identifier()\
-    \ == d2.identifier() ? \"Yes\" : \"No\") << '\\n';\n    return 0;\n}\n"
+    \    const char direction[6] = {'E', 'W', 'N', 'S', 'R', 'L'};\n};\n#line 5 \"\
+    test/aoj/ITP1_11_C.test.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    vector<int> u(6), v(6);\n    for (int i = 0; i < 6; i++) cin >> u[i];\n \
+    \   for (int i = 0; i < 6; i++) cin >> v[i];\n\n    Dice d1(u), d2(v);\n    cout\
+    \ << (d1.identifier() == d2.identifier() ? \"Yes\" : \"No\") << '\\n';\n    return\
+    \ 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/ITP1_11_C\"\n\
     \n#include \"../../base.hpp\"\n#include \"../../util/Dice.hpp\"\n\nint main()\
     \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    vector<int> u(6),\
@@ -140,7 +140,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ITP1_11_C.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ITP1_11_C.test.cpp

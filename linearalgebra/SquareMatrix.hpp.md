@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/linearalgebra/SquareMatrix.md
-    document_title: "\u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
     links: []
   bundledCode: "#line 2 \"linearalgebra/SquareMatrix.hpp\"\n#include <array>\n#include\
     \ <cassert>\n#include <iostream>\n\ntemplate <typename T, size_t N> struct SquareMatrix\
@@ -75,9 +73,7 @@ data:
     ,\" : \"\");\n        }\n        os << \"]\";\n        for (size_t i = 0; i <\
     \ N; i++) {\n            os << \"\\n[\";\n            for (size_t j = 0; j < N;\
     \ j++) os << p[i][j] << (j + 1 < N ? \",\" : \"\");\n            os << \"]\";\n\
-    \        }\n        os << \"]\\n\";\n        return os;\n    }\n};\n\n/**\n *\
-    \ @brief \u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA\n * @docs docs/linearalgebra/SquareMatrix.md\n\
-    \ */\n"
+    \        }\n        os << \"]\\n\";\n        return os;\n    }\n};\n"
   code: "#pragma once\n#include <array>\n#include <cassert>\n#include <iostream>\n\
     \ntemplate <typename T, size_t N> struct SquareMatrix {\n    std::array<std::array<T,\
     \ N>, N> A;\n\n    SquareMatrix() : A{{}} {}\n\n    size_t size() const { return\
@@ -139,22 +135,18 @@ data:
     ,\" : \"\");\n        }\n        os << \"]\";\n        for (size_t i = 0; i <\
     \ N; i++) {\n            os << \"\\n[\";\n            for (size_t j = 0; j < N;\
     \ j++) os << p[i][j] << (j + 1 < N ? \",\" : \"\");\n            os << \"]\";\n\
-    \        }\n        os << \"]\\n\";\n        return os;\n    }\n};\n\n/**\n *\
-    \ @brief \u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA\n * @docs docs/linearalgebra/SquareMatrix.md\n\
-    \ */\n"
+    \        }\n        os << \"]\\n\";\n        return os;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: linearalgebra/SquareMatrix.hpp
   requiredBy: []
-  timestamp: '2021-10-17 17:14:51+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1050.test.cpp
 documentation_of: linearalgebra/SquareMatrix.hpp
 layout: document
-redirect_from:
-- /library/linearalgebra/SquareMatrix.hpp
-- /library/linearalgebra/SquareMatrix.hpp.html
 title: "\u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
 ---
+
 ## 概要

@@ -114,16 +114,15 @@ data:
     \  inline void extend(int x, size_t len) {\n        if (power[x].size() > len)\
     \ return;\n        size_t pre = power[x].size();\n        power[x].resize(len\
     \ + 1);\n        for (size_t i = pre - 1; i < len; i++) power[x][i + 1] = mul(power[x][i],\
-    \ basis[x]);\n    }\n};\n\n/**\n * @brief Rolling Hash 2D\n * @docs docs/string/RollingHash2D.md\n\
-    \ */\n#line 5 \"test/aoj/ALDS1_14_C.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int H, W;\n    cin >> H >> W;\n    vector<string>\
-    \ S(H);\n    for (auto& s : S) cin >> s;\n    int R, C;\n    cin >> R >> C;\n\
-    \    vector<string> T(R);\n    for (auto& t : T) cin >> t;\n\n    RollingHash2D\
-    \ RH;\n    auto a = RH.build(S);\n    auto correct = RH.get(T);\n\n    for (int\
-    \ i = 0; i + R <= H; i++) {\n        for (int j = 0; j + C <= W; j++) {\n    \
-    \        if (RH.query(a, i, i + R, j, j + C) == correct) {\n                cout\
-    \ << i << ' ' << j << '\\n';\n            }\n        }\n    }\n    return 0;\n\
-    }\n"
+    \ basis[x]);\n    }\n};\n#line 5 \"test/aoj/ALDS1_14_C.test.cpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int H, W;\n    cin\
+    \ >> H >> W;\n    vector<string> S(H);\n    for (auto& s : S) cin >> s;\n    int\
+    \ R, C;\n    cin >> R >> C;\n    vector<string> T(R);\n    for (auto& t : T) cin\
+    \ >> t;\n\n    RollingHash2D RH;\n    auto a = RH.build(S);\n    auto correct\
+    \ = RH.get(T);\n\n    for (int i = 0; i + R <= H; i++) {\n        for (int j =\
+    \ 0; j + C <= W; j++) {\n            if (RH.query(a, i, i + R, j, j + C) == correct)\
+    \ {\n                cout << i << ' ' << j << '\\n';\n            }\n        }\n\
+    \    }\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_C\"\n\
     \n#include \"../../base.hpp\"\n#include \"../../string/RollingHash2D.hpp\"\n\n\
     int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int H, W;\n\
@@ -140,7 +139,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1_14_C.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1_14_C.test.cpp

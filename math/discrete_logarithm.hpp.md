@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/discrete_logarithm.md
-    document_title: "Discrete Logarithm (\u96E2\u6563\u5BFE\u6570)"
     links: []
   bundledCode: "#line 2 \"math/discrete_logarithm.hpp\"\n#include <algorithm>\n#include\
     \ <cassert>\n#include <cstdint>\n#include <unordered_map>\n\nint64_t discrete_logarithm(int64_t\
@@ -26,9 +24,7 @@ data:
     \ int64_t> baby_step;\n    for (int64_t i = 0, cur = y; i < n; baby_step[cur]\
     \ = ++i) (cur *= x) %= m;\n    for (int64_t i = 0, cur = t; i < m; i += n) {\n\
     \        (cur *= giant_step) %= m;\n        if (baby_step.count(cur)) return c\
-    \ + (i + n) - baby_step[cur];\n    }\n    return -1;\n}\n\n/**\n * @brief Discrete\
-    \ Logarithm (\u96E2\u6563\u5BFE\u6570)\n * @docs docs/math/discrete_logarithm.md\n\
-    \ */\n"
+    \ + (i + n) - baby_step[cur];\n    }\n    return -1;\n}\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <cstdint>\n\
     #include <unordered_map>\n\nint64_t discrete_logarithm(int64_t x, int64_t y, int64_t\
     \ m) {\n    assert(0 <= x and x < m);\n    assert(0 <= y and y < m);\n    assert(0\
@@ -42,23 +38,20 @@ data:
     \    for (int64_t i = 0, cur = y; i < n; baby_step[cur] = ++i) (cur *= x) %= m;\n\
     \    for (int64_t i = 0, cur = t; i < m; i += n) {\n        (cur *= giant_step)\
     \ %= m;\n        if (baby_step.count(cur)) return c + (i + n) - baby_step[cur];\n\
-    \    }\n    return -1;\n}\n\n/**\n * @brief Discrete Logarithm (\u96E2\u6563\u5BFE\
-    \u6570)\n * @docs docs/math/discrete_logarithm.md\n */\n"
+    \    }\n    return -1;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/discrete_logarithm.hpp
   requiredBy: []
-  timestamp: '2021-10-10 15:55:16+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/discrete_logarithm_mod.test.cpp
 documentation_of: math/discrete_logarithm.hpp
 layout: document
-redirect_from:
-- /library/math/discrete_logarithm.hpp
-- /library/math/discrete_logarithm.hpp.html
-title: "Discrete Logarithm (\u96E2\u6563\u5BFE\u6570)"
+title: "Discrete Logarithm\uFF08\u96E2\u6563\u5BFE\u6570\u554F\u984C\uFF09"
 ---
+
 ## 概要
 離散対数問題を $O(\sqrt{m})$ で解く. 離散対数問題とは正整数 $m$ と $0 \leq x, y < m$ なる整数 $x, y$ が与えられた際に,
 

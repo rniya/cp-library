@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: math/discrete_logarithm.hpp
-    title: "Discrete Logarithm (\u96E2\u6563\u5BFE\u6570)"
+    title: "Discrete Logarithm\uFF08\u96E2\u6563\u5BFE\u6570\u554F\u984C\uFF09"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -95,12 +95,11 @@ data:
     \ int64_t> baby_step;\n    for (int64_t i = 0, cur = y; i < n; baby_step[cur]\
     \ = ++i) (cur *= x) %= m;\n    for (int64_t i = 0, cur = t; i < m; i += n) {\n\
     \        (cur *= giant_step) %= m;\n        if (baby_step.count(cur)) return c\
-    \ + (i + n) - baby_step[cur];\n    }\n    return -1;\n}\n\n/**\n * @brief Discrete\
-    \ Logarithm (\u96E2\u6563\u5BFE\u6570)\n * @docs docs/math/discrete_logarithm.md\n\
-    \ */\n#line 5 \"test/yosupo/discrete_logarithm_mod.test.cpp\"\n\nint main() {\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int T;\n    cin >> T;\n\
-    \    for (; T--;) {\n        int X, Y, M;\n        cin >> X >> Y >> M;\n     \
-    \   cout << discrete_logarithm(X, Y, M) << '\\n';\n    }\n    return 0;\n}\n"
+    \ + (i + n) - baby_step[cur];\n    }\n    return -1;\n}\n#line 5 \"test/yosupo/discrete_logarithm_mod.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int T;\n\
+    \    cin >> T;\n    for (; T--;) {\n        int X, Y, M;\n        cin >> X >>\
+    \ Y >> M;\n        cout << discrete_logarithm(X, Y, M) << '\\n';\n    }\n    return\
+    \ 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/discrete_logarithm_mod\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../math/discrete_logarithm.hpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int T;\n\
@@ -113,7 +112,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/discrete_logarithm_mod.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/discrete_logarithm_mod.test.cpp

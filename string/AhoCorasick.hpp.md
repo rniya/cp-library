@@ -16,8 +16,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/string/AhoCorasick.md
-    document_title: Aho Corasick
     links: []
   bundledCode: "#line 2 \"string/AhoCorasick.hpp\"\n#include <algorithm>\n#include\
     \ <map>\n#include <queue>\n#line 3 \"string/Trie.hpp\"\n#include <array>\n#include\
@@ -40,35 +38,34 @@ data:
     \ ? -1 : next(pos, c - margin);\n    }\n\n    int size() const { return nodes.size();\
     \ }\n\n    int idx(int pos) { return pos < 0 ? -1 : nodes[pos].idx; }\n\n    std::vector<int>\
     \ idxs(int pos) { return pos < 0 ? std::vector<int>() : nodes[pos].idxs; }\n};\n\
-    \n/**\n * @brief Trie\n * @docs docs/string/Trie.md\n */\n#line 6 \"string/AhoCorasick.hpp\"\
-    \n\ntemplate <size_t char_size, char margin = 'a'> struct AhoCorasick : Trie<char_size\
-    \ + 1, margin> {\n    void build(bool heavy = true) {\n        int n = nodes.size();\n\
-    \        cnt.resize(n);\n        for (int i = 0; i < n; i++) cnt[i] = nodes[i].idxs.size();\n\
-    \        std::queue<int> que;\n        for (size_t i = 0; i <= char_size; i++)\
-    \ {\n            if (~next(0, i)) {\n                next(next(0, i), FAIL) =\
-    \ 0;\n                que.emplace(next(0, i));\n            } else\n         \
-    \       next(0, i) = 0;\n        }\n        while (!que.empty()) {\n         \
-    \   auto& cur = nodes[que.front()];\n            int fail = cur.nxt[FAIL];\n \
-    \           cnt[que.front()] += cnt[fail];\n            que.pop();\n         \
-    \   for (size_t i = 0; i < char_size; i++) {\n                int& nxt = cur.nxt[i];\n\
-    \                if (nxt < 0) {\n                    nxt = next(fail, i);\n  \
-    \                  continue;\n                }\n                next(nxt, FAIL)\
-    \ = next(fail, i);\n                if (heavy) {\n                    auto& u\
-    \ = nodes[nxt].idxs;\n                    auto& v = nodes[next(fail, i)].idxs;\n\
-    \                    std::vector<int> w;\n                    std::set_union(u.begin(),\
-    \ u.end(), v.begin(), v.end(), back_inserter(w));\n                    u = w;\n\
-    \                }\n                que.emplace(nxt);\n            }\n       \
-    \ }\n    }\n\n    long long match(const std::string& s) {\n        long long res\
-    \ = 0;\n        int cur = 0;\n        for (const char& c : s) {\n            cur\
-    \ = next(cur, c - margin);\n            res += cnt[cur];\n        }\n        return\
-    \ res;\n    }\n\n    std::map<int, int> frequency(const std::string& s) {\n  \
-    \      std::map<int, int> res;\n        int cur = 0;\n        for (const char&\
-    \ c : s) {\n            cur = next(cur, c - margin);\n            for (auto& idx\
-    \ : nodes[cur].idxs) res[idx]++;\n        }\n        return res;\n    }\n\n  \
-    \  int count(int pos) { return cnt[pos]; }\n\nprivate:\n    using super = Trie<char_size\
-    \ + 1, margin>;\n    using super::next;\n    using super::nodes;\n\n    const\
-    \ int FAIL = char_size;\n    std::vector<int> cnt;\n};\n\n/**\n * @brief Aho Corasick\n\
-    \ * @docs docs/string/AhoCorasick.md\n */\n"
+    #line 6 \"string/AhoCorasick.hpp\"\n\ntemplate <size_t char_size, char margin\
+    \ = 'a'> struct AhoCorasick : Trie<char_size + 1, margin> {\n    void build(bool\
+    \ heavy = true) {\n        int n = nodes.size();\n        cnt.resize(n);\n   \
+    \     for (int i = 0; i < n; i++) cnt[i] = nodes[i].idxs.size();\n        std::queue<int>\
+    \ que;\n        for (size_t i = 0; i <= char_size; i++) {\n            if (~next(0,\
+    \ i)) {\n                next(next(0, i), FAIL) = 0;\n                que.emplace(next(0,\
+    \ i));\n            } else\n                next(0, i) = 0;\n        }\n     \
+    \   while (!que.empty()) {\n            auto& cur = nodes[que.front()];\n    \
+    \        int fail = cur.nxt[FAIL];\n            cnt[que.front()] += cnt[fail];\n\
+    \            que.pop();\n            for (size_t i = 0; i < char_size; i++) {\n\
+    \                int& nxt = cur.nxt[i];\n                if (nxt < 0) {\n    \
+    \                nxt = next(fail, i);\n                    continue;\n       \
+    \         }\n                next(nxt, FAIL) = next(fail, i);\n              \
+    \  if (heavy) {\n                    auto& u = nodes[nxt].idxs;\n            \
+    \        auto& v = nodes[next(fail, i)].idxs;\n                    std::vector<int>\
+    \ w;\n                    std::set_union(u.begin(), u.end(), v.begin(), v.end(),\
+    \ back_inserter(w));\n                    u = w;\n                }\n        \
+    \        que.emplace(nxt);\n            }\n        }\n    }\n\n    long long match(const\
+    \ std::string& s) {\n        long long res = 0;\n        int cur = 0;\n      \
+    \  for (const char& c : s) {\n            cur = next(cur, c - margin);\n     \
+    \       res += cnt[cur];\n        }\n        return res;\n    }\n\n    std::map<int,\
+    \ int> frequency(const std::string& s) {\n        std::map<int, int> res;\n  \
+    \      int cur = 0;\n        for (const char& c : s) {\n            cur = next(cur,\
+    \ c - margin);\n            for (auto& idx : nodes[cur].idxs) res[idx]++;\n  \
+    \      }\n        return res;\n    }\n\n    int count(int pos) { return cnt[pos];\
+    \ }\n\nprivate:\n    using super = Trie<char_size + 1, margin>;\n    using super::next;\n\
+    \    using super::nodes;\n\n    const int FAIL = char_size;\n    std::vector<int>\
+    \ cnt;\n};\n"
   code: "#pragma once\n#include <algorithm>\n#include <map>\n#include <queue>\n#include\
     \ \"Trie.hpp\"\n\ntemplate <size_t char_size, char margin = 'a'> struct AhoCorasick\
     \ : Trie<char_size + 1, margin> {\n    void build(bool heavy = true) {\n     \
@@ -97,24 +94,21 @@ data:
     \      }\n        return res;\n    }\n\n    int count(int pos) { return cnt[pos];\
     \ }\n\nprivate:\n    using super = Trie<char_size + 1, margin>;\n    using super::next;\n\
     \    using super::nodes;\n\n    const int FAIL = char_size;\n    std::vector<int>\
-    \ cnt;\n};\n\n/**\n * @brief Aho Corasick\n * @docs docs/string/AhoCorasick.md\n\
-    \ */\n"
+    \ cnt;\n};\n"
   dependsOn:
   - string/Trie.hpp
   isVerificationFile: false
   path: string/AhoCorasick.hpp
   requiredBy: []
-  timestamp: '2021-12-05 02:04:54+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1269.test.cpp
   - test/yukicoder/430.AhoCorasick.test.cpp
 documentation_of: string/AhoCorasick.hpp
 layout: document
-redirect_from:
-- /library/string/AhoCorasick.hpp
-- /library/string/AhoCorasick.hpp.html
 title: Aho Corasick
 ---
+
 ## 概要
 各パターン文字列を区別する必要がない場合には `build()` の引数 `heavy` を `false` にする。

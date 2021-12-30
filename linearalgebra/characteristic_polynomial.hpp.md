@@ -10,10 +10,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/linearalgebra/characteristic_polynomial.md
-    document_title: Characteristic Polynomial
-    links:
-    - https://arxiv.org/abs/1104.3769
+    links: []
   bundledCode: "#line 2 \"linearalgebra/characteristic_polynomial.hpp\"\n#include\
     \ <cassert>\n#include <vector>\n\ntemplate <typename T> std::vector<T> characteristic_polynomial(std::vector<std::vector<T>>\
     \ M) {\n    assert(M.empty() or M.size() == M[0].size());\n    int n = M.size();\n\
@@ -33,8 +30,7 @@ data:
     \ T betas = 1;\n        for (int j = i - 1; j >= 0; j--) {\n            betas\
     \ *= M[j + 1][j];\n            T coef = -betas * M[j][i];\n            for (int\
     \ k = 0; k <= j; k++) p[i + 1][k] += coef * p[j][k];\n        }\n    }\n    return\
-    \ p[n];\n}\n\n/**\n * @brief Characteristic Polynomial\n * @docs docs/linearalgebra/characteristic_polynomial.md\n\
-    \ * @see https://arxiv.org/abs/1104.3769\n */\n"
+    \ p[n];\n}\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\ntemplate <typename\
     \ T> std::vector<T> characteristic_polynomial(std::vector<std::vector<T>> M) {\n\
     \    assert(M.empty() or M.size() == M[0].size());\n    int n = M.size();\n  \
@@ -54,23 +50,20 @@ data:
     \ T betas = 1;\n        for (int j = i - 1; j >= 0; j--) {\n            betas\
     \ *= M[j + 1][j];\n            T coef = -betas * M[j][i];\n            for (int\
     \ k = 0; k <= j; k++) p[i + 1][k] += coef * p[j][k];\n        }\n    }\n    return\
-    \ p[n];\n}\n\n/**\n * @brief Characteristic Polynomial\n * @docs docs/linearalgebra/characteristic_polynomial.md\n\
-    \ * @see https://arxiv.org/abs/1104.3769\n */\n"
+    \ p[n];\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: linearalgebra/characteristic_polynomial.hpp
   requiredBy: []
-  timestamp: '2021-10-12 17:56:56+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/characteristic_polynomial.test.cpp
 documentation_of: linearalgebra/characteristic_polynomial.hpp
 layout: document
-redirect_from:
-- /library/linearalgebra/characteristic_polynomial.hpp
-- /library/linearalgebra/characteristic_polynomial.hpp.html
 title: Characteristic Polynomial
 ---
+
 ## 概要
 $n$ 次正方行列 $M$ の特性多項式 $p(x) = \det(xI - M)$ を $O(n^3)$ で計算する.
 

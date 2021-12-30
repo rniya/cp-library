@@ -10,8 +10,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/util/Rational.md
-    document_title: Rational Number
     links: []
   bundledCode: "#line 2 \"util/Rational.hpp\"\n#include <iostream>\n\ntemplate <typename\
     \ T> class Rational {\n    T num, den;\n\n    static T my_gcd(T x_, T y_) {\n\
@@ -71,8 +69,7 @@ data:
     \ r) { return r <= val; }\n\n    explicit operator double() const { return (double)num\
     \ / (double)den; }\n    explicit operator long double() const { return (long double)num\
     \ / (long double)den; }\n    friend std::ostream& operator<<(std::ostream& os,\
-    \ const Rational& r) { return os << r.num << '/' << r.den; }\n};\n\n/**\n * @brief\
-    \ Rational Number\n * @docs docs/util/Rational.md\n */\n"
+    \ const Rational& r) { return os << r.num << '/' << r.den; }\n};\n"
   code: "#pragma once\n#include <iostream>\n\ntemplate <typename T> class Rational\
     \ {\n    T num, den;\n\n    static T my_gcd(T x_, T y_) {\n        unsigned long\
     \ long x = x_ < 0 ? -x_ : x_, y = y_ < 0 ? -y_ : y_;\n        if (!x or !y) return\
@@ -131,23 +128,20 @@ data:
     \ r) { return r <= val; }\n\n    explicit operator double() const { return (double)num\
     \ / (double)den; }\n    explicit operator long double() const { return (long double)num\
     \ / (long double)den; }\n    friend std::ostream& operator<<(std::ostream& os,\
-    \ const Rational& r) { return os << r.num << '/' << r.den; }\n};\n\n/**\n * @brief\
-    \ Rational Number\n * @docs docs/util/Rational.md\n */\n"
+    \ const Rational& r) { return os << r.num << '/' << r.den; }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: util/Rational.hpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/1131.test.cpp
 documentation_of: util/Rational.hpp
 layout: document
-redirect_from:
-- /library/util/Rational.hpp
-- /library/util/Rational.hpp.html
-title: Rational Number
+title: "\u6709\u7406\u6570\u30E9\u30A4\u30D6\u30E9\u30EA"
 ---
+
 ## 概要
 有理数を効率的に処理するためのライブラリ. 基本的な四則演算や比較演算子等に対応している. また $1/0$ や $-1/0$ によって $\pm \infty$ にも対応している.
 

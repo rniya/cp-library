@@ -22,8 +22,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/util/Dice.md
-    document_title: Dice
     links: []
   bundledCode: "#line 2 \"util/Dice.hpp\"\n#include <array>\n#include <cassert>\n\
     #include <string>\n#include <vector>\n\nstruct Dice {\n    std::array<int, 6>\
@@ -66,8 +64,7 @@ data:
     \ 6, 0, 3}, {2, 6, 0, 0, 1, 5},\n                            {5, 1, 0, 0, 6, 2},\
     \ {3, 0, 6, 1, 0, 4}, {0, 4, 2, 5, 3, 0}};\n    const int code[6][4] = {{0, 3,\
     \ 5, 2}, {0, 2, 5, 3}, {0, 1, 5, 4}, {0, 4, 5, 1}, {1, 2, 4, 3}, {1, 3, 4, 2}};\n\
-    \    const char direction[6] = {'E', 'W', 'N', 'S', 'R', 'L'};\n};\n\n/**\n *\
-    \ @brief Dice\n * @docs docs/util/Dice.md\n */\n"
+    \    const char direction[6] = {'E', 'W', 'N', 'S', 'R', 'L'};\n};\n"
   code: "#pragma once\n#include <array>\n#include <cassert>\n#include <string>\n#include\
     \ <vector>\n\nstruct Dice {\n    std::array<int, 6> surface;\n\n    Dice(int TOP\
     \ = 1, int FRONT = 2) {\n        assert(1 <= TOP and TOP <= 6);\n        assert(1\
@@ -109,12 +106,12 @@ data:
     \ 1, 0, 0, 6, 2}, {3, 0, 6, 1, 0, 4}, {0, 4, 2, 5, 3, 0}};\n    const int code[6][4]\
     \ = {{0, 3, 5, 2}, {0, 2, 5, 3}, {0, 1, 5, 4}, {0, 4, 5, 1}, {1, 2, 4, 3}, {1,\
     \ 3, 4, 2}};\n    const char direction[6] = {'E', 'W', 'N', 'S', 'R', 'L'};\n\
-    };\n\n/**\n * @brief Dice\n * @docs docs/util/Dice.md\n */"
+    };\n"
   dependsOn: []
   isVerificationFile: false
   path: util/Dice.hpp
   requiredBy: []
-  timestamp: '2021-10-18 19:33:15+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ITP1_11_A.test.cpp
@@ -124,11 +121,9 @@ data:
   - test/aoj/ITP1_11_B.test.cpp
 documentation_of: util/Dice.hpp
 layout: document
-redirect_from:
-- /library/util/Dice.hpp
-- /library/util/Dice.hpp.html
-title: Dice
+title: "\u30B5\u30A4\u30B3\u30ED"
 ---
+
 ## 概要
 サイコロを扱うライブラリ. 主に ICPC 国内予選用.
 

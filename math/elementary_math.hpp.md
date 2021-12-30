@@ -19,8 +19,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/elementary_math.md
-    document_title: elementary math
     links: []
   bundledCode: "#line 2 \"math/elementary_math.hpp\"\n#include <numeric>\n#include\
     \ <vector>\n\nnamespace elementary_math {\n\ntemplate <typename T> std::vector<T>\
@@ -58,8 +56,7 @@ data:
     \ <typename T> T order(T x, T m) {\n    T n = euler_phi(m);\n    auto cand = divisor(n);\n\
     \    sort(cand.begin(), cand.end());\n    for (auto& i : cand) {\n        if (modpow(x,\
     \ i, m) == 1) {\n            return i;\n        }\n    }\n    return -1;\n}\n\n\
-    }  // namespace elementary_math\n\n/**\n * @brief elementary math\n * @docs docs/math/elementary_math.md\n\
-    \ */\n"
+    }  // namespace elementary_math\n"
   code: "#pragma once\n#include <numeric>\n#include <vector>\n\nnamespace elementary_math\
     \ {\n\ntemplate <typename T> std::vector<T> divisor(T n) {\n    std::vector<T>\
     \ res;\n    for (T i = 1; i * i <= n; i++) {\n        if (n % i == 0) {\n    \
@@ -96,13 +93,12 @@ data:
     \ {\n    T n = euler_phi(m);\n    auto cand = divisor(n);\n    sort(cand.begin(),\
     \ cand.end());\n    for (auto& i : cand) {\n        if (modpow(x, i, m) == 1)\
     \ {\n            return i;\n        }\n    }\n    return -1;\n}\n\n}  // namespace\
-    \ elementary_math\n\n/**\n * @brief elementary math\n * @docs docs/math/elementary_math.md\n\
-    \ */\n"
+    \ elementary_math\n"
   dependsOn: []
   isVerificationFile: false
   path: math/elementary_math.hpp
   requiredBy: []
-  timestamp: '2021-10-10 17:22:12+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/NTL_1_B.test.cpp
@@ -111,11 +107,9 @@ data:
   - test/aoj/NTL_1_E.test.cpp
 documentation_of: math/elementary_math.hpp
 layout: document
-redirect_from:
-- /library/math/elementary_math.hpp
-- /library/math/elementary_math.hpp.html
 title: elementary math
 ---
+
 ## 概要
 基本的な数学関数の集合.
 

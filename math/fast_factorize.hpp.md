@@ -13,9 +13,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/fast_factorize.md
-    document_title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality\
-      \ test + Pollard's rho algorithm)"
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#define LOCAL\n#include <bits/stdc++.h>\nusing\
     \ namespace std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t\
@@ -82,8 +79,6 @@ data:
     \    v.erase(unique(v.begin(), v.end()), v.end());\n}\ntemplate <typename T> int\
     \ lwb(const vector<T>& v, const T& x) { return lower_bound(v.begin(), v.end(),\
     \ x) - v.begin(); }\n#pragma endregion\n#line 3 \"math/fast_factorize.hpp\"\n\n\
-    /**\n * @brief \u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality\
-    \ test + Pollard's rho algorithm)\n * @docs docs/math/fast_factorize.md\n */\n\
     namespace fast_factorize {\nusing u64 = uint64_t;\n\nmt19937_64 mt(random_device{}());\n\
     u64 rng(u64 n) { return uniform_int_distribution<u64>(0, n - 1)(mt); }\n\nstruct\
     \ montgomery64 {\n    using i64 = int64_t;\n    using u64 = uint64_t;\n    using\
@@ -146,9 +141,7 @@ data:
     \ r.end(), back_inserter(l));\n    return l;\n}\nvector<u64> factorize(u64 n)\
     \ {\n    auto res = inner_factorize(n);\n    sort(res.begin(), res.end());\n \
     \   return res;\n}\n}  // namespace fast_factorize\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\n/**\n * @brief \u9AD8\u901F\u7D20\
-    \u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test + Pollard's rho algorithm)\n\
-    \ * @docs docs/math/fast_factorize.md\n */\nnamespace fast_factorize {\nusing\
+  code: "#pragma once\n#include \"../base.hpp\"\n\nnamespace fast_factorize {\nusing\
     \ u64 = uint64_t;\n\nmt19937_64 mt(random_device{}());\nu64 rng(u64 n) { return\
     \ uniform_int_distribution<u64>(0, n - 1)(mt); }\n\nstruct montgomery64 {\n  \
     \  using i64 = int64_t;\n    using u64 = uint64_t;\n    using u128 = __uint128_t;\n\
@@ -209,24 +202,22 @@ data:
     \ inner_factorize(p);\n    auto r = inner_factorize(n / p);\n    copy(r.begin(),\
     \ r.end(), back_inserter(l));\n    return l;\n}\nvector<u64> factorize(u64 n)\
     \ {\n    auto res = inner_factorize(n);\n    sort(res.begin(), res.end());\n \
-    \   return res;\n}\n}  // namespace fast_factorize"
+    \   return res;\n}\n}  // namespace fast_factorize\n"
   dependsOn:
   - base.hpp
   isVerificationFile: false
   path: math/fast_factorize.hpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/factorize.test.cpp
 documentation_of: math/fast_factorize.hpp
 layout: document
-redirect_from:
-- /library/math/fast_factorize.hpp
-- /library/math/fast_factorize.hpp.html
 title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test +\
   \ Pollard's rho algorithm)"
 ---
+
 ## 概要
 #### Miller Rabin の素数判定法
 

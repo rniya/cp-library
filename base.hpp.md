@@ -23,9 +23,6 @@ data:
   - icon: ':warning:'
     path: graph/RangeEdgeGraph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30B0\u30E9\u30D5"
-  - icon: ':warning:'
-    path: linearalgebra/Kitamasa.hpp
-    title: Kitamasa
   - icon: ':heavy_check_mark:'
     path: math/fast_factorize.hpp
     title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
@@ -41,19 +38,16 @@ data:
     title: Z-Algorithm
   - icon: ':warning:'
     path: util/RandomNumberGenerator_32.hpp
-    title: "\u4E71\u6570\u751F\u6210\u5668(32bit)"
+    title: "\u4E71\u6570\u751F\u6210"
   - icon: ':warning:'
     path: util/RandomNumberGenerator_64.hpp
-    title: "\u4E71\u6570\u751F\u6210\u5668(64bit)"
+    title: util/RandomNumberGenerator_64.hpp
   - icon: ':warning:'
     path: util/ZobristHash.hpp
     title: Zobrist Hash
   - icon: ':warning:'
-    path: util/binary_conversion.hpp
-    title: "\u6587\u5B57\u5217\u306E2\u9032\u5909\u63DB"
-  - icon: ':warning:'
     path: util/gray_code.hpp
-    title: "\u30B0\u30EC\u30A4\u30B3\u30FC\u30C9"
+    title: Gray Code
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/1131.test.cpp
@@ -460,8 +454,6 @@ data:
   - util/ZobristHash.hpp
   - util/RandomNumberGenerator_64.hpp
   - util/gray_code.hpp
-  - util/binary_conversion.hpp
-  - linearalgebra/Kitamasa.hpp
   timestamp: '2021-10-31 14:57:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
