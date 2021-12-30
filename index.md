@@ -87,7 +87,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem (based on ac-library)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: flow/Simplex.hpp
       title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"
   - name: geometry
@@ -577,7 +577,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/430.test.cpp
       title: test/yukicoder/430.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/453.test.cpp
       title: test/yukicoder/453.test.cpp
     - icon: ':heavy_check_mark:'

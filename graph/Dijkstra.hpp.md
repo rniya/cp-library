@@ -137,5 +137,3 @@ redirect_from:
 title: Dijkstra
 ---
 ## 概要
-
-## 計算量
