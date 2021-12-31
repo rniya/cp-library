@@ -1,6 +1,6 @@
 ---
 title: Topological Sort
-documentation_of: ./Topological Sort.hpp
+documentation_of: ./TopologicalSort.hpp
 ---
 
 ## 概要

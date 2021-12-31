@@ -1,6 +1,6 @@
 ---
 title: Union Find (Disjoint Set Union)
-documentation_of: ./Union Find.hpp
+documentation_of: ./UnionFind.hpp
 ---
 
 ## 概要

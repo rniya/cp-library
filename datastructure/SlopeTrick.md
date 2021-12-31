@@ -1,6 +1,6 @@
 ---
 title: Slope Trick
-documentation_of: ./Slope Trick.hpp
+documentation_of: ./SlopeTrick.hpp
 ---
 
 ## 概要

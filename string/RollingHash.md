@@ -1,6 +1,6 @@
 ---
 title: Rolling Hash
-documentation_of: ./Rolling Hash.hpp
+documentation_of: ./RollingHash.hpp
 ---
 
 ## 概要

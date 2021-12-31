@@ -1,6 +1,6 @@
 ---
 title: Convex Hull Trick (Add-Monotonic Slope Optimization)
-documentation_of: ./Convex Hull Trick.hpp
+documentation_of: ./ConvexHullTrick.hpp
 ---
 
 ## 概要
