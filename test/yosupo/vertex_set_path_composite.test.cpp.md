@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tree/HeavyLightDecomposition.hpp
     title: Heavy Light Decomposition
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: util/modint.hpp
     title: util/modint.hpp
   _extendedRequiredBy: []

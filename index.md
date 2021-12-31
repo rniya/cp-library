@@ -11,7 +11,7 @@ data:
       title: "Subset Sum\uFF08\u90E8\u5206\u548C\u554F\u984C\uFF09$O(NS)$"
     - icon: ':warning:'
       path: algorithm/SubsetSum2.hpp
-      title: algorithm/SubsetSum2.hpp
+      title: "Subset Sum\uFF08\u90E8\u5206\u548C\u554F\u984C\uFF09$O(Na_{\\max})$"
     - icon: ':warning:'
       path: algorithm/monotone_minima.hpp
       title: monotone minima
@@ -22,7 +22,7 @@ data:
       title: base.hpp
   - name: combinatorics
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: combinatorics/binomial.hpp
       title: binomial
   - name: convolution
@@ -181,7 +181,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: polynomial/FormalPowerSeries.hpp
       title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: polynomial/lagrange_interpolation.hpp
       title: Lagrange Interpolation
   - name: string
@@ -238,7 +238,7 @@ data:
     - icon: ':warning:'
       path: util/gray_code.hpp
       title: Gray Code
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: util/modint.hpp
       title: util/modint.hpp
     - icon: ':warning:'
@@ -551,7 +551,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/583.test.cpp
       title: test/yukicoder/583.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/665.test.cpp
       title: test/yukicoder/665.test.cpp
     - icon: ':heavy_check_mark:'

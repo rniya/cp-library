@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: combinatorics/binomial.hpp
     title: binomial
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: util/modint.hpp
     title: util/modint.hpp
   _extendedRequiredBy: []
