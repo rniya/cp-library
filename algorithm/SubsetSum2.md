@@ -1,6 +1,6 @@
 ---
 title: Subset Sum（部分和問題）$O(Na_{\max})$
-documentation_of: ./SubsetSum.hpp
+documentation_of: ./SubsetSum2.hpp
 ---
 
 ## 概要

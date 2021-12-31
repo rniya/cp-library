@@ -9,7 +9,7 @@
  * @param x you want to calculate f(x)
  * @return T f(x)
  */
-template <typename T> T lagrange_interpolation(const std::vector<T>& y, T x, Binomial<T>& BINOM) {
+template <typename T> T lagrange_interpolation(const std::vector<T>& y, long long x, Binomial<T>& BINOM) {
     int n = y.size() - 1;
     if (x <= n) return y[x];
     std::vector<T> left(n + 1, 1), right(n + 1, 1);
