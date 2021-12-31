@@ -41,7 +41,7 @@ data:
       title: Binary Trie
     - icon: ':heavy_check_mark:'
       path: datastructure/ConvexHullTrick.hpp
-      title: datastructure/ConvexHullTrick.hpp
+      title: Convex Hull Trick (Add-Monotonic Slope Optimization)
     - icon: ':heavy_check_mark:'
       path: datastructure/CumulativeSum2D.hpp
       title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
@@ -68,7 +68,7 @@ data:
       title: Sliding Window Aggregation
     - icon: ':warning:'
       path: datastructure/SlopeTrick.hpp
-      title: datastructure/SlopeTrick.hpp
+      title: Slope Trick
     - icon: ':heavy_check_mark:'
       path: datastructure/SparseTable.hpp
       title: Sparse Table
@@ -77,7 +77,7 @@ data:
       title: Union Find with Undo Operation
     - icon: ':heavy_check_mark:'
       path: datastructure/UnionFind.hpp
-      title: datastructure/UnionFind.hpp
+      title: Union Find (Disjoint Set Union)
   - name: flow
     pages:
     - icon: ':heavy_check_mark:'
@@ -134,7 +134,7 @@ data:
         \u89E3\uFF09"
     - icon: ':heavy_check_mark:'
       path: graph/TopologicalSort.hpp
-      title: graph/TopologicalSort.hpp
+      title: Topological Sort
     - icon: ':heavy_check_mark:'
       path: graph/TwoSAT.hpp
       title: 2-SAT
@@ -194,7 +194,7 @@ data:
       title: "Manacher\uFF08\u56DE\u5206\u534A\u5F84\uFF09"
     - icon: ':heavy_check_mark:'
       path: string/RollingHash.hpp
-      title: string/RollingHash.hpp
+      title: Rolling Hash
     - icon: ':heavy_check_mark:'
       path: string/RollingHash2D.hpp
       title: Rolling Hash 2D

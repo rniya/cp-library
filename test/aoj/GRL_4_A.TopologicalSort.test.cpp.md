@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: graph/TopologicalSort.hpp
-    title: graph/TopologicalSort.hpp
+    title: Topological Sort
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

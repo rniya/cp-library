@@ -49,8 +49,14 @@ data:
   - test/aoj/GRL_4_A.TopologicalSort.test.cpp
 documentation_of: graph/TopologicalSort.hpp
 layout: document
-redirect_from:
-- /library/graph/TopologicalSort.hpp
-- /library/graph/TopologicalSort.hpp.html
-title: graph/TopologicalSort.hpp
+title: Topological Sort
 ---
+
+## 概要
+有向グラフ $G$ が DAG (Directed Acyclic Graph, 有向閉路をもたないグラフ) であるかの判定及びそうである際に頂点をトポロジカル順序に並び替える.
+
+| メンバ関数           | 効果                                                                             | 時間計算量 |
+| -------------------- | -------------------------------------------------------------------------------- | ---------- |
+| `TopologicalSort(n)` | $n$ 頂点 0 辺のグラフとして初期化する.                                           | $O(n)$     |
+| `add_edge(u, v)`     | 頂点 $u$ から頂点 $v$ への有向辺を追加する.                                      | $O(1)$     |
+| `build()`            | 頂点をトポロジカル順序に並べ替えて返す. グラフが DAG でない場合には空配列を返す. | $O(n + m)$ |

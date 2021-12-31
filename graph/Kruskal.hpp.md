@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: datastructure/UnionFind.hpp
-    title: datastructure/UnionFind.hpp
+    title: Union Find (Disjoint Set Union)
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'

@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: string/RollingHash.hpp
-    title: string/RollingHash.hpp
+    title: Rolling Hash
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
