@@ -7,6 +7,12 @@ data:
       path: algorithm/Mo.hpp
       title: Mo's Algorithm
     - icon: ':warning:'
+      path: algorithm/SubsetSum.hpp
+      title: "Subset Sum\uFF08\u90E8\u5206\u548C\u554F\u984C\uFF09$O(NS)$"
+    - icon: ':warning:'
+      path: algorithm/SubsetSum2.hpp
+      title: algorithm/SubsetSum2.hpp
+    - icon: ':warning:'
       path: algorithm/monotone_minima.hpp
       title: monotone minima
   - name: .
@@ -343,30 +349,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_1_B.test.cpp
       title: test/aoj/DSL_1_B.test.cpp
-    - icon: ':x:'
-      path: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
-      title: test/aoj/DSL_2_A.SegmentTreeBeats.test.cpp
-    - icon: ':x:'
-      path: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
-      title: test/aoj/DSL_2_B.SegmentTreeBeats.test.cpp
-    - icon: ':x:'
-      path: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-      title: test/aoj/DSL_2_D.SegmentTreeBeats.test.cpp
-    - icon: ':x:'
-      path: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
-      title: test/aoj/DSL_2_E.SegmentTreeBeats.test.cpp
-    - icon: ':x:'
-      path: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-      title: test/aoj/DSL_2_F.SegmentTreeBeats.test.cpp
-    - icon: ':x:'
-      path: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-      title: test/aoj/DSL_2_G.SegmentTreeBeats.test.cpp
-    - icon: ':x:'
-      path: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
-      title: test/aoj/DSL_2_H.SegmentTreeBeats.test.cpp
-    - icon: ':x:'
-      path: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
-      title: test/aoj/DSL_2_I.SegmentTreeBeats.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
       title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
@@ -495,9 +477,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/queue_operate_all_composite.test.cpp
       title: test/yosupo/queue_operate_all_composite.test.cpp
-    - icon: ':x:'
-      path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
-      title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp
