@@ -83,19 +83,20 @@ data:
     \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 3 \"string/Manacher.hpp\"\n\nvector<int> Manacher(const string& s) {\n \
-    \   int n = s.size();\n    vector<int> res(n);\n    for (int i = 0, j = 0; i <\
-    \ n;) {\n        while (i - j >= 0 && i + j < n && s[i - j] == s[i + j]) j++;\n\
-    \        res[i] = j;\n        int k = 1;\n        while (i - k >= 0 && i + k <\
-    \ n && k + res[i - k] < j) res[i + k] = res[i - k], k++;\n        i += k, j -=\
-    \ k;\n    }\n    return res;\n}\n\nvector<int> PalindromeTable(const string& s)\
-    \ {\n    int n = s.size();\n    string t(n * 2 + 1, '$');\n    for (int i = 0;\
-    \ i < n; i++) t[i * 2 + 1] = s[i];\n    vector<int> v = Manacher(t), res;\n  \
-    \  for (int i = 1; i < n * 2; i++) res.emplace_back(v[i] - 1);\n    return res;\n\
-    }\n#line 5 \"test/yosupo/enumerate_palindromes.test.cpp\"\n\nint main() {\n  \
-    \  cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S;\n    cin >> S;\n\
-    \n    vector<int> ans = PalindromeTable(S);\n    for (int i = 0; i < ans.size();\
-    \ i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n}\n"
+    #line 4 \"string/Manacher.hpp\"\n\nstd::vector<int> Manacher(const std::string&\
+    \ s) {\n    int n = s.size();\n    std::vector<int> res(n);\n    for (int i =\
+    \ 0, j = 0; i < n;) {\n        while (i - j >= 0 and i + j < n and s[i - j] ==\
+    \ s[i + j]) j++;\n        res[i] = j;\n        int k = 1;\n        while (i -\
+    \ k >= 0 and i + k < n and k + res[i - k] < j) res[i + k] = res[i - k], k++;\n\
+    \        i += k;\n        j -= k;\n    }\n    return res;\n}\n\nstd::vector<int>\
+    \ PalindromeTable(const std::string& s) {\n    int n = s.size();\n    std::string\
+    \ t(n * 2 + 1, '$');\n    for (int i = 0; i < n; i++) t[i * 2 + 1] = s[i];\n \
+    \   std::vector<int> v = Manacher(t), res;\n    for (int i = 1; i < n * 2; i++)\
+    \ res.emplace_back(v[i] - 1);\n    return res;\n}\n#line 5 \"test/yosupo/enumerate_palindromes.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
+    \ S;\n    cin >> S;\n\n    vector<int> ans = PalindromeTable(S);\n    for (int\
+    \ i = 0; i < ans.size(); i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' :\
+    \ ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../string/Manacher.hpp\"\n\nint\
     \ main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string S;\n\
@@ -108,7 +109,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2021-12-30 22:50:08+09:00'
+  timestamp: '2022-04-14 01:51:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/enumerate_palindromes.test.cpp

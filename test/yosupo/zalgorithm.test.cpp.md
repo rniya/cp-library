@@ -82,16 +82,16 @@ data:
     \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 3 \"string/Z_Algorithm.hpp\"\n\ntemplate <typename T> vector<int> Z_Algorithm(const\
-    \ T& s) {\n    int n = s.size();\n    vector<int> z(n);\n    z[0] = n;\n    for\
-    \ (int i = 1, j = 0; i < n;) {\n        while (i + j < n && s[j] == s[i + j])\
-    \ j++;\n        z[i] = j;\n        if (j == 0) {\n            i++;\n         \
-    \   continue;\n        }\n        int k = 1;\n        while (i + k < n && k +\
-    \ z[k] < j) z[i + k] = z[k], k++;\n        i += k;\n        j -= k;\n    }\n \
-    \   return z;\n}\n\ntemplate <typename T> vector<int> LCP(const T& s, const T&\
-    \ t) {\n    T u(s);\n    u.insert(u.begin(), t.begin(), t.end());\n    vector<int>\
-    \ z = Z_Algorithm(u);\n    for (int& i : z) i = min(i, (int)t.size());\n    return\
-    \ vector<int>(z.begin() + t.size(), z.end());\n}\n#line 5 \"test/yosupo/zalgorithm.test.cpp\"\
+    #line 4 \"string/Z_Algorithm.hpp\"\n\ntemplate <typename T> std::vector<int> Z_Algorithm(const\
+    \ T& s) {\n    int n = s.size();\n    std::vector<int> z(n);\n    z[0] = n;\n\
+    \    for (int i = 1, j = 0; i < n;) {\n        while (i + j < n and s[j] == s[i\
+    \ + j]) j++;\n        z[i] = j;\n        if (j == 0) {\n            i++;\n   \
+    \         continue;\n        }\n        int k = 1;\n        while (i + k < n and\
+    \ k + z[k] < j) z[i + k] = z[k], k++;\n        i += k;\n        j -= k;\n    }\n\
+    \    return z;\n}\n\ntemplate <typename T> std::vector<int> LCP(const T& s, const\
+    \ T& t) {\n    T u(s);\n    u.insert(u.begin(), t.begin(), t.end());\n    std::vector<int>\
+    \ z = Z_Algorithm(u);\n    for (int& i : z) i = std::min(i, (int)t.size());\n\
+    \    return std::vector<int>(z.begin() + t.size(), z.end());\n}\n#line 5 \"test/yosupo/zalgorithm.test.cpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string\
     \ S;\n    cin >> S;\n    vector<int> ans = Z_Algorithm(S);\n\n    for (int i =\
     \ 0; i < ans.size(); i++) cout << ans[i] << (i + 1 == ans.size() ? '\\n' : ' ');\n\
@@ -107,7 +107,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/zalgorithm.test.cpp
   requiredBy: []
-  timestamp: '2021-12-30 22:50:08+09:00'
+  timestamp: '2022-04-14 01:51:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/zalgorithm.test.cpp

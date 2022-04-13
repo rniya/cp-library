@@ -21,12 +21,6 @@ data:
     path: math/fast_factorize.hpp
     title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
       \ + Pollard's rho algorithm)"
-  - icon: ':heavy_check_mark:'
-    path: string/Manacher.hpp
-    title: "Manacher\uFF08\u56DE\u5206\u534A\u5F84\uFF09"
-  - icon: ':heavy_check_mark:'
-    path: string/Z_Algorithm.hpp
-    title: Z-Algorithm
   - icon: ':warning:'
     path: util/RandomNumberGenerator_32.hpp
     title: "\u4E71\u6570\u751F\u6210"
@@ -404,8 +398,6 @@ data:
   - graph/Dijkstra.hpp
   - graph/CycleDetection.hpp
   - graph/RangeEdgeGraph.hpp
-  - string/Manacher.hpp
-  - string/Z_Algorithm.hpp
   - util/ZobristHash.hpp
   - util/RandomNumberGenerator_32.hpp
   - util/gray_code.hpp
