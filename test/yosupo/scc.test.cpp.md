@@ -88,7 +88,9 @@ data:
     \ id vertex v belongs to\n\n    StronglyConnectedComponents(int n) : G(n), comp(n,\
     \ -1), n(n), time(0), group_num(0), ord(n, -1), low(n) {}\n\n    void add_edge(int\
     \ u, int v) {\n        assert(0 <= u && u < n);\n        assert(0 <= v && v <\
-    \ n);\n        G[u].emplace_back(v);\n    }\n\n    std::vector<std::vector<int>>\
+    \ n);\n        G[u].emplace_back(v);\n    }\n\n    int add_vertex() {\n      \
+    \  G.emplace_back();\n        comp.emplace_back(-1);\n        ord.emplace_back(-1);\n\
+    \        low.emplace_back();\n        return n++;\n    }\n\n    std::vector<std::vector<int>>\
     \ build() {\n        for (int i = 0; i < n; i++) {\n            if (ord[i] < 0)\
     \ {\n                dfs(i);\n            }\n        }\n        for (int& x :\
     \ comp) x = group_num - 1 - x;\n        std::vector<std::vector<int>> groups(group_num);\n\
@@ -130,7 +132,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '2021-12-30 22:50:08+09:00'
+  timestamp: '2022-04-14 01:34:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp

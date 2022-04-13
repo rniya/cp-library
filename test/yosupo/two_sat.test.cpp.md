@@ -91,7 +91,9 @@ data:
     \ id vertex v belongs to\n\n    StronglyConnectedComponents(int n) : G(n), comp(n,\
     \ -1), n(n), time(0), group_num(0), ord(n, -1), low(n) {}\n\n    void add_edge(int\
     \ u, int v) {\n        assert(0 <= u && u < n);\n        assert(0 <= v && v <\
-    \ n);\n        G[u].emplace_back(v);\n    }\n\n    std::vector<std::vector<int>>\
+    \ n);\n        G[u].emplace_back(v);\n    }\n\n    int add_vertex() {\n      \
+    \  G.emplace_back();\n        comp.emplace_back(-1);\n        ord.emplace_back(-1);\n\
+    \        low.emplace_back();\n        return n++;\n    }\n\n    std::vector<std::vector<int>>\
     \ build() {\n        for (int i = 0; i < n; i++) {\n            if (ord[i] < 0)\
     \ {\n                dfs(i);\n            }\n        }\n        for (int& x :\
     \ comp) x = group_num - 1 - x;\n        std::vector<std::vector<int>> groups(group_num);\n\
@@ -113,18 +115,25 @@ data:
     \   visited.pop_back();\n                comp[u] = group_num;\n              \
     \  if (u == v) break;\n            }\n            group_num++;\n        }\n  \
     \  }\n};\n#line 5 \"graph/TwoSAT.hpp\"\n\nstruct TwoSAT {\n    TwoSAT(int n) :\
-    \ n(n), called_satisfiable(false), ans(n), scc(2 * n) {}\n\n    // (i = f or j\
-    \ = g)\n    void add_clause(int i, bool f, int j, bool g) {\n        assert(0\
-    \ <= i and i < n);\n        assert(0 <= j and j < n);\n        scc.add_edge(i\
-    \ << 1 | (f ? 0 : 1), j << 1 | (g ? 1 : 0));\n        scc.add_edge(j << 1 | (g\
-    \ ? 0 : 1), i << 1 | (f ? 1 : 0));\n    }\n\n    // (i = f) -> (j = g) <=> (i\
-    \ = !f) or (j = g)\n    void add_if(int i, bool f, int j, bool g) {\n        assert(0\
-    \ <= i and i < n);\n        assert(0 <= j and j < n);\n        add_clause(i, f\
-    \ ^ 1, j, g);\n    }\n\n    // i <=> !i -> i\n    void set_true(int i) {\n   \
-    \     assert(0 <= i and i < n);\n        scc.add_edge(i << 1 | 1, i << 1 | 0);\n\
-    \    }\n\n    // !i <=> i -> !i\n    void set_false(int i) {\n        assert(0\
-    \ <= i and i < n);\n        scc.add_edge(i << 1 | 0, i << 1 | 1);\n    }\n\n \
-    \   bool satisfiable() {\n        called_satisfiable = true;\n        scc.build();\n\
+    \ n(n), called_satisfiable(false), scc(2 * n) {}\n\n    int add_vertex() {\n \
+    \       scc.add_vertex();\n        scc.add_vertex();\n        return n++;\n  \
+    \  }\n\n    // (i = f or j = g)\n    void add_clause(int i, bool f, int j, bool\
+    \ g) {\n        assert(0 <= i and i < n);\n        assert(0 <= j and j < n);\n\
+    \        scc.add_edge(i << 1 | (f ? 0 : 1), j << 1 | (g ? 1 : 0));\n        scc.add_edge(j\
+    \ << 1 | (g ? 0 : 1), i << 1 | (f ? 1 : 0));\n    }\n\n    // (i = f) -> (j =\
+    \ g) <=> (i = !f) or (j = g)\n    void add_if(int i, bool f, int j, bool g) {\n\
+    \        assert(0 <= i and i < n);\n        assert(0 <= j and j < n);\n      \
+    \  add_clause(i, f ^ 1, j, g);\n    }\n\n    // i <=> !i -> i\n    void set_true(int\
+    \ i) {\n        assert(0 <= i and i < n);\n        scc.add_edge(i << 1 | 1, i\
+    \ << 1 | 0);\n    }\n\n    // !i <=> i -> !i\n    void set_false(int i) {\n  \
+    \      assert(0 <= i and i < n);\n        scc.add_edge(i << 1 | 0, i << 1 | 1);\n\
+    \    }\n\n    // <= 1 of literals in v are true\n    void at_most_one(const std::vector<std::pair<int,\
+    \ int>>& v) {\n        if (v.size() <= 1) return;\n        for (size_t i = 0;\
+    \ i < v.size(); i++) {\n            int nxt = add_vertex(), cur = nxt - 1, x =\
+    \ v[i].first, f = v[i].second;\n            add_if(x, f, nxt, 1);\n          \
+    \  if (i > 0) {\n                add_if(cur, 1, nxt, 1);\n                add_clause(cur,\
+    \ 0, x, f ^ 1);\n            }\n        }\n    }\n\n    bool satisfiable() {\n\
+    \        called_satisfiable = true;\n        ans.resize(n);\n        scc.build();\n\
     \        for (int i = 0; i < n; i++) {\n            if (scc[i << 1] == scc[i <<\
     \ 1 | 1]) return false;\n            ans[i] = (scc[i << 1] < scc[i << 1 | 1]);\n\
     \        }\n        return true;\n    }\n\n    std::vector<bool> answer() const\
@@ -156,7 +165,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/two_sat.test.cpp
   requiredBy: []
-  timestamp: '2021-12-30 22:50:08+09:00'
+  timestamp: '2022-04-14 01:34:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/two_sat.test.cpp

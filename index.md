@@ -87,7 +87,7 @@ data:
       path: flow/PrimalDualonDAG.hpp
       title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\
         \u6D41\uFF09"
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem (based on ac-library)
     - icon: ':heavy_check_mark:'
@@ -262,7 +262,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/2891.test.cpp
       title: test/aoj/2891.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/2903.test.cpp
       title: test/aoj/2903.test.cpp
     - icon: ':heavy_check_mark:'

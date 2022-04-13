@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: datastructure/BinaryTrie.hpp
-    title: Binary Trie
   - icon: ':warning:'
     path: datastructure/RectangleSet.hpp
     title: Rectangle Set
@@ -224,9 +221,6 @@ data:
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/set_xor_min.test.cpp
-    title: test/yosupo/set_xor_min.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
   - icon: ':heavy_check_mark:'
@@ -406,97 +400,95 @@ data:
   isVerificationFile: false
   path: base.hpp
   requiredBy:
+  - math/fast_factorize.hpp
+  - graph/Dijkstra.hpp
   - graph/CycleDetection.hpp
   - graph/RangeEdgeGraph.hpp
-  - graph/Dijkstra.hpp
-  - string/Z_Algorithm.hpp
   - string/Manacher.hpp
-  - math/fast_factorize.hpp
-  - datastructure/BinaryTrie.hpp
-  - datastructure/SparseTable.hpp
-  - datastructure/RectangleSet.hpp
-  - util/RandomNumberGenerator_32.hpp
+  - string/Z_Algorithm.hpp
   - util/ZobristHash.hpp
-  - util/RandomNumberGenerator_64.hpp
+  - util/RandomNumberGenerator_32.hpp
   - util/gray_code.hpp
+  - util/RandomNumberGenerator_64.hpp
+  - datastructure/RectangleSet.hpp
+  - datastructure/SparseTable.hpp
   timestamp: '2021-10-31 14:57:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
-  - test/aoj/ITP1_11_A.test.cpp
-  - test/aoj/1131.test.cpp
-  - test/aoj/2891.test.cpp
-  - test/aoj/DSL_5_B.test.cpp
-  - test/aoj/CGL_7_E.test.cpp
-  - test/aoj/CGL_1_C.test.cpp
-  - test/aoj/ALDS1_14_B.test.cpp
-  - test/aoj/2306.test.cpp
-  - test/aoj/NTL_1_B.test.cpp
-  - test/aoj/CGL_7_G.test.cpp
-  - test/aoj/CGL_7_B.test.cpp
-  - test/aoj/GRL_4_A.TopologicalSort.test.cpp
-  - test/aoj/CGL_7_H.test.cpp
-  - test/aoj/CGL_7_D.test.cpp
-  - test/aoj/CGL_4_B.test.cpp
-  - test/aoj/CGL_4_C.test.cpp
-  - test/aoj/CGL_3_C.test.cpp
-  - test/aoj/CGL_2_A.test.cpp
-  - test/aoj/CGL_3_A.test.cpp
-  - test/aoj/DSL_3_D.test.cpp
-  - test/aoj/CGL_5_A.test.cpp
-  - test/aoj/1181.test.cpp
-  - test/aoj/GRL_2_A.Prim.test.cpp
-  - test/aoj/CGL_1_A.test.cpp
-  - test/aoj/ITP1_11_D.test.cpp
-  - test/aoj/CGL_2_D.test.cpp
-  - test/aoj/GRL_3_A.test.cpp
-  - test/aoj/ALDS1_14_C.test.cpp
-  - test/aoj/CGL_7_I.test.cpp
-  - test/aoj/GRL_1_B.test.cpp
-  - test/aoj/GRL_3_C.test.cpp
-  - test/aoj/GRL_5_A.test.cpp
-  - test/aoj/GRL_3_B.test.cpp
-  - test/aoj/NTL_1_A.test.cpp
-  - test/aoj/CGL_4_A.test.cpp
-  - test/aoj/NTL_1_D.test.cpp
-  - test/aoj/NTL_1_E.test.cpp
-  - test/aoj/ITP1_11_C.test.cpp
-  - test/aoj/CGL_7_F.test.cpp
-  - test/aoj/CGL_2_B.test.cpp
-  - test/aoj/CGL_1_B.test.cpp
-  - test/aoj/GRL_4_A.test.cpp
-  - test/aoj/GRL_2_A.test.cpp
-  - test/aoj/CGL_7_A.test.cpp
-  - test/aoj/DSL_1_B.test.cpp
-  - test/aoj/DSL_1_A.test.cpp
-  - test/aoj/CGL_3_B.test.cpp
-  - test/aoj/ITP1_11_B.test.cpp
-  - test/aoj/GRL_5_B.test.cpp
-  - test/aoj/CGL_2_C.test.cpp
-  - test/aoj/CGL_7_C.test.cpp
-  - test/yukicoder/430.test.cpp
-  - test/yukicoder/430.AhoCorasick.test.cpp
-  - test/yukicoder/952.test.cpp
   - test/yukicoder/1240.test.cpp
+  - test/yukicoder/430.test.cpp
   - test/yukicoder/583.test.cpp
+  - test/yukicoder/952.test.cpp
   - test/yukicoder/1678.test.cpp
-  - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
-  - test/yosupo/set_xor_min.test.cpp
+  - test/yukicoder/430.AhoCorasick.test.cpp
+  - test/aoj/2891.test.cpp
+  - test/aoj/GRL_1_B.test.cpp
+  - test/aoj/DSL_5_B.test.cpp
+  - test/aoj/1131.test.cpp
+  - test/aoj/DSL_1_A.test.cpp
+  - test/aoj/CGL_7_B.test.cpp
+  - test/aoj/DSL_3_D.test.cpp
+  - test/aoj/GRL_4_A.TopologicalSort.test.cpp
+  - test/aoj/NTL_1_B.test.cpp
+  - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
+  - test/aoj/1181.test.cpp
+  - test/aoj/GRL_4_A.test.cpp
+  - test/aoj/CGL_7_G.test.cpp
+  - test/aoj/CGL_5_A.test.cpp
+  - test/aoj/CGL_2_B.test.cpp
+  - test/aoj/GRL_5_A.test.cpp
+  - test/aoj/NTL_1_D.test.cpp
+  - test/aoj/ITP1_11_C.test.cpp
+  - test/aoj/CGL_2_C.test.cpp
+  - test/aoj/CGL_1_B.test.cpp
+  - test/aoj/GRL_2_A.Prim.test.cpp
+  - test/aoj/CGL_3_B.test.cpp
+  - test/aoj/ITP1_11_A.test.cpp
+  - test/aoj/CGL_3_A.test.cpp
+  - test/aoj/CGL_3_C.test.cpp
+  - test/aoj/DSL_1_B.test.cpp
+  - test/aoj/CGL_7_A.test.cpp
+  - test/aoj/CGL_7_H.test.cpp
+  - test/aoj/ITP1_11_D.test.cpp
+  - test/aoj/GRL_3_C.test.cpp
+  - test/aoj/CGL_2_D.test.cpp
+  - test/aoj/ITP1_11_B.test.cpp
+  - test/aoj/ALDS1_14_C.test.cpp
+  - test/aoj/GRL_3_A.test.cpp
+  - test/aoj/2306.test.cpp
+  - test/aoj/ALDS1_14_B.test.cpp
+  - test/aoj/CGL_1_C.test.cpp
+  - test/aoj/CGL_7_F.test.cpp
+  - test/aoj/CGL_7_D.test.cpp
+  - test/aoj/CGL_7_C.test.cpp
+  - test/aoj/NTL_1_E.test.cpp
+  - test/aoj/CGL_2_A.test.cpp
+  - test/aoj/NTL_1_A.test.cpp
+  - test/aoj/CGL_1_A.test.cpp
+  - test/aoj/CGL_4_A.test.cpp
+  - test/aoj/GRL_2_A.test.cpp
+  - test/aoj/CGL_7_E.test.cpp
+  - test/aoj/CGL_4_B.test.cpp
+  - test/aoj/GRL_5_B.test.cpp
+  - test/aoj/CGL_7_I.test.cpp
+  - test/aoj/GRL_3_B.test.cpp
+  - test/aoj/CGL_4_C.test.cpp
   - test/yosupo/static_range_sum.test.cpp
-  - test/yosupo/unionfind.test.cpp
   - test/yosupo/enumerate_palindromes.test.cpp
-  - test/yosupo/aplusb.test.cpp
-  - test/yosupo/zalgorithm.test.cpp
-  - test/yosupo/two_edge_connected_components.test.cpp
-  - test/yosupo/two_sat.test.cpp
+  - test/yosupo/unionfind.test.cpp
   - test/yosupo/bipartitematching.test.cpp
-  - test/yosupo/discrete_logarithm_mod.test.cpp
-  - test/yosupo/scc.test.cpp
   - test/yosupo/shortest_path.test.cpp
-  - test/yosupo/tree_diameter.test.cpp
-  - test/yosupo/associative_array.test.cpp
   - test/yosupo/staticrmq.test.cpp
+  - test/yosupo/scc.test.cpp
+  - test/yosupo/discrete_logarithm_mod.test.cpp
+  - test/yosupo/aplusb.test.cpp
+  - test/yosupo/tree_diameter.test.cpp
+  - test/yosupo/two_edge_connected_components.test.cpp
+  - test/yosupo/associative_array.test.cpp
   - test/yosupo/factorize.test.cpp
+  - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
+  - test/yosupo/two_sat.test.cpp
+  - test/yosupo/zalgorithm.test.cpp
 documentation_of: base.hpp
 layout: document
 redirect_from:
