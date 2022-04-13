@@ -1,64 +1,110 @@
 #pragma once
-#include "../base.hpp"
+#include <array>
+#include <cassert>
+#include <vector>
 
-template <typename T, int MAX_LOG> class BinaryTrie {
+template <typename T, int MAX_LOG> struct BinaryTrie {
     struct Node {
-        int cnt;
-        Node* ch[2];
-        Node() : cnt(0), ch{nullptr, nullptr} {}
+        std::array<int, 2> nxt;
+        int count;
+        Node() : nxt{-1, -1}, count(0) {}
     };
-    Node* root;
-    Node* add(Node* node, T val, int b = MAX_LOG - 1) {
-        if (!node) node = new Node;
-        node->cnt += 1;
-        if (b < 0) return node;
-        bool f = (val >> (T)b) & (T)1;
-        node->ch[f] = add(node->ch[f], val, b - 1);
-        return node;
-    }
-    Node* sub(Node* node, T val, int b = MAX_LOG - 1) {
-        node->cnt -= 1;
-        if (node->cnt == 0) return nullptr;
-        if (b < 0) return node;
-        bool f = (val >> (T)b) & (T)1;
-        node->ch[f] = sub(node->ch[f], val, b - 1);
-        return node;
-    }
-    T get_min(Node* node, T val, int b = MAX_LOG - 1) const {
-        if (b < 0) return 0;
-        bool f = (val >> (T)b) & (T)1;
-        f ^= !node->ch[f];
-        return get_min(node->ch[f], val, b - 1) | (T)f << (T)b;
-    }
-    T get(Node* node, int k, int b = MAX_LOG - 1) const {
-        if (b < 0) return 0;
-        int m = node->ch[0] ? node->ch[0]->cnt : 0;
-        return k < m ? get(node->ch[0], k, b - 1) : get(node->ch[1], k - m, b - 1) | (T)1 << (T)b;
-    }
-    int count_lower(Node* node, T val, int b = MAX_LOG - 1) {
-        if (!node || b < 0) return 0;
-        bool f = (val >> (T)b) & (T)1;
-        return (f && node->ch[0] ? node->ch[0]->cnt : 0) + count_lower(node->ch[f], val, b - 1);
+
+    std::vector<Node> nodes;
+
+    inline int& next(int i, int j) { return nodes[i].nxt[j]; }
+
+    BinaryTrie() { nodes.emplace_back(); }
+
+    void insert(const T& x) {
+        int cur = 0;
+        for (int i = MAX_LOG - 1; i >= 0; i--) {
+            int f = x >> i & 1;
+            int nxt = next(cur, f);
+            if (nxt == -1) {
+                nxt = nodes.size();
+                next(cur, f) = nxt;
+                nodes.emplace_back();
+            }
+            nodes[cur].count++;
+            cur = nxt;
+        }
+        nodes[cur].count++;
     }
 
-public:
-    BinaryTrie() : root(nullptr) {}
-    int size() const { return root ? root->cnt : 0; }
-    bool empty() const { return !root; }
-    void insert(T val) { root = add(root, val); }
-    void erase(T val) { root = sub(root, val); }
-    T max_element(T bias = 0) const { return get_min(root, ~bias); }
-    T min_element(T bias = 0) const { return get_min(root, bias); }
-    int lower_bound(T val) { return count_lower(root, val); }
-    int upper_bound(T val) { return count_lower(root, val + 1); }
-    T operator[](int k) const { return get(root, k); }
-    int count(T val) const {
-        if (!root) return 0;
-        Node* node = root;
+    void erase(const T& x) {
+        assert(count(x));
+        int cur = 0;
         for (int i = MAX_LOG - 1; i >= 0; i--) {
-            node = node->ch[(val >> (T)i) & (T)1];
-            if (!node) return 0;
+            int f = x >> i & 1;
+            nodes[cur].count--;
+            cur = next(cur, f);
         }
-        return node->cnt;
+        nodes[cur].count--;
+    }
+
+    int find(const T& x) {
+        int cur = 0;
+        for (int i = MAX_LOG - 1; i >= 0; i--) {
+            int f = x >> i & 1;
+            cur = next(cur, f);
+            if (cur == -1) return -1;
+        }
+        return cur;
+    }
+
+    int count(const T& x) {
+        int idx = find(x);
+        return idx == -1 ? 0 : nodes[idx].count;
+    }
+
+    T min_element(const T& xor_val = 0) {
+        int cur = 0;
+        T res = 0;
+        for (int i = MAX_LOG - 1; i >= 0; i--) {
+            int f = xor_val >> i & 1;
+            int l = next(cur, f), r = next(cur, f ^ 1);
+            if (l == -1 or nodes[l].count == 0) {
+                cur = r;
+                res |= T(f ^ 1) << i;
+            } else {
+                cur = l;
+                res |= T(f) << i;
+            }
+        }
+        return res;
+    }
+
+    T max_element(const T& xor_val = 0) { return min_element(~xor_val); }
+
+    T kth_element(int k, const T& xor_val = 0) const {
+        int cur = 0;
+        T res = 0;
+        for (int i = MAX_LOG - 1; i >= 0; i--) {
+            int f = xor_val >> i & 1;
+            int l = next(cur, f), r = next(cur, f ^ 1);
+            if (l == -1 or nodes[l].count <= k) {
+                cur = r;
+                k -= (l == -1 ? 0 : nodes[l].count);
+                res |= T(f ^ 1) << i;
+            } else {
+                cur = l;
+                res |= T(f) << i;
+            }
+        }
+        return res;
+    }
+
+    int count_less(const T& x, const T& xor_val = 0) const {
+        int cur = 0;
+        int res = 0;
+        for (int i = MAX_LOG - 1; i >= 0; i--) {
+            int f = xor_val >> i & 1, g = x >> i & 1;
+            int l = next(cur, f), r = next(cur, f ^ 1);
+            if (f != g and l != -1) res += nodes[l].count;
+            cur = next(cur, g);
+            if (cur == -1) break;
+        }
+        return res;
     }
 };

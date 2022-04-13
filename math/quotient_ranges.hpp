@@ -10,6 +10,7 @@ template <typename T> std::vector<std::tuple<T, T, T>> quotient_ranges(T n) {
         T l = n / (m + 1) + 1, r = n / m;
         if (l <= r and std::get<1>(res.back()) < l) res.emplace_back(l, r, n / l);
     }
+    return res;
 }
 
 /**

@@ -15,6 +15,14 @@ struct StronglyConnectedComponents {
         G[u].emplace_back(v);
     }
 
+    int add_vertex() {
+        G.emplace_back();
+        comp.emplace_back(-1);
+        ord.emplace_back(-1);
+        low.emplace_back();
+        return n++;
+    }
+
     std::vector<std::vector<int>> build() {
         for (int i = 0; i < n; i++) {
             if (ord[i] < 0) {
