@@ -540,6 +540,9 @@ data:
       path: test/yukicoder/1678.test.cpp
       title: test/yukicoder/1678.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1907.test.cpp
+      title: test/yukicoder/1907.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/430.AhoCorasick.test.cpp
       title: test/yukicoder/430.AhoCorasick.test.cpp
     - icon: ':heavy_check_mark:'
