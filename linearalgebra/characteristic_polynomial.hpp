@@ -1,4 +1,5 @@
 #pragma once
+#include <algorithm>
 #include <cassert>
 #include <vector>
 
@@ -40,4 +41,62 @@ template <typename T> std::vector<T> characteristic_polynomial(std::vector<std::
         }
     }
     return p[n];
+}
+
+template <typename T>
+std::vector<T> determinant_polynomial(std::vector<std::vector<T>> M0, std::vector<std::vector<T>> M1) {
+    assert(M0.size() == M1.size());
+    assert(M0.size() == M0[0].size());
+    assert(M1.size() == M1[0].size());
+    int n = M0.size(), off = 0;
+    T prod = 1;
+
+    for (int p = 0; p < n; p++) {
+        int pivot = -1;
+        for (int i = p; i < n; i++) {
+            if (M1[i][p] != 0) {
+                pivot = i;
+                break;
+            }
+        }
+        if (pivot == -1) {
+            if (++off > n) return std::vector<T>(n + 1, 0);
+            for (int i = 0; i < p; i++) {
+                for (int k = 0; k < n; k++) M0[k][p] -= M1[i][p] * M0[k][i];
+                M1[i][p] = 0;
+            }
+            for (int i = 0; i < n; i++) std::swap(M0[i][p], M1[i][p]);
+            p--;
+            continue;
+        }
+        if (pivot != p) {
+            std::swap(M0[p], M0[pivot]);
+            std::swap(M1[p], M1[pivot]);
+            prod *= -1;
+        }
+        prod *= M1[p][p];
+        auto inv = T(1) / M1[p][p];
+        for (int j = 0; j < n; j++) {
+            M0[p][j] *= inv;
+            M1[p][j] *= inv;
+        }
+        for (int i = 0; i < n; i++) {
+            if (i == p) continue;
+            auto coef = M1[i][p];
+            for (int j = 0; j < n; j++) {
+                M0[i][j] -= M0[p][j] * coef;
+                M1[i][j] -= M1[p][j] * coef;
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            M0[i][j] *= -1;
+        }
+    }
+    auto poly = characteristic_polynomial(M0);
+    std::vector<T> res(n + 1, 0);
+    for (int i = 0; i + off <= n; i++) res[i] = prod * poly[i + off];
+    return res;
 }

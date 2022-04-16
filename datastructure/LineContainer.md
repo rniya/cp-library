@@ -4,8 +4,10 @@ documentation_of: ./LineContainer.hpp
 ---
 
 ## 概要
-直線 $f(x) = ax + b$ の追加 (ただし, $a$ は単調増加もしくは単調減少) 及びある $x$ での最小値 (最大値) クエリを効率的に処理するデータ構造. Convex Hull Trick と異なり, 追加する直線の傾きの単調性は問わない.
-実装は [kactl](https://github.com/kth-competitive-programming/kactl/blob/main/content/data-structures/LineContainer.h#L1) から.
+直線 $f(x) = ax + b$ の追加及びある $x$ での最小値（最大値）クエリを効率的に処理するデータ構造．
+Convex Hull Trick と異なり，追加する直線の傾きの単調性は問わない．
+実装は [kactl](https://github.com/kth-competitive-programming/kactl/blob/main/content/data-structures/LineContainer.h#L1) から．
+__実数での処理を行う際にはコメントにある注意に沿って適宜書き換える必要がある．__
 
 | メンバ関数  | 効果                             | 時間計算量         |
 | ----------- | -------------------------------- | ------------------ |
@@ -14,4 +16,6 @@ documentation_of: ./LineContainer.hpp
 
 ## 問題例
 - [TOKI Regular Open Contest #22 F. MCD](https://tlx.toki.id/contests/troc-22/problems/F)
-  - 2 乗和は Slope Optimization.
+  - 2 乗和は Slope Optimization．
+- [AtCoder Beginner Contest 244 H - Linear Maximization](https://atcoder.jp/contests/abc244/tasks/abc244_h)
+  - 実数での処理．
