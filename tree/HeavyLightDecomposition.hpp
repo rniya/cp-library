@@ -5,6 +5,14 @@
 
 struct HeavyLightDecomposition {
     std::vector<std::vector<int>> G;  // child of vertex v on heavy edge is G[v].front() if it is not parent of v
+    int n, time;
+    std::vector<int> par,  // parent of vertex v
+        sub,               // size of subtree whose root is v
+        dep,               // distance bitween root and vertex v
+        head,              // vertex that is the nearest to root on heavy path of vertex v
+        tree_id,           // id of tree vertex v belongs to
+        vertex_id,         // id of vertex v (consecutive on heavy paths)
+        vertex_id_inv;     // vertex_id_inv[vertex_id[v]] = v
 
     HeavyLightDecomposition(int n)
         : G(n),
@@ -93,15 +101,6 @@ struct HeavyLightDecomposition {
     }
 
 private:
-    int n, time;
-    std::vector<int> par,  // parent of vertex v
-        sub,               // size of subtree whose root is v
-        dep,               // distance bitween root and vertex v
-        head,              // vertex that is the nearest to root on heavy path of vertex v
-        tree_id,           // id of tree vertex v belongs to
-        vertex_id,         // id of vertex v (consecutive on heavy paths)
-        vertex_id_inv;     // vertex_id_inv[vertex_id[v]] = v
-
     void dfs_sz(int v) {
         sub[v] = 1;
         if (!G[v].empty() && G[v].front() == par[v]) std::swap(G[v].front(), G[v].back());
