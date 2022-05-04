@@ -88,8 +88,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_3_C.test.cpp
-  - test/yosupo/scc.test.cpp
   - test/yosupo/two_sat.test.cpp
+  - test/yosupo/scc.test.cpp
 documentation_of: graph/StronglyConnectedComponents.hpp
 layout: document
 title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
@@ -97,13 +97,15 @@ title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\
 ---
 
 ## 概要
-有向グラフを強連結成分に分解する. 各強連結成分の番号は強連結成分を 1 つの頂点にするように縮約した DAG におけるトポロジカル順序を同時に表す. 実装は Tarjan の考案したアルゴリズムに沿っている.
+有向グラフを強連結成分に分解する．
+各強連結成分の番号は強連結成分を 1 つの頂点にするように縮約した DAG におけるトポロジカル順序を同時に表す．
+実装は Tarjan の考案したアルゴリズムに沿っている．
 
 | メンバ関数                       | 効果                                            | 時間計算量            |
 | -------------------------------- | ----------------------------------------------- | --------------------- |
-| `StronglyConnectedComponents(n)` | $n$ 頂点 0 辺のグラフとして初期化する.          | $O(n)$                |
-| `add_edge(u, v)`                 | 頂点 $u$ から頂点 $v$ への有向辺を追加する.     | $O(1)$                |
-| `build()`                        | 強連結成分分解し, 各強連結成分の頂点集合を返す. | $O(n + m)$            |
-| `make_graph()`                   | 各強連結成分を頂点とする DAG の辺情報を返す.    | $O(n + m + m \log m)$ |
+| `StronglyConnectedComponents(n)` | $n$ 頂点 $0$ 辺のグラフとして初期化する．       | $O(n)$                |
+| `add_edge(u, v)`                 | 頂点 $u$ から頂点 $v$ への有向辺を追加する．    | $O(1)$                |
+| `build()`                        | 強連結成分分解， 各強連結成分の頂点集合を返す． | $O(n + m)$            |
+| `make_graph()`                   | 各強連結成分を頂点とする DAG の辺情報を返す．   | $O(n + m + m \log m)$ |
 
-`make_graph` では利便性を考えてソートして多重辺を除去しているが, 特にその必要もなく時間計算量が問題であればこのパートは除いて良い.
+`make_graph` では利便性を考えてソートして多重辺を除去しているが，特にその必要もなく時間計算量が問題であればこのパートは除いて良い．
