@@ -4,13 +4,13 @@ documentation_of: ./gcd_convolution.hpp
 ---
 
 ## 概要
-数列を添字の $\gcd$ 演算に関して畳み込む.
+数列を添字の $\gcd$ 演算に関して畳み込む．
 
 | 関数                           | 効果                                                                                                         | 時間計算量          |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------- |
-| `divisor_transform(f)`         | $f(k) \leftarrow \sum_{k \| i} f(i)$ と変換する。                                                            | $O(n \log(\log n))$ |
-| `inverse_divisor_transform(f)` | `divisor_transform` の逆変換を施す。                                                                         | $O(n \log(\log n))$ |
-| `gcd_convolution(f, g)`        | 列 $f, g$ を $\gcd$ 演算に関して畳み込む. すなわち,  $h_k = \sum_{\gcd(i, j) = k} f_ig_j$ なる列 $h$ を返す. | $O(n \log(\log n))$ |
+| `divisor_transform(f)`         | $f(k) \leftarrow \sum_{k \| i} f(i)$ と変換する．                                                            | $O(n \log(\log n))$ |
+| `inverse_divisor_transform(f)` | `divisor_transform` の逆変換を施す．                                                                         | $O(n \log(\log n))$ |
+| `gcd_convolution(f, g)`        | 列 $f, g$ を $\gcd$ 演算に関して畳み込む. すなわち，$h_k = \sum_{\gcd(i, j) = k} f_ig_j$ なる列 $h$ を返す． | $O(n \log(\log n))$ |
 
 ## 問題例
 - [AtCoder Grand Contest 038 C - LCMs](https://atcoder.jp/contests/agc038/tasks/agc038_c)

@@ -12,8 +12,3 @@ template <typename T> std::vector<std::tuple<T, T, T>> quotient_ranges(T n) {
     }
     return res;
 }
-
-/**
- * @brief 商列挙
- * @docs docs/math/quotient_ranges.md
- */
