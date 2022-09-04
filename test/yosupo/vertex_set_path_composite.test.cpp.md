@@ -82,76 +82,81 @@ data:
     \ n)\n        : G(n),\n          n(n),\n          time(0),\n          par(n, -1),\n\
     \          sub(n),\n          dep(n, 0),\n          head(n),\n          tree_id(n,\
     \ -1),\n          vertex_id(n, -1),\n          vertex_id_inv(n) {}\n\n    void\
-    \ add_edge(int u, int v) {\n        assert(0 <= u && u < n);\n        assert(0\
-    \ <= v && v < n);\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n\
+    \ add_edge(int u, int v) {\n        assert(0 <= u and u < n);\n        assert(0\
+    \ <= v and v < n);\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n\
     \    }\n\n    void build(std::vector<int> roots = {0}) {\n        int tree_id_cur\
-    \ = 0;\n        for (int& r : roots) {\n            assert(0 <= r && r < n);\n\
+    \ = 0;\n        for (int& r : roots) {\n            assert(0 <= r and r < n);\n\
     \            dfs_sz(r);\n            head[r] = r;\n            dfs_hld(r, tree_id_cur++);\n\
     \        }\n        assert(time == n);\n        for (int v = 0; v < n; v++) vertex_id_inv[vertex_id[v]]\
     \ = v;\n    }\n\n    int idx(int v) const { return vertex_id[v]; }\n\n    int\
-    \ la(int v, int k) {\n        assert(0 <= v && v < n);\n        assert(0 <= k\
-    \ && k <= dep[v]);\n        while (1) {\n            int u = head[v];\n      \
-    \      if (vertex_id[v] - k >= vertex_id[u]) return vertex_id_inv[vertex_id[v]\
+    \ la(int v, int k) const {\n        assert(0 <= v and v < n);\n        assert(0\
+    \ <= k and k <= dep[v]);\n        while (1) {\n            int u = head[v];\n\
+    \            if (vertex_id[v] - k >= vertex_id[u]) return vertex_id_inv[vertex_id[v]\
     \ - k];\n            k -= vertex_id[v] - vertex_id[u] + 1;\n            v = par[u];\n\
     \        }\n    }\n\n    int lca(int u, int v) const {\n        assert(0 <= u\
-    \ && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
-    \        for (;; v = par[head[v]]) {\n            if (vertex_id[u] > vertex_id[v])\
-    \ std::swap(u, v);\n            if (head[u] == head[v]) return u;\n        }\n\
-    \    }\n\n    int distance(int u, int v) const {\n        assert(0 <= u && u <\
-    \ n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
-    \        return dep[u] + dep[v] - 2 * dep[lca(u, v)];\n    }\n\n    template <typename\
-    \ F> void query_path(int u, int v, const F& f, bool vertex = false) const {\n\
-    \        assert(0 <= u && u < n);\n        assert(0 <= v && v < n);\n        assert(tree_id[u]\
-    \ == tree_id[v]);\n        int p = lca(u, v);\n        for (auto& e : ascend(u,\
-    \ p)) f(e.second, e.first + 1);\n        if (vertex) f(vertex_id[p], vertex_id[p]\
-    \ + 1);\n        for (auto& e : descend(p, v)) f(e.first, e.second + 1);\n   \
-    \ }\n\n    template <typename F> void query_path_noncommutative(int u, int v,\
-    \ const F& f, bool vertex = false) const {\n        assert(0 <= u && u < n);\n\
-    \        assert(0 <= v && v < n);\n        assert(tree_id[u] == tree_id[v]);\n\
-    \        int p = lca(u, v);\n        for (auto& e : ascend(u, p)) f(e.first +\
-    \ 1, e.second);\n        if (vertex) f(vertex_id[p], vertex_id[p] + 1);\n    \
-    \    for (auto& e : descend(p, v)) f(e.first, e.second + 1);\n    }\n\n    template\
-    \ <typename F> void query_subtree(int u, const F& f, bool vertex = false) const\
-    \ {\n        assert(0 <= u && u < n);\n        f(vertex_id[u] + !vertex, vertex_id[u]\
-    \ + sub[u]);\n    }\n\nprivate:\n    void dfs_sz(int v) {\n        sub[v] = 1;\n\
-    \        if (!G[v].empty() && G[v].front() == par[v]) std::swap(G[v].front(),\
-    \ G[v].back());\n        for (int& u : G[v]) {\n            if (u == par[v]) continue;\n\
-    \            par[u] = v;\n            dep[u] = dep[v] + 1;\n            dfs_sz(u);\n\
-    \            sub[v] += sub[u];\n            if (sub[u] > sub[G[v].front()]) std::swap(u,\
-    \ G[v].front());\n        }\n    }\n\n    void dfs_hld(int v, int tree_id_cur)\
-    \ {\n        vertex_id[v] = time++;\n        tree_id[v] = tree_id_cur;\n     \
-    \   for (int& u : G[v]) {\n            if (u == par[v]) continue;\n          \
-    \  head[u] = (u == G[v][0] ? head[v] : u);\n            dfs_hld(u, tree_id_cur);\n\
-    \        }\n    }\n\n    std::vector<std::pair<int, int>> ascend(int u, int v)\
-    \ const {  // [u, v), v is ancestor of u\n        std::vector<std::pair<int, int>>\
-    \ res;\n        while (head[u] != head[v]) {\n            res.emplace_back(vertex_id[u],\
-    \ vertex_id[head[u]]);\n            u = par[head[u]];\n        }\n        if (u\
-    \ != v) res.emplace_back(vertex_id[u], vertex_id[v] + 1);\n        return res;\n\
-    \    }\n\n    std::vector<std::pair<int, int>> descend(int u, int v) const { \
-    \ // (u, v], u is ancestor of v\n        if (u == v) return {};\n        if (head[u]\
-    \ == head[v]) return {{vertex_id[u] + 1, vertex_id[v]}};\n        auto res = descend(u,\
-    \ par[head[v]]);\n        res.emplace_back(vertex_id[head[v]], vertex_id[v]);\n\
-    \        return res;\n    }\n};\n#line 2 \"util/modint.hpp\"\n#include <iostream>\n\
-    #line 1 \"atcoder/modint.hpp\"\n\n\n\n#line 5 \"atcoder/modint.hpp\"\n#include\
-    \ <numeric>\n#include <type_traits>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n\
-    #endif\n\n#line 1 \"atcoder/internal_math.hpp\"\n\n\n\n#line 5 \"atcoder/internal_math.hpp\"\
-    \n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace\
-    \ internal {\n\n// @param m `1 <= m`\n// @return x mod m\nconstexpr long long\
-    \ safe_mod(long long x, long long m) {\n    x %= m;\n    if (x < 0) x += m;\n\
-    \    return x;\n}\n\n// Fast modular multiplication by barrett reduction\n// Reference:\
-    \ https://en.wikipedia.org/wiki/Barrett_reduction\n// NOTE: reconsider after Ice\
-    \ Lake\nstruct barrett {\n    unsigned int _m;\n    unsigned long long im;\n\n\
-    \    // @param m `1 <= m < 2^31`\n    explicit barrett(unsigned int m) : _m(m),\
-    \ im((unsigned long long)(-1) / m + 1) {}\n\n    // @return m\n    unsigned int\
-    \ umod() const { return _m; }\n\n    // @param a `0 <= a < m`\n    // @param b\
-    \ `0 <= b < m`\n    // @return `a * b % m`\n    unsigned int mul(unsigned int\
-    \ a, unsigned int b) const {\n        // [1] m = 1\n        // a = b = im = 0,\
-    \ so okay\n\n        // [2] m >= 2\n        // im = ceil(2^64 / m)\n        //\
-    \ -> im * m = 2^64 + r (0 <= r < m)\n        // let z = a*b = c*m + d (0 <= c,\
-    \ d < m)\n        // a*b * im = (c*m + d) * im = c*(im*m) + d*im = c*2^64 + c*r\
-    \ + d*im\n        // c*r + d*im < m * m + m * im < m * m + 2^64 + m <= 2^64 +\
-    \ m * (m + 1) < 2^64 * 2\n        // ((ab * im) >> 64) == c or c + 1\n       \
-    \ unsigned long long z = a;\n        z *= b;\n#ifdef _MSC_VER\n        unsigned\
+    \ and u < n);\n        assert(0 <= v and v < n);\n        assert(tree_id[u] ==\
+    \ tree_id[v]);\n        for (;; v = par[head[v]]) {\n            if (vertex_id[u]\
+    \ > vertex_id[v]) std::swap(u, v);\n            if (head[u] == head[v]) return\
+    \ u;\n        }\n    }\n\n    int jump(int s, int t, int i) const {\n        assert(0\
+    \ <= s and s < n);\n        assert(0 <= t and t < n);\n        assert(0 <= i);\n\
+    \        if (tree_id[s] != tree_id[t]) return -1;\n        if (i == 0) return\
+    \ s;\n        int p = lca(s, t), d = dep[s] + dep[t] - 2 * dep[p];\n        if\
+    \ (d < i) return -1;\n        if (dep[s] - dep[p] >= i) return la(s, i);\n   \
+    \     return la(t, d - i);\n    }\n\n    int distance(int u, int v) const {\n\
+    \        assert(0 <= u and u < n);\n        assert(0 <= v and v < n);\n      \
+    \  assert(tree_id[u] == tree_id[v]);\n        return dep[u] + dep[v] - 2 * dep[lca(u,\
+    \ v)];\n    }\n\n    template <typename F> void query_path(int u, int v, const\
+    \ F& f, bool vertex = false) const {\n        assert(0 <= u and u < n);\n    \
+    \    assert(0 <= v and v < n);\n        assert(tree_id[u] == tree_id[v]);\n  \
+    \      int p = lca(u, v);\n        for (auto& e : ascend(u, p)) f(e.second, e.first\
+    \ + 1);\n        if (vertex) f(vertex_id[p], vertex_id[p] + 1);\n        for (auto&\
+    \ e : descend(p, v)) f(e.first, e.second + 1);\n    }\n\n    template <typename\
+    \ F> void query_path_noncommutative(int u, int v, const F& f, bool vertex = false)\
+    \ const {\n        assert(0 <= u and u < n);\n        assert(0 <= v and v < n);\n\
+    \        assert(tree_id[u] == tree_id[v]);\n        int p = lca(u, v);\n     \
+    \   for (auto& e : ascend(u, p)) f(e.first + 1, e.second);\n        if (vertex)\
+    \ f(vertex_id[p], vertex_id[p] + 1);\n        for (auto& e : descend(p, v)) f(e.first,\
+    \ e.second + 1);\n    }\n\n    template <typename F> void query_subtree(int u,\
+    \ const F& f, bool vertex = false) const {\n        assert(0 <= u and u < n);\n\
+    \        f(vertex_id[u] + !vertex, vertex_id[u] + sub[u]);\n    }\n\nprivate:\n\
+    \    void dfs_sz(int v) {\n        sub[v] = 1;\n        if (!G[v].empty() and\
+    \ G[v].front() == par[v]) std::swap(G[v].front(), G[v].back());\n        for (int&\
+    \ u : G[v]) {\n            if (u == par[v]) continue;\n            par[u] = v;\n\
+    \            dep[u] = dep[v] + 1;\n            dfs_sz(u);\n            sub[v]\
+    \ += sub[u];\n            if (sub[u] > sub[G[v].front()]) std::swap(u, G[v].front());\n\
+    \        }\n    }\n\n    void dfs_hld(int v, int tree_id_cur) {\n        vertex_id[v]\
+    \ = time++;\n        tree_id[v] = tree_id_cur;\n        for (int& u : G[v]) {\n\
+    \            if (u == par[v]) continue;\n            head[u] = (u == G[v][0] ?\
+    \ head[v] : u);\n            dfs_hld(u, tree_id_cur);\n        }\n    }\n\n  \
+    \  std::vector<std::pair<int, int>> ascend(int u, int v) const {  // [u, v), v\
+    \ is ancestor of u\n        std::vector<std::pair<int, int>> res;\n        while\
+    \ (head[u] != head[v]) {\n            res.emplace_back(vertex_id[u], vertex_id[head[u]]);\n\
+    \            u = par[head[u]];\n        }\n        if (u != v) res.emplace_back(vertex_id[u],\
+    \ vertex_id[v] + 1);\n        return res;\n    }\n\n    std::vector<std::pair<int,\
+    \ int>> descend(int u, int v) const {  // (u, v], u is ancestor of v\n       \
+    \ if (u == v) return {};\n        if (head[u] == head[v]) return {{vertex_id[u]\
+    \ + 1, vertex_id[v]}};\n        auto res = descend(u, par[head[v]]);\n       \
+    \ res.emplace_back(vertex_id[head[v]], vertex_id[v]);\n        return res;\n \
+    \   }\n};\n#line 2 \"util/modint.hpp\"\n#include <iostream>\n#line 1 \"atcoder/modint.hpp\"\
+    \n\n\n\n#line 5 \"atcoder/modint.hpp\"\n#include <numeric>\n#include <type_traits>\n\
+    \n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\n#line 1 \"atcoder/internal_math.hpp\"\
+    \n\n\n\n#line 5 \"atcoder/internal_math.hpp\"\n\n#ifdef _MSC_VER\n#include <intrin.h>\n\
+    #endif\n\nnamespace atcoder {\n\nnamespace internal {\n\n// @param m `1 <= m`\n\
+    // @return x mod m\nconstexpr long long safe_mod(long long x, long long m) {\n\
+    \    x %= m;\n    if (x < 0) x += m;\n    return x;\n}\n\n// Fast modular multiplication\
+    \ by barrett reduction\n// Reference: https://en.wikipedia.org/wiki/Barrett_reduction\n\
+    // NOTE: reconsider after Ice Lake\nstruct barrett {\n    unsigned int _m;\n \
+    \   unsigned long long im;\n\n    // @param m `1 <= m < 2^31`\n    explicit barrett(unsigned\
+    \ int m) : _m(m), im((unsigned long long)(-1) / m + 1) {}\n\n    // @return m\n\
+    \    unsigned int umod() const { return _m; }\n\n    // @param a `0 <= a < m`\n\
+    \    // @param b `0 <= b < m`\n    // @return `a * b % m`\n    unsigned int mul(unsigned\
+    \ int a, unsigned int b) const {\n        // [1] m = 1\n        // a = b = im\
+    \ = 0, so okay\n\n        // [2] m >= 2\n        // im = ceil(2^64 / m)\n    \
+    \    // -> im * m = 2^64 + r (0 <= r < m)\n        // let z = a*b = c*m + d (0\
+    \ <= c, d < m)\n        // a*b * im = (c*m + d) * im = c*(im*m) + d*im = c*2^64\
+    \ + c*r + d*im\n        // c*r + d*im < m * m + m * im < m * m + 2^64 + m <= 2^64\
+    \ + m * (m + 1) < 2^64 * 2\n        // ((ab * im) >> 64) == c or c + 1\n     \
+    \   unsigned long long z = a;\n        z *= b;\n#ifdef _MSC_VER\n        unsigned\
     \ long long x;\n        _umul128(z, im, &x);\n#else\n        unsigned long long\
     \ x =\n            (unsigned long long)(((unsigned __int128)(z)*im) >> 64);\n\
     #endif\n        unsigned int v = (unsigned int)(z - x * _m);\n        if (_m <=\
@@ -398,7 +403,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-05-04 22:30:20+09:00'
+  timestamp: '2022-09-04 18:06:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/vertex_set_path_composite.test.cpp

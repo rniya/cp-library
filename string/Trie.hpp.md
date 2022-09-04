@@ -65,8 +65,8 @@ data:
   timestamp: '2021-12-30 22:27:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/1269.test.cpp
   - test/yukicoder/430.AhoCorasick.test.cpp
+  - test/yukicoder/1269.test.cpp
 documentation_of: string/Trie.hpp
 layout: document
 title: Trie

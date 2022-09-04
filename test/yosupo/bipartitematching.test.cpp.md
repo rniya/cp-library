@@ -20,22 +20,22 @@ data:
   bundledCode: "#line 1 \"test/yosupo/bipartitematching.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/bipartitematching\"\n\n#line 2 \"flow/BipartiteMatching.hpp\"\
     \n#include <algorithm>\n#include <cassert>\n#include <queue>\n#include <random>\n\
-    #include <utility>\n#include <vector>\n\nstruct BipartiteMatching {\n    BipartiteMatching(int\
-    \ U, int V) : U(U), V(V), t(0), solved(false), G(U), L(U, -1), R(V, -1), visited(U,\
-    \ -1) {}\n\n    void add_edge(int u, int v) {\n        assert(0 <= u && u < U);\n\
-    \        assert(0 <= v && v < V);\n        G[u].emplace_back(v);\n    }\n\n  \
-    \  void shuffle() {\n        static std::mt19937 mt;\n        for (auto& v : G)\
-    \ std::shuffle(v.begin(), v.end(), mt);\n    }\n\n    int solve() {\n        for\
-    \ (bool updated = true; std::exchange(updated, false); t++) {\n            for\
-    \ (int i = 0; i < U; i++) {\n                if (L[i] == -1) {\n             \
-    \       updated |= dfs(i);\n                }\n            }\n        }\n    \
-    \    solved = true;\n        return U - std::count(L.begin(), L.end(), -1);\n\
-    \    }\n\n    std::vector<std::pair<int, int>> max_matching() const {\n      \
-    \  assert(solved);\n        std::vector<std::pair<int, int>> res;\n        for\
-    \ (int i = 0; i < U; i++) {\n            if (~L[i]) {\n                res.emplace_back(i,\
-    \ L[i]);\n            }\n        }\n        return res;\n    }\n\nprivate:\n \
-    \   int U, V, t;\n    bool solved;\n    std::vector<std::vector<int>> G;\n   \
-    \ std::vector<int> L, R, visited;\n\n    bool dfs(int u) {\n        if (std::exchange(visited[u],\
+    #include <utility>\n#include <vector>\n\nstruct BipartiteMatching {\n    int U,\
+    \ V, t;\n    bool solved;\n    std::vector<std::vector<int>> G;\n    std::vector<int>\
+    \ L, R, visited;\n\n    BipartiteMatching(int U, int V) : U(U), V(V), t(0), solved(false),\
+    \ G(U), L(U, -1), R(V, -1), visited(U, -1) {}\n\n    void add_edge(int u, int\
+    \ v) {\n        assert(0 <= u && u < U);\n        assert(0 <= v && v < V);\n \
+    \       G[u].emplace_back(v);\n    }\n\n    void shuffle() {\n        static std::mt19937\
+    \ mt;\n        for (auto& v : G) std::shuffle(v.begin(), v.end(), mt);\n    }\n\
+    \n    int solve() {\n        for (bool updated = true; std::exchange(updated,\
+    \ false); t++) {\n            for (int i = 0; i < U; i++) {\n                if\
+    \ (L[i] == -1) {\n                    updated |= dfs(i);\n                }\n\
+    \            }\n        }\n        solved = true;\n        return U - std::count(L.begin(),\
+    \ L.end(), -1);\n    }\n\n    std::vector<std::pair<int, int>> max_matching()\
+    \ const {\n        assert(solved);\n        std::vector<std::pair<int, int>> res;\n\
+    \        for (int i = 0; i < U; i++) {\n            if (~L[i]) {\n           \
+    \     res.emplace_back(i, L[i]);\n            }\n        }\n        return res;\n\
+    \    }\n\nprivate:\n    bool dfs(int u) {\n        if (std::exchange(visited[u],\
     \ t) == t) return false;\n        for (int& v : G[u]) {\n            if (R[v]\
     \ == -1) {\n                L[u] = v, R[v] = u;\n                return true;\n\
     \            }\n        }\n        for (int& v : G[u]) {\n            if (dfs(R[v]))\
@@ -125,7 +125,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2021-12-29 23:38:56+09:00'
+  timestamp: '2022-09-04 18:06:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/bipartitematching.test.cpp

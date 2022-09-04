@@ -84,20 +84,20 @@ data:
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
     #line 6 \"graph/BlockCutTree.hpp\"\n\nstruct BlockCutTree {\n    std::vector<std::vector<std::pair<int,\
-    \ int>>> G;\n    std::vector<std::vector<int>> tecc_tree,    // tree that consists\
-    \ of two-edge-connected-component\n        bct;                              \
-    \      // tree that consists of bi-connected-component and articulation\n    std::vector<bool>\
+    \ int>>> G;\n    std::vector<std::pair<int, int>> edges;\n    std::vector<bool>\
     \ is_articulation,          // whether vertex i is articulation or not\n     \
     \   is_bridge;                              // whether edge i is bridge or not\n\
-    \    std::vector<int> tecc_id;                   // id of two-edge-connected-component\
+    \    std::vector<std::vector<int>> tecc_tree,    // tree that consists of two-edge-connected-components\n\
+    \        bct;                                    // tree that consists of bi-connected-components\
+    \ and articulation\n    std::vector<int> tecc_id;                   // id of two-edge-connected-component\
     \ vertex i belongs to\n    std::vector<std::vector<int>> tecc_groups;  // vertices\
-    \ belongs to i-th two-edge-connected-component\n    std::vector<int> bcc_id; \
-    \                   // id of bi-connected-component edge i belongs to\n    std::vector<std::vector<std::pair<int,\
+    \ belong to i-th two-edge-connected-component\n    std::vector<int> bcc_id;  \
+    \                  // id of bi-connected-component edge i belongs to\n    std::vector<std::vector<std::pair<int,\
     \ int>>> bcc_groups;  // edges belongs to i-th bi-connected-component\n    std::vector<int>\
     \ bct_id;  // id of component on block-cut-tree vertex i belongs to (order : bcc\
     \ -> articulation)\n    std::vector<std::vector<int>> bct_groups;  // vertices\
-    \ belongs to i-th component on block-cut-tree\n\n    BlockCutTree(int n)\n   \
-    \     : G(n), is_articulation(n, false), n(n), m(0), time(0), bcc_num(0), order(n,\
+    \ belong to i-th component on block-cut-tree\n\n    BlockCutTree(int n)\n    \
+    \    : G(n), is_articulation(n, false), n(n), m(0), time(0), bcc_num(0), order(n,\
     \ -1), lowlink(n, -1) {}\n\n    void add_edge(int u, int v) {\n        assert(0\
     \ <= u && u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v,\
     \ m);\n        G[v].emplace_back(u, m);\n        if (u > v) std::swap(u, v);\n\
@@ -130,36 +130,36 @@ data:
     \ = true;\n        bcc_groups.resize(bcc_num);\n        for (int i = 0; i < m;\
     \ i++) bcc_groups[bcc_id[i]].emplace_back(edges[i]);\n        return bcc_groups;\n\
     \    }\n\n    std::vector<std::vector<int>> block_cut_tree() {\n        assert(called_bi_connected_components);\n\
-    \        int bct_num = bcc_num;\n        for (int i = 0; i < n; i++) {\n     \
-    \       if (is_articulation[i]) {\n                bct_id[i] = bct_num++;\n  \
-    \          }\n        }\n        bct.resize(bct_num);\n        std::vector<int>\
-    \ last_adjacent(bct_num, -1);\n        for (int i = 0; i < bcc_num; i++) {\n \
-    \           for (auto& e : bcc_groups[i]) {\n                for (auto& v : {e.first,\
-    \ e.second}) {\n                    if (is_articulation[v]) {\n              \
-    \          if (std::exchange(last_adjacent[bct_id[v]], i) != i) {\n          \
-    \                  bct[i].emplace_back(bct_id[v]);\n                         \
-    \   bct[bct_id[v]].emplace_back(i);\n                        }\n             \
-    \       } else\n                        bct_id[v] = i;\n                }\n  \
-    \          }\n        }\n        return bct;\n    }\n\nprivate:\n    int n, m,\
-    \ time, tecc_num, bcc_num;\n    bool called_build, called_two_connected_components,\
-    \ called_bi_connected_components;\n    std::vector<std::pair<int, int>> edges;\n\
-    \    std::vector<int> order;             // visiting order of dfs-tree\n    std::vector<int>\
-    \ lowlink;           // min of order of u which can be visited from v by using\
-    \ dfs-tree edge any\n                                        // times and back\
-    \ edge at most once\n    std::vector<bool> is_dfstree_edge;  // whether edge is\
-    \ used in dfs-tree or not\n\n    std::vector<int> edge_stack;\n\n    void dfs_lowlink(int\
-    \ v, int pre_eid = -1) {\n        order[v] = lowlink[v] = time++;\n        for\
-    \ (const auto& e : G[v]) {\n            int u = e.first;\n            if (e.second\
-    \ != pre_eid) {\n                if (order[u] < order[v]) edge_stack.emplace_back(e.second);\n\
-    \                if (order[u] >= 0)\n                    lowlink[v] = std::min(lowlink[v],\
-    \ order[u]);\n                else {\n                    is_dfstree_edge[e.second]\
-    \ = true;\n                    dfs_lowlink(u, e.second);\n                   \
-    \ lowlink[v] = std::min(lowlink[v], lowlink[u]);\n                    if (pre_eid\
-    \ == -1 && order[u] != order[v] + 1) is_articulation[v] = true;\n            \
-    \        if (pre_eid != -1 && order[v] <= lowlink[u]) is_articulation[v] = true;\n\
-    \                    if (order[v] <= lowlink[u]) {\n                        while\
-    \ (true) {\n                            int cur = edge_stack.back();\n       \
-    \                     edge_stack.pop_back();\n                            bcc_id[cur]\
+    \        int bct_num = bcc_num;\n        bct_id.assign(n, -1);\n        for (int\
+    \ i = 0; i < n; i++) {\n            if (is_articulation[i]) {\n              \
+    \  bct_id[i] = bct_num++;\n            }\n        }\n        bct.resize(bct_num);\n\
+    \        std::vector<int> last_adjacent(bct_num, -1);\n        for (int i = 0;\
+    \ i < bcc_num; i++) {\n            for (auto& e : bcc_groups[i]) {\n         \
+    \       for (auto& v : {e.first, e.second}) {\n                    if (is_articulation[v])\
+    \ {\n                        if (std::exchange(last_adjacent[bct_id[v]], i) !=\
+    \ i) {\n                            bct[i].emplace_back(bct_id[v]);\n        \
+    \                    bct[bct_id[v]].emplace_back(i);\n                       \
+    \ }\n                    } else\n                        bct_id[v] = i;\n    \
+    \            }\n            }\n        }\n        return bct;\n    }\n\nprivate:\n\
+    \    int n, m, time, tecc_num, bcc_num;\n    bool called_build, called_two_connected_components,\
+    \ called_bi_connected_components;\n    std::vector<int> order;             //\
+    \ visiting order of dfs-tree\n    std::vector<int> lowlink;           // min of\
+    \ order of u which can be visited from v by using dfs-tree edge any\n        \
+    \                                // times and back edge at most once\n    std::vector<bool>\
+    \ is_dfstree_edge;  // whether edge is used in dfs-tree or not\n    std::vector<int>\
+    \ edge_stack;\n\n    void dfs_lowlink(int v, int pre_eid = -1) {\n        order[v]\
+    \ = lowlink[v] = time++;\n        for (const auto& e : G[v]) {\n            int\
+    \ u = e.first;\n            if (e.second != pre_eid) {\n                if (order[u]\
+    \ < order[v]) edge_stack.emplace_back(e.second);\n                if (order[u]\
+    \ >= 0)\n                    lowlink[v] = std::min(lowlink[v], order[u]);\n  \
+    \              else {\n                    is_dfstree_edge[e.second] = true;\n\
+    \                    dfs_lowlink(u, e.second);\n                    lowlink[v]\
+    \ = std::min(lowlink[v], lowlink[u]);\n                    if (pre_eid == -1 &&\
+    \ order[u] != order[v] + 1) is_articulation[v] = true;\n                    if\
+    \ (pre_eid != -1 && order[v] <= lowlink[u]) is_articulation[v] = true;\n     \
+    \               if (order[v] <= lowlink[u]) {\n                        while (true)\
+    \ {\n                            int cur = edge_stack.back();\n              \
+    \              edge_stack.pop_back();\n                            bcc_id[cur]\
     \ = bcc_num;\n                            if (edges[cur] == edges[e.second]) break;\n\
     \                        }\n                        bcc_num++;\n             \
     \       }\n                }\n            }\n        }\n    }\n};\n#line 5 \"\
@@ -187,7 +187,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_3_B.test.cpp
   requiredBy: []
-  timestamp: '2021-12-30 22:50:08+09:00'
+  timestamp: '2022-09-04 18:06:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_3_B.test.cpp

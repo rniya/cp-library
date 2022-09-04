@@ -124,10 +124,11 @@ data:
     \ {  // Ax + By = c\n        if (equals(A, 0)) {\n            assert(!equals(B,\
     \ 0));\n            a = Point(0, C / B);\n            b = Point(1, C / B);\n \
     \       } else if (equals(B, 0)) {\n            a = Point(C / A, 0);\n       \
-    \     b = Point(C / A, 1);\n        } else {\n            a = Point(0, C / B);\n\
-    \            b = Point(C / A, 0);\n        }\n    }\n\n    Point diff() const\
-    \ { return b - a; }\n\n    friend std::istream& operator>>(std::istream& is, Line&\
-    \ l) { return is >> l.a >> l.b; }\n\n    friend std::ostream& operator<<(std::ostream&\
+    \     b = Point(C / A, 1);\n        } else if (equals(C, 0)) {\n            a\
+    \ = Point(0, 0);\n            b = Point(B, -A);\n        } else {\n          \
+    \  a = Point(0, C / B);\n            b = Point(C / A, 0);\n        }\n    }\n\n\
+    \    Point diff() const { return b - a; }\n\n    friend std::istream& operator>>(std::istream&\
+    \ is, Line& l) { return is >> l.a >> l.b; }\n\n    friend std::ostream& operator<<(std::ostream&\
     \ os, const Line& l) { return os << l.a << \" to \" << l.b; }\n};\n\nstruct Segment\
     \ : Line {\n    Segment() {}\n\n    Segment(Point a, Point b) : Line(a, b) {}\n\
     \n    Real length() const { return diff().abs(); }\n};\n\nPoint proj(const Line&\
@@ -316,7 +317,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-12-29 23:38:56+09:00'
+  timestamp: '2022-09-04 18:06:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_1_B.test.cpp

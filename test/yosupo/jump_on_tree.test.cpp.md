@@ -11,33 +11,34 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C
+    PROBLEM: https://judge.yosupo.jp/problem/jump_on_tree
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C
-  bundledCode: "#line 1 \"test/aoj/GRL_5_C.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C\"\
-    \n\n#include <iostream>\n#line 2 \"tree/HeavyLightDecomposition.hpp\"\n#include\
-    \ <cassert>\n#include <utility>\n#include <vector>\n\nstruct HeavyLightDecomposition\
-    \ {\n    std::vector<std::vector<int>> G;  // child of vertex v on heavy edge\
-    \ is G[v].front() if it is not parent of v\n    int n, time;\n    std::vector<int>\
-    \ par,  // parent of vertex v\n        sub,               // size of subtree whose\
-    \ root is v\n        dep,               // distance bitween root and vertex v\n\
-    \        head,              // vertex that is the nearest to root on heavy path\
-    \ of vertex v\n        tree_id,           // id of tree vertex v belongs to\n\
-    \        vertex_id,         // id of vertex v (consecutive on heavy paths)\n \
-    \       vertex_id_inv;     // vertex_id_inv[vertex_id[v]] = v\n\n    HeavyLightDecomposition(int\
-    \ n)\n        : G(n),\n          n(n),\n          time(0),\n          par(n, -1),\n\
-    \          sub(n),\n          dep(n, 0),\n          head(n),\n          tree_id(n,\
-    \ -1),\n          vertex_id(n, -1),\n          vertex_id_inv(n) {}\n\n    void\
-    \ add_edge(int u, int v) {\n        assert(0 <= u and u < n);\n        assert(0\
-    \ <= v and v < n);\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n\
-    \    }\n\n    void build(std::vector<int> roots = {0}) {\n        int tree_id_cur\
-    \ = 0;\n        for (int& r : roots) {\n            assert(0 <= r and r < n);\n\
-    \            dfs_sz(r);\n            head[r] = r;\n            dfs_hld(r, tree_id_cur++);\n\
-    \        }\n        assert(time == n);\n        for (int v = 0; v < n; v++) vertex_id_inv[vertex_id[v]]\
-    \ = v;\n    }\n\n    int idx(int v) const { return vertex_id[v]; }\n\n    int\
-    \ la(int v, int k) const {\n        assert(0 <= v and v < n);\n        assert(0\
-    \ <= k and k <= dep[v]);\n        while (1) {\n            int u = head[v];\n\
-    \            if (vertex_id[v] - k >= vertex_id[u]) return vertex_id_inv[vertex_id[v]\
+    - https://judge.yosupo.jp/problem/jump_on_tree
+  bundledCode: "#line 1 \"test/yosupo/jump_on_tree.test.cpp\"\n#define PROBLEM \"\
+    https://judge.yosupo.jp/problem/jump_on_tree\"\n\n#include <iostream>\n#line 2\
+    \ \"tree/HeavyLightDecomposition.hpp\"\n#include <cassert>\n#include <utility>\n\
+    #include <vector>\n\nstruct HeavyLightDecomposition {\n    std::vector<std::vector<int>>\
+    \ G;  // child of vertex v on heavy edge is G[v].front() if it is not parent of\
+    \ v\n    int n, time;\n    std::vector<int> par,  // parent of vertex v\n    \
+    \    sub,               // size of subtree whose root is v\n        dep,     \
+    \          // distance bitween root and vertex v\n        head,              //\
+    \ vertex that is the nearest to root on heavy path of vertex v\n        tree_id,\
+    \           // id of tree vertex v belongs to\n        vertex_id,         // id\
+    \ of vertex v (consecutive on heavy paths)\n        vertex_id_inv;     // vertex_id_inv[vertex_id[v]]\
+    \ = v\n\n    HeavyLightDecomposition(int n)\n        : G(n),\n          n(n),\n\
+    \          time(0),\n          par(n, -1),\n          sub(n),\n          dep(n,\
+    \ 0),\n          head(n),\n          tree_id(n, -1),\n          vertex_id(n, -1),\n\
+    \          vertex_id_inv(n) {}\n\n    void add_edge(int u, int v) {\n        assert(0\
+    \ <= u and u < n);\n        assert(0 <= v and v < n);\n        G[u].emplace_back(v);\n\
+    \        G[v].emplace_back(u);\n    }\n\n    void build(std::vector<int> roots\
+    \ = {0}) {\n        int tree_id_cur = 0;\n        for (int& r : roots) {\n   \
+    \         assert(0 <= r and r < n);\n            dfs_sz(r);\n            head[r]\
+    \ = r;\n            dfs_hld(r, tree_id_cur++);\n        }\n        assert(time\
+    \ == n);\n        for (int v = 0; v < n; v++) vertex_id_inv[vertex_id[v]] = v;\n\
+    \    }\n\n    int idx(int v) const { return vertex_id[v]; }\n\n    int la(int\
+    \ v, int k) const {\n        assert(0 <= v and v < n);\n        assert(0 <= k\
+    \ and k <= dep[v]);\n        while (1) {\n            int u = head[v];\n     \
+    \       if (vertex_id[v] - k >= vertex_id[u]) return vertex_id_inv[vertex_id[v]\
     \ - k];\n            k -= vertex_id[v] - vertex_id[u] + 1;\n            v = par[u];\n\
     \        }\n    }\n\n    int lca(int u, int v) const {\n        assert(0 <= u\
     \ and u < n);\n        assert(0 <= v and v < n);\n        assert(tree_id[u] ==\
@@ -83,34 +84,33 @@ data:
     \ if (u == v) return {};\n        if (head[u] == head[v]) return {{vertex_id[u]\
     \ + 1, vertex_id[v]}};\n        auto res = descend(u, par[head[v]]);\n       \
     \ res.emplace_back(vertex_id[head[v]], vertex_id[v]);\n        return res;\n \
-    \   }\n};\n#line 5 \"test/aoj/GRL_5_C.test.cpp\"\n\nint main() {\n    std::cin.tie(0);\n\
-    \    std::ios::sync_with_stdio(false);\n    int n;\n    std::cin >> n;\n    HeavyLightDecomposition\
-    \ HLD(n);\n    for (int i = 0; i < n; i++) {\n        int k;\n        std::cin\
-    \ >> k;\n        for (; k--;) {\n            int c;\n            std::cin >> c;\n\
-    \            HLD.add_edge(i, c);\n        }\n    }\n    HLD.build();\n\n    int\
-    \ q;\n    std::cin >> q;\n    for (; q--;) {\n        int u, v;\n        std::cin\
-    \ >> u >> v;\n        std::cout << HLD.lca(u, v) << '\\n';\n    }\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C\"\n\n\
-    #include <iostream>\n#include \"tree/HeavyLightDecomposition.hpp\"\n\nint main()\
-    \ {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int n;\n\
-    \    std::cin >> n;\n    HeavyLightDecomposition HLD(n);\n    for (int i = 0;\
-    \ i < n; i++) {\n        int k;\n        std::cin >> k;\n        for (; k--;)\
-    \ {\n            int c;\n            std::cin >> c;\n            HLD.add_edge(i,\
-    \ c);\n        }\n    }\n    HLD.build();\n\n    int q;\n    std::cin >> q;\n\
-    \    for (; q--;) {\n        int u, v;\n        std::cin >> u >> v;\n        std::cout\
-    \ << HLD.lca(u, v) << '\\n';\n    }\n}"
+    \   }\n};\n#line 5 \"test/yosupo/jump_on_tree.test.cpp\"\n\nint main() {\n   \
+    \ std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int N, Q;\n   \
+    \ std::cin >> N >> Q;\n    HeavyLightDecomposition HLD(N);\n    for (int i = 0;\
+    \ i < N - 1; i++) {\n        int a, b;\n        std::cin >> a >> b;\n        HLD.add_edge(a,\
+    \ b);\n    }\n\n    HLD.build();\n    for (; Q--;) {\n        int s, t, i;\n \
+    \       std::cin >> s >> t >> i;\n        std::cout << HLD.jump(s, t, i) << '\\\
+    n';\n    }\n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/jump_on_tree\"\n\n#include\
+    \ <iostream>\n#include \"tree/HeavyLightDecomposition.hpp\"\n\nint main() {\n\
+    \    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int N, Q;\n\
+    \    std::cin >> N >> Q;\n    HeavyLightDecomposition HLD(N);\n    for (int i\
+    \ = 0; i < N - 1; i++) {\n        int a, b;\n        std::cin >> a >> b;\n   \
+    \     HLD.add_edge(a, b);\n    }\n\n    HLD.build();\n    for (; Q--;) {\n   \
+    \     int s, t, i;\n        std::cin >> s >> t >> i;\n        std::cout << HLD.jump(s,\
+    \ t, i) << '\\n';\n    }\n    return 0;\n}"
   dependsOn:
   - tree/HeavyLightDecomposition.hpp
   isVerificationFile: true
-  path: test/aoj/GRL_5_C.test.cpp
+  path: test/yosupo/jump_on_tree.test.cpp
   requiredBy: []
   timestamp: '2022-09-04 18:06:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/GRL_5_C.test.cpp
+documentation_of: test/yosupo/jump_on_tree.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL_5_C.test.cpp
-- /verify/test/aoj/GRL_5_C.test.cpp.html
-title: test/aoj/GRL_5_C.test.cpp
+- /verify/test/yosupo/jump_on_tree.test.cpp
+- /verify/test/yosupo/jump_on_tree.test.cpp.html
+title: test/yosupo/jump_on_tree.test.cpp
 ---
