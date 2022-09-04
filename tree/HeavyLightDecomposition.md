@@ -23,6 +23,7 @@ documentation_of: ./HeavyLightDecomposition.hpp
 | `idx(v)`                                     | 内部処理における頂点 $v$ の識別子を返す．一点更新や一点取得の際に必要となる．                              | $O(1)$          |
 | `la(v,k)`                                    | $v$ から根の方向に $k$ 回辺を辿った先の頂点を返す．                                                        | $O(\log n)$     |
 | `lca(u, v)`                                  | 頂点 $u, v$ の最小共通祖先を返す．                                                                         | $O(\log n)$     |
+| `jump(s, t, i)`                              | 頂点 $s$ から $t$ への木上の最短路上で $s$ から距離 $i$ 離れた頂点を返す．                                 | $O(\log n)$     |
 | `distance(u, v)`                             | `add_edge` で追加された各辺の重みを 1 として，頂点 $u, v$ 間の距離を返す．                                 | $O(\log n)$     |
 | `query_path(u, v, f, vertex)`                | 頂点 $u, v$ 間のパスに対してのクエリを処理する（演算が可換，すなわち扱う対象がモノイドである必要がある）． | $O((\log n)^2)$ |
 | `query_path_noncommutative(u, v, f, vertex)` | 頂点 $u, v$ 間のパスに対してのクエリを処理する（Remark 参照）．                                            | $O((\log n)^2)$ |

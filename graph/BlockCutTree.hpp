@@ -6,16 +6,17 @@
 
 struct BlockCutTree {
     std::vector<std::vector<std::pair<int, int>>> G;
-    std::vector<std::vector<int>> tecc_tree,    // tree that consists of two-edge-connected-component
-        bct;                                    // tree that consists of bi-connected-component and articulation
+    std::vector<std::pair<int, int>> edges;
     std::vector<bool> is_articulation,          // whether vertex i is articulation or not
         is_bridge;                              // whether edge i is bridge or not
+    std::vector<std::vector<int>> tecc_tree,    // tree that consists of two-edge-connected-components
+        bct;                                    // tree that consists of bi-connected-components and articulation
     std::vector<int> tecc_id;                   // id of two-edge-connected-component vertex i belongs to
-    std::vector<std::vector<int>> tecc_groups;  // vertices belongs to i-th two-edge-connected-component
+    std::vector<std::vector<int>> tecc_groups;  // vertices belong to i-th two-edge-connected-component
     std::vector<int> bcc_id;                    // id of bi-connected-component edge i belongs to
     std::vector<std::vector<std::pair<int, int>>> bcc_groups;  // edges belongs to i-th bi-connected-component
     std::vector<int> bct_id;  // id of component on block-cut-tree vertex i belongs to (order : bcc -> articulation)
-    std::vector<std::vector<int>> bct_groups;  // vertices belongs to i-th component on block-cut-tree
+    std::vector<std::vector<int>> bct_groups;  // vertices belong to i-th component on block-cut-tree
 
     BlockCutTree(int n)
         : G(n), is_articulation(n, false), n(n), m(0), time(0), bcc_num(0), order(n, -1), lowlink(n, -1) {}
@@ -97,6 +98,7 @@ struct BlockCutTree {
     std::vector<std::vector<int>> block_cut_tree() {
         assert(called_bi_connected_components);
         int bct_num = bcc_num;
+        bct_id.assign(n, -1);
         for (int i = 0; i < n; i++) {
             if (is_articulation[i]) {
                 bct_id[i] = bct_num++;
@@ -123,12 +125,10 @@ struct BlockCutTree {
 private:
     int n, m, time, tecc_num, bcc_num;
     bool called_build, called_two_connected_components, called_bi_connected_components;
-    std::vector<std::pair<int, int>> edges;
     std::vector<int> order;             // visiting order of dfs-tree
     std::vector<int> lowlink;           // min of order of u which can be visited from v by using dfs-tree edge any
                                         // times and back edge at most once
     std::vector<bool> is_dfstree_edge;  // whether edge is used in dfs-tree or not
-
     std::vector<int> edge_stack;
 
     void dfs_lowlink(int v, int pre_eid = -1) {

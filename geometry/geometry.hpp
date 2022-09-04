@@ -112,6 +112,9 @@ struct Line {
         } else if (equals(B, 0)) {
             a = Point(C / A, 0);
             b = Point(C / A, 1);
+        } else if (equals(C, 0)) {
+            a = Point(0, 0);
+            b = Point(B, -A);
         } else {
             a = Point(0, C / B);
             b = Point(C / A, 0);

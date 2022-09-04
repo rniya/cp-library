@@ -7,6 +7,11 @@
 #include <vector>
 
 struct BipartiteMatching {
+    int U, V, t;
+    bool solved;
+    std::vector<std::vector<int>> G;
+    std::vector<int> L, R, visited;
+
     BipartiteMatching(int U, int V) : U(U), V(V), t(0), solved(false), G(U), L(U, -1), R(V, -1), visited(U, -1) {}
 
     void add_edge(int u, int v) {
@@ -44,11 +49,6 @@ struct BipartiteMatching {
     }
 
 private:
-    int U, V, t;
-    bool solved;
-    std::vector<std::vector<int>> G;
-    std::vector<int> L, R, visited;
-
     bool dfs(int u) {
         if (std::exchange(visited[u], t) == t) return false;
         for (int& v : G[u]) {

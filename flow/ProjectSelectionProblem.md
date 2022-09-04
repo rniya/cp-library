@@ -28,6 +28,8 @@ Project Selection Problem，いわゆる燃やす埋める問題を解く際の�
 - [AtCoder Regular Contest 107 F - Sum of Abs](https://atcoder.jp/contests/arc107/tasks/arc107_f)
 - [AtCoder Regular Contest 129 E - Yet Another Minimization](https://atcoder.jp/contests/arc129/tasks/arc129_e)
   - 2 択だけでなく選択肢が $k$ 個あるような場合の問題．[このブログ](https://maspypy.com/atcoder-%e5%8f%82%e5%8a%a0%e6%84%9f%e6%83%b3-2020-10-31arc107)の F の解説にある辺の張り方が参考になる．ライブラリにしていいかもしれない．
+- [yukicoder No.1984 [Cherry 4th Tune*] Dilemma](https://yukicoder.me/problems/no/1984)
+  - 復元の際には `atcoder::mf_graph::min_cut(s)` を利用する．
 
 ## 参照
 - [最小カットを使って「燃やす埋める問題」を解く](https://www.slideshare.net/shindannin/project-selection-problem)

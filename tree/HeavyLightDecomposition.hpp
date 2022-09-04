@@ -27,8 +27,8 @@ struct HeavyLightDecomposition {
           vertex_id_inv(n) {}
 
     void add_edge(int u, int v) {
-        assert(0 <= u && u < n);
-        assert(0 <= v && v < n);
+        assert(0 <= u and u < n);
+        assert(0 <= v and v < n);
         G[u].emplace_back(v);
         G[v].emplace_back(u);
     }
@@ -36,7 +36,7 @@ struct HeavyLightDecomposition {
     void build(std::vector<int> roots = {0}) {
         int tree_id_cur = 0;
         for (int& r : roots) {
-            assert(0 <= r && r < n);
+            assert(0 <= r and r < n);
             dfs_sz(r);
             head[r] = r;
             dfs_hld(r, tree_id_cur++);
@@ -47,9 +47,9 @@ struct HeavyLightDecomposition {
 
     int idx(int v) const { return vertex_id[v]; }
 
-    int la(int v, int k) {
-        assert(0 <= v && v < n);
-        assert(0 <= k && k <= dep[v]);
+    int la(int v, int k) const {
+        assert(0 <= v and v < n);
+        assert(0 <= k and k <= dep[v]);
         while (1) {
             int u = head[v];
             if (vertex_id[v] - k >= vertex_id[u]) return vertex_id_inv[vertex_id[v] - k];
@@ -59,8 +59,8 @@ struct HeavyLightDecomposition {
     }
 
     int lca(int u, int v) const {
-        assert(0 <= u && u < n);
-        assert(0 <= v && v < n);
+        assert(0 <= u and u < n);
+        assert(0 <= v and v < n);
         assert(tree_id[u] == tree_id[v]);
         for (;; v = par[head[v]]) {
             if (vertex_id[u] > vertex_id[v]) std::swap(u, v);
@@ -68,16 +68,28 @@ struct HeavyLightDecomposition {
         }
     }
 
+    int jump(int s, int t, int i) const {
+        assert(0 <= s and s < n);
+        assert(0 <= t and t < n);
+        assert(0 <= i);
+        if (tree_id[s] != tree_id[t]) return -1;
+        if (i == 0) return s;
+        int p = lca(s, t), d = dep[s] + dep[t] - 2 * dep[p];
+        if (d < i) return -1;
+        if (dep[s] - dep[p] >= i) return la(s, i);
+        return la(t, d - i);
+    }
+
     int distance(int u, int v) const {
-        assert(0 <= u && u < n);
-        assert(0 <= v && v < n);
+        assert(0 <= u and u < n);
+        assert(0 <= v and v < n);
         assert(tree_id[u] == tree_id[v]);
         return dep[u] + dep[v] - 2 * dep[lca(u, v)];
     }
 
     template <typename F> void query_path(int u, int v, const F& f, bool vertex = false) const {
-        assert(0 <= u && u < n);
-        assert(0 <= v && v < n);
+        assert(0 <= u and u < n);
+        assert(0 <= v and v < n);
         assert(tree_id[u] == tree_id[v]);
         int p = lca(u, v);
         for (auto& e : ascend(u, p)) f(e.second, e.first + 1);
@@ -86,8 +98,8 @@ struct HeavyLightDecomposition {
     }
 
     template <typename F> void query_path_noncommutative(int u, int v, const F& f, bool vertex = false) const {
-        assert(0 <= u && u < n);
-        assert(0 <= v && v < n);
+        assert(0 <= u and u < n);
+        assert(0 <= v and v < n);
         assert(tree_id[u] == tree_id[v]);
         int p = lca(u, v);
         for (auto& e : ascend(u, p)) f(e.first + 1, e.second);
@@ -96,14 +108,14 @@ struct HeavyLightDecomposition {
     }
 
     template <typename F> void query_subtree(int u, const F& f, bool vertex = false) const {
-        assert(0 <= u && u < n);
+        assert(0 <= u and u < n);
         f(vertex_id[u] + !vertex, vertex_id[u] + sub[u]);
     }
 
 private:
     void dfs_sz(int v) {
         sub[v] = 1;
-        if (!G[v].empty() && G[v].front() == par[v]) std::swap(G[v].front(), G[v].back());
+        if (!G[v].empty() and G[v].front() == par[v]) std::swap(G[v].front(), G[v].back());
         for (int& u : G[v]) {
             if (u == par[v]) continue;
             par[u] = v;
