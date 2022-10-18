@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/FormalPowerSeries.hpp
     title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: util/modint.hpp
     title: util/modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/pow_of_formal_power_series
@@ -389,32 +389,40 @@ data:
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void shrink()\
     \ {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
     \    }\n\n    FPS pre(size_t sz) const { return FPS(this->begin(), this->begin()\
-    \ + std::min(this->size(), sz)); }\n\n    FPS operator>>(size_t sz) const {\n\
-    \        if (this->size() <= sz) return {};\n        return FPS(this->begin()\
-    \ + sz, this->end());\n    }\n\n    FPS operator<<(size_t sz) const {\n      \
-    \  if (this->empty()) return {};\n        FPS ret(*this);\n        ret.insert(ret.begin(),\
-    \ sz, T(0));\n        return ret;\n    }\n\npublic:\n    FPS& operator+=(const\
-    \ FPS& r) {\n        if (r.size() > this->size()) this->resize(r.size());\n  \
-    \      for (size_t i = 0; i < r.size(); i++) (*this)[i] += r[i];\n        shrink();\n\
-    \        return *this;\n    }\n\n    FPS& operator+=(const T& v) {\n        if\
-    \ (this->empty()) this->resize(1);\n        (*this)[0] += v;\n        shrink();\n\
-    \        return *this;\n    }\n\n    FPS& operator-=(const FPS& r) {\n       \
-    \ if (r.size() > this->size()) this->resize(r.size());\n        for (size_t i\
-    \ = 0; i < r.size(); i++) (*this)[i] -= r[i];\n        shrink();\n        return\
-    \ *this;\n    }\n\n    FPS& operator-=(const T& v) {\n        if (this->empty())\
-    \ this->resize(1);\n        (*this)[0] -= v;\n        shrink();\n        return\
-    \ *this;\n    }\n\n    FPS& operator*=(const FPS& r) {\n        auto res = atcoder::convolution(*this,\
-    \ r);\n        return *this = {res.begin(), res.end()};\n    }\n\n    FPS& operator*=(const\
-    \ T& v) {\n        for (auto& x : (*this)) x *= v;\n        shrink();\n      \
-    \  return *this;\n    }\n\n    FPS operator+(const FPS& r) const { return FPS(*this)\
-    \ += r; }\n\n    FPS operator+(const T& v) const { return FPS(*this) += v; }\n\
-    \n    FPS operator-(const FPS& r) const { return FPS(*this) -= r; }\n\n    FPS\
-    \ operator-(const T& v) const { return FPS(*this) -= v; }\n\n    FPS operator*(const\
-    \ FPS& r) const { return FPS(*this) *= r; }\n\n    FPS operator*(const T& v) const\
-    \ { return FPS(*this) *= v; }\n\n    FPS operator-() const {\n        FPS ret\
-    \ = *this;\n        for (auto& v : ret) v = -v;\n        return ret;\n    }\n\n\
-    \    FPS differential() const {\n        const int n = (int)this->size();\n  \
-    \      FPS ret(std::max(0, n - 1));\n        for (int i = 1; i < n; i++) ret[i\
+    \ + std::min(this->size(), sz)); }\n\n    FPS rev() const {\n        FPS ret(*this);\n\
+    \        std::reverse(ret.begin(), ret.end());\n        return ret;\n    }\n\n\
+    \    FPS operator>>(size_t sz) const {\n        if (this->size() <= sz) return\
+    \ {};\n        return FPS(this->begin() + sz, this->end());\n    }\n\n    FPS\
+    \ operator<<(size_t sz) const {\n        if (this->empty()) return {};\n     \
+    \   FPS ret(*this);\n        ret.insert(ret.begin(), sz, T(0));\n        return\
+    \ ret;\n    }\n\npublic:\n    FPS& operator+=(const FPS& r) {\n        if (r.size()\
+    \ > this->size()) this->resize(r.size());\n        for (size_t i = 0; i < r.size();\
+    \ i++) (*this)[i] += r[i];\n        shrink();\n        return *this;\n    }\n\n\
+    \    FPS& operator+=(const T& v) {\n        if (this->empty()) this->resize(1);\n\
+    \        (*this)[0] += v;\n        shrink();\n        return *this;\n    }\n\n\
+    \    FPS& operator-=(const FPS& r) {\n        if (r.size() > this->size()) this->resize(r.size());\n\
+    \        for (size_t i = 0; i < r.size(); i++) (*this)[i] -= r[i];\n        shrink();\n\
+    \        return *this;\n    }\n\n    FPS& operator-=(const T& v) {\n        if\
+    \ (this->empty()) this->resize(1);\n        (*this)[0] -= v;\n        shrink();\n\
+    \        return *this;\n    }\n\n    FPS& operator*=(const FPS& r) {\n       \
+    \ auto res = atcoder::convolution(*this, r);\n        return *this = {res.begin(),\
+    \ res.end()};\n    }\n\n    FPS& operator*=(const T& v) {\n        for (auto&\
+    \ x : (*this)) x *= v;\n        shrink();\n        return *this;\n    }\n\n  \
+    \  FPS& operator/=(const FPS& r) {\n        if (this->size() < r.size()) {\n \
+    \           this->clear();\n            return *this;\n        }\n        int\
+    \ n = this->size() - r.size() + 1;\n        return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev();\n\
+    \    }\n\n    FPS& operator%=(const FPS& r) {\n        *this -= *this / r * r;\n\
+    \        shrink();\n        return *this;\n    }\n\n    FPS operator+(const FPS&\
+    \ r) const { return FPS(*this) += r; }\n\n    FPS operator+(const T& v) const\
+    \ { return FPS(*this) += v; }\n\n    FPS operator-(const FPS& r) const { return\
+    \ FPS(*this) -= r; }\n\n    FPS operator-(const T& v) const { return FPS(*this)\
+    \ -= v; }\n\n    FPS operator*(const FPS& r) const { return FPS(*this) *= r; }\n\
+    \n    FPS operator*(const T& v) const { return FPS(*this) *= v; }\n\n    FPS operator/(const\
+    \ FPS& r) const { return FPS(*this) /= r; }\n\n    FPS operator%(const FPS& r)\
+    \ const { return FPS(*this) %= r; }\n\n    FPS operator-() const {\n        FPS\
+    \ ret = *this;\n        for (auto& v : ret) v = -v;\n        return ret;\n   \
+    \ }\n\n    FPS differential() const {\n        const int n = (int)this->size();\n\
+    \        FPS ret(std::max(0, n - 1));\n        for (int i = 1; i < n; i++) ret[i\
     \ - 1] = (*this)[i] * T(i);\n        return ret;\n    }\n\n    FPS integral()\
     \ const {\n        const int n = (int)this->size();\n        FPS ret(n + 1);\n\
     \        ret[0] = T(0);\n        if (n > 0) ret[1] = T(1);\n        auto mod =\
@@ -527,8 +535,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/pow_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2021-12-05 15:22:47+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-10-18 10:53:32+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/pow_of_formal_power_series.test.cpp
 layout: document

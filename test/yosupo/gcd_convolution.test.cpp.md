@@ -2,8 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: convolution/set_function.hpp
-    title: set function (FZT, FMT, FWHT)
+    path: convolution/gcd_convolution.hpp
+    title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\
+      \uFF09"
   - icon: ':question:'
     path: util/modint.hpp
     title: util/modint.hpp
@@ -14,50 +15,29 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/1289
+    PROBLEM: https://judge.yosupo.jp/problem/gcd_convolution
     links:
-    - https://yukicoder.me/problems/no/1289
-  bundledCode: "#line 1 \"test/yukicoder/1289.test.cpp\"\n#define PROBLEM \"https://yukicoder.me/problems/no/1289\"\
-    \n\n#line 2 \"convolution/set_function.hpp\"\n#include <cassert>\n#include <vector>\n\
-    \nnamespace set_function {\n\n// subset sum : f(S) <- \\sum_{T \\subseteq S} f(T)\n\
-    template <typename T> void subset_zeta_transform(std::vector<T>& f) {\n    int\
-    \ n = f.size();\n    assert((n & (n - 1)) == 0);\n    for (int i = 1; i < n; i\
-    \ <<= 1) {\n        for (int j = 0; j < n; j++) {\n            if ((j & i) ==\
-    \ 0) {\n                f[j | i] += f[j];\n            }\n        }\n    }\n}\n\
-    \n// inverse of subset sum\n// g = FZT(f) \\iff f = FMT(g)\ntemplate <typename\
-    \ T> void subset_mobius_transform(std::vector<T>& f) {\n    int n = f.size();\n\
-    \    assert((n & (n - 1)) == 0);\n    for (int i = 1; i < n; i <<= 1) {\n    \
-    \    for (int j = 0; j < n; j++) {\n            if ((j & i) == 0) {\n        \
-    \        f[j | i] -= f[j];\n            }\n        }\n    }\n}\n\n// superset\
-    \ sum : f(S) <- \\sum_{T \\supseteq S} f(T)\ntemplate <typename T> void superset_zeta_transform(std::vector<T>&\
-    \ f) {\n    int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for (int i\
-    \ = 1; i < n; i <<= 1) {\n        for (int j = 0; j < n; j++) {\n            if\
-    \ ((j & i) == 0) {\n                f[j] += f[j | i];\n            }\n       \
-    \ }\n    }\n}\n\n// inverse of superset sum\n// g = FZT(f) \\iff f = FMT(g)\n\
-    template <typename T> void superset_mobius_transform(std::vector<T>& f) {\n  \
-    \  int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for (int i = 1; i <\
-    \ n; i <<= 1) {\n        for (int j = 0; j < n; j++) {\n            if ((j & i)\
-    \ == 0) {\n                f[j] -= f[j | i];\n            }\n        }\n    }\n\
-    }\n\ntemplate <typename T> void walsh_hadamard_transform(std::vector<T>& f, bool\
-    \ inv = false) {\n    int n = f.size();\n    assert((n & (n - 1)) == 0);\n   \
-    \ for (int i = 1; i < n; i <<= 1) {\n        for (int j = 0; j < n; j++) {\n \
-    \           if ((j & i) == 0) {\n                T x = f[j], y = f[j | i];\n \
-    \               f[j] = x + y, f[j | i] = x - y;\n            }\n        }\n  \
-    \  }\n    if (inv) {\n        if (std::is_integral<T>::value) {\n            for\
-    \ (auto& x : f) x /= n;\n        } else {\n            T inv_n = T(1) / f.size();\n\
-    \            for (auto& x : f) x *= inv_n;\n        }\n    }\n}\n\ntemplate <typename\
-    \ T> std::vector<T> and_convolution(std::vector<T> f, std::vector<T> g) {\n  \
-    \  assert(f.size() == g.size());\n    superset_zeta_transform(f);\n    superset_zeta_transform(g);\n\
-    \    for (size_t i = 0; i < f.size(); i++) f[i] *= g[i];\n    superset_mobius_transform(f);\n\
-    \    return f;\n}\n\ntemplate <typename T> std::vector<T> or_convolution(std::vector<T>\
-    \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    subset_zeta_transform(f);\n\
-    \    subset_zeta_transform(g);\n    for (size_t i = 0; i < f.size(); i++) f[i]\
-    \ *= g[i];\n    subset_mobius_transform(f);\n    return f;\n}\n\ntemplate <typename\
-    \ T> std::vector<T> xor_convolution(std::vector<T> f, std::vector<T> g) {\n  \
-    \  assert(f.size() == g.size());\n    walsh_hadamard_transform(f);\n    walsh_hadamard_transform(g);\n\
-    \    for (size_t i = 0; i < f.size(); i++) f[i] *= g[i];\n    walsh_hadamard_transform(f,\
-    \ true);\n    return f;\n}\n\n}  // namespace set_function\n#line 2 \"util/modint.hpp\"\
-    \n#include <iostream>\n#line 1 \"atcoder/modint.hpp\"\n\n\n\n#line 5 \"atcoder/modint.hpp\"\
+    - https://judge.yosupo.jp/problem/gcd_convolution
+  bundledCode: "#line 1 \"test/yosupo/gcd_convolution.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.yosupo.jp/problem/gcd_convolution\"\n\n#line 2 \"convolution/gcd_convolution.hpp\"\
+    \n#include <cassert>\n#include <vector>\n\nnamespace gcd_convolution {\n\n// f(k)\
+    \ <- \\sum_{k | i} f(i)\ntemplate <typename T> void divisor_transform(std::vector<T>&\
+    \ f) {\n    int n = f.size();\n    std::vector<bool> sieve(n, true);\n    for\
+    \ (int p = 2; p < n; p++) {\n        if (sieve[p]) {\n            for (int k =\
+    \ (n - 1) / p; k > 0; k--) {\n                sieve[k * p] = false;\n        \
+    \        f[k] += f[k * p];\n            }\n        }\n    }\n    for (int i =\
+    \ 1; i < n; i++) f[i] += f[0];\n}\n\n// inverse of divisor transform\ntemplate\
+    \ <typename T> void inverse_divisor_transform(std::vector<T>& f) {\n    int n\
+    \ = f.size();\n    std::vector<bool> sieve(n, true);\n    for (int i = 1; i <\
+    \ n; i++) f[i] -= f[0];\n    for (int p = 2; p < n; p++) {\n        if (sieve[p])\
+    \ {\n            for (int k = 1 / p; k * p < n; k++) {\n                sieve[k\
+    \ * p] = false;\n                f[k] -= f[k * p];\n            }\n        }\n\
+    \    }\n}\n\ntemplate <typename T> std::vector<T> gcd_convolution(std::vector<T>\
+    \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    divisor_transform(f);\n\
+    \    divisor_transform(g);\n    for (size_t i = 0; i < f.size(); i++) f[i] *=\
+    \ g[i];\n    inverse_divisor_transform(f);\n    return f;\n}\n\n}  // namespace\
+    \ gcd_convolution\n#line 4 \"test/yosupo/gcd_convolution.test.cpp\"\n#include\
+    \ <iostream>\n#line 1 \"atcoder/modint.hpp\"\n\n\n\n#line 5 \"atcoder/modint.hpp\"\
     \n#include <numeric>\n#include <type_traits>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n\
     #endif\n\n#line 1 \"atcoder/internal_math.hpp\"\n\n\n\n#include <utility>\n\n\
     #ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace\
@@ -269,40 +249,34 @@ data:
     \ >> v, v)};\n    return is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream&\
     \ os, const static_modint<MOD>& x) { return os << x.val(); }\n\ntemplate <int\
     \ ID> std::ostream& operator<<(std::ostream& os, const dynamic_modint<ID>& x)\
-    \ { return os << x.val(); }\n\n}  // namespace atcoder\n#line 5 \"test/yukicoder/1289.test.cpp\"\
+    \ { return os << x.val(); }\n\n}  // namespace atcoder\n#line 6 \"test/yosupo/gcd_convolution.test.cpp\"\
     \n\nusing mint = atcoder::modint998244353;\n\nint main() {\n    std::cin.tie(0);\n\
-    \    std::ios::sync_with_stdio(false);\n    int N;\n    std::cin >> N;\n    std::vector<int>\
-    \ A(1 << N);\n    int sum = 0;\n    for (int i = 0; i < (1 << N); i++) {\n   \
-    \     std::cin >> A[i];\n        sum += A[i];\n    }\n\n    set_function::subset_zeta_transform(A);\n\
-    \    mint ans = 0, inv = mint(sum).inv();\n\n    for (int mask = 0; mask < (1\
-    \ << N) - 1; mask++) {\n        mint add = (1 - inv * A[mask]).inv();\n      \
-    \  if (__builtin_popcount((1 << N) - 1 - mask) & 1)\n            ans += add;\n\
-    \        else\n            ans -= add;\n    }\n\n    std::cout << ans << '\\n';\n\
-    \    return 0;\n}\n"
-  code: "#define PROBLEM \"https://yukicoder.me/problems/no/1289\"\n\n#include \"\
-    convolution/set_function.hpp\"\n#include \"util/modint.hpp\"\n\nusing mint = atcoder::modint998244353;\n\
-    \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
-    \    int N;\n    std::cin >> N;\n    std::vector<int> A(1 << N);\n    int sum\
-    \ = 0;\n    for (int i = 0; i < (1 << N); i++) {\n        std::cin >> A[i];\n\
-    \        sum += A[i];\n    }\n\n    set_function::subset_zeta_transform(A);\n\
-    \    mint ans = 0, inv = mint(sum).inv();\n\n    for (int mask = 0; mask < (1\
-    \ << N) - 1; mask++) {\n        mint add = (1 - inv * A[mask]).inv();\n      \
-    \  if (__builtin_popcount((1 << N) - 1 - mask) & 1)\n            ans += add;\n\
-    \        else\n            ans -= add;\n    }\n\n    std::cout << ans << '\\n';\n\
-    \    return 0;\n}"
+    \    std::ios::sync_with_stdio(false);\n    int N;\n    std::cin >> N;\n    std::vector<mint>\
+    \ a(N + 1), b(N + 1);\n    for (int i = 1; i <= N; i++) std::cin >> a[i];\n  \
+    \  for (int i = 1; i <= N; i++) std::cin >> b[i];\n\n    auto c = gcd_convolution::gcd_convolution(a,\
+    \ b);\n    for (int i = 1; i <= N; i++) std::cout << c[i] << (i == N ? '\\n' :\
+    \ ' ');\n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/gcd_convolution\"\n\n#include\
+    \ \"convolution/gcd_convolution.hpp\"\n#include <iostream>\n#include \"util/modint.hpp\"\
+    \n\nusing mint = atcoder::modint998244353;\n\nint main() {\n    std::cin.tie(0);\n\
+    \    std::ios::sync_with_stdio(false);\n    int N;\n    std::cin >> N;\n    std::vector<mint>\
+    \ a(N + 1), b(N + 1);\n    for (int i = 1; i <= N; i++) std::cin >> a[i];\n  \
+    \  for (int i = 1; i <= N; i++) std::cin >> b[i];\n\n    auto c = gcd_convolution::gcd_convolution(a,\
+    \ b);\n    for (int i = 1; i <= N; i++) std::cout << c[i] << (i == N ? '\\n' :\
+    \ ' ');\n    return 0;\n}"
   dependsOn:
-  - convolution/set_function.hpp
+  - convolution/gcd_convolution.hpp
   - util/modint.hpp
   isVerificationFile: true
-  path: test/yukicoder/1289.test.cpp
+  path: test/yosupo/gcd_convolution.test.cpp
   requiredBy: []
-  timestamp: '2021-12-29 23:38:56+09:00'
+  timestamp: '2022-10-18 10:53:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yukicoder/1289.test.cpp
+documentation_of: test/yosupo/gcd_convolution.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yukicoder/1289.test.cpp
-- /verify/test/yukicoder/1289.test.cpp.html
-title: test/yukicoder/1289.test.cpp
+- /verify/test/yosupo/gcd_convolution.test.cpp
+- /verify/test/yosupo/gcd_convolution.test.cpp.html
+title: test/yosupo/gcd_convolution.test.cpp
 ---

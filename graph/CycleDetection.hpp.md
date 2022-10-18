@@ -61,3 +61,5 @@ title: Cycle Detection
 ---
 
 ## 概要
+
+TODO: 多重辺に対応させる。

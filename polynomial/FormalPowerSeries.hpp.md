@@ -1,8 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: polynomial/multipoint_evaluation.hpp
+    title: multipoint evaluation
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/division_of_polynomials.test.cpp
+    title: test/yosupo/division_of_polynomials.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
@@ -12,15 +18,21 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: test/yosupo/multipoint_evaluation.test.cpp
+    title: test/yosupo/multipoint_evaluation.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/multipoint_evaluation.test.cpp
+    title: test/yosupo/multipoint_evaluation.test.cpp
+  - icon: ':x:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: Exp of Formal Power Series
     links:
@@ -395,32 +407,40 @@ data:
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void shrink()\
     \ {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
     \    }\n\n    FPS pre(size_t sz) const { return FPS(this->begin(), this->begin()\
-    \ + std::min(this->size(), sz)); }\n\n    FPS operator>>(size_t sz) const {\n\
-    \        if (this->size() <= sz) return {};\n        return FPS(this->begin()\
-    \ + sz, this->end());\n    }\n\n    FPS operator<<(size_t sz) const {\n      \
-    \  if (this->empty()) return {};\n        FPS ret(*this);\n        ret.insert(ret.begin(),\
-    \ sz, T(0));\n        return ret;\n    }\n\npublic:\n    FPS& operator+=(const\
-    \ FPS& r) {\n        if (r.size() > this->size()) this->resize(r.size());\n  \
-    \      for (size_t i = 0; i < r.size(); i++) (*this)[i] += r[i];\n        shrink();\n\
-    \        return *this;\n    }\n\n    FPS& operator+=(const T& v) {\n        if\
-    \ (this->empty()) this->resize(1);\n        (*this)[0] += v;\n        shrink();\n\
-    \        return *this;\n    }\n\n    FPS& operator-=(const FPS& r) {\n       \
-    \ if (r.size() > this->size()) this->resize(r.size());\n        for (size_t i\
-    \ = 0; i < r.size(); i++) (*this)[i] -= r[i];\n        shrink();\n        return\
-    \ *this;\n    }\n\n    FPS& operator-=(const T& v) {\n        if (this->empty())\
-    \ this->resize(1);\n        (*this)[0] -= v;\n        shrink();\n        return\
-    \ *this;\n    }\n\n    FPS& operator*=(const FPS& r) {\n        auto res = atcoder::convolution(*this,\
-    \ r);\n        return *this = {res.begin(), res.end()};\n    }\n\n    FPS& operator*=(const\
-    \ T& v) {\n        for (auto& x : (*this)) x *= v;\n        shrink();\n      \
-    \  return *this;\n    }\n\n    FPS operator+(const FPS& r) const { return FPS(*this)\
-    \ += r; }\n\n    FPS operator+(const T& v) const { return FPS(*this) += v; }\n\
-    \n    FPS operator-(const FPS& r) const { return FPS(*this) -= r; }\n\n    FPS\
-    \ operator-(const T& v) const { return FPS(*this) -= v; }\n\n    FPS operator*(const\
-    \ FPS& r) const { return FPS(*this) *= r; }\n\n    FPS operator*(const T& v) const\
-    \ { return FPS(*this) *= v; }\n\n    FPS operator-() const {\n        FPS ret\
-    \ = *this;\n        for (auto& v : ret) v = -v;\n        return ret;\n    }\n\n\
-    \    FPS differential() const {\n        const int n = (int)this->size();\n  \
-    \      FPS ret(std::max(0, n - 1));\n        for (int i = 1; i < n; i++) ret[i\
+    \ + std::min(this->size(), sz)); }\n\n    FPS rev() const {\n        FPS ret(*this);\n\
+    \        std::reverse(ret.begin(), ret.end());\n        return ret;\n    }\n\n\
+    \    FPS operator>>(size_t sz) const {\n        if (this->size() <= sz) return\
+    \ {};\n        return FPS(this->begin() + sz, this->end());\n    }\n\n    FPS\
+    \ operator<<(size_t sz) const {\n        if (this->empty()) return {};\n     \
+    \   FPS ret(*this);\n        ret.insert(ret.begin(), sz, T(0));\n        return\
+    \ ret;\n    }\n\npublic:\n    FPS& operator+=(const FPS& r) {\n        if (r.size()\
+    \ > this->size()) this->resize(r.size());\n        for (size_t i = 0; i < r.size();\
+    \ i++) (*this)[i] += r[i];\n        shrink();\n        return *this;\n    }\n\n\
+    \    FPS& operator+=(const T& v) {\n        if (this->empty()) this->resize(1);\n\
+    \        (*this)[0] += v;\n        shrink();\n        return *this;\n    }\n\n\
+    \    FPS& operator-=(const FPS& r) {\n        if (r.size() > this->size()) this->resize(r.size());\n\
+    \        for (size_t i = 0; i < r.size(); i++) (*this)[i] -= r[i];\n        shrink();\n\
+    \        return *this;\n    }\n\n    FPS& operator-=(const T& v) {\n        if\
+    \ (this->empty()) this->resize(1);\n        (*this)[0] -= v;\n        shrink();\n\
+    \        return *this;\n    }\n\n    FPS& operator*=(const FPS& r) {\n       \
+    \ auto res = atcoder::convolution(*this, r);\n        return *this = {res.begin(),\
+    \ res.end()};\n    }\n\n    FPS& operator*=(const T& v) {\n        for (auto&\
+    \ x : (*this)) x *= v;\n        shrink();\n        return *this;\n    }\n\n  \
+    \  FPS& operator/=(const FPS& r) {\n        if (this->size() < r.size()) {\n \
+    \           this->clear();\n            return *this;\n        }\n        int\
+    \ n = this->size() - r.size() + 1;\n        return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev();\n\
+    \    }\n\n    FPS& operator%=(const FPS& r) {\n        *this -= *this / r * r;\n\
+    \        shrink();\n        return *this;\n    }\n\n    FPS operator+(const FPS&\
+    \ r) const { return FPS(*this) += r; }\n\n    FPS operator+(const T& v) const\
+    \ { return FPS(*this) += v; }\n\n    FPS operator-(const FPS& r) const { return\
+    \ FPS(*this) -= r; }\n\n    FPS operator-(const T& v) const { return FPS(*this)\
+    \ -= v; }\n\n    FPS operator*(const FPS& r) const { return FPS(*this) *= r; }\n\
+    \n    FPS operator*(const T& v) const { return FPS(*this) *= v; }\n\n    FPS operator/(const\
+    \ FPS& r) const { return FPS(*this) /= r; }\n\n    FPS operator%(const FPS& r)\
+    \ const { return FPS(*this) %= r; }\n\n    FPS operator-() const {\n        FPS\
+    \ ret = *this;\n        for (auto& v : ret) v = -v;\n        return ret;\n   \
+    \ }\n\n    FPS differential() const {\n        const int n = (int)this->size();\n\
+    \        FPS ret(std::max(0, n - 1));\n        for (int i = 1; i < n; i++) ret[i\
     \ - 1] = (*this)[i] * T(i);\n        return ret;\n    }\n\n    FPS integral()\
     \ const {\n        const int n = (int)this->size();\n        FPS ret(n + 1);\n\
     \        ret[0] = T(0);\n        if (n > 0) ret[1] = T(1);\n        auto mod =\
@@ -514,44 +534,51 @@ data:
     \    using FPS = FormalPowerSeries;\n    void shrink() {\n        while (this->size()\
     \ and this->back() == T(0)) this->pop_back();\n    }\n\n    FPS pre(size_t sz)\
     \ const { return FPS(this->begin(), this->begin() + std::min(this->size(), sz));\
-    \ }\n\n    FPS operator>>(size_t sz) const {\n        if (this->size() <= sz)\
-    \ return {};\n        return FPS(this->begin() + sz, this->end());\n    }\n\n\
-    \    FPS operator<<(size_t sz) const {\n        if (this->empty()) return {};\n\
-    \        FPS ret(*this);\n        ret.insert(ret.begin(), sz, T(0));\n       \
-    \ return ret;\n    }\n\npublic:\n    FPS& operator+=(const FPS& r) {\n       \
+    \ }\n\n    FPS rev() const {\n        FPS ret(*this);\n        std::reverse(ret.begin(),\
+    \ ret.end());\n        return ret;\n    }\n\n    FPS operator>>(size_t sz) const\
+    \ {\n        if (this->size() <= sz) return {};\n        return FPS(this->begin()\
+    \ + sz, this->end());\n    }\n\n    FPS operator<<(size_t sz) const {\n      \
+    \  if (this->empty()) return {};\n        FPS ret(*this);\n        ret.insert(ret.begin(),\
+    \ sz, T(0));\n        return ret;\n    }\n\npublic:\n    FPS& operator+=(const\
+    \ FPS& r) {\n        if (r.size() > this->size()) this->resize(r.size());\n  \
+    \      for (size_t i = 0; i < r.size(); i++) (*this)[i] += r[i];\n        shrink();\n\
+    \        return *this;\n    }\n\n    FPS& operator+=(const T& v) {\n        if\
+    \ (this->empty()) this->resize(1);\n        (*this)[0] += v;\n        shrink();\n\
+    \        return *this;\n    }\n\n    FPS& operator-=(const FPS& r) {\n       \
     \ if (r.size() > this->size()) this->resize(r.size());\n        for (size_t i\
-    \ = 0; i < r.size(); i++) (*this)[i] += r[i];\n        shrink();\n        return\
-    \ *this;\n    }\n\n    FPS& operator+=(const T& v) {\n        if (this->empty())\
-    \ this->resize(1);\n        (*this)[0] += v;\n        shrink();\n        return\
-    \ *this;\n    }\n\n    FPS& operator-=(const FPS& r) {\n        if (r.size() >\
-    \ this->size()) this->resize(r.size());\n        for (size_t i = 0; i < r.size();\
-    \ i++) (*this)[i] -= r[i];\n        shrink();\n        return *this;\n    }\n\n\
-    \    FPS& operator-=(const T& v) {\n        if (this->empty()) this->resize(1);\n\
-    \        (*this)[0] -= v;\n        shrink();\n        return *this;\n    }\n\n\
-    \    FPS& operator*=(const FPS& r) {\n        auto res = atcoder::convolution(*this,\
+    \ = 0; i < r.size(); i++) (*this)[i] -= r[i];\n        shrink();\n        return\
+    \ *this;\n    }\n\n    FPS& operator-=(const T& v) {\n        if (this->empty())\
+    \ this->resize(1);\n        (*this)[0] -= v;\n        shrink();\n        return\
+    \ *this;\n    }\n\n    FPS& operator*=(const FPS& r) {\n        auto res = atcoder::convolution(*this,\
     \ r);\n        return *this = {res.begin(), res.end()};\n    }\n\n    FPS& operator*=(const\
     \ T& v) {\n        for (auto& x : (*this)) x *= v;\n        shrink();\n      \
-    \  return *this;\n    }\n\n    FPS operator+(const FPS& r) const { return FPS(*this)\
-    \ += r; }\n\n    FPS operator+(const T& v) const { return FPS(*this) += v; }\n\
-    \n    FPS operator-(const FPS& r) const { return FPS(*this) -= r; }\n\n    FPS\
-    \ operator-(const T& v) const { return FPS(*this) -= v; }\n\n    FPS operator*(const\
-    \ FPS& r) const { return FPS(*this) *= r; }\n\n    FPS operator*(const T& v) const\
-    \ { return FPS(*this) *= v; }\n\n    FPS operator-() const {\n        FPS ret\
-    \ = *this;\n        for (auto& v : ret) v = -v;\n        return ret;\n    }\n\n\
-    \    FPS differential() const {\n        const int n = (int)this->size();\n  \
-    \      FPS ret(std::max(0, n - 1));\n        for (int i = 1; i < n; i++) ret[i\
-    \ - 1] = (*this)[i] * T(i);\n        return ret;\n    }\n\n    FPS integral()\
-    \ const {\n        const int n = (int)this->size();\n        FPS ret(n + 1);\n\
-    \        ret[0] = T(0);\n        if (n > 0) ret[1] = T(1);\n        auto mod =\
-    \ T::mod();\n        for (int i = 2; i <= n; i++) ret[i] = -ret[mod % i] * (mod\
-    \ / i);\n        for (int i = 0; i < n; i++) ret[i + 1] *= (*this)[i];\n     \
-    \   return ret;\n    }\n\n    FPS inv(int deg = -1) const {\n        assert((*this)[0]\
-    \ != T(0));\n        const int n = (int)this->size();\n        if (deg == -1)\
-    \ deg = n;\n        FPS ret{(*this)[0].inv()};\n        ret.reserve(deg);\n  \
-    \      for (int d = 1; d < deg; d <<= 1) {\n            FPS f(d << 1), g(d <<\
-    \ 1);\n            std::copy(this->begin(), this->begin() + std::min(n, d << 1),\
-    \ f.begin());\n            std::copy(ret.begin(), ret.end(), g.begin());\n   \
-    \         atcoder::internal::butterfly(f);\n            atcoder::internal::butterfly(g);\n\
+    \  return *this;\n    }\n\n    FPS& operator/=(const FPS& r) {\n        if (this->size()\
+    \ < r.size()) {\n            this->clear();\n            return *this;\n     \
+    \   }\n        int n = this->size() - r.size() + 1;\n        return *this = (rev().pre(n)\
+    \ * r.rev().inv(n)).pre(n).rev();\n    }\n\n    FPS& operator%=(const FPS& r)\
+    \ {\n        *this -= *this / r * r;\n        shrink();\n        return *this;\n\
+    \    }\n\n    FPS operator+(const FPS& r) const { return FPS(*this) += r; }\n\n\
+    \    FPS operator+(const T& v) const { return FPS(*this) += v; }\n\n    FPS operator-(const\
+    \ FPS& r) const { return FPS(*this) -= r; }\n\n    FPS operator-(const T& v) const\
+    \ { return FPS(*this) -= v; }\n\n    FPS operator*(const FPS& r) const { return\
+    \ FPS(*this) *= r; }\n\n    FPS operator*(const T& v) const { return FPS(*this)\
+    \ *= v; }\n\n    FPS operator/(const FPS& r) const { return FPS(*this) /= r; }\n\
+    \n    FPS operator%(const FPS& r) const { return FPS(*this) %= r; }\n\n    FPS\
+    \ operator-() const {\n        FPS ret = *this;\n        for (auto& v : ret) v\
+    \ = -v;\n        return ret;\n    }\n\n    FPS differential() const {\n      \
+    \  const int n = (int)this->size();\n        FPS ret(std::max(0, n - 1));\n  \
+    \      for (int i = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n        return\
+    \ ret;\n    }\n\n    FPS integral() const {\n        const int n = (int)this->size();\n\
+    \        FPS ret(n + 1);\n        ret[0] = T(0);\n        if (n > 0) ret[1] =\
+    \ T(1);\n        auto mod = T::mod();\n        for (int i = 2; i <= n; i++) ret[i]\
+    \ = -ret[mod % i] * (mod / i);\n        for (int i = 0; i < n; i++) ret[i + 1]\
+    \ *= (*this)[i];\n        return ret;\n    }\n\n    FPS inv(int deg = -1) const\
+    \ {\n        assert((*this)[0] != T(0));\n        const int n = (int)this->size();\n\
+    \        if (deg == -1) deg = n;\n        FPS ret{(*this)[0].inv()};\n       \
+    \ ret.reserve(deg);\n        for (int d = 1; d < deg; d <<= 1) {\n           \
+    \ FPS f(d << 1), g(d << 1);\n            std::copy(this->begin(), this->begin()\
+    \ + std::min(n, d << 1), f.begin());\n            std::copy(ret.begin(), ret.end(),\
+    \ g.begin());\n            atcoder::internal::butterfly(f);\n            atcoder::internal::butterfly(g);\n\
     \            for (int i = 0; i < (d << 1); i++) f[i] *= g[i];\n            atcoder::internal::butterfly_inv(f);\n\
     \            std::fill(f.begin(), f.begin() + d, T(0));\n            atcoder::internal::butterfly(f);\n\
     \            for (int i = 0; i < (d << 1); i++) f[i] *= g[i];\n            atcoder::internal::butterfly_inv(f);\n\
@@ -630,15 +657,19 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: polynomial/FormalPowerSeries.hpp
-  requiredBy: []
-  timestamp: '2021-11-29 18:17:34+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  requiredBy:
+  - polynomial/multipoint_evaluation.hpp
+  timestamp: '2022-10-18 10:53:32+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
 documentation_of: polynomial/FormalPowerSeries.hpp
 layout: document
 title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
@@ -676,6 +707,27 @@ $$
 #### 乗算
 $f(x)g(x)$ を求める．
 これは Number Theoretic Transform により $O(N \log N)$ で計算可能である．
+
+#### （多項式としての）除算
+多項式 $f(x), g(x)$ について $f(x) = q(x) g(x) + r(x)$ なる多項式 $q(x), r(x)\ (\deg r < \deg g)$ を求める。
+以下、$\deg f = n - 1,\ \deg g = m - 1$ とすると $\deg q = n - m$ である。
+
+$f$ について多項式 $f^R = f(x^{-1}) x^{n - 1}$ を定める。
+商と余りの定義式を $x \gets x^{-1}$ として、両辺に $x^{n - 1}$ を掛けて、
+
+$$
+\begin{aligned}
+    &&&f(x^{-1}) x^{n - 1} = q(x^{-1}) x^{n - m} \cdot g(x^{-1}) x^{m - 1} + r(x^{-1}) x^{m - 2} \cdot x^{n - m + 1} \\
+    && \iff &f^R = q^R g^R + r^R x^{n - m + 1} \\
+    && \implies & f^R = q^R g^R \pmod{x^{n - m + 1}}.
+\end{aligned}
+$$
+
+$\deg q^R = n - m < n - m + 1$ より
+
+$$
+q^R = q^R \bmod x^{n - m + 1} = \frac{f^R}{g^R}.
+$$
 
 #### 微分・積分
 $f^\prime(x), \int f(x) \mathrm{d}x$ を求める．
@@ -751,7 +803,7 @@ $$
 3. $h$ の $[n, 2n)$ 次の項を取り出したものを改めて $h$ と定める．
 4. $-hg_n$ を計算し，これの $[n, 2n)$ 次の係数が $g_{2n}$ のそれに一致する．
 
-NTT と INTT をうまく組み合わせることでわざわざ畳み込む必要がなくなり，高速化が可能である．
+毎回畳み込むのではなく NTT と INTT をうまく組み合わせることで，高速化が可能である．
 
 #### log
 $\log (f(x))$，すなわち，
@@ -844,12 +896,58 @@ $$
 定数項が $1$ の多項式 $g(x)$ を用いて $f(x) = cx^lg(x)\ (l \geq 0)$ と表せる．
 このとき，$f(x)^k = c^kx^{lk}g(x)^k$ であることを利用すれば良い．
 
+#### pow（$f$ が sparse な場合）
+$f$ の非零の個数を $K$ とすると、$f(x)^k$ の先頭 $N$ 項を $O(NK)$ で列挙することができる。
+
+
+
 ## 問題例
 - [Codeforces Round #250 (Div. 1) E. The Child and Binary Tree](https://codeforces.com/contest/438/problem/E)
+
+- [yukicoder No.1145 Sums of Powers](https://yukicoder.me/problems/no/1145)
+  - 答えの母関数を考えると，
+
+    $$ \begin{align*}
+        \sum_{n = 0}^\infty x^n \sum_{i = 1}^N A_i^n
+        &= \sum_{i = 1}^N \sum_{n = 0}^\infty (A_i x)^n \\
+        &= \sum_{i = 1}^N \frac{1}{1 - A_i x}
+    \end{align*} $$
+
+    となり，これは分子と分母を二分木のように計算していくことで求めることができる．
+
+    もしくは，
+
+    $$ - \log (1 + x) = \sum_{n = 1}^\infty \frac{x^n}{n} $$
+
+    を用いると
+
+
+    $$ \begin{align*}
+        - \log \prod_{i = 1}^N (1 - A_i x)
+        &= \sum_{i = 1}^N - \log (1 - A_i x) \\
+        &= \sum_{i = 1}^N \sum_{n = 0}^\infty \frac{(A_i x)^n}{n} \\
+        &= \sum_{n = 0}^\infty \left(\sum_{i = 1}^N A_i^n \right) \frac{x^n}{n}
+    \end{align*} $$
+
+    となることからも計算可能である．
+
+- [AtCoder Beginner Contest 222 H - Beautiful Binary Tree](https://atcoder.jp/contests/abc222/tasks/abc222_h)
+
+- [AtCoder Beginner Contest 230 H - Bullion](https://atcoder.jp/contests/abc230/tasks/abc230_h)
+
+- [AtCoder Beginner Contest 260 Ex - Colorfulness](https://atcoder.jp/contests/abc260/tasks/abc260_h)
+  - 包除原理により $C(P) = n$ である $P$ の個数を求めた後，Sums of Powers と同様の考察により解くことができる．
+
+- [灘校文化祭コンテスト 2022 Day1 K - Li](https://atcoder.jp/contests/nadafes2022_day1/tasks/nadafes2022_day1_k)
 
 ## Reference
 [1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
 
 ## Links
 - [Operations on Formal Power Series - Codeforces](https://codeforces.com/blog/entry/56422)
+- [Nyaan's Library](https://nyaannyaan.github.io/library/)
 - [fpsのニュートン法高速化(簡易版) – Dropbox Paper](https://paper.dropbox.com/doc/fps-EoHXQDZxfduAB8wD1PMBW)
+- [形式的べき級数解説 \| maspyのHP](https://maspypy.com/category/%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0%e8%a7%a3%e8%aa%ac)
+- [[Tutorial] Generating Functions in Competitive Programming (Part 1) - Codeforces](https://codeforces.com/blog/entry/77468)
+- [[Tutorial] Generating Functions in Competitive Programming (Part 2) - Codeforces](https://codeforces.com/blog/entry/77551)
+- [A problem collection of ODE and differential technique - Codeforces](https://codeforces.com/blog/entry/76447)

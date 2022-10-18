@@ -4,43 +4,39 @@ data:
   - icon: ':question:'
     path: polynomial/FormalPowerSeries.hpp
     title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
-  - icon: ':question:'
-    path: util/modint.hpp
-    title: util/modint.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
-  _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yosupo/multipoint_evaluation.test.cpp
+    title: test/yosupo/multipoint_evaluation.test.cpp
+  _isVerificationFailed: true
+  _pathExtension: hpp
+  _verificationStatusIcon: ':x:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/log_of_formal_power_series
-    links:
-    - https://judge.yosupo.jp/problem/log_of_formal_power_series
-  bundledCode: "#line 1 \"test/yosupo/log_of_formal_power_series.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\n\n#line\
-    \ 1 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n#include <cassert>\n\
-    #include <functional>\n#include <vector>\n\n#line 1 \"atcoder/convolution.hpp\"\
-    \n\n\n\n#line 5 \"atcoder/convolution.hpp\"\n#include <array>\n#line 7 \"atcoder/convolution.hpp\"\
-    \n#include <type_traits>\n#line 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\
-    \n\n\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\n\
-    namespace internal {\n\n// @param n `0 <= n`\n// @return minimum non-negative\
-    \ `x` s.t. `n <= 2**x`\nint ceil_pow2(int n) {\n    int x = 0;\n    while ((1U\
-    \ << x) < (unsigned int)(n)) x++;\n    return x;\n}\n\n// @param n `1 <= n`\n\
-    // @return minimum non-negative `x` s.t. `(n & (1 << x)) != 0`\nconstexpr int\
-    \ bsf_constexpr(unsigned int n) {\n    int x = 0;\n    while (!(n & (1 << x)))\
-    \ x++;\n    return x;\n}\n\n// @param n `1 <= n`\n// @return minimum non-negative\
-    \ `x` s.t. `(n & (1 << x)) != 0`\nint bsf(unsigned int n) {\n#ifdef _MSC_VER\n\
-    \    unsigned long index;\n    _BitScanForward(&index, n);\n    return index;\n\
-    #else\n    return __builtin_ctz(n);\n#endif\n}\n\n}  // namespace internal\n\n\
-    }  // namespace atcoder\n\n\n#line 1 \"atcoder/modint.hpp\"\n\n\n\n#line 5 \"\
-    atcoder/modint.hpp\"\n#include <numeric>\n#line 7 \"atcoder/modint.hpp\"\n\n#ifdef\
-    \ _MSC_VER\n#include <intrin.h>\n#endif\n\n#line 1 \"atcoder/internal_math.hpp\"\
-    \n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\n\
-    namespace atcoder {\n\nnamespace internal {\n\n// @param m `1 <= m`\n// @return\
-    \ x mod m\nconstexpr long long safe_mod(long long x, long long m) {\n    x %=\
-    \ m;\n    if (x < 0) x += m;\n    return x;\n}\n\n// Fast modular multiplication\
-    \ by barrett reduction\n// Reference: https://en.wikipedia.org/wiki/Barrett_reduction\n\
+    links: []
+  bundledCode: "#line 1 \"polynomial/multipoint_evaluation.hpp\"\n#include <vector>\n\
+    #line 1 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n#include <cassert>\n\
+    #include <functional>\n#line 5 \"polynomial/FormalPowerSeries.hpp\"\n\n#line 1\
+    \ \"atcoder/convolution.hpp\"\n\n\n\n#line 5 \"atcoder/convolution.hpp\"\n#include\
+    \ <array>\n#line 7 \"atcoder/convolution.hpp\"\n#include <type_traits>\n#line\
+    \ 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\n\n\n\n\
+    #ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace\
+    \ internal {\n\n// @param n `0 <= n`\n// @return minimum non-negative `x` s.t.\
+    \ `n <= 2**x`\nint ceil_pow2(int n) {\n    int x = 0;\n    while ((1U << x) <\
+    \ (unsigned int)(n)) x++;\n    return x;\n}\n\n// @param n `1 <= n`\n// @return\
+    \ minimum non-negative `x` s.t. `(n & (1 << x)) != 0`\nconstexpr int bsf_constexpr(unsigned\
+    \ int n) {\n    int x = 0;\n    while (!(n & (1 << x))) x++;\n    return x;\n\
+    }\n\n// @param n `1 <= n`\n// @return minimum non-negative `x` s.t. `(n & (1 <<\
+    \ x)) != 0`\nint bsf(unsigned int n) {\n#ifdef _MSC_VER\n    unsigned long index;\n\
+    \    _BitScanForward(&index, n);\n    return index;\n#else\n    return __builtin_ctz(n);\n\
+    #endif\n}\n\n}  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 1\
+    \ \"atcoder/modint.hpp\"\n\n\n\n#line 5 \"atcoder/modint.hpp\"\n#include <numeric>\n\
+    #line 7 \"atcoder/modint.hpp\"\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\
+    \n#line 1 \"atcoder/internal_math.hpp\"\n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n\
+    #include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace internal {\n\n\
+    // @param m `1 <= m`\n// @return x mod m\nconstexpr long long safe_mod(long long\
+    \ x, long long m) {\n    x %= m;\n    if (x < 0) x += m;\n    return x;\n}\n\n\
+    // Fast modular multiplication by barrett reduction\n// Reference: https://en.wikipedia.org/wiki/Barrett_reduction\n\
     // NOTE: reconsider after Ice Lake\nstruct barrett {\n    unsigned int _m;\n \
     \   unsigned long long im;\n\n    // @param m `1 <= m < 2^31`\n    explicit barrett(unsigned\
     \ int m) : _m(m), im((unsigned long long)(-1) / m + 1) {}\n\n    // @return m\n\
@@ -509,39 +505,68 @@ data:
     \ < deg) ret.resize(deg, T(0));\n                return ret;\n            }\n\
     \        }\n        return FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n\
     \        T ret = 0, w = 1;\n        for (const auto& v : *this) ret += w * v,\
-    \ w *= x;\n        return ret;\n    }\n};\n#line 2 \"util/modint.hpp\"\n#include\
-    \ <iostream>\n#line 4 \"util/modint.hpp\"\n\nnamespace atcoder {\n\ntemplate <int\
-    \ MOD> std::istream& operator>>(std::istream& is, static_modint<MOD>& x) {\n \
-    \   int64_t v;\n    x = static_modint<MOD>{(is >> v, v)};\n    return is;\n}\n\
-    \ntemplate <int MOD> std::ostream& operator<<(std::ostream& os, const static_modint<MOD>&\
-    \ x) { return os << x.val(); }\n\ntemplate <int ID> std::ostream& operator<<(std::ostream&\
-    \ os, const dynamic_modint<ID>& x) { return os << x.val(); }\n\n}  // namespace\
-    \ atcoder\n#line 5 \"test/yosupo/log_of_formal_power_series.test.cpp\"\n\nusing\
-    \ mint = atcoder::modint998244353;\nusing FPS = FormalPowerSeries<mint>;\n\nint\
-    \ main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int\
-    \ N;\n    std::cin >> N;\n    FPS a(N);\n    for (int i = 0; i < N; i++) std::cin\
-    \ >> a[i];\n    FPS b = a.log();\n    for (int i = 0; i < N; i++) std::cout <<\
-    \ b[i] << (i + 1 == N ? '\\n' : ' ');\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\
-    \n\n#include \"polynomial/FormalPowerSeries.hpp\"\n#include \"util/modint.hpp\"\
-    \n\nusing mint = atcoder::modint998244353;\nusing FPS = FormalPowerSeries<mint>;\n\
-    \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
-    \    int N;\n    std::cin >> N;\n    FPS a(N);\n    for (int i = 0; i < N; i++)\
-    \ std::cin >> a[i];\n    FPS b = a.log();\n    for (int i = 0; i < N; i++) std::cout\
-    \ << b[i] << (i + 1 == N ? '\\n' : ' ');\n}"
+    \ w *= x;\n        return ret;\n    }\n};\n#line 3 \"polynomial/multipoint_evaluation.hpp\"\
+    \n\ntemplate <typename T> struct subproduct_tree {\n    using poly = FormalPowerSeries<T>;\n\
+    \    int m;\n    std::vector<poly> prod;\n    subproduct_tree(const std::vector<T>&\
+    \ x) : m(x.size()) {\n        int k = 1;\n        while (k < m) k <<= 1;\n   \
+    \     prod.assign(k << 1, {1});\n        for (int i = 0; i < m; i++) prod[k +\
+    \ i] = {-x[i], 1};\n        for (int i = k - 1; i > 0; i--) prod[i] = prod[i <<\
+    \ 1] * prod[i << 1 | 1];\n    }\n\n    int size() const { return prod.size() >>\
+    \ 1; }\n\n    poly mid_prod(const poly& a, const poly& b) const {}\n\n    std::vector<T>\
+    \ multipoint_evaluation(poly f) const {\n        std::vector<poly> rem(size()\
+    \ << 1);\n        rem[1] = f % prod[1];\n        for (int i = 2; i < size() +\
+    \ m; i++) rem[i] = rem[i >> 1] % prod[i];\n        std::vector<T> res(m);\n  \
+    \      for (int i = 0; i < m; i++) res[i] = (rem[size() + i].empty() ? 0 : rem[size()\
+    \ + i][0]);\n        return res;\n    }\n};\n"
+  code: "#include <vector>\n#include \"FormalPowerSeries.hpp\"\n\ntemplate <typename\
+    \ T> struct subproduct_tree {\n    using poly = FormalPowerSeries<T>;\n    int\
+    \ m;\n    std::vector<poly> prod;\n    subproduct_tree(const std::vector<T>& x)\
+    \ : m(x.size()) {\n        int k = 1;\n        while (k < m) k <<= 1;\n      \
+    \  prod.assign(k << 1, {1});\n        for (int i = 0; i < m; i++) prod[k + i]\
+    \ = {-x[i], 1};\n        for (int i = k - 1; i > 0; i--) prod[i] = prod[i << 1]\
+    \ * prod[i << 1 | 1];\n    }\n\n    int size() const { return prod.size() >> 1;\
+    \ }\n\n    poly mid_prod(const poly& a, const poly& b) const {}\n\n    std::vector<T>\
+    \ multipoint_evaluation(poly f) const {\n        std::vector<poly> rem(size()\
+    \ << 1);\n        rem[1] = f % prod[1];\n        for (int i = 2; i < size() +\
+    \ m; i++) rem[i] = rem[i >> 1] % prod[i];\n        std::vector<T> res(m);\n  \
+    \      for (int i = 0; i < m; i++) res[i] = (rem[size() + i].empty() ? 0 : rem[size()\
+    \ + i][0]);\n        return res;\n    }\n};"
   dependsOn:
   - polynomial/FormalPowerSeries.hpp
-  - util/modint.hpp
-  isVerificationFile: true
-  path: test/yosupo/log_of_formal_power_series.test.cpp
+  isVerificationFile: false
+  path: polynomial/multipoint_evaluation.hpp
   requiredBy: []
   timestamp: '2022-10-18 10:53:32+09:00'
-  verificationStatus: TEST_ACCEPTED
-  verifiedWith: []
-documentation_of: test/yosupo/log_of_formal_power_series.test.cpp
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yosupo/multipoint_evaluation.test.cpp
+documentation_of: polynomial/multipoint_evaluation.hpp
 layout: document
-redirect_from:
-- /verify/test/yosupo/log_of_formal_power_series.test.cpp
-- /verify/test/yosupo/log_of_formal_power_series.test.cpp.html
-title: test/yosupo/log_of_formal_power_series.test.cpp
+title: multipoint evaluation
 ---
+
+## 概要
+$n$ 次多項式 $f(x)$ と相異なる $m$ 点 $x_1, x_2, \dots , x_m$ に対し，$f(x_1), f(x_2), \dots , f(x_m)$ を $O(m (\log m)^2 + n \log n)$ で求めるアルゴリズム．
+
+剰余の定理より $f(a) = f(x) \bmod (x - a)$ であるから $f(x_1) \bmod (x - x_1), f(x_2) \bmod (x - x_2), \dots , f(x_m) \bmod (x - x_m)$ が求まれば良い．
+
+ここで，次のような各ノードに多項式をもつ根付き 2 分木 (subproduct tree) を構築する．
+まず，木は $m$ 個の葉ノードをもち，各ノードには $x - x_1, x - x_2, \dots , x - x_m$ が書かれている．
+そして，葉以外のノードにはその 2 つの子ノードに書かれた多項式の積が書かれている．
+subproduct tree は $O(m (\log m)^2)$ 時間で構築可能である．
+
+次に根の多項式を $f \bmod (x - x_1) (x - x_2) \dots (x - x_m)$ に書き換える．
+これは $O((n + m) \log (n + m))$ 時間かかる．
+また，多項式 $f, g, h$ に対して $(f \bmod g h) \bmod g = f \bmod g$ が成り立つことから，根から葉に逆方向に向かって $f$ をそのノードに書かれた多項式で割った余りを計算できる．
+これは最初の構築と同様で $O(m (\log m)^2)$ 時間で処理できる．
+
+こうして最終的に葉ノードに書かれた値が求めたかった評価値である．
+
+## TODO:
+middle product を利用した高速化
+
+## 問題例
+- [AtCoder Beginner Contest 272 Ex - Flipping Coins 2]
+
+## Links
+- [Multipoint Evaluation の アルゴリズム – 37zigenのHP](https://37zigen.com/multipoint-evaluation/)

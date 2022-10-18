@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/log_of_formal_power_series
+    PROBLEM: https://judge.yosupo.jp/problem/division_of_polynomials
     links:
-    - https://judge.yosupo.jp/problem/log_of_formal_power_series
-  bundledCode: "#line 1 \"test/yosupo/log_of_formal_power_series.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\n\n#line\
+    - https://judge.yosupo.jp/problem/division_of_polynomials
+  bundledCode: "#line 1 \"test/yosupo/division_of_polynomials.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/division_of_polynomials\"\n\n#line\
     \ 1 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n#include <cassert>\n\
     #include <functional>\n#include <vector>\n\n#line 1 \"atcoder/convolution.hpp\"\
     \n\n\n\n#line 5 \"atcoder/convolution.hpp\"\n#include <array>\n#line 7 \"atcoder/convolution.hpp\"\
@@ -516,32 +516,38 @@ data:
     \ntemplate <int MOD> std::ostream& operator<<(std::ostream& os, const static_modint<MOD>&\
     \ x) { return os << x.val(); }\n\ntemplate <int ID> std::ostream& operator<<(std::ostream&\
     \ os, const dynamic_modint<ID>& x) { return os << x.val(); }\n\n}  // namespace\
-    \ atcoder\n#line 5 \"test/yosupo/log_of_formal_power_series.test.cpp\"\n\nusing\
-    \ mint = atcoder::modint998244353;\nusing FPS = FormalPowerSeries<mint>;\n\nint\
-    \ main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int\
-    \ N;\n    std::cin >> N;\n    FPS a(N);\n    for (int i = 0; i < N; i++) std::cin\
-    \ >> a[i];\n    FPS b = a.log();\n    for (int i = 0; i < N; i++) std::cout <<\
-    \ b[i] << (i + 1 == N ? '\\n' : ' ');\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\
+    \ atcoder\n#line 5 \"test/yosupo/division_of_polynomials.test.cpp\"\n\nusing mint\
+    \ = atcoder::modint998244353;\nusing Poly = FormalPowerSeries<mint>;\n\nint main()\
+    \ {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int N, M;\n\
+    \    std::cin >> N >> M;\n    Poly f(N), g(M);\n    for (int i = 0; i < N; i++)\
+    \ std::cin >> f[i];\n    for (int i = 0; i < M; i++) std::cin >> g[i];\n\n   \
+    \ auto q = f / g, r = f % g;\n    std::cout << q.size() << ' ' << r.size() <<\
+    \ '\\n';\n    for (size_t i = 0; i < q.size(); i++) std::cout << q[i] << (i +\
+    \ 1 == q.size() ? '\\n' : ' ');\n    for (size_t i = 0; i < r.size(); i++) std::cout\
+    \ << r[i] << (i + 1 == r.size() ? '\\n' : ' ');\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/division_of_polynomials\"\
     \n\n#include \"polynomial/FormalPowerSeries.hpp\"\n#include \"util/modint.hpp\"\
-    \n\nusing mint = atcoder::modint998244353;\nusing FPS = FormalPowerSeries<mint>;\n\
+    \n\nusing mint = atcoder::modint998244353;\nusing Poly = FormalPowerSeries<mint>;\n\
     \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
-    \    int N;\n    std::cin >> N;\n    FPS a(N);\n    for (int i = 0; i < N; i++)\
-    \ std::cin >> a[i];\n    FPS b = a.log();\n    for (int i = 0; i < N; i++) std::cout\
-    \ << b[i] << (i + 1 == N ? '\\n' : ' ');\n}"
+    \    int N, M;\n    std::cin >> N >> M;\n    Poly f(N), g(M);\n    for (int i\
+    \ = 0; i < N; i++) std::cin >> f[i];\n    for (int i = 0; i < M; i++) std::cin\
+    \ >> g[i];\n\n    auto q = f / g, r = f % g;\n    std::cout << q.size() << ' '\
+    \ << r.size() << '\\n';\n    for (size_t i = 0; i < q.size(); i++) std::cout <<\
+    \ q[i] << (i + 1 == q.size() ? '\\n' : ' ');\n    for (size_t i = 0; i < r.size();\
+    \ i++) std::cout << r[i] << (i + 1 == r.size() ? '\\n' : ' ');\n}"
   dependsOn:
   - polynomial/FormalPowerSeries.hpp
   - util/modint.hpp
   isVerificationFile: true
-  path: test/yosupo/log_of_formal_power_series.test.cpp
+  path: test/yosupo/division_of_polynomials.test.cpp
   requiredBy: []
   timestamp: '2022-10-18 10:53:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/log_of_formal_power_series.test.cpp
+documentation_of: test/yosupo/division_of_polynomials.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/log_of_formal_power_series.test.cpp
-- /verify/test/yosupo/log_of_formal_power_series.test.cpp.html
-title: test/yosupo/log_of_formal_power_series.test.cpp
+- /verify/test/yosupo/division_of_polynomials.test.cpp
+- /verify/test/yosupo/division_of_polynomials.test.cpp.html
+title: test/yosupo/division_of_polynomials.test.cpp
 ---

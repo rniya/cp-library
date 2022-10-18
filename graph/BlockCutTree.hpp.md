@@ -187,8 +187,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/two_edge_connected_components.test.cpp
-  - test/aoj/GRL_3_B.test.cpp
   - test/aoj/GRL_3_A.test.cpp
+  - test/aoj/GRL_3_B.test.cpp
 documentation_of: graph/BlockCutTree.hpp
 layout: document
 title: Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected Components)

@@ -172,8 +172,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/vertex_set_path_composite.test.cpp
-  - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/jump_on_tree.test.cpp
+  - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/vertex_add_path_sum.test.cpp
   - test/aoj/GRL_5_C.test.cpp
   - test/aoj/2667.test.cpp
@@ -211,6 +211,11 @@ title: Heavy Light Decomposition
 #### Remark
 `query_path_noncommutative` を呼ぶ際には，付随するデータ構造もそれに対応しうるものである必要がある．具体的な要件としては，区間 $[l,r)$ に対して演算が左結合か右結合かを区別して正しく処理できなければならない．逆に言えば左結合か右結合かだけが重要なので，それぞれを処理する 2 つのデータ構造を用意することで解決することも可能である．
 
+## 問題例
+- [AtCoder Beginner Contest 269 Ex - Antichain](https://atcoder.jp/contests/abc269/tasks/abc269_h)
+  - heavy path 上の分割統治を適切にまとめていくことで解ける．各 heavy path の先頭の頂点の部分木の大きさの総和が $O(N \log N)$ であること等を利用する．
+
 ## Links
 - [Easiest HLD with subtree queries - Codeforces](https://codeforces.com/blog/entry/53170)
 - [Heavy-Light Decomposition - math314のブログ](https://math314.hateblo.jp/entry/2014/06/24/220107)
+- [マージテクと高さ O(logn) のマージ過程との融合 \| Mathenachia](https://www.mathenachia.blog/mergetech-and-logn/#toc4)

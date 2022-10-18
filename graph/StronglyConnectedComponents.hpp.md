@@ -87,8 +87,8 @@ data:
   timestamp: '2022-04-14 01:34:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/two_sat.test.cpp
   - test/yosupo/scc.test.cpp
+  - test/yosupo/two_sat.test.cpp
   - test/aoj/GRL_3_C.test.cpp
 documentation_of: graph/StronglyConnectedComponents.hpp
 layout: document

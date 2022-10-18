@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/gcd_convolution.test.cpp
+    title: test/yosupo/gcd_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/886.test.cpp
     title: test/yukicoder/886.test.cpp
   _isVerificationFailed: false
@@ -52,6 +55,7 @@ data:
   timestamp: '2021-12-29 23:38:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/gcd_convolution.test.cpp
   - test/yukicoder/886.test.cpp
 documentation_of: convolution/gcd_convolution.hpp
 layout: document

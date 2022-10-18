@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: linearalgebra/Matrix.hpp
     title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: util/modint.hpp
     title: util/modint.hpp
   _extendedRequiredBy: []

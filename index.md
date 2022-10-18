@@ -46,6 +46,9 @@ data:
       path: datastructure/CumulativeSum2D.hpp
       title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
     - icon: ':warning:'
+      path: datastructure/IntervalManager.hpp
+      title: datastructure/IntervalManager.hpp
+    - icon: ':warning:'
       path: datastructure/LineContainer.hpp
       title: Line Container (based on kactl)
     - icon: ':warning:'
@@ -93,6 +96,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/Simplex.hpp
       title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"
+    - icon: ':warning:'
+      path: flow/min_cost_b_flow.hpp
+      title: Minimum Cost b-flow
   - name: geometry
     pages:
     - icon: ':heavy_check_mark:'
@@ -178,12 +184,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: polynomial/BostanMori.hpp
       title: Bostan-Mori Algorithm
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: polynomial/FormalPowerSeries.hpp
       title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
     - icon: ':heavy_check_mark:'
       path: polynomial/lagrange_interpolation.hpp
       title: Lagrange Interpolation
+    - icon: ':x:'
+      path: polynomial/multipoint_evaluation.hpp
+      title: multipoint evaluation
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
@@ -238,7 +247,7 @@ data:
     - icon: ':warning:'
       path: util/gray_code.hpp
       title: Gray Code
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: util/modint.hpp
       title: util/modint.hpp
     - icon: ':warning:'
@@ -442,6 +451,9 @@ data:
       path: test/yosupo/discrete_logarithm_mod.test.cpp
       title: test/yosupo/discrete_logarithm_mod.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/division_of_polynomials.test.cpp
+      title: test/yosupo/division_of_polynomials.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/enumerate_palindromes.test.cpp
       title: test/yosupo/enumerate_palindromes.test.cpp
     - icon: ':heavy_check_mark:'
@@ -453,6 +465,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/frequency_table_of_tree_distance.test.cpp
       title: test/yosupo/frequency_table_of_tree_distance.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/gcd_convolution.test.cpp
+      title: test/yosupo/gcd_convolution.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/inv_of_formal_power_series.test.cpp
       title: test/yosupo/inv_of_formal_power_series.test.cpp
@@ -468,13 +483,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_det.test.cpp
       title: test/yosupo/matrix_det.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/multipoint_evaluation.test.cpp
+      title: test/yosupo/multipoint_evaluation.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
       title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_rectangle_sum.test.cpp
       title: test/yosupo/point_add_rectangle_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
