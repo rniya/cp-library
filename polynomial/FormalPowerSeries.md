@@ -36,6 +36,27 @@ $$
 $f(x)g(x)$ を求める．
 これは Number Theoretic Transform により $O(N \log N)$ で計算可能である．
 
+#### （多項式としての）除算
+多項式 $f(x), g(x)$ について $f(x) = q(x) g(x) + r(x)$ なる多項式 $q(x), r(x)\ (\deg r < \deg g)$ を求める。
+以下、$\deg f = n - 1,\ \deg g = m - 1$ とすると $\deg q = n - m$ である。
+
+$f$ について多項式 $f^R = f(x^{-1}) x^{n - 1}$ を定める。
+商と余りの定義式を $x \gets x^{-1}$ として、両辺に $x^{n - 1}$ を掛けて、
+
+$$
+\begin{aligned}
+    &&&f(x^{-1}) x^{n - 1} = q(x^{-1}) x^{n - m} \cdot g(x^{-1}) x^{m - 1} + r(x^{-1}) x^{m - 2} \cdot x^{n - m + 1} \\
+    && \iff &f^R = q^R g^R + r^R x^{n - m + 1} \\
+    && \implies & f^R = q^R g^R \pmod{x^{n - m + 1}}.
+\end{aligned}
+$$
+
+$\deg q^R = n - m < n - m + 1$ より
+
+$$
+q^R = q^R \bmod x^{n - m + 1} = \frac{f^R}{g^R}.
+$$
+
 #### 微分・積分
 $f^\prime(x), \int f(x) \mathrm{d}x$ を求める．
 ただし，不定積分の積分定数は $0$ とする．
@@ -110,7 +131,7 @@ $$
 3. $h$ の $[n, 2n)$ 次の項を取り出したものを改めて $h$ と定める．
 4. $-hg_n$ を計算し，これの $[n, 2n)$ 次の係数が $g_{2n}$ のそれに一致する．
 
-NTT と INTT をうまく組み合わせることでわざわざ畳み込む必要がなくなり，高速化が可能である．
+毎回畳み込むのではなく NTT と INTT をうまく組み合わせることで，高速化が可能である．
 
 #### log
 $\log (f(x))$，すなわち，
@@ -203,12 +224,58 @@ $$
 定数項が $1$ の多項式 $g(x)$ を用いて $f(x) = cx^lg(x)\ (l \geq 0)$ と表せる．
 このとき，$f(x)^k = c^kx^{lk}g(x)^k$ であることを利用すれば良い．
 
+#### pow（$f$ が sparse な場合）
+$f$ の非零の個数を $K$ とすると、$f(x)^k$ の先頭 $N$ 項を $O(NK)$ で列挙することができる。
+
+
+
 ## 問題例
 - [Codeforces Round #250 (Div. 1) E. The Child and Binary Tree](https://codeforces.com/contest/438/problem/E)
+
+- [yukicoder No.1145 Sums of Powers](https://yukicoder.me/problems/no/1145)
+  - 答えの母関数を考えると，
+
+    $$ \begin{align*}
+        \sum_{n = 0}^\infty x^n \sum_{i = 1}^N A_i^n
+        &= \sum_{i = 1}^N \sum_{n = 0}^\infty (A_i x)^n \\
+        &= \sum_{i = 1}^N \frac{1}{1 - A_i x}
+    \end{align*} $$
+
+    となり，これは分子と分母を二分木のように計算していくことで求めることができる．
+
+    もしくは，
+
+    $$ - \log (1 + x) = \sum_{n = 1}^\infty \frac{x^n}{n} $$
+
+    を用いると
+
+
+    $$ \begin{align*}
+        - \log \prod_{i = 1}^N (1 - A_i x)
+        &= \sum_{i = 1}^N - \log (1 - A_i x) \\
+        &= \sum_{i = 1}^N \sum_{n = 0}^\infty \frac{(A_i x)^n}{n} \\
+        &= \sum_{n = 0}^\infty \left(\sum_{i = 1}^N A_i^n \right) \frac{x^n}{n}
+    \end{align*} $$
+
+    となることからも計算可能である．
+
+- [AtCoder Beginner Contest 222 H - Beautiful Binary Tree](https://atcoder.jp/contests/abc222/tasks/abc222_h)
+
+- [AtCoder Beginner Contest 230 H - Bullion](https://atcoder.jp/contests/abc230/tasks/abc230_h)
+
+- [AtCoder Beginner Contest 260 Ex - Colorfulness](https://atcoder.jp/contests/abc260/tasks/abc260_h)
+  - 包除原理により $C(P) = n$ である $P$ の個数を求めた後，Sums of Powers と同様の考察により解くことができる．
+
+- [灘校文化祭コンテスト 2022 Day1 K - Li](https://atcoder.jp/contests/nadafes2022_day1/tasks/nadafes2022_day1_k)
 
 ## Reference
 [1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
 
 ## Links
 - [Operations on Formal Power Series - Codeforces](https://codeforces.com/blog/entry/56422)
+- [Nyaan's Library](https://nyaannyaan.github.io/library/)
 - [fpsのニュートン法高速化(簡易版) – Dropbox Paper](https://paper.dropbox.com/doc/fps-EoHXQDZxfduAB8wD1PMBW)
+- [形式的べき級数解説 \| maspyのHP](https://maspypy.com/category/%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0%e8%a7%a3%e8%aa%ac)
+- [[Tutorial] Generating Functions in Competitive Programming (Part 1) - Codeforces](https://codeforces.com/blog/entry/77468)
+- [[Tutorial] Generating Functions in Competitive Programming (Part 2) - Codeforces](https://codeforces.com/blog/entry/77551)
+- [A problem collection of ODE and differential technique - Codeforces](https://codeforces.com/blog/entry/76447)

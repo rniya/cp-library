@@ -15,6 +15,12 @@ private:
 
     FPS pre(size_t sz) const { return FPS(this->begin(), this->begin() + std::min(this->size(), sz)); }
 
+    FPS rev() const {
+        FPS ret(*this);
+        std::reverse(ret.begin(), ret.end());
+        return ret;
+    }
+
     FPS operator>>(size_t sz) const {
         if (this->size() <= sz) return {};
         return FPS(this->begin() + sz, this->end());
@@ -67,6 +73,21 @@ public:
         return *this;
     }
 
+    FPS& operator/=(const FPS& r) {
+        if (this->size() < r.size()) {
+            this->clear();
+            return *this;
+        }
+        int n = this->size() - r.size() + 1;
+        return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev();
+    }
+
+    FPS& operator%=(const FPS& r) {
+        *this -= *this / r * r;
+        shrink();
+        return *this;
+    }
+
     FPS operator+(const FPS& r) const { return FPS(*this) += r; }
 
     FPS operator+(const T& v) const { return FPS(*this) += v; }
@@ -78,6 +99,10 @@ public:
     FPS operator*(const FPS& r) const { return FPS(*this) *= r; }
 
     FPS operator*(const T& v) const { return FPS(*this) *= v; }
+
+    FPS operator/(const FPS& r) const { return FPS(*this) /= r; }
+
+    FPS operator%(const FPS& r) const { return FPS(*this) %= r; }
 
     FPS operator-() const {
         FPS ret = *this;
