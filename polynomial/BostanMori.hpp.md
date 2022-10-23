@@ -376,7 +376,7 @@ data:
     \     if (diff < 0) diff += MOD1;\n        static constexpr unsigned long long\
     \ offset[5] = {\n            0, 0, M1M2M3, 2 * M1M2M3, 3 * M1M2M3};\n        x\
     \ -= offset[diff % 5];\n        c[i] = x;\n    }\n\n    return c;\n}\n\n}  //\
-    \ namespace atcoder\n\n\n#line 2 \"polynomial/BostanMori.hpp\"\n\ntemplate <typename\
+    \ namespace atcoder\n\n\n#line 3 \"polynomial/BostanMori.hpp\"\n\ntemplate <typename\
     \ T> T BostanMori(std::vector<T> Q, std::vector<T> P, long long N) {\n    assert(Q[0]\
     \ == 1);\n    assert(P.size() < Q.size());\n    const int d = Q.size();\n    for\
     \ (; N; N >>= 1) {\n        auto Q_neg = Q;\n        for (size_t i = 1; i < Q.size();\
@@ -394,28 +394,29 @@ data:
     \    std::vector<T> Q(d + 1);\n    Q[0] = 1;\n    for (int i = 0; i < d; i++)\
     \ Q[i + 1] = -c[i];\n    std::vector<T> P = atcoder::convolution(a, Q);\n    P.resize(d);\n\
     \    return BostanMori(Q, P, N);\n}\n"
-  code: "#include \"atcoder/convolution\"\n\ntemplate <typename T> T BostanMori(std::vector<T>\
-    \ Q, std::vector<T> P, long long N) {\n    assert(Q[0] == 1);\n    assert(P.size()\
-    \ < Q.size());\n    const int d = Q.size();\n    for (; N; N >>= 1) {\n      \
-    \  auto Q_neg = Q;\n        for (size_t i = 1; i < Q.size(); i += 2) Q_neg[i]\
-    \ *= -1;\n        P = atcoder::convolution(P, Q_neg);\n        Q = atcoder::convolution(Q,\
-    \ Q_neg);\n        for (size_t i = N & 1; i < P.size(); i += 2) P[i >> 1] = P[i];\n\
-    \        for (size_t i = 0; i < Q.size(); i += 2) Q[i >> 1] = Q[i];\n        P.resize(d\
-    \ - 1);\n        Q.resize(d);\n    }\n    return P[0];\n}\n\n/**\n * @brief compute\
-    \ Nth term of linearly recurrent sequence a_n = \\sum_{i = 1}^d c_i a_{n - i}\n\
-    \ *\n * @tparam T F_p\n * @param a first d elements of the sequence a_0, a_1,\
-    \ ... , a_{d - 1}\n * @param c coefficients of the linear recurrence c_1, c_2,\
-    \ ... , c_d\n * @param N the number of term you want to calculate\n * @return\
-    \ T Nth term of linearly recurrent sequence\n */\ntemplate <typename T> T LinearRecurrence(std::vector<T>\
-    \ a, std::vector<T> c, long long N) {\n    assert(a.size() >= c.size());\n   \
-    \ const int d = c.size();\n    std::vector<T> Q(d + 1);\n    Q[0] = 1;\n    for\
-    \ (int i = 0; i < d; i++) Q[i + 1] = -c[i];\n    std::vector<T> P = atcoder::convolution(a,\
-    \ Q);\n    P.resize(d);\n    return BostanMori(Q, P, N);\n}\n"
+  code: "#pragma once\n#include \"atcoder/convolution\"\n\ntemplate <typename T> T\
+    \ BostanMori(std::vector<T> Q, std::vector<T> P, long long N) {\n    assert(Q[0]\
+    \ == 1);\n    assert(P.size() < Q.size());\n    const int d = Q.size();\n    for\
+    \ (; N; N >>= 1) {\n        auto Q_neg = Q;\n        for (size_t i = 1; i < Q.size();\
+    \ i += 2) Q_neg[i] *= -1;\n        P = atcoder::convolution(P, Q_neg);\n     \
+    \   Q = atcoder::convolution(Q, Q_neg);\n        for (size_t i = N & 1; i < P.size();\
+    \ i += 2) P[i >> 1] = P[i];\n        for (size_t i = 0; i < Q.size(); i += 2)\
+    \ Q[i >> 1] = Q[i];\n        P.resize(d - 1);\n        Q.resize(d);\n    }\n \
+    \   return P[0];\n}\n\n/**\n * @brief compute Nth term of linearly recurrent sequence\
+    \ a_n = \\sum_{i = 1}^d c_i a_{n - i}\n *\n * @tparam T F_p\n * @param a first\
+    \ d elements of the sequence a_0, a_1, ... , a_{d - 1}\n * @param c coefficients\
+    \ of the linear recurrence c_1, c_2, ... , c_d\n * @param N the number of term\
+    \ you want to calculate\n * @return T Nth term of linearly recurrent sequence\n\
+    \ */\ntemplate <typename T> T LinearRecurrence(std::vector<T> a, std::vector<T>\
+    \ c, long long N) {\n    assert(a.size() >= c.size());\n    const int d = c.size();\n\
+    \    std::vector<T> Q(d + 1);\n    Q[0] = 1;\n    for (int i = 0; i < d; i++)\
+    \ Q[i + 1] = -c[i];\n    std::vector<T> P = atcoder::convolution(a, Q);\n    P.resize(d);\n\
+    \    return BostanMori(Q, P, N);\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: polynomial/BostanMori.hpp
   requiredBy: []
-  timestamp: '2021-12-30 16:20:01+09:00'
+  timestamp: '2022-10-23 23:11:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp

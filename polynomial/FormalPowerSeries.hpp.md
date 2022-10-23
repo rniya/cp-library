@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/multipoint_evaluation.hpp
     title: multipoint evaluation
   _extendedVerifiedWith:
@@ -18,10 +18,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/multipoint_evaluation.test.cpp
-    title: test/yosupo/multipoint_evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
   - icon: ':x:'
@@ -37,7 +34,7 @@ data:
     document_title: Exp of Formal Power Series
     links:
     - https://arxiv.org/pdf/1301.5804.pdf
-  bundledCode: "#line 1 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n\
+  bundledCode: "#line 2 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n\
     #include <cassert>\n#include <functional>\n#include <vector>\n\n#line 1 \"atcoder/convolution.hpp\"\
     \n\n\n\n#line 5 \"atcoder/convolution.hpp\"\n#include <array>\n#line 7 \"atcoder/convolution.hpp\"\
     \n#include <type_traits>\n#line 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\
@@ -402,7 +399,7 @@ data:
     \     if (diff < 0) diff += MOD1;\n        static constexpr unsigned long long\
     \ offset[5] = {\n            0, 0, M1M2M3, 2 * M1M2M3, 3 * M1M2M3};\n        x\
     \ -= offset[diff % 5];\n        c[i] = x;\n    }\n\n    return c;\n}\n\n}  //\
-    \ namespace atcoder\n\n\n#line 7 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
+    \ namespace atcoder\n\n\n#line 8 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
     \ <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void shrink()\
     \ {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
@@ -528,9 +525,9 @@ data:
     \        }\n        return FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n\
     \        T ret = 0, w = 1;\n        for (const auto& v : *this) ret += w * v,\
     \ w *= x;\n        return ret;\n    }\n};\n"
-  code: "#include <algorithm>\n#include <cassert>\n#include <functional>\n#include\
-    \ <vector>\n\n#include \"atcoder/convolution\"\n\ntemplate <typename T> struct\
-    \ FormalPowerSeries : std::vector<T> {\nprivate:\n    using std::vector<T>::vector;\n\
+  code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <functional>\n\
+    #include <vector>\n\n#include \"atcoder/convolution\"\n\ntemplate <typename T>\
+    \ struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using std::vector<T>::vector;\n\
     \    using FPS = FormalPowerSeries;\n    void shrink() {\n        while (this->size()\
     \ and this->back() == T(0)) this->pop_back();\n    }\n\n    FPS pre(size_t sz)\
     \ const { return FPS(this->begin(), this->begin() + std::min(this->size(), sz));\
@@ -659,17 +656,16 @@ data:
   path: polynomial/FormalPowerSeries.hpp
   requiredBy:
   - polynomial/multipoint_evaluation.hpp
-  timestamp: '2022-10-18 10:53:32+09:00'
+  timestamp: '2022-10-23 23:11:09+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
 documentation_of: polynomial/FormalPowerSeries.hpp
 layout: document
 title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"

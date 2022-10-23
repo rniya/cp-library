@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"algorithm/SubsetSum.hpp\"\n#include <vector>\n\nstd::vector<bool>\
+  bundledCode: "#line 2 \"algorithm/SubsetSum.hpp\"\n#include <vector>\n\nstd::vector<bool>\
     \ SubsetSum(const std::vector<int>& a, int S) {\n    int n = a.size();\n    std::vector<int>\
     \ dp(S + 1, -1);\n    int m = (S >> 6) + 1;\n    std::vector<unsigned long long>\
     \ A(m, 0), B(m, 0);\n    A[0] = 1;\n\n    for (int i = 0; i < n; i++) {\n    \
@@ -22,7 +22,7 @@ data:
     \ dp[S] == -1) return {};\n    std::vector<bool> res(n, false);\n    while (S\
     \ > 0) {\n        res[dp[S]] = true;\n        S -= a[dp[S]];\n    }\n    return\
     \ res;\n}\n"
-  code: "#include <vector>\n\nstd::vector<bool> SubsetSum(const std::vector<int>&\
+  code: "#pragma once\n#include <vector>\n\nstd::vector<bool> SubsetSum(const std::vector<int>&\
     \ a, int S) {\n    int n = a.size();\n    std::vector<int> dp(S + 1, -1);\n  \
     \  int m = (S >> 6) + 1;\n    std::vector<unsigned long long> A(m, 0), B(m, 0);\n\
     \    A[0] = 1;\n\n    for (int i = 0; i < n; i++) {\n        int x = a[i] >> 6,\
@@ -39,7 +39,7 @@ data:
   isVerificationFile: false
   path: algorithm/SubsetSum.hpp
   requiredBy: []
-  timestamp: '2021-12-31 20:49:38+09:00'
+  timestamp: '2022-10-23 23:11:09+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: algorithm/SubsetSum.hpp

@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"algorithm/SubsetSum2.hpp\"\n#include <algorithm>\n#include\
+  bundledCode: "#line 2 \"algorithm/SubsetSum2.hpp\"\n#include <algorithm>\n#include\
     \ <numeric>\n#include <vector>\n\nstd::vector<int> SubsetSum(const std::vector<int>&\
     \ a, int S) {\n    int n = a.size(), sum = std::accumulate(a.begin(), a.end(),\
     \ 0);\n    if (S < 0 or sum < S) return {};\n    bool flip = (S * 2 < sum);\n\
@@ -33,12 +33,12 @@ data:
     \   }\n        }\n\n        if (flip) {\n            for (int& x : res) {\n  \
     \              x ^= 1;\n            }\n        }\n        return res;\n    }\n\
     \    return {};\n}\n"
-  code: "#include <algorithm>\n#include <numeric>\n#include <vector>\n\nstd::vector<int>\
-    \ SubsetSum(const std::vector<int>& a, int S) {\n    int n = a.size(), sum = std::accumulate(a.begin(),\
-    \ a.end(), 0);\n    if (S < 0 or sum < S) return {};\n    bool flip = (S * 2 <\
-    \ sum);\n    if (flip) S = sum - S;\n\n    int l = 0;\n    while (l < n and S\
-    \ > 0) S -= a[l++];\n    int a_max = *std::max_element(a.begin(), a.end()), m\
-    \ = a_max * 2 + 1;\n    const int inf = 1 << 30;\n    std::vector<std::vector<int>>\
+  code: "#pragma once\n#include <algorithm>\n#include <numeric>\n#include <vector>\n\
+    \nstd::vector<int> SubsetSum(const std::vector<int>& a, int S) {\n    int n =\
+    \ a.size(), sum = std::accumulate(a.begin(), a.end(), 0);\n    if (S < 0 or sum\
+    \ < S) return {};\n    bool flip = (S * 2 < sum);\n    if (flip) S = sum - S;\n\
+    \n    int l = 0;\n    while (l < n and S > 0) S -= a[l++];\n    int a_max = *std::max_element(a.begin(),\
+    \ a.end()), m = a_max * 2 + 1;\n    const int inf = 1 << 30;\n    std::vector<std::vector<int>>\
     \ dp(n + 1);\n    for (int i = l; i <= n; i++) dp[i].assign(m, inf);\n    dp[l][a_max\
     \ - S] = 0;\n\n    for (int i = l; i <= n; i++) {\n        for (int k = m - 1;\
     \ k >= 0; k--) {\n            if (k > a_max) {\n                int r = l;\n \
@@ -61,7 +61,7 @@ data:
   isVerificationFile: false
   path: algorithm/SubsetSum2.hpp
   requiredBy: []
-  timestamp: '2021-12-31 20:49:38+09:00'
+  timestamp: '2022-10-23 23:11:09+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: algorithm/SubsetSum2.hpp

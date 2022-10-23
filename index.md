@@ -163,6 +163,9 @@ data:
       title: Characteristic Polynomial
   - name: math
     pages:
+    - icon: ':heavy_check_mark:'
+      path: math/Nimber.hpp
+      title: math/Nimber.hpp
     - icon: ':warning:'
       path: math/binary_gcd.hpp
       title: binary gcd
@@ -190,7 +193,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: polynomial/lagrange_interpolation.hpp
       title: Lagrange Interpolation
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: polynomial/multipoint_evaluation.hpp
       title: multipoint evaluation
   - name: string
@@ -483,9 +486,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_det.test.cpp
       title: test/yosupo/matrix_det.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/multipoint_evaluation.test.cpp
       title: test/yosupo/multipoint_evaluation.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/nim_product_64.test.cpp
+      title: test/yosupo/nim_product_64.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
       title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp

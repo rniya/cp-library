@@ -382,7 +382,7 @@ data:
     \     if (diff < 0) diff += MOD1;\n        static constexpr unsigned long long\
     \ offset[5] = {\n            0, 0, M1M2M3, 2 * M1M2M3, 3 * M1M2M3};\n        x\
     \ -= offset[diff % 5];\n        c[i] = x;\n    }\n\n    return c;\n}\n\n}  //\
-    \ namespace atcoder\n\n\n#line 2 \"polynomial/BostanMori.hpp\"\n\ntemplate <typename\
+    \ namespace atcoder\n\n\n#line 3 \"polynomial/BostanMori.hpp\"\n\ntemplate <typename\
     \ T> T BostanMori(std::vector<T> Q, std::vector<T> P, long long N) {\n    assert(Q[0]\
     \ == 1);\n    assert(P.size() < Q.size());\n    const int d = Q.size();\n    for\
     \ (; N; N >>= 1) {\n        auto Q_neg = Q;\n        for (size_t i = 1; i < Q.size();\
@@ -425,7 +425,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
   requiredBy: []
-  timestamp: '2021-12-30 16:20:01+09:00'
+  timestamp: '2022-10-23 23:11:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp

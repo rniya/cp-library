@@ -4,10 +4,7 @@ data:
   - icon: ':question:'
     path: polynomial/FormalPowerSeries.hpp
     title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
-  - icon: ':question:'
-    path: polynomial/FormalPowerSeries.hpp
-    title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/multipoint_evaluation.hpp
     title: multipoint evaluation
   - icon: ':question:'
@@ -15,18 +12,18 @@ data:
     title: util/modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/multipoint_evaluation
     links:
     - https://judge.yosupo.jp/problem/multipoint_evaluation
   bundledCode: "#line 1 \"test/yosupo/multipoint_evaluation.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/multipoint_evaluation\"\n\n#line 1 \"polynomial/multipoint_evaluation.hpp\"\
-    \n#include <vector>\n#line 1 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n\
-    #include <cassert>\n#include <functional>\n#line 5 \"polynomial/FormalPowerSeries.hpp\"\
+    \ \"https://judge.yosupo.jp/problem/multipoint_evaluation\"\n\n#line 2 \"polynomial/multipoint_evaluation.hpp\"\
+    \n#include <vector>\n#line 2 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n\
+    #include <cassert>\n#include <functional>\n#line 6 \"polynomial/FormalPowerSeries.hpp\"\
     \n\n#line 1 \"atcoder/convolution.hpp\"\n\n\n\n#line 5 \"atcoder/convolution.hpp\"\
     \n#include <array>\n#line 7 \"atcoder/convolution.hpp\"\n#include <type_traits>\n\
     #line 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\n\n\
@@ -390,7 +387,7 @@ data:
     \     if (diff < 0) diff += MOD1;\n        static constexpr unsigned long long\
     \ offset[5] = {\n            0, 0, M1M2M3, 2 * M1M2M3, 3 * M1M2M3};\n        x\
     \ -= offset[diff % 5];\n        c[i] = x;\n    }\n\n    return c;\n}\n\n}  //\
-    \ namespace atcoder\n\n\n#line 7 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
+    \ namespace atcoder\n\n\n#line 8 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
     \ <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void shrink()\
     \ {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
@@ -515,7 +512,7 @@ data:
     \ < deg) ret.resize(deg, T(0));\n                return ret;\n            }\n\
     \        }\n        return FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n\
     \        T ret = 0, w = 1;\n        for (const auto& v : *this) ret += w * v,\
-    \ w *= x;\n        return ret;\n    }\n};\n#line 3 \"polynomial/multipoint_evaluation.hpp\"\
+    \ w *= x;\n        return ret;\n    }\n};\n#line 4 \"polynomial/multipoint_evaluation.hpp\"\
     \n\ntemplate <typename T> struct subproduct_tree {\n    using poly = FormalPowerSeries<T>;\n\
     \    int m;\n    std::vector<poly> prod;\n    subproduct_tree(const std::vector<T>&\
     \ x) : m(x.size()) {\n        int k = 1;\n        while (k < m) k <<= 1;\n   \
@@ -527,139 +524,14 @@ data:
     \ << 1);\n        rem[1] = f % prod[1];\n        for (int i = 2; i < size() +\
     \ m; i++) rem[i] = rem[i >> 1] % prod[i];\n        std::vector<T> res(m);\n  \
     \      for (int i = 0; i < m; i++) res[i] = (rem[size() + i].empty() ? 0 : rem[size()\
-    \ + i][0]);\n        return res;\n    }\n};\n#line 5 \"polynomial/FormalPowerSeries.hpp\"\
-    \n\n#line 7 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate <typename T> struct\
-    \ FormalPowerSeries : std::vector<T> {\nprivate:\n    using std::vector<T>::vector;\n\
-    \    using FPS = FormalPowerSeries;\n    void shrink() {\n        while (this->size()\
-    \ and this->back() == T(0)) this->pop_back();\n    }\n\n    FPS pre(size_t sz)\
-    \ const { return FPS(this->begin(), this->begin() + std::min(this->size(), sz));\
-    \ }\n\n    FPS rev() const {\n        FPS ret(*this);\n        std::reverse(ret.begin(),\
-    \ ret.end());\n        return ret;\n    }\n\n    FPS operator>>(size_t sz) const\
-    \ {\n        if (this->size() <= sz) return {};\n        return FPS(this->begin()\
-    \ + sz, this->end());\n    }\n\n    FPS operator<<(size_t sz) const {\n      \
-    \  if (this->empty()) return {};\n        FPS ret(*this);\n        ret.insert(ret.begin(),\
-    \ sz, T(0));\n        return ret;\n    }\n\npublic:\n    FPS& operator+=(const\
-    \ FPS& r) {\n        if (r.size() > this->size()) this->resize(r.size());\n  \
-    \      for (size_t i = 0; i < r.size(); i++) (*this)[i] += r[i];\n        shrink();\n\
-    \        return *this;\n    }\n\n    FPS& operator+=(const T& v) {\n        if\
-    \ (this->empty()) this->resize(1);\n        (*this)[0] += v;\n        shrink();\n\
-    \        return *this;\n    }\n\n    FPS& operator-=(const FPS& r) {\n       \
-    \ if (r.size() > this->size()) this->resize(r.size());\n        for (size_t i\
-    \ = 0; i < r.size(); i++) (*this)[i] -= r[i];\n        shrink();\n        return\
-    \ *this;\n    }\n\n    FPS& operator-=(const T& v) {\n        if (this->empty())\
-    \ this->resize(1);\n        (*this)[0] -= v;\n        shrink();\n        return\
-    \ *this;\n    }\n\n    FPS& operator*=(const FPS& r) {\n        auto res = atcoder::convolution(*this,\
-    \ r);\n        return *this = {res.begin(), res.end()};\n    }\n\n    FPS& operator*=(const\
-    \ T& v) {\n        for (auto& x : (*this)) x *= v;\n        shrink();\n      \
-    \  return *this;\n    }\n\n    FPS& operator/=(const FPS& r) {\n        if (this->size()\
-    \ < r.size()) {\n            this->clear();\n            return *this;\n     \
-    \   }\n        int n = this->size() - r.size() + 1;\n        return *this = (rev().pre(n)\
-    \ * r.rev().inv(n)).pre(n).rev();\n    }\n\n    FPS& operator%=(const FPS& r)\
-    \ {\n        *this -= *this / r * r;\n        shrink();\n        return *this;\n\
-    \    }\n\n    FPS operator+(const FPS& r) const { return FPS(*this) += r; }\n\n\
-    \    FPS operator+(const T& v) const { return FPS(*this) += v; }\n\n    FPS operator-(const\
-    \ FPS& r) const { return FPS(*this) -= r; }\n\n    FPS operator-(const T& v) const\
-    \ { return FPS(*this) -= v; }\n\n    FPS operator*(const FPS& r) const { return\
-    \ FPS(*this) *= r; }\n\n    FPS operator*(const T& v) const { return FPS(*this)\
-    \ *= v; }\n\n    FPS operator/(const FPS& r) const { return FPS(*this) /= r; }\n\
-    \n    FPS operator%(const FPS& r) const { return FPS(*this) %= r; }\n\n    FPS\
-    \ operator-() const {\n        FPS ret = *this;\n        for (auto& v : ret) v\
-    \ = -v;\n        return ret;\n    }\n\n    FPS differential() const {\n      \
-    \  const int n = (int)this->size();\n        FPS ret(std::max(0, n - 1));\n  \
-    \      for (int i = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n        return\
-    \ ret;\n    }\n\n    FPS integral() const {\n        const int n = (int)this->size();\n\
-    \        FPS ret(n + 1);\n        ret[0] = T(0);\n        if (n > 0) ret[1] =\
-    \ T(1);\n        auto mod = T::mod();\n        for (int i = 2; i <= n; i++) ret[i]\
-    \ = -ret[mod % i] * (mod / i);\n        for (int i = 0; i < n; i++) ret[i + 1]\
-    \ *= (*this)[i];\n        return ret;\n    }\n\n    FPS inv(int deg = -1) const\
-    \ {\n        assert((*this)[0] != T(0));\n        const int n = (int)this->size();\n\
-    \        if (deg == -1) deg = n;\n        FPS ret{(*this)[0].inv()};\n       \
-    \ ret.reserve(deg);\n        for (int d = 1; d < deg; d <<= 1) {\n           \
-    \ FPS f(d << 1), g(d << 1);\n            std::copy(this->begin(), this->begin()\
-    \ + std::min(n, d << 1), f.begin());\n            std::copy(ret.begin(), ret.end(),\
-    \ g.begin());\n            atcoder::internal::butterfly(f);\n            atcoder::internal::butterfly(g);\n\
-    \            for (int i = 0; i < (d << 1); i++) f[i] *= g[i];\n            atcoder::internal::butterfly_inv(f);\n\
-    \            std::fill(f.begin(), f.begin() + d, T(0));\n            atcoder::internal::butterfly(f);\n\
-    \            for (int i = 0; i < (d << 1); i++) f[i] *= g[i];\n            atcoder::internal::butterfly_inv(f);\n\
-    \            T iz = T(d << 1).inv();\n            iz *= -iz;\n            for\
-    \ (int i = d; i < std::min(d << 1, deg); i++) ret.push_back(f[i] * iz);\n    \
-    \    }\n        return ret.pre(deg);\n    }\n\n    FPS log(int deg = -1) const\
-    \ {\n        assert((*this)[0] == T(1));\n        if (deg == -1) deg = (int)this->size();\n\
-    \        return (differential() * inv(deg)).pre(deg - 1).integral();\n    }\n\n\
-    \    FPS sqrt(const std::function<T(T)>& get_sqrt, int deg = -1) const {\n   \
-    \     const int n = this->size();\n        if (deg == -1) deg = n;\n        if\
-    \ (this->empty()) return FPS(deg, 0);\n        if ((*this)[0] == T(0)) {\n   \
-    \         for (int i = 1; i < n; i++) {\n                if ((*this)[i] != T(0))\
-    \ {\n                    if (i & 1) return {};\n                    if (deg -\
-    \ i / 2 <= 0) break;\n                    auto ret = (*this >> i).sqrt(get_sqrt,\
-    \ deg - i / 2);\n                    if (ret.empty()) return {};\n           \
-    \         ret = ret << (i / 2);\n                    if ((int)ret.size() < deg)\
-    \ ret.resize(deg, T(0));\n                    return ret;\n                }\n\
-    \            }\n            return FPS(deg, T(0));\n        }\n        auto sqrtf0\
-    \ = T(get_sqrt((*this)[0]));\n        if (sqrtf0 * sqrtf0 != (*this)[0]) return\
-    \ {};\n        FPS ret{sqrtf0};\n        T inv2 = T(2).inv();\n        for (int\
-    \ i = 1; i < deg; i <<= 1) ret = (ret + pre(i << 1) * ret.inv(i << 1)) * inv2;\n\
-    \        return ret.pre(deg);\n    }\n\n    /**\n     * @brief Exp of Formal Power\
-    \ Series\n     *\n     * @see https://arxiv.org/pdf/1301.5804.pdf\n     */\n \
-    \   FPS exp(int deg = -1) const {\n        assert(this->empty() or (*this)[0]\
-    \ == T(0));\n        if (this->size() == 0) return {};\n        if (this->size()\
-    \ == 1) return {T(1)};\n        if (deg == -1) deg = (int)this->size();\n    \
-    \    FPS inv;\n        inv.reserve(deg + 1);\n        inv.push_back(T(0));\n \
-    \       inv.push_back(T(1));\n        auto inplace_integral = [&](FPS& F) -> void\
-    \ {\n            const int n = (int)F.size();\n            auto mod = T::mod();\n\
-    \            while ((int)inv.size() <= n) {\n                int i = inv.size();\n\
-    \                inv.push_back(-inv[mod % i] * (mod / i));\n            }\n  \
-    \          F.insert(F.begin(), T(0));\n            for (int i = 1; i <= n; i++)\
-    \ F[i] *= inv[i];\n        };\n        auto inplace_differential = [](FPS& F)\
-    \ -> void {\n            if (F.empty()) return;\n            F.erase(F.begin());\n\
-    \            for (size_t i = 0; i < F.size(); i++) F[i] *= T(i + 1);\n       \
-    \ };\n        FPS f{1, (*this)[1]}, g{T(1)}, g_fft{T(1), T(1)};\n        for (int\
-    \ m = 2; m < deg; m <<= 1) {\n            const T iz1 = T(m).inv(), iz2 = T(m\
-    \ << 1).inv();\n            auto f_fft = f;\n            f_fft.resize(m << 1);\n\
-    \            atcoder::internal::butterfly(f_fft);\n            {\n           \
-    \     // Step 2.a'\n                FPS _g(m);\n                for (int i = 0;\
-    \ i < m; i++) _g[i] = f_fft[i] * g_fft[i];\n                atcoder::internal::butterfly_inv(_g);\n\
-    \                std::fill(_g.begin(), _g.begin() + (m >> 1), T(0));\n       \
-    \         atcoder::internal::butterfly(_g);\n                for (int i = 0; i\
-    \ < m; i++) _g[i] *= -g_fft[i] * iz1 * iz1;\n                atcoder::internal::butterfly_inv(_g);\n\
-    \                g.insert(g.end(), _g.begin() + (m >> 1), _g.end());\n\n     \
-    \           g_fft = g;\n                g_fft.resize(m << 1);\n              \
-    \  atcoder::internal::butterfly(g_fft);\n            }\n            FPS x(this->begin(),\
-    \ this->begin() + std::min((int)this->size(), m));\n            {\n          \
-    \      // Step 2.b'\n                x.resize(m);\n                inplace_differential(x);\n\
-    \                x.push_back(T(0));\n                atcoder::internal::butterfly(x);\n\
-    \            }\n            {\n                // Step 2.c'\n                for\
-    \ (int i = 0; i < m; i++) x[i] *= f_fft[i] * iz1;\n                atcoder::internal::butterfly_inv(x);\n\
-    \            }\n            {\n                // Step 2.d' and 2.e'\n       \
-    \         x -= f.differential();\n                x.resize(m << 1);\n        \
-    \        for (int i = 0; i < m - 1; i++) x[m + i] = x[i], x[i] = T(0);\n     \
-    \           atcoder::internal::butterfly(x);\n                for (int i = 0;\
-    \ i < (m << 1); i++) x[i] *= g_fft[i] * iz2;\n                atcoder::internal::butterfly_inv(x);\n\
-    \            }\n            {\n                // Step 2.f'\n                x.pop_back();\n\
-    \                inplace_integral(x);\n                for (int i = m; i < std::min((int)this->size(),\
-    \ m << 1); i++) x[i] += (*this)[i];\n                std::fill(x.begin(), x.begin()\
-    \ + m, T(0));\n            }\n            {\n                // Step 2.g' and\
-    \ 2.h'\n                atcoder::internal::butterfly(x);\n                for\
-    \ (int i = 0; i < (m << 1); i++) x[i] *= f_fft[i] * iz2;\n                atcoder::internal::butterfly_inv(x);\n\
-    \                f.insert(f.end(), x.begin() + m, x.end());\n            }\n \
-    \       }\n        return FPS{f.begin(), f.begin() + deg};\n    }\n\n    FPS pow(int64_t\
-    \ k, int deg = -1) const {\n        const int n = (int)this->size();\n       \
-    \ if (deg == -1) deg = n;\n        for (int i = 0; i < n; i++) {\n           \
-    \ if ((*this)[i] != T(0)) {\n                if (i * k > deg) return FPS(deg,\
-    \ T(0));\n                T rev = (*this)[i].inv();\n                FPS ret =\
-    \ (((*this * rev) >> i).log(deg) * k).exp(deg) * ((*this)[i].pow(k));\n      \
-    \          ret = (ret << (i * k)).pre(deg);\n                if ((int)ret.size()\
-    \ < deg) ret.resize(deg, T(0));\n                return ret;\n            }\n\
-    \        }\n        return FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n\
-    \        T ret = 0, w = 1;\n        for (const auto& v : *this) ret += w * v,\
-    \ w *= x;\n        return ret;\n    }\n};\n#line 2 \"util/modint.hpp\"\n#include\
+    \ + i][0]);\n        return res;\n    }\n};\n#line 2 \"util/modint.hpp\"\n#include\
     \ <iostream>\n#line 4 \"util/modint.hpp\"\n\nnamespace atcoder {\n\ntemplate <int\
     \ MOD> std::istream& operator>>(std::istream& is, static_modint<MOD>& x) {\n \
     \   int64_t v;\n    x = static_modint<MOD>{(is >> v, v)};\n    return is;\n}\n\
     \ntemplate <int MOD> std::ostream& operator<<(std::ostream& os, const static_modint<MOD>&\
     \ x) { return os << x.val(); }\n\ntemplate <int ID> std::ostream& operator<<(std::ostream&\
     \ os, const dynamic_modint<ID>& x) { return os << x.val(); }\n\n}  // namespace\
-    \ atcoder\n#line 6 \"test/yosupo/multipoint_evaluation.test.cpp\"\n\nusing mint\
+    \ atcoder\n#line 5 \"test/yosupo/multipoint_evaluation.test.cpp\"\n\nusing mint\
     \ = atcoder::modint998244353;\nusing Poly = FormalPowerSeries<mint>;\n\nint main()\
     \ {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int N, M;\n\
     \    std::cin >> N >> M;\n    Poly c(N);\n    std::vector<mint> p(M);\n    for\
@@ -668,9 +540,9 @@ data:
     \    for (int i = 0; i < M; i++) std::cout << f[i] << (i + 1 == M ? '\\n' : '\
     \ ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/multipoint_evaluation\"\
-    \n\n#include \"polynomial/multipoint_evaluation.hpp\"\n#include \"polynomial/FormalPowerSeries.hpp\"\
-    \n#include \"util/modint.hpp\"\n\nusing mint = atcoder::modint998244353;\nusing\
-    \ Poly = FormalPowerSeries<mint>;\n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \n\n#include \"polynomial/multipoint_evaluation.hpp\"\n#include \"util/modint.hpp\"\
+    \n\nusing mint = atcoder::modint998244353;\nusing Poly = FormalPowerSeries<mint>;\n\
+    \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
     \    int N, M;\n    std::cin >> N >> M;\n    Poly c(N);\n    std::vector<mint>\
     \ p(M);\n    for (int i = 0; i < N; i++) std::cin >> c[i];\n    for (int i = 0;\
     \ i < M; i++) std::cin >> p[i];\n\n    subproduct_tree<mint> tree(p);\n    auto\
@@ -679,13 +551,12 @@ data:
   dependsOn:
   - polynomial/multipoint_evaluation.hpp
   - polynomial/FormalPowerSeries.hpp
-  - polynomial/FormalPowerSeries.hpp
   - util/modint.hpp
   isVerificationFile: true
   path: test/yosupo/multipoint_evaluation.test.cpp
   requiredBy: []
-  timestamp: '2022-10-18 10:53:32+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-10-23 23:11:09+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/multipoint_evaluation.test.cpp
 layout: document

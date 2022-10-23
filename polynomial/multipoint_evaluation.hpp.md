@@ -6,17 +6,17 @@ data:
     title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"polynomial/multipoint_evaluation.hpp\"\n#include <vector>\n\
-    #line 1 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n#include <cassert>\n\
-    #include <functional>\n#line 5 \"polynomial/FormalPowerSeries.hpp\"\n\n#line 1\
+  bundledCode: "#line 2 \"polynomial/multipoint_evaluation.hpp\"\n#include <vector>\n\
+    #line 2 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n#include <cassert>\n\
+    #include <functional>\n#line 6 \"polynomial/FormalPowerSeries.hpp\"\n\n#line 1\
     \ \"atcoder/convolution.hpp\"\n\n\n\n#line 5 \"atcoder/convolution.hpp\"\n#include\
     \ <array>\n#line 7 \"atcoder/convolution.hpp\"\n#include <type_traits>\n#line\
     \ 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\n\n\n\n\
@@ -380,7 +380,7 @@ data:
     \     if (diff < 0) diff += MOD1;\n        static constexpr unsigned long long\
     \ offset[5] = {\n            0, 0, M1M2M3, 2 * M1M2M3, 3 * M1M2M3};\n        x\
     \ -= offset[diff % 5];\n        c[i] = x;\n    }\n\n    return c;\n}\n\n}  //\
-    \ namespace atcoder\n\n\n#line 7 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
+    \ namespace atcoder\n\n\n#line 8 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
     \ <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void shrink()\
     \ {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
@@ -505,7 +505,7 @@ data:
     \ < deg) ret.resize(deg, T(0));\n                return ret;\n            }\n\
     \        }\n        return FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n\
     \        T ret = 0, w = 1;\n        for (const auto& v : *this) ret += w * v,\
-    \ w *= x;\n        return ret;\n    }\n};\n#line 3 \"polynomial/multipoint_evaluation.hpp\"\
+    \ w *= x;\n        return ret;\n    }\n};\n#line 4 \"polynomial/multipoint_evaluation.hpp\"\
     \n\ntemplate <typename T> struct subproduct_tree {\n    using poly = FormalPowerSeries<T>;\n\
     \    int m;\n    std::vector<poly> prod;\n    subproduct_tree(const std::vector<T>&\
     \ x) : m(x.size()) {\n        int k = 1;\n        while (k < m) k <<= 1;\n   \
@@ -518,14 +518,14 @@ data:
     \ m; i++) rem[i] = rem[i >> 1] % prod[i];\n        std::vector<T> res(m);\n  \
     \      for (int i = 0; i < m; i++) res[i] = (rem[size() + i].empty() ? 0 : rem[size()\
     \ + i][0]);\n        return res;\n    }\n};\n"
-  code: "#include <vector>\n#include \"FormalPowerSeries.hpp\"\n\ntemplate <typename\
-    \ T> struct subproduct_tree {\n    using poly = FormalPowerSeries<T>;\n    int\
-    \ m;\n    std::vector<poly> prod;\n    subproduct_tree(const std::vector<T>& x)\
-    \ : m(x.size()) {\n        int k = 1;\n        while (k < m) k <<= 1;\n      \
-    \  prod.assign(k << 1, {1});\n        for (int i = 0; i < m; i++) prod[k + i]\
-    \ = {-x[i], 1};\n        for (int i = k - 1; i > 0; i--) prod[i] = prod[i << 1]\
-    \ * prod[i << 1 | 1];\n    }\n\n    int size() const { return prod.size() >> 1;\
-    \ }\n\n    poly mid_prod(const poly& a, const poly& b) const {}\n\n    std::vector<T>\
+  code: "#pragma once\n#include <vector>\n#include \"FormalPowerSeries.hpp\"\n\ntemplate\
+    \ <typename T> struct subproduct_tree {\n    using poly = FormalPowerSeries<T>;\n\
+    \    int m;\n    std::vector<poly> prod;\n    subproduct_tree(const std::vector<T>&\
+    \ x) : m(x.size()) {\n        int k = 1;\n        while (k < m) k <<= 1;\n   \
+    \     prod.assign(k << 1, {1});\n        for (int i = 0; i < m; i++) prod[k +\
+    \ i] = {-x[i], 1};\n        for (int i = k - 1; i > 0; i--) prod[i] = prod[i <<\
+    \ 1] * prod[i << 1 | 1];\n    }\n\n    int size() const { return prod.size() >>\
+    \ 1; }\n\n    poly mid_prod(const poly& a, const poly& b) const {}\n\n    std::vector<T>\
     \ multipoint_evaluation(poly f) const {\n        std::vector<poly> rem(size()\
     \ << 1);\n        rem[1] = f % prod[1];\n        for (int i = 2; i < size() +\
     \ m; i++) rem[i] = rem[i >> 1] % prod[i];\n        std::vector<T> res(m);\n  \
@@ -536,8 +536,8 @@ data:
   isVerificationFile: false
   path: polynomial/multipoint_evaluation.hpp
   requiredBy: []
-  timestamp: '2022-10-18 10:53:32+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-10-23 23:11:09+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/multipoint_evaluation.test.cpp
 documentation_of: polynomial/multipoint_evaluation.hpp
