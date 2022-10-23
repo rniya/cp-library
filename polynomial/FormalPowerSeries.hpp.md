@@ -21,15 +21,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Exp of Formal Power Series
     links:
@@ -516,15 +516,17 @@ data:
     \                f.insert(f.end(), x.begin() + m, x.end());\n            }\n \
     \       }\n        return FPS{f.begin(), f.begin() + deg};\n    }\n\n    FPS pow(int64_t\
     \ k, int deg = -1) const {\n        const int n = (int)this->size();\n       \
-    \ if (deg == -1) deg = n;\n        for (int i = 0; i < n; i++) {\n           \
-    \ if ((*this)[i] != T(0)) {\n                if (i * k > deg) return FPS(deg,\
-    \ T(0));\n                T rev = (*this)[i].inv();\n                FPS ret =\
-    \ (((*this * rev) >> i).log(deg) * k).exp(deg) * ((*this)[i].pow(k));\n      \
-    \          ret = (ret << (i * k)).pre(deg);\n                if ((int)ret.size()\
-    \ < deg) ret.resize(deg, T(0));\n                return ret;\n            }\n\
-    \        }\n        return FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n\
-    \        T ret = 0, w = 1;\n        for (const auto& v : *this) ret += w * v,\
-    \ w *= x;\n        return ret;\n    }\n};\n"
+    \ if (deg == -1) deg = n;\n        if (k == 0) {\n            auto res = FPS(deg,\
+    \ T(0));\n            res[0] = T(1);\n            return res;\n        }\n   \
+    \     for (int i = 0; i < n; i++) {\n            if ((*this)[i] != T(0)) {\n \
+    \               if (i >= (deg + k - 1) / k) return FPS(deg, T(0));\n         \
+    \       T rev = (*this)[i].inv();\n                FPS ret = (((*this * rev) >>\
+    \ i).log(deg) * k).exp(deg) * ((*this)[i].pow(k));\n                ret = (ret\
+    \ << (i * k)).pre(deg);\n                if ((int)ret.size() < deg) ret.resize(deg,\
+    \ T(0));\n                return ret;\n            }\n        }\n        return\
+    \ FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n        T ret = 0, w = 1;\n\
+    \        for (const auto& v : *this) ret += w * v, w *= x;\n        return ret;\n\
+    \    }\n};\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <functional>\n\
     #include <vector>\n\n#include \"atcoder/convolution\"\n\ntemplate <typename T>\
     \ struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using std::vector<T>::vector;\n\
@@ -642,22 +644,24 @@ data:
     \                f.insert(f.end(), x.begin() + m, x.end());\n            }\n \
     \       }\n        return FPS{f.begin(), f.begin() + deg};\n    }\n\n    FPS pow(int64_t\
     \ k, int deg = -1) const {\n        const int n = (int)this->size();\n       \
-    \ if (deg == -1) deg = n;\n        for (int i = 0; i < n; i++) {\n           \
-    \ if ((*this)[i] != T(0)) {\n                if (i * k > deg) return FPS(deg,\
-    \ T(0));\n                T rev = (*this)[i].inv();\n                FPS ret =\
-    \ (((*this * rev) >> i).log(deg) * k).exp(deg) * ((*this)[i].pow(k));\n      \
-    \          ret = (ret << (i * k)).pre(deg);\n                if ((int)ret.size()\
-    \ < deg) ret.resize(deg, T(0));\n                return ret;\n            }\n\
-    \        }\n        return FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n\
-    \        T ret = 0, w = 1;\n        for (const auto& v : *this) ret += w * v,\
-    \ w *= x;\n        return ret;\n    }\n};\n"
+    \ if (deg == -1) deg = n;\n        if (k == 0) {\n            auto res = FPS(deg,\
+    \ T(0));\n            res[0] = T(1);\n            return res;\n        }\n   \
+    \     for (int i = 0; i < n; i++) {\n            if ((*this)[i] != T(0)) {\n \
+    \               if (i >= (deg + k - 1) / k) return FPS(deg, T(0));\n         \
+    \       T rev = (*this)[i].inv();\n                FPS ret = (((*this * rev) >>\
+    \ i).log(deg) * k).exp(deg) * ((*this)[i].pow(k));\n                ret = (ret\
+    \ << (i * k)).pre(deg);\n                if ((int)ret.size() < deg) ret.resize(deg,\
+    \ T(0));\n                return ret;\n            }\n        }\n        return\
+    \ FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n        T ret = 0, w = 1;\n\
+    \        for (const auto& v : *this) ret += w * v, w *= x;\n        return ret;\n\
+    \    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: polynomial/FormalPowerSeries.hpp
   requiredBy:
   - polynomial/multipoint_evaluation.hpp
-  timestamp: '2022-10-23 23:11:09+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-10-24 01:37:49+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp

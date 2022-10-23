@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/FormalPowerSeries.hpp
     title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: util/modint.hpp
     title: util/modint.hpp
   _extendedRequiredBy: []
@@ -501,27 +501,28 @@ data:
     \                f.insert(f.end(), x.begin() + m, x.end());\n            }\n \
     \       }\n        return FPS{f.begin(), f.begin() + deg};\n    }\n\n    FPS pow(int64_t\
     \ k, int deg = -1) const {\n        const int n = (int)this->size();\n       \
-    \ if (deg == -1) deg = n;\n        for (int i = 0; i < n; i++) {\n           \
-    \ if ((*this)[i] != T(0)) {\n                if (i * k > deg) return FPS(deg,\
-    \ T(0));\n                T rev = (*this)[i].inv();\n                FPS ret =\
-    \ (((*this * rev) >> i).log(deg) * k).exp(deg) * ((*this)[i].pow(k));\n      \
-    \          ret = (ret << (i * k)).pre(deg);\n                if ((int)ret.size()\
-    \ < deg) ret.resize(deg, T(0));\n                return ret;\n            }\n\
-    \        }\n        return FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n\
-    \        T ret = 0, w = 1;\n        for (const auto& v : *this) ret += w * v,\
-    \ w *= x;\n        return ret;\n    }\n};\n#line 2 \"util/modint.hpp\"\n#include\
-    \ <iostream>\n#line 4 \"util/modint.hpp\"\n\nnamespace atcoder {\n\ntemplate <int\
-    \ MOD> std::istream& operator>>(std::istream& is, static_modint<MOD>& x) {\n \
-    \   int64_t v;\n    x = static_modint<MOD>{(is >> v, v)};\n    return is;\n}\n\
-    \ntemplate <int MOD> std::ostream& operator<<(std::ostream& os, const static_modint<MOD>&\
-    \ x) { return os << x.val(); }\n\ntemplate <int ID> std::ostream& operator<<(std::ostream&\
-    \ os, const dynamic_modint<ID>& x) { return os << x.val(); }\n\n}  // namespace\
-    \ atcoder\n#line 5 \"test/yosupo/log_of_formal_power_series.test.cpp\"\n\nusing\
-    \ mint = atcoder::modint998244353;\nusing FPS = FormalPowerSeries<mint>;\n\nint\
-    \ main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int\
-    \ N;\n    std::cin >> N;\n    FPS a(N);\n    for (int i = 0; i < N; i++) std::cin\
-    \ >> a[i];\n    FPS b = a.log();\n    for (int i = 0; i < N; i++) std::cout <<\
-    \ b[i] << (i + 1 == N ? '\\n' : ' ');\n}\n"
+    \ if (deg == -1) deg = n;\n        if (k == 0) {\n            auto res = FPS(deg,\
+    \ T(0));\n            res[0] = T(1);\n            return res;\n        }\n   \
+    \     for (int i = 0; i < n; i++) {\n            if ((*this)[i] != T(0)) {\n \
+    \               if (i >= (deg + k - 1) / k) return FPS(deg, T(0));\n         \
+    \       T rev = (*this)[i].inv();\n                FPS ret = (((*this * rev) >>\
+    \ i).log(deg) * k).exp(deg) * ((*this)[i].pow(k));\n                ret = (ret\
+    \ << (i * k)).pre(deg);\n                if ((int)ret.size() < deg) ret.resize(deg,\
+    \ T(0));\n                return ret;\n            }\n        }\n        return\
+    \ FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n        T ret = 0, w = 1;\n\
+    \        for (const auto& v : *this) ret += w * v, w *= x;\n        return ret;\n\
+    \    }\n};\n#line 2 \"util/modint.hpp\"\n#include <iostream>\n#line 4 \"util/modint.hpp\"\
+    \n\nnamespace atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream&\
+    \ is, static_modint<MOD>& x) {\n    int64_t v;\n    x = static_modint<MOD>{(is\
+    \ >> v, v)};\n    return is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream&\
+    \ os, const static_modint<MOD>& x) { return os << x.val(); }\n\ntemplate <int\
+    \ ID> std::ostream& operator<<(std::ostream& os, const dynamic_modint<ID>& x)\
+    \ { return os << x.val(); }\n\n}  // namespace atcoder\n#line 5 \"test/yosupo/log_of_formal_power_series.test.cpp\"\
+    \n\nusing mint = atcoder::modint998244353;\nusing FPS = FormalPowerSeries<mint>;\n\
+    \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \    int N;\n    std::cin >> N;\n    FPS a(N);\n    for (int i = 0; i < N; i++)\
+    \ std::cin >> a[i];\n    FPS b = a.log();\n    for (int i = 0; i < N; i++) std::cout\
+    \ << b[i] << (i + 1 == N ? '\\n' : ' ');\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\
     \n\n#include \"polynomial/FormalPowerSeries.hpp\"\n#include \"util/modint.hpp\"\
     \n\nusing mint = atcoder::modint998244353;\nusing FPS = FormalPowerSeries<mint>;\n\
@@ -535,7 +536,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/log_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-10-23 23:11:09+09:00'
+  timestamp: '2022-10-24 01:37:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/log_of_formal_power_series.test.cpp

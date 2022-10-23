@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/Nimber.hpp
-    title: math/Nimber.hpp
+    title: Nimber
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

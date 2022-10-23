@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/FormalPowerSeries.hpp
     title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
   - icon: ':heavy_check_mark:'
     path: polynomial/multipoint_evaluation.hpp
     title: multipoint evaluation
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: util/modint.hpp
     title: util/modint.hpp
   _extendedRequiredBy: []
@@ -504,22 +504,24 @@ data:
     \                f.insert(f.end(), x.begin() + m, x.end());\n            }\n \
     \       }\n        return FPS{f.begin(), f.begin() + deg};\n    }\n\n    FPS pow(int64_t\
     \ k, int deg = -1) const {\n        const int n = (int)this->size();\n       \
-    \ if (deg == -1) deg = n;\n        for (int i = 0; i < n; i++) {\n           \
-    \ if ((*this)[i] != T(0)) {\n                if (i * k > deg) return FPS(deg,\
-    \ T(0));\n                T rev = (*this)[i].inv();\n                FPS ret =\
-    \ (((*this * rev) >> i).log(deg) * k).exp(deg) * ((*this)[i].pow(k));\n      \
-    \          ret = (ret << (i * k)).pre(deg);\n                if ((int)ret.size()\
-    \ < deg) ret.resize(deg, T(0));\n                return ret;\n            }\n\
-    \        }\n        return FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n\
-    \        T ret = 0, w = 1;\n        for (const auto& v : *this) ret += w * v,\
-    \ w *= x;\n        return ret;\n    }\n};\n#line 4 \"polynomial/multipoint_evaluation.hpp\"\
-    \n\ntemplate <typename T> struct subproduct_tree {\n    using poly = FormalPowerSeries<T>;\n\
-    \    int m;\n    std::vector<poly> prod;\n    subproduct_tree(const std::vector<T>&\
-    \ x) : m(x.size()) {\n        int k = 1;\n        while (k < m) k <<= 1;\n   \
-    \     prod.assign(k << 1, {1});\n        for (int i = 0; i < m; i++) prod[k +\
-    \ i] = {-x[i], 1};\n        for (int i = k - 1; i > 0; i--) prod[i] = prod[i <<\
-    \ 1] * prod[i << 1 | 1];\n    }\n\n    int size() const { return prod.size() >>\
-    \ 1; }\n\n    poly mid_prod(const poly& a, const poly& b) const {}\n\n    std::vector<T>\
+    \ if (deg == -1) deg = n;\n        if (k == 0) {\n            auto res = FPS(deg,\
+    \ T(0));\n            res[0] = T(1);\n            return res;\n        }\n   \
+    \     for (int i = 0; i < n; i++) {\n            if ((*this)[i] != T(0)) {\n \
+    \               if (i >= (deg + k - 1) / k) return FPS(deg, T(0));\n         \
+    \       T rev = (*this)[i].inv();\n                FPS ret = (((*this * rev) >>\
+    \ i).log(deg) * k).exp(deg) * ((*this)[i].pow(k));\n                ret = (ret\
+    \ << (i * k)).pre(deg);\n                if ((int)ret.size() < deg) ret.resize(deg,\
+    \ T(0));\n                return ret;\n            }\n        }\n        return\
+    \ FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n        T ret = 0, w = 1;\n\
+    \        for (const auto& v : *this) ret += w * v, w *= x;\n        return ret;\n\
+    \    }\n};\n#line 4 \"polynomial/multipoint_evaluation.hpp\"\n\ntemplate <typename\
+    \ T> struct subproduct_tree {\n    using poly = FormalPowerSeries<T>;\n    int\
+    \ m;\n    std::vector<poly> prod;\n    subproduct_tree(const std::vector<T>& x)\
+    \ : m(x.size()) {\n        int k = 1;\n        while (k < m) k <<= 1;\n      \
+    \  prod.assign(k << 1, {1});\n        for (int i = 0; i < m; i++) prod[k + i]\
+    \ = {-x[i], 1};\n        for (int i = k - 1; i > 0; i--) prod[i] = prod[i << 1]\
+    \ * prod[i << 1 | 1];\n    }\n\n    int size() const { return prod.size() >> 1;\
+    \ }\n\n    poly mid_prod(const poly& a, const poly& b) const {}\n\n    std::vector<T>\
     \ multipoint_evaluation(poly f) const {\n        std::vector<poly> rem(size()\
     \ << 1);\n        rem[1] = f % prod[1];\n        for (int i = 2; i < size() +\
     \ m; i++) rem[i] = rem[i >> 1] % prod[i];\n        std::vector<T> res(m);\n  \
@@ -555,7 +557,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/multipoint_evaluation.test.cpp
   requiredBy: []
-  timestamp: '2022-10-23 23:11:09+09:00'
+  timestamp: '2022-10-24 01:37:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/multipoint_evaluation.test.cpp

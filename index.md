@@ -165,7 +165,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: math/Nimber.hpp
-      title: math/Nimber.hpp
+      title: Nimber
     - icon: ':warning:'
       path: math/binary_gcd.hpp
       title: binary gcd
@@ -187,7 +187,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: polynomial/BostanMori.hpp
       title: Bostan-Mori Algorithm
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: polynomial/FormalPowerSeries.hpp
       title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
     - icon: ':heavy_check_mark:'
@@ -250,7 +250,7 @@ data:
     - icon: ':warning:'
       path: util/gray_code.hpp
       title: Gray Code
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: util/modint.hpp
       title: util/modint.hpp
     - icon: ':warning:'
@@ -498,7 +498,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_rectangle_sum.test.cpp
       title: test/yosupo/point_add_rectangle_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
