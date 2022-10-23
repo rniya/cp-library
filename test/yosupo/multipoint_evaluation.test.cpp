@@ -1,7 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/multipoint_evaluation"
 
 #include "polynomial/multipoint_evaluation.hpp"
-#include "polynomial/FormalPowerSeries.hpp"
 #include "util/modint.hpp"
 
 using mint = atcoder::modint998244353;

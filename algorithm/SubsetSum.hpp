@@ -1,3 +1,4 @@
+#pragma once
 #include <vector>
 
 std::vector<bool> SubsetSum(const std::vector<int>& a, int S) {
