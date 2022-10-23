@@ -1,3 +1,8 @@
+---
+title: Nimber
+documentation_of: ./Nimber.hpp
+---
+
 ## 概要
 排他的論理和 (XOR) $\oplus$ を加法、Nim product $\otimes$ を乗法とすると $2^{2^n}$ 未満の非負整数の上に体を成す。
 

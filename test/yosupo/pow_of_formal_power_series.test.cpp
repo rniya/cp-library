@@ -9,7 +9,8 @@ using FPS = FormalPowerSeries<mint>;
 int main() {
     std::cin.tie(0);
     std::ios::sync_with_stdio(false);
-    int N, M;
+    int N;
+    long long M;
     std::cin >> N >> M;
     FPS a(N);
     for (int i = 0; i < N; i++) std::cin >> a[i];

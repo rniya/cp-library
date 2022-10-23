@@ -279,9 +279,14 @@ public:
     FPS pow(int64_t k, int deg = -1) const {
         const int n = (int)this->size();
         if (deg == -1) deg = n;
+        if (k == 0) {
+            auto res = FPS(deg, T(0));
+            res[0] = T(1);
+            return res;
+        }
         for (int i = 0; i < n; i++) {
             if ((*this)[i] != T(0)) {
-                if (i * k > deg) return FPS(deg, T(0));
+                if (i >= (deg + k - 1) / k) return FPS(deg, T(0));
                 T rev = (*this)[i].inv();
                 FPS ret = (((*this * rev) >> i).log(deg) * k).exp(deg) * ((*this)[i].pow(k));
                 ret = (ret << (i * k)).pre(deg);
