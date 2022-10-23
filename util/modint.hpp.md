@@ -46,6 +46,9 @@ data:
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/sharp_p_subset_sum.test.cpp
+    title: test/yosupo/sharp_p_subset_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -315,6 +318,7 @@ data:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/bitwise_xor_convolution.test.cpp
+  - test/yosupo/sharp_p_subset_sum.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/characteristic_polynomial.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp

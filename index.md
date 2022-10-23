@@ -196,6 +196,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: polynomial/multipoint_evaluation.hpp
       title: multipoint evaluation
+    - icon: ':heavy_check_mark:'
+      path: polynomial/subset_sum.hpp
+      title: $\#_p$ Subset Sum
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
@@ -510,6 +513,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/set_xor_min.test.cpp
       title: test/yosupo/set_xor_min.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/sharp_p_subset_sum.test.cpp
+      title: test/yosupo/sharp_p_subset_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
