@@ -10,7 +10,7 @@ Nim product については $n \otimes 2^{2^k} = n 2^{2^k}\ (n < 2^{2^k})$ 及�
 
 $$
 \begin{aligned}
-  &&& a \otimes b
+  &&& a \otimes b \\
   &=&& (a_u 2^{32} + a_l) \otimes (b_u 2^{32} + b_l) \\
   &=&& (a_u \otimes 2^{32} \oplus a_l) \otimes (b_u \otimes 2^{32} \oplus b_l) \quad (\because n 2^{2^k} = n \otimes 2^{2^k}) \\
   &=&& (a_u \otimes 2^{32} \otimes b_u \otimes 2^{32}) \oplus (a_u \otimes 2^{32} \otimes b_l) \oplus (a_l \otimes b_u \otimes 2^{32}) \oplus (a_l \otimes b_l) \\
