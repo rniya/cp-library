@@ -73,6 +73,7 @@
 "test/yosupo/jump_on_tree.test.cpp": "2022-09-04 18:06:09 +0900",
 "test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp": "2022-10-23 23:11:09 +0900",
 "test/yosupo/log_of_formal_power_series.test.cpp": "2022-10-24 01:37:49 +0900",
+"test/yosupo/longest_increasing_subsequence.test.cpp": "2022-10-24 15:45:32 +0900",
 "test/yosupo/matrix_det.test.cpp": "2021-12-30 22:27:29 +0900",
 "test/yosupo/multipoint_evaluation.test.cpp": "2022-10-24 01:37:49 +0900",
 "test/yosupo/nim_product_64.test.cpp": "2022-10-23 23:11:09 +0900",
