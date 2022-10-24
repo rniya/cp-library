@@ -12,6 +12,9 @@ data:
     - icon: ':warning:'
       path: algorithm/SubsetSum2.hpp
       title: "Subset Sum\uFF08\u90E8\u5206\u548C\u554F\u984C\uFF09$O(Na_{\\max})$"
+    - icon: ':heavy_check_mark:'
+      path: algorithm/longest_increasing_subsequence.hpp
+      title: Longest Increasing Subsequence (LIS)
     - icon: ':warning:'
       path: algorithm/monotone_minima.hpp
       title: monotone minima
@@ -486,6 +489,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/log_of_formal_power_series.test.cpp
       title: test/yosupo/log_of_formal_power_series.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/longest_increasing_subsequence.test.cpp
+      title: test/yosupo/longest_increasing_subsequence.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_det.test.cpp
       title: test/yosupo/matrix_det.test.cpp
