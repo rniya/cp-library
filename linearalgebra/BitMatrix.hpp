@@ -88,7 +88,7 @@ template <size_t MAX_COL> struct BitMatrix {
             }
         }
         std::bitset<MAX_COL> res;
-        for (size_t i = 0; i < rank; i++) res[i] = B[i][m];
+        for (size_t i = 0; i < rank; i++) res[B[i]._Find_first()] = B[i][m];
         return {rank, res};
     }
 };

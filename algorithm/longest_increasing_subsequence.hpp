@@ -16,7 +16,7 @@ template <typename T> int longest_increasing_subsequence(const std::vector<T>& a
 }
 
 template <typename T>
-std::vector<T> longest_increasing_subsequence_restore(const std::vector<T>& a, bool strict = true) {
+std::vector<int> longest_increasing_subsequence_restore(const std::vector<T>& a, bool strict = true) {
     int n = a.size();
     std::vector<T> lis;
     std::vector<int> pre(n, -1);

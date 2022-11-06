@@ -24,7 +24,3 @@ private:
     int n, m;
     std::vector<std::vector<T>> dat;
 };
-
-/**
- * @brief 2 次元累積和
- */
