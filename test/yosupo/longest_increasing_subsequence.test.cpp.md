@@ -22,7 +22,7 @@ data:
     \ auto& x : a) {\n        auto it = (strict ? lower_bound(lis.begin(), lis.end(),\
     \ x) : upper_bound(lis.begin(), lis.end(), x));\n        if (it == lis.end())\n\
     \            lis.emplace_back(x);\n        else\n            *it = x;\n    }\n\
-    \    return lis.size();\n}\n\ntemplate <typename T>\nstd::vector<T> longest_increasing_subsequence_restore(const\
+    \    return lis.size();\n}\n\ntemplate <typename T>\nstd::vector<int> longest_increasing_subsequence_restore(const\
     \ std::vector<T>& a, bool strict = true) {\n    int n = a.size();\n    std::vector<T>\
     \ lis;\n    std::vector<int> pre(n, -1);\n    lis.reserve(n);\n    for (int i\
     \ = 0; i < n; i++) {\n        auto it = (strict ? lower_bound(lis.begin(), lis.end(),\
@@ -51,7 +51,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/longest_increasing_subsequence.test.cpp
   requiredBy: []
-  timestamp: '2022-10-24 15:45:32+09:00'
+  timestamp: '2022-11-06 19:55:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/longest_increasing_subsequence.test.cpp

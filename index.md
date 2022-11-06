@@ -47,7 +47,7 @@ data:
       title: Convex Hull Trick (Add-Monotonic Slope Optimization)
     - icon: ':heavy_check_mark:'
       path: datastructure/CumulativeSum2D.hpp
-      title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
+      title: datastructure/CumulativeSum2D.hpp
     - icon: ':warning:'
       path: datastructure/IntervalManager.hpp
       title: datastructure/IntervalManager.hpp

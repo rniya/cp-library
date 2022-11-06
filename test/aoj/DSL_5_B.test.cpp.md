@@ -6,7 +6,7 @@ data:
     title: base.hpp
   - icon: ':heavy_check_mark:'
     path: datastructure/CumulativeSum2D.hpp
-    title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
+    title: datastructure/CumulativeSum2D.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -92,10 +92,9 @@ data:
     \ {  // [xl, xr) * [yl, yr)\n        assert(0 <= xl && xl <= xr && xr <= n);\n\
     \        assert(0 <= yl && yl <= yr && yr <= m);\n        return dat[xr][yr] -\
     \ dat[xl][yr] - dat[xr][yl] + dat[xl][yl];\n    }\n\nprivate:\n    int n, m;\n\
-    \    std::vector<std::vector<T>> dat;\n};\n\n/**\n * @brief 2 \u6B21\u5143\u7D2F\
-    \u7A4D\u548C\n */\n#line 5 \"test/aoj/DSL_5_B.test.cpp\"\n\nconst int MAX_X =\
-    \ 1010;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n \
-    \   int N;\n    cin >> N;\n    vector<vector<int>> v(MAX_X, vector<int>(MAX_X,\
+    \    std::vector<std::vector<T>> dat;\n};\n#line 5 \"test/aoj/DSL_5_B.test.cpp\"\
+    \n\nconst int MAX_X = 1010;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    int N;\n    cin >> N;\n    vector<vector<int>> v(MAX_X, vector<int>(MAX_X,\
     \ 0));\n    for (; N--;) {\n        int a, b, c, d;\n        cin >> a >> b >>\
     \ c >> d;\n        ++v[a][b];\n        ++v[c][d];\n        --v[a][d];\n      \
     \  --v[c][b];\n    }\n\n    CumulativeSum2D<int> CS(v);\n    int ans = 0;\n  \
@@ -118,7 +117,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_5_B.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
+  timestamp: '2022-11-06 19:55:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_5_B.test.cpp

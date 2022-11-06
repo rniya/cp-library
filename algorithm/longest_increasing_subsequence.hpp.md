@@ -18,11 +18,11 @@ data:
     \ (strict ? lower_bound(lis.begin(), lis.end(), x) : upper_bound(lis.begin(),\
     \ lis.end(), x));\n        if (it == lis.end())\n            lis.emplace_back(x);\n\
     \        else\n            *it = x;\n    }\n    return lis.size();\n}\n\ntemplate\
-    \ <typename T>\nstd::vector<T> longest_increasing_subsequence_restore(const std::vector<T>&\
-    \ a, bool strict = true) {\n    int n = a.size();\n    std::vector<T> lis;\n \
-    \   std::vector<int> pre(n, -1);\n    lis.reserve(n);\n    for (int i = 0; i <\
-    \ n; i++) {\n        auto it = (strict ? lower_bound(lis.begin(), lis.end(), i,\
-    \ [&](int x, int y) { return a[x] < a[y]; })\n                          : upper_bound(lis.begin(),\
+    \ <typename T>\nstd::vector<int> longest_increasing_subsequence_restore(const\
+    \ std::vector<T>& a, bool strict = true) {\n    int n = a.size();\n    std::vector<T>\
+    \ lis;\n    std::vector<int> pre(n, -1);\n    lis.reserve(n);\n    for (int i\
+    \ = 0; i < n; i++) {\n        auto it = (strict ? lower_bound(lis.begin(), lis.end(),\
+    \ i, [&](int x, int y) { return a[x] < a[y]; })\n                          : upper_bound(lis.begin(),\
     \ lis.end(), i, [&](int x, int y) { return a[x] < a[y]; }));\n        if (it ==\
     \ lis.end())\n            lis.emplace_back(i);\n        else\n            *it\
     \ = i;\n        if (it != lis.begin()) pre[i] = *std::prev(it);\n    }\n    std::vector<int>\
@@ -34,11 +34,11 @@ data:
     \ a) {\n        auto it = (strict ? lower_bound(lis.begin(), lis.end(), x) : upper_bound(lis.begin(),\
     \ lis.end(), x));\n        if (it == lis.end())\n            lis.emplace_back(x);\n\
     \        else\n            *it = x;\n    }\n    return lis.size();\n}\n\ntemplate\
-    \ <typename T>\nstd::vector<T> longest_increasing_subsequence_restore(const std::vector<T>&\
-    \ a, bool strict = true) {\n    int n = a.size();\n    std::vector<T> lis;\n \
-    \   std::vector<int> pre(n, -1);\n    lis.reserve(n);\n    for (int i = 0; i <\
-    \ n; i++) {\n        auto it = (strict ? lower_bound(lis.begin(), lis.end(), i,\
-    \ [&](int x, int y) { return a[x] < a[y]; })\n                          : upper_bound(lis.begin(),\
+    \ <typename T>\nstd::vector<int> longest_increasing_subsequence_restore(const\
+    \ std::vector<T>& a, bool strict = true) {\n    int n = a.size();\n    std::vector<T>\
+    \ lis;\n    std::vector<int> pre(n, -1);\n    lis.reserve(n);\n    for (int i\
+    \ = 0; i < n; i++) {\n        auto it = (strict ? lower_bound(lis.begin(), lis.end(),\
+    \ i, [&](int x, int y) { return a[x] < a[y]; })\n                          : upper_bound(lis.begin(),\
     \ lis.end(), i, [&](int x, int y) { return a[x] < a[y]; }));\n        if (it ==\
     \ lis.end())\n            lis.emplace_back(i);\n        else\n            *it\
     \ = i;\n        if (it != lis.begin()) pre[i] = *std::prev(it);\n    }\n    std::vector<int>\
@@ -48,7 +48,7 @@ data:
   isVerificationFile: false
   path: algorithm/longest_increasing_subsequence.hpp
   requiredBy: []
-  timestamp: '2022-10-24 15:45:32+09:00'
+  timestamp: '2022-11-06 19:55:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/longest_increasing_subsequence.test.cpp

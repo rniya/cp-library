@@ -45,7 +45,7 @@ data:
     \        for (size_t i = rank; i < n; i++) {\n            if (B[i][m]) {\n   \
     \             return {-1, std::bitset<MAX_COL>()};\n            }\n        }\n\
     \        std::bitset<MAX_COL> res;\n        for (size_t i = 0; i < rank; i++)\
-    \ res[i] = B[i][m];\n        return {rank, res};\n    }\n};\n"
+    \ res[B[i]._Find_first()] = B[i][m];\n        return {rank, res};\n    }\n};\n"
   code: "#pragma once\n#include <bitset>\n#include <cassert>\n#include <vector>\n\n\
     template <size_t MAX_COL> struct BitMatrix {\n    size_t n, m;\n    std::vector<std::bitset<MAX_COL>>\
     \ A;\n\n    BitMatrix(size_t n, size_t m) : n(n), m(m), A(n) { assert(m <= MAX_COL);\
@@ -79,12 +79,12 @@ data:
     \        for (size_t i = rank; i < n; i++) {\n            if (B[i][m]) {\n   \
     \             return {-1, std::bitset<MAX_COL>()};\n            }\n        }\n\
     \        std::bitset<MAX_COL> res;\n        for (size_t i = 0; i < rank; i++)\
-    \ res[i] = B[i][m];\n        return {rank, res};\n    }\n};\n"
+    \ res[B[i]._Find_first()] = B[i][m];\n        return {rank, res};\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: linearalgebra/BitMatrix.hpp
   requiredBy: []
-  timestamp: '2022-04-14 01:34:39+09:00'
+  timestamp: '2022-11-06 19:55:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/803.test.cpp
