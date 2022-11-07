@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cassert>
 #include <functional>
+#include <queue>
 #include <vector>
 
 #include "atcoder/convolution"
@@ -301,5 +302,20 @@ public:
         T ret = 0, w = 1;
         for (const auto& v : *this) ret += w * v, w *= x;
         return ret;
+    }
+
+    static FPS product_of_polynomial_sequence(const std::vector<FPS>& fs) {
+        if (fs.empty()) return {T(1)};
+        auto comp = [](const FPS& f, const FPS& g) { return f.size() > g.size(); };
+        std::priority_queue<FPS, std::vector<FPS>, decltype(comp)> pq{comp};
+        for (const auto& f : fs) pq.emplace(f);
+        while (pq.size() > 1) {
+            auto f = pq.top();
+            pq.pop();
+            auto g = pq.top();
+            pq.pop();
+            pq.emplace(f * g);
+        }
+        return pq.top();
     }
 };
