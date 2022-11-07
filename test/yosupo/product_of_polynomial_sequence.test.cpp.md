@@ -4,23 +4,27 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/FormalPowerSeries.hpp
     title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
-  _extendedRequiredBy: []
-  _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/sharp_p_subset_sum.test.cpp
-    title: test/yosupo/sharp_p_subset_sum.test.cpp
+    path: util/modint.hpp
+    title: util/modint.hpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"polynomial/subset_sum.hpp\"\n#include <vector>\n#line 2\
-    \ \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n#include <cassert>\n\
-    #include <functional>\n#include <queue>\n#line 7 \"polynomial/FormalPowerSeries.hpp\"\
-    \n\n#line 1 \"atcoder/convolution.hpp\"\n\n\n\n#line 5 \"atcoder/convolution.hpp\"\
-    \n#include <array>\n#line 7 \"atcoder/convolution.hpp\"\n#include <type_traits>\n\
-    #line 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\n\n\
-    \n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/product_of_polynomial_sequence
+    links:
+    - https://judge.yosupo.jp/problem/product_of_polynomial_sequence
+  bundledCode: "#line 1 \"test/yosupo/product_of_polynomial_sequence.test.cpp\"\n\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/product_of_polynomial_sequence\"\
+    \n\n#line 2 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n#include\
+    \ <cassert>\n#include <functional>\n#include <queue>\n#include <vector>\n\n#line\
+    \ 1 \"atcoder/convolution.hpp\"\n\n\n\n#line 5 \"atcoder/convolution.hpp\"\n#include\
+    \ <array>\n#line 7 \"atcoder/convolution.hpp\"\n#include <type_traits>\n#line\
+    \ 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\n\n\n\n\
+    #ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace\
     \ internal {\n\n// @param n `0 <= n`\n// @return minimum non-negative `x` s.t.\
     \ `n <= 2**x`\nint ceil_pow2(int n) {\n    int x = 0;\n    while ((1U << x) <\
     \ (unsigned int)(n)) x++;\n    return x;\n}\n\n// @param n `1 <= n`\n// @return\
@@ -514,69 +518,44 @@ data:
     \ pq.emplace(f);\n        while (pq.size() > 1) {\n            auto f = pq.top();\n\
     \            pq.pop();\n            auto g = pq.top();\n            pq.pop();\n\
     \            pq.emplace(f * g);\n        }\n        return pq.top();\n    }\n\
-    };\n#line 4 \"polynomial/subset_sum.hpp\"\n\ntemplate <typename T> std::vector<T>\
-    \ subset_sum(const std::vector<int>& s, int m) {\n    std::vector<int> cnt(m +\
-    \ 1, 0);\n    for (const int& x : s) {\n        assert(x >= 0);\n        if (x\
-    \ <= m) cnt[x]++;\n    }\n    FormalPowerSeries<T> res(m + 1);\n    std::vector<T>\
-    \ inv(m + 1);\n    inv[0] = T(0);\n    if (m > 0) inv[1] = T(1);\n    auto mod\
-    \ = T::mod();\n    for (int i = 2; i <= m; i++) inv[i] = -inv[mod % i] * (mod\
-    \ / i);\n    for (int i = 1; i <= m; i++) {\n        if (cnt[i] == 0) continue;\n\
-    \        for (int j = 1; i * j <= m; j++) {\n            if (j & 1)\n        \
-    \        res[i * j] += inv[j] * cnt[i];\n            else\n                res[i\
-    \ * j] -= inv[j] * cnt[i];\n        }\n    }\n    res = res.exp(m + 1);\n    T\
-    \ p = T(2).pow(cnt[0]);\n    for (auto& val : res) val *= p;\n    return res;\n\
-    }\n"
-  code: "#pragma once\n#include <vector>\n#include \"FormalPowerSeries.hpp\"\n\ntemplate\
-    \ <typename T> std::vector<T> subset_sum(const std::vector<int>& s, int m) {\n\
-    \    std::vector<int> cnt(m + 1, 0);\n    for (const int& x : s) {\n        assert(x\
-    \ >= 0);\n        if (x <= m) cnt[x]++;\n    }\n    FormalPowerSeries<T> res(m\
-    \ + 1);\n    std::vector<T> inv(m + 1);\n    inv[0] = T(0);\n    if (m > 0) inv[1]\
-    \ = T(1);\n    auto mod = T::mod();\n    for (int i = 2; i <= m; i++) inv[i] =\
-    \ -inv[mod % i] * (mod / i);\n    for (int i = 1; i <= m; i++) {\n        if (cnt[i]\
-    \ == 0) continue;\n        for (int j = 1; i * j <= m; j++) {\n            if\
-    \ (j & 1)\n                res[i * j] += inv[j] * cnt[i];\n            else\n\
-    \                res[i * j] -= inv[j] * cnt[i];\n        }\n    }\n    res = res.exp(m\
-    \ + 1);\n    T p = T(2).pow(cnt[0]);\n    for (auto& val : res) val *= p;\n  \
-    \  return res;\n}\n"
+    };\n#line 2 \"util/modint.hpp\"\n#include <iostream>\n#line 4 \"util/modint.hpp\"\
+    \n\nnamespace atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream&\
+    \ is, static_modint<MOD>& x) {\n    int64_t v;\n    x = static_modint<MOD>{(is\
+    \ >> v, v)};\n    return is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream&\
+    \ os, const static_modint<MOD>& x) { return os << x.val(); }\n\ntemplate <int\
+    \ ID> std::ostream& operator<<(std::ostream& os, const dynamic_modint<ID>& x)\
+    \ { return os << x.val(); }\n\n}  // namespace atcoder\n#line 5 \"test/yosupo/product_of_polynomial_sequence.test.cpp\"\
+    \n\nusing mint = atcoder::modint998244353;\nusing FPS = FormalPowerSeries<mint>;\n\
+    \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \    int N;\n    std::cin >> N;\n    std::vector<FPS> fs;\n    for (; N--;) {\n\
+    \        int d;\n        std::cin >> d;\n        FPS a(d + 1);\n        for (int\
+    \ i = 0; i <= d; i++) std::cin >> a[i];\n        fs.emplace_back(a);\n    }\n\n\
+    \    auto res = FPS::product_of_polynomial_sequence(fs);\n    for (size_t i =\
+    \ 0; i < res.size(); i++) std::cout << res[i] << (i + 1 == res.size() ? '\\n'\
+    \ : ' ');\n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/product_of_polynomial_sequence\"\
+    \n\n#include \"polynomial/FormalPowerSeries.hpp\"\n#include \"util/modint.hpp\"\
+    \n\nusing mint = atcoder::modint998244353;\nusing FPS = FormalPowerSeries<mint>;\n\
+    \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \    int N;\n    std::cin >> N;\n    std::vector<FPS> fs;\n    for (; N--;) {\n\
+    \        int d;\n        std::cin >> d;\n        FPS a(d + 1);\n        for (int\
+    \ i = 0; i <= d; i++) std::cin >> a[i];\n        fs.emplace_back(a);\n    }\n\n\
+    \    auto res = FPS::product_of_polynomial_sequence(fs);\n    for (size_t i =\
+    \ 0; i < res.size(); i++) std::cout << res[i] << (i + 1 == res.size() ? '\\n'\
+    \ : ' ');\n    return 0;\n}"
   dependsOn:
   - polynomial/FormalPowerSeries.hpp
-  isVerificationFile: false
-  path: polynomial/subset_sum.hpp
+  - util/modint.hpp
+  isVerificationFile: true
+  path: test/yosupo/product_of_polynomial_sequence.test.cpp
   requiredBy: []
   timestamp: '2022-11-07 18:18:55+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/yosupo/sharp_p_subset_sum.test.cpp
-documentation_of: polynomial/subset_sum.hpp
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/yosupo/product_of_polynomial_sequence.test.cpp
 layout: document
-title: $\#_p$ Subset Sum
+redirect_from:
+- /verify/test/yosupo/product_of_polynomial_sequence.test.cpp
+- /verify/test/yosupo/product_of_polynomial_sequence.test.cpp.html
+title: test/yosupo/product_of_polynomial_sequence.test.cpp
 ---
-
-## 概要
-$n$ 個の正整数 $s_0, \dots , s_{n - 1}$ と正整数 $m$ が与えられるとき，$t = 1, \dots , m$ について $\sum_{i \in I} s_i = t$ なる $I \subseteq \{0, 1, \dots , n - 1\}$ の個数を $O(n + m \log m)$ で求める．
-
-$s_i = 0$ については答えを $2$ 倍すれば良いから以降は $s_i \geq 1$ とする．
-$t$ に対する答えは
-
-$$
-[x^t] \prod_{i = 0}^{n - 1} (1 + x^{s_i}) = \exp\left(\sum_{i = 0}^{n - 1} \log (1 + x^{s_i}) \right)
-$$
-
-に等しい．
-
-ここで，
-
-$$
-\log (1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots = \sum_{i \geq 1} \frac{(-1)^{i - 1}}{i} x^i
-$$
-
-であるから $s_i = k$ なる $i \in \{0, 1, \dots , n - 1\}$ の個数を $c_k\ (k \in [1, m])$ とすると，
-
-$$
-\sum_{i = 0}^{n - 1} \log (1 + x^{s_i}) = \sum_{k = 1}^m c_k \sum_{k i \leq m} \frac{(-1)^{i - 1}}{i} x^{k i}
-$$
-
-で，これは $O(m \log m)$ で計算可能である．
-
-
-## Links

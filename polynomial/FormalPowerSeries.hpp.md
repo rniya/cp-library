@@ -28,6 +28,9 @@ data:
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/product_of_polynomial_sequence.test.cpp
+    title: test/yosupo/product_of_polynomial_sequence.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sharp_p_subset_sum.test.cpp
     title: test/yosupo/sharp_p_subset_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -41,27 +44,27 @@ data:
     links:
     - https://arxiv.org/pdf/1301.5804.pdf
   bundledCode: "#line 2 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n\
-    #include <cassert>\n#include <functional>\n#include <vector>\n\n#line 1 \"atcoder/convolution.hpp\"\
-    \n\n\n\n#line 5 \"atcoder/convolution.hpp\"\n#include <array>\n#line 7 \"atcoder/convolution.hpp\"\
-    \n#include <type_traits>\n#line 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\
-    \n\n\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\n\
-    namespace internal {\n\n// @param n `0 <= n`\n// @return minimum non-negative\
-    \ `x` s.t. `n <= 2**x`\nint ceil_pow2(int n) {\n    int x = 0;\n    while ((1U\
-    \ << x) < (unsigned int)(n)) x++;\n    return x;\n}\n\n// @param n `1 <= n`\n\
-    // @return minimum non-negative `x` s.t. `(n & (1 << x)) != 0`\nconstexpr int\
-    \ bsf_constexpr(unsigned int n) {\n    int x = 0;\n    while (!(n & (1 << x)))\
-    \ x++;\n    return x;\n}\n\n// @param n `1 <= n`\n// @return minimum non-negative\
-    \ `x` s.t. `(n & (1 << x)) != 0`\nint bsf(unsigned int n) {\n#ifdef _MSC_VER\n\
-    \    unsigned long index;\n    _BitScanForward(&index, n);\n    return index;\n\
-    #else\n    return __builtin_ctz(n);\n#endif\n}\n\n}  // namespace internal\n\n\
-    }  // namespace atcoder\n\n\n#line 1 \"atcoder/modint.hpp\"\n\n\n\n#line 5 \"\
-    atcoder/modint.hpp\"\n#include <numeric>\n#line 7 \"atcoder/modint.hpp\"\n\n#ifdef\
-    \ _MSC_VER\n#include <intrin.h>\n#endif\n\n#line 1 \"atcoder/internal_math.hpp\"\
-    \n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\n\
-    namespace atcoder {\n\nnamespace internal {\n\n// @param m `1 <= m`\n// @return\
-    \ x mod m\nconstexpr long long safe_mod(long long x, long long m) {\n    x %=\
-    \ m;\n    if (x < 0) x += m;\n    return x;\n}\n\n// Fast modular multiplication\
-    \ by barrett reduction\n// Reference: https://en.wikipedia.org/wiki/Barrett_reduction\n\
+    #include <cassert>\n#include <functional>\n#include <queue>\n#include <vector>\n\
+    \n#line 1 \"atcoder/convolution.hpp\"\n\n\n\n#line 5 \"atcoder/convolution.hpp\"\
+    \n#include <array>\n#line 7 \"atcoder/convolution.hpp\"\n#include <type_traits>\n\
+    #line 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\n\n\
+    \n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace\
+    \ internal {\n\n// @param n `0 <= n`\n// @return minimum non-negative `x` s.t.\
+    \ `n <= 2**x`\nint ceil_pow2(int n) {\n    int x = 0;\n    while ((1U << x) <\
+    \ (unsigned int)(n)) x++;\n    return x;\n}\n\n// @param n `1 <= n`\n// @return\
+    \ minimum non-negative `x` s.t. `(n & (1 << x)) != 0`\nconstexpr int bsf_constexpr(unsigned\
+    \ int n) {\n    int x = 0;\n    while (!(n & (1 << x))) x++;\n    return x;\n\
+    }\n\n// @param n `1 <= n`\n// @return minimum non-negative `x` s.t. `(n & (1 <<\
+    \ x)) != 0`\nint bsf(unsigned int n) {\n#ifdef _MSC_VER\n    unsigned long index;\n\
+    \    _BitScanForward(&index, n);\n    return index;\n#else\n    return __builtin_ctz(n);\n\
+    #endif\n}\n\n}  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 1\
+    \ \"atcoder/modint.hpp\"\n\n\n\n#line 5 \"atcoder/modint.hpp\"\n#include <numeric>\n\
+    #line 7 \"atcoder/modint.hpp\"\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\
+    \n#line 1 \"atcoder/internal_math.hpp\"\n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n\
+    #include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace internal {\n\n\
+    // @param m `1 <= m`\n// @return x mod m\nconstexpr long long safe_mod(long long\
+    \ x, long long m) {\n    x %= m;\n    if (x < 0) x += m;\n    return x;\n}\n\n\
+    // Fast modular multiplication by barrett reduction\n// Reference: https://en.wikipedia.org/wiki/Barrett_reduction\n\
     // NOTE: reconsider after Ice Lake\nstruct barrett {\n    unsigned int _m;\n \
     \   unsigned long long im;\n\n    // @param m `1 <= m < 2^31`\n    explicit barrett(unsigned\
     \ int m) : _m(m), im((unsigned long long)(-1) / m + 1) {}\n\n    // @return m\n\
@@ -405,7 +408,7 @@ data:
     \     if (diff < 0) diff += MOD1;\n        static constexpr unsigned long long\
     \ offset[5] = {\n            0, 0, M1M2M3, 2 * M1M2M3, 3 * M1M2M3};\n        x\
     \ -= offset[diff % 5];\n        c[i] = x;\n    }\n\n    return c;\n}\n\n}  //\
-    \ namespace atcoder\n\n\n#line 8 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
+    \ namespace atcoder\n\n\n#line 9 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
     \ <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void shrink()\
     \ {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
@@ -532,58 +535,66 @@ data:
     \ T(0));\n                return ret;\n            }\n        }\n        return\
     \ FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n        T ret = 0, w = 1;\n\
     \        for (const auto& v : *this) ret += w * v, w *= x;\n        return ret;\n\
-    \    }\n};\n"
+    \    }\n\n    static FPS product_of_polynomial_sequence(const std::vector<FPS>&\
+    \ fs) {\n        if (fs.empty()) return {T(1)};\n        auto comp = [](const\
+    \ FPS& f, const FPS& g) { return f.size() > g.size(); };\n        std::priority_queue<FPS,\
+    \ std::vector<FPS>, decltype(comp)> pq{comp};\n        for (const auto& f : fs)\
+    \ pq.emplace(f);\n        while (pq.size() > 1) {\n            auto f = pq.top();\n\
+    \            pq.pop();\n            auto g = pq.top();\n            pq.pop();\n\
+    \            pq.emplace(f * g);\n        }\n        return pq.top();\n    }\n\
+    };\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <functional>\n\
-    #include <vector>\n\n#include \"atcoder/convolution\"\n\ntemplate <typename T>\
-    \ struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using std::vector<T>::vector;\n\
-    \    using FPS = FormalPowerSeries;\n    void shrink() {\n        while (this->size()\
-    \ and this->back() == T(0)) this->pop_back();\n    }\n\n    FPS pre(size_t sz)\
-    \ const { return FPS(this->begin(), this->begin() + std::min(this->size(), sz));\
-    \ }\n\n    FPS rev() const {\n        FPS ret(*this);\n        std::reverse(ret.begin(),\
-    \ ret.end());\n        return ret;\n    }\n\n    FPS operator>>(size_t sz) const\
-    \ {\n        if (this->size() <= sz) return {};\n        return FPS(this->begin()\
-    \ + sz, this->end());\n    }\n\n    FPS operator<<(size_t sz) const {\n      \
-    \  if (this->empty()) return {};\n        FPS ret(*this);\n        ret.insert(ret.begin(),\
-    \ sz, T(0));\n        return ret;\n    }\n\npublic:\n    FPS& operator+=(const\
-    \ FPS& r) {\n        if (r.size() > this->size()) this->resize(r.size());\n  \
-    \      for (size_t i = 0; i < r.size(); i++) (*this)[i] += r[i];\n        shrink();\n\
-    \        return *this;\n    }\n\n    FPS& operator+=(const T& v) {\n        if\
-    \ (this->empty()) this->resize(1);\n        (*this)[0] += v;\n        shrink();\n\
-    \        return *this;\n    }\n\n    FPS& operator-=(const FPS& r) {\n       \
-    \ if (r.size() > this->size()) this->resize(r.size());\n        for (size_t i\
-    \ = 0; i < r.size(); i++) (*this)[i] -= r[i];\n        shrink();\n        return\
-    \ *this;\n    }\n\n    FPS& operator-=(const T& v) {\n        if (this->empty())\
-    \ this->resize(1);\n        (*this)[0] -= v;\n        shrink();\n        return\
-    \ *this;\n    }\n\n    FPS& operator*=(const FPS& r) {\n        auto res = atcoder::convolution(*this,\
-    \ r);\n        return *this = {res.begin(), res.end()};\n    }\n\n    FPS& operator*=(const\
-    \ T& v) {\n        for (auto& x : (*this)) x *= v;\n        shrink();\n      \
-    \  return *this;\n    }\n\n    FPS& operator/=(const FPS& r) {\n        if (this->size()\
-    \ < r.size()) {\n            this->clear();\n            return *this;\n     \
-    \   }\n        int n = this->size() - r.size() + 1;\n        return *this = (rev().pre(n)\
-    \ * r.rev().inv(n)).pre(n).rev();\n    }\n\n    FPS& operator%=(const FPS& r)\
-    \ {\n        *this -= *this / r * r;\n        shrink();\n        return *this;\n\
-    \    }\n\n    FPS operator+(const FPS& r) const { return FPS(*this) += r; }\n\n\
-    \    FPS operator+(const T& v) const { return FPS(*this) += v; }\n\n    FPS operator-(const\
-    \ FPS& r) const { return FPS(*this) -= r; }\n\n    FPS operator-(const T& v) const\
-    \ { return FPS(*this) -= v; }\n\n    FPS operator*(const FPS& r) const { return\
-    \ FPS(*this) *= r; }\n\n    FPS operator*(const T& v) const { return FPS(*this)\
-    \ *= v; }\n\n    FPS operator/(const FPS& r) const { return FPS(*this) /= r; }\n\
-    \n    FPS operator%(const FPS& r) const { return FPS(*this) %= r; }\n\n    FPS\
-    \ operator-() const {\n        FPS ret = *this;\n        for (auto& v : ret) v\
-    \ = -v;\n        return ret;\n    }\n\n    FPS differential() const {\n      \
-    \  const int n = (int)this->size();\n        FPS ret(std::max(0, n - 1));\n  \
-    \      for (int i = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n        return\
-    \ ret;\n    }\n\n    FPS integral() const {\n        const int n = (int)this->size();\n\
-    \        FPS ret(n + 1);\n        ret[0] = T(0);\n        if (n > 0) ret[1] =\
-    \ T(1);\n        auto mod = T::mod();\n        for (int i = 2; i <= n; i++) ret[i]\
-    \ = -ret[mod % i] * (mod / i);\n        for (int i = 0; i < n; i++) ret[i + 1]\
-    \ *= (*this)[i];\n        return ret;\n    }\n\n    FPS inv(int deg = -1) const\
-    \ {\n        assert((*this)[0] != T(0));\n        const int n = (int)this->size();\n\
-    \        if (deg == -1) deg = n;\n        FPS ret{(*this)[0].inv()};\n       \
-    \ ret.reserve(deg);\n        for (int d = 1; d < deg; d <<= 1) {\n           \
-    \ FPS f(d << 1), g(d << 1);\n            std::copy(this->begin(), this->begin()\
-    \ + std::min(n, d << 1), f.begin());\n            std::copy(ret.begin(), ret.end(),\
-    \ g.begin());\n            atcoder::internal::butterfly(f);\n            atcoder::internal::butterfly(g);\n\
+    #include <queue>\n#include <vector>\n\n#include \"atcoder/convolution\"\n\ntemplate\
+    \ <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using\
+    \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void shrink()\
+    \ {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
+    \    }\n\n    FPS pre(size_t sz) const { return FPS(this->begin(), this->begin()\
+    \ + std::min(this->size(), sz)); }\n\n    FPS rev() const {\n        FPS ret(*this);\n\
+    \        std::reverse(ret.begin(), ret.end());\n        return ret;\n    }\n\n\
+    \    FPS operator>>(size_t sz) const {\n        if (this->size() <= sz) return\
+    \ {};\n        return FPS(this->begin() + sz, this->end());\n    }\n\n    FPS\
+    \ operator<<(size_t sz) const {\n        if (this->empty()) return {};\n     \
+    \   FPS ret(*this);\n        ret.insert(ret.begin(), sz, T(0));\n        return\
+    \ ret;\n    }\n\npublic:\n    FPS& operator+=(const FPS& r) {\n        if (r.size()\
+    \ > this->size()) this->resize(r.size());\n        for (size_t i = 0; i < r.size();\
+    \ i++) (*this)[i] += r[i];\n        shrink();\n        return *this;\n    }\n\n\
+    \    FPS& operator+=(const T& v) {\n        if (this->empty()) this->resize(1);\n\
+    \        (*this)[0] += v;\n        shrink();\n        return *this;\n    }\n\n\
+    \    FPS& operator-=(const FPS& r) {\n        if (r.size() > this->size()) this->resize(r.size());\n\
+    \        for (size_t i = 0; i < r.size(); i++) (*this)[i] -= r[i];\n        shrink();\n\
+    \        return *this;\n    }\n\n    FPS& operator-=(const T& v) {\n        if\
+    \ (this->empty()) this->resize(1);\n        (*this)[0] -= v;\n        shrink();\n\
+    \        return *this;\n    }\n\n    FPS& operator*=(const FPS& r) {\n       \
+    \ auto res = atcoder::convolution(*this, r);\n        return *this = {res.begin(),\
+    \ res.end()};\n    }\n\n    FPS& operator*=(const T& v) {\n        for (auto&\
+    \ x : (*this)) x *= v;\n        shrink();\n        return *this;\n    }\n\n  \
+    \  FPS& operator/=(const FPS& r) {\n        if (this->size() < r.size()) {\n \
+    \           this->clear();\n            return *this;\n        }\n        int\
+    \ n = this->size() - r.size() + 1;\n        return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev();\n\
+    \    }\n\n    FPS& operator%=(const FPS& r) {\n        *this -= *this / r * r;\n\
+    \        shrink();\n        return *this;\n    }\n\n    FPS operator+(const FPS&\
+    \ r) const { return FPS(*this) += r; }\n\n    FPS operator+(const T& v) const\
+    \ { return FPS(*this) += v; }\n\n    FPS operator-(const FPS& r) const { return\
+    \ FPS(*this) -= r; }\n\n    FPS operator-(const T& v) const { return FPS(*this)\
+    \ -= v; }\n\n    FPS operator*(const FPS& r) const { return FPS(*this) *= r; }\n\
+    \n    FPS operator*(const T& v) const { return FPS(*this) *= v; }\n\n    FPS operator/(const\
+    \ FPS& r) const { return FPS(*this) /= r; }\n\n    FPS operator%(const FPS& r)\
+    \ const { return FPS(*this) %= r; }\n\n    FPS operator-() const {\n        FPS\
+    \ ret = *this;\n        for (auto& v : ret) v = -v;\n        return ret;\n   \
+    \ }\n\n    FPS differential() const {\n        const int n = (int)this->size();\n\
+    \        FPS ret(std::max(0, n - 1));\n        for (int i = 1; i < n; i++) ret[i\
+    \ - 1] = (*this)[i] * T(i);\n        return ret;\n    }\n\n    FPS integral()\
+    \ const {\n        const int n = (int)this->size();\n        FPS ret(n + 1);\n\
+    \        ret[0] = T(0);\n        if (n > 0) ret[1] = T(1);\n        auto mod =\
+    \ T::mod();\n        for (int i = 2; i <= n; i++) ret[i] = -ret[mod % i] * (mod\
+    \ / i);\n        for (int i = 0; i < n; i++) ret[i + 1] *= (*this)[i];\n     \
+    \   return ret;\n    }\n\n    FPS inv(int deg = -1) const {\n        assert((*this)[0]\
+    \ != T(0));\n        const int n = (int)this->size();\n        if (deg == -1)\
+    \ deg = n;\n        FPS ret{(*this)[0].inv()};\n        ret.reserve(deg);\n  \
+    \      for (int d = 1; d < deg; d <<= 1) {\n            FPS f(d << 1), g(d <<\
+    \ 1);\n            std::copy(this->begin(), this->begin() + std::min(n, d << 1),\
+    \ f.begin());\n            std::copy(ret.begin(), ret.end(), g.begin());\n   \
+    \         atcoder::internal::butterfly(f);\n            atcoder::internal::butterfly(g);\n\
     \            for (int i = 0; i < (d << 1); i++) f[i] *= g[i];\n            atcoder::internal::butterfly_inv(f);\n\
     \            std::fill(f.begin(), f.begin() + d, T(0));\n            atcoder::internal::butterfly(f);\n\
     \            for (int i = 0; i < (d << 1); i++) f[i] *= g[i];\n            atcoder::internal::butterfly_inv(f);\n\
@@ -660,20 +671,28 @@ data:
     \ T(0));\n                return ret;\n            }\n        }\n        return\
     \ FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n        T ret = 0, w = 1;\n\
     \        for (const auto& v : *this) ret += w * v, w *= x;\n        return ret;\n\
-    \    }\n};\n"
+    \    }\n\n    static FPS product_of_polynomial_sequence(const std::vector<FPS>&\
+    \ fs) {\n        if (fs.empty()) return {T(1)};\n        auto comp = [](const\
+    \ FPS& f, const FPS& g) { return f.size() > g.size(); };\n        std::priority_queue<FPS,\
+    \ std::vector<FPS>, decltype(comp)> pq{comp};\n        for (const auto& f : fs)\
+    \ pq.emplace(f);\n        while (pq.size() > 1) {\n            auto f = pq.top();\n\
+    \            pq.pop();\n            auto g = pq.top();\n            pq.pop();\n\
+    \            pq.emplace(f * g);\n        }\n        return pq.top();\n    }\n\
+    };\n"
   dependsOn: []
   isVerificationFile: false
   path: polynomial/FormalPowerSeries.hpp
   requiredBy:
   - polynomial/subset_sum.hpp
   - polynomial/multipoint_evaluation.hpp
-  timestamp: '2022-10-24 01:37:49+09:00'
+  timestamp: '2022-11-07 18:18:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/sharp_p_subset_sum.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/product_of_polynomial_sequence.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/multipoint_evaluation.test.cpp

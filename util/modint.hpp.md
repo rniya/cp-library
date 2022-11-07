@@ -43,6 +43,9 @@ data:
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/product_of_polynomial_sequence.test.cpp
+    title: test/yosupo/product_of_polynomial_sequence.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -321,6 +324,7 @@ data:
   - test/yosupo/sharp_p_subset_sum.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/characteristic_polynomial.test.cpp
+  - test/yosupo/product_of_polynomial_sequence.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/yosupo/bitwise_and_convolution.test.cpp

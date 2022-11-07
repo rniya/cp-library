@@ -23,7 +23,7 @@ data:
   bundledCode: "#line 1 \"test/yosupo/sharp_p_subset_sum.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/sharp_p_subset_sum\"\n\n#line 2 \"polynomial/subset_sum.hpp\"\
     \n#include <vector>\n#line 2 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n\
-    #include <cassert>\n#include <functional>\n#line 6 \"polynomial/FormalPowerSeries.hpp\"\
+    #include <cassert>\n#include <functional>\n#include <queue>\n#line 7 \"polynomial/FormalPowerSeries.hpp\"\
     \n\n#line 1 \"atcoder/convolution.hpp\"\n\n\n\n#line 5 \"atcoder/convolution.hpp\"\
     \n#include <array>\n#line 7 \"atcoder/convolution.hpp\"\n#include <type_traits>\n\
     #line 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\n\n\
@@ -387,7 +387,7 @@ data:
     \     if (diff < 0) diff += MOD1;\n        static constexpr unsigned long long\
     \ offset[5] = {\n            0, 0, M1M2M3, 2 * M1M2M3, 3 * M1M2M3};\n        x\
     \ -= offset[diff % 5];\n        c[i] = x;\n    }\n\n    return c;\n}\n\n}  //\
-    \ namespace atcoder\n\n\n#line 8 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
+    \ namespace atcoder\n\n\n#line 9 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
     \ <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void shrink()\
     \ {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
@@ -514,7 +514,14 @@ data:
     \ T(0));\n                return ret;\n            }\n        }\n        return\
     \ FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n        T ret = 0, w = 1;\n\
     \        for (const auto& v : *this) ret += w * v, w *= x;\n        return ret;\n\
-    \    }\n};\n#line 4 \"polynomial/subset_sum.hpp\"\n\ntemplate <typename T> std::vector<T>\
+    \    }\n\n    static FPS product_of_polynomial_sequence(const std::vector<FPS>&\
+    \ fs) {\n        if (fs.empty()) return {T(1)};\n        auto comp = [](const\
+    \ FPS& f, const FPS& g) { return f.size() > g.size(); };\n        std::priority_queue<FPS,\
+    \ std::vector<FPS>, decltype(comp)> pq{comp};\n        for (const auto& f : fs)\
+    \ pq.emplace(f);\n        while (pq.size() > 1) {\n            auto f = pq.top();\n\
+    \            pq.pop();\n            auto g = pq.top();\n            pq.pop();\n\
+    \            pq.emplace(f * g);\n        }\n        return pq.top();\n    }\n\
+    };\n#line 4 \"polynomial/subset_sum.hpp\"\n\ntemplate <typename T> std::vector<T>\
     \ subset_sum(const std::vector<int>& s, int m) {\n    std::vector<int> cnt(m +\
     \ 1, 0);\n    for (const int& x : s) {\n        assert(x >= 0);\n        if (x\
     \ <= m) cnt[x]++;\n    }\n    FormalPowerSeries<T> res(m + 1);\n    std::vector<T>\
@@ -551,7 +558,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/sharp_p_subset_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-10-24 02:16:03+09:00'
+  timestamp: '2022-11-07 18:18:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/sharp_p_subset_sum.test.cpp

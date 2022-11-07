@@ -20,7 +20,7 @@ data:
   bundledCode: "#line 1 \"test/yosupo/inv_of_formal_power_series.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/inv_of_formal_power_series\"\n\n#line\
     \ 2 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n#include <cassert>\n\
-    #include <functional>\n#include <vector>\n\n#line 1 \"atcoder/convolution.hpp\"\
+    #include <functional>\n#include <queue>\n#include <vector>\n\n#line 1 \"atcoder/convolution.hpp\"\
     \n\n\n\n#line 5 \"atcoder/convolution.hpp\"\n#include <array>\n#line 7 \"atcoder/convolution.hpp\"\
     \n#include <type_traits>\n#line 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\
     \n\n\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\n\
@@ -384,7 +384,7 @@ data:
     \     if (diff < 0) diff += MOD1;\n        static constexpr unsigned long long\
     \ offset[5] = {\n            0, 0, M1M2M3, 2 * M1M2M3, 3 * M1M2M3};\n        x\
     \ -= offset[diff % 5];\n        c[i] = x;\n    }\n\n    return c;\n}\n\n}  //\
-    \ namespace atcoder\n\n\n#line 8 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
+    \ namespace atcoder\n\n\n#line 9 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
     \ <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void shrink()\
     \ {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
@@ -511,7 +511,14 @@ data:
     \ T(0));\n                return ret;\n            }\n        }\n        return\
     \ FPS(deg, T(0));\n    }\n\n    T eval(T x) const {\n        T ret = 0, w = 1;\n\
     \        for (const auto& v : *this) ret += w * v, w *= x;\n        return ret;\n\
-    \    }\n};\n#line 2 \"util/modint.hpp\"\n#include <iostream>\n#line 4 \"util/modint.hpp\"\
+    \    }\n\n    static FPS product_of_polynomial_sequence(const std::vector<FPS>&\
+    \ fs) {\n        if (fs.empty()) return {T(1)};\n        auto comp = [](const\
+    \ FPS& f, const FPS& g) { return f.size() > g.size(); };\n        std::priority_queue<FPS,\
+    \ std::vector<FPS>, decltype(comp)> pq{comp};\n        for (const auto& f : fs)\
+    \ pq.emplace(f);\n        while (pq.size() > 1) {\n            auto f = pq.top();\n\
+    \            pq.pop();\n            auto g = pq.top();\n            pq.pop();\n\
+    \            pq.emplace(f * g);\n        }\n        return pq.top();\n    }\n\
+    };\n#line 2 \"util/modint.hpp\"\n#include <iostream>\n#line 4 \"util/modint.hpp\"\
     \n\nnamespace atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream&\
     \ is, static_modint<MOD>& x) {\n    int64_t v;\n    x = static_modint<MOD>{(is\
     \ >> v, v)};\n    return is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream&\
@@ -536,7 +543,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/inv_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-10-24 01:37:49+09:00'
+  timestamp: '2022-11-07 18:18:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/inv_of_formal_power_series.test.cpp
