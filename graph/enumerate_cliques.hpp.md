@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2306.test.cpp
     title: test/aoj/2306.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/enumerate_cliques.test.cpp
+    title: test/yosupo/enumerate_cliques.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -82,6 +85,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2306.test.cpp
+  - test/yosupo/enumerate_cliques.test.cpp
 documentation_of: graph/enumerate_cliques.hpp
 layout: document
 title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"

@@ -28,6 +28,9 @@ data:
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/pow_of_formal_power_series_sparse.test.cpp
+    title: test/yosupo/pow_of_formal_power_series_sparse.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/product_of_polynomial_sequence.test.cpp
     title: test/yosupo/product_of_polynomial_sequence.test.cpp
   - icon: ':heavy_check_mark:'
@@ -44,8 +47,8 @@ data:
     links:
     - https://arxiv.org/pdf/1301.5804.pdf
   bundledCode: "#line 2 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n\
-    #include <cassert>\n#include <functional>\n#include <queue>\n#include <vector>\n\
-    \n#line 1 \"atcoder/convolution.hpp\"\n\n\n\n#line 5 \"atcoder/convolution.hpp\"\
+    #include <cassert>\n#include <functional>\n#include <queue>\n#include <utility>\n\
+    #include <vector>\n\n#line 1 \"atcoder/convolution.hpp\"\n\n\n\n#line 5 \"atcoder/convolution.hpp\"\
     \n#include <array>\n#line 7 \"atcoder/convolution.hpp\"\n#include <type_traits>\n\
     #line 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\n\n\
     \n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace\
@@ -60,23 +63,24 @@ data:
     #endif\n}\n\n}  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 1\
     \ \"atcoder/modint.hpp\"\n\n\n\n#line 5 \"atcoder/modint.hpp\"\n#include <numeric>\n\
     #line 7 \"atcoder/modint.hpp\"\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\
-    \n#line 1 \"atcoder/internal_math.hpp\"\n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n\
-    #include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace internal {\n\n\
-    // @param m `1 <= m`\n// @return x mod m\nconstexpr long long safe_mod(long long\
-    \ x, long long m) {\n    x %= m;\n    if (x < 0) x += m;\n    return x;\n}\n\n\
-    // Fast modular multiplication by barrett reduction\n// Reference: https://en.wikipedia.org/wiki/Barrett_reduction\n\
-    // NOTE: reconsider after Ice Lake\nstruct barrett {\n    unsigned int _m;\n \
-    \   unsigned long long im;\n\n    // @param m `1 <= m < 2^31`\n    explicit barrett(unsigned\
-    \ int m) : _m(m), im((unsigned long long)(-1) / m + 1) {}\n\n    // @return m\n\
-    \    unsigned int umod() const { return _m; }\n\n    // @param a `0 <= a < m`\n\
-    \    // @param b `0 <= b < m`\n    // @return `a * b % m`\n    unsigned int mul(unsigned\
-    \ int a, unsigned int b) const {\n        // [1] m = 1\n        // a = b = im\
-    \ = 0, so okay\n\n        // [2] m >= 2\n        // im = ceil(2^64 / m)\n    \
-    \    // -> im * m = 2^64 + r (0 <= r < m)\n        // let z = a*b = c*m + d (0\
-    \ <= c, d < m)\n        // a*b * im = (c*m + d) * im = c*(im*m) + d*im = c*2^64\
-    \ + c*r + d*im\n        // c*r + d*im < m * m + m * im < m * m + 2^64 + m <= 2^64\
-    \ + m * (m + 1) < 2^64 * 2\n        // ((ab * im) >> 64) == c or c + 1\n     \
-    \   unsigned long long z = a;\n        z *= b;\n#ifdef _MSC_VER\n        unsigned\
+    \n#line 1 \"atcoder/internal_math.hpp\"\n\n\n\n#line 5 \"atcoder/internal_math.hpp\"\
+    \n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace\
+    \ internal {\n\n// @param m `1 <= m`\n// @return x mod m\nconstexpr long long\
+    \ safe_mod(long long x, long long m) {\n    x %= m;\n    if (x < 0) x += m;\n\
+    \    return x;\n}\n\n// Fast modular multiplication by barrett reduction\n// Reference:\
+    \ https://en.wikipedia.org/wiki/Barrett_reduction\n// NOTE: reconsider after Ice\
+    \ Lake\nstruct barrett {\n    unsigned int _m;\n    unsigned long long im;\n\n\
+    \    // @param m `1 <= m < 2^31`\n    explicit barrett(unsigned int m) : _m(m),\
+    \ im((unsigned long long)(-1) / m + 1) {}\n\n    // @return m\n    unsigned int\
+    \ umod() const { return _m; }\n\n    // @param a `0 <= a < m`\n    // @param b\
+    \ `0 <= b < m`\n    // @return `a * b % m`\n    unsigned int mul(unsigned int\
+    \ a, unsigned int b) const {\n        // [1] m = 1\n        // a = b = im = 0,\
+    \ so okay\n\n        // [2] m >= 2\n        // im = ceil(2^64 / m)\n        //\
+    \ -> im * m = 2^64 + r (0 <= r < m)\n        // let z = a*b = c*m + d (0 <= c,\
+    \ d < m)\n        // a*b * im = (c*m + d) * im = c*(im*m) + d*im = c*2^64 + c*r\
+    \ + d*im\n        // c*r + d*im < m * m + m * im < m * m + 2^64 + m <= 2^64 +\
+    \ m * (m + 1) < 2^64 * 2\n        // ((ab * im) >> 64) == c or c + 1\n       \
+    \ unsigned long long z = a;\n        z *= b;\n#ifdef _MSC_VER\n        unsigned\
     \ long long x;\n        _umul128(z, im, &x);\n#else\n        unsigned long long\
     \ x =\n            (unsigned long long)(((unsigned __int128)(z)*im) >> 64);\n\
     #endif\n        unsigned int v = (unsigned int)(z - x * _m);\n        if (_m <=\
@@ -408,7 +412,7 @@ data:
     \     if (diff < 0) diff += MOD1;\n        static constexpr unsigned long long\
     \ offset[5] = {\n            0, 0, M1M2M3, 2 * M1M2M3, 3 * M1M2M3};\n        x\
     \ -= offset[diff % 5];\n        c[i] = x;\n    }\n\n    return c;\n}\n\n}  //\
-    \ namespace atcoder\n\n\n#line 9 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
+    \ namespace atcoder\n\n\n#line 10 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
     \ <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void shrink()\
     \ {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
@@ -541,13 +545,30 @@ data:
     \ std::vector<FPS>, decltype(comp)> pq{comp};\n        for (const auto& f : fs)\
     \ pq.emplace(f);\n        while (pq.size() > 1) {\n            auto f = pq.top();\n\
     \            pq.pop();\n            auto g = pq.top();\n            pq.pop();\n\
-    \            pq.emplace(f * g);\n        }\n        return pq.top();\n    }\n\
-    };\n"
+    \            pq.emplace(f * g);\n        }\n        return pq.top();\n    }\n\n\
+    \    static FPS pow_sparse(const std::vector<std::pair<int, T>>& f, int64_t k,\
+    \ int n) {\n        assert(k >= 0);\n        int d = f.size(), offset = 0;\n \
+    \       while (offset < d and f[offset].second == 0) offset++;\n        FPS res(n,\
+    \ 0);\n        if (offset == d) {\n            if (k == 0) res[0]++;\n       \
+    \     return res;\n        }\n        if (f[offset].first > 0) {\n           \
+    \ int deg = f[offset].first;\n            if (k > (n - 1) / deg) return res;\n\
+    \            std::vector<std::pair<int, T>> g(f.begin() + offset, f.end());\n\
+    \            for (auto& p : g) p.first -= deg;\n            auto tmp = pow_sparse(g,\
+    \ k, n - k * deg);\n            for (int i = 0; i < n - k * deg; i++) res[k *\
+    \ deg + i] = tmp[i];\n            return res;\n        }\n        std::vector<T>\
+    \ invs(n + 1);\n        invs[0] = T(0);\n        invs[1] = T(1);\n        auto\
+    \ mod = T::mod();\n        for (int i = 2; i <= n; i++) invs[i] = -invs[mod %\
+    \ i] * (mod / i);\n        res[0] = f[0].second.pow(k);\n        T coef = f[0].second.inv();\n\
+    \        for (int i = 1; i < n; i++) {\n            for (int j = 1; j < d; j++)\
+    \ {\n                if (i - f[j].first < 0) break;\n                res[i] +=\
+    \ f[j].second * res[i - f[j].first] * (T(k) * f[j].first - (i - f[j].first));\n\
+    \            }\n            res[i] *= invs[i] * coef;\n        }\n        return\
+    \ res;\n    }\n};\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <functional>\n\
-    #include <queue>\n#include <vector>\n\n#include \"atcoder/convolution\"\n\ntemplate\
-    \ <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using\
-    \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void shrink()\
-    \ {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
+    #include <queue>\n#include <utility>\n#include <vector>\n\n#include \"atcoder/convolution\"\
+    \n\ntemplate <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n\
+    \    using std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void\
+    \ shrink() {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
     \    }\n\n    FPS pre(size_t sz) const { return FPS(this->begin(), this->begin()\
     \ + std::min(this->size(), sz)); }\n\n    FPS rev() const {\n        FPS ret(*this);\n\
     \        std::reverse(ret.begin(), ret.end());\n        return ret;\n    }\n\n\
@@ -677,19 +698,37 @@ data:
     \ std::vector<FPS>, decltype(comp)> pq{comp};\n        for (const auto& f : fs)\
     \ pq.emplace(f);\n        while (pq.size() > 1) {\n            auto f = pq.top();\n\
     \            pq.pop();\n            auto g = pq.top();\n            pq.pop();\n\
-    \            pq.emplace(f * g);\n        }\n        return pq.top();\n    }\n\
-    };\n"
+    \            pq.emplace(f * g);\n        }\n        return pq.top();\n    }\n\n\
+    \    static FPS pow_sparse(const std::vector<std::pair<int, T>>& f, int64_t k,\
+    \ int n) {\n        assert(k >= 0);\n        int d = f.size(), offset = 0;\n \
+    \       while (offset < d and f[offset].second == 0) offset++;\n        FPS res(n,\
+    \ 0);\n        if (offset == d) {\n            if (k == 0) res[0]++;\n       \
+    \     return res;\n        }\n        if (f[offset].first > 0) {\n           \
+    \ int deg = f[offset].first;\n            if (k > (n - 1) / deg) return res;\n\
+    \            std::vector<std::pair<int, T>> g(f.begin() + offset, f.end());\n\
+    \            for (auto& p : g) p.first -= deg;\n            auto tmp = pow_sparse(g,\
+    \ k, n - k * deg);\n            for (int i = 0; i < n - k * deg; i++) res[k *\
+    \ deg + i] = tmp[i];\n            return res;\n        }\n        std::vector<T>\
+    \ invs(n + 1);\n        invs[0] = T(0);\n        invs[1] = T(1);\n        auto\
+    \ mod = T::mod();\n        for (int i = 2; i <= n; i++) invs[i] = -invs[mod %\
+    \ i] * (mod / i);\n        res[0] = f[0].second.pow(k);\n        T coef = f[0].second.inv();\n\
+    \        for (int i = 1; i < n; i++) {\n            for (int j = 1; j < d; j++)\
+    \ {\n                if (i - f[j].first < 0) break;\n                res[i] +=\
+    \ f[j].second * res[i - f[j].first] * (T(k) * f[j].first - (i - f[j].first));\n\
+    \            }\n            res[i] *= invs[i] * coef;\n        }\n        return\
+    \ res;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: polynomial/FormalPowerSeries.hpp
   requiredBy:
   - polynomial/subset_sum.hpp
   - polynomial/multipoint_evaluation.hpp
-  timestamp: '2022-11-07 18:18:55+09:00'
+  timestamp: '2022-11-10 02:48:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
   - test/yosupo/sharp_p_subset_sum.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/product_of_polynomial_sequence.test.cpp
@@ -736,11 +775,11 @@ $f(x)g(x)$ を求める．
 これは Number Theoretic Transform により $O(N \log N)$ で計算可能である．
 
 #### （多項式としての）除算
-多項式 $f(x), g(x)$ について $f(x) = q(x) g(x) + r(x)$ なる多項式 $q(x), r(x)\ (\deg r < \deg g)$ を求める。
-以下、$\deg f = n - 1,\ \deg g = m - 1$ とすると $\deg q = n - m$ である。
+多項式 $f(x), g(x)$ について $f(x) = q(x) g(x) + r(x)$ なる多項式 $q(x), r(x)\ (\deg r < \deg g)$ を求める．
+以下，$\deg f = n - 1,\ \deg g = m - 1$ とすると $\deg q = n - m$ である．
 
-$f$ について多項式 $f^R = f(x^{-1}) x^{n - 1}$ を定める。
-商と余りの定義式を $x \gets x^{-1}$ として、両辺に $x^{n - 1}$ を掛けて、
+$f$ について多項式 $f^R = f(x^{-1}) x^{n - 1}$ を定める．
+商と余りの定義式を $x \gets x^{-1}$ として，両辺に $x^{n - 1}$ を掛けて，
 
 $$
 \begin{aligned}
@@ -923,10 +962,37 @@ $$
 定数項が $1$ の多項式 $g(x)$ を用いて $f(x) = cx^lg(x)\ (l \geq 0)$ と表せる．
 このとき，$f(x)^k = c^kx^{lk}g(x)^k$ であることを利用すれば良い．
 
+#### inv（$f$ が sparse な場合）
+$f$ の非零の個数を $K$ とすると，$1 / f(x)$ の先頭 $N$ 項を $O(NK)$ で列挙することができる．
+
+$fg = 1$ より $f_0 g_0 = 1$ かつ $n \geq 1$ について $\sum_{i = 0}^n f_i g_{n - i} = 0$ より $f_0 g_n = - \sum_{i = 1}^n f_i g_{n - i}$ で $n$ の昇順に計算可能である．
+
+より一般に $g$ を疎な $f$ で割った $g / f$ を求めることも同様の計算量で可能である．
+
+#### log（$f$ が sparse な場合）
+$f$ の非零の個数を $K$ とすると，$\log f$ の先頭 $N$ 項を $O(NK)$ で列挙することができる．
+
+$\log f = f^\prime / f$ であるから inv の場合と同様にして計算できる．
+#### exp（$f$ が sparse な場合）
+$f$ の非零の個数を $K$ とすると，$\exp f$ の先頭 $N$ 項を $O(NK)$ で列挙することができる．
+
+疎でない場合の exp と同様に $f_0 = 0$ である．
+$F = \exp f$ とすると，$F_0 = 1$ で，両辺微分して $F^\prime = F f^\prime$．
+$f^\prime$ も疎であるから，$F_n$ までわかっているとき，右辺の $n$ 次の係数，すなわち $F^\prime$ の $n$ 次の係数が計算できるから $F$ の $n + 1$ 次の係数がわかる．
+
 #### pow（$f$ が sparse な場合）
-$f$ の非零の個数を $K$ とすると、$f(x)^k$ の先頭 $N$ 項を $O(NK)$ で列挙することができる。
+$f$ の非零の個数を $K$ とすると，$f(x)^M$ の先頭 $N$ 項を $O(NK + \log M)$ で列挙することができる．
 
+$f$ が定数項をもつ場合に帰着する．
+$F = f^M$ とすると，両辺微分して $F^\prime = M f^{M - 1} f^\prime$ より $f F^\prime = M f^\prime F$．
+$g = F^\prime$ として $n$ 次の係数について，$\sum_{i = 0}^n f_i g_{n - i} = M \sum_{i = 1}^n i F_{n - i + 1} f_i$ であり，$f_0 g_n = - \sum_{i = 1}^n f_i g_{n - i} + M \sum_{i = 1}^n i F_{n - i + 1} f_i$．$F_n$ までわかっているとき，右辺が計算可能であるから $g_n$ がわかり，$g = F^\prime$ より $F_{n + 1}  = \frac{g_n}{(n + 1) f_0}$．
 
+#### sqrt（$f$ が sparse な場合）
+$f$ の非零の個数を $K$ とすると，$\sqrt{f(x)}$ の先頭 $N$ 項を $O(NK)$ で列挙することができる．
+
+$f$ の定数項が $1$ の場合に帰着すると，$\sqrt{f} = f^{1 / 2}$ が成立し，pow と同様にして計算可能である．
+
+以上の $f$ が sparse な場合の各種演算は Number Theoretic Transform による積の高速化を必要としないため，$\mathbb{F}_{10^9 + 7}[x]$ 等，**法が NTT-friendly でない場合にも適用可能である．**
 
 ## 問題例
 - [Codeforces Round #250 (Div. 1) E. The Child and Binary Tree](https://codeforces.com/contest/438/problem/E)

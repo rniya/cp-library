@@ -20,9 +20,12 @@ data:
       title: monotone minima
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: base.hpp
       title: base.hpp
+    - icon: ':x:'
+      path: debug.hpp
+      title: debug.hpp
   - name: combinatorics
     pages:
     - icon: ':heavy_check_mark:'
@@ -249,7 +252,7 @@ data:
       title: "\u6709\u7406\u6570\u30E9\u30A4\u30D6\u30E9\u30EA"
     - icon: ':warning:'
       path: util/ZobristHash.hpp
-      title: Zobrist Hash
+      title: util/ZobristHash.hpp
     - icon: ':warning:'
       path: util/flow_graphviz.hpp
       title: util/flow_graphviz.hpp
@@ -438,7 +441,7 @@ data:
       title: test/aoj/example.test.cpp
   - name: test/yosupo
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/aplusb.test.cpp
       title: test/yosupo/aplusb.test.cpp
     - icon: ':heavy_check_mark:'
@@ -462,6 +465,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/division_of_polynomials.test.cpp
       title: test/yosupo/division_of_polynomials.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/enumerate_cliques.test.cpp
+      title: test/yosupo/enumerate_cliques.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/enumerate_palindromes.test.cpp
       title: test/yosupo/enumerate_palindromes.test.cpp
@@ -510,6 +516,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/pow_of_formal_power_series_sparse.test.cpp
+      title: test/yosupo/pow_of_formal_power_series_sparse.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/product_of_polynomial_sequence.test.cpp
       title: test/yosupo/product_of_polynomial_sequence.test.cpp

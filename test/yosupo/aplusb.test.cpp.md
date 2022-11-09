@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: base.hpp
     title: base.hpp
+  - icon: ':x:'
+    path: debug.hpp
+    title: debug.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -79,19 +82,44 @@ data:
     \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 4 \"test/yosupo/aplusb.test.cpp\"\n\nint main() {\n    cin.tie(0);\n   \
-    \ ios::sync_with_stdio(false);\n    int A, B;\n    cin >> A >> B;\n\n    cout\
+    #line 2 \"debug.hpp\"\nusing namespace std;\n\ntemplate <typename T, typename\
+    \ U> ostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os << '(' <<\
+    \ p.first << ',' << p.second << ')';\n    return os;\n}\ntemplate <typename T,\
+    \ typename U> ostream& operator<<(ostream& os, const map<T, U>& m) {\n    os <<\
+    \ '{';\n    for (auto itr = m.begin(); itr != m.end();) {\n        os << '(' <<\
+    \ itr->first << ',' << itr->second << ')';\n        if (++itr != m.end()) os <<\
+    \ ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream&\
+    \ operator<<(ostream& os, const set<T>& s) {\n    os << '{';\n    for (auto itr\
+    \ = s.begin(); itr != s.end();) {\n        os << *itr;\n        if (++itr != s.end())\
+    \ os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename T>\
+    \ ostream& operator<<(ostream& os, const multiset<T>& s) {\n    os << '{';\n \
+    \   for (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n     \
+    \   if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n\
+    }\ntemplate <typename T> ostream& operator<<(ostream& os, const deque<T>& v) {\n\
+    \    for (size_t i = 0; i < v.size(); i++) {\n        os << v[i] << (i + 1 ==\
+    \ v.size() ? \"\" : \" \");\n    }\n    return os;\n}\n\ntemplate <int i, typename\
+    \ T> void print_tuple(ostream&, const T&) {}\ntemplate <int i, typename T, typename\
+    \ H, class... Args> void print_tuple(ostream& os, const T& t) {\n    if (i) os\
+    \ << ',';\n    os << get<i>(t);\n    print_tuple<i + 1, T, Args...>(os, t);\n\
+    }\ntemplate <typename... Args> ostream& operator<<(ostream& os, const tuple<Args...>&\
+    \ t) {\n    os << '{';\n    print_tuple<0, tuple<Args...>, Args...>(os, t);\n\
+    \    return os << '}';\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate <class\
+    \ Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n    cerr\
+    \ << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
+    }\n#line 5 \"test/yosupo/aplusb.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int A, B;\n    cin >> A >> B;\n\n    cout\
     \ << A + B << '\\n';\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n\n#include \"\
-    ../../base.hpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    base.hpp\"\n#include \"debug.hpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    int A, B;\n    cin >> A >> B;\n\n    cout << A + B << '\\n';\n}"
   dependsOn:
   - base.hpp
+  - debug.hpp
   isVerificationFile: true
   path: test/yosupo/aplusb.test.cpp
   requiredBy: []
-  timestamp: '2021-10-31 14:57:50+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-11-10 02:48:19+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/aplusb.test.cpp
 layout: document

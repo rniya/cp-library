@@ -1,102 +1,62 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: graph/enumerate_cliques.hpp
+    title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
+  - icon: ':heavy_check_mark:'
+    path: util/modint.hpp
+    title: util/modint.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DPL_5_E.test.cpp
-    title: test/aoj/DPL_5_E.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/bitwise_and_convolution.test.cpp
-    title: test/yosupo/bitwise_and_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/bitwise_xor_convolution.test.cpp
-    title: test/yosupo/bitwise_xor_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/characteristic_polynomial.test.cpp
-    title: test/yosupo/characteristic_polynomial.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/division_of_polynomials.test.cpp
-    title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/enumerate_cliques.test.cpp
-    title: test/yosupo/enumerate_cliques.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/exp_of_formal_power_series.test.cpp
-    title: test/yosupo/exp_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/gcd_convolution.test.cpp
-    title: test/yosupo/gcd_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/inv_of_formal_power_series.test.cpp
-    title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
-    title: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/log_of_formal_power_series.test.cpp
-    title: test/yosupo/log_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/matrix_det.test.cpp
-    title: test/yosupo/matrix_det.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/multipoint_evaluation.test.cpp
-    title: test/yosupo/multipoint_evaluation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/pow_of_formal_power_series.test.cpp
-    title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/pow_of_formal_power_series_sparse.test.cpp
-    title: test/yosupo/pow_of_formal_power_series_sparse.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/product_of_polynomial_sequence.test.cpp
-    title: test/yosupo/product_of_polynomial_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/queue_operate_all_composite.test.cpp
-    title: test/yosupo/queue_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/sharp_p_subset_sum.test.cpp
-    title: test/yosupo/sharp_p_subset_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/sqrt_of_formal_power_series.test.cpp
-    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/vertex_set_path_composite.test.cpp
-    title: test/yosupo/vertex_set_path_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1050.test.cpp
-    title: test/yukicoder/1050.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1269.test.cpp
-    title: test/yukicoder/1269.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1289.test.cpp
-    title: test/yukicoder/1289.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1907.test.cpp
-    title: test/yukicoder/1907.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/665.test.cpp
-    title: test/yukicoder/665.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/803.test.cpp
-    title: test/yukicoder/803.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/886.test.cpp
-    title: test/yukicoder/886.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"util/modint.hpp\"\n#include <iostream>\n#line 1 \"atcoder/modint.hpp\"\
-    \n\n\n\n#include <cassert>\n#include <numeric>\n#include <type_traits>\n\n#ifdef\
-    \ _MSC_VER\n#include <intrin.h>\n#endif\n\n#line 1 \"atcoder/internal_math.hpp\"\
-    \n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\n\
-    namespace atcoder {\n\nnamespace internal {\n\n// @param m `1 <= m`\n// @return\
-    \ x mod m\nconstexpr long long safe_mod(long long x, long long m) {\n    x %=\
-    \ m;\n    if (x < 0) x += m;\n    return x;\n}\n\n// Fast modular multiplication\
-    \ by barrett reduction\n// Reference: https://en.wikipedia.org/wiki/Barrett_reduction\n\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/enumerate_cliques
+    links:
+    - https://judge.yosupo.jp/problem/enumerate_cliques
+  bundledCode: "#line 1 \"test/yosupo/enumerate_cliques.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.yosupo.jp/problem/enumerate_cliques\"\n\n#line 2 \"graph/enumerate_cliques.hpp\"\
+    \n#include <queue>\n#include <vector>\n\nstd::vector<std::vector<int>> enumerate_cliques(std::vector<std::vector<bool>>\
+    \ G) {\n    int n = G.size(), m = 0;\n    std::vector<int> deg(n, 0);\n    for\
+    \ (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) deg[i] += G[i][j];\n\
+    \        m += deg[i];\n    }\n    std::vector<std::vector<int>> cliques;\n\n \
+    \   auto add_clique = [&](const std::vector<int>& cand, bool last) {\n       \
+    \ int size = cand.size() - last;\n        std::vector<int> not_adj(size);\n  \
+    \      for (int i = 0; i < size; i++) {\n            for (int j = 0; j < size;\
+    \ j++) {\n                if (i != j && !G[cand[i]][cand[j]]) {\n            \
+    \        not_adj[i] |= 1 << j;\n                }\n            }\n        }\n\
+    \        for (int mask = 1 - last; mask < (1 << (size)); mask++) {\n         \
+    \   bool ok = true;\n            for (int i = 0; i < size; i++) {\n          \
+    \      if ((mask >> i & 1) && (mask & not_adj[i])) {\n                    ok =\
+    \ false;\n                    break;\n                }\n            }\n     \
+    \       if (!ok) continue;\n            std::vector<int> clique;\n           \
+    \ if (last) clique.emplace_back(cand.back());\n            for (int i = 0; i <\
+    \ size; i++) {\n                if (mask >> i & 1) {\n                    clique.emplace_back(cand[i]);\n\
+    \                }\n            }\n            cliques.emplace_back(clique);\n\
+    \        }\n    };\n\n    std::vector<bool> used(n, false);\n    std::queue<int>\
+    \ que;\n    for (int i = 0; i < n; i++) {\n        if (deg[i] * (deg[i] + 1) <=\
+    \ m) {\n            used[i] = true;\n            que.emplace(i);\n        }\n\
+    \    }\n    while (!que.empty()) {\n        int v = que.front();\n        que.pop();\n\
+    \        std::vector<int> cand;\n        for (int u = 0; u < n; u++) {\n     \
+    \       if (G[v][u]) {\n                cand.emplace_back(u);\n            }\n\
+    \        }\n        cand.emplace_back(v);\n        add_clique(cand, true);\n \
+    \       for (int u = 0; u < n; u++) {\n            if (!G[v][u]) continue;\n \
+    \           G[v][u] = G[u][v] = false;\n            deg[u]--;\n            if\
+    \ (!used[u] && deg[u] * (deg[u] + 1) <= m) {\n                used[u] = true;\n\
+    \                que.emplace(u);\n            }\n        }\n    }\n    std::vector<int>\
+    \ rest;\n    for (int i = 0; i < n; i++) {\n        if (!used[i]) {\n        \
+    \    rest.emplace_back(i);\n        }\n    }\n    add_clique(rest, false);\n \
+    \   return cliques;\n}\n#line 2 \"util/modint.hpp\"\n#include <iostream>\n#line\
+    \ 1 \"atcoder/modint.hpp\"\n\n\n\n#include <cassert>\n#include <numeric>\n#include\
+    \ <type_traits>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\n#line 1 \"\
+    atcoder/internal_math.hpp\"\n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n#include\
+    \ <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace internal {\n\n// @param\
+    \ m `1 <= m`\n// @return x mod m\nconstexpr long long safe_mod(long long x, long\
+    \ long m) {\n    x %= m;\n    if (x < 0) x += m;\n    return x;\n}\n\n// Fast\
+    \ modular multiplication by barrett reduction\n// Reference: https://en.wikipedia.org/wiki/Barrett_reduction\n\
     // NOTE: reconsider after Ice Lake\nstruct barrett {\n    unsigned int _m;\n \
     \   unsigned long long im;\n\n    // @param m `1 <= m < 2^31`\n    explicit barrett(unsigned\
     \ int m) : _m(m), im((unsigned long long)(-1) / m + 1) {}\n\n    // @return m\n\
@@ -301,52 +261,40 @@ data:
     \ >> v, v)};\n    return is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream&\
     \ os, const static_modint<MOD>& x) { return os << x.val(); }\n\ntemplate <int\
     \ ID> std::ostream& operator<<(std::ostream& os, const dynamic_modint<ID>& x)\
-    \ { return os << x.val(); }\n\n}  // namespace atcoder\n"
-  code: "#pragma once\n#include <iostream>\n#include \"atcoder/modint\"\n\nnamespace\
-    \ atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream& is, static_modint<MOD>&\
-    \ x) {\n    int64_t v;\n    x = static_modint<MOD>{(is >> v, v)};\n    return\
-    \ is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream& os, const\
-    \ static_modint<MOD>& x) { return os << x.val(); }\n\ntemplate <int ID> std::ostream&\
-    \ operator<<(std::ostream& os, const dynamic_modint<ID>& x) { return os << x.val();\
-    \ }\n\n}  // namespace atcoder\n"
-  dependsOn: []
-  isVerificationFile: false
-  path: util/modint.hpp
+    \ { return os << x.val(); }\n\n}  // namespace atcoder\n#line 5 \"test/yosupo/enumerate_cliques.test.cpp\"\
+    \n\nusing mint = atcoder::modint998244353;\n\nint main() {\n    std::cin.tie(0);\n\
+    \    std::ios::sync_with_stdio(false);\n    int N, M;\n    std::cin >> N >> M;\n\
+    \    std::vector<int> x(N);\n    for (int i = 0; i < N; i++) std::cin >> x[i];\n\
+    \    std::vector<std::vector<bool>> G(N, std::vector<bool>(N, false));\n    for\
+    \ (; M--;) {\n        int u, v;\n        std::cin >> u >> v;\n        G[u][v]\
+    \ = G[v][u] = true;\n    }\n\n    auto calc = [&](std::vector<int> clique) {\n\
+    \        mint res = 1;\n        for (int& v : clique) res *= x[v];\n        return\
+    \ res;\n    };\n    mint ans = 0;\n    for (const auto& clique : enumerate_cliques(G))\
+    \ ans += calc(clique);\n    std::cout << ans << '\\n';\n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_cliques\"\n\n\
+    #include \"graph/enumerate_cliques.hpp\"\n#include \"util/modint.hpp\"\n\nusing\
+    \ mint = atcoder::modint998244353;\n\nint main() {\n    std::cin.tie(0);\n   \
+    \ std::ios::sync_with_stdio(false);\n    int N, M;\n    std::cin >> N >> M;\n\
+    \    std::vector<int> x(N);\n    for (int i = 0; i < N; i++) std::cin >> x[i];\n\
+    \    std::vector<std::vector<bool>> G(N, std::vector<bool>(N, false));\n    for\
+    \ (; M--;) {\n        int u, v;\n        std::cin >> u >> v;\n        G[u][v]\
+    \ = G[v][u] = true;\n    }\n\n    auto calc = [&](std::vector<int> clique) {\n\
+    \        mint res = 1;\n        for (int& v : clique) res *= x[v];\n        return\
+    \ res;\n    };\n    mint ans = 0;\n    for (const auto& clique : enumerate_cliques(G))\
+    \ ans += calc(clique);\n    std::cout << ans << '\\n';\n    return 0;\n}"
+  dependsOn:
+  - graph/enumerate_cliques.hpp
+  - util/modint.hpp
+  isVerificationFile: true
+  path: test/yosupo/enumerate_cliques.test.cpp
   requiredBy: []
-  timestamp: '2021-12-05 15:22:47+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/yukicoder/1289.test.cpp
-  - test/yukicoder/886.test.cpp
-  - test/yukicoder/1269.test.cpp
-  - test/yukicoder/803.test.cpp
-  - test/yukicoder/1907.test.cpp
-  - test/yukicoder/1050.test.cpp
-  - test/yukicoder/665.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/enumerate_cliques.test.cpp
-  - test/yosupo/bitwise_xor_convolution.test.cpp
-  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/characteristic_polynomial.test.cpp
-  - test/yosupo/product_of_polynomial_sequence.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - test/yosupo/bitwise_and_convolution.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/vertex_set_path_composite.test.cpp
-  - test/yosupo/matrix_det.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/queue_operate_all_composite.test.cpp
-  - test/yosupo/gcd_convolution.test.cpp
-documentation_of: util/modint.hpp
+  timestamp: '2022-11-10 02:48:19+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/yosupo/enumerate_cliques.test.cpp
 layout: document
 redirect_from:
-- /library/util/modint.hpp
-- /library/util/modint.hpp.html
-title: util/modint.hpp
+- /verify/test/yosupo/enumerate_cliques.test.cpp
+- /verify/test/yosupo/enumerate_cliques.test.cpp.html
+title: test/yosupo/enumerate_cliques.test.cpp
 ---

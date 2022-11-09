@@ -19,15 +19,6 @@ data:
     title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
       \ + Pollard's rho algorithm)"
   - icon: ':warning:'
-    path: util/RandomNumberGenerator_32.hpp
-    title: "\u4E71\u6570\u751F\u6210"
-  - icon: ':warning:'
-    path: util/RandomNumberGenerator_64.hpp
-    title: util/RandomNumberGenerator_64.hpp
-  - icon: ':warning:'
-    path: util/ZobristHash.hpp
-    title: Zobrist Hash
-  - icon: ':warning:'
     path: util/gray_code.hpp
     title: Gray Code
   _extendedVerifiedWith:
@@ -187,7 +178,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/NTL_1_E.test.cpp
     title: test/aoj/NTL_1_E.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/aplusb.test.cpp
     title: test/yosupo/aplusb.test.cpp
   - icon: ':heavy_check_mark:'
@@ -253,9 +244,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/952.test.cpp
     title: test/yukicoder/952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"base.hpp\"\n#define LOCAL\n#include <bits/stdc++.h>\nusing\
@@ -394,14 +385,11 @@ data:
   - math/fast_factorize.hpp
   - graph/Dijkstra.hpp
   - graph/RangeEdgeGraph.hpp
-  - util/RandomNumberGenerator_32.hpp
   - util/gray_code.hpp
-  - util/RandomNumberGenerator_64.hpp
-  - util/ZobristHash.hpp
   - datastructure/RectangleSet.hpp
   - datastructure/SparseTable.hpp
   timestamp: '2021-10-31 14:57:50+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/430.AhoCorasick.test.cpp
   - test/yukicoder/1678.test.cpp

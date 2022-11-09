@@ -16,7 +16,7 @@ data:
     links: []
   bundledCode: "#line 2 \"polynomial/multipoint_evaluation.hpp\"\n#include <vector>\n\
     #line 2 \"polynomial/FormalPowerSeries.hpp\"\n#include <algorithm>\n#include <cassert>\n\
-    #include <functional>\n#include <queue>\n#line 7 \"polynomial/FormalPowerSeries.hpp\"\
+    #include <functional>\n#include <queue>\n#include <utility>\n#line 8 \"polynomial/FormalPowerSeries.hpp\"\
     \n\n#line 1 \"atcoder/convolution.hpp\"\n\n\n\n#line 5 \"atcoder/convolution.hpp\"\
     \n#include <array>\n#line 7 \"atcoder/convolution.hpp\"\n#include <type_traits>\n\
     #line 9 \"atcoder/convolution.hpp\"\n\n#line 1 \"atcoder/internal_bit.hpp\"\n\n\
@@ -32,23 +32,24 @@ data:
     #endif\n}\n\n}  // namespace internal\n\n}  // namespace atcoder\n\n\n#line 1\
     \ \"atcoder/modint.hpp\"\n\n\n\n#line 5 \"atcoder/modint.hpp\"\n#include <numeric>\n\
     #line 7 \"atcoder/modint.hpp\"\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\
-    \n#line 1 \"atcoder/internal_math.hpp\"\n\n\n\n#include <utility>\n\n#ifdef _MSC_VER\n\
-    #include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace internal {\n\n\
-    // @param m `1 <= m`\n// @return x mod m\nconstexpr long long safe_mod(long long\
-    \ x, long long m) {\n    x %= m;\n    if (x < 0) x += m;\n    return x;\n}\n\n\
-    // Fast modular multiplication by barrett reduction\n// Reference: https://en.wikipedia.org/wiki/Barrett_reduction\n\
-    // NOTE: reconsider after Ice Lake\nstruct barrett {\n    unsigned int _m;\n \
-    \   unsigned long long im;\n\n    // @param m `1 <= m < 2^31`\n    explicit barrett(unsigned\
-    \ int m) : _m(m), im((unsigned long long)(-1) / m + 1) {}\n\n    // @return m\n\
-    \    unsigned int umod() const { return _m; }\n\n    // @param a `0 <= a < m`\n\
-    \    // @param b `0 <= b < m`\n    // @return `a * b % m`\n    unsigned int mul(unsigned\
-    \ int a, unsigned int b) const {\n        // [1] m = 1\n        // a = b = im\
-    \ = 0, so okay\n\n        // [2] m >= 2\n        // im = ceil(2^64 / m)\n    \
-    \    // -> im * m = 2^64 + r (0 <= r < m)\n        // let z = a*b = c*m + d (0\
-    \ <= c, d < m)\n        // a*b * im = (c*m + d) * im = c*(im*m) + d*im = c*2^64\
-    \ + c*r + d*im\n        // c*r + d*im < m * m + m * im < m * m + 2^64 + m <= 2^64\
-    \ + m * (m + 1) < 2^64 * 2\n        // ((ab * im) >> 64) == c or c + 1\n     \
-    \   unsigned long long z = a;\n        z *= b;\n#ifdef _MSC_VER\n        unsigned\
+    \n#line 1 \"atcoder/internal_math.hpp\"\n\n\n\n#line 5 \"atcoder/internal_math.hpp\"\
+    \n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace atcoder {\n\nnamespace\
+    \ internal {\n\n// @param m `1 <= m`\n// @return x mod m\nconstexpr long long\
+    \ safe_mod(long long x, long long m) {\n    x %= m;\n    if (x < 0) x += m;\n\
+    \    return x;\n}\n\n// Fast modular multiplication by barrett reduction\n// Reference:\
+    \ https://en.wikipedia.org/wiki/Barrett_reduction\n// NOTE: reconsider after Ice\
+    \ Lake\nstruct barrett {\n    unsigned int _m;\n    unsigned long long im;\n\n\
+    \    // @param m `1 <= m < 2^31`\n    explicit barrett(unsigned int m) : _m(m),\
+    \ im((unsigned long long)(-1) / m + 1) {}\n\n    // @return m\n    unsigned int\
+    \ umod() const { return _m; }\n\n    // @param a `0 <= a < m`\n    // @param b\
+    \ `0 <= b < m`\n    // @return `a * b % m`\n    unsigned int mul(unsigned int\
+    \ a, unsigned int b) const {\n        // [1] m = 1\n        // a = b = im = 0,\
+    \ so okay\n\n        // [2] m >= 2\n        // im = ceil(2^64 / m)\n        //\
+    \ -> im * m = 2^64 + r (0 <= r < m)\n        // let z = a*b = c*m + d (0 <= c,\
+    \ d < m)\n        // a*b * im = (c*m + d) * im = c*(im*m) + d*im = c*2^64 + c*r\
+    \ + d*im\n        // c*r + d*im < m * m + m * im < m * m + 2^64 + m <= 2^64 +\
+    \ m * (m + 1) < 2^64 * 2\n        // ((ab * im) >> 64) == c or c + 1\n       \
+    \ unsigned long long z = a;\n        z *= b;\n#ifdef _MSC_VER\n        unsigned\
     \ long long x;\n        _umul128(z, im, &x);\n#else\n        unsigned long long\
     \ x =\n            (unsigned long long)(((unsigned __int128)(z)*im) >> 64);\n\
     #endif\n        unsigned int v = (unsigned int)(z - x * _m);\n        if (_m <=\
@@ -380,7 +381,7 @@ data:
     \     if (diff < 0) diff += MOD1;\n        static constexpr unsigned long long\
     \ offset[5] = {\n            0, 0, M1M2M3, 2 * M1M2M3, 3 * M1M2M3};\n        x\
     \ -= offset[diff % 5];\n        c[i] = x;\n    }\n\n    return c;\n}\n\n}  //\
-    \ namespace atcoder\n\n\n#line 9 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
+    \ namespace atcoder\n\n\n#line 10 \"polynomial/FormalPowerSeries.hpp\"\n\ntemplate\
     \ <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n    using\
     \ std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void shrink()\
     \ {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
@@ -513,20 +514,37 @@ data:
     \ std::vector<FPS>, decltype(comp)> pq{comp};\n        for (const auto& f : fs)\
     \ pq.emplace(f);\n        while (pq.size() > 1) {\n            auto f = pq.top();\n\
     \            pq.pop();\n            auto g = pq.top();\n            pq.pop();\n\
-    \            pq.emplace(f * g);\n        }\n        return pq.top();\n    }\n\
-    };\n#line 4 \"polynomial/multipoint_evaluation.hpp\"\n\ntemplate <typename T>\
-    \ struct subproduct_tree {\n    using poly = FormalPowerSeries<T>;\n    int m;\n\
-    \    std::vector<poly> prod;\n    subproduct_tree(const std::vector<T>& x) : m(x.size())\
-    \ {\n        int k = 1;\n        while (k < m) k <<= 1;\n        prod.assign(k\
-    \ << 1, {1});\n        for (int i = 0; i < m; i++) prod[k + i] = {-x[i], 1};\n\
-    \        for (int i = k - 1; i > 0; i--) prod[i] = prod[i << 1] * prod[i << 1\
-    \ | 1];\n    }\n\n    int size() const { return prod.size() >> 1; }\n\n    poly\
-    \ mid_prod(const poly& a, const poly& b) const {}\n\n    std::vector<T> multipoint_evaluation(poly\
-    \ f) const {\n        std::vector<poly> rem(size() << 1);\n        rem[1] = f\
-    \ % prod[1];\n        for (int i = 2; i < size() + m; i++) rem[i] = rem[i >> 1]\
-    \ % prod[i];\n        std::vector<T> res(m);\n        for (int i = 0; i < m; i++)\
-    \ res[i] = (rem[size() + i].empty() ? 0 : rem[size() + i][0]);\n        return\
-    \ res;\n    }\n};\n"
+    \            pq.emplace(f * g);\n        }\n        return pq.top();\n    }\n\n\
+    \    static FPS pow_sparse(const std::vector<std::pair<int, T>>& f, int64_t k,\
+    \ int n) {\n        assert(k >= 0);\n        int d = f.size(), offset = 0;\n \
+    \       while (offset < d and f[offset].second == 0) offset++;\n        FPS res(n,\
+    \ 0);\n        if (offset == d) {\n            if (k == 0) res[0]++;\n       \
+    \     return res;\n        }\n        if (f[offset].first > 0) {\n           \
+    \ int deg = f[offset].first;\n            if (k > (n - 1) / deg) return res;\n\
+    \            std::vector<std::pair<int, T>> g(f.begin() + offset, f.end());\n\
+    \            for (auto& p : g) p.first -= deg;\n            auto tmp = pow_sparse(g,\
+    \ k, n - k * deg);\n            for (int i = 0; i < n - k * deg; i++) res[k *\
+    \ deg + i] = tmp[i];\n            return res;\n        }\n        std::vector<T>\
+    \ invs(n + 1);\n        invs[0] = T(0);\n        invs[1] = T(1);\n        auto\
+    \ mod = T::mod();\n        for (int i = 2; i <= n; i++) invs[i] = -invs[mod %\
+    \ i] * (mod / i);\n        res[0] = f[0].second.pow(k);\n        T coef = f[0].second.inv();\n\
+    \        for (int i = 1; i < n; i++) {\n            for (int j = 1; j < d; j++)\
+    \ {\n                if (i - f[j].first < 0) break;\n                res[i] +=\
+    \ f[j].second * res[i - f[j].first] * (T(k) * f[j].first - (i - f[j].first));\n\
+    \            }\n            res[i] *= invs[i] * coef;\n        }\n        return\
+    \ res;\n    }\n};\n#line 4 \"polynomial/multipoint_evaluation.hpp\"\n\ntemplate\
+    \ <typename T> struct subproduct_tree {\n    using poly = FormalPowerSeries<T>;\n\
+    \    int m;\n    std::vector<poly> prod;\n    subproduct_tree(const std::vector<T>&\
+    \ x) : m(x.size()) {\n        int k = 1;\n        while (k < m) k <<= 1;\n   \
+    \     prod.assign(k << 1, {1});\n        for (int i = 0; i < m; i++) prod[k +\
+    \ i] = {-x[i], 1};\n        for (int i = k - 1; i > 0; i--) prod[i] = prod[i <<\
+    \ 1] * prod[i << 1 | 1];\n    }\n\n    int size() const { return prod.size() >>\
+    \ 1; }\n\n    poly mid_prod(const poly& a, const poly& b) const {}\n\n    std::vector<T>\
+    \ multipoint_evaluation(poly f) const {\n        std::vector<poly> rem(size()\
+    \ << 1);\n        rem[1] = f % prod[1];\n        for (int i = 2; i < size() +\
+    \ m; i++) rem[i] = rem[i >> 1] % prod[i];\n        std::vector<T> res(m);\n  \
+    \      for (int i = 0; i < m; i++) res[i] = (rem[size() + i].empty() ? 0 : rem[size()\
+    \ + i][0]);\n        return res;\n    }\n};\n"
   code: "#pragma once\n#include <vector>\n#include \"FormalPowerSeries.hpp\"\n\ntemplate\
     \ <typename T> struct subproduct_tree {\n    using poly = FormalPowerSeries<T>;\n\
     \    int m;\n    std::vector<poly> prod;\n    subproduct_tree(const std::vector<T>&\
@@ -545,7 +563,7 @@ data:
   isVerificationFile: false
   path: polynomial/multipoint_evaluation.hpp
   requiredBy: []
-  timestamp: '2022-11-07 18:18:55+09:00'
+  timestamp: '2022-11-10 02:48:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/multipoint_evaluation.test.cpp
