@@ -3,6 +3,7 @@
 #include <cassert>
 #include <functional>
 #include <queue>
+#include <utility>
 #include <vector>
 
 #include "atcoder/convolution"
@@ -317,5 +318,40 @@ public:
             pq.emplace(f * g);
         }
         return pq.top();
+    }
+
+    static FPS pow_sparse(const std::vector<std::pair<int, T>>& f, int64_t k, int n) {
+        assert(k >= 0);
+        int d = f.size(), offset = 0;
+        while (offset < d and f[offset].second == 0) offset++;
+        FPS res(n, 0);
+        if (offset == d) {
+            if (k == 0) res[0]++;
+            return res;
+        }
+        if (f[offset].first > 0) {
+            int deg = f[offset].first;
+            if (k > (n - 1) / deg) return res;
+            std::vector<std::pair<int, T>> g(f.begin() + offset, f.end());
+            for (auto& p : g) p.first -= deg;
+            auto tmp = pow_sparse(g, k, n - k * deg);
+            for (int i = 0; i < n - k * deg; i++) res[k * deg + i] = tmp[i];
+            return res;
+        }
+        std::vector<T> invs(n + 1);
+        invs[0] = T(0);
+        invs[1] = T(1);
+        auto mod = T::mod();
+        for (int i = 2; i <= n; i++) invs[i] = -invs[mod % i] * (mod / i);
+        res[0] = f[0].second.pow(k);
+        T coef = f[0].second.inv();
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < d; j++) {
+                if (i - f[j].first < 0) break;
+                res[i] += f[j].second * res[i - f[j].first] * (T(k) * f[j].first - (i - f[j].first));
+            }
+            res[i] *= invs[i] * coef;
+        }
+        return res;
     }
 };

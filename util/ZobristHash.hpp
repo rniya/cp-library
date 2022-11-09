@@ -1,13 +1,10 @@
-#pragma once
-#include "../base.hpp"
+#include <random>
+#include <vector>
 
-/**
- * @brief Zobrist Hash
- */
-vector<uint64_t> ZobristHash(int n) {
-    random_device seed_gen;
-    mt19937_64 engine(seed_gen());
-    vector<uint64_t> base(n);
+std::vector<uint64_t> ZobristHash(int n) {
+    std::random_device seed_gen;
+    std::mt19937_64 engine(seed_gen());
+    std::vector<uint64_t> base(n);
     for (int i = 0; i < n; i++) base[i] = engine();
     return base;
 }

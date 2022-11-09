@@ -37,11 +37,11 @@ $f(x)g(x)$ を求める．
 これは Number Theoretic Transform により $O(N \log N)$ で計算可能である．
 
 #### （多項式としての）除算
-多項式 $f(x), g(x)$ について $f(x) = q(x) g(x) + r(x)$ なる多項式 $q(x), r(x)\ (\deg r < \deg g)$ を求める。
-以下、$\deg f = n - 1,\ \deg g = m - 1$ とすると $\deg q = n - m$ である。
+多項式 $f(x), g(x)$ について $f(x) = q(x) g(x) + r(x)$ なる多項式 $q(x), r(x)\ (\deg r < \deg g)$ を求める．
+以下，$\deg f = n - 1,\ \deg g = m - 1$ とすると $\deg q = n - m$ である．
 
-$f$ について多項式 $f^R = f(x^{-1}) x^{n - 1}$ を定める。
-商と余りの定義式を $x \gets x^{-1}$ として、両辺に $x^{n - 1}$ を掛けて、
+$f$ について多項式 $f^R = f(x^{-1}) x^{n - 1}$ を定める．
+商と余りの定義式を $x \gets x^{-1}$ として，両辺に $x^{n - 1}$ を掛けて，
 
 $$
 \begin{aligned}
@@ -224,10 +224,37 @@ $$
 定数項が $1$ の多項式 $g(x)$ を用いて $f(x) = cx^lg(x)\ (l \geq 0)$ と表せる．
 このとき，$f(x)^k = c^kx^{lk}g(x)^k$ であることを利用すれば良い．
 
+#### inv（$f$ が sparse な場合）
+$f$ の非零の個数を $K$ とすると，$1 / f(x)$ の先頭 $N$ 項を $O(NK)$ で列挙することができる．
+
+$fg = 1$ より $f_0 g_0 = 1$ かつ $n \geq 1$ について $\sum_{i = 0}^n f_i g_{n - i} = 0$ より $f_0 g_n = - \sum_{i = 1}^n f_i g_{n - i}$ で $n$ の昇順に計算可能である．
+
+より一般に $g$ を疎な $f$ で割った $g / f$ を求めることも同様の計算量で可能である．
+
+#### log（$f$ が sparse な場合）
+$f$ の非零の個数を $K$ とすると，$\log f$ の先頭 $N$ 項を $O(NK)$ で列挙することができる．
+
+$\log f = f^\prime / f$ であるから inv の場合と同様にして計算できる．
+#### exp（$f$ が sparse な場合）
+$f$ の非零の個数を $K$ とすると，$\exp f$ の先頭 $N$ 項を $O(NK)$ で列挙することができる．
+
+疎でない場合の exp と同様に $f_0 = 0$ である．
+$F = \exp f$ とすると，$F_0 = 1$ で，両辺微分して $F^\prime = F f^\prime$．
+$f^\prime$ も疎であるから，$F_n$ までわかっているとき，右辺の $n$ 次の係数，すなわち $F^\prime$ の $n$ 次の係数が計算できるから $F$ の $n + 1$ 次の係数がわかる．
+
 #### pow（$f$ が sparse な場合）
-$f$ の非零の個数を $K$ とすると、$f(x)^k$ の先頭 $N$ 項を $O(NK)$ で列挙することができる。
+$f$ の非零の個数を $K$ とすると，$f(x)^M$ の先頭 $N$ 項を $O(NK + \log M)$ で列挙することができる．
 
+$f$ が定数項をもつ場合に帰着する．
+$F = f^M$ とすると，両辺微分して $F^\prime = M f^{M - 1} f^\prime$ より $f F^\prime = M f^\prime F$．
+$g = F^\prime$ として $n$ 次の係数について，$\sum_{i = 0}^n f_i g_{n - i} = M \sum_{i = 1}^n i F_{n - i + 1} f_i$ であり，$f_0 g_n = - \sum_{i = 1}^n f_i g_{n - i} + M \sum_{i = 1}^n i F_{n - i + 1} f_i$．$F_n$ までわかっているとき，右辺が計算可能であるから $g_n$ がわかり，$g = F^\prime$ より $F_{n + 1}  = \frac{g_n}{(n + 1) f_0}$．
 
+#### sqrt（$f$ が sparse な場合）
+$f$ の非零の個数を $K$ とすると，$\sqrt{f(x)}$ の先頭 $N$ 項を $O(NK)$ で列挙することができる．
+
+$f$ の定数項が $1$ の場合に帰着すると，$\sqrt{f} = f^{1 / 2}$ が成立し，pow と同様にして計算可能である．
+
+以上の $f$ が sparse な場合の各種演算は Number Theoretic Transform による積の高速化を必要としないため，$\mathbb{F}_{10^9 + 7}[x]$ 等，**法が NTT-friendly でない場合にも適用可能である．**
 
 ## 問題例
 - [Codeforces Round #250 (Div. 1) E. The Child and Binary Tree](https://codeforces.com/contest/438/problem/E)
