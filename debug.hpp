@@ -57,3 +57,8 @@ template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)
     if (sizeof...(Tail) > 0) cerr << ", ";
     debug_out(move(tail)...);
 }
+#define debug(...)                                                                    \
+    cerr << " ";                                                                      \
+    cerr << #__VA_ARGS__ << ": [" << __LINE__ << ": " << __FUNCTION__ << "]" << '\n'; \
+    cerr << " ";                                                                      \
+    debug_out(__VA_ARGS__)

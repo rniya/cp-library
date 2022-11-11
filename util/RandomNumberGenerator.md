@@ -1,6 +1,6 @@
 ---
 title: 乱数生成
-documentation_of: ./RandomNumberGenerator_32.hpp
+documentation_of: ./RandomNumberGenerator.hpp
 ---
 
 ## 概要
