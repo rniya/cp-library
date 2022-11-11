@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/yosupo/aplusb.test.cpp
-    title: test/yosupo/aplusb.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"debug.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
@@ -35,7 +32,12 @@ data:
     \ Args...>(os, t);\n    return os << '}';\n}\n\nvoid debug_out() { cerr << '\\\
     n'; }\ntemplate <class Head, class... Tail> void debug_out(Head&& head, Tail&&...\
     \ tail) {\n    cerr << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n \
-    \   debug_out(move(tail)...);\n}\n"
+    \   debug_out(move(tail)...);\n}\n#define debug(...)                         \
+    \                                           \\\n    cerr << \" \";           \
+    \                                                           \\\n    cerr << #__VA_ARGS__\
+    \ << \": [\" << __LINE__ << \": \" << __FUNCTION__ << \"]\" << '\\n'; \\\n   \
+    \ cerr << \" \";                                                             \
+    \         \\\n    debug_out(__VA_ARGS__)\n"
   code: "#include <bits/stdc++.h>\nusing namespace std;\n\ntemplate <typename T, typename\
     \ U> ostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os << '(' <<\
     \ p.first << ',' << p.second << ')';\n    return os;\n}\ntemplate <typename T,\
@@ -60,15 +62,18 @@ data:
     \    return os << '}';\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate <class\
     \ Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n    cerr\
     \ << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
-    }\n"
+    }\n#define debug(...)                                                        \
+    \            \\\n    cerr << \" \";                                          \
+    \                            \\\n    cerr << #__VA_ARGS__ << \": [\" << __LINE__\
+    \ << \": \" << __FUNCTION__ << \"]\" << '\\n'; \\\n    cerr << \" \";        \
+    \                                                              \\\n    debug_out(__VA_ARGS__)\n"
   dependsOn: []
   isVerificationFile: false
   path: debug.hpp
   requiredBy: []
-  timestamp: '2022-11-10 02:48:19+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/yosupo/aplusb.test.cpp
+  timestamp: '2022-11-11 20:10:58+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: debug.hpp
 layout: document
 redirect_from:

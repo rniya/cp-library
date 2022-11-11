@@ -20,10 +20,10 @@ data:
       title: monotone minima
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
-    - icon: ':x:'
+    - icon: ':warning:'
       path: debug.hpp
       title: debug.hpp
   - name: combinatorics
@@ -242,11 +242,8 @@ data:
       path: util/Dice.hpp
       title: "\u30B5\u30A4\u30B3\u30ED"
     - icon: ':warning:'
-      path: util/RandomNumberGenerator_32.hpp
+      path: util/RandomNumberGenerator.hpp
       title: "\u4E71\u6570\u751F\u6210"
-    - icon: ':warning:'
-      path: util/RandomNumberGenerator_64.hpp
-      title: util/RandomNumberGenerator_64.hpp
     - icon: ':heavy_check_mark:'
       path: util/Rational.hpp
       title: "\u6709\u7406\u6570\u30E9\u30A4\u30D6\u30E9\u30EA"
@@ -441,7 +438,7 @@ data:
       title: test/aoj/example.test.cpp
   - name: test/yosupo
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/aplusb.test.cpp
       title: test/yosupo/aplusb.test.cpp
     - icon: ':heavy_check_mark:'
