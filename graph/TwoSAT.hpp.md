@@ -54,17 +54,17 @@ data:
     \ << 1 | (g ? 0 : 1), i << 1 | (f ? 1 : 0));\n    }\n\n    // (i = f) -> (j =\
     \ g) <=> (i = !f) or (j = g)\n    void add_if(int i, bool f, int j, bool g) {\n\
     \        assert(0 <= i and i < n);\n        assert(0 <= j and j < n);\n      \
-    \  add_clause(i, f ^ 1, j, g);\n    }\n\n    // i <=> !i -> i\n    void set_true(int\
-    \ i) {\n        assert(0 <= i and i < n);\n        scc.add_edge(i << 1 | 1, i\
-    \ << 1 | 0);\n    }\n\n    // !i <=> i -> !i\n    void set_false(int i) {\n  \
-    \      assert(0 <= i and i < n);\n        scc.add_edge(i << 1 | 0, i << 1 | 1);\n\
-    \    }\n\n    // <= 1 of literals in v are true\n    void at_most_one(const std::vector<std::pair<int,\
-    \ int>>& v) {\n        if (v.size() <= 1) return;\n        for (size_t i = 0;\
-    \ i < v.size(); i++) {\n            int nxt = add_vertex(), cur = nxt - 1, x =\
-    \ v[i].first, f = v[i].second;\n            add_if(x, f, nxt, 1);\n          \
-    \  if (i > 0) {\n                add_if(cur, 1, nxt, 1);\n                add_clause(cur,\
-    \ 0, x, f ^ 1);\n            }\n        }\n    }\n\n    bool satisfiable() {\n\
-    \        called_satisfiable = true;\n        ans.resize(n);\n        scc.build();\n\
+    \  add_clause(i, f ^ 1, j, g);\n    }\n\n    // i\n    void set_true(int i) {\n\
+    \        assert(0 <= i and i < n);\n        add_clause(i, true, i, true);\n  \
+    \  }\n\n    // !i\n    void set_false(int i) {\n        assert(0 <= i and i <\
+    \ n);\n        add_clause(i, false, i, false);\n    }\n\n    // <= 1 of literals\
+    \ in v are true\n    void at_most_one(const std::vector<std::pair<int, int>>&\
+    \ v) {\n        if (v.size() <= 1) return;\n        for (size_t i = 0; i < v.size();\
+    \ i++) {\n            int nxt = add_vertex(), cur = nxt - 1, x = v[i].first, f\
+    \ = v[i].second;\n            add_if(x, f, nxt, 1);\n            if (i > 0) {\n\
+    \                add_if(cur, 1, nxt, 1);\n                add_clause(cur, 0, x,\
+    \ f ^ 1);\n            }\n        }\n    }\n\n    bool satisfiable() {\n     \
+    \   called_satisfiable = true;\n        ans.resize(n);\n        scc.build();\n\
     \        for (int i = 0; i < n; i++) {\n            if (scc[i << 1] == scc[i <<\
     \ 1 | 1]) return false;\n            ans[i] = (scc[i << 1] < scc[i << 1 | 1]);\n\
     \        }\n        return true;\n    }\n\n    std::vector<bool> answer() const\
@@ -80,29 +80,29 @@ data:
     \ : 0));\n        scc.add_edge(j << 1 | (g ? 0 : 1), i << 1 | (f ? 1 : 0));\n\
     \    }\n\n    // (i = f) -> (j = g) <=> (i = !f) or (j = g)\n    void add_if(int\
     \ i, bool f, int j, bool g) {\n        assert(0 <= i and i < n);\n        assert(0\
-    \ <= j and j < n);\n        add_clause(i, f ^ 1, j, g);\n    }\n\n    // i <=>\
-    \ !i -> i\n    void set_true(int i) {\n        assert(0 <= i and i < n);\n   \
-    \     scc.add_edge(i << 1 | 1, i << 1 | 0);\n    }\n\n    // !i <=> i -> !i\n\
-    \    void set_false(int i) {\n        assert(0 <= i and i < n);\n        scc.add_edge(i\
-    \ << 1 | 0, i << 1 | 1);\n    }\n\n    // <= 1 of literals in v are true\n   \
-    \ void at_most_one(const std::vector<std::pair<int, int>>& v) {\n        if (v.size()\
-    \ <= 1) return;\n        for (size_t i = 0; i < v.size(); i++) {\n           \
-    \ int nxt = add_vertex(), cur = nxt - 1, x = v[i].first, f = v[i].second;\n  \
-    \          add_if(x, f, nxt, 1);\n            if (i > 0) {\n                add_if(cur,\
-    \ 1, nxt, 1);\n                add_clause(cur, 0, x, f ^ 1);\n            }\n\
-    \        }\n    }\n\n    bool satisfiable() {\n        called_satisfiable = true;\n\
-    \        ans.resize(n);\n        scc.build();\n        for (int i = 0; i < n;\
-    \ i++) {\n            if (scc[i << 1] == scc[i << 1 | 1]) return false;\n    \
-    \        ans[i] = (scc[i << 1] < scc[i << 1 | 1]);\n        }\n        return\
-    \ true;\n    }\n\n    std::vector<bool> answer() const {\n        assert(called_satisfiable);\n\
-    \        return ans;\n    }\n\nprivate:\n    int n;\n    bool called_satisfiable;\n\
-    \    std::vector<bool> ans;\n    StronglyConnectedComponents scc;\n};\n"
+    \ <= j and j < n);\n        add_clause(i, f ^ 1, j, g);\n    }\n\n    // i\n \
+    \   void set_true(int i) {\n        assert(0 <= i and i < n);\n        add_clause(i,\
+    \ true, i, true);\n    }\n\n    // !i\n    void set_false(int i) {\n        assert(0\
+    \ <= i and i < n);\n        add_clause(i, false, i, false);\n    }\n\n    // <=\
+    \ 1 of literals in v are true\n    void at_most_one(const std::vector<std::pair<int,\
+    \ int>>& v) {\n        if (v.size() <= 1) return;\n        for (size_t i = 0;\
+    \ i < v.size(); i++) {\n            int nxt = add_vertex(), cur = nxt - 1, x =\
+    \ v[i].first, f = v[i].second;\n            add_if(x, f, nxt, 1);\n          \
+    \  if (i > 0) {\n                add_if(cur, 1, nxt, 1);\n                add_clause(cur,\
+    \ 0, x, f ^ 1);\n            }\n        }\n    }\n\n    bool satisfiable() {\n\
+    \        called_satisfiable = true;\n        ans.resize(n);\n        scc.build();\n\
+    \        for (int i = 0; i < n; i++) {\n            if (scc[i << 1] == scc[i <<\
+    \ 1 | 1]) return false;\n            ans[i] = (scc[i << 1] < scc[i << 1 | 1]);\n\
+    \        }\n        return true;\n    }\n\n    std::vector<bool> answer() const\
+    \ {\n        assert(called_satisfiable);\n        return ans;\n    }\n\nprivate:\n\
+    \    int n;\n    bool called_satisfiable;\n    std::vector<bool> ans;\n    StronglyConnectedComponents\
+    \ scc;\n};\n"
   dependsOn:
   - graph/StronglyConnectedComponents.hpp
   isVerificationFile: false
   path: graph/TwoSAT.hpp
   requiredBy: []
-  timestamp: '2022-04-14 01:34:39+09:00'
+  timestamp: '2022-11-13 11:22:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/two_sat.test.cpp
@@ -159,3 +159,5 @@ SAT は一般には NP 完全だが，2-SAT については多項式時間で解
   もう確定させることが可能なリテラルが存在しなくなったならば残りのリテラルは全て偽としまっても問題ない（これで矛盾するのはクロージャの末尾のリテラルに偽が割り当てられて他のリテラルが全て真のときだが，これは他のリテラルが全て真で確定した際に真を割り当てられなければならないので起こり得ない）．
   よって，リテラルに真を割り当てていき，そのリテラルが存在する各クロージャについて新たに真で確定するリテラルがないかチェックしていけばよい．
   適切に実装すればリテラル数とクロージャ内のリテラル数の合計に対して線形時間で解くことができる．
+
+- [AtCoder Beginner Contest 277 Ex - Constrained Sums](https://atcoder.jp/contests/abc277/tasks/abc277_h)
