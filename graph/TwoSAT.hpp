@@ -27,16 +27,16 @@ struct TwoSAT {
         add_clause(i, f ^ 1, j, g);
     }
 
-    // i <=> !i -> i
+    // i
     void set_true(int i) {
         assert(0 <= i and i < n);
-        scc.add_edge(i << 1 | 1, i << 1 | 0);
+        add_clause(i, true, i, true);
     }
 
-    // !i <=> i -> !i
+    // !i
     void set_false(int i) {
         assert(0 <= i and i < n);
-        scc.add_edge(i << 1 | 0, i << 1 | 1);
+        add_clause(i, false, i, false);
     }
 
     // <= 1 of literals in v are true
