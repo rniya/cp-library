@@ -161,3 +161,5 @@ SAT は一般には NP 完全だが，2-SAT については多項式時間で解
   適切に実装すればリテラル数とクロージャ内のリテラル数の合計に対して線形時間で解くことができる．
 
 - [AtCoder Beginner Contest 277 Ex - Constrained Sums](https://atcoder.jp/contests/abc277/tasks/abc277_h)
+
+- [AtCoder Regular Contest 069 F - Flags](https://atcoder.jp/contests/arc069/tasks/arc069_d)

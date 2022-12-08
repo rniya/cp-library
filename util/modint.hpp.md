@@ -316,33 +316,33 @@ data:
   timestamp: '2021-12-05 15:22:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/1289.test.cpp
-  - test/yukicoder/886.test.cpp
-  - test/yukicoder/1269.test.cpp
-  - test/yukicoder/803.test.cpp
-  - test/yukicoder/1907.test.cpp
   - test/yukicoder/1050.test.cpp
+  - test/yukicoder/1289.test.cpp
+  - test/yukicoder/803.test.cpp
   - test/yukicoder/665.test.cpp
-  - test/aoj/DPL_5_E.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yukicoder/1907.test.cpp
+  - test/yukicoder/1269.test.cpp
+  - test/yukicoder/886.test.cpp
+  - test/yosupo/characteristic_polynomial.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/sharp_p_subset_sum.test.cpp
+  - test/yosupo/gcd_convolution.test.cpp
+  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
+  - test/yosupo/matrix_det.test.cpp
+  - test/yosupo/bitwise_and_convolution.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/vertex_set_path_composite.test.cpp
+  - test/yosupo/product_of_polynomial_sequence.test.cpp
+  - test/yosupo/queue_operate_all_composite.test.cpp
+  - test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/enumerate_cliques.test.cpp
   - test/yosupo/bitwise_xor_convolution.test.cpp
-  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/characteristic_polynomial.test.cpp
-  - test/yosupo/product_of_polynomial_sequence.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - test/yosupo/bitwise_and_convolution.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/vertex_set_path_composite.test.cpp
-  - test/yosupo/matrix_det.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/queue_operate_all_composite.test.cpp
-  - test/yosupo/gcd_convolution.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
 documentation_of: util/modint.hpp
 layout: document
 redirect_from:

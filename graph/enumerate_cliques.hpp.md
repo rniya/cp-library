@@ -84,8 +84,8 @@ data:
   timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/2306.test.cpp
   - test/yosupo/enumerate_cliques.test.cpp
+  - test/aoj/2306.test.cpp
 documentation_of: graph/enumerate_cliques.hpp
 layout: document
 title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"

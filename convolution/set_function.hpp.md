@@ -107,8 +107,8 @@ data:
   verifiedWith:
   - test/yukicoder/1289.test.cpp
   - test/yukicoder/1240.test.cpp
-  - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/bitwise_and_convolution.test.cpp
+  - test/yosupo/bitwise_xor_convolution.test.cpp
 documentation_of: convolution/set_function.hpp
 layout: document
 title: set function (FZT, FMT, FWHT)
