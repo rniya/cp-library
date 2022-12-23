@@ -726,16 +726,16 @@ data:
   timestamp: '2022-11-10 02:48:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
-  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/product_of_polynomial_sequence.test.cpp
+  - test/yosupo/sharp_p_subset_sum.test.cpp
+  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
 documentation_of: polynomial/FormalPowerSeries.hpp
 layout: document
 title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"

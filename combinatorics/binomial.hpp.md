@@ -70,8 +70,8 @@ data:
   timestamp: '2021-12-29 23:24:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/665.test.cpp
   - test/aoj/DPL_5_E.test.cpp
+  - test/yukicoder/665.test.cpp
 documentation_of: combinatorics/binomial.hpp
 layout: document
 title: binomial

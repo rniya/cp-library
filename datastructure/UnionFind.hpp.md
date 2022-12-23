@@ -63,9 +63,9 @@ data:
   timestamp: '2021-12-30 22:50:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/unionfind.test.cpp
   - test/aoj/GRL_2_A.test.cpp
   - test/aoj/DSL_1_A.test.cpp
+  - test/yosupo/unionfind.test.cpp
 documentation_of: datastructure/UnionFind.hpp
 layout: document
 title: Union Find (Disjoint Set Union)
