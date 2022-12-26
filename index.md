@@ -234,6 +234,9 @@ data:
       path: tree/HeavyLightDecomposition.hpp
       title: Heavy Light Decomposition
     - icon: ':heavy_check_mark:'
+      path: tree/Rerooting.hpp
+      title: "\u5168\u65B9\u4F4D\u6728 dp"
+    - icon: ':heavy_check_mark:'
       path: tree/TreeDiameter.hpp
       title: Tree Diameter
   - name: util
@@ -587,6 +590,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1678.test.cpp
       title: test/yukicoder/1678.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1718.test.cpp
+      title: test/yukicoder/1718.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1907.test.cpp
       title: test/yukicoder/1907.test.cpp
