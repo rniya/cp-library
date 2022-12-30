@@ -15,6 +15,7 @@ documentation_of: ./Rerooting.hpp
 - [AtCoder Beginner Contest 160 F - Distributing Integers](https://atcoder.jp/contests/abc160/tasks/abc160_f)
 - [AtCoder Beginner Contest 220 F - Distance Sums 2](https://atcoder.jp/contests/abc220/tasks/abc220_f)
 - [AtCoder Beginner Contest 222 F - Expensive Expense](https://atcoder.jp/contests/abc222/tasks/abc222_f)
+- [The 2022 ICPC Asia Hangzhou Regional Programming Contest M. Please Save Pigeland](https://codeforces.com/gym/104090/problem/M)
 <!-- - [](https://yukicoder.me/problems/no/1718) -->
 <!-- - [](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A) -->
 <!-- - [](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_B) -->

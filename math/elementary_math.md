@@ -18,3 +18,4 @@ documentation_of: ./elementary_math.hpp
 | `euler_phi(n)`                | Euler's totient function $\varphi(n)$ を返す．ここで，$\varphi(n)$ は $n$ 以下の $n$ と互いに素な自然数の個数である．   | $O(\sqrt{n})$        |
 | `euler_phi_table(n)`          | $n$ 以下の各数 $i$ について，$\varphi(i)$ を記録した配列を返す．                                                        | $O(n \log \log n)$   |
 | `order(x, m)`                 | $x^i \equiv 1 \pmod{m}$ を満たす最小の正整数 $i$ を返す．存在しない場合は `-1` を返す．                                 | $O(\sqrt{m}\log{m})$ |
+| `quotient_ranges(n)`          | $\left\lfloor \frac{n}{i} \right\rfloor = k \iff i \in [l,r]$ となるとき，3 数の組 $(l,r,k)$ を $l$ の昇順に列挙する．  | $O(\sqrt{n})$        |
