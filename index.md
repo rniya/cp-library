@@ -119,10 +119,6 @@ data:
       path: graph/BellmanFord.hpp
       title: Bellman-Ford
     - icon: ':heavy_check_mark:'
-      path: graph/BlockCutTree.hpp
-      title: Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected
-        Components)
-    - icon: ':heavy_check_mark:'
       path: graph/CycleDetection.hpp
       title: Cycle Detection
     - icon: ':heavy_check_mark:'
@@ -134,6 +130,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/Kruskal.hpp
       title: Kruskal
+    - icon: ':question:'
+      path: graph/LowLink.hpp
+      title: LowLink (with Two Edge Connected Components, Bi Connected Components)
     - icon: ':heavy_check_mark:'
       path: graph/Prim.hpp
       title: Prim
@@ -185,9 +184,6 @@ data:
       path: math/fast_factorize.hpp
       title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
         \ + Pollard's rho algorithm)"
-    - icon: ':warning:'
-      path: math/quotient_ranges.hpp
-      title: "\u5546\u5217\u6319"
   - name: polynomial
     pages:
     - icon: ':heavy_check_mark:'
@@ -391,7 +387,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_A.test.cpp
       title: test/aoj/GRL_3_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL_3_B.test.cpp
       title: test/aoj/GRL_3_B.test.cpp
     - icon: ':heavy_check_mark:'

@@ -134,12 +134,6 @@ data:
     path: test/aoj/GRL_2_A.test.cpp
     title: test/aoj/GRL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_3_A.test.cpp
-    title: test/aoj/GRL_3_A.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_3_B.test.cpp
-    title: test/aoj/GRL_3_B.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_3_C.test.cpp
     title: test/aoj/GRL_3_C.test.cpp
   - icon: ':heavy_check_mark:'
@@ -214,9 +208,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/two_edge_connected_components.test.cpp
-    title: test/yosupo/two_edge_connected_components.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/two_sat.test.cpp
     title: test/yosupo/two_sat.test.cpp
@@ -396,7 +387,6 @@ data:
   - test/aoj/ALDS1_14_B.test.cpp
   - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   - test/aoj/CGL_7_E.test.cpp
-  - test/aoj/GRL_3_B.test.cpp
   - test/aoj/CGL_2_C.test.cpp
   - test/aoj/2306.test.cpp
   - test/aoj/2891.test.cpp
@@ -425,7 +415,6 @@ data:
   - test/aoj/GRL_2_A.Prim.test.cpp
   - test/aoj/ITP1_11_D.test.cpp
   - test/aoj/GRL_3_C.test.cpp
-  - test/aoj/GRL_3_A.test.cpp
   - test/aoj/1131.test.cpp
   - test/aoj/CGL_7_C.test.cpp
   - test/aoj/CGL_7_G.test.cpp
@@ -463,7 +452,6 @@ data:
   - test/yosupo/static_range_sum.test.cpp
   - test/yosupo/discrete_logarithm_mod.test.cpp
   - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
-  - test/yosupo/two_edge_connected_components.test.cpp
   - test/yosupo/two_sat.test.cpp
 documentation_of: base.hpp
 layout: document

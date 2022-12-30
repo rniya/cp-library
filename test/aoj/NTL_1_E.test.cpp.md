@@ -82,7 +82,7 @@ data:
     \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
     \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
     \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 4 \"math/elementary_math.hpp\"\n\nnamespace elementary_math {\n\ntemplate\
+    #line 5 \"math/elementary_math.hpp\"\n\nnamespace elementary_math {\n\ntemplate\
     \ <typename T> std::vector<T> divisor(T n) {\n    std::vector<T> res;\n    for\
     \ (T i = 1; i * i <= n; i++) {\n        if (n % i == 0) {\n            res.emplace_back(i);\n\
     \            if (i * i != n) res.emplace_back(n / i);\n        }\n    }\n    return\
@@ -117,11 +117,15 @@ data:
     \ i > 0 s.t. x^i \\equiv 1 \\pmod{m}\ntemplate <typename T> T order(T x, T m)\
     \ {\n    T n = euler_phi(m);\n    auto cand = divisor(n);\n    sort(cand.begin(),\
     \ cand.end());\n    for (auto& i : cand) {\n        if (modpow(x, i, m) == 1)\
-    \ {\n            return i;\n        }\n    }\n    return -1;\n}\n\n}  // namespace\
-    \ elementary_math\n#line 5 \"test/aoj/NTL_1_E.test.cpp\"\n\nint main() {\n   \
-    \ cin.tie(0);\n    ios::sync_with_stdio(false);\n    long long a, b, x, y;\n \
-    \   cin >> a >> b;\n    elementary_math::extgcd(a, b, x, y);\n    cout << x <<\
-    \ ' ' << y << '\\n';\n}\n"
+    \ {\n            return i;\n        }\n    }\n    return -1;\n}\n\ntemplate <typename\
+    \ T> std::vector<std::tuple<T, T, T>> quotient_ranges(T n) {\n    std::vector<std::tuple<T,\
+    \ T, T>> res;\n    T m = 1;\n    for (; m * m <= n; m++) res.emplace_back(m, m,\
+    \ n / m);\n    for (; m >= 1; m--) {\n        T l = n / (m + 1) + 1, r = n / m;\n\
+    \        if (l <= r and std::get<1>(res.back()) < l) res.emplace_back(l, r, n\
+    \ / l);\n    }\n    return res;\n}\n\n}  // namespace elementary_math\n#line 5\
+    \ \"test/aoj/NTL_1_E.test.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    long long a, b, x, y;\n    cin >> a >> b;\n    elementary_math::extgcd(a,\
+    \ b, x, y);\n    cout << x << ' ' << y << '\\n';\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_E\"\
     \n\n#include \"../../base.hpp\"\n#include \"../../math/elementary_math.hpp\"\n\
     \nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    long long\
@@ -133,7 +137,7 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL_1_E.test.cpp
   requiredBy: []
-  timestamp: '2021-12-30 22:27:29+09:00'
+  timestamp: '2022-12-30 22:22:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_E.test.cpp

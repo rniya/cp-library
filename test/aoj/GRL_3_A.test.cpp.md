@@ -1,13 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
-    path: graph/BlockCutTree.hpp
-    title: Block Cut Tree (with Lowlink, Two Edge Connected Components, Bi Connected
-      Components)
+  - icon: ':question:'
+    path: graph/LowLink.hpp
+    title: LowLink (with Two Edge Connected Components, Bi Connected Components)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -19,171 +15,54 @@ data:
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_A
   bundledCode: "#line 1 \"test/aoj/GRL_3_A.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_A\"\
-    \n\n#line 2 \"base.hpp\"\n#define LOCAL\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\n#pragma region Macros\ntypedef long long ll;\ntypedef __int128_t i128;\n\
-    typedef unsigned int uint;\ntypedef unsigned long long ull;\n#define ALL(x) (x).begin(),\
-    \ (x).end()\n\ntemplate <typename T> istream& operator>>(istream& is, vector<T>&\
-    \ v) {\n    for (T& x : v) is >> x;\n    return is;\n}\ntemplate <typename T>\
-    \ ostream& operator<<(ostream& os, const vector<T>& v) {\n    for (size_t i =\
-    \ 0; i < v.size(); i++) {\n        os << v[i] << (i + 1 == v.size() ? \"\" : \"\
-    \ \");\n    }\n    return os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream&\
-    \ os, const pair<T, U>& p) {\n    os << '(' << p.first << ',' << p.second << ')';\n\
-    \    return os;\n}\ntemplate <typename T, typename U> ostream& operator<<(ostream&\
-    \ os, const map<T, U>& m) {\n    os << '{';\n    for (auto itr = m.begin(); itr\
-    \ != m.end();) {\n        os << '(' << itr->first << ',' << itr->second << ')';\n\
-    \        if (++itr != m.end()) os << ',';\n    }\n    os << '}';\n    return os;\n\
-    }\ntemplate <typename T, typename U> ostream& operator<<(ostream& os, const unordered_map<T,\
-    \ U>& m) {\n    os << '{';\n    for (auto itr = m.begin(); itr != m.end();) {\n\
-    \        os << '(' << itr->first << ',' << itr->second << ')';\n        if (++itr\
-    \ != m.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\ntemplate <typename\
-    \ T> ostream& operator<<(ostream& os, const set<T>& s) {\n    os << '{';\n   \
-    \ for (auto itr = s.begin(); itr != s.end();) {\n        os << *itr;\n       \
-    \ if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n    return os;\n}\n\
-    template <typename T> ostream& operator<<(ostream& os, const multiset<T>& s) {\n\
-    \    os << '{';\n    for (auto itr = s.begin(); itr != s.end();) {\n        os\
-    \ << *itr;\n        if (++itr != s.end()) os << ',';\n    }\n    os << '}';\n\
-    \    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream& os, const\
-    \ unordered_set<T>& s) {\n    os << '{';\n    for (auto itr = s.begin(); itr !=\
-    \ s.end();) {\n        os << *itr;\n        if (++itr != s.end()) os << ',';\n\
-    \    }\n    os << '}';\n    return os;\n}\ntemplate <typename T> ostream& operator<<(ostream&\
-    \ os, const deque<T>& v) {\n    for (size_t i = 0; i < v.size(); i++) {\n    \
-    \    os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return os;\n\
-    }\ntemplate <typename T, size_t N> ostream& operator<<(ostream& os, const array<T,\
-    \ N>& v) {\n    for (size_t i = 0; i < N; i++) {\n        os << v[i] << (i + 1\
-    \ == N ? \"\" : \" \");\n    }\n    return os;\n}\n\ntemplate <int i, typename\
-    \ T> void print_tuple(ostream&, const T&) {}\ntemplate <int i, typename T, typename\
-    \ H, class... Args> void print_tuple(ostream& os, const T& t) {\n    if (i) os\
-    \ << ',';\n    os << get<i>(t);\n    print_tuple<i + 1, T, Args...>(os, t);\n\
-    }\ntemplate <typename... Args> ostream& operator<<(ostream& os, const tuple<Args...>&\
-    \ t) {\n    os << '{';\n    print_tuple<0, tuple<Args...>, Args...>(os, t);\n\
-    \    return os << '}';\n}\n\nvoid debug_out() { cerr << '\\n'; }\ntemplate <class\
-    \ Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {\n    cerr\
-    \ << head;\n    if (sizeof...(Tail) > 0) cerr << \", \";\n    debug_out(move(tail)...);\n\
-    }\n#ifdef LOCAL\n#define debug(...)                                          \
-    \                         \\\n    cerr << \" \";                             \
-    \                                        \\\n    cerr << #__VA_ARGS__ << \" :[\"\
-    \ << __LINE__ << \":\" << __FUNCTION__ << \"]\" << '\\n'; \\\n    cerr << \" \"\
-    ;                                                                     \\\n   \
-    \ debug_out(__VA_ARGS__)\n#else\n#define debug(...) void(0)\n#endif\n\ntemplate\
-    \ <typename T> T gcd(T x, T y) { return y != 0 ? gcd(y, x % y) : x; }\ntemplate\
-    \ <typename T> T lcm(T x, T y) { return x / gcd(x, y) * y; }\n\nint topbit(signed\
-    \ t) { return t == 0 ? -1 : 31 - __builtin_clz(t); }\nint topbit(long long t)\
-    \ { return t == 0 ? -1 : 63 - __builtin_clzll(t); }\nint botbit(signed a) { return\
-    \ a == 0 ? 32 : __builtin_ctz(a); }\nint botbit(long long a) { return a == 0 ?\
-    \ 64 : __builtin_ctzll(a); }\nint popcount(signed t) { return __builtin_popcount(t);\
-    \ }\nint popcount(long long t) { return __builtin_popcountll(t); }\nbool ispow2(int\
-    \ i) { return i && (i & -i) == i; }\nlong long MSK(int n) { return (1LL << n)\
-    \ - 1; }\n\ntemplate <class T> T ceil(T x, T y) {\n    assert(y >= 1);\n    return\
-    \ (x > 0 ? (x + y - 1) / y : x / y);\n}\ntemplate <class T> T floor(T x, T y)\
-    \ {\n    assert(y >= 1);\n    return (x > 0 ? x / y : (x - y + 1) / y);\n}\n\n\
-    template <class T1, class T2> inline bool chmin(T1& a, T2 b) {\n    if (a > b)\
-    \ {\n        a = b;\n        return true;\n    }\n    return false;\n}\ntemplate\
-    \ <class T1, class T2> inline bool chmax(T1& a, T2 b) {\n    if (a < b) {\n  \
-    \      a = b;\n        return true;\n    }\n    return false;\n}\n\ntemplate <typename\
-    \ T> void mkuni(vector<T>& v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(),\
-    \ v.end()), v.end());\n}\ntemplate <typename T> int lwb(const vector<T>& v, const\
-    \ T& x) { return lower_bound(v.begin(), v.end(), x) - v.begin(); }\n#pragma endregion\n\
-    #line 6 \"graph/BlockCutTree.hpp\"\n\nstruct BlockCutTree {\n    std::vector<std::vector<std::pair<int,\
-    \ int>>> G;\n    std::vector<std::pair<int, int>> edges;\n    std::vector<bool>\
-    \ is_articulation,          // whether vertex i is articulation or not\n     \
-    \   is_bridge;                              // whether edge i is bridge or not\n\
-    \    std::vector<std::vector<int>> tecc_tree,    // tree that consists of two-edge-connected-components\n\
-    \        bct;                                    // tree that consists of bi-connected-components\
-    \ and articulation\n    std::vector<int> tecc_id;                   // id of two-edge-connected-component\
-    \ vertex i belongs to\n    std::vector<std::vector<int>> tecc_groups;  // vertices\
-    \ belong to i-th two-edge-connected-component\n    std::vector<int> bcc_id;  \
-    \                  // id of bi-connected-component edge i belongs to\n    std::vector<std::vector<std::pair<int,\
-    \ int>>> bcc_groups;  // edges belongs to i-th bi-connected-component\n    std::vector<int>\
-    \ bct_id;  // id of component on block-cut-tree vertex i belongs to (order : bcc\
-    \ -> articulation)\n    std::vector<std::vector<int>> bct_groups;  // vertices\
-    \ belong to i-th component on block-cut-tree\n\n    BlockCutTree(int n)\n    \
-    \    : G(n), is_articulation(n, false), n(n), m(0), time(0), bcc_num(0), order(n,\
-    \ -1), lowlink(n, -1) {}\n\n    void add_edge(int u, int v) {\n        assert(0\
-    \ <= u && u < n);\n        assert(0 <= v && v < n);\n        G[u].emplace_back(v,\
-    \ m);\n        G[v].emplace_back(u, m);\n        if (u > v) std::swap(u, v);\n\
-    \        edges.emplace_back(u, v);\n        is_bridge.emplace_back(false);\n \
-    \       is_dfstree_edge.emplace_back(false);\n        bcc_id.emplace_back(-1);\n\
-    \        m++;\n    }\n\n    void build() {\n        called_build = true;\n   \
-    \     for (int i = 0; i < n; i++) {\n            if (order[i] == -1) {\n     \
-    \           dfs_lowlink(i);\n            }\n        }\n        for (int i = 0;\
-    \ i < m; i++) {\n            int u = edges[i].first, v = edges[i].second;\n  \
-    \          if (order[u] > order[v]) std::swap(u, v);\n            if (order[u]\
-    \ < lowlink[v]) is_bridge[i] = true;\n        }\n    }\n\n    std::vector<std::vector<int>>\
-    \ two_edge_connected_components() {\n        assert(called_build);\n        called_two_connected_components\
-    \ = true;\n        tecc_num = 0;\n        tecc_id.assign(n, -1);\n        for\
-    \ (int i = 0; i < n; i++) {\n            if (tecc_id[i] >= 0) continue;\n    \
-    \        tecc_id[i] = tecc_num;\n            std::queue<int> que;\n          \
-    \  que.emplace(i);\n            while (!que.empty()) {\n                int v\
-    \ = que.front();\n                que.pop();\n                for (const auto&\
-    \ e : G[v]) {\n                    int u = e.first;\n                    if (tecc_id[u]\
-    \ >= 0 || is_bridge[e.second]) continue;\n                    tecc_id[u] = tecc_num;\n\
-    \                    que.emplace(u);\n                }\n            }\n     \
-    \       tecc_num++;\n        }\n        tecc_groups.resize(tecc_num);\n      \
-    \  for (int i = 0; i < n; i++) tecc_groups[tecc_id[i]].emplace_back(i);\n    \
-    \    return tecc_groups;\n    }\n\n    std::vector<std::vector<int>> tecc_make_tree()\
-    \ {\n        assert(called_two_connected_components);\n        tecc_tree.resize(tecc_num);\n\
-    \        for (int i = 0; i < m; i++) {\n            if (!is_bridge[i]) continue;\n\
-    \            int u = tecc_id[edges[i].first], v = tecc_id[edges[i].second];\n\
-    \            tecc_tree[u].emplace_back(v);\n            tecc_tree[v].emplace_back(u);\n\
-    \        }\n        return tecc_tree;\n    }\n\n    std::vector<std::vector<std::pair<int,\
-    \ int>>> bi_connected_components() {\n        assert(called_build);\n        called_bi_connected_components\
-    \ = true;\n        bcc_groups.resize(bcc_num);\n        for (int i = 0; i < m;\
-    \ i++) bcc_groups[bcc_id[i]].emplace_back(edges[i]);\n        return bcc_groups;\n\
-    \    }\n\n    std::vector<std::vector<int>> block_cut_tree() {\n        assert(called_bi_connected_components);\n\
-    \        int bct_num = bcc_num;\n        bct_id.assign(n, -1);\n        for (int\
-    \ i = 0; i < n; i++) {\n            if (is_articulation[i]) {\n              \
-    \  bct_id[i] = bct_num++;\n            }\n        }\n        bct.resize(bct_num);\n\
-    \        std::vector<int> last_adjacent(bct_num, -1);\n        for (int i = 0;\
-    \ i < bcc_num; i++) {\n            for (auto& e : bcc_groups[i]) {\n         \
-    \       for (auto& v : {e.first, e.second}) {\n                    if (is_articulation[v])\
-    \ {\n                        if (std::exchange(last_adjacent[bct_id[v]], i) !=\
-    \ i) {\n                            bct[i].emplace_back(bct_id[v]);\n        \
-    \                    bct[bct_id[v]].emplace_back(i);\n                       \
-    \ }\n                    } else\n                        bct_id[v] = i;\n    \
-    \            }\n            }\n        }\n        return bct;\n    }\n\nprivate:\n\
-    \    int n, m, time, tecc_num, bcc_num;\n    bool called_build, called_two_connected_components,\
-    \ called_bi_connected_components;\n    std::vector<int> order;             //\
-    \ visiting order of dfs-tree\n    std::vector<int> lowlink;           // min of\
-    \ order of u which can be visited from v by using dfs-tree edge any\n        \
-    \                                // times and back edge at most once\n    std::vector<bool>\
-    \ is_dfstree_edge;  // whether edge is used in dfs-tree or not\n    std::vector<int>\
-    \ edge_stack;\n\n    void dfs_lowlink(int v, int pre_eid = -1) {\n        order[v]\
-    \ = lowlink[v] = time++;\n        for (const auto& e : G[v]) {\n            int\
-    \ u = e.first;\n            if (e.second != pre_eid) {\n                if (order[u]\
-    \ < order[v]) edge_stack.emplace_back(e.second);\n                if (order[u]\
-    \ >= 0)\n                    lowlink[v] = std::min(lowlink[v], order[u]);\n  \
-    \              else {\n                    is_dfstree_edge[e.second] = true;\n\
-    \                    dfs_lowlink(u, e.second);\n                    lowlink[v]\
-    \ = std::min(lowlink[v], lowlink[u]);\n                    if (pre_eid == -1 &&\
-    \ order[u] != order[v] + 1) is_articulation[v] = true;\n                    if\
-    \ (pre_eid != -1 && order[v] <= lowlink[u]) is_articulation[v] = true;\n     \
-    \               if (order[v] <= lowlink[u]) {\n                        while (true)\
-    \ {\n                            int cur = edge_stack.back();\n              \
-    \              edge_stack.pop_back();\n                            bcc_id[cur]\
-    \ = bcc_num;\n                            if (edges[cur] == edges[e.second]) break;\n\
-    \                        }\n                        bcc_num++;\n             \
-    \       }\n                }\n            }\n        }\n    }\n};\n#line 5 \"\
-    test/aoj/GRL_3_A.test.cpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int V, E;\n    cin >> V >> E;\n\n    BlockCutTree BCT(V);\n    vector<int>\
-    \ s(E), t(E);\n    for (int i = 0; i < E; i++) {\n        cin >> s[i] >> t[i];\n\
-    \        BCT.add_edge(s[i], t[i]);\n    }\n\n    BCT.build();\n    for (int i\
-    \ = 0; i < V; i++) {\n        if (BCT.is_articulation[i]) {\n            cout\
-    \ << i << '\\n';\n        }\n    }\n    return 0;\n}\n"
+    \n\n#include <iostream>\n#line 2 \"graph/LowLink.hpp\"\n#include <cassert>\n#include\
+    \ <utility>\n#include <vector>\n\nstruct LowLink {\n    int n, m = 0, t = 0, b\
+    \ = 0;\n    std::vector<std::vector<int>> G;\n    std::vector<std::pair<int, int>>\
+    \ es;\n    std::vector<int> ord, low, tecc, bcc, tmp;\n    std::vector<bool> is_articulation,\
+    \ is_bridge;\n\n    LowLink(int n) : n(n), G(n), ord(n, -1), low(n), tecc(n, -1),\
+    \ is_articulation(n, false) {}\n\n    void add_edge(int u, int v) {\n        assert(0\
+    \ <= u and u < n);\n        assert(0 <= v and v < n);\n        G[u].emplace_back(m);\n\
+    \        G[v].emplace_back(m);\n        es.emplace_back(u, v);\n        is_bridge.emplace_back(false);\n\
+    \        bcc.emplace_back();\n        m++;\n    }\n\n    void build() {\n    \
+    \    for (int i = 0; i < n; i++) {\n            if (ord[i] != -1) continue;\n\
+    \            dfs1(i, 0, -1);\n            dfs2(i, -1);\n        }\n    }\n\n \
+    \   std::pair<int, int> operator[](int k) const { return es[k]; }\n\nprivate:\n\
+    \    void dfs1(int v, int k, int pre) {\n        ord[v] = k++, low[v] = ord[v];\n\
+    \        int cnt = 0;\n        for (int& e : G[v]) {\n            if (e == pre)\
+    \ continue;\n            int u = es[e].first ^ es[e].second ^ v;\n           \
+    \ if (ord[u] == -1) {\n                cnt++;\n                dfs1(u, k, e);\n\
+    \                low[v] = std::min(low[v], low[u]);\n                if (pre !=\
+    \ -1 and ord[v] <= low[u]) is_articulation[v] = true;\n                if (ord[v]\
+    \ < low[u]) is_bridge[e] = true;\n            } else\n                low[v] =\
+    \ std::min(low[v], ord[u]);\n        }\n        if (pre == -1 and cnt > 1) is_articulation[v]\
+    \ = true;\n    }\n\n    void dfs2(int v, int pre) {\n        if (pre == -1) tecc[v]\
+    \ = t++;\n        for (int& e : G[v]) {\n            if (e == pre) continue;\n\
+    \            int u = es[e].first ^ es[e].second ^ v;\n            if (tecc[u]\
+    \ == -1 or ord[u] < ord[v]) tmp.emplace_back(e);\n            if (tecc[u] >= 0)\
+    \ continue;\n            if (ord[v] >= low[u])\n                tecc[u] = tecc[v];\n\
+    \            else\n                tecc[u] = t++;\n            dfs2(u, e);\n \
+    \           if (ord[v] <= low[u]) {\n                while (true) {\n        \
+    \            int ne = tmp.back();\n                    tmp.pop_back();\n     \
+    \               bcc[ne] = b;\n                    if (ne == e) break;\n      \
+    \          }\n                b++;\n            }\n        }\n    }\n};\n#line\
+    \ 5 \"test/aoj/GRL_3_A.test.cpp\"\n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \    int V, E;\n    std::cin >> V >> E;\n    LowLink G(V);\n    for (; E--;) {\n\
+    \        int s, t;\n        std::cin >> s >> t;\n        G.add_edge(s, t);\n \
+    \   }\n\n    G.build();\n    for (int i = 0; i < V; i++) {\n        if (G.is_articulation[i])\
+    \ {\n            std::cout << i << '\\n';\n        }\n    }\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_A\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../graph/BlockCutTree.hpp\"\n\n\
-    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int V, E;\n\
-    \    cin >> V >> E;\n\n    BlockCutTree BCT(V);\n    vector<int> s(E), t(E);\n\
-    \    for (int i = 0; i < E; i++) {\n        cin >> s[i] >> t[i];\n        BCT.add_edge(s[i],\
-    \ t[i]);\n    }\n\n    BCT.build();\n    for (int i = 0; i < V; i++) {\n     \
-    \   if (BCT.is_articulation[i]) {\n            cout << i << '\\n';\n        }\n\
-    \    }\n    return 0;\n}"
+    \n\n#include <iostream>\n#include \"graph/LowLink.hpp\"\n\nint main() {\n    std::cin.tie(0);\n\
+    \    std::ios::sync_with_stdio(false);\n    int V, E;\n    std::cin >> V >> E;\n\
+    \    LowLink G(V);\n    for (; E--;) {\n        int s, t;\n        std::cin >>\
+    \ s >> t;\n        G.add_edge(s, t);\n    }\n\n    G.build();\n    for (int i\
+    \ = 0; i < V; i++) {\n        if (G.is_articulation[i]) {\n            std::cout\
+    \ << i << '\\n';\n        }\n    }\n    return 0;\n}"
   dependsOn:
-  - base.hpp
-  - graph/BlockCutTree.hpp
+  - graph/LowLink.hpp
   isVerificationFile: true
   path: test/aoj/GRL_3_A.test.cpp
   requiredBy: []
-  timestamp: '2022-09-04 18:06:09+09:00'
+  timestamp: '2022-12-30 22:22:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_3_A.test.cpp
