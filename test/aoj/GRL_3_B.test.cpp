@@ -10,7 +10,7 @@ int main() {
     int V, E;
     std::cin >> V >> E;
     LowLink G(V);
-    for (; E--;) {
+    for (int i = 0; i < E; i++) {
         int s, t;
         std::cin >> s >> t;
         if (s > t) std::swap(s, t);
