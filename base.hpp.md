@@ -128,12 +128,6 @@ data:
     path: test/aoj/GRL_1_B.test.cpp
     title: test/aoj/GRL_1_B.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_2_A.Prim.test.cpp
-    title: test/aoj/GRL_2_A.Prim.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL_2_A.test.cpp
-    title: test/aoj/GRL_2_A.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_3_C.test.cpp
     title: test/aoj/GRL_3_C.test.cpp
   - icon: ':heavy_check_mark:'
@@ -382,7 +376,6 @@ data:
   timestamp: '2021-10-31 14:57:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_2_A.test.cpp
   - test/aoj/1181.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
   - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
@@ -412,7 +405,6 @@ data:
   - test/aoj/CGL_4_C.test.cpp
   - test/aoj/CGL_2_A.test.cpp
   - test/aoj/CGL_3_B.test.cpp
-  - test/aoj/GRL_2_A.Prim.test.cpp
   - test/aoj/ITP1_11_D.test.cpp
   - test/aoj/GRL_3_C.test.cpp
   - test/aoj/1131.test.cpp

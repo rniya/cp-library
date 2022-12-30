@@ -127,15 +127,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/EulerianTrail.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u306E\u69CB\u7BC9"
-    - icon: ':heavy_check_mark:'
-      path: graph/Kruskal.hpp
-      title: Kruskal
     - icon: ':question:'
       path: graph/LowLink.hpp
       title: LowLink (with Two Edge Connected Components, Bi Connected Components)
-    - icon: ':heavy_check_mark:'
-      path: graph/Prim.hpp
-      title: Prim
     - icon: ':warning:'
       path: graph/RangeEdgeGraph.hpp
       title: Range Edge Graph
@@ -378,12 +372,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_1_B.test.cpp
       title: test/aoj/GRL_1_B.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/GRL_2_A.Prim.test.cpp
-      title: test/aoj/GRL_2_A.Prim.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/GRL_2_A.test.cpp
-      title: test/aoj/GRL_2_A.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_A.test.cpp
       title: test/aoj/GRL_3_A.test.cpp
