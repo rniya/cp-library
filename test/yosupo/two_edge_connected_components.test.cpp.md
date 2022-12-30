@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/LowLink.hpp
     title: LowLink (with Two Edge Connected Components, Bi Connected Components)
   _extendedRequiredBy: []

@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/LowLink.hpp
     title: LowLink (with Two Edge Connected Components, Bi Connected Components)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B
@@ -47,9 +47,9 @@ data:
     \        if (ne == e) break;\n                }\n                b++;\n      \
     \      }\n        }\n    }\n};\n#line 6 \"test/aoj/GRL_3_B.test.cpp\"\n\nint main()\
     \ {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int V, E;\n\
-    \    std::cin >> V >> E;\n    LowLink G(V);\n    for (; E--;) {\n        int s,\
-    \ t;\n        std::cin >> s >> t;\n        if (s > t) std::swap(s, t);\n     \
-    \   G.add_edge(s, t);\n    }\n\n    G.build();\n    std::vector<std::pair<int,\
+    \    std::cin >> V >> E;\n    LowLink G(V);\n    for (int i = 0; i < E; i++) {\n\
+    \        int s, t;\n        std::cin >> s >> t;\n        if (s > t) std::swap(s,\
+    \ t);\n        G.add_edge(s, t);\n    }\n\n    G.build();\n    std::vector<std::pair<int,\
     \ int>> ans;\n    for (int i = 0; i < E; i++) {\n        if (G.is_bridge[i]) {\n\
     \            ans.emplace_back(G[i]);\n        }\n    }\n    std::sort(ans.begin(),\
     \ ans.end());\n    for (auto& e : ans) std::cout << e.first << ' ' << e.second\
@@ -57,20 +57,20 @@ data:
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B\"\
     \n\n#include <algorithm>\n#include <iostream>\n#include \"graph/LowLink.hpp\"\n\
     \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
-    \    int V, E;\n    std::cin >> V >> E;\n    LowLink G(V);\n    for (; E--;) {\n\
-    \        int s, t;\n        std::cin >> s >> t;\n        if (s > t) std::swap(s,\
-    \ t);\n        G.add_edge(s, t);\n    }\n\n    G.build();\n    std::vector<std::pair<int,\
-    \ int>> ans;\n    for (int i = 0; i < E; i++) {\n        if (G.is_bridge[i]) {\n\
-    \            ans.emplace_back(G[i]);\n        }\n    }\n    std::sort(ans.begin(),\
-    \ ans.end());\n    for (auto& e : ans) std::cout << e.first << ' ' << e.second\
-    \ << '\\n';\n    return 0;\n}"
+    \    int V, E;\n    std::cin >> V >> E;\n    LowLink G(V);\n    for (int i = 0;\
+    \ i < E; i++) {\n        int s, t;\n        std::cin >> s >> t;\n        if (s\
+    \ > t) std::swap(s, t);\n        G.add_edge(s, t);\n    }\n\n    G.build();\n\
+    \    std::vector<std::pair<int, int>> ans;\n    for (int i = 0; i < E; i++) {\n\
+    \        if (G.is_bridge[i]) {\n            ans.emplace_back(G[i]);\n        }\n\
+    \    }\n    std::sort(ans.begin(), ans.end());\n    for (auto& e : ans) std::cout\
+    \ << e.first << ' ' << e.second << '\\n';\n    return 0;\n}"
   dependsOn:
   - graph/LowLink.hpp
   isVerificationFile: true
   path: test/aoj/GRL_3_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-30 22:31:33+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-30 22:49:58+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_3_B.test.cpp
 layout: document

@@ -127,7 +127,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/EulerianTrail.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u306E\u69CB\u7BC9"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/LowLink.hpp
       title: LowLink (with Two Edge Connected Components, Bi Connected Components)
     - icon: ':warning:'
@@ -375,7 +375,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_A.test.cpp
       title: test/aoj/GRL_3_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_B.test.cpp
       title: test/aoj/GRL_3_B.test.cpp
     - icon: ':heavy_check_mark:'
