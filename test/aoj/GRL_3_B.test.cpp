@@ -1,5 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B"
 
+#include <algorithm>
 #include <iostream>
 #include "graph/LowLink.hpp"
 
@@ -23,7 +24,7 @@ int main() {
             ans.emplace_back(G[i]);
         }
     }
-    sort(ans.begin(), ans.end());
+    std::sort(ans.begin(), ans.end());
     for (auto& e : ans) std::cout << e.first << ' ' << e.second << '\n';
     return 0;
 }
