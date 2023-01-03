@@ -256,6 +256,9 @@ $f$ の定数項が $1$ の場合に帰着すると，$\sqrt{f} = f^{1 / 2}$ が
 
 以上の $f$ が sparse な場合の各種演算は Number Theoretic Transform による積の高速化を必要としないため，$\mathbb{F}_{10^9 + 7}[x]$ 等，**法が NTT-friendly でない場合にも適用可能である．**
 
+## taylor-shift
+与えられた多項式 $f(x)$ 及び定数 $c$ について、$f(x + c)$ を求める。
+
 ## 問題例
 - [Codeforces Round #250 (Div. 1) E. The Child and Binary Tree](https://codeforces.com/contest/438/problem/E)
 
@@ -272,7 +275,7 @@ $f$ の定数項が $1$ の場合に帰着すると，$\sqrt{f} = f^{1 / 2}$ が
 
     もしくは，
 
-    $$ - \log (1 + x) = \sum_{n = 1}^\infty \frac{x^n}{n} $$
+    $$ - \log (1 - x) = \sum_{n = 1}^\infty \frac{x^n}{n} $$
 
     を用いると
 
@@ -294,6 +297,8 @@ $f$ の定数項が $1$ の場合に帰着すると，$\sqrt{f} = f^{1 / 2}$ が
   - 包除原理により $C(P) = n$ である $P$ の個数を求めた後，Sums of Powers と同様の考察により解くことができる．
 
 - [灘校文化祭コンテスト 2022 Day1 K - Li](https://atcoder.jp/contests/nadafes2022_day1/tasks/nadafes2022_day1_k)
+
+- [Good Bye 2022: 2023 is NEAR G. Koxia and Bracket](https://codeforces.com/contest/1770/problem/G)
 
 ## Reference
 [1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
