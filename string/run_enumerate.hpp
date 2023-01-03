@@ -1,3 +1,4 @@
+#pragma once
 #include <algorithm>
 #include <string>
 #include <tuple>
@@ -5,6 +6,8 @@
 #include <vector>
 
 namespace run_enumerate {
+
+namespace internal {
 
 // Reference:
 // D. Gusfield,
@@ -34,6 +37,8 @@ std::vector<int> z_algorithm(const std::string& s) {
     return z_algorithm(s2);
 }
 
+}  // namespace internal
+
 template <class T> std::vector<std::tuple<int, int, int>> enumerate(const std::vector<T>& s) {
     int n = s.size();
     std::vector<std::tuple<int, int, int>> res;
@@ -46,7 +51,7 @@ template <class T> std::vector<std::tuple<int, int, int>> enumerate(const std::v
         sl.insert(sl.end(), s.rbegin() + n - r, s.rbegin() + n - l);
         std::vector<T> sr(s.begin() + m, s.begin() + r);
         sr.insert(sr.end(), s.begin() + l, s.begin() + r);
-        auto zsl = z_algorithm(sl), zsr = z_algorithm(sr);
+        auto zsl = internal::z_algorithm(sl), zsr = internal::z_algorithm(sr);
         for (int t = 1; t <= m - l; t++) {
             int ml = std::max(l, m - t - zsl[t]), mr = std::min(r, m + zsr[r - l - t]);
             if (mr - ml >= 2 * t and (ml == 0 or s[ml - 1] != s[ml + t - 1]) and (mr == n or s[mr] != s[mr - t]))
