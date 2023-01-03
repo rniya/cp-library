@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <string>
 #include <tuple>
 #include <utility>
@@ -58,7 +59,7 @@ template <class T> std::vector<std::tuple<int, int, int>> enumerate(const std::v
         }
     };
     dfs(dfs, 0, n);
-    sort(res.begin(), res.end());
+    std::sort(res.begin(), res.end());
     std::vector<std::tuple<int, int, int>> nres;
     int pl = -1, pr = -1;
     for (auto [l, r, t] : res) {
