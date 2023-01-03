@@ -215,6 +215,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/Z_Algorithm.hpp
       title: Z-Algorithm
+    - icon: ':x:'
+      path: string/run_enumerate.hpp
+      title: Run Enumerate
   - name: tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -509,6 +512,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/queue_operate_all_composite.test.cpp
       title: test/yosupo/queue_operate_all_composite.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/runenumerate.test.cpp
+      title: test/yosupo/runenumerate.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp
