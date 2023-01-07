@@ -257,7 +257,21 @@ $f$ の定数項が $1$ の場合に帰着すると，$\sqrt{f} = f^{1 / 2}$ が
 以上の $f$ が sparse な場合の各種演算は Number Theoretic Transform による積の高速化を必要としないため，$\mathbb{F}_{10^9 + 7}[x]$ 等，**法が NTT-friendly でない場合にも適用可能である．**
 
 ## taylor-shift
-与えられた多項式 $f(x)$ 及び定数 $c$ について、$f(x + c)$ を求める。
+与えられた多項式 $f(x)$ 及び定数 $c$ について，$f(x + c)$ を求める．
+
+$$
+\begin{aligned}
+    f(x + c)
+    & = \sum_{i = 0}^{N - 1} a_i (x + c)^i \\
+    & = \sum_{i = 0}^{N - 1} x^i \sum_{j = i}^{N - 1} a_j \binom{j}{i} c^{j - i} \\
+    & = \sum_{i = 0}^{N - 1} \frac{x^i}{i!} \sum_{j = i}^{N - 1} \frac{c^{j - i}}{(j - i)!} a_j j! \\
+    & = \sum_{i = 0}^{N - 1} \frac{x^i}{i!} \sum_{j = 0}^{N - 1 - i} \frac{c^j}{j!} a_{i + j} (i + j)! \\
+    & = \sum_{k = 0}^{N - 1} a_k k! \sum_{j = 0}^{k} \frac{c^j}{j!} \frac{x^{k - j}}{(k - j)!}
+\end{aligned}
+$$
+
+となり，畳込みに帰着される．
+計算量は $O(N \log N)$．
 
 ## 問題例
 - [Codeforces Round #250 (Div. 1) E. The Child and Binary Tree](https://codeforces.com/contest/438/problem/E)

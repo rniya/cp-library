@@ -354,4 +354,25 @@ public:
         }
         return res;
     }
+
+    FPS taylor_shift(T c) const {
+        FPS f(*this);
+        const int n = f.size();
+        std::vector<T> fac(n), finv(n);
+        fac[0] = 1;
+        for (int i = 1; i < n; i++) {
+            fac[i] = fac[i - 1] * i;
+            f[i] *= fac[i];
+        }
+        finv[n - 1] = fac[n - 1].inv();
+        for (int i = n - 1; i > 0; i--) finv[i - 1] = finv[i] * i;
+        std::reverse(f.begin(), f.end());
+        FPS g(n);
+        g[0] = T(1);
+        for (int i = 1; i < n; i++) g[i] = g[i - 1] * c * finv[i] * fac[i - 1];
+        f = (f * g).pre(n);
+        std::reverse(f.begin(), f.end());
+        for (int i = 0; i < n; i++) f[i] *= finv[i];
+        return f;
+    }
 };

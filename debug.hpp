@@ -1,6 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+template <typename T> istream& operator>>(istream& is, vector<T>& v);
+template <typename T> ostream& operator<<(ostream& os, const vector<T>& v);
+template <typename T, typename U> ostream& operator<<(ostream& os, const pair<T, U>& p);
+template <typename T, typename U> ostream& operator<<(ostream& os, const map<T, U>& m);
+template <typename T> ostream& operator<<(ostream& os, const set<T>& s);
+template <typename T> ostream& operator<<(ostream& os, const multiset<T>& s);
+template <typename T> ostream& operator<<(ostream& os, const deque<T>& v);
+template <typename... Args> ostream& operator<<(ostream& os, const tuple<Args...>& t);
+
 template <typename T, typename U> ostream& operator<<(ostream& os, const pair<T, U>& p) {
     os << '(' << p.first << ',' << p.second << ')';
     return os;
