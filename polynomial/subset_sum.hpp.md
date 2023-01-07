@@ -532,8 +532,17 @@ data:
     \ {\n                if (i - f[j].first < 0) break;\n                res[i] +=\
     \ f[j].second * res[i - f[j].first] * (T(k) * f[j].first - (i - f[j].first));\n\
     \            }\n            res[i] *= invs[i] * coef;\n        }\n        return\
-    \ res;\n    }\n};\n#line 4 \"polynomial/subset_sum.hpp\"\n\ntemplate <typename\
-    \ T> std::vector<T> subset_sum(const std::vector<int>& s, int m) {\n    std::vector<int>\
+    \ res;\n    }\n\n    FPS taylor_shift(T c) const {\n        FPS f(*this);\n  \
+    \      const int n = f.size();\n        std::vector<T> fac(n), finv(n);\n    \
+    \    fac[0] = 1;\n        for (int i = 1; i < n; i++) {\n            fac[i] =\
+    \ fac[i - 1] * i;\n            f[i] *= fac[i];\n        }\n        finv[n - 1]\
+    \ = fac[n - 1].inv();\n        for (int i = n - 1; i > 0; i--) finv[i - 1] = finv[i]\
+    \ * i;\n        std::reverse(f.begin(), f.end());\n        FPS g(n);\n       \
+    \ g[0] = T(1);\n        for (int i = 1; i < n; i++) g[i] = g[i - 1] * c * finv[i]\
+    \ * fac[i - 1];\n        f = (f * g).pre(n);\n        std::reverse(f.begin(),\
+    \ f.end());\n        for (int i = 0; i < n; i++) f[i] *= finv[i];\n        return\
+    \ f;\n    }\n};\n#line 4 \"polynomial/subset_sum.hpp\"\n\ntemplate <typename T>\
+    \ std::vector<T> subset_sum(const std::vector<int>& s, int m) {\n    std::vector<int>\
     \ cnt(m + 1, 0);\n    for (const int& x : s) {\n        assert(x >= 0);\n    \
     \    if (x <= m) cnt[x]++;\n    }\n    FormalPowerSeries<T> res(m + 1);\n    std::vector<T>\
     \ inv(m + 1);\n    inv[0] = T(0);\n    if (m > 0) inv[1] = T(1);\n    auto mod\
@@ -561,7 +570,7 @@ data:
   isVerificationFile: false
   path: polynomial/subset_sum.hpp
   requiredBy: []
-  timestamp: '2022-11-10 02:48:19+09:00'
+  timestamp: '2023-01-07 23:10:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/sharp_p_subset_sum.test.cpp

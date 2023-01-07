@@ -43,6 +43,9 @@ data:
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/polynomial_taylor_shift.test.cpp
+    title: test/yosupo/polynomial_taylor_shift.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -329,6 +332,7 @@ data:
   - test/yosupo/gcd_convolution.test.cpp
   - test/yosupo/enumerate_cliques.test.cpp
   - test/yosupo/vertex_set_path_composite.test.cpp
+  - test/yosupo/polynomial_taylor_shift.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/product_of_polynomial_sequence.test.cpp

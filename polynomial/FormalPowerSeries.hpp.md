@@ -25,6 +25,9 @@ data:
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/polynomial_taylor_shift.test.cpp
+    title: test/yosupo/polynomial_taylor_shift.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -563,7 +566,16 @@ data:
     \ {\n                if (i - f[j].first < 0) break;\n                res[i] +=\
     \ f[j].second * res[i - f[j].first] * (T(k) * f[j].first - (i - f[j].first));\n\
     \            }\n            res[i] *= invs[i] * coef;\n        }\n        return\
-    \ res;\n    }\n};\n"
+    \ res;\n    }\n\n    FPS taylor_shift(T c) const {\n        FPS f(*this);\n  \
+    \      const int n = f.size();\n        std::vector<T> fac(n), finv(n);\n    \
+    \    fac[0] = 1;\n        for (int i = 1; i < n; i++) {\n            fac[i] =\
+    \ fac[i - 1] * i;\n            f[i] *= fac[i];\n        }\n        finv[n - 1]\
+    \ = fac[n - 1].inv();\n        for (int i = n - 1; i > 0; i--) finv[i - 1] = finv[i]\
+    \ * i;\n        std::reverse(f.begin(), f.end());\n        FPS g(n);\n       \
+    \ g[0] = T(1);\n        for (int i = 1; i < n; i++) g[i] = g[i - 1] * c * finv[i]\
+    \ * fac[i - 1];\n        f = (f * g).pre(n);\n        std::reverse(f.begin(),\
+    \ f.end());\n        for (int i = 0; i < n; i++) f[i] *= finv[i];\n        return\
+    \ f;\n    }\n};\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <functional>\n\
     #include <queue>\n#include <utility>\n#include <vector>\n\n#include \"atcoder/convolution\"\
     \n\ntemplate <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n\
@@ -716,18 +728,28 @@ data:
     \ {\n                if (i - f[j].first < 0) break;\n                res[i] +=\
     \ f[j].second * res[i - f[j].first] * (T(k) * f[j].first - (i - f[j].first));\n\
     \            }\n            res[i] *= invs[i] * coef;\n        }\n        return\
-    \ res;\n    }\n};\n"
+    \ res;\n    }\n\n    FPS taylor_shift(T c) const {\n        FPS f(*this);\n  \
+    \      const int n = f.size();\n        std::vector<T> fac(n), finv(n);\n    \
+    \    fac[0] = 1;\n        for (int i = 1; i < n; i++) {\n            fac[i] =\
+    \ fac[i - 1] * i;\n            f[i] *= fac[i];\n        }\n        finv[n - 1]\
+    \ = fac[n - 1].inv();\n        for (int i = n - 1; i > 0; i--) finv[i - 1] = finv[i]\
+    \ * i;\n        std::reverse(f.begin(), f.end());\n        FPS g(n);\n       \
+    \ g[0] = T(1);\n        for (int i = 1; i < n; i++) g[i] = g[i - 1] * c * finv[i]\
+    \ * fac[i - 1];\n        f = (f * g).pre(n);\n        std::reverse(f.begin(),\
+    \ f.end());\n        for (int i = 0; i < n; i++) f[i] *= finv[i];\n        return\
+    \ f;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: polynomial/FormalPowerSeries.hpp
   requiredBy:
   - polynomial/multipoint_evaluation.hpp
   - polynomial/subset_sum.hpp
-  timestamp: '2022-11-10 02:48:19+09:00'
+  timestamp: '2023-01-07 23:10:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
+  - test/yosupo/polynomial_taylor_shift.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/product_of_polynomial_sequence.test.cpp
   - test/yosupo/sharp_p_subset_sum.test.cpp
@@ -995,7 +1017,21 @@ $f$ の定数項が $1$ の場合に帰着すると，$\sqrt{f} = f^{1 / 2}$ が
 以上の $f$ が sparse な場合の各種演算は Number Theoretic Transform による積の高速化を必要としないため，$\mathbb{F}_{10^9 + 7}[x]$ 等，**法が NTT-friendly でない場合にも適用可能である．**
 
 ## taylor-shift
-与えられた多項式 $f(x)$ 及び定数 $c$ について、$f(x + c)$ を求める。
+与えられた多項式 $f(x)$ 及び定数 $c$ について，$f(x + c)$ を求める．
+
+$$
+\begin{aligned}
+    f(x + c)
+    & = \sum_{i = 0}^{N - 1} a_i (x + c)^i \\
+    & = \sum_{i = 0}^{N - 1} x^i \sum_{j = i}^{N - 1} a_j \binom{j}{i} c^{j - i} \\
+    & = \sum_{i = 0}^{N - 1} \frac{x^i}{i!} \sum_{j = i}^{N - 1} \frac{c^{j - i}}{(j - i)!} a_j j! \\
+    & = \sum_{i = 0}^{N - 1} \frac{x^i}{i!} \sum_{j = 0}^{N - 1 - i} \frac{c^j}{j!} a_{i + j} (i + j)! \\
+    & = \sum_{k = 0}^{N - 1} a_k k! \sum_{j = 0}^{k} \frac{c^j}{j!} \frac{x^{k - j}}{(k - j)!}
+\end{aligned}
+$$
+
+となり，畳込みに帰着される．
+計算量は $O(N \log N)$．
 
 ## 問題例
 - [Codeforces Round #250 (Div. 1) E. The Child and Binary Tree](https://codeforces.com/contest/438/problem/E)

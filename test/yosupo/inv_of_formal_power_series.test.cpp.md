@@ -536,7 +536,16 @@ data:
     \ {\n                if (i - f[j].first < 0) break;\n                res[i] +=\
     \ f[j].second * res[i - f[j].first] * (T(k) * f[j].first - (i - f[j].first));\n\
     \            }\n            res[i] *= invs[i] * coef;\n        }\n        return\
-    \ res;\n    }\n};\n#line 2 \"util/modint.hpp\"\n#include <iostream>\n#line 4 \"\
+    \ res;\n    }\n\n    FPS taylor_shift(T c) const {\n        FPS f(*this);\n  \
+    \      const int n = f.size();\n        std::vector<T> fac(n), finv(n);\n    \
+    \    fac[0] = 1;\n        for (int i = 1; i < n; i++) {\n            fac[i] =\
+    \ fac[i - 1] * i;\n            f[i] *= fac[i];\n        }\n        finv[n - 1]\
+    \ = fac[n - 1].inv();\n        for (int i = n - 1; i > 0; i--) finv[i - 1] = finv[i]\
+    \ * i;\n        std::reverse(f.begin(), f.end());\n        FPS g(n);\n       \
+    \ g[0] = T(1);\n        for (int i = 1; i < n; i++) g[i] = g[i - 1] * c * finv[i]\
+    \ * fac[i - 1];\n        f = (f * g).pre(n);\n        std::reverse(f.begin(),\
+    \ f.end());\n        for (int i = 0; i < n; i++) f[i] *= finv[i];\n        return\
+    \ f;\n    }\n};\n#line 2 \"util/modint.hpp\"\n#include <iostream>\n#line 4 \"\
     util/modint.hpp\"\n\nnamespace atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream&\
     \ is, static_modint<MOD>& x) {\n    int64_t v;\n    x = static_modint<MOD>{(is\
     \ >> v, v)};\n    return is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream&\
@@ -561,7 +570,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/inv_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-11-10 02:48:19+09:00'
+  timestamp: '2023-01-07 23:10:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/inv_of_formal_power_series.test.cpp
