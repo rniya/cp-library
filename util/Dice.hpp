@@ -1,4 +1,5 @@
 #pragma once
+#include <algorithm>
 #include <array>
 #include <cassert>
 #include <string>
@@ -88,7 +89,7 @@ struct Dice {
 
     Dice identifier() {
         auto dices = make_all();
-        return *min_element(dices.begin(), dices.end());
+        return *std::min_element(dices.begin(), dices.end());
     }
 
 private:
