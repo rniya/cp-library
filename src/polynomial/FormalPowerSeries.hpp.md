@@ -5,14 +5,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/polynomial/multipoint_evaluation.hpp
     title: multipoint evaluation
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/polynomial/subset_sum.hpp
     title: $\#_p$ Subset Sum
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/division_of_polynomials.test.cpp
     title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -27,7 +27,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -36,15 +36,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/product_of_polynomial_sequence.test.cpp
     title: test/yosupo/product_of_polynomial_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sharp_p_subset_sum.test.cpp
     title: test/yosupo/sharp_p_subset_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Exp of Formal Power Series
     links:
@@ -230,7 +230,7 @@ data:
   - src/polynomial/subset_sum.hpp
   - src/polynomial/multipoint_evaluation.hpp
   timestamp: '2023-01-12 22:28:24+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp

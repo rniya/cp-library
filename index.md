@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: src/algorithm
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/algorithm/Mo.hpp
       title: Mo's Algorithm
     - icon: ':warning:'
@@ -28,7 +28,7 @@ data:
       title: src/debug.hpp
   - name: src/combinatorics
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/combinatorics/binomial.hpp
       title: binomial
   - name: src/convolution
@@ -63,7 +63,7 @@ data:
     - icon: ':warning:'
       path: src/datastructure/PotentializedUnionFind.hpp
       title: Potentialized Union Find
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/RangeTree.hpp
       title: Range Tree
     - icon: ':warning:'
@@ -72,7 +72,7 @@ data:
     - icon: ':warning:'
       path: src/datastructure/Slide_Min.hpp
       title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/SlidingWindowAggregation.hpp
       title: Sliding Window Aggregation
     - icon: ':warning:'
@@ -96,10 +96,10 @@ data:
       path: src/flow/PrimalDualonDAG.hpp
       title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\
         \u6D41\uFF09"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/flow/ProjectSelectionProblem.hpp
       title: Project Selection Problem (based on ac-library)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/flow/Simplex.hpp
       title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"
     - icon: ':warning:'
@@ -127,7 +127,7 @@ data:
     - icon: ':warning:'
       path: src/graph/EulerianTrail.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u306E\u69CB\u7BC9"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/LowLink.hpp
       title: LowLink (with Two Edge Connected Components, Bi Connected Components)
     - icon: ':warning:'
@@ -148,7 +148,7 @@ data:
       title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
   - name: src/linearalgebra
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/linearalgebra/BitMatrix.hpp
       title: Bit Matrix
     - icon: ':heavy_check_mark:'
@@ -183,16 +183,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/polynomial/BostanMori.hpp
       title: Bostan-Mori Algorithm
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/polynomial/FormalPowerSeries.hpp
       title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/polynomial/lagrange_interpolation.hpp
       title: Lagrange Interpolation
     - icon: ':heavy_check_mark:'
       path: src/polynomial/multipoint_evaluation.hpp
       title: multipoint evaluation
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/polynomial/subset_sum.hpp
       title: $\#_p$ Subset Sum
   - name: src/string
@@ -220,13 +220,13 @@ data:
       title: Run Enumerate
   - name: src/tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/tree/CentroidDecomposition.hpp
       title: "Centroid Decomposition\uFF08\u6728\u306E\u91CD\u5FC3\u5206\u89E3\uFF09"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/tree/HeavyLightDecomposition.hpp
       title: Heavy Light Decomposition
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/tree/Rerooting.hpp
       title: "\u5168\u65B9\u4F4D\u6728 dp"
     - icon: ':warning:'
@@ -270,13 +270,13 @@ data:
     - icon: ':x:'
       path: test/aoj/2306.test.cpp
       title: test/aoj/2306.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/2667.test.cpp
       title: test/aoj/2667.test.cpp
     - icon: ':x:'
       path: test/aoj/2891.test.cpp
       title: test/aoj/2891.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/2903.test.cpp
       title: test/aoj/2903.test.cpp
     - icon: ':x:'
@@ -354,7 +354,7 @@ data:
     - icon: ':x:'
       path: test/aoj/CGL_7_I.test.cpp
       title: test/aoj/CGL_7_I.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_E.test.cpp
       title: test/aoj/DPL_5_E.test.cpp
     - icon: ':x:'
@@ -375,10 +375,10 @@ data:
     - icon: ':x:'
       path: test/aoj/GRL_1_B.test.cpp
       title: test/aoj/GRL_1_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_A.test.cpp
       title: test/aoj/GRL_3_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_B.test.cpp
       title: test/aoj/GRL_3_B.test.cpp
     - icon: ':x:'
@@ -396,7 +396,7 @@ data:
     - icon: ':x:'
       path: test/aoj/GRL_5_B.test.cpp
       title: test/aoj/GRL_5_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_C.test.cpp
       title: test/aoj/GRL_5_C.test.cpp
     - icon: ':x:'
@@ -458,13 +458,13 @@ data:
     - icon: ':x:'
       path: test/yosupo/enumerate_palindromes.test.cpp
       title: test/yosupo/enumerate_palindromes.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/exp_of_formal_power_series.test.cpp
       title: test/yosupo/exp_of_formal_power_series.test.cpp
     - icon: ':x:'
       path: test/yosupo/factorize.test.cpp
       title: test/yosupo/factorize.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/frequency_table_of_tree_distance.test.cpp
       title: test/yosupo/frequency_table_of_tree_distance.test.cpp
     - icon: ':x:'
@@ -473,7 +473,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/inv_of_formal_power_series.test.cpp
       title: test/yosupo/inv_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/jump_on_tree.test.cpp
       title: test/yosupo/jump_on_tree.test.cpp
     - icon: ':heavy_check_mark:'
@@ -497,13 +497,13 @@ data:
     - icon: ':x:'
       path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
       title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_rectangle_sum.test.cpp
       title: test/yosupo/point_add_rectangle_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_taylor_shift.test.cpp
       title: test/yosupo/polynomial_taylor_shift.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -512,7 +512,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/product_of_polynomial_sequence.test.cpp
       title: test/yosupo/product_of_polynomial_sequence.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/queue_operate_all_composite.test.cpp
       title: test/yosupo/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
@@ -524,7 +524,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/set_xor_min.test.cpp
       title: test/yosupo/set_xor_min.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/sharp_p_subset_sum.test.cpp
       title: test/yosupo/sharp_p_subset_sum.test.cpp
     - icon: ':x:'
@@ -533,7 +533,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/sqrt_of_formal_power_series.test.cpp
       title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/static_range_inversions_query.test.cpp
       title: test/yosupo/static_range_inversions_query.test.cpp
     - icon: ':x:'
@@ -545,7 +545,7 @@ data:
     - icon: ':x:'
       path: test/yosupo/tree_diameter.test.cpp
       title: test/yosupo/tree_diameter.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/two_edge_connected_components.test.cpp
       title: test/yosupo/two_edge_connected_components.test.cpp
     - icon: ':x:'
@@ -554,13 +554,13 @@ data:
     - icon: ':x:'
       path: test/yosupo/unionfind.test.cpp
       title: test/yosupo/unionfind.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/vertex_add_path_sum.test.cpp
       title: test/yosupo/vertex_add_path_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/vertex_add_subtree_sum.test.cpp
       title: test/yosupo/vertex_add_subtree_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/vertex_set_path_composite.test.cpp
       title: test/yosupo/vertex_set_path_composite.test.cpp
     - icon: ':x:'
@@ -583,7 +583,7 @@ data:
     - icon: ':x:'
       path: test/yukicoder/1678.test.cpp
       title: test/yukicoder/1678.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1718.test.cpp
       title: test/yukicoder/1718.test.cpp
     - icon: ':heavy_check_mark:'
@@ -595,16 +595,16 @@ data:
     - icon: ':x:'
       path: test/yukicoder/430.test.cpp
       title: test/yukicoder/430.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/453.test.cpp
       title: test/yukicoder/453.test.cpp
     - icon: ':x:'
       path: test/yukicoder/583.test.cpp
       title: test/yukicoder/583.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/665.test.cpp
       title: test/yukicoder/665.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/803.test.cpp
       title: test/yukicoder/803.test.cpp
     - icon: ':x:'
