@@ -20,7 +20,7 @@ data:
       title: monotone minima
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: base.hpp
       title: base.hpp
     - icon: ':warning:'
@@ -234,7 +234,7 @@ data:
       title: Tree Diameter
   - name: util
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: util/Dice.hpp
       title: "\u30B5\u30A4\u30B3\u30ED"
     - icon: ':warning:'
@@ -264,7 +264,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/1131.test.cpp
       title: test/aoj/1131.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/1181.test.cpp
       title: test/aoj/1181.test.cpp
     - icon: ':heavy_check_mark:'
@@ -623,3 +623,5 @@ C++ 14 でコーディング及びテストされています。
 
 [![rniya](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Frniya)](https://atcoder.jp/users/rniya)
 [![rniya](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fcodeforces%2Fjson%2Frniya)](https://codeforces.com/profile/rniya)
+
+[メモ](https://rniya.github.io/competitive-programming-library/memo.html)

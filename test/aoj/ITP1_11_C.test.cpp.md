@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: base.hpp
     title: base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: util/Dice.hpp
     title: "\u30B5\u30A4\u30B3\u30ED"
   _extendedRequiredBy: []
@@ -41,7 +41,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ITP1_11_C.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 18:18:23+09:00'
+  timestamp: '2023-01-12 22:03:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ITP1_11_C.test.cpp
