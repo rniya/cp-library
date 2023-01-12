@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -18,20 +15,19 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ base.hpp: line 7: unable to process #include in #if / #ifdef / #ifndef other\
-    \ than include guards\n"
+    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
+    \ File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../base.hpp: line\
+    \ -1: no such header\n"
   code: "#pragma once\n#include \"../base.hpp\"\n\nvector<int> gray_code(int n) {\n\
     \    vector<int> res(1 << n);\n    for (int i = 0; i < (int)res.size(); i++) res[i]\
     \ = i ^ (i >> 1);\n    return res;\n}"
-  dependsOn:
-  - base.hpp
+  dependsOn: []
   isVerificationFile: false
   path: util/gray_code.hpp
   requiredBy: []
-  timestamp: '2023-01-12 18:18:23+09:00'
+  timestamp: '1970-01-01 00:00:00+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: util/gray_code.hpp

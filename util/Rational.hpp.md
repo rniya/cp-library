@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/1131.test.cpp
-    title: test/aoj/1131.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"util/Rational.hpp\"\n#include <iostream>\n\ntemplate <typename\
@@ -134,9 +131,8 @@ data:
   path: util/Rational.hpp
   requiredBy: []
   timestamp: '2021-12-30 22:27:29+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/aoj/1131.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: util/Rational.hpp
 layout: document
 title: "\u6709\u7406\u6570\u30E9\u30A4\u30D6\u30E9\u30EA"

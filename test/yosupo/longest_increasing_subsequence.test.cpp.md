@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: algorithm/longest_increasing_subsequence.hpp
+    path: src/algorithm/longest_increasing_subsequence.hpp
     title: Longest Increasing Subsequence (LIS)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -14,30 +14,18 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/longest_increasing_subsequence
     links:
     - https://judge.yosupo.jp/problem/longest_increasing_subsequence
-  bundledCode: "#line 1 \"test/yosupo/longest_increasing_subsequence.test.cpp\"\n\
-    #define PROBLEM \"https://judge.yosupo.jp/problem/longest_increasing_subsequence\"\
-    \n\n#line 2 \"algorithm/longest_increasing_subsequence.hpp\"\n#include <algorithm>\n\
-    #include <iterator>\n#include <vector>\n\ntemplate <typename T> int longest_increasing_subsequence(const\
-    \ std::vector<T>& a, bool strict = true) {\n    std::vector<T> lis;\n    for (const\
-    \ auto& x : a) {\n        auto it = (strict ? lower_bound(lis.begin(), lis.end(),\
-    \ x) : upper_bound(lis.begin(), lis.end(), x));\n        if (it == lis.end())\n\
-    \            lis.emplace_back(x);\n        else\n            *it = x;\n    }\n\
-    \    return lis.size();\n}\n\ntemplate <typename T>\nstd::vector<int> longest_increasing_subsequence_restore(const\
-    \ std::vector<T>& a, bool strict = true) {\n    int n = a.size();\n    std::vector<T>\
-    \ lis;\n    std::vector<int> pre(n, -1);\n    lis.reserve(n);\n    for (int i\
-    \ = 0; i < n; i++) {\n        auto it = (strict ? lower_bound(lis.begin(), lis.end(),\
-    \ i, [&](int x, int y) { return a[x] < a[y]; })\n                          : upper_bound(lis.begin(),\
-    \ lis.end(), i, [&](int x, int y) { return a[x] < a[y]; }));\n        if (it ==\
-    \ lis.end())\n            lis.emplace_back(i);\n        else\n            *it\
-    \ = i;\n        if (it != lis.begin()) pre[i] = *std::prev(it);\n    }\n    std::vector<int>\
-    \ res;\n    for (int cur = lis.back(); cur != -1; cur = pre[cur]) res.emplace_back(cur);\n\
-    \    std::reverse(res.begin(), res.end());\n    return res;\n}\n#line 4 \"test/yosupo/longest_increasing_subsequence.test.cpp\"\
-    \n#include <iostream>\n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
-    \    int N;\n    std::cin >> N;\n    std::vector<int> A(N);\n    for (int& x :\
-    \ A) std::cin >> x;\n\n    auto ans = longest_increasing_subsequence_restore(A);\n\
-    \    int K = longest_increasing_subsequence(A);\n    std::cout << K << '\\n';\n\
-    \    for (int i = 0; i < K; i++) std::cout << ans[i] << (i + 1 == K ? '\\n' :\
-    \ ' ');\n}\n"
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
+    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+    \  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
+    \ File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: algorithm/longest_increasing_subsequence.hpp:\
+    \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/longest_increasing_subsequence\"\
     \n\n#include \"algorithm/longest_increasing_subsequence.hpp\"\n#include <iostream>\n\
     \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
@@ -47,11 +35,11 @@ data:
     \    for (int i = 0; i < K; i++) std::cout << ans[i] << (i + 1 == K ? '\\n' :\
     \ ' ');\n}"
   dependsOn:
-  - algorithm/longest_increasing_subsequence.hpp
+  - src/algorithm/longest_increasing_subsequence.hpp
   isVerificationFile: true
   path: test/yosupo/longest_increasing_subsequence.test.cpp
   requiredBy: []
-  timestamp: '2022-11-06 19:55:03+09:00'
+  timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/longest_increasing_subsequence.test.cpp

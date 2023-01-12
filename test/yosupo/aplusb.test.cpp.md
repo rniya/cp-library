@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
+    path: src/base.hpp
+    title: src/base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -21,20 +21,20 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ base.hpp: line 7: unable to process #include in #if / #ifdef / #ifndef other\
-    \ than include guards\n"
+    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
+    \ File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
+    \ -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n\n#include \"\
     base.hpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    int A, B;\n    cin >> A >> B;\n\n    cout << A + B << '\\n';\n}"
   dependsOn:
-  - base.hpp
+  - src/base.hpp
   isVerificationFile: true
   path: test/yosupo/aplusb.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 18:18:23+09:00'
+  timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/aplusb.test.cpp

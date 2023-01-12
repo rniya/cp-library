@@ -1,23 +1,12 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: base.hpp
-    title: base.hpp
-  - icon: ':heavy_check_mark:'
-    path: graph/StronglyConnectedComponents.hpp
-    title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\
-      \u89E3\uFF09"
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
-  attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/scc
-    links:
-    - https://judge.yosupo.jp/problem/scc
+  _verificationStatusIcon: ':x:'
+  attributes: {}
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -25,11 +14,11 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ base.hpp: line 7: unable to process #include in #if / #ifdef / #ifndef other\
-    \ than include guards\n"
+    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
+    \ File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../base.hpp:\
+    \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n\n#include \"../../base.hpp\"\
     \n#include \"../../graph/StronglyConnectedComponents.hpp\"\n\nint main() {\n \
     \   cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, M;\n    cin >> N\
@@ -38,14 +27,12 @@ data:
     \    }\n\n    auto res = SCC.build();\n    cout << res.size() << '\\n';\n    for\
     \ (auto& group : res) {\n        cout << group.size();\n        for (int& v :\
     \ group) cout << ' ' << v;\n        cout << '\\n';\n    }\n}"
-  dependsOn:
-  - base.hpp
-  - graph/StronglyConnectedComponents.hpp
+  dependsOn: []
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 18:18:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '1970-01-01 00:00:00+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp
 layout: document
