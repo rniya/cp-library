@@ -18,6 +18,9 @@ data:
     path: src/math/fast_factorize.hpp
     title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
       \ + Pollard's rho algorithm)"
+  - icon: ':warning:'
+    path: src/util/gray_code.hpp
+    title: Gray Code
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/aplusb.test.cpp
@@ -74,6 +77,7 @@ data:
   - src/math/fast_factorize.hpp
   - src/datastructure/SparseTable.hpp
   - src/datastructure/RectangleSet.hpp
+  - src/util/gray_code.hpp
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

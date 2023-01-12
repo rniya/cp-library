@@ -8,8 +8,8 @@ data:
     path: src/polynomial/subset_sum.hpp
     title: $\#_p$ Subset Sum
   - icon: ':question:'
-    path: util/modint.hpp
-    title: util/modint.hpp
+    path: src/util/modint.hpp
+    title: src/util/modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -42,11 +42,11 @@ data:
   dependsOn:
   - src/polynomial/subset_sum.hpp
   - src/polynomial/FormalPowerSeries.hpp
-  - util/modint.hpp
+  - src/util/modint.hpp
   isVerificationFile: true
   path: test/yosupo/sharp_p_subset_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-01-12 23:01:53+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/sharp_p_subset_sum.test.cpp

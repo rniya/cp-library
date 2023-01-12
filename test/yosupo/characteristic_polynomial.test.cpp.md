@@ -5,8 +5,8 @@ data:
     path: src/linearalgebra/characteristic_polynomial.hpp
     title: Characteristic Polynomial
   - icon: ':question:'
-    path: util/modint.hpp
-    title: util/modint.hpp
+    path: src/util/modint.hpp
+    title: src/util/modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -39,11 +39,11 @@ data:
     \ i++) std::cout << p[i] << (i == N ? '\\n' : ' ');\n    return 0;\n}"
   dependsOn:
   - src/linearalgebra/characteristic_polynomial.hpp
-  - util/modint.hpp
+  - src/util/modint.hpp
   isVerificationFile: true
   path: test/yosupo/characteristic_polynomial.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-01-12 23:01:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/characteristic_polynomial.test.cpp

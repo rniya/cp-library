@@ -41,15 +41,15 @@ data:
     \ atcoder\n"
   dependsOn: []
   isVerificationFile: false
-  path: util/flow_graphviz.hpp
+  path: src/util/flow_graphviz.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-01-12 23:01:53+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: util/flow_graphviz.hpp
+documentation_of: src/util/flow_graphviz.hpp
 layout: document
 redirect_from:
-- /library/util/flow_graphviz.hpp
-- /library/util/flow_graphviz.hpp.html
-title: util/flow_graphviz.hpp
+- /library/src/util/flow_graphviz.hpp
+- /library/src/util/flow_graphviz.hpp.html
+title: src/util/flow_graphviz.hpp
 ---

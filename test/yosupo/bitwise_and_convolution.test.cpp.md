@@ -5,8 +5,8 @@ data:
     path: src/convolution/set_function.hpp
     title: set function (FZT, FMT, FWHT)
   - icon: ':question:'
-    path: util/modint.hpp
-    title: util/modint.hpp
+    path: src/util/modint.hpp
+    title: src/util/modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -40,11 +40,11 @@ data:
     }"
   dependsOn:
   - src/convolution/set_function.hpp
-  - util/modint.hpp
+  - src/util/modint.hpp
   isVerificationFile: true
   path: test/yosupo/bitwise_and_convolution.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-01-12 23:01:53+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/bitwise_and_convolution.test.cpp

@@ -8,20 +8,21 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"util/stack_extend.hpp\"\n#include <cstdlib>\n\n#define BEGIN_STACK_EXTEND(size)\
-    \                                                                            \
-    \     \\\n    void* stack_extend_memory_ = malloc(size);                     \
-    \                                              \\\n    void* stack_extend_origin_memory_;\
-    \                                                                           \\\
-    \n    char* stack_extend_dummy_memory_ = (char*)alloca((1 + (int)(((long long)stack_extend_memory_)\
-    \ & 127)) * 16); \\\n    *stack_extend_dummy_memory_ = 0;                    \
-    \                                                         \\\n    asm volatile(\"\
-    mov %%rsp, %%rbx\\nmov %%rax, %%rsp\"                                        \
-    \                    \\\n                 : \"=b\"(stack_extend_origin_memory_)\
-    \                                                             \\\n           \
-    \      : \"a\"((char*)stack_extend_memory_ + (size)-1024));\n#define END_STACK_EXTEND\
-    \                                                 \\\n    asm volatile(\"mov %%rax,\
-    \ %%rsp\" ::\"a\"(stack_extend_origin_memory_)); \\\n    free(stack_extend_memory_);\n"
+  bundledCode: "#line 2 \"src/util/stack_extend.hpp\"\n#include <cstdlib>\n\n#define\
+    \ BEGIN_STACK_EXTEND(size)                                                   \
+    \                              \\\n    void* stack_extend_memory_ = malloc(size);\
+    \                                                                   \\\n    void*\
+    \ stack_extend_origin_memory_;                                               \
+    \                            \\\n    char* stack_extend_dummy_memory_ = (char*)alloca((1\
+    \ + (int)(((long long)stack_extend_memory_) & 127)) * 16); \\\n    *stack_extend_dummy_memory_\
+    \ = 0;                                                                       \
+    \      \\\n    asm volatile(\"mov %%rsp, %%rbx\\nmov %%rax, %%rsp\"          \
+    \                                                  \\\n                 : \"=b\"\
+    (stack_extend_origin_memory_)                                                \
+    \             \\\n                 : \"a\"((char*)stack_extend_memory_ + (size)-1024));\n\
+    #define END_STACK_EXTEND                                                 \\\n\
+    \    asm volatile(\"mov %%rax, %%rsp\" ::\"a\"(stack_extend_origin_memory_));\
+    \ \\\n    free(stack_extend_memory_);\n"
   code: "#pragma once\n#include <cstdlib>\n\n#define BEGIN_STACK_EXTEND(size)    \
     \                                                                            \
     \ \\\n    void* stack_extend_memory_ = malloc(size);                         \
@@ -38,12 +39,12 @@ data:
     \ %%rsp\" ::\"a\"(stack_extend_origin_memory_)); \\\n    free(stack_extend_memory_);\n"
   dependsOn: []
   isVerificationFile: false
-  path: util/stack_extend.hpp
+  path: src/util/stack_extend.hpp
   requiredBy: []
-  timestamp: '2021-12-30 22:27:29+09:00'
+  timestamp: '2023-01-12 23:01:53+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: util/stack_extend.hpp
+documentation_of: src/util/stack_extend.hpp
 layout: document
 title: "\u30B9\u30BF\u30C3\u30AF\u62E1\u5F35\u30DE\u30AF\u30ED"
 ---

@@ -5,8 +5,8 @@ data:
     path: src/tree/HeavyLightDecomposition.hpp
     title: Heavy Light Decomposition
   - icon: ':question:'
-    path: util/modint.hpp
-    title: util/modint.hpp
+    path: src/util/modint.hpp
+    title: src/util/modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -56,11 +56,11 @@ data:
     \ return 0;\n}"
   dependsOn:
   - src/tree/HeavyLightDecomposition.hpp
-  - util/modint.hpp
+  - src/util/modint.hpp
   isVerificationFile: true
   path: test/yosupo/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-01-12 23:01:53+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/vertex_set_path_composite.test.cpp

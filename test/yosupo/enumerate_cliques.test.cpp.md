@@ -5,8 +5,8 @@ data:
     path: src/graph/enumerate_cliques.hpp
     title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
   - icon: ':question:'
-    path: util/modint.hpp
-    title: util/modint.hpp
+    path: src/util/modint.hpp
+    title: src/util/modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -42,11 +42,11 @@ data:
     \ ans += calc(clique);\n    std::cout << ans << '\\n';\n    return 0;\n}"
   dependsOn:
   - src/graph/enumerate_cliques.hpp
-  - util/modint.hpp
+  - src/util/modint.hpp
   isVerificationFile: true
   path: test/yosupo/enumerate_cliques.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-01-12 23:01:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/enumerate_cliques.test.cpp

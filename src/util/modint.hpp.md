@@ -113,9 +113,9 @@ data:
     \ }\n\n}  // namespace atcoder\n"
   dependsOn: []
   isVerificationFile: false
-  path: util/modint.hpp
+  path: src/util/modint.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-01-12 23:01:53+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1269.test.cpp
@@ -146,10 +146,10 @@ data:
   - test/yosupo/matrix_det.test.cpp
   - test/yosupo/characteristic_polynomial.test.cpp
   - test/yosupo/enumerate_cliques.test.cpp
-documentation_of: util/modint.hpp
+documentation_of: src/util/modint.hpp
 layout: document
 redirect_from:
-- /library/util/modint.hpp
-- /library/util/modint.hpp.html
-title: util/modint.hpp
+- /library/src/util/modint.hpp
+- /library/src/util/modint.hpp.html
+title: src/util/modint.hpp
 ---

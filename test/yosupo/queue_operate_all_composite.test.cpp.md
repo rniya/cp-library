@@ -5,8 +5,8 @@ data:
     path: src/datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation
   - icon: ':question:'
-    path: util/modint.hpp
-    title: util/modint.hpp
+    path: src/util/modint.hpp
+    title: src/util/modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -43,11 +43,11 @@ data:
     \            std::cout << ans.a * x + ans.b << '\\n';\n        }\n    }\n}"
   dependsOn:
   - src/datastructure/SlidingWindowAggregation.hpp
-  - util/modint.hpp
+  - src/util/modint.hpp
   isVerificationFile: true
   path: test/yosupo/queue_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-01-12 23:01:53+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/queue_operate_all_composite.test.cpp

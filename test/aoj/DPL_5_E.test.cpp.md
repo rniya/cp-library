@@ -5,8 +5,8 @@ data:
     path: src/combinatorics/binomial.hpp
     title: binomial
   - icon: ':question:'
-    path: util/modint.hpp
-    title: util/modint.hpp
+    path: src/util/modint.hpp
+    title: src/util/modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -36,11 +36,11 @@ data:
     \ k;\n    std::cin >> n >> k;\n\n    std::cout << BINOM.C(k, n) << '\\n';\n}"
   dependsOn:
   - src/combinatorics/binomial.hpp
-  - util/modint.hpp
+  - src/util/modint.hpp
   isVerificationFile: true
   path: test/aoj/DPL_5_E.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-01-12 23:01:53+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_E.test.cpp

@@ -232,31 +232,31 @@ data:
     - icon: ':warning:'
       path: src/tree/TreeDiameter.hpp
       title: Tree Diameter
-  - name: util
+  - name: src/util
     pages:
     - icon: ':heavy_check_mark:'
-      path: util/Dice.hpp
+      path: src/util/Dice.hpp
       title: "\u30B5\u30A4\u30B3\u30ED"
     - icon: ':warning:'
-      path: util/RandomNumberGenerator.hpp
+      path: src/util/RandomNumberGenerator.hpp
       title: "\u4E71\u6570\u751F\u6210"
     - icon: ':warning:'
-      path: util/Rational.hpp
+      path: src/util/Rational.hpp
       title: "\u6709\u7406\u6570\u30E9\u30A4\u30D6\u30E9\u30EA"
     - icon: ':warning:'
-      path: util/ZobristHash.hpp
-      title: util/ZobristHash.hpp
+      path: src/util/ZobristHash.hpp
+      title: src/util/ZobristHash.hpp
     - icon: ':warning:'
-      path: util/flow_graphviz.hpp
-      title: util/flow_graphviz.hpp
+      path: src/util/flow_graphviz.hpp
+      title: src/util/flow_graphviz.hpp
     - icon: ':warning:'
-      path: util/gray_code.hpp
+      path: src/util/gray_code.hpp
       title: Gray Code
     - icon: ':question:'
-      path: util/modint.hpp
-      title: util/modint.hpp
+      path: src/util/modint.hpp
+      title: src/util/modint.hpp
     - icon: ':warning:'
-      path: util/stack_extend.hpp
+      path: src/util/stack_extend.hpp
       title: "\u30B9\u30BF\u30C3\u30AF\u62E1\u5F35\u30DE\u30AF\u30ED"
   verificationCategories:
   - name: test/aoj

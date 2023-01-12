@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"util/Dice.hpp\"\n#include <algorithm>\n#include <array>\n\
+  bundledCode: "#line 2 \"src/util/Dice.hpp\"\n#include <algorithm>\n#include <array>\n\
     #include <cassert>\n#include <string>\n#include <vector>\n\nstruct Dice {\n  \
     \  std::array<int, 6> surface;\n\n    Dice(int TOP = 1, int FRONT = 2) {\n   \
     \     assert(1 <= TOP and TOP <= 6);\n        assert(1 <= FRONT and FRONT <= 6);\n\
@@ -99,13 +99,13 @@ data:
     };\n"
   dependsOn: []
   isVerificationFile: false
-  path: util/Dice.hpp
+  path: src/util/Dice.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:03:10+09:00'
+  timestamp: '2023-01-12 23:01:53+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/1181.test.cpp
-documentation_of: util/Dice.hpp
+documentation_of: src/util/Dice.hpp
 layout: document
 title: "\u30B5\u30A4\u30B3\u30ED"
 ---
