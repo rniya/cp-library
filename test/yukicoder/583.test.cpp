@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/583"
 
-#include "../../base.hpp"
-#include "../../graph/EulerianTrail.hpp"
+#include "base.hpp"
+#include "graph/EulerianTrail.hpp"
 
 int main() {
     cin.tie(0);

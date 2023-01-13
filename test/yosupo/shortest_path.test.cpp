@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/shortest_path"
 
-#include "../../base.hpp"
-#include "../../graph/Dijkstra.hpp"
+#include "base.hpp"
+#include "graph/Dijkstra.hpp"
 
 int main() {
     cin.tie(0);

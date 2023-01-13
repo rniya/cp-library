@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/two_sat"
 
-#include "../../base.hpp"
-#include "../../graph/TwoSAT.hpp"
+#include "base.hpp"
+#include "graph/TwoSAT.hpp"
 
 int main() {
     cin.tie(0);

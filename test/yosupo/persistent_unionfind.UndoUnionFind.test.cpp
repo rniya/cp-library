@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/persistent_unionfind"
 
-#include "../../base.hpp"
-#include "../../datastructure/UndoUnionFind.hpp"
+#include "base.hpp"
+#include "datastructure/UndoUnionFind.hpp"
 
 int main() {
     cin.tie(0);

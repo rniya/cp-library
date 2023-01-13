@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 
-#include "../../flow/BipartiteMatching.hpp"
-#include "../../base.hpp"
+#include "flow/BipartiteMatching.hpp"
+#include "base.hpp"
 
 int main() {
     cin.tie(0);

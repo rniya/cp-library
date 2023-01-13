@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
 
-#include "../../base.hpp"
-#include "../../string/Z_Algorithm.hpp"
+#include "base.hpp"
+#include "string/Z_Algorithm.hpp"
 
 int main() {
     cin.tie(0);

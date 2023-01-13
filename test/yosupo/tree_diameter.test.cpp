@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/tree_diameter"
 
-#include "../../base.hpp"
-#include "../../tree/TreeDiameter.hpp"
+#include "base.hpp"
+#include "tree/TreeDiameter.hpp"
 
 int main() {
     cin.tie(0);

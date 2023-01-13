@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/associative_array"
 
-#include "../../base.hpp"
+#include "base.hpp"
 
 int main() {
     cin.tie(0);

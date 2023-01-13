@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/952"
 
-#include "../../base.hpp"
-#include "../../datastructure/ConvexHullTrick.hpp"
+#include "base.hpp"
+#include "datastructure/ConvexHullTrick.hpp"
 
 int main() {
     cin.tie(0);

@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/scc"
 
-#include "../../base.hpp"
-#include "../../graph/StronglyConnectedComponents.hpp"
+#include "base.hpp"
+#include "graph/StronglyConnectedComponents.hpp"
 
 int main() {
     cin.tie(0);

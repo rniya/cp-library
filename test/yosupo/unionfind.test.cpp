@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 
-#include "../../base.hpp"
-#include "../../datastructure/UnionFind.hpp"
+#include "datastructure/UnionFind.hpp"
+#include "base.hpp"
 
 int main() {
     cin.tie(0);

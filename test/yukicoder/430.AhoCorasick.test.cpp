@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/430"
 
-#include "../../base.hpp"
-#include "../../string/AhoCorasick.hpp"
+#include "base.hpp"
+#include "string/AhoCorasick.hpp"
 
 int main() {
     cin.tie(0);

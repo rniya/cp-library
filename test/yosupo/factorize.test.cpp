@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/factorize"
 
-#include "../../base.hpp"
-#include "../../math/fast_factorize.hpp"
+#include "base.hpp"
+#include "math/fast_factorize.hpp"
 
 int main() {
     cin.tie(0);

@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
 
-#include "../../base.hpp"
+#include "base.hpp"
 
 int main() {
     cin.tie(0);

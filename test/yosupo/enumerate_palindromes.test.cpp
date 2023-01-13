@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/enumerate_palindromes"
 
-#include "../../base.hpp"
-#include "../../string/Manacher.hpp"
+#include "base.hpp"
+#include "string/Manacher.hpp"
 
 int main() {
     cin.tie(0);

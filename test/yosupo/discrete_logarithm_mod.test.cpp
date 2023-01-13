@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/discrete_logarithm_mod"
 
-#include "../../base.hpp"
-#include "../../math/discrete_logarithm.hpp"
+#include "base.hpp"
+#include "math/discrete_logarithm.hpp"
 
 int main() {
     cin.tie(0);

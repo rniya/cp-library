@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 
-#include "../../base.hpp"
-#include "../../datastructure/SparseTable.hpp"
+#include "base.hpp"
+#include "datastructure/SparseTable.hpp"
 
 int main() {
     cin.tie(0);
