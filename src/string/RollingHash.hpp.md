@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1_14_B.test.cpp
     title: test/aoj/ALDS1_14_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/430.test.cpp
+    title: test/yukicoder/430.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -76,6 +79,7 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yukicoder/430.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
 documentation_of: src/string/RollingHash.hpp
 layout: document

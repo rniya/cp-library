@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/bipartitematching.test.cpp
+    title: test/yosupo/bipartitematching.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/flow/BipartiteMatching.hpp\"\n#include <algorithm>\n\
@@ -58,8 +61,9 @@ data:
   path: src/flow/BipartiteMatching.hpp
   requiredBy: []
   timestamp: '2023-01-12 22:28:24+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/bipartitematching.test.cpp
 documentation_of: src/flow/BipartiteMatching.hpp
 layout: document
 title: Bipartite Matching

@@ -1,12 +1,22 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: src/base.hpp
+    title: src/base.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/tree/TreeDiameter.hpp
+    title: Tree Diameter
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/tree_diameter
+    links:
+    - https://judge.yosupo.jp/problem/tree_diameter
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -17,23 +27,25 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../base.hpp:\
-    \ line -1: no such header\n"
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
+    \ -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n\n#include\
-    \ \"../../base.hpp\"\n#include \"../../tree/TreeDiameter.hpp\"\n\nint main() {\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N;\n    cin >> N;\n\
-    \n    TreeDiameter<long long> TD(N);\n    for (int i = 0; i < N - 1; i++) {\n\
-    \        int a, b;\n        long long c;\n        cin >> a >> b >> c;\n      \
-    \  TD.add_edge(a, b, c);\n    }\n\n    auto res = TD.get_diameter_path();\n  \
-    \  long long X = res.first;\n    auto ans = res.second;\n    int Y = ans.size();\n\
-    \    cout << X << ' ' << Y << '\\n';\n    for (int i = 0; i < Y; i++) cout <<\
-    \ ans[i] << (i + 1 == Y ? '\\n' : ' ');\n    return 0;\n}"
-  dependsOn: []
+    \ \"base.hpp\"\n#include \"tree/TreeDiameter.hpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N;\n    cin >> N;\n\n    TreeDiameter<long\
+    \ long> TD(N);\n    for (int i = 0; i < N - 1; i++) {\n        int a, b;\n   \
+    \     long long c;\n        cin >> a >> b >> c;\n        TD.add_edge(a, b, c);\n\
+    \    }\n\n    auto res = TD.get_diameter_path();\n    long long X = res.first;\n\
+    \    auto ans = res.second;\n    int Y = ans.size();\n    cout << X << ' ' <<\
+    \ Y << '\\n';\n    for (int i = 0; i < Y; i++) cout << ans[i] << (i + 1 == Y ?\
+    \ '\\n' : ' ');\n    return 0;\n}"
+  dependsOn:
+  - src/base.hpp
+  - src/tree/TreeDiameter.hpp
   isVerificationFile: true
   path: test/yosupo/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-01-13 13:44:50+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/tree_diameter.test.cpp
 layout: document

@@ -1,12 +1,23 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: src/base.hpp
+    title: src/base.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/graph/StronglyConnectedComponents.hpp
+    title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\
+      \u89E3\uFF09"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/scc
+    links:
+    - https://judge.yosupo.jp/problem/scc
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -17,22 +28,24 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../base.hpp:\
-    \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n\n#include \"../../base.hpp\"\
-    \n#include \"../../graph/StronglyConnectedComponents.hpp\"\n\nint main() {\n \
-    \   cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, M;\n    cin >> N\
-    \ >> M;\n\n    StronglyConnectedComponents SCC(N);\n    for (int i = 0; i < M;\
-    \ i++) {\n        int a, b;\n        cin >> a >> b;\n        SCC.add_edge(a, b);\n\
-    \    }\n\n    auto res = SCC.build();\n    cout << res.size() << '\\n';\n    for\
-    \ (auto& group : res) {\n        cout << group.size();\n        for (int& v :\
-    \ group) cout << ' ' << v;\n        cout << '\\n';\n    }\n}"
-  dependsOn: []
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
+    \ -1: no such header\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n\n#include \"base.hpp\"\
+    \n#include \"graph/StronglyConnectedComponents.hpp\"\n\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    int N, M;\n    cin >> N >> M;\n\n    StronglyConnectedComponents\
+    \ SCC(N);\n    for (int i = 0; i < M; i++) {\n        int a, b;\n        cin >>\
+    \ a >> b;\n        SCC.add_edge(a, b);\n    }\n\n    auto res = SCC.build();\n\
+    \    cout << res.size() << '\\n';\n    for (auto& group : res) {\n        cout\
+    \ << group.size();\n        for (int& v : group) cout << ' ' << v;\n        cout\
+    \ << '\\n';\n    }\n}"
+  dependsOn:
+  - src/base.hpp
+  - src/graph/StronglyConnectedComponents.hpp
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-01-13 13:44:50+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp
 layout: document

@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_B.test.cpp
     title: test/aoj/GRL_5_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/tree_diameter.test.cpp
+    title: test/yosupo/tree_diameter.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -63,6 +66,7 @@ data:
   verifiedWith:
   - test/aoj/GRL_5_B.test.cpp
   - test/aoj/GRL_5_A.test.cpp
+  - test/yosupo/tree_diameter.test.cpp
 documentation_of: src/tree/TreeDiameter.hpp
 layout: document
 title: Tree Diameter

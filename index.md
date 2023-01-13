@@ -37,7 +37,7 @@ data:
       path: src/convolution/gcd_convolution.hpp
       title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\
         \uFF09"
-    - icon: ':x:'
+    - icon: ':question:'
       path: src/convolution/set_function.hpp
       title: set function (FZT, FMT, FWHT)
   - name: src/datastructure
@@ -45,7 +45,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/datastructure/BinaryTrie.hpp
       title: Binary Trie
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/ConvexHullTrick.hpp
       title: Convex Hull Trick (Add-Monotonic Slope Optimization)
     - icon: ':heavy_check_mark:'
@@ -78,10 +78,10 @@ data:
     - icon: ':warning:'
       path: src/datastructure/SlopeTrick.hpp
       title: Slope Trick
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/SparseTable.hpp
       title: Sparse Table
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/UndoUnionFind.hpp
       title: Union Find with Undo Operation
     - icon: ':heavy_check_mark:'
@@ -89,10 +89,10 @@ data:
       title: Union Find (Disjoint Set Union)
   - name: src/flow
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/flow/BipartiteMatching.hpp
       title: Bipartite Matching
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/flow/PrimalDualonDAG.hpp
       title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\
         \u6D41\uFF09"
@@ -121,10 +121,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/CycleDetection.hpp
       title: Cycle Detection
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/Dijkstra.hpp
       title: Dijkstra
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/EulerianTrail.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u306E\u69CB\u7BC9"
     - icon: ':heavy_check_mark:'
@@ -140,7 +140,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/TopologicalSort.hpp
       title: Topological Sort
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/TwoSAT.hpp
       title: 2-SAT
     - icon: ':heavy_check_mark:'
@@ -168,13 +168,13 @@ data:
     - icon: ':warning:'
       path: src/math/binary_gcd.hpp
       title: binary gcd
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/math/discrete_logarithm.hpp
       title: "Discrete Logarithm\uFF08\u96E2\u6563\u5BFE\u6570\u554F\u984C\uFF09"
     - icon: ':heavy_check_mark:'
       path: src/math/elementary_math.hpp
       title: elementary math
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/math/fast_factorize.hpp
       title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
         \ + Pollard's rho algorithm)"
@@ -200,7 +200,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/string/AhoCorasick.hpp
       title: Aho Corasick
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/string/Manacher.hpp
       title: "Manacher\uFF08\u56DE\u5206\u534A\u5F84\uFF09"
     - icon: ':heavy_check_mark:'
@@ -212,7 +212,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/string/Trie.hpp
       title: Trie
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/string/Z_Algorithm.hpp
       title: Z-Algorithm
     - icon: ':heavy_check_mark:'
@@ -431,10 +431,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/aplusb.test.cpp
       title: test/yosupo/aplusb.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/associative_array.test.cpp
       title: test/yosupo/associative_array.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/bipartitematching.test.cpp
       title: test/yosupo/bipartitematching.test.cpp
     - icon: ':x:'
@@ -446,7 +446,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/characteristic_polynomial.test.cpp
       title: test/yosupo/characteristic_polynomial.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/discrete_logarithm_mod.test.cpp
       title: test/yosupo/discrete_logarithm_mod.test.cpp
     - icon: ':heavy_check_mark:'
@@ -455,13 +455,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/enumerate_cliques.test.cpp
       title: test/yosupo/enumerate_cliques.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/enumerate_palindromes.test.cpp
       title: test/yosupo/enumerate_palindromes.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/exp_of_formal_power_series.test.cpp
       title: test/yosupo/exp_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/factorize.test.cpp
       title: test/yosupo/factorize.test.cpp
     - icon: ':heavy_check_mark:'
@@ -494,7 +494,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/nim_product_64.test.cpp
       title: test/yosupo/nim_product_64.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
       title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
     - icon: ':heavy_check_mark:'
@@ -518,7 +518,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/runenumerate.test.cpp
       title: test/yosupo/runenumerate.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp
     - icon: ':heavy_check_mark:'
@@ -527,7 +527,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/sharp_p_subset_sum.test.cpp
       title: test/yosupo/sharp_p_subset_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
     - icon: ':heavy_check_mark:'
@@ -536,22 +536,22 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/static_range_inversions_query.test.cpp
       title: test/yosupo/static_range_inversions_query.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/static_range_sum.test.cpp
       title: test/yosupo/static_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq.test.cpp
       title: test/yosupo/staticrmq.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/tree_diameter.test.cpp
       title: test/yosupo/tree_diameter.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/two_edge_connected_components.test.cpp
       title: test/yosupo/two_edge_connected_components.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/two_sat.test.cpp
       title: test/yosupo/two_sat.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/unionfind.test.cpp
       title: test/yosupo/unionfind.test.cpp
     - icon: ':heavy_check_mark:'
@@ -563,7 +563,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/vertex_set_path_composite.test.cpp
       title: test/yosupo/vertex_set_path_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/zalgorithm.test.cpp
       title: test/yosupo/zalgorithm.test.cpp
   - name: test/yukicoder
@@ -571,7 +571,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1050.test.cpp
       title: test/yukicoder/1050.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1240.test.cpp
       title: test/yukicoder/1240.test.cpp
     - icon: ':heavy_check_mark:'
@@ -580,7 +580,7 @@ data:
     - icon: ':x:'
       path: test/yukicoder/1289.test.cpp
       title: test/yukicoder/1289.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1678.test.cpp
       title: test/yukicoder/1678.test.cpp
     - icon: ':heavy_check_mark:'
@@ -589,16 +589,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1907.test.cpp
       title: test/yukicoder/1907.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/430.AhoCorasick.test.cpp
       title: test/yukicoder/430.AhoCorasick.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/430.test.cpp
       title: test/yukicoder/430.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/453.test.cpp
       title: test/yukicoder/453.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/583.test.cpp
       title: test/yukicoder/583.test.cpp
     - icon: ':heavy_check_mark:'
@@ -610,7 +610,7 @@ data:
     - icon: ':x:'
       path: test/yukicoder/886.test.cpp
       title: test/yukicoder/886.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/952.test.cpp
       title: test/yukicoder/952.test.cpp
 layout: toppage

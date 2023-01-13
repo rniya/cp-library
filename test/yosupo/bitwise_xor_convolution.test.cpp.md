@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/convolution/set_function.hpp
     title: set function (FZT, FMT, FWHT)
   - icon: ':question:'

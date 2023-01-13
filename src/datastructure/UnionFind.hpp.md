@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL_1_A.test.cpp
     title: test/aoj/DSL_1_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/unionfind.test.cpp
+    title: test/yosupo/unionfind.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -54,6 +57,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL_1_A.test.cpp
+  - test/yosupo/unionfind.test.cpp
 documentation_of: src/datastructure/UnionFind.hpp
 layout: document
 title: Union Find (Disjoint Set Union)

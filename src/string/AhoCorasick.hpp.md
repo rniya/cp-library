@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1269.test.cpp
     title: test/yukicoder/1269.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/430.AhoCorasick.test.cpp
+    title: test/yukicoder/430.AhoCorasick.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -101,6 +104,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1269.test.cpp
+  - test/yukicoder/430.AhoCorasick.test.cpp
 documentation_of: src/string/AhoCorasick.hpp
 layout: document
 title: Aho Corasick

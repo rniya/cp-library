@@ -9,12 +9,15 @@ data:
   - icon: ':x:'
     path: test/yosupo/bitwise_xor_convolution.test.cpp
     title: test/yosupo/bitwise_xor_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1240.test.cpp
+    title: test/yukicoder/1240.test.cpp
   - icon: ':x:'
     path: test/yukicoder/1289.test.cpp
     title: test/yukicoder/1289.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/convolution/set_function.hpp\"\n#include <cassert>\n\
@@ -100,9 +103,10 @@ data:
   path: src/convolution/set_function.hpp
   requiredBy: []
   timestamp: '2023-01-12 22:28:24+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1289.test.cpp
+  - test/yukicoder/1240.test.cpp
   - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/bitwise_and_convolution.test.cpp
 documentation_of: src/convolution/set_function.hpp

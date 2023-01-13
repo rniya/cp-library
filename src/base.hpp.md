@@ -5,16 +5,16 @@ data:
   - icon: ':warning:'
     path: src/datastructure/RectangleSet.hpp
     title: Rectangle Set
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/datastructure/SparseTable.hpp
     title: Sparse Table
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/graph/Dijkstra.hpp
     title: Dijkstra
   - icon: ':warning:'
     path: src/graph/RangeEdgeGraph.hpp
     title: Range Edge Graph
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/math/fast_factorize.hpp
     title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
       \ + Pollard's rho algorithm)"
@@ -166,6 +166,66 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/aplusb.test.cpp
     title: test/yosupo/aplusb.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/associative_array.test.cpp
+    title: test/yosupo/associative_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/bipartitematching.test.cpp
+    title: test/yosupo/bipartitematching.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/discrete_logarithm_mod.test.cpp
+    title: test/yosupo/discrete_logarithm_mod.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/enumerate_palindromes.test.cpp
+    title: test/yosupo/enumerate_palindromes.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/factorize.test.cpp
+    title: test/yosupo/factorize.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
+    title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/scc.test.cpp
+    title: test/yosupo/scc.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/shortest_path.test.cpp
+    title: test/yosupo/shortest_path.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/static_range_sum.test.cpp
+    title: test/yosupo/static_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/staticrmq.test.cpp
+    title: test/yosupo/staticrmq.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/tree_diameter.test.cpp
+    title: test/yosupo/tree_diameter.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/two_sat.test.cpp
+    title: test/yosupo/two_sat.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/unionfind.test.cpp
+    title: test/yosupo/unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/zalgorithm.test.cpp
+    title: test/yosupo/zalgorithm.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1240.test.cpp
+    title: test/yukicoder/1240.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1678.test.cpp
+    title: test/yukicoder/1678.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/430.AhoCorasick.test.cpp
+    title: test/yukicoder/430.AhoCorasick.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/430.test.cpp
+    title: test/yukicoder/430.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/583.test.cpp
+    title: test/yukicoder/583.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/952.test.cpp
+    title: test/yukicoder/952.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -222,6 +282,12 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yukicoder/1240.test.cpp
+  - test/yukicoder/430.AhoCorasick.test.cpp
+  - test/yukicoder/583.test.cpp
+  - test/yukicoder/952.test.cpp
+  - test/yukicoder/430.test.cpp
+  - test/yukicoder/1678.test.cpp
   - test/aoj/CGL_3_A.test.cpp
   - test/aoj/GRL_5_B.test.cpp
   - test/aoj/ITP1_11_A.test.cpp
@@ -269,7 +335,21 @@ data:
   - test/aoj/GRL_4_A.TopologicalSort.test.cpp
   - test/aoj/CGL_3_C.test.cpp
   - test/aoj/NTL_1_B.test.cpp
+  - test/yosupo/associative_array.test.cpp
+  - test/yosupo/zalgorithm.test.cpp
+  - test/yosupo/staticrmq.test.cpp
   - test/yosupo/aplusb.test.cpp
+  - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
+  - test/yosupo/scc.test.cpp
+  - test/yosupo/enumerate_palindromes.test.cpp
+  - test/yosupo/bipartitematching.test.cpp
+  - test/yosupo/tree_diameter.test.cpp
+  - test/yosupo/two_sat.test.cpp
+  - test/yosupo/shortest_path.test.cpp
+  - test/yosupo/factorize.test.cpp
+  - test/yosupo/unionfind.test.cpp
+  - test/yosupo/discrete_logarithm_mod.test.cpp
+  - test/yosupo/static_range_sum.test.cpp
 documentation_of: src/base.hpp
 layout: document
 redirect_from:
