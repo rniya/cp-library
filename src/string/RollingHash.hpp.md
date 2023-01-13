@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/ALDS1_14_B.test.cpp
+    title: test/aoj/ALDS1_14_B.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/string/RollingHash.hpp\"\n#include <cassert>\n#include\
@@ -71,8 +74,9 @@ data:
   path: src/string/RollingHash.hpp
   requiredBy: []
   timestamp: '2023-01-12 22:28:24+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/ALDS1_14_B.test.cpp
 documentation_of: src/string/RollingHash.hpp
 layout: document
 title: Rolling Hash

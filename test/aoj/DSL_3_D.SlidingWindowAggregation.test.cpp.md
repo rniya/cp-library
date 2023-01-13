@@ -1,12 +1,22 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: src/base.hpp
+    title: src/base.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/datastructure/SlidingWindowAggregation.hpp
+    title: Sliding Window Aggregation
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D
+    links:
+    - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -17,22 +27,24 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../base.hpp:\
-    \ line -1: no such header\n"
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
+    \ -1: no such header\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/SlidingWindowAggregation.hpp\"\
+    \n\n#include \"base.hpp\"\n#include \"datastructure/SlidingWindowAggregation.hpp\"\
     \n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N,\
     \ L;\n    cin >> N >> L;\n    vector<int> a(N);\n    for (int i = 0; i < N; i++)\
     \ cin >> a[i];\n\n    SlidingWindowAggregation<int> SWAG([](int a, int b) { return\
     \ min(a, b); }, INT_MAX);\n\n    for (int i = 0; i < L - 1; i++) SWAG.push(a[i]);\n\
     \    for (int i = L - 1; i < N; i++) {\n        SWAG.push(a[i]);\n        cout\
     \ << SWAG.fold() << (i + 1 == N ? '\\n' : ' ');\n        SWAG.pop();\n    }\n}"
-  dependsOn: []
+  dependsOn:
+  - src/base.hpp
+  - src/datastructure/SlidingWindowAggregation.hpp
   isVerificationFile: true
   path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-01-13 11:27:34+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
 layout: document

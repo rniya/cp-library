@@ -1,12 +1,22 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: src/base.hpp
+    title: src/base.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/datastructure/CumulativeSum2D.hpp
+    title: src/datastructure/CumulativeSum2D.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/5/DSL_5_B
+    links:
+    - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/5/DSL_5_B
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -17,11 +27,11 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../base.hpp:\
-    \ line -1: no such header\n"
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
+    \ -1: no such header\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/5/DSL_5_B\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../datastructure/CumulativeSum2D.hpp\"\
-    \n\nconst int MAX_X = 1010;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \n\n#include \"base.hpp\"\n#include \"datastructure/CumulativeSum2D.hpp\"\n\n\
+    const int MAX_X = 1010;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    int N;\n    cin >> N;\n    vector<vector<int>> v(MAX_X, vector<int>(MAX_X,\
     \ 0));\n    for (; N--;) {\n        int a, b, c, d;\n        cin >> a >> b >>\
     \ c >> d;\n        ++v[a][b];\n        ++v[c][d];\n        --v[a][d];\n      \
@@ -29,12 +39,14 @@ data:
     \  for (int i = 0; i < MAX_X; i++) {\n        for (int j = 0; j < MAX_X; j++)\
     \ {\n            ans = max(ans, CS.query(0, i, 0, j));\n        }\n    }\n\n \
     \   cout << ans << '\\n';\n}"
-  dependsOn: []
+  dependsOn:
+  - src/base.hpp
+  - src/datastructure/CumulativeSum2D.hpp
   isVerificationFile: true
   path: test/aoj/DSL_5_B.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-01-13 11:27:34+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL_5_B.test.cpp
 layout: document

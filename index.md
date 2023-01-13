@@ -48,7 +48,7 @@ data:
     - icon: ':warning:'
       path: src/datastructure/ConvexHullTrick.hpp
       title: Convex Hull Trick (Add-Monotonic Slope Optimization)
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/CumulativeSum2D.hpp
       title: src/datastructure/CumulativeSum2D.hpp
     - icon: ':warning:'
@@ -60,7 +60,7 @@ data:
     - icon: ':warning:'
       path: src/datastructure/PartiallyPersistentUnionFind.hpp
       title: Partially Persistent Union Find
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/PotentializedUnionFind.hpp
       title: Potentialized Union Find
     - icon: ':heavy_check_mark:'
@@ -69,7 +69,7 @@ data:
     - icon: ':warning:'
       path: src/datastructure/RectangleSet.hpp
       title: Rectangle Set
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/Slide_Min.hpp
       title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
     - icon: ':heavy_check_mark:'
@@ -84,7 +84,7 @@ data:
     - icon: ':warning:'
       path: src/datastructure/UndoUnionFind.hpp
       title: Union Find with Undo Operation
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/UnionFind.hpp
       title: Union Find (Disjoint Set Union)
   - name: src/flow
@@ -107,7 +107,7 @@ data:
       title: Minimum Cost b-flow
   - name: src/geometry
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/geometry.hpp
       title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
     - icon: ':warning:'
@@ -115,10 +115,10 @@ data:
       title: "3 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
   - name: src/graph
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/BellmanFord.hpp
       title: Bellman-Ford
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/CycleDetection.hpp
       title: Cycle Detection
     - icon: ':warning:'
@@ -133,11 +133,11 @@ data:
     - icon: ':warning:'
       path: src/graph/RangeEdgeGraph.hpp
       title: Range Edge Graph
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/StronglyConnectedComponents.hpp
       title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\
         \u89E3\uFF09"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/TopologicalSort.hpp
       title: Topological Sort
     - icon: ':warning:'
@@ -171,7 +171,7 @@ data:
     - icon: ':warning:'
       path: src/math/discrete_logarithm.hpp
       title: "Discrete Logarithm\uFF08\u96E2\u6563\u5BFE\u6570\u554F\u984C\uFF09"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/math/elementary_math.hpp
       title: elementary math
     - icon: ':warning:'
@@ -203,10 +203,10 @@ data:
     - icon: ':warning:'
       path: src/string/Manacher.hpp
       title: "Manacher\uFF08\u56DE\u5206\u534A\u5F84\uFF09"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/string/RollingHash.hpp
       title: Rolling Hash
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/string/RollingHash2D.hpp
       title: Rolling Hash 2D
     - icon: ':heavy_check_mark:'
@@ -229,7 +229,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/tree/Rerooting.hpp
       title: "\u5168\u65B9\u4F4D\u6728 dp"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/tree/TreeDiameter.hpp
       title: Tree Diameter
   - name: src/util
@@ -240,7 +240,7 @@ data:
     - icon: ':warning:'
       path: src/util/RandomNumberGenerator.hpp
       title: "\u4E71\u6570\u751F\u6210"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/util/Rational.hpp
       title: "\u6709\u7406\u6570\u30E9\u30A4\u30D6\u30E9\u30EA"
     - icon: ':warning:'
@@ -261,118 +261,118 @@ data:
   verificationCategories:
   - name: test/aoj
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/1131.test.cpp
       title: test/aoj/1131.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/1181.test.cpp
       title: test/aoj/1181.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/2306.test.cpp
       title: test/aoj/2306.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/2667.test.cpp
       title: test/aoj/2667.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/2891.test.cpp
       title: test/aoj/2891.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/2903.test.cpp
       title: test/aoj/2903.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_14_B.test.cpp
       title: test/aoj/ALDS1_14_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_14_C.test.cpp
       title: test/aoj/ALDS1_14_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_1_A.test.cpp
       title: test/aoj/CGL_1_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_1_B.test.cpp
       title: test/aoj/CGL_1_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_1_C.test.cpp
       title: test/aoj/CGL_1_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_2_A.test.cpp
       title: test/aoj/CGL_2_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_2_B.test.cpp
       title: test/aoj/CGL_2_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_2_C.test.cpp
       title: test/aoj/CGL_2_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_2_D.test.cpp
       title: test/aoj/CGL_2_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_3_A.test.cpp
       title: test/aoj/CGL_3_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_3_B.test.cpp
       title: test/aoj/CGL_3_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_3_C.test.cpp
       title: test/aoj/CGL_3_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_4_A.test.cpp
       title: test/aoj/CGL_4_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_4_B.test.cpp
       title: test/aoj/CGL_4_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_4_C.test.cpp
       title: test/aoj/CGL_4_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_5_A.test.cpp
       title: test/aoj/CGL_5_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_A.test.cpp
       title: test/aoj/CGL_7_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_B.test.cpp
       title: test/aoj/CGL_7_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_C.test.cpp
       title: test/aoj/CGL_7_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_D.test.cpp
       title: test/aoj/CGL_7_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_E.test.cpp
       title: test/aoj/CGL_7_E.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_F.test.cpp
       title: test/aoj/CGL_7_F.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_G.test.cpp
       title: test/aoj/CGL_7_G.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_H.test.cpp
       title: test/aoj/CGL_7_H.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_I.test.cpp
       title: test/aoj/CGL_7_I.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_E.test.cpp
       title: test/aoj/DPL_5_E.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_1_A.test.cpp
       title: test/aoj/DSL_1_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_1_B.test.cpp
       title: test/aoj/DSL_1_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
       title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_3_D.test.cpp
       title: test/aoj/DSL_3_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_5_B.test.cpp
       title: test/aoj/DSL_5_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_1_B.test.cpp
       title: test/aoj/GRL_1_B.test.cpp
     - icon: ':heavy_check_mark:'
@@ -381,46 +381,46 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_B.test.cpp
       title: test/aoj/GRL_3_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_C.test.cpp
       title: test/aoj/GRL_3_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_4_A.TopologicalSort.test.cpp
       title: test/aoj/GRL_4_A.TopologicalSort.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_4_A.test.cpp
       title: test/aoj/GRL_4_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_A.test.cpp
       title: test/aoj/GRL_5_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_B.test.cpp
       title: test/aoj/GRL_5_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_5_C.test.cpp
       title: test/aoj/GRL_5_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ITP1_11_A.test.cpp
       title: test/aoj/ITP1_11_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ITP1_11_B.test.cpp
       title: test/aoj/ITP1_11_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ITP1_11_C.test.cpp
       title: test/aoj/ITP1_11_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ITP1_11_D.test.cpp
       title: test/aoj/ITP1_11_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_A.test.cpp
       title: test/aoj/NTL_1_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_B.test.cpp
       title: test/aoj/NTL_1_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_D.test.cpp
       title: test/aoj/NTL_1_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_E.test.cpp
       title: test/aoj/NTL_1_E.test.cpp
     - icon: ':heavy_check_mark:'

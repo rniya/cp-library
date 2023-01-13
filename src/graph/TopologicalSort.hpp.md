@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL_4_A.TopologicalSort.test.cpp
+    title: test/aoj/GRL_4_A.TopologicalSort.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/graph/TopologicalSort.hpp\"\n#include <algorithm>\n\
@@ -41,8 +44,9 @@ data:
   path: src/graph/TopologicalSort.hpp
   requiredBy: []
   timestamp: '2023-01-12 22:28:24+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/GRL_4_A.TopologicalSort.test.cpp
 documentation_of: src/graph/TopologicalSort.hpp
 layout: document
 title: Topological Sort

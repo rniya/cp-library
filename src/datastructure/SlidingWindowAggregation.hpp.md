@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
+    title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
   _isVerificationFailed: false
@@ -44,6 +47,7 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
 documentation_of: src/datastructure/SlidingWindowAggregation.hpp
 layout: document

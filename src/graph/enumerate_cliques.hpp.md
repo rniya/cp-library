@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/aoj/2306.test.cpp
+    title: test/aoj/2306.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/enumerate_cliques.test.cpp
     title: test/yosupo/enumerate_cliques.test.cpp
   _isVerificationFailed: false
@@ -81,6 +84,7 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/2306.test.cpp
   - test/yosupo/enumerate_cliques.test.cpp
 documentation_of: src/graph/enumerate_cliques.hpp
 layout: document

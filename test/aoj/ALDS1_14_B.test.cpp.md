@@ -1,12 +1,22 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: src/base.hpp
+    title: src/base.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/string/RollingHash.hpp
+    title: Rolling Hash
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B
+    links:
+    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -17,21 +27,23 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../base.hpp:\
-    \ line -1: no such header\n"
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
+    \ -1: no such header\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B\"\
-    \n\n#include \"../../base.hpp\"\n#include \"../../string/RollingHash.hpp\"\n\n\
-    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string T,\
-    \ P;\n    cin >> T >> P;\n\n    RollingHash RH;\n    auto a = RH.build(T), b =\
-    \ RH.build(P);\n    int s = T.size(), t = P.size();\n\n    for (int i = 0; i +\
-    \ t <= s; i++) {\n        if (RH.query(a, i, i + t) == RH.query(b, 0, t)) {\n\
-    \            cout << i << '\\n';\n        }\n    }\n    return 0;\n}"
-  dependsOn: []
+    \n\n#include \"base.hpp\"\n#include \"string/RollingHash.hpp\"\n\nint main() {\n\
+    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string T, P;\n    cin\
+    \ >> T >> P;\n\n    RollingHash RH;\n    auto a = RH.build(T), b = RH.build(P);\n\
+    \    int s = T.size(), t = P.size();\n\n    for (int i = 0; i + t <= s; i++) {\n\
+    \        if (RH.query(a, i, i + t) == RH.query(b, 0, t)) {\n            cout <<\
+    \ i << '\\n';\n        }\n    }\n    return 0;\n}"
+  dependsOn:
+  - src/base.hpp
+  - src/string/RollingHash.hpp
   isVerificationFile: true
   path: test/aoj/ALDS1_14_B.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-01-13 11:27:34+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1_14_B.test.cpp
 layout: document
