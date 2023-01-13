@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_B"
 
-#include "../../base.hpp"
-#include "../../graph/BellmanFord.hpp"
+#include "base.hpp"
+#include "graph/BellmanFord.hpp"
 
 int main() {
     cin.tie(0);

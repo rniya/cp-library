@@ -1,8 +1,8 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/CGL_5_A"
 #define ERROR 0.000001
 
-#include "../../base.hpp"
-#include "../../geometry/geometry.hpp"
+#include "base.hpp"
+#include "geometry/geometry.hpp"
 
 using namespace geometry;
 

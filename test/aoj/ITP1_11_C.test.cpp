@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/ITP1_11_C"
 
-#include "../../base.hpp"
-#include "../../util/Dice.hpp"
+#include "base.hpp"
+#include "util/Dice.hpp"
 
 int main() {
     cin.tie(0);

@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_A"
 
-#include "../../base.hpp"
-#include "../../tree/TreeDiameter.hpp"
+#include "base.hpp"
+#include "tree/TreeDiameter.hpp"
 
 int main() {
     cin.tie(0);

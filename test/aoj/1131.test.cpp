@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/1131"
 
-#include "../../base.hpp"
-#include "../../util/Rational.hpp"
+#include "base.hpp"
+#include "util/Rational.hpp"
 
 using R = Rational<int>;
 

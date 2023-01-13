@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_C"
 
-#include "../../base.hpp"
-#include "../../string/RollingHash2D.hpp"
+#include "base.hpp"
+#include "string/RollingHash2D.hpp"
 
 int main() {
     cin.tie(0);

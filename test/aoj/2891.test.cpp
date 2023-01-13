@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/2891"
 
-#include "../../base.hpp"
-#include "../../graph/CycleDetection.hpp"
+#include "base.hpp"
+#include "graph/CycleDetection.hpp"
 
 int main() {
     cin.tie(0);

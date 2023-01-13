@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/5/DSL_5_B"
 
-#include "../../base.hpp"
-#include "../../datastructure/CumulativeSum2D.hpp"
+#include "base.hpp"
+#include "datastructure/CumulativeSum2D.hpp"
 
 const int MAX_X = 1010;
 

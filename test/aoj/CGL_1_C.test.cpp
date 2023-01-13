@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C"
 
-#include "../../base.hpp"
-#include "../../geometry/geometry.hpp"
+#include "base.hpp"
+#include "geometry/geometry.hpp"
 
 using namespace geometry;
 

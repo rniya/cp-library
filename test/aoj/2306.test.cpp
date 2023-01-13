@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/2306"
 
-#include "../../base.hpp"
-#include "../../graph/enumerate_cliques.hpp"
+#include "base.hpp"
+#include "graph/enumerate_cliques.hpp"
 
 const int inf = 1e9;
 

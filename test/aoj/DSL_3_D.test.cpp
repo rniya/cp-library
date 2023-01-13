@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_3_D"
 
-#include "../../base.hpp"
-#include "../../datastructure/Slide_Min.hpp"
+#include "base.hpp"
+#include "datastructure/Slide_Min.hpp"
 
 int main() {
     cin.tie(0);

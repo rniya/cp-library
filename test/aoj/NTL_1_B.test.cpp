@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_B"
 
-#include "../../base.hpp"
-#include "../../math/elementary_math.hpp"
+#include "base.hpp"
+#include "math/elementary_math.hpp"
 
 int main() {
     cin.tie(0);

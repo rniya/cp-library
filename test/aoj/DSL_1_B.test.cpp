@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_B"
 
-#include "../../base.hpp"
-#include "../../datastructure/PotentializedUnionFind.hpp"
+#include "base.hpp"
+#include "datastructure/PotentializedUnionFind.hpp"
 
 int main() {
     cin.tie(0);
