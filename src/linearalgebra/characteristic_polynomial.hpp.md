@@ -106,8 +106,8 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/1907.test.cpp
   - test/yosupo/characteristic_polynomial.test.cpp
+  - test/yukicoder/1907.test.cpp
 documentation_of: src/linearalgebra/characteristic_polynomial.hpp
 layout: document
 title: Characteristic Polynomial

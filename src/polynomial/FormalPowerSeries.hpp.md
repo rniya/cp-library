@@ -227,22 +227,22 @@ data:
   isVerificationFile: false
   path: src/polynomial/FormalPowerSeries.hpp
   requiredBy:
-  - src/polynomial/subset_sum.hpp
   - src/polynomial/multipoint_evaluation.hpp
+  - src/polynomial/subset_sum.hpp
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/product_of_polynomial_sequence.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
   - test/yosupo/polynomial_taylor_shift.test.cpp
-  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
+  - test/yosupo/product_of_polynomial_sequence.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
+  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/sharp_p_subset_sum.test.cpp
 documentation_of: src/polynomial/FormalPowerSeries.hpp
 layout: document
 title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
@@ -558,6 +558,9 @@ $$
 - [灘校文化祭コンテスト 2022 Day1 K - Li](https://atcoder.jp/contests/nadafes2022_day1/tasks/nadafes2022_day1_k)
 
 - [Good Bye 2022: 2023 is NEAR G. Koxia and Bracket](https://codeforces.com/contest/1770/problem/G)
+
+- [Good Bye 2022: 2023 is NEAR G. Koxia and Bracket](https://codeforces.com/contest/1770/problem/G)
+  - https://codeforces.com/gym/102220/problem/I や https://codeforces.com/gym/102978/problem/J も同系統らしい？
 
 ## Reference
 [1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)

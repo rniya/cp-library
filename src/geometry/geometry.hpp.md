@@ -188,11 +188,11 @@ data:
     \ (p == q) return {p};\n    return {p, q};\n}\n\nReal commonarea(Circle c1, Circle\
     \ c2) {\n    Real r1 = c1.radius, r2 = c2.radius;\n    Real d = (c1.center - c2.center).abs();\n\
     \    if (compare(r1 + r2, d) <= 0) return 0;\n    if (compare(std::fabs(r1 - r2),\
-    \ d) >= 0) return PI * min(r1, r2) * min(r1, r2);\n    Real res = 0;\n    for\
-    \ (int _ = 0; _ < 2; _++) {\n        r1 = c1.radius, r2 = c2.radius;\n       \
-    \ Real cosine = (d * d + r1 * r1 - r2 * r2) / (2 * d * r1);\n        Real theta\
-    \ = std::acos(cosine) * 2;\n        res += (theta - std::sin(theta)) * r1 * r1\
-    \ / 2;\n        swap(c1, c2);\n    }\n    return res;\n}\n\nLine bisector(const\
+    \ d) >= 0) return PI * std::min(r1, r2) * std::min(r1, r2);\n    Real res = 0;\n\
+    \    for (int _ = 0; _ < 2; _++) {\n        r1 = c1.radius, r2 = c2.radius;\n\
+    \        Real cosine = (d * d + r1 * r1 - r2 * r2) / (2 * d * r1);\n        Real\
+    \ theta = std::acos(cosine) * 2;\n        res += (theta - std::sin(theta)) * r1\
+    \ * r1 / 2;\n        std::swap(c1, c2);\n    }\n    return res;\n}\n\nLine bisector(const\
     \ Point& p, const Point& q) {\n    Point c = (p + q) * 0.5;\n    Point v = (q\
     \ - p).normal();\n    return Line(c - v, c + v);\n}\n\nCircle circumcircle(Point\
     \ a, Point b, const Point& c) {\n    Point center = crosspoint(bisector(a, c),\
@@ -244,7 +244,7 @@ data:
     \ b)) < 0) in = !in;\n    }\n    return in ? IN : OUT;\n}\n\nContain contain(const\
     \ Circle& c, const Point& p) {\n    Real d = distance(c.center, p);\n    int cp\
     \ = compare(d, c.radius);\n    if (cp > 0) return OUT;\n    if (cp < 0) return\
-    \ IN;\n    return ON;\n}\n\nPolygon convex_hull(Polygon& P, bool accept_on_segment\
+    \ IN;\n    return ON;\n}\n\nPolygon convex_hull(Polygon P, bool accept_on_segment\
     \ = false) {\n    int n = P.size(), k = 0;\n    if (n <= 2) return P;\n    std::sort(P.begin(),\
     \ P.end());\n    Polygon ch(n * 2);\n    auto check = [&](int i) {\n        if\
     \ (accept_on_segment) return ccw(ch[k - 2], ch[k - 1], P[i]) == CLOCKWISE;\n \
@@ -256,39 +256,49 @@ data:
     \ (int i = 1; i < k - 1; i++) {\n        if (equals(ch[i].y, ch[start].y) ? ch[i].x\
     \ < ch[start].x : ch[i].y < ch[start].y) {\n            start = i;\n        }\n\
     \    }\n    std::rotate(ch.begin(), ch.begin() + start, ch.end());\n    return\
-    \ ch;\n}\n\nstd::tuple<int, int, Real> convex_diameter(const Polygon& convex)\
-    \ {\n    assert(convex.is_convex());\n    int n = convex.size();\n    Real max_dist\
-    \ = -1;\n    std::pair<int, int> argmax = {-1, -1};\n    for (int i = 0, j = 0;\
-    \ i < n; i++) {\n        while (j + 1 < n && distance(convex[i], convex[j + 1])\
-    \ > distance(convex[i], convex[j])) j++;\n        double cur_dist = distance(convex[i],\
-    \ convex[j]);\n        if (max_dist < cur_dist) {\n            max_dist = cur_dist;\n\
-    \            argmax = {i, j};\n        }\n    }\n    return {argmax.first, argmax.second,\
-    \ max_dist};\n}\n\nPolygon convex_cut(const Polygon& convex, const Line& l) {\n\
-    \    assert(convex.is_convex());\n    int n = convex.size();\n    Polygon res;\n\
-    \    for (int i = 0; i < n; i++) {\n        const Point& cur = convex[i];\n  \
-    \      const Point& nxt = convex[(i + 1) % n];\n        if (ccw(l.a, l.b, cur)\
-    \ != CLOCKWISE) res.emplace_back(cur);\n        if (ccw(l.a, l.b, cur) * ccw(l.a,\
-    \ l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur, nxt), l));\n    }\n\
-    \    return res;\n}\n\nPolygon voronoi(const Polygon& P, const std::vector<Point>&\
-    \ ps, size_t idx) {\n    Polygon res = P;\n    for (size_t i = 0; i < ps.size();\
-    \ i++) {\n        if (i == idx) continue;\n        res = convex_cut(res, bisector(ps[idx],\
-    \ ps[i]));\n    }\n    return res;\n}\n\nnamespace internal {\n\nReal commonarea_impl(const\
-    \ Circle& c, const Point& a, const Point& b) {\n    auto va = c.center - a, vb\
-    \ = c.center - b;\n    Real f = cross(va, vb), res = 0;\n    if (equals(f, 0))\
-    \ return res;\n    if (compare(std::max(va.abs(), vb.abs()), c.radius) <= 0) return\
-    \ f;\n    if (compare(distance(Segment(a, b), c.center), c.radius) >= 0) return\
-    \ c.radius * c.radius * (vb * va.conj()).arg();\n    auto cand = crosspoint(c,\
-    \ Segment(a, b));\n    cand.emplace(cand.begin(), a);\n    cand.emplace_back(b);\n\
-    \    for (size_t i = 0; i + 1 < cand.size(); i++) res += commonarea_impl(c, cand[i],\
-    \ cand[i + 1]);\n    return res;\n}\n\n}  // namespace internal\n\nReal commonarea(const\
-    \ Circle& c, const Polygon& P) {\n    if (P.size() < 3) return 0;\n    Real res\
-    \ = 0;\n    int n = P.size();\n    for (int i = 0; i < n; i++) res += internal::commonarea_impl(c,\
-    \ P[i], P[(i + 1) % n]);\n    return res / 2;\n}\n\nReal closest_pair(std::vector<Point>\
+    \ ch;\n}\n\nstd::vector<Point> lower_convex_hull(std::vector<Point> P, bool accept_on_segment\
+    \ = false) {\n    std::sort(P.begin(), P.end());\n    std::vector<Point> Q;\n\
+    \    for (auto& p : P) {\n        if (Q.empty() or p.y < Q.back().y) {\n     \
+    \       Q.emplace_back(p);\n        }\n    }\n    std::swap(P, Q);\n    int n\
+    \ = P.size(), k = 0;\n    if (n <= 2) return P;\n    std::vector<Point> ch(n *\
+    \ 2);\n    auto check = [&](int i) {\n        if (accept_on_segment) return ccw(ch[k\
+    \ - 2], ch[k - 1], P[i]) == CLOCKWISE;\n        return ccw(ch[k - 2], ch[k - 1],\
+    \ P[i]) != COUNTER_CLOCKWISE;\n    };\n    for (int i = 0; i < n; ch[k++] = P[i++])\
+    \ {\n        while (k >= 2 and check(i)) {\n            k--;\n        }\n    }\n\
+    \    ch.resize(k);\n    return ch;\n}\n\nstd::tuple<int, int, Real> convex_diameter(const\
+    \ Polygon& convex) {\n    assert(convex.is_convex());\n    int n = convex.size();\n\
+    \    Real max_dist = -1;\n    std::pair<int, int> argmax = {-1, -1};\n    for\
+    \ (int i = 0, j = 0; i < n; i++) {\n        while (j + 1 < n && distance(convex[i],\
+    \ convex[j + 1]) > distance(convex[i], convex[j])) j++;\n        double cur_dist\
+    \ = distance(convex[i], convex[j]);\n        if (max_dist < cur_dist) {\n    \
+    \        max_dist = cur_dist;\n            argmax = {i, j};\n        }\n    }\n\
+    \    return {argmax.first, argmax.second, max_dist};\n}\n\nPolygon convex_cut(const\
+    \ Polygon& convex, const Line& l) {\n    assert(convex.is_convex());\n    int\
+    \ n = convex.size();\n    Polygon res;\n    for (int i = 0; i < n; i++) {\n  \
+    \      const Point& cur = convex[i];\n        const Point& nxt = convex[(i + 1)\
+    \ % n];\n        if (ccw(l.a, l.b, cur) != CLOCKWISE) res.emplace_back(cur);\n\
+    \        if (ccw(l.a, l.b, cur) * ccw(l.a, l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur,\
+    \ nxt), l));\n    }\n    return res;\n}\n\nPolygon voronoi(const Polygon& P, const\
+    \ std::vector<Point>& ps, size_t idx) {\n    Polygon res = P;\n    for (size_t\
+    \ i = 0; i < ps.size(); i++) {\n        if (i == idx) continue;\n        res =\
+    \ convex_cut(res, bisector(ps[idx], ps[i]));\n    }\n    return res;\n}\n\nnamespace\
+    \ internal {\n\nReal commonarea_impl(const Circle& c, const Point& a, const Point&\
+    \ b) {\n    auto va = c.center - a, vb = c.center - b;\n    Real f = cross(va,\
+    \ vb), res = 0;\n    if (equals(f, 0)) return res;\n    if (compare(std::max(va.abs(),\
+    \ vb.abs()), c.radius) <= 0) return f;\n    if (compare(distance(Segment(a, b),\
+    \ c.center), c.radius) >= 0) return c.radius * c.radius * (vb * va.conj()).arg();\n\
+    \    auto cand = crosspoint(c, Segment(a, b));\n    cand.emplace(cand.begin(),\
+    \ a);\n    cand.emplace_back(b);\n    for (size_t i = 0; i + 1 < cand.size();\
+    \ i++) res += commonarea_impl(c, cand[i], cand[i + 1]);\n    return res;\n}\n\n\
+    }  // namespace internal\n\nReal commonarea(const Circle& c, const Polygon& P)\
+    \ {\n    if (P.size() < 3) return 0;\n    Real res = 0;\n    int n = P.size();\n\
+    \    for (int i = 0; i < n; i++) res += internal::commonarea_impl(c, P[i], P[(i\
+    \ + 1) % n]);\n    return res / 2;\n}\n\nReal closest_pair(std::vector<Point>\
     \ ps) {\n    int n = ps.size();\n    if (n == 1) return 0;\n    sort(ps.begin(),\
     \ ps.end());\n    auto compare_y = [&](const Point& p, const Point& q) { return\
-    \ p.y < q.y; };\n    vector<Point> cand(n);\n    const Real inf = 1e18;\n\n  \
-    \  auto dfs = [&](auto self, int l, int r) -> Real {\n        if (r - l <= 1)\
-    \ return inf;\n        int mid = (l + r) >> 1;\n        auto x_mid = ps[mid].x;\n\
+    \ p.y < q.y; };\n    std::vector<Point> cand(n);\n    const Real inf = 1e18;\n\
+    \n    auto dfs = [&](auto self, int l, int r) -> Real {\n        if (r - l <=\
+    \ 1) return inf;\n        int mid = (l + r) >> 1;\n        auto x_mid = ps[mid].x;\n\
     \        auto res = std::min(self(self, l, mid), self(self, mid, r));\n      \
     \  std::inplace_merge(ps.begin() + l, ps.begin() + mid, ps.begin() + r, compare_y);\n\
     \        for (int i = l, cur = 0; i < r; i++) {\n            if (std::fabs(ps[i].x\
@@ -407,11 +417,11 @@ data:
     \ (p == q) return {p};\n    return {p, q};\n}\n\nReal commonarea(Circle c1, Circle\
     \ c2) {\n    Real r1 = c1.radius, r2 = c2.radius;\n    Real d = (c1.center - c2.center).abs();\n\
     \    if (compare(r1 + r2, d) <= 0) return 0;\n    if (compare(std::fabs(r1 - r2),\
-    \ d) >= 0) return PI * min(r1, r2) * min(r1, r2);\n    Real res = 0;\n    for\
-    \ (int _ = 0; _ < 2; _++) {\n        r1 = c1.radius, r2 = c2.radius;\n       \
-    \ Real cosine = (d * d + r1 * r1 - r2 * r2) / (2 * d * r1);\n        Real theta\
-    \ = std::acos(cosine) * 2;\n        res += (theta - std::sin(theta)) * r1 * r1\
-    \ / 2;\n        swap(c1, c2);\n    }\n    return res;\n}\n\nLine bisector(const\
+    \ d) >= 0) return PI * std::min(r1, r2) * std::min(r1, r2);\n    Real res = 0;\n\
+    \    for (int _ = 0; _ < 2; _++) {\n        r1 = c1.radius, r2 = c2.radius;\n\
+    \        Real cosine = (d * d + r1 * r1 - r2 * r2) / (2 * d * r1);\n        Real\
+    \ theta = std::acos(cosine) * 2;\n        res += (theta - std::sin(theta)) * r1\
+    \ * r1 / 2;\n        std::swap(c1, c2);\n    }\n    return res;\n}\n\nLine bisector(const\
     \ Point& p, const Point& q) {\n    Point c = (p + q) * 0.5;\n    Point v = (q\
     \ - p).normal();\n    return Line(c - v, c + v);\n}\n\nCircle circumcircle(Point\
     \ a, Point b, const Point& c) {\n    Point center = crosspoint(bisector(a, c),\
@@ -463,7 +473,7 @@ data:
     \ b)) < 0) in = !in;\n    }\n    return in ? IN : OUT;\n}\n\nContain contain(const\
     \ Circle& c, const Point& p) {\n    Real d = distance(c.center, p);\n    int cp\
     \ = compare(d, c.radius);\n    if (cp > 0) return OUT;\n    if (cp < 0) return\
-    \ IN;\n    return ON;\n}\n\nPolygon convex_hull(Polygon& P, bool accept_on_segment\
+    \ IN;\n    return ON;\n}\n\nPolygon convex_hull(Polygon P, bool accept_on_segment\
     \ = false) {\n    int n = P.size(), k = 0;\n    if (n <= 2) return P;\n    std::sort(P.begin(),\
     \ P.end());\n    Polygon ch(n * 2);\n    auto check = [&](int i) {\n        if\
     \ (accept_on_segment) return ccw(ch[k - 2], ch[k - 1], P[i]) == CLOCKWISE;\n \
@@ -475,39 +485,49 @@ data:
     \ (int i = 1; i < k - 1; i++) {\n        if (equals(ch[i].y, ch[start].y) ? ch[i].x\
     \ < ch[start].x : ch[i].y < ch[start].y) {\n            start = i;\n        }\n\
     \    }\n    std::rotate(ch.begin(), ch.begin() + start, ch.end());\n    return\
-    \ ch;\n}\n\nstd::tuple<int, int, Real> convex_diameter(const Polygon& convex)\
-    \ {\n    assert(convex.is_convex());\n    int n = convex.size();\n    Real max_dist\
-    \ = -1;\n    std::pair<int, int> argmax = {-1, -1};\n    for (int i = 0, j = 0;\
-    \ i < n; i++) {\n        while (j + 1 < n && distance(convex[i], convex[j + 1])\
-    \ > distance(convex[i], convex[j])) j++;\n        double cur_dist = distance(convex[i],\
-    \ convex[j]);\n        if (max_dist < cur_dist) {\n            max_dist = cur_dist;\n\
-    \            argmax = {i, j};\n        }\n    }\n    return {argmax.first, argmax.second,\
-    \ max_dist};\n}\n\nPolygon convex_cut(const Polygon& convex, const Line& l) {\n\
-    \    assert(convex.is_convex());\n    int n = convex.size();\n    Polygon res;\n\
-    \    for (int i = 0; i < n; i++) {\n        const Point& cur = convex[i];\n  \
-    \      const Point& nxt = convex[(i + 1) % n];\n        if (ccw(l.a, l.b, cur)\
-    \ != CLOCKWISE) res.emplace_back(cur);\n        if (ccw(l.a, l.b, cur) * ccw(l.a,\
-    \ l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur, nxt), l));\n    }\n\
-    \    return res;\n}\n\nPolygon voronoi(const Polygon& P, const std::vector<Point>&\
-    \ ps, size_t idx) {\n    Polygon res = P;\n    for (size_t i = 0; i < ps.size();\
-    \ i++) {\n        if (i == idx) continue;\n        res = convex_cut(res, bisector(ps[idx],\
-    \ ps[i]));\n    }\n    return res;\n}\n\nnamespace internal {\n\nReal commonarea_impl(const\
-    \ Circle& c, const Point& a, const Point& b) {\n    auto va = c.center - a, vb\
-    \ = c.center - b;\n    Real f = cross(va, vb), res = 0;\n    if (equals(f, 0))\
-    \ return res;\n    if (compare(std::max(va.abs(), vb.abs()), c.radius) <= 0) return\
-    \ f;\n    if (compare(distance(Segment(a, b), c.center), c.radius) >= 0) return\
-    \ c.radius * c.radius * (vb * va.conj()).arg();\n    auto cand = crosspoint(c,\
-    \ Segment(a, b));\n    cand.emplace(cand.begin(), a);\n    cand.emplace_back(b);\n\
-    \    for (size_t i = 0; i + 1 < cand.size(); i++) res += commonarea_impl(c, cand[i],\
-    \ cand[i + 1]);\n    return res;\n}\n\n}  // namespace internal\n\nReal commonarea(const\
-    \ Circle& c, const Polygon& P) {\n    if (P.size() < 3) return 0;\n    Real res\
-    \ = 0;\n    int n = P.size();\n    for (int i = 0; i < n; i++) res += internal::commonarea_impl(c,\
-    \ P[i], P[(i + 1) % n]);\n    return res / 2;\n}\n\nReal closest_pair(std::vector<Point>\
+    \ ch;\n}\n\nstd::vector<Point> lower_convex_hull(std::vector<Point> P, bool accept_on_segment\
+    \ = false) {\n    std::sort(P.begin(), P.end());\n    std::vector<Point> Q;\n\
+    \    for (auto& p : P) {\n        if (Q.empty() or p.y < Q.back().y) {\n     \
+    \       Q.emplace_back(p);\n        }\n    }\n    std::swap(P, Q);\n    int n\
+    \ = P.size(), k = 0;\n    if (n <= 2) return P;\n    std::vector<Point> ch(n *\
+    \ 2);\n    auto check = [&](int i) {\n        if (accept_on_segment) return ccw(ch[k\
+    \ - 2], ch[k - 1], P[i]) == CLOCKWISE;\n        return ccw(ch[k - 2], ch[k - 1],\
+    \ P[i]) != COUNTER_CLOCKWISE;\n    };\n    for (int i = 0; i < n; ch[k++] = P[i++])\
+    \ {\n        while (k >= 2 and check(i)) {\n            k--;\n        }\n    }\n\
+    \    ch.resize(k);\n    return ch;\n}\n\nstd::tuple<int, int, Real> convex_diameter(const\
+    \ Polygon& convex) {\n    assert(convex.is_convex());\n    int n = convex.size();\n\
+    \    Real max_dist = -1;\n    std::pair<int, int> argmax = {-1, -1};\n    for\
+    \ (int i = 0, j = 0; i < n; i++) {\n        while (j + 1 < n && distance(convex[i],\
+    \ convex[j + 1]) > distance(convex[i], convex[j])) j++;\n        double cur_dist\
+    \ = distance(convex[i], convex[j]);\n        if (max_dist < cur_dist) {\n    \
+    \        max_dist = cur_dist;\n            argmax = {i, j};\n        }\n    }\n\
+    \    return {argmax.first, argmax.second, max_dist};\n}\n\nPolygon convex_cut(const\
+    \ Polygon& convex, const Line& l) {\n    assert(convex.is_convex());\n    int\
+    \ n = convex.size();\n    Polygon res;\n    for (int i = 0; i < n; i++) {\n  \
+    \      const Point& cur = convex[i];\n        const Point& nxt = convex[(i + 1)\
+    \ % n];\n        if (ccw(l.a, l.b, cur) != CLOCKWISE) res.emplace_back(cur);\n\
+    \        if (ccw(l.a, l.b, cur) * ccw(l.a, l.b, nxt) < 0) res.emplace_back(crosspoint(Segment(cur,\
+    \ nxt), l));\n    }\n    return res;\n}\n\nPolygon voronoi(const Polygon& P, const\
+    \ std::vector<Point>& ps, size_t idx) {\n    Polygon res = P;\n    for (size_t\
+    \ i = 0; i < ps.size(); i++) {\n        if (i == idx) continue;\n        res =\
+    \ convex_cut(res, bisector(ps[idx], ps[i]));\n    }\n    return res;\n}\n\nnamespace\
+    \ internal {\n\nReal commonarea_impl(const Circle& c, const Point& a, const Point&\
+    \ b) {\n    auto va = c.center - a, vb = c.center - b;\n    Real f = cross(va,\
+    \ vb), res = 0;\n    if (equals(f, 0)) return res;\n    if (compare(std::max(va.abs(),\
+    \ vb.abs()), c.radius) <= 0) return f;\n    if (compare(distance(Segment(a, b),\
+    \ c.center), c.radius) >= 0) return c.radius * c.radius * (vb * va.conj()).arg();\n\
+    \    auto cand = crosspoint(c, Segment(a, b));\n    cand.emplace(cand.begin(),\
+    \ a);\n    cand.emplace_back(b);\n    for (size_t i = 0; i + 1 < cand.size();\
+    \ i++) res += commonarea_impl(c, cand[i], cand[i + 1]);\n    return res;\n}\n\n\
+    }  // namespace internal\n\nReal commonarea(const Circle& c, const Polygon& P)\
+    \ {\n    if (P.size() < 3) return 0;\n    Real res = 0;\n    int n = P.size();\n\
+    \    for (int i = 0; i < n; i++) res += internal::commonarea_impl(c, P[i], P[(i\
+    \ + 1) % n]);\n    return res / 2;\n}\n\nReal closest_pair(std::vector<Point>\
     \ ps) {\n    int n = ps.size();\n    if (n == 1) return 0;\n    sort(ps.begin(),\
     \ ps.end());\n    auto compare_y = [&](const Point& p, const Point& q) { return\
-    \ p.y < q.y; };\n    vector<Point> cand(n);\n    const Real inf = 1e18;\n\n  \
-    \  auto dfs = [&](auto self, int l, int r) -> Real {\n        if (r - l <= 1)\
-    \ return inf;\n        int mid = (l + r) >> 1;\n        auto x_mid = ps[mid].x;\n\
+    \ p.y < q.y; };\n    std::vector<Point> cand(n);\n    const Real inf = 1e18;\n\
+    \n    auto dfs = [&](auto self, int l, int r) -> Real {\n        if (r - l <=\
+    \ 1) return inf;\n        int mid = (l + r) >> 1;\n        auto x_mid = ps[mid].x;\n\
     \        auto res = std::min(self(self, l, mid), self(self, mid, r));\n      \
     \  std::inplace_merge(ps.begin() + l, ps.begin() + mid, ps.begin() + r, compare_y);\n\
     \        for (int i = l, cur = 0; i < r; i++) {\n            if (std::fabs(ps[i].x\
@@ -520,32 +540,32 @@ data:
   isVerificationFile: false
   path: src/geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-02-14 22:43:04+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/CGL_3_A.test.cpp
-  - test/aoj/CGL_7_H.test.cpp
-  - test/aoj/CGL_1_A.test.cpp
-  - test/aoj/CGL_4_A.test.cpp
-  - test/aoj/CGL_7_I.test.cpp
-  - test/aoj/CGL_7_E.test.cpp
   - test/aoj/CGL_7_B.test.cpp
-  - test/aoj/CGL_5_A.test.cpp
-  - test/aoj/CGL_7_F.test.cpp
-  - test/aoj/CGL_4_B.test.cpp
-  - test/aoj/CGL_7_C.test.cpp
   - test/aoj/CGL_7_A.test.cpp
-  - test/aoj/CGL_2_A.test.cpp
-  - test/aoj/CGL_4_C.test.cpp
-  - test/aoj/CGL_1_C.test.cpp
-  - test/aoj/CGL_1_B.test.cpp
-  - test/aoj/CGL_2_B.test.cpp
-  - test/aoj/CGL_7_G.test.cpp
+  - test/aoj/CGL_5_A.test.cpp
   - test/aoj/CGL_7_D.test.cpp
-  - test/aoj/CGL_3_B.test.cpp
-  - test/aoj/CGL_2_C.test.cpp
-  - test/aoj/CGL_2_D.test.cpp
+  - test/aoj/CGL_1_B.test.cpp
+  - test/aoj/CGL_2_A.test.cpp
+  - test/aoj/CGL_7_G.test.cpp
   - test/aoj/CGL_3_C.test.cpp
+  - test/aoj/CGL_7_F.test.cpp
+  - test/aoj/CGL_2_B.test.cpp
+  - test/aoj/CGL_3_B.test.cpp
+  - test/aoj/CGL_2_D.test.cpp
+  - test/aoj/CGL_2_C.test.cpp
+  - test/aoj/CGL_7_C.test.cpp
+  - test/aoj/CGL_4_A.test.cpp
+  - test/aoj/CGL_4_B.test.cpp
+  - test/aoj/CGL_7_H.test.cpp
+  - test/aoj/CGL_1_C.test.cpp
+  - test/aoj/CGL_7_E.test.cpp
+  - test/aoj/CGL_3_A.test.cpp
+  - test/aoj/CGL_1_A.test.cpp
+  - test/aoj/CGL_4_C.test.cpp
+  - test/aoj/CGL_7_I.test.cpp
 documentation_of: src/geometry/geometry.hpp
 layout: document
 title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"

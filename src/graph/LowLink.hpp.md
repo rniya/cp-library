@@ -84,8 +84,8 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL_3_B.test.cpp
   - test/aoj/GRL_3_A.test.cpp
+  - test/aoj/GRL_3_B.test.cpp
   - test/yosupo/two_edge_connected_components.test.cpp
 documentation_of: src/graph/LowLink.hpp
 layout: document
@@ -128,6 +128,8 @@ Lowlink による橋と関節点の列挙，その上で二重辺連結成分分
 ## 問題例
 - [AtCoder Regular Contest 062 F - AtCoDeerくんとグラフ色塗り](https://atcoder.jp/contests/arc062/tasks/arc062_d)
 - [Codeforces Round #278 (Div. 1) E. Tourists](https://codeforces.com/contest/487/problem/E)
+- [Codeforces Round #310 (Div. 1) E. Case of Computer Network](https://codeforces.com/contest/555/problem/E)
+  - 二重辺連結成分内の辺を向き付けて強連結にしたいときは dfs 木を一つ取って使う辺は根から伸びる方向に，後退辺は逆向きにすることで達成できる．
 
 ## Links
 - [橋と関節点, lowlink - Lilliput Steps](https://kagamiz.hatenablog.com/entry/2013/10/05/005213)

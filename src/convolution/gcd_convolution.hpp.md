@@ -55,8 +55,8 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yukicoder/886.test.cpp
   - test/yosupo/gcd_convolution.test.cpp
+  - test/yukicoder/886.test.cpp
 documentation_of: src/convolution/gcd_convolution.hpp
 layout: document
 title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\uFF09"

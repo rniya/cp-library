@@ -82,3 +82,5 @@ title: "Centroid Decomposition\uFF08\u6728\u306E\u91CD\u5FC3\u5206\u89E3\uFF09"
 ## 問題例
 - [COMPFEST 13 - Finals Online Mirror (Unrated, ICPC Rules, Teams Preferred) E. Eye-Pleasing City Park Tour](https://codeforces.com/contest/1575/problem/E)
   - 頂点に重みがついた，距離 $k$ 以下のパスの重みの総和の数え上げ．
+- [AtCoder Regular Contest 087 F - Squirrel Migration](https://atcoder.jp/contests/arc087/tasks/arc087_d)
+  - 直接重心分解を用いる訳ではないが重心の性質を利用する．
