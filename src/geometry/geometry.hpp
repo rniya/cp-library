@@ -265,14 +265,14 @@ Real commonarea(Circle c1, Circle c2) {
     Real r1 = c1.radius, r2 = c2.radius;
     Real d = (c1.center - c2.center).abs();
     if (compare(r1 + r2, d) <= 0) return 0;
-    if (compare(std::fabs(r1 - r2), d) >= 0) return PI * min(r1, r2) * min(r1, r2);
+    if (compare(std::fabs(r1 - r2), d) >= 0) return PI * std::min(r1, r2) * std::min(r1, r2);
     Real res = 0;
     for (int _ = 0; _ < 2; _++) {
         r1 = c1.radius, r2 = c2.radius;
         Real cosine = (d * d + r1 * r1 - r2 * r2) / (2 * d * r1);
         Real theta = std::acos(cosine) * 2;
         res += (theta - std::sin(theta)) * r1 * r1 / 2;
-        swap(c1, c2);
+        std::swap(c1, c2);
     }
     return res;
 }
@@ -395,7 +395,7 @@ Contain contain(const Circle& c, const Point& p) {
     return ON;
 }
 
-Polygon convex_hull(Polygon& P, bool accept_on_segment = false) {
+Polygon convex_hull(Polygon P, bool accept_on_segment = false) {
     int n = P.size(), k = 0;
     if (n <= 2) return P;
     std::sort(P.begin(), P.end());
@@ -422,6 +422,31 @@ Polygon convex_hull(Polygon& P, bool accept_on_segment = false) {
         }
     }
     std::rotate(ch.begin(), ch.begin() + start, ch.end());
+    return ch;
+}
+
+std::vector<Point> lower_convex_hull(std::vector<Point> P, bool accept_on_segment = false) {
+    std::sort(P.begin(), P.end());
+    std::vector<Point> Q;
+    for (auto& p : P) {
+        if (Q.empty() or p.y < Q.back().y) {
+            Q.emplace_back(p);
+        }
+    }
+    std::swap(P, Q);
+    int n = P.size(), k = 0;
+    if (n <= 2) return P;
+    std::vector<Point> ch(n * 2);
+    auto check = [&](int i) {
+        if (accept_on_segment) return ccw(ch[k - 2], ch[k - 1], P[i]) == CLOCKWISE;
+        return ccw(ch[k - 2], ch[k - 1], P[i]) != COUNTER_CLOCKWISE;
+    };
+    for (int i = 0; i < n; ch[k++] = P[i++]) {
+        while (k >= 2 and check(i)) {
+            k--;
+        }
+    }
+    ch.resize(k);
     return ch;
 }
 
@@ -493,7 +518,7 @@ Real closest_pair(std::vector<Point> ps) {
     if (n == 1) return 0;
     sort(ps.begin(), ps.end());
     auto compare_y = [&](const Point& p, const Point& q) { return p.y < q.y; };
-    vector<Point> cand(n);
+    std::vector<Point> cand(n);
     const Real inf = 1e18;
 
     auto dfs = [&](auto self, int l, int r) -> Real {

@@ -1,17 +1,9 @@
 #pragma once
-#include "../base.hpp"
+#include <limits>
+#include <queue>
+#include <vector>
 
-template <typename T> class RangeEdgeGraph {
-    struct edge {
-        int to;
-        T cost;
-        edge(int to, T cost) : to(to), cost(cost) {}
-        bool operator<(const edge& rhs) const { return cost > rhs.cost; }
-    };
-    int n;
-    vector<vector<edge>> G;
-    void add_edge(int u, int v, T cost) { G[(3 * n <= u ? u - 2 * n : u)].emplace_back(v, cost); }
-
+template <typename T> struct RangeEdgeGraph {
 public:
     RangeEdgeGraph(int n) : n(n), G(3 * n) {
         for (int i = 1; i < n; i++) {
@@ -34,11 +26,11 @@ public:
             if (r2 & 1) G[add].emplace_back(--r2, cost);
         }
     }
-    vector<T> build(int s) {
-        vector<T> dp(G.size(), numeric_limits<T>::max());
+    std::vector<T> build(int s) {
+        std::vector<T> dp(G.size(), std::numeric_limits<T>::max());
         s += n;
         dp[s] = 0;
-        priority_queue<edge> pq;
+        std::priority_queue<edge> pq;
         pq.emplace(s, dp[s]);
         while (!pq.empty()) {
             auto p = pq.top();
@@ -53,7 +45,18 @@ public:
                 }
             }
         }
-        vector<T> res(dp.begin() + n, dp.begin() + 2 * n);
+        std::vector<T> res(dp.begin() + n, dp.begin() + 2 * n);
         return res;
     }
+
+private:
+    struct edge {
+        int to;
+        T cost;
+        edge(int to, T cost) : to(to), cost(cost) {}
+        bool operator<(const edge& rhs) const { return cost > rhs.cost; }
+    };
+    int n;
+    std::vector<std::vector<edge>> G;
+    void add_edge(int u, int v, T cost) { G[(3 * n <= u ? u - 2 * n : u)].emplace_back(v, cost); }
 };

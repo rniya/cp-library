@@ -314,6 +314,9 @@ $$
 
 - [Good Bye 2022: 2023 is NEAR G. Koxia and Bracket](https://codeforces.com/contest/1770/problem/G)
 
+- [Good Bye 2022: 2023 is NEAR G. Koxia and Bracket](https://codeforces.com/contest/1770/problem/G)
+  - https://codeforces.com/gym/102220/problem/I や https://codeforces.com/gym/102978/problem/J も同系統らしい？
+
 ## Reference
 [1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
 

@@ -14,4 +14,7 @@ documentation_of: ./RangeEdgeGraph.hpp
 - 'build(s)'：$O(n+q\log n)\log(n+q)$
 
 ## 参照
-[区間に辺を張るテクの実装例（Dijkstra法セット）と使用例 - Lorent’s diary](https://atcoder.jp/contests/nikkei2019-2-qual/tasks/nikkei2019_2_qual_d)
+[区間に辺を張るテクの実装例（Dijkstra法セット）と使用例 - Lorent’s diary](https://lorent-kyopro.hatenablog.com/entry/2020/07/24/170656)
+
+## 問題例
+- [The 1st Universal Cup. Stage 3: Poland F. Flower Garden](https://qoj.ac/contest/1103/problem/5504?v=1)
