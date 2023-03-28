@@ -4,7 +4,7 @@ using namespace std;
 typedef long long ll;
 #define ALL(x) (x).begin(), (x).end()
 #ifdef LOCAL
-#include "debug.hpp"
+#include <debug.hpp>
 #else
 #define debug(...) void(0)
 #endif
