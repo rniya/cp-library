@@ -49,21 +49,21 @@ data:
     document_title: Exp of Formal Power Series
     links:
     - https://arxiv.org/pdf/1301.5804.pdf
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.2/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.11.2/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.2/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
-    \ File \"/opt/hostedtoolcache/Python/3.11.2/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ File \"/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution:\
     \ line -1: no such header\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <functional>\n\
     #include <queue>\n#include <utility>\n#include <vector>\n\n#include \"atcoder/convolution\"\
-    \n\ntemplate <typename T> struct FormalPowerSeries : std::vector<T> {\nprivate:\n\
+    \n\ntemplate <typename T> struct FormalPowerSeries : std::vector<T> {\n  private:\n\
     \    using std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void\
     \ shrink() {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
     \    }\n\n    FPS pre(size_t sz) const { return FPS(this->begin(), this->begin()\
@@ -73,7 +73,7 @@ data:
     \ {};\n        return FPS(this->begin() + sz, this->end());\n    }\n\n    FPS\
     \ operator<<(size_t sz) const {\n        if (this->empty()) return {};\n     \
     \   FPS ret(*this);\n        ret.insert(ret.begin(), sz, T(0));\n        return\
-    \ ret;\n    }\n\npublic:\n    FPS& operator+=(const FPS& r) {\n        if (r.size()\
+    \ ret;\n    }\n\n  public:\n    FPS& operator+=(const FPS& r) {\n        if (r.size()\
     \ > this->size()) this->resize(r.size());\n        for (size_t i = 0; i < r.size();\
     \ i++) (*this)[i] += r[i];\n        shrink();\n        return *this;\n    }\n\n\
     \    FPS& operator+=(const T& v) {\n        if (this->empty()) this->resize(1);\n\
@@ -137,16 +137,15 @@ data:
     \        return ret.pre(deg);\n    }\n\n    /**\n     * @brief Exp of Formal Power\
     \ Series\n     *\n     * @see https://arxiv.org/pdf/1301.5804.pdf\n     */\n \
     \   FPS exp(int deg = -1) const {\n        assert(this->empty() or (*this)[0]\
-    \ == T(0));\n        if (this->size() == 0) return {};\n        if (this->size()\
-    \ == 1) return {T(1)};\n        if (deg == -1) deg = (int)this->size();\n    \
-    \    FPS inv;\n        inv.reserve(deg + 1);\n        inv.push_back(T(0));\n \
-    \       inv.push_back(T(1));\n        auto inplace_integral = [&](FPS& F) -> void\
-    \ {\n            const int n = (int)F.size();\n            auto mod = T::mod();\n\
-    \            while ((int)inv.size() <= n) {\n                int i = inv.size();\n\
-    \                inv.push_back(-inv[mod % i] * (mod / i));\n            }\n  \
-    \          F.insert(F.begin(), T(0));\n            for (int i = 1; i <= n; i++)\
-    \ F[i] *= inv[i];\n        };\n        auto inplace_differential = [](FPS& F)\
-    \ -> void {\n            if (F.empty()) return;\n            F.erase(F.begin());\n\
+    \ == T(0));\n        if (this->size() <= 1) return {T(1)};\n        if (deg ==\
+    \ -1) deg = (int)this->size();\n        FPS inv;\n        inv.reserve(deg + 1);\n\
+    \        inv.push_back(T(0));\n        inv.push_back(T(1));\n        auto inplace_integral\
+    \ = [&](FPS& F) -> void {\n            const int n = (int)F.size();\n        \
+    \    auto mod = T::mod();\n            while ((int)inv.size() <= n) {\n      \
+    \          int i = inv.size();\n                inv.push_back(-inv[mod % i] *\
+    \ (mod / i));\n            }\n            F.insert(F.begin(), T(0));\n       \
+    \     for (int i = 1; i <= n; i++) F[i] *= inv[i];\n        };\n        auto inplace_differential\
+    \ = [](FPS& F) -> void {\n            if (F.empty()) return;\n            F.erase(F.begin());\n\
     \            for (size_t i = 0; i < F.size(); i++) F[i] *= T(i + 1);\n       \
     \ };\n        FPS f{1, (*this)[1]}, g{T(1)}, g_fft{T(1), T(1)};\n        for (int\
     \ m = 2; m < deg; m <<= 1) {\n            const T iz1 = T(m).inv(), iz2 = T(m\
@@ -227,22 +226,22 @@ data:
   isVerificationFile: false
   path: src/polynomial/FormalPowerSeries.hpp
   requiredBy:
-  - src/polynomial/subset_sum.hpp
   - src/polynomial/multipoint_evaluation.hpp
-  timestamp: '2023-01-12 22:28:24+09:00'
+  - src/polynomial/subset_sum.hpp
+  timestamp: '2023-04-22 02:23:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/product_of_polynomial_sequence.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/product_of_polynomial_sequence.test.cpp
   - test/yosupo/polynomial_taylor_shift.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/sharp_p_subset_sum.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
 documentation_of: src/polynomial/FormalPowerSeries.hpp
 layout: document
 title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"

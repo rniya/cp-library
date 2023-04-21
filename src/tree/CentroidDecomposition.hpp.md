@@ -84,3 +84,4 @@ title: "Centroid Decomposition\uFF08\u6728\u306E\u91CD\u5FC3\u5206\u89E3\uFF09"
   - 頂点に重みがついた，距離 $k$ 以下のパスの重みの総和の数え上げ．
 - [AtCoder Regular Contest 087 F - Squirrel Migration](https://atcoder.jp/contests/arc087/tasks/arc087_d)
   - 直接重心分解を用いる訳ではないが重心の性質を利用する．
+- [Starters 83 Beauty Sum](https://www.codechef.com/problems/BEAUTY_SUM?tab=statement)
