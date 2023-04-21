@@ -1,21 +1,18 @@
 #pragma once
 #include <bits/stdc++.h>
-using namespace std;
 
-template <typename T> istream& operator>>(istream& is, vector<T>& v);
-template <typename T> ostream& operator<<(ostream& os, const vector<T>& v);
-template <typename T, typename U> ostream& operator<<(ostream& os, const pair<T, U>& p);
-template <typename T, typename U> ostream& operator<<(ostream& os, const map<T, U>& m);
-template <typename T> ostream& operator<<(ostream& os, const set<T>& s);
-template <typename T> ostream& operator<<(ostream& os, const multiset<T>& s);
-template <typename T> ostream& operator<<(ostream& os, const deque<T>& v);
-template <typename... Args> ostream& operator<<(ostream& os, const tuple<Args...>& t);
+template <typename T, typename U> std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p);
+template <typename T, typename U> std::ostream& operator<<(std::ostream& os, const std::map<T, U>& m);
+template <typename T> std::ostream& operator<<(std::ostream& os, const std::set<T>& s);
+template <typename T> std::ostream& operator<<(std::ostream& os, const std::multiset<T>& s);
+template <typename T> std::ostream& operator<<(std::ostream& os, const std::deque<T>& v);
+template <typename... Args> std::ostream& operator<<(std::ostream& os, const std::tuple<Args...>& t);
 
-template <typename T, typename U> ostream& operator<<(ostream& os, const pair<T, U>& p) {
+template <typename T, typename U> std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p) {
     os << '(' << p.first << ',' << p.second << ')';
     return os;
 }
-template <typename T, typename U> ostream& operator<<(ostream& os, const map<T, U>& m) {
+template <typename T, typename U> std::ostream& operator<<(std::ostream& os, const std::map<T, U>& m) {
     os << '{';
     for (auto itr = m.begin(); itr != m.end();) {
         os << '(' << itr->first << ',' << itr->second << ')';
@@ -24,7 +21,7 @@ template <typename T, typename U> ostream& operator<<(ostream& os, const map<T, 
     os << '}';
     return os;
 }
-template <typename T> ostream& operator<<(ostream& os, const set<T>& s) {
+template <typename T> std::ostream& operator<<(std::ostream& os, const std::set<T>& s) {
     os << '{';
     for (auto itr = s.begin(); itr != s.end();) {
         os << *itr;
@@ -33,7 +30,7 @@ template <typename T> ostream& operator<<(ostream& os, const set<T>& s) {
     os << '}';
     return os;
 }
-template <typename T> ostream& operator<<(ostream& os, const multiset<T>& s) {
+template <typename T> std::ostream& operator<<(std::ostream& os, const std::multiset<T>& s) {
     os << '{';
     for (auto itr = s.begin(); itr != s.end();) {
         os << *itr;
@@ -42,30 +39,30 @@ template <typename T> ostream& operator<<(ostream& os, const multiset<T>& s) {
     os << '}';
     return os;
 }
-template <typename T> ostream& operator<<(ostream& os, const deque<T>& v) {
+template <typename T> std::ostream& operator<<(std::ostream& os, const std::deque<T>& v) {
     for (size_t i = 0; i < v.size(); i++) {
         os << v[i] << (i + 1 == v.size() ? "" : " ");
     }
     return os;
 }
 
-template <int i, typename T> void print_tuple(ostream&, const T&) {}
-template <int i, typename T, typename H, class... Args> void print_tuple(ostream& os, const T& t) {
+template <int i, typename T> void print_tuple(std::ostream&, const T&) {}
+template <int i, typename T, typename H, class... Args> void print_tuple(std::ostream& os, const T& t) {
     if (i) os << ',';
     os << get<i>(t);
     print_tuple<i + 1, T, Args...>(os, t);
 }
-template <typename... Args> ostream& operator<<(ostream& os, const tuple<Args...>& t) {
+template <typename... Args> std::ostream& operator<<(std::ostream& os, const std::tuple<Args...>& t) {
     os << '{';
-    print_tuple<0, tuple<Args...>, Args...>(os, t);
+    print_tuple<0, std::tuple<Args...>, Args...>(os, t);
     return os << '}';
 }
 
-void debug_out() { cerr << '\n'; }
+void debug_out() { std::cerr << '\n'; }
 template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail) {
-    cerr << head;
-    if (sizeof...(Tail) > 0) cerr << ", ";
-    debug_out(move(tail)...);
+    std::cerr << head;
+    if (sizeof...(Tail) > 0) std::cerr << ", ";
+    debug_out(std::move(tail)...);
 }
 #define debug(...)                                                                    \
     cerr << " ";                                                                      \

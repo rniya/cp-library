@@ -9,7 +9,7 @@
 #include "atcoder/convolution"
 
 template <typename T> struct FormalPowerSeries : std::vector<T> {
-private:
+  private:
     using std::vector<T>::vector;
     using FPS = FormalPowerSeries;
     void shrink() {
@@ -36,7 +36,7 @@ private:
         return ret;
     }
 
-public:
+  public:
     FPS& operator+=(const FPS& r) {
         if (r.size() > this->size()) this->resize(r.size());
         for (size_t i = 0; i < r.size(); i++) (*this)[i] += r[i];
@@ -195,8 +195,7 @@ public:
      */
     FPS exp(int deg = -1) const {
         assert(this->empty() or (*this)[0] == T(0));
-        if (this->size() == 0) return {};
-        if (this->size() == 1) return {T(1)};
+        if (this->size() <= 1) return {T(1)};
         if (deg == -1) deg = (int)this->size();
         FPS inv;
         inv.reserve(deg + 1);
