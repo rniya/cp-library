@@ -18,6 +18,9 @@ data:
     - icon: ':warning:'
       path: src/algorithm/monotone_minima.hpp
       title: monotone minima
+    - icon: ':warning:'
+      path: src/algorithm/smawk.hpp
+      title: src/algorithm/smawk.hpp
   - name: src
     pages:
     - icon: ':heavy_check_mark:'
