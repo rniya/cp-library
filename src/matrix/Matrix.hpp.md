@@ -77,12 +77,11 @@ data:
     \ p) {\n        size_t n = p.height(), m = p.width();\n        os << \"[(\" <<\
     \ n << \" * \" << m << \" Matrix)\";\n        os << \"\\n[columun sums: \";\n\
     \        for (size_t j = 0; j < m; j++) {\n            T sum = 0;\n          \
-    \  for (size_t i = 0; i < n; i++) sum += p[i][j];\n            ;\n           \
-    \ os << sum << (j + 1 < m ? \",\" : \"\");\n        }\n        os << \"]\";\n\
-    \        for (size_t i = 0; i < n; i++) {\n            os << \"\\n[\";\n     \
-    \       for (size_t j = 0; j < m; j++) os << p[i][j] << (j + 1 < m ? \",\" : \"\
-    \");\n            os << \"]\";\n        }\n        os << \"]\\n\";\n        return\
-    \ os;\n    }\n};\n"
+    \  for (size_t i = 0; i < n; i++) sum += p[i][j];\n            os << sum << (j\
+    \ + 1 < m ? \",\" : \"\");\n        }\n        os << \"]\";\n        for (size_t\
+    \ i = 0; i < n; i++) {\n            os << \"\\n[\";\n            for (size_t j\
+    \ = 0; j < m; j++) os << p[i][j] << (j + 1 < m ? \",\" : \"\");\n            os\
+    \ << \"]\";\n        }\n        os << \"]\\n\";\n        return os;\n    }\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <iostream>\n#include <vector>\n\
     \ntemplate <typename T> struct Matrix {\n    std::vector<std::vector<T>> A;\n\n\
     \    Matrix(size_t n, size_t m) : A(n, std::vector<T>(m, 0)) {}\n\n    Matrix(size_t\
@@ -149,17 +148,16 @@ data:
     \ p) {\n        size_t n = p.height(), m = p.width();\n        os << \"[(\" <<\
     \ n << \" * \" << m << \" Matrix)\";\n        os << \"\\n[columun sums: \";\n\
     \        for (size_t j = 0; j < m; j++) {\n            T sum = 0;\n          \
-    \  for (size_t i = 0; i < n; i++) sum += p[i][j];\n            ;\n           \
-    \ os << sum << (j + 1 < m ? \",\" : \"\");\n        }\n        os << \"]\";\n\
-    \        for (size_t i = 0; i < n; i++) {\n            os << \"\\n[\";\n     \
-    \       for (size_t j = 0; j < m; j++) os << p[i][j] << (j + 1 < m ? \",\" : \"\
-    \");\n            os << \"]\";\n        }\n        os << \"]\\n\";\n        return\
-    \ os;\n    }\n};\n"
+    \  for (size_t i = 0; i < n; i++) sum += p[i][j];\n            os << sum << (j\
+    \ + 1 < m ? \",\" : \"\");\n        }\n        os << \"]\";\n        for (size_t\
+    \ i = 0; i < n; i++) {\n            os << \"\\n[\";\n            for (size_t j\
+    \ = 0; j < m; j++) os << p[i][j] << (j + 1 < m ? \",\" : \"\");\n            os\
+    \ << \"]\";\n        }\n        os << \"]\\n\";\n        return os;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: src/matrix/Matrix.hpp
   requiredBy: []
-  timestamp: '2023-04-23 18:55:45+09:00'
+  timestamp: '2023-04-23 21:07:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/matrix_det.test.cpp

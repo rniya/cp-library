@@ -151,12 +151,13 @@ data:
     \ p)); }\n\nReal distance(const Line& l, const Line& m) { return intersect(l,\
     \ m) ? 0 : distance(l, m.a); }\n\nReal distance(const Line& l, const Segment&\
     \ s) {\n    return intersect(l, s) ? 0 : std::min(distance(l, s.a), distance(l,\
-    \ s.b));\n}\n\nReal distance(const Segment& s, const Point& p) {\n    Point h\
-    \ = proj(s, p);\n    return intersect(s, h) ? distance(p, h) : std::min(distance(p,\
-    \ s.a), distance(p, s.b));\n}\n\nReal distance(const Segment& s, const Segment&\
-    \ t) {\n    if (intersect(s, t)) return 0;\n    return std::min({distance(s, t.a),\
-    \ distance(s, t.b), distance(t, s.a), distance(t, s.b)});\n}\n\nPoint crosspoint(const\
-    \ Line& l, const Line& m) {\n    assert(intersect(l, m));\n    Real A = cross(l.diff(),\
+    \ s.b));\n}\n\nReal distance(const Segment& s, const Point& p) {\n    if (compare(dot(s.diff(),\
+    \ p - s.a), 0) == -1) return distance(p, s.a);\n    if (compare(dot(-s.diff(),\
+    \ p - s.b), 0) == -1) return distance(p, s.b);\n    return distance(Line(s.a,\
+    \ s.b), p);\n}\n\nReal distance(const Segment& s, const Segment& t) {\n    if\
+    \ (intersect(s, t)) return 0;\n    return std::min({distance(s, t.a), distance(s,\
+    \ t.b), distance(t, s.a), distance(t, s.b)});\n}\n\nPoint crosspoint(const Line&\
+    \ l, const Line& m) {\n    assert(intersect(l, m));\n    Real A = cross(l.diff(),\
     \ m.diff()), B = cross(l.diff(), l.b - m.a);\n    if (equals(A, 0) && equals(B,\
     \ 0)) return m.a;\n    return m.a + m.diff() * B / A;\n}\n\nstruct Circle {\n\
     \    Point center;\n    Real radius;\n\n    Circle() {}\n\n    Circle(const Point&\
@@ -380,12 +381,13 @@ data:
     \ p)); }\n\nReal distance(const Line& l, const Line& m) { return intersect(l,\
     \ m) ? 0 : distance(l, m.a); }\n\nReal distance(const Line& l, const Segment&\
     \ s) {\n    return intersect(l, s) ? 0 : std::min(distance(l, s.a), distance(l,\
-    \ s.b));\n}\n\nReal distance(const Segment& s, const Point& p) {\n    Point h\
-    \ = proj(s, p);\n    return intersect(s, h) ? distance(p, h) : std::min(distance(p,\
-    \ s.a), distance(p, s.b));\n}\n\nReal distance(const Segment& s, const Segment&\
-    \ t) {\n    if (intersect(s, t)) return 0;\n    return std::min({distance(s, t.a),\
-    \ distance(s, t.b), distance(t, s.a), distance(t, s.b)});\n}\n\nPoint crosspoint(const\
-    \ Line& l, const Line& m) {\n    assert(intersect(l, m));\n    Real A = cross(l.diff(),\
+    \ s.b));\n}\n\nReal distance(const Segment& s, const Point& p) {\n    if (compare(dot(s.diff(),\
+    \ p - s.a), 0) == -1) return distance(p, s.a);\n    if (compare(dot(-s.diff(),\
+    \ p - s.b), 0) == -1) return distance(p, s.b);\n    return distance(Line(s.a,\
+    \ s.b), p);\n}\n\nReal distance(const Segment& s, const Segment& t) {\n    if\
+    \ (intersect(s, t)) return 0;\n    return std::min({distance(s, t.a), distance(s,\
+    \ t.b), distance(t, s.a), distance(t, s.b)});\n}\n\nPoint crosspoint(const Line&\
+    \ l, const Line& m) {\n    assert(intersect(l, m));\n    Real A = cross(l.diff(),\
     \ m.diff()), B = cross(l.diff(), l.b - m.a);\n    if (equals(A, 0) && equals(B,\
     \ 0)) return m.a;\n    return m.a + m.diff() * B / A;\n}\n\nstruct Circle {\n\
     \    Point center;\n    Real radius;\n\n    Circle() {}\n\n    Circle(const Point&\
@@ -540,7 +542,7 @@ data:
   isVerificationFile: false
   path: src/geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2023-02-14 22:43:04+09:00'
+  timestamp: '2023-04-23 21:07:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL_1_A.test.cpp

@@ -25,9 +25,9 @@ data:
     \     for (size_t i = 0; i < N; i++) {\n            for (size_t j = 0; j < N;\
     \ j++) {\n                (*this)[i][j] -= B[i][j];\n            }\n        }\n\
     \        return *this;\n    }\n\n    SquareMatrix& operator*=(const SquareMatrix&\
-    \ B) {\n        std::array<std::array<T, N>, N> C;\n        for (size_t i = 0;\
-    \ i < N; i++) {\n            for (size_t k = 0; k < N; k++) {\n              \
-    \  for (size_t j = 0; j < N; j++) {\n                    C[i][j] += (*this)[i][k]\
+    \ B) {\n        std::array<std::array<T, N>, N> C = {};\n        for (size_t i\
+    \ = 0; i < N; i++) {\n            for (size_t k = 0; k < N; k++) {\n         \
+    \       for (size_t j = 0; j < N; j++) {\n                    C[i][j] += (*this)[i][k]\
     \ * B[k][j];\n                }\n            }\n        }\n        A.swap(C);\n\
     \        return *this;\n    }\n\n    SquareMatrix& operator*=(const T& v) {\n\
     \        for (size_t i = 0; i < N; i++) {\n            for (size_t j = 0; j <\
@@ -88,59 +88,60 @@ data:
     \ {\n            for (size_t j = 0; j < N; j++) {\n                (*this)[i][j]\
     \ -= B[i][j];\n            }\n        }\n        return *this;\n    }\n\n    SquareMatrix&\
     \ operator*=(const SquareMatrix& B) {\n        std::array<std::array<T, N>, N>\
-    \ C;\n        for (size_t i = 0; i < N; i++) {\n            for (size_t k = 0;\
-    \ k < N; k++) {\n                for (size_t j = 0; j < N; j++) {\n          \
-    \          C[i][j] += (*this)[i][k] * B[k][j];\n                }\n          \
-    \  }\n        }\n        A.swap(C);\n        return *this;\n    }\n\n    SquareMatrix&\
-    \ operator*=(const T& v) {\n        for (size_t i = 0; i < N; i++) {\n       \
-    \     for (size_t j = 0; j < N; j++) {\n                (*this)[i][j] *= v;\n\
-    \            }\n        }\n        return *this;\n    }\n\n    SquareMatrix& operator/=(const\
-    \ T& v) {\n        T inv = T(1) / v;\n        for (size_t i = 0; i < N; i++) {\n\
-    \            for (size_t j = 0; j < N; j++) {\n                (*this)[i][j] *=\
-    \ inv;\n            }\n        }\n        return *this;\n    }\n\n    SquareMatrix&\
-    \ operator^=(long long k) {\n        assert(0 <= k);\n        SquareMatrix B =\
-    \ SquareMatrix::I();\n        while (k > 0) {\n            if (k & 1) B *= *this;\n\
-    \            *this *= *this;\n            k >>= 1;\n        }\n        A.swap(B.A);\n\
-    \        return *this;\n    }\n\n    SquareMatrix operator-() const {\n      \
-    \  SquareMatrix res;\n        for (size_t i = 0; i < N; i++) {\n            for\
-    \ (size_t j = 0; j < N; j++) {\n                res[i][j] = -(*this)[i][j];\n\
-    \            }\n        }\n        return res;\n    }\n\n    SquareMatrix operator+(const\
-    \ SquareMatrix& B) const { return SquareMatrix(*this) += B; }\n\n    SquareMatrix\
-    \ operator-(const SquareMatrix& B) const { return SquareMatrix(*this) -= B; }\n\
-    \n    SquareMatrix operator*(const SquareMatrix& B) const { return SquareMatrix(*this)\
-    \ *= B; }\n\n    SquareMatrix operator*(const T& v) const { return SquareMatrix(*this)\
-    \ *= v; }\n\n    SquareMatrix operator/(const T& v) const { return SquareMatrix(*this)\
-    \ /= v; }\n\n    SquareMatrix operator^(const long long k) const { return SquareMatrix(*this)\
-    \ ^= k; }\n\n    bool operator==(const SquareMatrix& B) const { return A == B.A;\
-    \ }\n\n    bool operator!=(const SquareMatrix& B) const { return A != B.A; }\n\
-    \n    SquareMatrix transpose() const {\n        SquareMatrix res;\n        for\
-    \ (size_t i = 0; i < N; i++) {\n            for (size_t j = 0; j < N; j++) {\n\
-    \                res[j][i] = (*this)[i][j];\n            }\n        }\n      \
-    \  return res;\n    }\n\n    T determinant(size_t n = N) const {\n        SquareMatrix\
-    \ B(*this);\n        T res = 1;\n        for (size_t i = 0; i < n; i++) {\n  \
-    \          int pivot = -1;\n            for (size_t j = i; j < n; j++) {\n   \
-    \             if (B[j][i] != 0) {\n                    pivot = j;\n          \
-    \          break;\n                }\n            }\n            if (pivot ==\
-    \ -1) return 0;\n            if (pivot != (int)i) {\n                res *= -1;\n\
-    \                std::swap(B[i], B[pivot]);\n            }\n            res *=\
-    \ B[i][i];\n            T inv = T(1) / B[i][i];\n            for (size_t j = 0;\
-    \ j < n; j++) B[i][j] *= inv;\n            for (size_t j = i + 1; j < n; j++)\
-    \ {\n                T a = B[j][i];\n                for (size_t k = 0; k < n;\
-    \ k++) {\n                    B[j][k] -= B[i][k] * a;\n                }\n   \
-    \         }\n        }\n    }\n\n    friend std::ostream& operator<<(std::ostream&\
-    \ os, const SquareMatrix& p) {\n        os << \"[(\" << N << \" * \" << N << \"\
-    \ Matrix)\";\n        os << \"\\n[columun sums: \";\n        for (size_t j = 0;\
-    \ j < N; j++) {\n            T sum = 0;\n            for (size_t i = 0; i < N;\
-    \ i++) sum += p[i][j];\n            ;\n            os << sum << (j + 1 < N ? \"\
-    ,\" : \"\");\n        }\n        os << \"]\";\n        for (size_t i = 0; i <\
-    \ N; i++) {\n            os << \"\\n[\";\n            for (size_t j = 0; j < N;\
-    \ j++) os << p[i][j] << (j + 1 < N ? \",\" : \"\");\n            os << \"]\";\n\
-    \        }\n        os << \"]\\n\";\n        return os;\n    }\n};\n"
+    \ C = {};\n        for (size_t i = 0; i < N; i++) {\n            for (size_t k\
+    \ = 0; k < N; k++) {\n                for (size_t j = 0; j < N; j++) {\n     \
+    \               C[i][j] += (*this)[i][k] * B[k][j];\n                }\n     \
+    \       }\n        }\n        A.swap(C);\n        return *this;\n    }\n\n   \
+    \ SquareMatrix& operator*=(const T& v) {\n        for (size_t i = 0; i < N; i++)\
+    \ {\n            for (size_t j = 0; j < N; j++) {\n                (*this)[i][j]\
+    \ *= v;\n            }\n        }\n        return *this;\n    }\n\n    SquareMatrix&\
+    \ operator/=(const T& v) {\n        T inv = T(1) / v;\n        for (size_t i =\
+    \ 0; i < N; i++) {\n            for (size_t j = 0; j < N; j++) {\n           \
+    \     (*this)[i][j] *= inv;\n            }\n        }\n        return *this;\n\
+    \    }\n\n    SquareMatrix& operator^=(long long k) {\n        assert(0 <= k);\n\
+    \        SquareMatrix B = SquareMatrix::I();\n        while (k > 0) {\n      \
+    \      if (k & 1) B *= *this;\n            *this *= *this;\n            k >>=\
+    \ 1;\n        }\n        A.swap(B.A);\n        return *this;\n    }\n\n    SquareMatrix\
+    \ operator-() const {\n        SquareMatrix res;\n        for (size_t i = 0; i\
+    \ < N; i++) {\n            for (size_t j = 0; j < N; j++) {\n                res[i][j]\
+    \ = -(*this)[i][j];\n            }\n        }\n        return res;\n    }\n\n\
+    \    SquareMatrix operator+(const SquareMatrix& B) const { return SquareMatrix(*this)\
+    \ += B; }\n\n    SquareMatrix operator-(const SquareMatrix& B) const { return\
+    \ SquareMatrix(*this) -= B; }\n\n    SquareMatrix operator*(const SquareMatrix&\
+    \ B) const { return SquareMatrix(*this) *= B; }\n\n    SquareMatrix operator*(const\
+    \ T& v) const { return SquareMatrix(*this) *= v; }\n\n    SquareMatrix operator/(const\
+    \ T& v) const { return SquareMatrix(*this) /= v; }\n\n    SquareMatrix operator^(const\
+    \ long long k) const { return SquareMatrix(*this) ^= k; }\n\n    bool operator==(const\
+    \ SquareMatrix& B) const { return A == B.A; }\n\n    bool operator!=(const SquareMatrix&\
+    \ B) const { return A != B.A; }\n\n    SquareMatrix transpose() const {\n    \
+    \    SquareMatrix res;\n        for (size_t i = 0; i < N; i++) {\n           \
+    \ for (size_t j = 0; j < N; j++) {\n                res[j][i] = (*this)[i][j];\n\
+    \            }\n        }\n        return res;\n    }\n\n    T determinant(size_t\
+    \ n = N) const {\n        SquareMatrix B(*this);\n        T res = 1;\n       \
+    \ for (size_t i = 0; i < n; i++) {\n            int pivot = -1;\n            for\
+    \ (size_t j = i; j < n; j++) {\n                if (B[j][i] != 0) {\n        \
+    \            pivot = j;\n                    break;\n                }\n     \
+    \       }\n            if (pivot == -1) return 0;\n            if (pivot != (int)i)\
+    \ {\n                res *= -1;\n                std::swap(B[i], B[pivot]);\n\
+    \            }\n            res *= B[i][i];\n            T inv = T(1) / B[i][i];\n\
+    \            for (size_t j = 0; j < n; j++) B[i][j] *= inv;\n            for (size_t\
+    \ j = i + 1; j < n; j++) {\n                T a = B[j][i];\n                for\
+    \ (size_t k = 0; k < n; k++) {\n                    B[j][k] -= B[i][k] * a;\n\
+    \                }\n            }\n        }\n    }\n\n    friend std::ostream&\
+    \ operator<<(std::ostream& os, const SquareMatrix& p) {\n        os << \"[(\"\
+    \ << N << \" * \" << N << \" Matrix)\";\n        os << \"\\n[columun sums: \"\
+    ;\n        for (size_t j = 0; j < N; j++) {\n            T sum = 0;\n        \
+    \    for (size_t i = 0; i < N; i++) sum += p[i][j];\n            ;\n         \
+    \   os << sum << (j + 1 < N ? \",\" : \"\");\n        }\n        os << \"]\";\n\
+    \        for (size_t i = 0; i < N; i++) {\n            os << \"\\n[\";\n     \
+    \       for (size_t j = 0; j < N; j++) os << p[i][j] << (j + 1 < N ? \",\" : \"\
+    \");\n            os << \"]\";\n        }\n        os << \"]\\n\";\n        return\
+    \ os;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: src/matrix/SquareMatrix.hpp
   requiredBy: []
-  timestamp: '2023-04-23 18:55:45+09:00'
+  timestamp: '2023-04-23 21:07:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1050.test.cpp
