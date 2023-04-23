@@ -14,27 +14,27 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/linearalgebra/characteristic_polynomial.hpp\"\n#include\
-    \ <algorithm>\n#include <cassert>\n#include <vector>\n\ntemplate <typename T>\
-    \ std::vector<T> characteristic_polynomial(std::vector<std::vector<T>> M) {\n\
-    \    assert(M.empty() or M.size() == M[0].size());\n    int n = M.size();\n  \
-    \  // reduce M to upper Hessenberg form\n    for (int j = 0; j < n - 2; j++) {\n\
-    \        for (int i = j + 2; i < n; i++) {\n            if (M[i][j] != 0) {\n\
-    \                std::swap(M[j + 1], M[i]);\n                for (int k = 0; k\
-    \ < n; k++) std::swap(M[k][j + 1], M[k][i]);\n                break;\n       \
-    \     }\n        }\n        if (M[j + 1][j] == 0) continue;\n        auto inv\
-    \ = T(1) / M[j + 1][j];\n        for (int i = j + 2; i < n; i++) {\n         \
-    \   auto coef = M[i][j] * inv;\n            for (int k = j; k < n; k++) M[i][k]\
-    \ -= coef * M[j + 1][k];\n            for (int k = 0; k < n; k++) M[k][j + 1]\
-    \ += coef * M[k][i];\n        }\n    }\n\n    // compute the characteristic polynomial\
-    \ of upper Hessenberg matrix M\n    std::vector<std::vector<T>> p(n + 1);\n  \
-    \  p[0] = {T(1)};\n    for (int i = 0; i < n; i++) {\n        p[i + 1].resize(i\
-    \ + 2);\n        for (int j = 0; j <= i; j++) {\n            p[i + 1][j + 1] +=\
-    \ p[i][j];\n            p[i + 1][j] -= p[i][j] * M[i][i];\n        }\n       \
-    \ T betas = 1;\n        for (int j = i - 1; j >= 0; j--) {\n            betas\
-    \ *= M[j + 1][j];\n            T coef = -betas * M[j][i];\n            for (int\
-    \ k = 0; k <= j; k++) p[i + 1][k] += coef * p[j][k];\n        }\n    }\n    return\
-    \ p[n];\n}\n\ntemplate <typename T>\nstd::vector<T> determinant_polynomial(std::vector<std::vector<T>>\
+  bundledCode: "#line 2 \"src/matrix/characteristic_polynomial.hpp\"\n#include <algorithm>\n\
+    #include <cassert>\n#include <vector>\n\ntemplate <typename T> std::vector<T>\
+    \ characteristic_polynomial(std::vector<std::vector<T>> M) {\n    assert(M.empty()\
+    \ or M.size() == M[0].size());\n    int n = M.size();\n    // reduce M to upper\
+    \ Hessenberg form\n    for (int j = 0; j < n - 2; j++) {\n        for (int i =\
+    \ j + 2; i < n; i++) {\n            if (M[i][j] != 0) {\n                std::swap(M[j\
+    \ + 1], M[i]);\n                for (int k = 0; k < n; k++) std::swap(M[k][j +\
+    \ 1], M[k][i]);\n                break;\n            }\n        }\n        if\
+    \ (M[j + 1][j] == 0) continue;\n        auto inv = T(1) / M[j + 1][j];\n     \
+    \   for (int i = j + 2; i < n; i++) {\n            auto coef = M[i][j] * inv;\n\
+    \            for (int k = j; k < n; k++) M[i][k] -= coef * M[j + 1][k];\n    \
+    \        for (int k = 0; k < n; k++) M[k][j + 1] += coef * M[k][i];\n        }\n\
+    \    }\n\n    // compute the characteristic polynomial of upper Hessenberg matrix\
+    \ M\n    std::vector<std::vector<T>> p(n + 1);\n    p[0] = {T(1)};\n    for (int\
+    \ i = 0; i < n; i++) {\n        p[i + 1].resize(i + 2);\n        for (int j =\
+    \ 0; j <= i; j++) {\n            p[i + 1][j + 1] += p[i][j];\n            p[i\
+    \ + 1][j] -= p[i][j] * M[i][i];\n        }\n        T betas = 1;\n        for\
+    \ (int j = i - 1; j >= 0; j--) {\n            betas *= M[j + 1][j];\n        \
+    \    T coef = -betas * M[j][i];\n            for (int k = 0; k <= j; k++) p[i\
+    \ + 1][k] += coef * p[j][k];\n        }\n    }\n    return p[n];\n}\n\ntemplate\
+    \ <typename T>\nstd::vector<T> determinant_polynomial(std::vector<std::vector<T>>\
     \ M0, std::vector<std::vector<T>> M1) {\n    assert(M0.size() == M1.size());\n\
     \    assert(M0.size() == M0[0].size());\n    assert(M1.size() == M1[0].size());\n\
     \    int n = M0.size(), off = 0;\n    T prod = 1;\n\n    for (int p = 0; p < n;\
@@ -101,14 +101,14 @@ data:
     \ = prod * poly[i + off];\n    return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/linearalgebra/characteristic_polynomial.hpp
+  path: src/matrix/characteristic_polynomial.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/characteristic_polynomial.test.cpp
   - test/yukicoder/1907.test.cpp
-documentation_of: src/linearalgebra/characteristic_polynomial.hpp
+documentation_of: src/matrix/characteristic_polynomial.hpp
 layout: document
 title: Characteristic Polynomial
 ---

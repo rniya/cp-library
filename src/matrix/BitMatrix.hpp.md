@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/linearalgebra/BitMatrix.hpp\"\n#include <bitset>\n#include\
+  bundledCode: "#line 2 \"src/matrix/BitMatrix.hpp\"\n#include <bitset>\n#include\
     \ <cassert>\n#include <vector>\n\ntemplate <size_t MAX_COL> struct BitMatrix {\n\
     \    size_t n, m;\n    std::vector<std::bitset<MAX_COL>> A;\n\n    BitMatrix(size_t\
     \ n, size_t m) : n(n), m(m), A(n) { assert(m <= MAX_COL); }\n\n    size_t size()\
@@ -82,13 +82,13 @@ data:
     \ res[B[i]._Find_first()] = B[i][m];\n        return {rank, res};\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/linearalgebra/BitMatrix.hpp
+  path: src/matrix/BitMatrix.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/803.test.cpp
-documentation_of: src/linearalgebra/BitMatrix.hpp
+documentation_of: src/matrix/BitMatrix.hpp
 layout: document
 title: Bit Matrix
 ---

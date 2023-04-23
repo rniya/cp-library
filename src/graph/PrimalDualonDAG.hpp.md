@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/flow/PrimalDualonDAG.hpp\"\n#include <cassert>\n#include\
+  bundledCode: "#line 2 \"src/graph/PrimalDualonDAG.hpp\"\n#include <cassert>\n#include\
     \ <limits>\n#include <queue>\n#include <vector>\n\ntemplate <typename Cap, typename\
     \ Cost> struct PrimalDualonDAG {\n    PrimalDualonDAG(int n) : n(n), G(n), h(n),\
     \ dist(n), prevv(n), preve(n), indeg(n, 0) {}\n\n    int add_edge(int from, int\
@@ -141,13 +141,13 @@ data:
     \    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/flow/PrimalDualonDAG.hpp
+  path: src/graph/PrimalDualonDAG.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1678.test.cpp
-documentation_of: src/flow/PrimalDualonDAG.hpp
+documentation_of: src/graph/PrimalDualonDAG.hpp
 layout: document
 title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\u6D41\
   \uFF09"

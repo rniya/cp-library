@@ -46,12 +46,12 @@ data:
     \    Cost sum;\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/flow/min_cost_b_flow.hpp
+  path: src/graph/min_cost_b_flow.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: src/flow/min_cost_b_flow.hpp
+documentation_of: src/graph/min_cost_b_flow.hpp
 layout: document
 title: Minimum Cost b-flow
 ---

@@ -33,18 +33,18 @@ data:
     \        os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return\
     \ os;\n}\n\ntemplate <int i, typename T> void print_tuple(std::ostream&, const\
     \ T&) {}\ntemplate <int i, typename T, typename H, class... Args> void print_tuple(std::ostream&\
-    \ os, const T& t) {\n    if (i) os << ',';\n    os << get<i>(t);\n    print_tuple<i\
+    \ os, const T& t) {\n    if (i) os << ',';\n    os << std::get<i>(t);\n    print_tuple<i\
     \ + 1, T, Args...>(os, t);\n}\ntemplate <typename... Args> std::ostream& operator<<(std::ostream&\
     \ os, const std::tuple<Args...>& t) {\n    os << '{';\n    print_tuple<0, std::tuple<Args...>,\
     \ Args...>(os, t);\n    return os << '}';\n}\n\nvoid debug_out() { std::cerr <<\
     \ '\\n'; }\ntemplate <class Head, class... Tail> void debug_out(Head&& head, Tail&&...\
     \ tail) {\n    std::cerr << head;\n    if (sizeof...(Tail) > 0) std::cerr << \"\
     , \";\n    debug_out(std::move(tail)...);\n}\n#define debug(...)             \
-    \                                                       \\\n    cerr << \" \"\
-    ;                                                                      \\\n  \
-    \  cerr << #__VA_ARGS__ << \": [\" << __LINE__ << \": \" << __FUNCTION__ << \"\
-    ]\" << '\\n'; \\\n    cerr << \" \";                                         \
-    \                             \\\n    debug_out(__VA_ARGS__)\n"
+    \                                                            \\\n    std::cerr\
+    \ << \" \";                                                                  \
+    \    \\\n    std::cerr << #__VA_ARGS__ << \": [\" << __LINE__ << \": \" << __FUNCTION__\
+    \ << \"]\" << '\\n'; \\\n    std::cerr << \" \";                             \
+    \                                         \\\n    debug_out(__VA_ARGS__)\n"
   code: "#pragma once\n#include <bits/stdc++.h>\n\ntemplate <typename T, typename\
     \ U> std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p);\ntemplate\
     \ <typename T, typename U> std::ostream& operator<<(std::ostream& os, const std::map<T,\
@@ -70,23 +70,23 @@ data:
     \        os << v[i] << (i + 1 == v.size() ? \"\" : \" \");\n    }\n    return\
     \ os;\n}\n\ntemplate <int i, typename T> void print_tuple(std::ostream&, const\
     \ T&) {}\ntemplate <int i, typename T, typename H, class... Args> void print_tuple(std::ostream&\
-    \ os, const T& t) {\n    if (i) os << ',';\n    os << get<i>(t);\n    print_tuple<i\
+    \ os, const T& t) {\n    if (i) os << ',';\n    os << std::get<i>(t);\n    print_tuple<i\
     \ + 1, T, Args...>(os, t);\n}\ntemplate <typename... Args> std::ostream& operator<<(std::ostream&\
     \ os, const std::tuple<Args...>& t) {\n    os << '{';\n    print_tuple<0, std::tuple<Args...>,\
     \ Args...>(os, t);\n    return os << '}';\n}\n\nvoid debug_out() { std::cerr <<\
     \ '\\n'; }\ntemplate <class Head, class... Tail> void debug_out(Head&& head, Tail&&...\
     \ tail) {\n    std::cerr << head;\n    if (sizeof...(Tail) > 0) std::cerr << \"\
     , \";\n    debug_out(std::move(tail)...);\n}\n#define debug(...)             \
-    \                                                       \\\n    cerr << \" \"\
-    ;                                                                      \\\n  \
-    \  cerr << #__VA_ARGS__ << \": [\" << __LINE__ << \": \" << __FUNCTION__ << \"\
-    ]\" << '\\n'; \\\n    cerr << \" \";                                         \
-    \                             \\\n    debug_out(__VA_ARGS__)\n"
+    \                                                            \\\n    std::cerr\
+    \ << \" \";                                                                  \
+    \    \\\n    std::cerr << #__VA_ARGS__ << \": [\" << __LINE__ << \": \" << __FUNCTION__\
+    \ << \"]\" << '\\n'; \\\n    std::cerr << \" \";                             \
+    \                                         \\\n    debug_out(__VA_ARGS__)\n"
   dependsOn: []
   isVerificationFile: false
   path: src/debug.hpp
   requiredBy: []
-  timestamp: '2023-04-22 02:23:28+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/debug.hpp

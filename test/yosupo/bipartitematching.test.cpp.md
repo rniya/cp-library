@@ -5,7 +5,7 @@ data:
     path: src/base.hpp
     title: src/base.hpp
   - icon: ':heavy_check_mark:'
-    path: src/flow/BipartiteMatching.hpp
+    path: src/graph/BipartiteMatching.hpp
     title: Bipartite Matching
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -27,23 +27,23 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: flow/BipartiteMatching.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/BipartiteMatching.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bipartitematching\"\n\n\
-    #include \"flow/BipartiteMatching.hpp\"\n#include \"base.hpp\"\n\nint main() {\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int L, R, M;\n    cin\
-    \ >> L >> R >> M;\n\n    BipartiteMatching BM(L, R);\n    for (; M--;) {\n   \
-    \     int a, b;\n        cin >> a >> b;\n        BM.add_edge(a, b);\n    }\n\n\
-    \    BM.solve();\n    auto ans = BM.max_matching();\n    cout << ans.size() <<\
+    #include \"graph/BipartiteMatching.hpp\"\n#include \"base.hpp\"\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int L, R, M;\n   \
+    \ cin >> L >> R >> M;\n\n    BipartiteMatching BM(L, R);\n    for (; M--;) {\n\
+    \        int a, b;\n        cin >> a >> b;\n        BM.add_edge(a, b);\n    }\n\
+    \n    BM.solve();\n    auto ans = BM.max_matching();\n    cout << ans.size() <<\
     \ '\\n';\n    for (auto p : ans) cout << p.first << ' ' << p.second << '\\n';\n\
     \    return 0;\n}"
   dependsOn:
-  - src/flow/BipartiteMatching.hpp
+  - src/graph/BipartiteMatching.hpp
   - src/base.hpp
   isVerificationFile: true
   path: test/yosupo/bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2023-04-22 02:23:28+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/bipartitematching.test.cpp

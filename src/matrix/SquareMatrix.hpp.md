@@ -11,43 +11,43 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/linearalgebra/SquareMatrix.hpp\"\n#include <array>\n\
-    #include <cassert>\n#include <iostream>\n\ntemplate <typename T, size_t N> struct\
-    \ SquareMatrix {\n    std::array<std::array<T, N>, N> A;\n\n    SquareMatrix()\
-    \ : A{{}} {}\n\n    size_t size() const { return N; }\n\n    inline const std::array<T,\
-    \ N>& operator[](int k) const { return A[k]; }\n\n    inline std::array<T, N>&\
-    \ operator[](int k) { return A[k]; }\n\n    static SquareMatrix I() {\n      \
-    \  SquareMatrix res;\n        for (size_t i = 0; i < N; i++) res[i][i] = 1;\n\
-    \        return res;\n    }\n\n    SquareMatrix& operator+=(const SquareMatrix&\
-    \ B) {\n        for (size_t i = 0; i < N; i++) {\n            for (size_t j =\
-    \ 0; j < N; j++) {\n                (*this)[i][j] += B[i][j];\n            }\n\
-    \        }\n        return *this;\n    }\n\n    SquareMatrix& operator-=(const\
-    \ SquareMatrix& B) {\n        for (size_t i = 0; i < N; i++) {\n            for\
-    \ (size_t j = 0; j < N; j++) {\n                (*this)[i][j] -= B[i][j];\n  \
-    \          }\n        }\n        return *this;\n    }\n\n    SquareMatrix& operator*=(const\
-    \ SquareMatrix& B) {\n        std::array<std::array<T, N>, N> C;\n        for\
-    \ (size_t i = 0; i < N; i++) {\n            for (size_t k = 0; k < N; k++) {\n\
-    \                for (size_t j = 0; j < N; j++) {\n                    C[i][j]\
-    \ += (*this)[i][k] * B[k][j];\n                }\n            }\n        }\n \
-    \       A.swap(C);\n        return *this;\n    }\n\n    SquareMatrix& operator*=(const\
-    \ T& v) {\n        for (size_t i = 0; i < N; i++) {\n            for (size_t j\
-    \ = 0; j < N; j++) {\n                (*this)[i][j] *= v;\n            }\n   \
-    \     }\n        return *this;\n    }\n\n    SquareMatrix& operator/=(const T&\
-    \ v) {\n        T inv = T(1) / v;\n        for (size_t i = 0; i < N; i++) {\n\
-    \            for (size_t j = 0; j < N; j++) {\n                (*this)[i][j] *=\
-    \ inv;\n            }\n        }\n        return *this;\n    }\n\n    SquareMatrix&\
-    \ operator^=(long long k) {\n        assert(0 <= k);\n        SquareMatrix B =\
-    \ SquareMatrix::I();\n        while (k > 0) {\n            if (k & 1) B *= *this;\n\
-    \            *this *= *this;\n            k >>= 1;\n        }\n        A.swap(B.A);\n\
-    \        return *this;\n    }\n\n    SquareMatrix operator-() const {\n      \
-    \  SquareMatrix res;\n        for (size_t i = 0; i < N; i++) {\n            for\
-    \ (size_t j = 0; j < N; j++) {\n                res[i][j] = -(*this)[i][j];\n\
-    \            }\n        }\n        return res;\n    }\n\n    SquareMatrix operator+(const\
-    \ SquareMatrix& B) const { return SquareMatrix(*this) += B; }\n\n    SquareMatrix\
-    \ operator-(const SquareMatrix& B) const { return SquareMatrix(*this) -= B; }\n\
-    \n    SquareMatrix operator*(const SquareMatrix& B) const { return SquareMatrix(*this)\
-    \ *= B; }\n\n    SquareMatrix operator*(const T& v) const { return SquareMatrix(*this)\
-    \ *= v; }\n\n    SquareMatrix operator/(const T& v) const { return SquareMatrix(*this)\
+  bundledCode: "#line 2 \"src/matrix/SquareMatrix.hpp\"\n#include <array>\n#include\
+    \ <cassert>\n#include <iostream>\n\ntemplate <typename T, size_t N> struct SquareMatrix\
+    \ {\n    std::array<std::array<T, N>, N> A;\n\n    SquareMatrix() : A{{}} {}\n\
+    \n    size_t size() const { return N; }\n\n    inline const std::array<T, N>&\
+    \ operator[](int k) const { return A[k]; }\n\n    inline std::array<T, N>& operator[](int\
+    \ k) { return A[k]; }\n\n    static SquareMatrix I() {\n        SquareMatrix res;\n\
+    \        for (size_t i = 0; i < N; i++) res[i][i] = 1;\n        return res;\n\
+    \    }\n\n    SquareMatrix& operator+=(const SquareMatrix& B) {\n        for (size_t\
+    \ i = 0; i < N; i++) {\n            for (size_t j = 0; j < N; j++) {\n       \
+    \         (*this)[i][j] += B[i][j];\n            }\n        }\n        return\
+    \ *this;\n    }\n\n    SquareMatrix& operator-=(const SquareMatrix& B) {\n   \
+    \     for (size_t i = 0; i < N; i++) {\n            for (size_t j = 0; j < N;\
+    \ j++) {\n                (*this)[i][j] -= B[i][j];\n            }\n        }\n\
+    \        return *this;\n    }\n\n    SquareMatrix& operator*=(const SquareMatrix&\
+    \ B) {\n        std::array<std::array<T, N>, N> C;\n        for (size_t i = 0;\
+    \ i < N; i++) {\n            for (size_t k = 0; k < N; k++) {\n              \
+    \  for (size_t j = 0; j < N; j++) {\n                    C[i][j] += (*this)[i][k]\
+    \ * B[k][j];\n                }\n            }\n        }\n        A.swap(C);\n\
+    \        return *this;\n    }\n\n    SquareMatrix& operator*=(const T& v) {\n\
+    \        for (size_t i = 0; i < N; i++) {\n            for (size_t j = 0; j <\
+    \ N; j++) {\n                (*this)[i][j] *= v;\n            }\n        }\n \
+    \       return *this;\n    }\n\n    SquareMatrix& operator/=(const T& v) {\n \
+    \       T inv = T(1) / v;\n        for (size_t i = 0; i < N; i++) {\n        \
+    \    for (size_t j = 0; j < N; j++) {\n                (*this)[i][j] *= inv;\n\
+    \            }\n        }\n        return *this;\n    }\n\n    SquareMatrix& operator^=(long\
+    \ long k) {\n        assert(0 <= k);\n        SquareMatrix B = SquareMatrix::I();\n\
+    \        while (k > 0) {\n            if (k & 1) B *= *this;\n            *this\
+    \ *= *this;\n            k >>= 1;\n        }\n        A.swap(B.A);\n        return\
+    \ *this;\n    }\n\n    SquareMatrix operator-() const {\n        SquareMatrix\
+    \ res;\n        for (size_t i = 0; i < N; i++) {\n            for (size_t j =\
+    \ 0; j < N; j++) {\n                res[i][j] = -(*this)[i][j];\n            }\n\
+    \        }\n        return res;\n    }\n\n    SquareMatrix operator+(const SquareMatrix&\
+    \ B) const { return SquareMatrix(*this) += B; }\n\n    SquareMatrix operator-(const\
+    \ SquareMatrix& B) const { return SquareMatrix(*this) -= B; }\n\n    SquareMatrix\
+    \ operator*(const SquareMatrix& B) const { return SquareMatrix(*this) *= B; }\n\
+    \n    SquareMatrix operator*(const T& v) const { return SquareMatrix(*this) *=\
+    \ v; }\n\n    SquareMatrix operator/(const T& v) const { return SquareMatrix(*this)\
     \ /= v; }\n\n    SquareMatrix operator^(const long long k) const { return SquareMatrix(*this)\
     \ ^= k; }\n\n    bool operator==(const SquareMatrix& B) const { return A == B.A;\
     \ }\n\n    bool operator!=(const SquareMatrix& B) const { return A != B.A; }\n\
@@ -138,13 +138,13 @@ data:
     \        }\n        os << \"]\\n\";\n        return os;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/linearalgebra/SquareMatrix.hpp
+  path: src/matrix/SquareMatrix.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1050.test.cpp
-documentation_of: src/linearalgebra/SquareMatrix.hpp
+documentation_of: src/matrix/SquareMatrix.hpp
 layout: document
 title: "\u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
 ---

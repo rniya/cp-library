@@ -17,29 +17,29 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/combinatorics/binomial.hpp\"\n#include <cassert>\n#include\
-    \ <vector>\n\ntemplate <typename T> struct Binomial {\n    Binomial(int MAX =\
-    \ 0) : n(1), facs(1, T(1)), finvs(1, T(1)), invs(1, T(1)) {\n        while (n\
-    \ <= MAX) extend();\n    }\n\n    T fac(int i) {\n        assert(i >= 0);\n  \
-    \      while (n <= i) extend();\n        return facs[i];\n    }\n\n    T finv(int\
-    \ i) {\n        assert(i >= 0);\n        while (n <= i) extend();\n        return\
-    \ finvs[i];\n    }\n\n    T inv(int i) {\n        assert(i >= 0);\n        while\
-    \ (n <= i) extend();\n        return invs[i];\n    }\n\n    T P(int n, int r)\
-    \ {\n        if (n < 0 || n < r || r < 0) return T(0);\n        return fac(n)\
-    \ * finv(n - r);\n    }\n\n    T C(int n, int r) {\n        if (n < 0 || n < r\
-    \ || r < 0) return T(0);\n        return fac(n) * finv(n - r) * finv(r);\n   \
-    \ }\n\n    T H(int n, int r) {\n        if (n < 0 || r < 0) return T(0);\n   \
-    \     return r == 0 ? 1 : C(n + r - 1, r);\n    }\n\n    T C_naive(int n, int\
-    \ r) {\n        if (n < 0 || n < r || r < 0) return T(0);\n        T res = 1;\n\
-    \        r = std::min(r, n - r);\n        for (int i = 1; i <= r; i++) res *=\
-    \ inv(i) * (n--);\n        return res;\n    }\n\nprivate:\n    int n;\n    std::vector<T>\
-    \ facs, finvs, invs;\n\n    inline void extend() {\n        int m = n << 1;\n\
-    \        facs.resize(m);\n        finvs.resize(m);\n        invs.resize(m);\n\
-    \        for (int i = n; i < m; i++) facs[i] = facs[i - 1] * i;\n        finvs[m\
-    \ - 1] = T(1) / facs[m - 1];\n        invs[m - 1] = finvs[m - 1] * facs[m - 2];\n\
-    \        for (int i = m - 2; i >= n; i--) {\n            finvs[i] = finvs[i +\
-    \ 1] * (i + 1);\n            invs[i] = finvs[i] * facs[i - 1];\n        }\n  \
-    \      n = m;\n    }\n};\n"
+  bundledCode: "#line 2 \"src/math/binomial.hpp\"\n#include <cassert>\n#include <vector>\n\
+    \ntemplate <typename T> struct Binomial {\n    Binomial(int MAX = 0) : n(1), facs(1,\
+    \ T(1)), finvs(1, T(1)), invs(1, T(1)) {\n        while (n <= MAX) extend();\n\
+    \    }\n\n    T fac(int i) {\n        assert(i >= 0);\n        while (n <= i)\
+    \ extend();\n        return facs[i];\n    }\n\n    T finv(int i) {\n        assert(i\
+    \ >= 0);\n        while (n <= i) extend();\n        return finvs[i];\n    }\n\n\
+    \    T inv(int i) {\n        assert(i >= 0);\n        while (n <= i) extend();\n\
+    \        return invs[i];\n    }\n\n    T P(int n, int r) {\n        if (n < 0\
+    \ || n < r || r < 0) return T(0);\n        return fac(n) * finv(n - r);\n    }\n\
+    \n    T C(int n, int r) {\n        if (n < 0 || n < r || r < 0) return T(0);\n\
+    \        return fac(n) * finv(n - r) * finv(r);\n    }\n\n    T H(int n, int r)\
+    \ {\n        if (n < 0 || r < 0) return T(0);\n        return r == 0 ? 1 : C(n\
+    \ + r - 1, r);\n    }\n\n    T C_naive(int n, int r) {\n        if (n < 0 || n\
+    \ < r || r < 0) return T(0);\n        T res = 1;\n        r = std::min(r, n -\
+    \ r);\n        for (int i = 1; i <= r; i++) res *= inv(i) * (n--);\n        return\
+    \ res;\n    }\n\nprivate:\n    int n;\n    std::vector<T> facs, finvs, invs;\n\
+    \n    inline void extend() {\n        int m = n << 1;\n        facs.resize(m);\n\
+    \        finvs.resize(m);\n        invs.resize(m);\n        for (int i = n; i\
+    \ < m; i++) facs[i] = facs[i - 1] * i;\n        finvs[m - 1] = T(1) / facs[m -\
+    \ 1];\n        invs[m - 1] = finvs[m - 1] * facs[m - 2];\n        for (int i =\
+    \ m - 2; i >= n; i--) {\n            finvs[i] = finvs[i + 1] * (i + 1);\n    \
+    \        invs[i] = finvs[i] * facs[i - 1];\n        }\n        n = m;\n    }\n\
+    };\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\ntemplate <typename\
     \ T> struct Binomial {\n    Binomial(int MAX = 0) : n(1), facs(1, T(1)), finvs(1,\
     \ T(1)), invs(1, T(1)) {\n        while (n <= MAX) extend();\n    }\n\n    T fac(int\
@@ -64,15 +64,15 @@ data:
     \ * facs[i - 1];\n        }\n        n = m;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/combinatorics/binomial.hpp
+  path: src/math/binomial.hpp
   requiredBy:
   - src/polynomial/lagrange_interpolation.hpp
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DPL_5_E.test.cpp
   - test/yukicoder/665.test.cpp
-documentation_of: src/combinatorics/binomial.hpp
+documentation_of: src/math/binomial.hpp
 layout: document
 title: binomial
 ---

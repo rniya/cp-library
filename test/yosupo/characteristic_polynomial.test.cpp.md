@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/linearalgebra/characteristic_polynomial.hpp
+    path: src/matrix/characteristic_polynomial.hpp
     title: Characteristic Polynomial
   - icon: ':question:'
     path: src/util/modint.hpp
@@ -27,10 +27,10 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: linearalgebra/characteristic_polynomial.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: matrix/characteristic_polynomial.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/characteristic_polynomial\"\
-    \n\n#include \"linearalgebra/characteristic_polynomial.hpp\"\n#include \"util/modint.hpp\"\
+    \n\n#include \"matrix/characteristic_polynomial.hpp\"\n#include \"util/modint.hpp\"\
     \n\nusing mint = atcoder::modint998244353;\n\nint main() {\n    std::cin.tie(0);\n\
     \    std::ios::sync_with_stdio(false);\n    int N;\n    std::cin >> N;\n    std::vector<std::vector<mint>>\
     \ a(N, std::vector<mint>(N));\n    for (int i = 0; i < N; i++) {\n        for\
@@ -38,12 +38,12 @@ data:
     \ }\n\n    auto p = characteristic_polynomial(a);\n    for (int i = 0; i <= N;\
     \ i++) std::cout << p[i] << (i == N ? '\\n' : ' ');\n    return 0;\n}"
   dependsOn:
-  - src/linearalgebra/characteristic_polynomial.hpp
+  - src/matrix/characteristic_polynomial.hpp
   - src/util/modint.hpp
   isVerificationFile: true
   path: test/yosupo/characteristic_polynomial.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 23:01:53+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/characteristic_polynomial.test.cpp

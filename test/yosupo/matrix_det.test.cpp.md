@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/linearalgebra/Matrix.hpp
+    path: src/matrix/Matrix.hpp
     title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
   - icon: ':question:'
     path: src/util/modint.hpp
@@ -27,21 +27,21 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: linearalgebra/Matrix.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: matrix/Matrix.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n\n#include\
-    \ \"linearalgebra/Matrix.hpp\"\n#include \"util/modint.hpp\"\n\nusing mint = atcoder::modint998244353;\n\
+    \ \"matrix/Matrix.hpp\"\n#include \"util/modint.hpp\"\n\nusing mint = atcoder::modint998244353;\n\
     \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
     \    int N;\n    std::cin >> N;\n    Matrix<mint> a(N);\n    for (int i = 0; i\
     \ < N; i++) {\n        for (int j = 0; j < N; j++) {\n            std::cin >>\
     \ a[i][j];\n        }\n    }\n\n    std::cout << a.determinant() << '\\n';\n}"
   dependsOn:
-  - src/linearalgebra/Matrix.hpp
+  - src/matrix/Matrix.hpp
   - src/util/modint.hpp
   isVerificationFile: true
   path: test/yosupo/matrix_det.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 23:01:53+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix_det.test.cpp

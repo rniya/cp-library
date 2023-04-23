@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/combinatorics/binomial.hpp
+    path: src/math/binomial.hpp
     title: binomial
   _extendedRequiredBy: []
   _extendedVerifiedWith:
@@ -25,10 +25,10 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: combinatorics/binomial.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/binomial.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include <vector>\n#include \"combinatorics/binomial.hpp\"\n\
-    \n/**\n * @brief Lagrange Interpolation of polynomial f of degree n\n *\n * @tparam\
+  code: "#pragma once\n#include <vector>\n#include \"math/binomial.hpp\"\n\n/**\n\
+    \ * @brief Lagrange Interpolation of polynomial f of degree n\n *\n * @tparam\
     \ T F_p\n * @param y f(0), f(1), ... , f(n)\n * @param x you want to calculate\
     \ f(x)\n * @return T f(x)\n */\ntemplate <typename T> T lagrange_interpolation(const\
     \ std::vector<T>& y, long long x, Binomial<T>& BINOM) {\n    int n = y.size()\
@@ -39,11 +39,11 @@ data:
     \ * BINOM.finv(i) * BINOM.finv(n - i);\n        res += ((n - i) & 1) ? -add :\
     \ add;\n    }\n    return res;\n}\n"
   dependsOn:
-  - src/combinatorics/binomial.hpp
+  - src/math/binomial.hpp
   isVerificationFile: false
   path: src/polynomial/lagrange_interpolation.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/665.test.cpp

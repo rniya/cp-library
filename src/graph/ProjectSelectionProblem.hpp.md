@@ -104,13 +104,13 @@ data:
     using ProjectSelectionProblem_Impl::ProjectSelectionProblem;\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/flow/ProjectSelectionProblem.hpp
+  path: src/graph/ProjectSelectionProblem.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp
-documentation_of: src/flow/ProjectSelectionProblem.hpp
+documentation_of: src/graph/ProjectSelectionProblem.hpp
 layout: document
 title: Project Selection Problem (based on ac-library)
 ---

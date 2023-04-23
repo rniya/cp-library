@@ -20,9 +20,9 @@ data:
   _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/convolution/set_function.hpp\"\n#include <cassert>\n\
-    #include <vector>\n\nnamespace set_function {\n\n// subset sum : f(S) <- \\sum_{T\
-    \ \\subseteq S} f(T)\ntemplate <typename T> void subset_zeta_transform(std::vector<T>&\
+  bundledCode: "#line 2 \"src/math/set_function.hpp\"\n#include <cassert>\n#include\
+    \ <vector>\n\nnamespace set_function {\n\n// subset sum : f(S) <- \\sum_{T \\\
+    subseteq S} f(T)\ntemplate <typename T> void subset_zeta_transform(std::vector<T>&\
     \ f) {\n    int n = f.size();\n    assert((n & (n - 1)) == 0);\n    for (int i\
     \ = 1; i < n; i <<= 1) {\n        for (int j = 0; j < n; j++) {\n            if\
     \ ((j & i) == 0) {\n                f[j | i] += f[j];\n            }\n       \
@@ -100,16 +100,16 @@ data:
     \ namespace set_function\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/convolution/set_function.hpp
+  path: src/math/set_function.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/bitwise_and_convolution.test.cpp
   - test/yukicoder/1240.test.cpp
   - test/yukicoder/1289.test.cpp
-documentation_of: src/convolution/set_function.hpp
+documentation_of: src/math/set_function.hpp
 layout: document
 title: set function (FZT, FMT, FWHT)
 ---

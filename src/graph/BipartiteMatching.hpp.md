@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/flow/BipartiteMatching.hpp\"\n#include <algorithm>\n\
+  bundledCode: "#line 2 \"src/graph/BipartiteMatching.hpp\"\n#include <algorithm>\n\
     #include <cassert>\n#include <queue>\n#include <random>\n#include <utility>\n\
     #include <vector>\n\nstruct BipartiteMatching {\n    int U, V, t;\n    bool solved;\n\
     \    std::vector<std::vector<int>> G;\n    std::vector<int> L, R, visited;\n\n\
@@ -58,13 +58,13 @@ data:
     \       }\n        }\n        return false;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/flow/BipartiteMatching.hpp
+  path: src/graph/BipartiteMatching.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/bipartitematching.test.cpp
-documentation_of: src/flow/BipartiteMatching.hpp
+documentation_of: src/graph/BipartiteMatching.hpp
 layout: document
 title: Bipartite Matching
 ---

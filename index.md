@@ -26,20 +26,6 @@ data:
     - icon: ':warning:'
       path: src/debug.hpp
       title: src/debug.hpp
-  - name: src/combinatorics
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: src/combinatorics/binomial.hpp
-      title: binomial
-  - name: src/convolution
-    pages:
-    - icon: ':x:'
-      path: src/convolution/gcd_convolution.hpp
-      title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\
-        \uFF09"
-    - icon: ':question:'
-      path: src/convolution/set_function.hpp
-      title: set function (FZT, FMT, FWHT)
   - name: src/datastructure
     pages:
     - icon: ':heavy_check_mark:'
@@ -87,24 +73,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/datastructure/UnionFind.hpp
       title: Union Find (Disjoint Set Union)
-  - name: src/flow
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: src/flow/BipartiteMatching.hpp
-      title: Bipartite Matching
-    - icon: ':heavy_check_mark:'
-      path: src/flow/PrimalDualonDAG.hpp
-      title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\
-        \u6D41\uFF09"
-    - icon: ':heavy_check_mark:'
-      path: src/flow/ProjectSelectionProblem.hpp
-      title: Project Selection Problem (based on ac-library)
-    - icon: ':heavy_check_mark:'
-      path: src/flow/Simplex.hpp
-      title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"
-    - icon: ':warning:'
-      path: src/flow/min_cost_b_flow.hpp
-      title: Minimum Cost b-flow
   - name: src/geometry
     pages:
     - icon: ':heavy_check_mark:'
@@ -119,6 +87,9 @@ data:
       path: src/graph/BellmanFord.hpp
       title: Bellman-Ford
     - icon: ':heavy_check_mark:'
+      path: src/graph/BipartiteMatching.hpp
+      title: Bipartite Matching
+    - icon: ':heavy_check_mark:'
       path: src/graph/CycleDetection.hpp
       title: Cycle Detection
     - icon: ':heavy_check_mark:'
@@ -130,6 +101,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/LowLink.hpp
       title: LowLink (with Two Edge Connected Components, Bi Connected Components)
+    - icon: ':heavy_check_mark:'
+      path: src/graph/PrimalDualonDAG.hpp
+      title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\
+        \u6D41\uFF09"
+    - icon: ':heavy_check_mark:'
+      path: src/graph/ProjectSelectionProblem.hpp
+      title: Project Selection Problem (based on ac-library)
     - icon: ':warning:'
       path: src/graph/RangeEdgeGraph.hpp
       title: Range Edge Graph
@@ -146,28 +124,23 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/enumerate_cliques.hpp
       title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
-  - name: src/linearalgebra
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: src/linearalgebra/BitMatrix.hpp
-      title: Bit Matrix
-    - icon: ':heavy_check_mark:'
-      path: src/linearalgebra/Matrix.hpp
-      title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
-    - icon: ':heavy_check_mark:'
-      path: src/linearalgebra/SquareMatrix.hpp
-      title: "\u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
-    - icon: ':heavy_check_mark:'
-      path: src/linearalgebra/characteristic_polynomial.hpp
-      title: Characteristic Polynomial
+    - icon: ':warning:'
+      path: src/graph/min_cost_b_flow.hpp
+      title: Minimum Cost b-flow
   - name: src/math
     pages:
     - icon: ':heavy_check_mark:'
       path: src/math/Nimber.hpp
       title: Nimber
+    - icon: ':heavy_check_mark:'
+      path: src/math/Simplex.hpp
+      title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"
     - icon: ':warning:'
       path: src/math/binary_gcd.hpp
       title: binary gcd
+    - icon: ':heavy_check_mark:'
+      path: src/math/binomial.hpp
+      title: binomial
     - icon: ':heavy_check_mark:'
       path: src/math/discrete_logarithm.hpp
       title: "Discrete Logarithm\uFF08\u96E2\u6563\u5BFE\u6570\u554F\u984C\uFF09"
@@ -178,6 +151,27 @@ data:
       path: src/math/fast_factorize.hpp
       title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
         \ + Pollard's rho algorithm)"
+    - icon: ':x:'
+      path: src/math/gcd_convolution.hpp
+      title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\
+        \uFF09"
+    - icon: ':question:'
+      path: src/math/set_function.hpp
+      title: set function (FZT, FMT, FWHT)
+  - name: src/matrix
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: src/matrix/BitMatrix.hpp
+      title: Bit Matrix
+    - icon: ':heavy_check_mark:'
+      path: src/matrix/Matrix.hpp
+      title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
+    - icon: ':heavy_check_mark:'
+      path: src/matrix/SquareMatrix.hpp
+      title: "\u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
+    - icon: ':heavy_check_mark:'
+      path: src/matrix/characteristic_polynomial.hpp
+      title: Characteristic Polynomial
   - name: src/polynomial
     pages:
     - icon: ':heavy_check_mark:'

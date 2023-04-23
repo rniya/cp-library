@@ -14,14 +14,14 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/convolution/gcd_convolution.hpp\"\n#include <cassert>\n\
-    #include <vector>\n\nnamespace gcd_convolution {\n\n// f(k) <- \\sum_{k | i} f(i)\n\
-    template <typename T> void divisor_transform(std::vector<T>& f) {\n    int n =\
-    \ f.size();\n    std::vector<bool> sieve(n, true);\n    for (int p = 2; p < n;\
-    \ p++) {\n        if (sieve[p]) {\n            for (int k = (n - 1) / p; k > 0;\
-    \ k--) {\n                sieve[k * p] = false;\n                f[k] += f[k *\
-    \ p];\n            }\n        }\n    }\n    for (int i = 1; i < n; i++) f[i] +=\
-    \ f[0];\n}\n\n// inverse of divisor transform\ntemplate <typename T> void inverse_divisor_transform(std::vector<T>&\
+  bundledCode: "#line 2 \"src/math/gcd_convolution.hpp\"\n#include <cassert>\n#include\
+    \ <vector>\n\nnamespace gcd_convolution {\n\n// f(k) <- \\sum_{k | i} f(i)\ntemplate\
+    \ <typename T> void divisor_transform(std::vector<T>& f) {\n    int n = f.size();\n\
+    \    std::vector<bool> sieve(n, true);\n    for (int p = 2; p < n; p++) {\n  \
+    \      if (sieve[p]) {\n            for (int k = (n - 1) / p; k > 0; k--) {\n\
+    \                sieve[k * p] = false;\n                f[k] += f[k * p];\n  \
+    \          }\n        }\n    }\n    for (int i = 1; i < n; i++) f[i] += f[0];\n\
+    }\n\n// inverse of divisor transform\ntemplate <typename T> void inverse_divisor_transform(std::vector<T>&\
     \ f) {\n    int n = f.size();\n    std::vector<bool> sieve(n, true);\n    for\
     \ (int i = 1; i < n; i++) f[i] -= f[0];\n    for (int p = 2; p < n; p++) {\n \
     \       if (sieve[p]) {\n            for (int k = 1 / p; k * p < n; k++) {\n \
@@ -50,14 +50,14 @@ data:
     \ gcd_convolution\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/convolution/gcd_convolution.hpp
+  path: src/math/gcd_convolution.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/gcd_convolution.test.cpp
   - test/yukicoder/886.test.cpp
-documentation_of: src/convolution/gcd_convolution.hpp
+documentation_of: src/math/gcd_convolution.hpp
 layout: document
 title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\uFF09"
 ---

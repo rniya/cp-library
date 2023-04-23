@@ -11,12 +11,12 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/linearalgebra/Matrix.hpp\"\n#include <cassert>\n#include\
-    \ <iostream>\n#include <vector>\n\ntemplate <typename T> struct Matrix {\n   \
-    \ std::vector<std::vector<T>> A;\n\n    Matrix(size_t n, size_t m) : A(n, std::vector<T>(m,\
-    \ 0)) {}\n\n    Matrix(size_t n) : A(n, std::vector<T>(n, 0)) {}\n\n    size_t\
-    \ size() const { return A.size(); }\n\n    size_t height() const { return A.size();\
-    \ }\n\n    size_t width() const { return A[0].size(); }\n\n    inline const std::vector<T>&\
+  bundledCode: "#line 2 \"src/matrix/Matrix.hpp\"\n#include <cassert>\n#include <iostream>\n\
+    #include <vector>\n\ntemplate <typename T> struct Matrix {\n    std::vector<std::vector<T>>\
+    \ A;\n\n    Matrix(size_t n, size_t m) : A(n, std::vector<T>(m, 0)) {}\n\n   \
+    \ Matrix(size_t n) : A(n, std::vector<T>(n, 0)) {}\n\n    size_t size() const\
+    \ { return A.size(); }\n\n    size_t height() const { return A.size(); }\n\n \
+    \   size_t width() const { return A[0].size(); }\n\n    inline const std::vector<T>&\
     \ operator[](int k) const { return A[k]; }\n\n    inline std::vector<T>& operator[](int\
     \ k) { return A[k]; }\n\n    static Matrix I(size_t n) {\n        Matrix res(n);\n\
     \        for (size_t i = 0; i < n; i++) res[i][i] = 1;\n        return res;\n\
@@ -157,13 +157,13 @@ data:
     \ os;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/linearalgebra/Matrix.hpp
+  path: src/matrix/Matrix.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/matrix_det.test.cpp
-documentation_of: src/linearalgebra/Matrix.hpp
+documentation_of: src/matrix/Matrix.hpp
 layout: document
 title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
 ---

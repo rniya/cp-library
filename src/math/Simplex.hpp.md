@@ -12,7 +12,7 @@ data:
   attributes:
     document_title: Construct a new Simplex object
     links: []
-  bundledCode: "#line 2 \"src/flow/Simplex.hpp\"\n#include <cassert>\n#include <numeric>\n\
+  bundledCode: "#line 2 \"src/math/Simplex.hpp\"\n#include <cassert>\n#include <numeric>\n\
     #include <vector>\n\nstruct Simplex {\n    bool infinity,           // which the\
     \ problem is unbounded or not\n        infeasible;          // which the problem\
     \ is infeasible or not\n    int n,                   // the number of variables\n\
@@ -150,13 +150,13 @@ data:
     \    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/flow/Simplex.hpp
+  path: src/math/Simplex.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/453.test.cpp
-documentation_of: src/flow/Simplex.hpp
+documentation_of: src/math/Simplex.hpp
 layout: document
 title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"
 ---

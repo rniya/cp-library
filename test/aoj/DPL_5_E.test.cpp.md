@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/combinatorics/binomial.hpp
+    path: src/math/binomial.hpp
     title: binomial
   - icon: ':question:'
     path: src/util/modint.hpp
@@ -27,20 +27,20 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: combinatorics/binomial.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/binomial.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_E\"\
-    \n\n#include \"combinatorics/binomial.hpp\"\n#include \"util/modint.hpp\"\n\n\
-    using mint = atcoder::modint1000000007;\n\nint main() {\n    std::cin.tie(0);\n\
-    \    std::ios::sync_with_stdio(false);\n    Binomial<mint> BINOM;\n    int n,\
-    \ k;\n    std::cin >> n >> k;\n\n    std::cout << BINOM.C(k, n) << '\\n';\n}"
+    \n\n#include \"math/binomial.hpp\"\n#include \"util/modint.hpp\"\n\nusing mint\
+    \ = atcoder::modint1000000007;\n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \    Binomial<mint> BINOM;\n    int n, k;\n    std::cin >> n >> k;\n\n    std::cout\
+    \ << BINOM.C(k, n) << '\\n';\n}"
   dependsOn:
-  - src/combinatorics/binomial.hpp
+  - src/math/binomial.hpp
   - src/util/modint.hpp
   isVerificationFile: true
   path: test/aoj/DPL_5_E.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 23:01:53+09:00'
+  timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL_5_E.test.cpp
