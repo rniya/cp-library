@@ -38,7 +38,7 @@ template <typename T> std::vector<T> gcd_convolution(std::vector<T> f, std::vect
     assert(f.size() == g.size());
     divisor_transform(f);
     divisor_transform(g);
-    for (size_t i = 0; i < f.size(); i++) f[i] *= g[i];
+    for (int i = 0; i < int(f.size()); i++) f[i] *= g[i];
     inverse_divisor_transform(f);
     return f;
 }

@@ -83,7 +83,7 @@ template <typename T> std::vector<T> and_convolution(std::vector<T> f, std::vect
     assert(f.size() == g.size());
     superset_zeta_transform(f);
     superset_zeta_transform(g);
-    for (size_t i = 0; i < f.size(); i++) f[i] *= g[i];
+    for (int i = 0; i < int(f.size()); i++) f[i] *= g[i];
     superset_mobius_transform(f);
     return f;
 }
@@ -92,7 +92,7 @@ template <typename T> std::vector<T> or_convolution(std::vector<T> f, std::vecto
     assert(f.size() == g.size());
     subset_zeta_transform(f);
     subset_zeta_transform(g);
-    for (size_t i = 0; i < f.size(); i++) f[i] *= g[i];
+    for (int i = 0; i < int(f.size()); i++) f[i] *= g[i];
     subset_mobius_transform(f);
     return f;
 }
@@ -101,7 +101,7 @@ template <typename T> std::vector<T> xor_convolution(std::vector<T> f, std::vect
     assert(f.size() == g.size());
     walsh_hadamard_transform(f);
     walsh_hadamard_transform(g);
-    for (size_t i = 0; i < f.size(); i++) f[i] *= g[i];
+    for (int i = 0; i < int(f.size()); i++) f[i] *= g[i];
     walsh_hadamard_transform(f, true);
     return f;
 }
