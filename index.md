@@ -20,7 +20,7 @@ data:
       title: monotone minima
     - icon: ':warning:'
       path: src/algorithm/smawk.hpp
-      title: src/algorithm/smawk.hpp
+      title: SMAWK algotirhm
   - name: src
     pages:
     - icon: ':heavy_check_mark:'
