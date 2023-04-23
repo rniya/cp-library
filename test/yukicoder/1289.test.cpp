@@ -1,6 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1289"
 
-#include "convolution/set_function.hpp"
+#include "math/set_function.hpp"
 #include "util/modint.hpp"
 
 using mint = atcoder::modint998244353;

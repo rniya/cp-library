@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1907"
 
 #include <iostream>
-#include "linearalgebra/characteristic_polynomial.hpp"
+#include "matrix/characteristic_polynomial.hpp"
 #include "util/modint.hpp"
 
 using mint = atcoder::modint998244353;

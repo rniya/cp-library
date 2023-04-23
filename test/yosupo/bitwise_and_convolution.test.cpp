@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/bitwise_and_convolution"
 
-#include "convolution/set_function.hpp"
+#include "math/set_function.hpp"
 #include "util/modint.hpp"
 
 using mint = atcoder::modint998244353;

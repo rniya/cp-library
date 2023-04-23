@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/5/DPL_5_E"
 
-#include "combinatorics/binomial.hpp"
+#include "math/binomial.hpp"
 #include "util/modint.hpp"
 
 using mint = atcoder::modint1000000007;

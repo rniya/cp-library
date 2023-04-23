@@ -1,6 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/886"
 
-#include "convolution/gcd_convolution.hpp"
+#include "math/gcd_convolution.hpp"
 #include "util/modint.hpp"
 
 using mint = atcoder::modint1000000007;

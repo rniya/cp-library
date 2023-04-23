@@ -1,6 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/803"
 
-#include "linearalgebra/BitMatrix.hpp"
+#include "matrix/BitMatrix.hpp"
 #include "util/modint.hpp"
 
 const int MAX_LOG = 30, MAX_N = 305;

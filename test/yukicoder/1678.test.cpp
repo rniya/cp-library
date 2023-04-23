@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1678"
 
 #include "base.hpp"
-#include "flow/PrimalDualonDAG.hpp"
+#include "graph/PrimalDualonDAG.hpp"
 
 int main() {
     cin.tie(0);

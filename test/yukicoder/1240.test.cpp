@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1240"
 
 #include "base.hpp"
-#include "convolution/set_function.hpp"
+#include "math/set_function.hpp"
 
 const int MAX_B = 18;
 

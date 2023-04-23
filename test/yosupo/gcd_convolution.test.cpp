@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/gcd_convolution"
 
-#include "convolution/gcd_convolution.hpp"
+#include "math/gcd_convolution.hpp"
 #include <iostream>
 #include "util/modint.hpp"
 

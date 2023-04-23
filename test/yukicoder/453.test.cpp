@@ -3,7 +3,7 @@
 
 #include <iomanip>
 #include <iostream>
-#include "flow/Simplex.hpp"
+#include "math/Simplex.hpp"
 
 int main() {
     std::cin.tie(0);

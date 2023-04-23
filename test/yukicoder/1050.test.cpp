@@ -1,6 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1050"
 
-#include "linearalgebra/SquareMatrix.hpp"
+#include "matrix/SquareMatrix.hpp"
 #include "util/modint.hpp"
 
 using mint = atcoder::modint1000000007;

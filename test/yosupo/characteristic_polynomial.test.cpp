@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/characteristic_polynomial"
 
-#include "linearalgebra/characteristic_polynomial.hpp"
+#include "matrix/characteristic_polynomial.hpp"
 #include "util/modint.hpp"
 
 using mint = atcoder::modint998244353;

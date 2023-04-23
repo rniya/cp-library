@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 
-#include "flow/BipartiteMatching.hpp"
+#include "graph/BipartiteMatching.hpp"
 #include "base.hpp"
 
 int main() {

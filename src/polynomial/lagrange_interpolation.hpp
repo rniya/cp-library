@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "combinatorics/binomial.hpp"
+#include "math/binomial.hpp"
 
 /**
  * @brief Lagrange Interpolation of polynomial f of degree n
