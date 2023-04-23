@@ -43,8 +43,8 @@ data:
   - test/aoj/DSL_5_B.test.cpp
 documentation_of: src/datastructure/CumulativeSum2D.hpp
 layout: document
-redirect_from:
-- /library/src/datastructure/CumulativeSum2D.hpp
-- /library/src/datastructure/CumulativeSum2D.hpp.html
-title: src/datastructure/CumulativeSum2D.hpp
+title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
 ---
+
+## 概要
+2 次元累積和を用いてオフライン矩形和クエリを処理する．

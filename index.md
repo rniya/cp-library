@@ -36,10 +36,10 @@ data:
       title: Convex Hull Trick (Add-Monotonic Slope Optimization)
     - icon: ':heavy_check_mark:'
       path: src/datastructure/CumulativeSum2D.hpp
-      title: src/datastructure/CumulativeSum2D.hpp
+      title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
     - icon: ':warning:'
       path: src/datastructure/IntervalManager.hpp
-      title: src/datastructure/IntervalManager.hpp
+      title: "\u533A\u9593\u3092\u7BA1\u7406\u3059\u308B\u69CB\u9020\u4F53"
     - icon: ':warning:'
       path: src/datastructure/LineContainer.hpp
       title: Line Container (based on kactl)
@@ -194,6 +194,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/string/AhoCorasick.hpp
       title: Aho Corasick
+    - icon: ':warning:'
+      path: src/string/Hash.hpp
+      title: "Hash \u69CB\u9020\u4F53 (reversible)"
     - icon: ':heavy_check_mark:'
       path: src/string/Manacher.hpp
       title: "Manacher\uFF08\u56DE\u5206\u534A\u5F84\uFF09"

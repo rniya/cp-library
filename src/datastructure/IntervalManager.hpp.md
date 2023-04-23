@@ -116,8 +116,12 @@ data:
   verifiedWith: []
 documentation_of: src/datastructure/IntervalManager.hpp
 layout: document
-redirect_from:
-- /library/src/datastructure/IntervalManager.hpp
-- /library/src/datastructure/IntervalManager.hpp.html
-title: src/datastructure/IntervalManager.hpp
+title: "\u533A\u9593\u3092\u7BA1\u7406\u3059\u308B\u69CB\u9020\u4F53"
 ---
+
+## 概要
+
+区間の挿入の際に自動でマージや削除等を行いながら値を管理する構造体。ほぼ丸々 Links の記事のパクリ。
+
+## Links
+- [区間を管理する構造体 - のいみのいみのいみのいみ](https://noimi.hatenablog.com/entry/2021/05/02/195143)
