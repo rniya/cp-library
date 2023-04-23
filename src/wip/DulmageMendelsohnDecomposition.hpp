@@ -2,7 +2,7 @@
 #include <queue>
 #include <vector>
 #include "atcoder/scc"
-#include "flow/BipartiteMatching.hpp"
+#include "graph/BipartiteMatching.hpp"
 
 struct DulmageMendelsohnDecomposition : BipartiteMatching {
     DulmageMendelsohnDecomposition(int U, int V) : BipartiteMatching(U, V) {}
@@ -64,7 +64,7 @@ struct DulmageMendelsohnDecomposition : BipartiteMatching {
         return res;
     }
 
-private:
+  private:
     std::vector<int> bfs(const std::vector<std::vector<std::pair<int, int>>>& g, const std::vector<int>& S, int f) {
         int n = g.size();
         std::vector<bool> seen(n, false);
