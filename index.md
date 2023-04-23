@@ -220,6 +220,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/tree/HeavyLightDecomposition.hpp
       title: Heavy Light Decomposition
+    - icon: ':warning:'
+      path: src/tree/MergeTree.hpp
+      title: "\u30DE\u30FC\u30B8\u904E\u7A0B\u3092\u8868\u3059\u6728"
     - icon: ':heavy_check_mark:'
       path: src/tree/Rerooting.hpp
       title: "\u5168\u65B9\u4F4D\u6728 dp"
