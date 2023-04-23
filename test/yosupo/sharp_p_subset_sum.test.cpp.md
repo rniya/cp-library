@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/polynomial/subset_sum.hpp
     title: $\#_p$ Subset Sum
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/util/modint.hpp
     title: src/util/modint.hpp
   _extendedRequiredBy: []

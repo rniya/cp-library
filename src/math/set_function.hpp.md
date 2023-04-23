@@ -3,21 +3,21 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/bitwise_and_convolution.test.cpp
     title: test/yosupo/bitwise_and_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/bitwise_xor_convolution.test.cpp
     title: test/yosupo/bitwise_xor_convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1240.test.cpp
     title: test/yukicoder/1240.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1289.test.cpp
     title: test/yukicoder/1289.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/math/set_function.hpp\"\n#include <cassert>\n#include\
@@ -50,14 +50,14 @@ data:
     \            for (auto& x : f) x *= inv_n;\n        }\n    }\n}\n\ntemplate <typename\
     \ T> std::vector<T> and_convolution(std::vector<T> f, std::vector<T> g) {\n  \
     \  assert(f.size() == g.size());\n    superset_zeta_transform(f);\n    superset_zeta_transform(g);\n\
-    \    for (size_t i = 0; i < f.size(); i++) f[i] *= g[i];\n    superset_mobius_transform(f);\n\
+    \    for (int i = 0; i < int(f.size()); i++) f[i] *= g[i];\n    superset_mobius_transform(f);\n\
     \    return f;\n}\n\ntemplate <typename T> std::vector<T> or_convolution(std::vector<T>\
     \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    subset_zeta_transform(f);\n\
-    \    subset_zeta_transform(g);\n    for (size_t i = 0; i < f.size(); i++) f[i]\
+    \    subset_zeta_transform(g);\n    for (int i = 0; i < int(f.size()); i++) f[i]\
     \ *= g[i];\n    subset_mobius_transform(f);\n    return f;\n}\n\ntemplate <typename\
     \ T> std::vector<T> xor_convolution(std::vector<T> f, std::vector<T> g) {\n  \
     \  assert(f.size() == g.size());\n    walsh_hadamard_transform(f);\n    walsh_hadamard_transform(g);\n\
-    \    for (size_t i = 0; i < f.size(); i++) f[i] *= g[i];\n    walsh_hadamard_transform(f,\
+    \    for (int i = 0; i < int(f.size()); i++) f[i] *= g[i];\n    walsh_hadamard_transform(f,\
     \ true);\n    return f;\n}\n\n}  // namespace set_function\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\nnamespace set_function\
     \ {\n\n// subset sum : f(S) <- \\sum_{T \\subseteq S} f(T)\ntemplate <typename\
@@ -88,22 +88,22 @@ data:
     \ = T(1) / f.size();\n            for (auto& x : f) x *= inv_n;\n        }\n \
     \   }\n}\n\ntemplate <typename T> std::vector<T> and_convolution(std::vector<T>\
     \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    superset_zeta_transform(f);\n\
-    \    superset_zeta_transform(g);\n    for (size_t i = 0; i < f.size(); i++) f[i]\
-    \ *= g[i];\n    superset_mobius_transform(f);\n    return f;\n}\n\ntemplate <typename\
-    \ T> std::vector<T> or_convolution(std::vector<T> f, std::vector<T> g) {\n   \
-    \ assert(f.size() == g.size());\n    subset_zeta_transform(f);\n    subset_zeta_transform(g);\n\
-    \    for (size_t i = 0; i < f.size(); i++) f[i] *= g[i];\n    subset_mobius_transform(f);\n\
-    \    return f;\n}\n\ntemplate <typename T> std::vector<T> xor_convolution(std::vector<T>\
-    \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    walsh_hadamard_transform(f);\n\
-    \    walsh_hadamard_transform(g);\n    for (size_t i = 0; i < f.size(); i++) f[i]\
-    \ *= g[i];\n    walsh_hadamard_transform(f, true);\n    return f;\n}\n\n}  //\
-    \ namespace set_function\n"
+    \    superset_zeta_transform(g);\n    for (int i = 0; i < int(f.size()); i++)\
+    \ f[i] *= g[i];\n    superset_mobius_transform(f);\n    return f;\n}\n\ntemplate\
+    \ <typename T> std::vector<T> or_convolution(std::vector<T> f, std::vector<T>\
+    \ g) {\n    assert(f.size() == g.size());\n    subset_zeta_transform(f);\n   \
+    \ subset_zeta_transform(g);\n    for (int i = 0; i < int(f.size()); i++) f[i]\
+    \ *= g[i];\n    subset_mobius_transform(f);\n    return f;\n}\n\ntemplate <typename\
+    \ T> std::vector<T> xor_convolution(std::vector<T> f, std::vector<T> g) {\n  \
+    \  assert(f.size() == g.size());\n    walsh_hadamard_transform(f);\n    walsh_hadamard_transform(g);\n\
+    \    for (int i = 0; i < int(f.size()); i++) f[i] *= g[i];\n    walsh_hadamard_transform(f,\
+    \ true);\n    return f;\n}\n\n}  // namespace set_function\n"
   dependsOn: []
   isVerificationFile: false
   path: src/math/set_function.hpp
   requiredBy: []
-  timestamp: '2023-04-23 18:55:45+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2023-04-23 19:32:20+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/bitwise_and_convolution.test.cpp

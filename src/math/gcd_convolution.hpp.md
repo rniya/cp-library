@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/gcd_convolution.test.cpp
     title: test/yosupo/gcd_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/886.test.cpp
     title: test/yukicoder/886.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/math/gcd_convolution.hpp\"\n#include <cassert>\n#include\
@@ -28,7 +28,7 @@ data:
     \               sieve[k * p] = false;\n                f[k] -= f[k * p];\n   \
     \         }\n        }\n    }\n}\n\ntemplate <typename T> std::vector<T> gcd_convolution(std::vector<T>\
     \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    divisor_transform(f);\n\
-    \    divisor_transform(g);\n    for (size_t i = 0; i < f.size(); i++) f[i] *=\
+    \    divisor_transform(g);\n    for (int i = 0; i < int(f.size()); i++) f[i] *=\
     \ g[i];\n    inverse_divisor_transform(f);\n    return f;\n}\n\n}  // namespace\
     \ gcd_convolution\n"
   code: "#pragma once\n#include <cassert>\n#include <vector>\n\nnamespace gcd_convolution\
@@ -45,15 +45,15 @@ data:
     \ * p] = false;\n                f[k] -= f[k * p];\n            }\n        }\n\
     \    }\n}\n\ntemplate <typename T> std::vector<T> gcd_convolution(std::vector<T>\
     \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    divisor_transform(f);\n\
-    \    divisor_transform(g);\n    for (size_t i = 0; i < f.size(); i++) f[i] *=\
+    \    divisor_transform(g);\n    for (int i = 0; i < int(f.size()); i++) f[i] *=\
     \ g[i];\n    inverse_divisor_transform(f);\n    return f;\n}\n\n}  // namespace\
     \ gcd_convolution\n"
   dependsOn: []
   isVerificationFile: false
   path: src/math/gcd_convolution.hpp
   requiredBy: []
-  timestamp: '2023-04-23 18:55:45+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2023-04-23 19:32:20+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/gcd_convolution.test.cpp
   - test/yukicoder/886.test.cpp

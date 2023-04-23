@@ -151,11 +151,11 @@ data:
       path: src/math/fast_factorize.hpp
       title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
         \ + Pollard's rho algorithm)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/math/gcd_convolution.hpp
       title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\
         \uFF09"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/math/set_function.hpp
       title: set function (FZT, FMT, FWHT)
   - name: src/matrix
@@ -246,7 +246,7 @@ data:
     - icon: ':warning:'
       path: src/util/gray_code.hpp
       title: Gray Code
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/util/modint.hpp
       title: src/util/modint.hpp
     - icon: ':warning:'
@@ -431,10 +431,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/bipartitematching.test.cpp
       title: test/yosupo/bipartitematching.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/bitwise_and_convolution.test.cpp
       title: test/yosupo/bitwise_and_convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/bitwise_xor_convolution.test.cpp
       title: test/yosupo/bitwise_xor_convolution.test.cpp
     - icon: ':heavy_check_mark:'
@@ -461,7 +461,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/frequency_table_of_tree_distance.test.cpp
       title: test/yosupo/frequency_table_of_tree_distance.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/gcd_convolution.test.cpp
       title: test/yosupo/gcd_convolution.test.cpp
     - icon: ':heavy_check_mark:'
@@ -571,7 +571,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1269.test.cpp
       title: test/yukicoder/1269.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1289.test.cpp
       title: test/yukicoder/1289.test.cpp
     - icon: ':heavy_check_mark:'
@@ -601,7 +601,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/803.test.cpp
       title: test/yukicoder/803.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/886.test.cpp
       title: test/yukicoder/886.test.cpp
     - icon: ':heavy_check_mark:'

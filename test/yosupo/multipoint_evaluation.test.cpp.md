@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/polynomial/multipoint_evaluation.hpp
     title: multipoint evaluation
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/util/modint.hpp
     title: src/util/modint.hpp
   _extendedRequiredBy: []
