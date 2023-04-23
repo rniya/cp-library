@@ -1,6 +1,6 @@
 ---
 title: SMAWK algotirhm
-documentation_of: ./SMAWK.hpp
+documentation_of: ./smawk.hpp
 ---
 
 ## 概要
