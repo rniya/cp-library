@@ -188,8 +188,9 @@ Real distance(const Line& l, const Segment& s) {
 }
 
 Real distance(const Segment& s, const Point& p) {
-    Point h = proj(s, p);
-    return intersect(s, h) ? distance(p, h) : std::min(distance(p, s.a), distance(p, s.b));
+    if (compare(dot(s.diff(), p - s.a), 0) == -1) return distance(p, s.a);
+    if (compare(dot(-s.diff(), p - s.b), 0) == -1) return distance(p, s.b);
+    return distance(Line(s.a, s.b), p);
 }
 
 Real distance(const Segment& s, const Segment& t) {

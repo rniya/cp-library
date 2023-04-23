@@ -173,7 +173,6 @@ template <typename T> struct Matrix {
         for (size_t j = 0; j < m; j++) {
             T sum = 0;
             for (size_t i = 0; i < n; i++) sum += p[i][j];
-            ;
             os << sum << (j + 1 < m ? "," : "");
         }
         os << "]";

@@ -39,7 +39,7 @@ template <typename T, size_t N> struct SquareMatrix {
     }
 
     SquareMatrix& operator*=(const SquareMatrix& B) {
-        std::array<std::array<T, N>, N> C;
+        std::array<std::array<T, N>, N> C = {};
         for (size_t i = 0; i < N; i++) {
             for (size_t k = 0; k < N; k++) {
                 for (size_t j = 0; j < N; j++) {
