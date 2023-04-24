@@ -5,12 +5,16 @@ documentation_of: ./monge_d_edge_shortest_path.hpp
 
 ## 概要
 
+完全 DAG $G(V, E)\ (\|V\| = N + 1)$ について，その辺重み $c : E \to \mathbb{Z}$ が monge 性を満たす際に頂点 $0$ から各点までの最短路長を $\mathrm{O}(N \log N)$ で，辺を丁度 $D$ 本使う $0$ から $N - 1$ への最短路長を $\mathrm{O}(N \log N \log \max_{e \in E} \|c(e)\|)$ で求める．
+
+LARSCH algorithm を用いることでそれぞれ $\log N$ を落とすことが可能．
+
 ## Links
-- [Alien DP をざっくり理解する - sapphire15の日記](https://sapphire15.hatenablog.com/entry/2022/05/30/012835)
 - [Monge グラフ上の $d$-辺最短路長を計算するアルゴリズム \| Kyopro Encyclopedia of Algorithms](https://noshi91.github.io/algorithm-encyclopedia/d-edge-shortest-path-monge)
 - [Aliens DP で辺の本数が区間で指定される場合 - noshi91のメモ](https://noshi91.hatenablog.com/entry/2022/01/13/001217)
 - [Incredibly beautiful DP optimization from $N^3$ to $N \log^2 N$ - Codeforces](https://codeforces.com/blog/entry/49691)
-- [Monge の手引書](https://speakerdeck.com/tatyam_prime/monge-noshou-yin-shu)
+- [Monge の手引書 (tatyam)](https://speakerdeck.com/tatyam_prime/monge-noshou-yin-shu)
+- https://twitter.com/noshi91/status/1625587844000649217
 
 ## 問題例
 - [AtCoder Beginner Contest 218 H - Red and Blue Lamps](https://atcoder.jp/contests/abc218/tasks/abc218_h)
