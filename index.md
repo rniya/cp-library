@@ -147,6 +147,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/binomial.hpp
       title: binomial
+    - icon: ':warning:'
+      path: src/math/count_young_paths.hpp
+      title: "Young \u56F3\u5F62\u4E0A\u306E\u6700\u77ED\u7D4C\u8DEF\u306E\u6570\u3048\
+        \u4E0A\u3052"
     - icon: ':heavy_check_mark:'
       path: src/math/discrete_logarithm.hpp
       title: "Discrete Logarithm\uFF08\u96E2\u6563\u5BFE\u6570\u554F\u984C\uFF09"

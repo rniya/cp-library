@@ -2,6 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: src/math/count_young_paths.hpp
+    title: "Young \u56F3\u5F62\u4E0A\u306E\u6700\u77ED\u7D4C\u8DEF\u306E\u6570\u3048\
+      \u4E0A\u3052"
   - icon: ':heavy_check_mark:'
     path: src/polynomial/lagrange_interpolation.hpp
     title: Lagrange Interpolation
@@ -67,11 +71,12 @@ data:
   path: src/math/binomial.hpp
   requiredBy:
   - src/polynomial/lagrange_interpolation.hpp
+  - src/math/count_young_paths.hpp
   timestamp: '2023-04-23 18:55:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DPL_5_E.test.cpp
   - test/yukicoder/665.test.cpp
+  - test/aoj/DPL_5_E.test.cpp
 documentation_of: src/math/binomial.hpp
 layout: document
 title: binomial

@@ -76,14 +76,15 @@ $$Q(x) = 1 - \sum_{i = 1}^d c_ix^i$$
 
 $$a_N = [x^N] \frac{P(x)}{Q(x)}$$
 
-となり，これは $O(d \log d \log N)$ で計算することが可能である．
+となり，これは $\mathrm{O}(d \log d \log N)$ で計算することが可能である．
 
 ## TODO
 高速化
 
 ## 問題例
 - [競プロ典型 90 問 090 - Tenkei90's Last Problem](https://atcoder.jp/contests/typical90/tasks/typical90_cl)
-- [AtCoder Beginner Contest 241 H - Card Deck Score](https://atcoder.jp/contests/abc241/tasks/abc241_h)
+- [AtCoder Beginner Contest 241 Ex - Card Deck Score](https://atcoder.jp/contests/abc241/tasks/abc241_h)
+- [AtCoder Beginner Contest 300 Ex - Fibonacci: Revisited](https://atcoder.jp/contests/abc300/tasks/abc300_h)
 
 ## Links
 - [線形漸化式を満たす数列の N 項目を計算するアルゴリズム](http://q.c.titech.ac.jp/docs/progs/polynomial_division.html)

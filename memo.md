@@ -2,14 +2,13 @@
     - [問題例](#問題例)
 - [Lagrange の反転公式](#lagrange-の反転公式)
     - [問題例](#問題例-1)
-- [Alien dp](#alien-dp)
-    - [Links](#links)
-    - [問題例](#問題例-2)
-- [Monge 性](#monge-性)
-    - [Links](#links-1)
-    - [問題例](#問題例-3)
 - [凸包](#凸包)
+    - [問題例](#問題例-2)
+- [$C\_3, C\_4, K\_4$ counting in undirected graph](#c_3-c_4-k_4-counting-in-undirected-graph)
+    - [問題例](#問題例-3)
+- [ゲーム](#ゲーム)
     - [問題例](#問題例-4)
+- [操作における不変量](#操作における不変量)
 
 
 ## Burnside の補題 / Polya の定理
@@ -35,29 +34,30 @@ $$
 - [Educational Codeforces Round 142 (Rated for Div. 2) F2. Graph Coloring (hard version)](https://codeforces.com/contest/1792/problem/F2)
   - [参考](https://codeforces.com/blog/entry/111835?#comment-996577)
 
-## Alien dp
-
-#### Links
-- [Alien DP をざっくり理解する - sapphire15の日記](https://sapphire15.hatenablog.com/entry/2022/05/30/012835)
-- [Monge グラフ上の $d$-辺最短路長を計算するアルゴリズム \| Kyopro Encyclopedia of Algorithms](https://noshi91.github.io/algorithm-encyclopedia/d-edge-shortest-path-monge)
-- [Aliens DP で辺の本数が区間で指定される場合 - noshi91のメモ](https://noshi91.hatenablog.com/entry/2022/01/13/001217)
-- [Incredibly beautiful DP optimization from $N^3$ to $N \log^2 N$ - Codeforces](https://codeforces.com/blog/entry/49691)
-
-#### 問題例
-- [AtCoder Beginner Contest 218 H - Red and Blue Lamps](https://atcoder.jp/contests/abc218/tasks/abc218_h)
-
-## Monge 性
-
-#### Links
-- [SMAWK algorithm as an alternative for D&C optimization - Codeforces](https://codeforces.com/blog/entry/110844)
-
-#### 問題例
-- [The 1st Universal Cup. Stage 3: Poland I. Investors](https://qoj.ac/contest/1103/problem/5507?v=1)
-  - 分割統治による高速化．
-
 ## 凸包
 #### 問題例
 - [The 1st Universal Cup. Stage 2: Hong Kong D. Shortest Path Query](https://qoj.ac/contest/1099/problem/5458?v=1)
-  - 各頂点の状態としては凸包の頂点のみが重要となるが、$n \times n$ の格子点を頂点にもつ凸包の頂点数は $O(n^{2 / 3})$ で抑えられる（[参照](https://not522.hatenablog.com/entry/2016/09/24/154939)）．
+  - 各頂点の状態としては凸包の頂点のみが重要となるが，$n \times n$ の格子点を頂点にもつ凸包の頂点数は $O(n^{2 / 3})$ で抑えられる（[参照](https://not522.hatenablog.com/entry/2016/09/24/154939)）．
 - [The 1st Universal Cup. Stage 3: Poland B. Big Picture](https://qoj.ac/contest/1099/problem/5456?v=1)
   - 利益を考えると最終的な開店の仕方は凸包に一致する．
+
+## $C_3, C_4, K_4$ counting in undirected graph
+頂点数 $n$，辺数 $m$ のグラフの各種部分グラフを列挙及び数え上げる．
+頂点を次数の昇順に並べ，各辺を右方向に向きづけることにする．
+このとき，各頂点の出次数は $\sqrt{2 m}$ で抑えられ，各種列挙が効率的に行える．
+
+#### 問題例
+- [The 1st Universal Cup. Stage 13: Iberia K. 4](https://qoj.ac/problem/6354)
+  - [ecnerwala のコメント](https://codeforces.com/blog/entry/97762?#comment-866645)
+
+## ゲーム
+#### 問題例
+- [CodeTON Round 2 (Div. 1 + Div. 2, Rated, Prizes!) F. Colouring Game](https://codeforces.com/contest/1704/problem/F)
+  - 周期 34 の Grundy 数。
+- [yukicoder No.2285 Make A Unit Square](https://yukicoder.me/problems/no/2285)
+  - 同上。
+
+## 操作における不変量
+- [The 1st Universal Cup. Stage 14: Ranoa C. LaLa and Lamp](https://qoj.ac/contest/1214/problem/6376)
+- [Hokkaido University Competitive Programming Camp 2023 Day 1 D: Beam Beam Beam](https://onlinejudge.u-aizu.ac.jp/beta/room.html#HUPC2023Day1/problems/D)
+  - グリッド上の各マス目に数字が書かれていて、各行および各列に値を一律に加算する操作を行えるとき、数字を全て $0$ にすることができる必要十分条件は任意の連続する $2$ 行及び列からなる $2 \times 2$ 部分行列の行列式が $0$ であることである。
