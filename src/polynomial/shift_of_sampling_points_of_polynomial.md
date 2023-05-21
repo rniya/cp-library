@@ -5,13 +5,13 @@ documentation_of: ./shift_of_sampling_points_of_polynomial.hpp
 
 ## 概要
 
-次数 $N$ 未満の多項式 $f(x)$ の標本点 $f(0), f(1), \dots , f(N - 1)$ を入力として $f(c), f(c + 1), \dots , f(c + M - 1)$ を $\mathrm{O}((N + M) \log (N + M))$ 時間で計算する。
+次数 $N$ 未満の多項式 $f(x)$ の標本点 $f(0), f(1), \dots , f(N - 1)$ を入力として $f(c), f(c + 1), \dots , f(c + M - 1)$ を $\mathrm{O}((N + M) \log (N + M))$ 時間で計算する．
 
-以下では、下降階乗冪 
+以下では，下降階乗冪 
 $$
 x^{\underline{n}} = \prod_{k = 1}^n (x - k + 1)
 $$
-を用いる。
+を用いる．
 
 #### 補題 1
 
@@ -23,9 +23,9 @@ $$
 <summary>証明</summary>
 <div>
 
-両辺 $N$ 次未満の多項式であるから $N$ 点 $x = 0, 1, \dots , N - 1$ における値が一致することを示せば良い。
+両辺 $N$ 次未満の多項式であるから $N$ 点 $x = 0, 1, \dots , N - 1$ における値が一致することを示せば良い．
 
-$k \in \{0, 1, \dots , N - 1\}$ について、
+$k \in \{0, 1, \dots , N - 1\}$ について，
 $$
 \begin{aligned}
     \sum_{i = 0}^{N - 1} \left(\sum_{j = 0}^i \frac{(-1)^{i - j}}{(i - j)!} \frac{f(j)}{j!}\right) k^{\underline{[i]}}
@@ -43,11 +43,11 @@ $\blacksquare$
 </div>
 </details>
 
-この補題から、$f(x) = \sum_{i = 0}^{N - 1} a_i x^{\underline{i}}$ なる数列 $a_0, a_1, \dots , a_{N - 1}$ が畳み込みで $\mathrm{O}(N \log N)$ 時間で得られることがわかる。
+この補題から，$f(x) = \sum_{i = 0}^{N - 1} a_i x^{\underline{i}}$ なる数列 $a_0, a_1, \dots , a_{N - 1}$ が畳み込みで $\mathrm{O}(N \log N)$ 時間で得られることがわかる．
 
 #### 補題 2
 
-任意の $0$ 以上の整数 $n$ について、
+任意の $0$ 以上の整数 $n$ について，
 $$
 (a + b)^{\underline{n}} = \sum_{i = 0}^n \binom{n}{i} a^{\underline{i}} b^{\underline{n - i}}.
 $$
@@ -56,11 +56,11 @@ $$
 <summary>証明</summary>
 <div>
 
-$n$ についての帰納法により示す。
+$n$ についての帰納法により示す．
 
-$n = 0$ のときは明らか。
+$n = 0$ のときは明らか．
 
-$(a + b)^{\underline{n}} = \sum_{i = 0}^n \binom{n}{i} a^{\underline{i}} b^{\underline{n - i}}$ を仮定したとき、
+$(a + b)^{\underline{n}} = \sum_{i = 0}^n \binom{n}{i} a^{\underline{i}} b^{\underline{n - i}}$ を仮定したとき，
 $$
 \begin{aligned}
     (a + b)^{\underline{n + 1}}
@@ -76,9 +76,7 @@ $\blacksquare$
 </div>
 </details>
 
-#### 補題 3
-
-以上より、$k \in \{0, 1, \dots , M - 1\}$ 及びシフト幅 $c$ について、
+以上より，$k \in \{0, 1, \dots , M - 1\}$ 及びシフト幅 $c$ について，
 $$
 \begin{aligned}
     f(k + c)
@@ -92,7 +90,7 @@ $$
 \end{aligned}
 $$
 
-$b$ は畳み込みにより $\mathrm{O}(N \log N)$ 時間で計算でき、これにより求めたい各点値も畳み込みで $\mathrm{O}((N + M) \log (N + M))$ 時間で得られる。
+$b$ は畳み込みにより $\mathrm{O}(N \log N)$ 時間で計算でき，これにより求めたい各点値も畳み込みで $\mathrm{O}((N + M) \log (N + M))$ 時間で得られる．
 
 ## 問題例
 - [The 1st Universal Cup. Stage 17: Guangzhou M. Expression 3](https://qoj.ac/contest/1244/problem/6513?v=1)
