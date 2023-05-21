@@ -48,7 +48,7 @@ template <typename T> struct Binomial {
         return res;
     }
 
-private:
+  private:
     int n;
     std::vector<T> facs, finvs, invs;
 

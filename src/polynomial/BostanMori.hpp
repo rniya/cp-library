@@ -7,11 +7,11 @@ template <typename T> T BostanMori(std::vector<T> Q, std::vector<T> P, long long
     const int d = Q.size();
     for (; N; N >>= 1) {
         auto Q_neg = Q;
-        for (size_t i = 1; i < Q.size(); i += 2) Q_neg[i] *= -1;
+        for (int i = 1; i < int(Q.size()); i += 2) Q_neg[i] *= -1;
         P = atcoder::convolution(P, Q_neg);
         Q = atcoder::convolution(Q, Q_neg);
-        for (size_t i = N & 1; i < P.size(); i += 2) P[i >> 1] = P[i];
-        for (size_t i = 0; i < Q.size(); i += 2) Q[i >> 1] = Q[i];
+        for (int i = N & 1; i < int(P.size()); i += 2) P[i >> 1] = P[i];
+        for (int i = 0; i < int(Q.size()); i += 2) Q[i >> 1] = Q[i];
         P.resize(d - 1);
         Q.resize(d);
     }

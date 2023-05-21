@@ -39,7 +39,7 @@ template <typename T> struct FormalPowerSeries : std::vector<T> {
   public:
     FPS& operator+=(const FPS& r) {
         if (r.size() > this->size()) this->resize(r.size());
-        for (size_t i = 0; i < r.size(); i++) (*this)[i] += r[i];
+        for (int i = 0; i < int(r.size()); i++) (*this)[i] += r[i];
         shrink();
         return *this;
     }
@@ -53,7 +53,7 @@ template <typename T> struct FormalPowerSeries : std::vector<T> {
 
     FPS& operator-=(const FPS& r) {
         if (r.size() > this->size()) this->resize(r.size());
-        for (size_t i = 0; i < r.size(); i++) (*this)[i] -= r[i];
+        for (int i = 0; i < int(r.size()); i++) (*this)[i] -= r[i];
         shrink();
         return *this;
     }

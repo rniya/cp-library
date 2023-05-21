@@ -256,7 +256,7 @@ $f$ の定数項が $1$ の場合に帰着すると，$\sqrt{f} = f^{1 / 2}$ が
 
 以上の $f$ が sparse な場合の各種演算は Number Theoretic Transform による積の高速化を必要としないため，$\mathbb{F}_{10^9 + 7}[x]$ 等，**法が NTT-friendly でない場合にも適用可能である．**
 
-## taylor-shift
+## Polynomial Taylor Shift
 与えられた多項式 $f(x)$ 及び定数 $c$ について，$f(x + c)$ を求める．
 
 $$
@@ -312,11 +312,8 @@ $$
 
 - [灘校文化祭コンテスト 2022 Day1 K - Li](https://atcoder.jp/contests/nadafes2022_day1/tasks/nadafes2022_day1_k)
 
-- [Good Bye 2022: 2023 is NEAR G. Koxia and Bracket](https://codeforces.com/contest/1770/problem/G)
-
-- [Good Bye 2022: 2023 is NEAR G. Koxia and Bracket](https://codeforces.com/contest/1770/problem/G)
-  - https://codeforces.com/gym/102220/problem/I や https://codeforces.com/gym/102978/problem/J も同系統らしい？
-
+- [AtCoder Regular Contest 154 F - Dice Game](https://atcoder.jp/contests/arc154/tasks/arc154_f)
+  - $\sum_k a_k e^{b_k x}$ が計算できる．具体的には求める多項式を $f$ として $f$ の $i$ 次の係数を $i!$ 倍した多項式を $g$ とすると，これは $e^{b x} = \sum_{i \geq 0} \frac{(b x)^i}{i!}$ より $\sum_k a_k \sum_{i \geq 0} (b_k x)^i = \sum_k \frac{a_k}{1 - b_k x}$ に等しい．
 ## Reference
 [1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
 

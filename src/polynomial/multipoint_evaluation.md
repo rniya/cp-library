@@ -26,6 +26,7 @@ middle product を利用した高速化
 ## 問題例
 - [AtCoder Beginner Contest 272 Ex - Flipping Coins 2](https://atcoder.jp/contests/abc272/tasks/abc272_h)
 - [技術室奥プログラミングコンテスト#6 Day2 K - Ball in the Box 2](https://atcoder.jp/contests/tkppc6-2/tasks/tkppc6_2_k)
+- [The 1st Universal Cup. Stage 16: Gomel E. Classical FFT Problem](https://qoj.ac/contest/1223/problem/6411?v=1)
 
 ## Links
 - [Multipoint Evaluation の アルゴリズム – 37zigenのHP](https://37zigen.com/multipoint-evaluation/)
