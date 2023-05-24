@@ -1,6 +1,6 @@
 #pragma once
-#include "../base.hpp"
-#include "../modulo/modint.hpp"
+#include "atcoder/modint"
+#include "base.hpp"
 
 /**
  * @brief Number Theoretic Transform

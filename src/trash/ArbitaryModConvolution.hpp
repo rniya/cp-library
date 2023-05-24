@@ -1,7 +1,7 @@
 #pragma once
-#include "../base.hpp"
-#include "../modulo/modint.hpp"
 #include "NumberTheoreticTransform.hpp"
+#include "atcoder/modint"
+#include "base.hpp"
 
 /**
  * @brief Arbirary Mod Convolution (任意mod畳み込み)
