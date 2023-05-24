@@ -1,3 +1,4 @@
+#pragma once
 #include "atcoder/convolution"
 
 template <typename T> std::vector<T> shift_of_sampling_points_of_polynomial(const std::vector<T>& ys, T c, int m) {
