@@ -141,7 +141,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/Simplex.hpp
       title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/math/binary_gcd.hpp
       title: binary gcd
     - icon: ':heavy_check_mark:'
@@ -196,6 +196,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/polynomial/multipoint_evaluation.hpp
       title: multipoint evaluation
+    - icon: ':heavy_check_mark:'
+      path: src/polynomial/shift_of_sampling_points_of_polynomial.hpp
+      title: Shift of Sampling Points of Polynomial
     - icon: ':heavy_check_mark:'
       path: src/polynomial/subset_sum.hpp
       title: $\#_p$ Subset Sum
@@ -428,6 +431,9 @@ data:
       path: test/aoj/NTL_1_B.test.cpp
       title: test/aoj/NTL_1_B.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/aoj/NTL_1_C.test.cpp
+      title: test/aoj/NTL_1_C.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL_1_D.test.cpp
       title: test/aoj/NTL_1_D.test.cpp
     - icon: ':heavy_check_mark:'
@@ -537,6 +543,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/sharp_p_subset_sum.test.cpp
       title: test/yosupo/sharp_p_subset_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/shift_of_sampling_points_of_polynomial.test.cpp
+      title: test/yosupo/shift_of_sampling_points_of_polynomial.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp

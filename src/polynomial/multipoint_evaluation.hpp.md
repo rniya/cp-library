@@ -46,7 +46,7 @@ data:
   isVerificationFile: false
   path: src/polynomial/multipoint_evaluation.hpp
   requiredBy: []
-  timestamp: '2023-04-22 02:23:28+09:00'
+  timestamp: '2023-05-21 16:36:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/multipoint_evaluation.test.cpp
@@ -78,6 +78,7 @@ middle product を利用した高速化
 ## 問題例
 - [AtCoder Beginner Contest 272 Ex - Flipping Coins 2](https://atcoder.jp/contests/abc272/tasks/abc272_h)
 - [技術室奥プログラミングコンテスト#6 Day2 K - Ball in the Box 2](https://atcoder.jp/contests/tkppc6-2/tasks/tkppc6_2_k)
+- [The 1st Universal Cup. Stage 16: Gomel E. Classical FFT Problem](https://qoj.ac/contest/1223/problem/6411?v=1)
 
 ## Links
 - [Multipoint Evaluation の アルゴリズム – 37zigenのHP](https://37zigen.com/multipoint-evaluation/)

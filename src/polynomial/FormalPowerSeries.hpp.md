@@ -74,45 +74,45 @@ data:
     \ operator<<(size_t sz) const {\n        if (this->empty()) return {};\n     \
     \   FPS ret(*this);\n        ret.insert(ret.begin(), sz, T(0));\n        return\
     \ ret;\n    }\n\n  public:\n    FPS& operator+=(const FPS& r) {\n        if (r.size()\
-    \ > this->size()) this->resize(r.size());\n        for (size_t i = 0; i < r.size();\
+    \ > this->size()) this->resize(r.size());\n        for (int i = 0; i < int(r.size());\
     \ i++) (*this)[i] += r[i];\n        shrink();\n        return *this;\n    }\n\n\
     \    FPS& operator+=(const T& v) {\n        if (this->empty()) this->resize(1);\n\
     \        (*this)[0] += v;\n        shrink();\n        return *this;\n    }\n\n\
     \    FPS& operator-=(const FPS& r) {\n        if (r.size() > this->size()) this->resize(r.size());\n\
-    \        for (size_t i = 0; i < r.size(); i++) (*this)[i] -= r[i];\n        shrink();\n\
-    \        return *this;\n    }\n\n    FPS& operator-=(const T& v) {\n        if\
-    \ (this->empty()) this->resize(1);\n        (*this)[0] -= v;\n        shrink();\n\
-    \        return *this;\n    }\n\n    FPS& operator*=(const FPS& r) {\n       \
-    \ auto res = atcoder::convolution(*this, r);\n        return *this = {res.begin(),\
-    \ res.end()};\n    }\n\n    FPS& operator*=(const T& v) {\n        for (auto&\
-    \ x : (*this)) x *= v;\n        shrink();\n        return *this;\n    }\n\n  \
-    \  FPS& operator/=(const FPS& r) {\n        if (this->size() < r.size()) {\n \
-    \           this->clear();\n            return *this;\n        }\n        int\
-    \ n = this->size() - r.size() + 1;\n        return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev();\n\
-    \    }\n\n    FPS& operator%=(const FPS& r) {\n        *this -= *this / r * r;\n\
-    \        shrink();\n        return *this;\n    }\n\n    FPS operator+(const FPS&\
-    \ r) const { return FPS(*this) += r; }\n\n    FPS operator+(const T& v) const\
-    \ { return FPS(*this) += v; }\n\n    FPS operator-(const FPS& r) const { return\
-    \ FPS(*this) -= r; }\n\n    FPS operator-(const T& v) const { return FPS(*this)\
-    \ -= v; }\n\n    FPS operator*(const FPS& r) const { return FPS(*this) *= r; }\n\
-    \n    FPS operator*(const T& v) const { return FPS(*this) *= v; }\n\n    FPS operator/(const\
-    \ FPS& r) const { return FPS(*this) /= r; }\n\n    FPS operator%(const FPS& r)\
-    \ const { return FPS(*this) %= r; }\n\n    FPS operator-() const {\n        FPS\
-    \ ret = *this;\n        for (auto& v : ret) v = -v;\n        return ret;\n   \
-    \ }\n\n    FPS differential() const {\n        const int n = (int)this->size();\n\
-    \        FPS ret(std::max(0, n - 1));\n        for (int i = 1; i < n; i++) ret[i\
-    \ - 1] = (*this)[i] * T(i);\n        return ret;\n    }\n\n    FPS integral()\
-    \ const {\n        const int n = (int)this->size();\n        FPS ret(n + 1);\n\
-    \        ret[0] = T(0);\n        if (n > 0) ret[1] = T(1);\n        auto mod =\
-    \ T::mod();\n        for (int i = 2; i <= n; i++) ret[i] = -ret[mod % i] * (mod\
-    \ / i);\n        for (int i = 0; i < n; i++) ret[i + 1] *= (*this)[i];\n     \
-    \   return ret;\n    }\n\n    FPS inv(int deg = -1) const {\n        assert((*this)[0]\
-    \ != T(0));\n        const int n = (int)this->size();\n        if (deg == -1)\
-    \ deg = n;\n        FPS ret{(*this)[0].inv()};\n        ret.reserve(deg);\n  \
-    \      for (int d = 1; d < deg; d <<= 1) {\n            FPS f(d << 1), g(d <<\
-    \ 1);\n            std::copy(this->begin(), this->begin() + std::min(n, d << 1),\
-    \ f.begin());\n            std::copy(ret.begin(), ret.end(), g.begin());\n   \
-    \         atcoder::internal::butterfly(f);\n            atcoder::internal::butterfly(g);\n\
+    \        for (int i = 0; i < int(r.size()); i++) (*this)[i] -= r[i];\n       \
+    \ shrink();\n        return *this;\n    }\n\n    FPS& operator-=(const T& v) {\n\
+    \        if (this->empty()) this->resize(1);\n        (*this)[0] -= v;\n     \
+    \   shrink();\n        return *this;\n    }\n\n    FPS& operator*=(const FPS&\
+    \ r) {\n        auto res = atcoder::convolution(*this, r);\n        return *this\
+    \ = {res.begin(), res.end()};\n    }\n\n    FPS& operator*=(const T& v) {\n  \
+    \      for (auto& x : (*this)) x *= v;\n        shrink();\n        return *this;\n\
+    \    }\n\n    FPS& operator/=(const FPS& r) {\n        if (this->size() < r.size())\
+    \ {\n            this->clear();\n            return *this;\n        }\n      \
+    \  int n = this->size() - r.size() + 1;\n        return *this = (rev().pre(n)\
+    \ * r.rev().inv(n)).pre(n).rev();\n    }\n\n    FPS& operator%=(const FPS& r)\
+    \ {\n        *this -= *this / r * r;\n        shrink();\n        return *this;\n\
+    \    }\n\n    FPS operator+(const FPS& r) const { return FPS(*this) += r; }\n\n\
+    \    FPS operator+(const T& v) const { return FPS(*this) += v; }\n\n    FPS operator-(const\
+    \ FPS& r) const { return FPS(*this) -= r; }\n\n    FPS operator-(const T& v) const\
+    \ { return FPS(*this) -= v; }\n\n    FPS operator*(const FPS& r) const { return\
+    \ FPS(*this) *= r; }\n\n    FPS operator*(const T& v) const { return FPS(*this)\
+    \ *= v; }\n\n    FPS operator/(const FPS& r) const { return FPS(*this) /= r; }\n\
+    \n    FPS operator%(const FPS& r) const { return FPS(*this) %= r; }\n\n    FPS\
+    \ operator-() const {\n        FPS ret = *this;\n        for (auto& v : ret) v\
+    \ = -v;\n        return ret;\n    }\n\n    FPS differential() const {\n      \
+    \  const int n = (int)this->size();\n        FPS ret(std::max(0, n - 1));\n  \
+    \      for (int i = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n        return\
+    \ ret;\n    }\n\n    FPS integral() const {\n        const int n = (int)this->size();\n\
+    \        FPS ret(n + 1);\n        ret[0] = T(0);\n        if (n > 0) ret[1] =\
+    \ T(1);\n        auto mod = T::mod();\n        for (int i = 2; i <= n; i++) ret[i]\
+    \ = -ret[mod % i] * (mod / i);\n        for (int i = 0; i < n; i++) ret[i + 1]\
+    \ *= (*this)[i];\n        return ret;\n    }\n\n    FPS inv(int deg = -1) const\
+    \ {\n        assert((*this)[0] != T(0));\n        const int n = (int)this->size();\n\
+    \        if (deg == -1) deg = n;\n        FPS ret{(*this)[0].inv()};\n       \
+    \ ret.reserve(deg);\n        for (int d = 1; d < deg; d <<= 1) {\n           \
+    \ FPS f(d << 1), g(d << 1);\n            std::copy(this->begin(), this->begin()\
+    \ + std::min(n, d << 1), f.begin());\n            std::copy(ret.begin(), ret.end(),\
+    \ g.begin());\n            atcoder::internal::butterfly(f);\n            atcoder::internal::butterfly(g);\n\
     \            for (int i = 0; i < (d << 1); i++) f[i] *= g[i];\n            atcoder::internal::butterfly_inv(f);\n\
     \            std::fill(f.begin(), f.begin() + d, T(0));\n            atcoder::internal::butterfly(f);\n\
     \            for (int i = 0; i < (d << 1); i++) f[i] *= g[i];\n            atcoder::internal::butterfly_inv(f);\n\
@@ -228,20 +228,20 @@ data:
   requiredBy:
   - src/polynomial/subset_sum.hpp
   - src/polynomial/multipoint_evaluation.hpp
-  timestamp: '2023-04-22 02:23:28+09:00'
+  timestamp: '2023-05-21 16:36:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/polynomial_taylor_shift.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
   - test/yosupo/product_of_polynomial_sequence.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
+  - test/yosupo/polynomial_taylor_shift.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/sharp_p_subset_sum.test.cpp
+  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
 documentation_of: src/polynomial/FormalPowerSeries.hpp
 layout: document
 title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
@@ -500,7 +500,7 @@ $f$ の定数項が $1$ の場合に帰着すると，$\sqrt{f} = f^{1 / 2}$ が
 
 以上の $f$ が sparse な場合の各種演算は Number Theoretic Transform による積の高速化を必要としないため，$\mathbb{F}_{10^9 + 7}[x]$ 等，**法が NTT-friendly でない場合にも適用可能である．**
 
-## taylor-shift
+## Polynomial Taylor Shift
 与えられた多項式 $f(x)$ 及び定数 $c$ について，$f(x + c)$ を求める．
 
 $$
@@ -556,11 +556,8 @@ $$
 
 - [灘校文化祭コンテスト 2022 Day1 K - Li](https://atcoder.jp/contests/nadafes2022_day1/tasks/nadafes2022_day1_k)
 
-- [Good Bye 2022: 2023 is NEAR G. Koxia and Bracket](https://codeforces.com/contest/1770/problem/G)
-
-- [Good Bye 2022: 2023 is NEAR G. Koxia and Bracket](https://codeforces.com/contest/1770/problem/G)
-  - https://codeforces.com/gym/102220/problem/I や https://codeforces.com/gym/102978/problem/J も同系統らしい？
-
+- [AtCoder Regular Contest 154 F - Dice Game](https://atcoder.jp/contests/arc154/tasks/arc154_f)
+  - $\sum_k a_k e^{b_k x}$ が計算できる．具体的には求める多項式を $f$ として $f$ の $i$ 次の係数を $i!$ 倍した多項式を $g$ とすると，これは $e^{b x} = \sum_{i \geq 0} \frac{(b x)^i}{i!}$ より $\sum_k a_k \sum_{i \geq 0} (b_k x)^i = \sum_k \frac{a_k}{1 - b_k x}$ に等しい．
 ## Reference
 [1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
 

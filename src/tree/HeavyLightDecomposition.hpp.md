@@ -171,12 +171,12 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/vertex_add_path_sum.test.cpp
+  - test/yosupo/vertex_add_subtree_sum.test.cpp
   - test/yosupo/vertex_set_path_composite.test.cpp
   - test/yosupo/jump_on_tree.test.cpp
-  - test/aoj/GRL_5_C.test.cpp
   - test/aoj/2667.test.cpp
+  - test/aoj/GRL_5_C.test.cpp
 documentation_of: src/tree/HeavyLightDecomposition.hpp
 layout: document
 title: Heavy Light Decomposition
@@ -217,6 +217,7 @@ title: Heavy Light Decomposition
 - [Codeforces Round #285 (Div. 1) E. Misha and LCP on Tree](https://codeforces.com/contest/504/problem/E)
 - [AtCoder Beginner Contest 269 Ex - Antichain](https://atcoder.jp/contests/abc269/tasks/abc269_h)
   - heavy path 上の分割統治を適切にまとめていくことで解ける．各 heavy path の先頭の頂点の部分木の大きさの総和が $O(N \log N)$ であること等を利用する．
+- [Hokkaido University Competitive Programming Camp 2023 Day 1 G: Detour](https://onlinejudge.u-aizu.ac.jp/beta/room.html#HUPC2023Day1/problems/G)
 
 ## Links
 - [Easiest HLD with subtree queries - Codeforces](https://codeforces.com/blog/entry/53170)

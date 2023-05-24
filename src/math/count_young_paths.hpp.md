@@ -59,7 +59,7 @@ data:
   isVerificationFile: false
   path: src/math/count_young_paths.hpp
   requiredBy: []
-  timestamp: '2023-05-05 03:07:43+09:00'
+  timestamp: '2023-05-21 16:36:42+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/math/count_young_paths.hpp

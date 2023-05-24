@@ -28,10 +28,10 @@ data:
   code: "#pragma once\n#include \"atcoder/convolution\"\n\ntemplate <typename T> T\
     \ BostanMori(std::vector<T> Q, std::vector<T> P, long long N) {\n    assert(Q[0]\
     \ == 1);\n    assert(P.size() < Q.size());\n    const int d = Q.size();\n    for\
-    \ (; N; N >>= 1) {\n        auto Q_neg = Q;\n        for (size_t i = 1; i < Q.size();\
+    \ (; N; N >>= 1) {\n        auto Q_neg = Q;\n        for (int i = 1; i < int(Q.size());\
     \ i += 2) Q_neg[i] *= -1;\n        P = atcoder::convolution(P, Q_neg);\n     \
-    \   Q = atcoder::convolution(Q, Q_neg);\n        for (size_t i = N & 1; i < P.size();\
-    \ i += 2) P[i >> 1] = P[i];\n        for (size_t i = 0; i < Q.size(); i += 2)\
+    \   Q = atcoder::convolution(Q, Q_neg);\n        for (int i = N & 1; i < int(P.size());\
+    \ i += 2) P[i >> 1] = P[i];\n        for (int i = 0; i < int(Q.size()); i += 2)\
     \ Q[i >> 1] = Q[i];\n        P.resize(d - 1);\n        Q.resize(d);\n    }\n \
     \   return P[0];\n}\n\n/**\n * @brief compute Nth term of linearly recurrent sequence\
     \ a_n = \\sum_{i = 1}^d c_i a_{n - i}\n *\n * @tparam T F_p\n * @param a first\
@@ -47,7 +47,7 @@ data:
   isVerificationFile: false
   path: src/polynomial/BostanMori.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-05-21 16:36:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp

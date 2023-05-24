@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: src/polynomial/lagrange_interpolation.hpp
   requiredBy: []
-  timestamp: '2023-04-23 18:55:45+09:00'
+  timestamp: '2023-05-21 16:36:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/665.test.cpp
@@ -74,3 +74,4 @@ $x_i = i$ の場合には階乗前計算の元より簡単に計算すること�
 
 ## 問題例
 - [AtCoder Beginner Contest 208 F - Cumulative Sum](https://atcoder.jp/contests/abc208/tasks/abc208_f)
+- [Codeforces Round #869 (Div. 1) C. Similar Polynomials](https://codeforces.com/contest/1817/problem/C)

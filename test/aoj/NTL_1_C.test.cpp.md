@@ -2,11 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/polynomial/FormalPowerSeries.hpp
-    title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
-  - icon: ':heavy_check_mark:'
-    path: src/util/modint.hpp
-    title: src/util/modint.hpp
+    path: src/math/binary_gcd.hpp
+    title: binary gcd
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -14,9 +11,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/pow_of_formal_power_series
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/all/NTL_1_C
     links:
-    - https://judge.yosupo.jp/problem/pow_of_formal_power_series
+    - https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/all/NTL_1_C
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -27,28 +24,26 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: polynomial/FormalPowerSeries.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/binary_gcd.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\
-    \n\n#include \"polynomial/FormalPowerSeries.hpp\"\n#include \"util/modint.hpp\"\
-    \n\nusing mint = atcoder::modint998244353;\nusing FPS = FormalPowerSeries<mint>;\n\
-    \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
-    \    int N;\n    long long M;\n    std::cin >> N >> M;\n    FPS a(N);\n    for\
-    \ (int i = 0; i < N; i++) std::cin >> a[i];\n    FPS b = a.pow(M);\n    for (int\
-    \ i = 0; i < N; i++) std::cout << b[i] << (i + 1 == N ? '\\n' : ' ');\n}"
+  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/all/NTL_1_C\"\
+    \n\n#include <iostream>\n#include \"math/binary_gcd.hpp\"\n\nint main() {\n  \
+    \  std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int n;\n    std::cin\
+    \ >> n;\n    int ans = 1;\n    for (; n--;) {\n        int a;\n        std::cin\
+    \ >> a;\n        ans = ans * a / binary_gcd(ans, a);\n    }\n    std::cout <<\
+    \ ans << '\\n';\n    return 0;\n}"
   dependsOn:
-  - src/polynomial/FormalPowerSeries.hpp
-  - src/util/modint.hpp
+  - src/math/binary_gcd.hpp
   isVerificationFile: true
-  path: test/yosupo/pow_of_formal_power_series.test.cpp
+  path: test/aoj/NTL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2023-05-21 16:36:42+09:00'
+  timestamp: '2023-05-24 23:58:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/pow_of_formal_power_series.test.cpp
+documentation_of: test/aoj/NTL_1_C.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/pow_of_formal_power_series.test.cpp
-- /verify/test/yosupo/pow_of_formal_power_series.test.cpp.html
-title: test/yosupo/pow_of_formal_power_series.test.cpp
+- /verify/test/aoj/NTL_1_C.test.cpp
+- /verify/test/aoj/NTL_1_C.test.cpp.html
+title: test/aoj/NTL_1_C.test.cpp
 ---

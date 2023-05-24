@@ -36,7 +36,7 @@ data:
     \ + r - 1, r);\n    }\n\n    T C_naive(int n, int r) {\n        if (n < 0 || n\
     \ < r || r < 0) return T(0);\n        T res = 1;\n        r = std::min(r, n -\
     \ r);\n        for (int i = 1; i <= r; i++) res *= inv(i) * (n--);\n        return\
-    \ res;\n    }\n\nprivate:\n    int n;\n    std::vector<T> facs, finvs, invs;\n\
+    \ res;\n    }\n\n  private:\n    int n;\n    std::vector<T> facs, finvs, invs;\n\
     \n    inline void extend() {\n        int m = n << 1;\n        facs.resize(m);\n\
     \        finvs.resize(m);\n        invs.resize(m);\n        for (int i = n; i\
     \ < m; i++) facs[i] = facs[i - 1] * i;\n        finvs[m - 1] = T(1) / facs[m -\
@@ -58,9 +58,9 @@ data:
     \ 0 || r < 0) return T(0);\n        return r == 0 ? 1 : C(n + r - 1, r);\n   \
     \ }\n\n    T C_naive(int n, int r) {\n        if (n < 0 || n < r || r < 0) return\
     \ T(0);\n        T res = 1;\n        r = std::min(r, n - r);\n        for (int\
-    \ i = 1; i <= r; i++) res *= inv(i) * (n--);\n        return res;\n    }\n\nprivate:\n\
-    \    int n;\n    std::vector<T> facs, finvs, invs;\n\n    inline void extend()\
-    \ {\n        int m = n << 1;\n        facs.resize(m);\n        finvs.resize(m);\n\
+    \ i = 1; i <= r; i++) res *= inv(i) * (n--);\n        return res;\n    }\n\n \
+    \ private:\n    int n;\n    std::vector<T> facs, finvs, invs;\n\n    inline void\
+    \ extend() {\n        int m = n << 1;\n        facs.resize(m);\n        finvs.resize(m);\n\
     \        invs.resize(m);\n        for (int i = n; i < m; i++) facs[i] = facs[i\
     \ - 1] * i;\n        finvs[m - 1] = T(1) / facs[m - 1];\n        invs[m - 1] =\
     \ finvs[m - 1] * facs[m - 2];\n        for (int i = m - 2; i >= n; i--) {\n  \
@@ -72,7 +72,7 @@ data:
   requiredBy:
   - src/polynomial/lagrange_interpolation.hpp
   - src/math/count_young_paths.hpp
-  timestamp: '2023-04-23 18:55:45+09:00'
+  timestamp: '2023-05-21 16:36:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/665.test.cpp

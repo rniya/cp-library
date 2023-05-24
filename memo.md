@@ -9,6 +9,8 @@
 - [ゲーム](#ゲーム)
     - [問題例](#問題例-4)
 - [操作における不変量](#操作における不変量)
+- [その他](#その他)
+- [反省](#反省)
 
 
 ## Burnside の補題 / Polya の定理
@@ -56,8 +58,20 @@ $$
   - 周期 34 の Grundy 数。
 - [yukicoder No.2285 Make A Unit Square](https://yukicoder.me/problems/no/2285)
   - 同上。
+- [The 1st Universal Cup. Stage 8: Slovenia B. Combination Locks](https://qoj.ac/contest/1070/problem/5250?v=1)
+  - [参考](https://37zigen.com/game-on-graph/)。まだ upsolve していない。
 
 ## 操作における不変量
 - [The 1st Universal Cup. Stage 14: Ranoa C. LaLa and Lamp](https://qoj.ac/contest/1214/problem/6376)
 - [Hokkaido University Competitive Programming Camp 2023 Day 1 D: Beam Beam Beam](https://onlinejudge.u-aizu.ac.jp/beta/room.html#HUPC2023Day1/problems/D)
   - グリッド上の各マス目に数字が書かれていて、各行および各列に値を一律に加算する操作を行えるとき、数字を全て $0$ にすることができる必要十分条件は任意の連続する $2$ 行及び列からなる $2 \times 2$ 部分行列の行列式が $0$ であることである。
+
+## その他
+- [The 1st Universal Cup. Stage 16: Gomel H. Classical Maximization Problem](https://qoj.ac/contest/1223/problem/6414?v=1)
+  - 端点を共有する辺同士のマッチングは dfs 木を取ってボトムアップに構築可能。また、連結成分内の辺の本数が偶数ならば必ず完全マッチングが存在する。
+
+## 反省
+- 木上の任意のパスを扱う際には重心分解による分割統治が有効であるのと同様に、数列上の任意の区間を扱う際にも分割統治が有効。
+  - [AtCoder Regular Contest 158 E - All Pair Shortest Paths](https://atcoder.jp/contests/arc158/tasks/arc158_e)
+- 回数制限のない構築等では最小単位の扱いやすい操作を扱う操作を合成することを考える。
+  - [AtCoder Regular Contest 159 C - Permutation Addition](https://atcoder.jp/contests/arc159/tasks/arc159_c)

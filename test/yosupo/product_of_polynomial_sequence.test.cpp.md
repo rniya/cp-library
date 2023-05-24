@@ -45,7 +45,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/product_of_polynomial_sequence.test.cpp
   requiredBy: []
-  timestamp: '2023-04-22 02:23:28+09:00'
+  timestamp: '2023-05-21 16:36:42+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/product_of_polynomial_sequence.test.cpp
