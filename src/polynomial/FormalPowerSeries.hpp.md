@@ -231,17 +231,17 @@ data:
   timestamp: '2023-05-21 16:36:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/product_of_polynomial_sequence.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
+  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
+  - test/yosupo/product_of_polynomial_sequence.test.cpp
   - test/yosupo/multipoint_evaluation.test.cpp
+  - test/yosupo/sharp_p_subset_sum.test.cpp
   - test/yosupo/polynomial_taylor_shift.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
-  - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
 documentation_of: src/polynomial/FormalPowerSeries.hpp
 layout: document
 title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
@@ -558,6 +558,7 @@ $$
 
 - [AtCoder Regular Contest 154 F - Dice Game](https://atcoder.jp/contests/arc154/tasks/arc154_f)
   - $\sum_k a_k e^{b_k x}$ が計算できる．具体的には求める多項式を $f$ として $f$ の $i$ 次の係数を $i!$ 倍した多項式を $g$ とすると，これは $e^{b x} = \sum_{i \geq 0} \frac{(b x)^i}{i!}$ より $\sum_k a_k \sum_{i \geq 0} (b_k x)^i = \sum_k \frac{a_k}{1 - b_k x}$ に等しい．
+
 ## Reference
 [1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
 

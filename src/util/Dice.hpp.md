@@ -118,9 +118,9 @@ data:
   verifiedWith:
   - test/aoj/ITP1_11_A.test.cpp
   - test/aoj/ITP1_11_D.test.cpp
-  - test/aoj/1181.test.cpp
-  - test/aoj/ITP1_11_B.test.cpp
   - test/aoj/ITP1_11_C.test.cpp
+  - test/aoj/ITP1_11_B.test.cpp
+  - test/aoj/1181.test.cpp
 documentation_of: src/util/Dice.hpp
 layout: document
 title: "\u30B5\u30A4\u30B3\u30ED"

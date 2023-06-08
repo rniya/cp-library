@@ -50,6 +50,9 @@ data:
       path: src/datastructure/LineContainer.hpp
       title: Line Container (based on kactl)
     - icon: ':warning:'
+      path: src/datastructure/OfflineDynamicConnectivity.hpp
+      title: Offline Dynamic Connectivity
+    - icon: ':warning:'
       path: src/datastructure/PartiallyPersistentUnionFind.hpp
       title: Partially Persistent Union Find
     - icon: ':heavy_check_mark:'
@@ -86,7 +89,7 @@ data:
       title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
     - icon: ':warning:'
       path: src/geometry/geometry3D.hpp
-      title: "3 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
+      title: src/geometry/geometry3D.hpp
   - name: src/graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -144,10 +147,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/binary_gcd.hpp
       title: binary gcd
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/math/binomial.hpp
       title: binomial
-    - icon: ':warning:'
+    - icon: ':x:'
       path: src/math/count_young_paths.hpp
       title: "Young \u56F3\u5F62\u4E0A\u306E\u6700\u77ED\u7D4C\u8DEF\u306E\u6570\u3048\
         \u4E0A\u3052"
@@ -257,17 +260,14 @@ data:
       path: src/util/Rational.hpp
       title: "\u6709\u7406\u6570\u30E9\u30A4\u30D6\u30E9\u30EA"
     - icon: ':warning:'
-      path: src/util/ZobristHash.hpp
-      title: src/util/ZobristHash.hpp
-    - icon: ':warning:'
       path: src/util/flow_graphviz.hpp
-      title: src/util/flow_graphviz.hpp
+      title: "\u6700\u5927\u6D41\u30FB\u6700\u5C0F\u8CBB\u7528\u6D41\u306E\u56F3\u793A"
     - icon: ':warning:'
       path: src/util/gray_code.hpp
       title: Gray Code
     - icon: ':heavy_check_mark:'
       path: src/util/modint.hpp
-      title: src/util/modint.hpp
+      title: modint (input/output)
     - icon: ':warning:'
       path: src/util/stack_extend.hpp
       title: "\u30B9\u30BF\u30C3\u30AF\u62E1\u5F35\u30DE\u30AF\u30ED"
@@ -292,6 +292,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/2903.test.cpp
       title: test/aoj/2903.test.cpp
+    - icon: ':x:'
+      path: test/aoj/3335.test.cpp
+      title: test/aoj/3335.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_14_B.test.cpp
       title: test/aoj/ALDS1_14_B.test.cpp

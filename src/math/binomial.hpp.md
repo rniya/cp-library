@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: src/math/count_young_paths.hpp
     title: "Young \u56F3\u5F62\u4E0A\u306E\u6700\u77ED\u7D4C\u8DEF\u306E\u6570\u3048\
       \u4E0A\u3052"
@@ -10,15 +10,18 @@ data:
     path: src/polynomial/lagrange_interpolation.hpp
     title: Lagrange Interpolation
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/3335.test.cpp
+    title: test/aoj/3335.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/math/binomial.hpp\"\n#include <cassert>\n#include <vector>\n\
@@ -70,13 +73,14 @@ data:
   isVerificationFile: false
   path: src/math/binomial.hpp
   requiredBy:
-  - src/polynomial/lagrange_interpolation.hpp
   - src/math/count_young_paths.hpp
+  - src/polynomial/lagrange_interpolation.hpp
   timestamp: '2023-05-21 16:36:42+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yukicoder/665.test.cpp
   - test/aoj/DPL_5_E.test.cpp
+  - test/aoj/3335.test.cpp
+  - test/yukicoder/665.test.cpp
 documentation_of: src/math/binomial.hpp
 layout: document
 title: binomial

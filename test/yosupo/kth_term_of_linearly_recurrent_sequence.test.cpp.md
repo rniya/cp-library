@@ -6,7 +6,7 @@ data:
     title: Bostan-Mori Algorithm
   - icon: ':heavy_check_mark:'
     path: src/util/modint.hpp
-    title: src/util/modint.hpp
+    title: modint (input/output)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

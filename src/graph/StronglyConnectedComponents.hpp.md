@@ -87,9 +87,9 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/two_sat.test.cpp
-  - test/yosupo/scc.test.cpp
   - test/aoj/GRL_3_C.test.cpp
+  - test/yosupo/scc.test.cpp
+  - test/yosupo/two_sat.test.cpp
 documentation_of: src/graph/StronglyConnectedComponents.hpp
 layout: document
 title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\

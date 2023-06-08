@@ -55,23 +55,33 @@ $$
 ## ゲーム
 #### 問題例
 - [CodeTON Round 2 (Div. 1 + Div. 2, Rated, Prizes!) F. Colouring Game](https://codeforces.com/contest/1704/problem/F)
-  - 周期 34 の Grundy 数。
+  - 周期 34 の Grundy 数．
 - [yukicoder No.2285 Make A Unit Square](https://yukicoder.me/problems/no/2285)
-  - 同上。
+  - 同上．
 - [The 1st Universal Cup. Stage 8: Slovenia B. Combination Locks](https://qoj.ac/contest/1070/problem/5250?v=1)
-  - [参考](https://37zigen.com/game-on-graph/)。まだ upsolve していない。
+  - [参考](https://37zigen.com/game-on-graph/)．まだ upsolve していない．
 
 ## 操作における不変量
 - [The 1st Universal Cup. Stage 14: Ranoa C. LaLa and Lamp](https://qoj.ac/contest/1214/problem/6376)
 - [Hokkaido University Competitive Programming Camp 2023 Day 1 D: Beam Beam Beam](https://onlinejudge.u-aizu.ac.jp/beta/room.html#HUPC2023Day1/problems/D)
-  - グリッド上の各マス目に数字が書かれていて、各行および各列に値を一律に加算する操作を行えるとき、数字を全て $0$ にすることができる必要十分条件は任意の連続する $2$ 行及び列からなる $2 \times 2$ 部分行列の行列式が $0$ であることである。
+  - グリッド上の各マス目に数字が書かれていて，各行および各列に値を一律に加算する操作を行えるとき，数字を全て $0$ にすることができる必要十分条件は任意の連続する $2$ 行及び列からなる $2 \times 2$ 部分行列の行列式が $0$ であることである．[参考](https://potato167.hatenablog.com/entry/2023/05/05/012415)．
 
 ## その他
 - [The 1st Universal Cup. Stage 16: Gomel H. Classical Maximization Problem](https://qoj.ac/contest/1223/problem/6414?v=1)
-  - 端点を共有する辺同士のマッチングは dfs 木を取ってボトムアップに構築可能。また、連結成分内の辺の本数が偶数ならば必ず完全マッチングが存在する。
+  - 端点を共有する辺同士のマッチングは dfs 木を取ってボトムアップに構築可能．また，連結成分内の辺の本数が偶数ならば必ず完全マッチングが存在する．
 
 ## 反省
-- 木上の任意のパスを扱う際には重心分解による分割統治が有効であるのと同様に、数列上の任意の区間を扱う際にも分割統治が有効。
+- 木上の任意のパスを扱う際には重心分解による分割統治が有効であるのと同様に，数列上の任意の区間を扱う際にも分割統治が有効
   - [AtCoder Regular Contest 158 E - All Pair Shortest Paths](https://atcoder.jp/contests/arc158/tasks/arc158_e)
-- 回数制限のない構築等では最小単位の扱いやすい操作を扱う操作を合成することを考える。
+- 回数制限のない構築等では最小単位の扱いやすい操作を扱う操作を合成することを考える
   - [AtCoder Regular Contest 159 C - Permutation Addition](https://atcoder.jp/contests/arc159/tasks/arc159_c)
+- 任意の順列をソートできる $\iff$ 任意の 01 列をソートできる
+  - [AtCoder Regular Contest 160 F - Count Sorted Arrays](https://atcoder.jp/contests/arc160/tasks/arc160_f)
+- 区間に対して操作した後，宝箱 $i$ が開いているならば報酬 $A_i$ を受け取ることができる→元から $A_i$ 所持しているとして $A_i$ 支払うことで宝箱 $i$ を開けることができるとして、宝箱を全て開ける問題に言い換える
+  - [yukicoder No.2321 Continuous Flip](https://yukicoder.me/problems/no/2321)
+  - [第四回 アルゴリズム実技検定 過去問 O - 宝箱](https://atcoder.jp/contests/past202010-open/tasks/past202010_o)
+- 構築でジャッジができたら乱択を疑う
+  - [AtCoder Regular Contest 161 E - Not Dyed by Majority (Cubic Graph)](https://atcoder.jp/contests/arc161/tasks/arc161_e)
+- 自明な上界/下界から最適解の性質が得られることがある
+  - [Codeforces Round 875 (Div. 1) D. Mex Tree](https://codeforces.com/contest/1830/problem/D)
+  - [AtCoder Regular Contest 063 F - すぬけ君の塗り絵 2](https://atcoder.jp/contests/arc063/tasks/arc063_d)

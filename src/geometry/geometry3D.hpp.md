@@ -7,7 +7,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    document_title: "3 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
     links: []
   bundledCode: "#line 2 \"src/geometry/geometry3D.hpp\"\n#include <cmath>\n#include\
     \ <iostream>\n\nnamespace geometry3D {\n\nusing Real = double;\nconstexpr Real\
@@ -49,8 +48,7 @@ data:
     \    friend std::istream& operator>>(std::istream& is, Sphere& c) { return is\
     \ >> c.center >> c.radius; }\n\n    friend std::ostream& operator<<(std::ostream&\
     \ os, Sphere& c) { return os << c.center << ' ' << c.radius; }\n};\n\n}  // namespace\
-    \ geometry3D\n\n/**\n * @brief 3 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\
-    \u30EA\n */\n"
+    \ geometry3D\n"
   code: "#pragma once\n#include <cmath>\n#include <iostream>\n\nnamespace geometry3D\
     \ {\n\nusing Real = double;\nconstexpr Real EPS = 1e-8;\nconstexpr Real PI = 3.14159265358979323846L;\n\
     \ninline int sgn(Real x) { return x < -EPS ? -1 : x > EPS ? 1 : 0; }\n\ninline\
@@ -91,13 +89,12 @@ data:
     \    friend std::istream& operator>>(std::istream& is, Sphere& c) { return is\
     \ >> c.center >> c.radius; }\n\n    friend std::ostream& operator<<(std::ostream&\
     \ os, Sphere& c) { return os << c.center << ' ' << c.radius; }\n};\n\n}  // namespace\
-    \ geometry3D\n\n/**\n * @brief 3 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\
-    \u30EA\n */"
+    \ geometry3D\n"
   dependsOn: []
   isVerificationFile: false
   path: src/geometry/geometry3D.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-06-08 18:42:58+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/geometry/geometry3D.hpp
@@ -105,5 +102,5 @@ layout: document
 redirect_from:
 - /library/src/geometry/geometry3D.hpp
 - /library/src/geometry/geometry3D.hpp.html
-title: "3 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
+title: src/geometry/geometry3D.hpp
 ---

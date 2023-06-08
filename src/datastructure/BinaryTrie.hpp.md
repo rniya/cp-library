@@ -45,8 +45,8 @@ data:
     \ -1 ? 0 : nodes[l].count);\n                res |= T(f ^ 1) << i;\n         \
     \   } else {\n                cur = l;\n                res |= T(f) << i;\n  \
     \          }\n        }\n        return res;\n    }\n\n    int count_less(const\
-    \ T& x, const T& xor_val = 0) const {\n        int cur = 0;\n        int res =\
-    \ 0;\n        for (int i = MAX_LOG - 1; i >= 0; i--) {\n            int f = xor_val\
+    \ T& x, const T& xor_val = 0) {\n        int cur = 0;\n        int res = 0;\n\
+    \        for (int i = MAX_LOG - 1; i >= 0; i--) {\n            int f = xor_val\
     \ >> i & 1, g = x >> i & 1;\n            int l = next(cur, f), r = next(cur, f\
     \ ^ 1);\n            if (f != g and l != -1) res += nodes[l].count;\n        \
     \    cur = next(cur, g);\n            if (cur == -1) break;\n        }\n     \
@@ -84,17 +84,17 @@ data:
     \ cur = r;\n                k -= (l == -1 ? 0 : nodes[l].count);\n           \
     \     res |= T(f ^ 1) << i;\n            } else {\n                cur = l;\n\
     \                res |= T(f) << i;\n            }\n        }\n        return res;\n\
-    \    }\n\n    int count_less(const T& x, const T& xor_val = 0) const {\n     \
-    \   int cur = 0;\n        int res = 0;\n        for (int i = MAX_LOG - 1; i >=\
-    \ 0; i--) {\n            int f = xor_val >> i & 1, g = x >> i & 1;\n         \
-    \   int l = next(cur, f), r = next(cur, f ^ 1);\n            if (f != g and l\
-    \ != -1) res += nodes[l].count;\n            cur = next(cur, g);\n           \
-    \ if (cur == -1) break;\n        }\n        return res;\n    }\n};\n"
+    \    }\n\n    int count_less(const T& x, const T& xor_val = 0) {\n        int\
+    \ cur = 0;\n        int res = 0;\n        for (int i = MAX_LOG - 1; i >= 0; i--)\
+    \ {\n            int f = xor_val >> i & 1, g = x >> i & 1;\n            int l\
+    \ = next(cur, f), r = next(cur, f ^ 1);\n            if (f != g and l != -1) res\
+    \ += nodes[l].count;\n            cur = next(cur, g);\n            if (cur ==\
+    \ -1) break;\n        }\n        return res;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: src/datastructure/BinaryTrie.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-06-08 18:42:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/set_xor_min.test.cpp

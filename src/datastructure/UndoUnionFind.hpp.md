@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: src/datastructure/OfflineDynamicConnectivity.hpp
+    title: Offline Dynamic Connectivity
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
@@ -52,7 +55,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/datastructure/UndoUnionFind.hpp
-  requiredBy: []
+  requiredBy:
+  - src/datastructure/OfflineDynamicConnectivity.hpp
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
