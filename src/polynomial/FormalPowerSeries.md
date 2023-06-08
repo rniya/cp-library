@@ -314,6 +314,7 @@ $$
 
 - [AtCoder Regular Contest 154 F - Dice Game](https://atcoder.jp/contests/arc154/tasks/arc154_f)
   - $\sum_k a_k e^{b_k x}$ が計算できる．具体的には求める多項式を $f$ として $f$ の $i$ 次の係数を $i!$ 倍した多項式を $g$ とすると，これは $e^{b x} = \sum_{i \geq 0} \frac{(b x)^i}{i!}$ より $\sum_k a_k \sum_{i \geq 0} (b_k x)^i = \sum_k \frac{a_k}{1 - b_k x}$ に等しい．
+
 ## Reference
 [1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
 

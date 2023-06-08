@@ -104,7 +104,3 @@ struct Sphere {
 };
 
 }  // namespace geometry3D
-
-/**
- * @brief 3 次元幾何ライブラリ
- */

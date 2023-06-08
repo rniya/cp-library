@@ -95,7 +95,7 @@ template <typename T, int MAX_LOG> struct BinaryTrie {
         return res;
     }
 
-    int count_less(const T& x, const T& xor_val = 0) const {
+    int count_less(const T& x, const T& xor_val = 0) {
         int cur = 0;
         int res = 0;
         for (int i = MAX_LOG - 1; i >= 0; i--) {
