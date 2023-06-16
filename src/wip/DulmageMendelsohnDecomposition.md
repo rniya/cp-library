@@ -117,6 +117,7 @@ $\blacksquare$
 - [yukicoder No.1745 Selfish Spies 2 (à la Princess' Perfectionism)](https://yukicoder.me/problems/no/1745)
 - [AtCoder Beginner Contest 223 G. Vertex Deletion](https://atcoder.jp/contests/abc223/tasks/abc223_g)
 - [ICPC 2021 国内予選 F 完璧主義な王女様](https://icpc.iisf.or.jp/past-icpc/domestic2021/contest/F_ja.html)
+- [AtCoder Regular Contest 161 F - Everywhere is Sparser than Whole (Judge)](https://atcoder.jp/contests/arc161/tasks/arc161_f)
 
 ## Links
 - [Dulmage–Mendelsohn 分解 (DM 分解)](http://www.misojiro.t.u-tokyo.ac.jp/~murota/lect-ouyousurigaku/dm050410.pdf)

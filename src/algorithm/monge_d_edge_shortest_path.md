@@ -20,3 +20,4 @@ LARSCH algorithm を用いることでそれぞれ $\log N$ を落とすこと�
 - [AtCoder Beginner Contest 218 H - Red and Blue Lamps](https://atcoder.jp/contests/abc218/tasks/abc218_h)
 - [The 1st Universal Cup. Stage 3: Poland I. Investors](https://qoj.ac/contest/1103/problem/5507?v=1)
 - [東北大学プログラミングコンテスト 2022 K - Lebesgue Integral](https://atcoder.jp/contests/tupc2022/tasks/tupc2022_k)
+- [AtCoder Beginner Contest 305 Ex - Shojin](https://atcoder.jp/contests/abc305/tasks/abc305_h)

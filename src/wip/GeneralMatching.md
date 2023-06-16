@@ -4,7 +4,7 @@ documentation_of: ./GeneralMatching.hpp
 ---
 
 ## 概要
-二部グラフとは限らない一般のグラフにおける最大マッチングを求める乱択アルゴリズム。
+二部グラフとは限らない一般のグラフにおける最大マッチングを $\mathrm{O}(n^3)$ 時間で求める乱択アルゴリズム。
 
 ### 完全マッチングの存在判定
 
@@ -118,6 +118,9 @@ $\det T_{\{1\}, \{j\}} = (- 1)^{1 + j} T^{- 1}_{1, j} \det T$ であるから $T
 
 ## Links
 - [kopricky さんのメモ](https://kopricky.github.io/code/Academic/maximum_matching_memo.html)
+
+## Reference
+[1] M. Mucha and P. Sankowski, "Maximum matchings via Gaussian elimination," 45th Annual IEEE Symposium on Foundations of Computer Science, Rome, Italy, 2004, pp. 248-255, doi: 10.1109/FOCS.2004.40.
 
 ## 問題例
 - [The 2021 ICPC Asia Shanghai Regional Programming Contest L. Three,Three,Three](https://codeforces.com/gym/103446/problem/L)
