@@ -104,6 +104,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/Dijkstra.hpp
       title: Dijkstra
+    - icon: ':warning:'
+      path: src/graph/EdgeMatching.hpp
+      title: "\u8FBA\u540C\u58EB\u306E\u30DE\u30C3\u30C1\u30F3\u30B0"
     - icon: ':heavy_check_mark:'
       path: src/graph/EulerianTrail.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u306E\u69CB\u7BC9"
@@ -236,6 +239,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/tree/CentroidDecomposition.hpp
       title: "Centroid Decomposition\uFF08\u6728\u306E\u91CD\u5FC3\u5206\u89E3\uFF09"
+    - icon: ':warning:'
+      path: src/tree/ForestScheduling.hpp
+      title: "\u6728\u4E0A\u306E\u30B9\u30B1\u30B8\u30E5\u30FC\u30EA\u30F3\u30B0\u554F\
+        \u984C"
     - icon: ':heavy_check_mark:'
       path: src/tree/HeavyLightDecomposition.hpp
       title: Heavy Light Decomposition

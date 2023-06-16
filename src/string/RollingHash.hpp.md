@@ -79,8 +79,8 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/ALDS1_14_B.test.cpp
   - test/yukicoder/430.test.cpp
+  - test/aoj/ALDS1_14_B.test.cpp
 documentation_of: src/string/RollingHash.hpp
 layout: document
 title: Rolling Hash
