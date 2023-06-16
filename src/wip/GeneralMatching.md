@@ -124,3 +124,7 @@ $\det T_{\{1\}, \{j\}} = (- 1)^{1 + j} T^{- 1}_{1, j} \det T$ であるから $T
 
 ## 問題例
 - [The 2021 ICPC Asia Shanghai Regional Programming Contest L. Three,Three,Three](https://codeforces.com/gym/103446/problem/L)
+
+<!-- https://github.com/kth-competitive-programming/kactl/blob/main/content/graph/GeneralMatching.h
+https://hitonanode.github.io/cplib-cpp/graph/general_matching.hpp
+https://kopricky.github.io/code/Academic/maximum_matching.html -->
