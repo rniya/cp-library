@@ -1,3 +1,4 @@
+#define IGNORE
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/3335"
 
 #include <iostream>
