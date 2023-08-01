@@ -60,6 +60,7 @@ $$
   - 同上．
 - [The 1st Universal Cup. Stage 8: Slovenia B. Combination Locks](https://qoj.ac/contest/1070/problem/5250?v=1)
   - [参考](https://37zigen.com/game-on-graph/)．まだ upsolve していない．
+- [2023牛客暑期多校训练营2 F - Link with Chess Game](https://ac.nowcoder.com/acm/contest/57356/F)
 
 ## 操作における不変量
 - [The 1st Universal Cup. Stage 14: Ranoa C. LaLa and Lamp](https://qoj.ac/contest/1214/problem/6376)
@@ -85,3 +86,5 @@ $$
 - 自明な上界/下界から最適解の性質が得られることがある
   - [Codeforces Round 875 (Div. 1) D. Mex Tree](https://codeforces.com/contest/1830/problem/D)
   - [AtCoder Regular Contest 063 F - すぬけ君の塗り絵 2](https://atcoder.jp/contests/arc063/tasks/arc063_d)
+- ゲームで 2 次元での勝敗を表すグリッドからエスパー
+  - [AtCoder Regular Contest 163 E - Chmin XOR Game](https://atcoder.jp/contests/arc163/tasks/arc163_e)

@@ -25,6 +25,8 @@ documentation_of: ./SlopeTrick.hpp
 - [Codeforces LATOKEN Round 1 (Div. 1 + Div. 2) G. A New Beginning](https://codeforces.com/contest/1534/problem/G)
 - [Codeforces Round #219 (Div. 1) C. Watching Fireworks is Fun](https://codeforces.com/contest/372/problem/C)
   - 想定解はスライド最小値．
+- [“范式杯”2023牛客暑期多校训练营1 E Heap](https://ac.nowcoder.com/acm/contest/57355/E)
+  - 微分すると折れ線管理に帰着される．
 
 ## 参照
 - [[Tutorial] Slope Trick - Codeforces](https://codeforces.com/blog/entry/47821)

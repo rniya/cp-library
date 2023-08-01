@@ -1,5 +1,5 @@
 ---
-title: 木上のスケジューリング問題
+title: 森上のスケジューリング問題
 documentation_of: ./ForestScheduling.hpp
 ---
 

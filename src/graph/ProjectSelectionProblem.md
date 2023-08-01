@@ -30,6 +30,7 @@ Project Selection Problem，いわゆる燃やす埋める問題を解く際の�
   - 2 択だけでなく選択肢が $k$ 個あるような場合の問題．[このブログ](https://maspypy.com/atcoder-%e5%8f%82%e5%8a%a0%e6%84%9f%e6%83%b3-2020-10-31arc107)の F の解説にある辺の張り方が参考になる．ライブラリにしていいかもしれない．
 - [yukicoder No.1984 [Cherry 4th Tune*] Dilemma](https://yukicoder.me/problems/no/1984)
   - 復元の際には `atcoder::mf_graph::min_cut(s)` を利用する．
+- [2023牛客暑期多校训练营2 B Link with Railway Company](https://ac.nowcoder.com/acm/contest/57356/F)
 
 ## 参照
 - [最小カットを使って「燃やす埋める問題」を解く](https://www.slideshare.net/shindannin/project-selection-problem)

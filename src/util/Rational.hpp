@@ -19,13 +19,13 @@ template <typename T> class Rational {
     }
 
     void normalize() {
+        if (den < 0) num = -num, den = -den;
         return;  // comment out this flexibly
         T g = my_gcd(num, den);
         num /= g, den /= g;
-        if (den < 0) num = -num, den = -den;
     }
 
-public:
+  public:
     Rational() {}
     Rational(T num) : num(num), den(T(1)) {}
     Rational(T num, T den) : num(num), den(den) { normalize(); }
