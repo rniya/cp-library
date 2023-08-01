@@ -241,7 +241,7 @@ data:
       title: "Centroid Decomposition\uFF08\u6728\u306E\u91CD\u5FC3\u5206\u89E3\uFF09"
     - icon: ':warning:'
       path: src/tree/ForestScheduling.hpp
-      title: "\u6728\u4E0A\u306E\u30B9\u30B1\u30B8\u30E5\u30FC\u30EA\u30F3\u30B0\u554F\
+      title: "\u68EE\u4E0A\u306E\u30B9\u30B1\u30B8\u30E5\u30FC\u30EA\u30F3\u30B0\u554F\
         \u984C"
     - icon: ':heavy_check_mark:'
       path: src/tree/HeavyLightDecomposition.hpp

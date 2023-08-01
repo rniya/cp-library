@@ -19,9 +19,9 @@ data:
     \            if (x > y)\n                x = (x - y) >> __builtin_ctzll(x - y);\n\
     \            else\n                y = (y - x) >> __builtin_ctzll(y - x);\n  \
     \      }\n        return x << (n > m ? m : n);\n    }\n\n    void normalize()\
-    \ {\n        return;  // comment out this flexibly\n        T g = my_gcd(num,\
-    \ den);\n        num /= g, den /= g;\n        if (den < 0) num = -num, den = -den;\n\
-    \    }\n\npublic:\n    Rational() {}\n    Rational(T num) : num(num), den(T(1))\
+    \ {\n        if (den < 0) num = -num, den = -den;\n        return;  // comment\
+    \ out this flexibly\n        T g = my_gcd(num, den);\n        num /= g, den /=\
+    \ g;\n    }\n\n  public:\n    Rational() {}\n    Rational(T num) : num(num), den(T(1))\
     \ {}\n    Rational(T num, T den) : num(num), den(den) { normalize(); }\n\n   \
     \ Rational operator+(const Rational& r) const { return Rational(num * r.den +\
     \ den * r.num, den * r.den); }\n    Rational operator-(const Rational& r) const\
@@ -78,21 +78,21 @@ data:
     \  x >>= n, y >>= m;\n        while (x != y) {\n            if (x > y)\n     \
     \           x = (x - y) >> __builtin_ctzll(x - y);\n            else\n       \
     \         y = (y - x) >> __builtin_ctzll(y - x);\n        }\n        return x\
-    \ << (n > m ? m : n);\n    }\n\n    void normalize() {\n        return;  // comment\
-    \ out this flexibly\n        T g = my_gcd(num, den);\n        num /= g, den /=\
-    \ g;\n        if (den < 0) num = -num, den = -den;\n    }\n\npublic:\n    Rational()\
-    \ {}\n    Rational(T num) : num(num), den(T(1)) {}\n    Rational(T num, T den)\
-    \ : num(num), den(den) { normalize(); }\n\n    Rational operator+(const Rational&\
-    \ r) const { return Rational(num * r.den + den * r.num, den * r.den); }\n    Rational\
-    \ operator-(const Rational& r) const { return Rational(num * r.den - den * r.num,\
-    \ den * r.den); }\n    Rational operator*(const Rational& r) const { return Rational(num\
-    \ * r.num, den * r.den); }\n    Rational operator/(const Rational& r) const {\
-    \ return Rational(num * r.den, den * r.num); }\n    Rational& operator+=(const\
-    \ Rational& r) { return *this = *this + r; }\n    Rational& operator-=(const Rational&\
-    \ r) { return *this = *this - r; }\n    Rational& operator*=(const Rational& r)\
-    \ { return *this = *this * r; }\n    Rational& operator/=(const Rational& r) {\
-    \ return *this = *this / r; }\n\n    Rational operator+(const T& val) const {\
-    \ return *this + Rational(val); }\n    Rational operator-(const T& val) const\
+    \ << (n > m ? m : n);\n    }\n\n    void normalize() {\n        if (den < 0) num\
+    \ = -num, den = -den;\n        return;  // comment out this flexibly\n       \
+    \ T g = my_gcd(num, den);\n        num /= g, den /= g;\n    }\n\n  public:\n \
+    \   Rational() {}\n    Rational(T num) : num(num), den(T(1)) {}\n    Rational(T\
+    \ num, T den) : num(num), den(den) { normalize(); }\n\n    Rational operator+(const\
+    \ Rational& r) const { return Rational(num * r.den + den * r.num, den * r.den);\
+    \ }\n    Rational operator-(const Rational& r) const { return Rational(num * r.den\
+    \ - den * r.num, den * r.den); }\n    Rational operator*(const Rational& r) const\
+    \ { return Rational(num * r.num, den * r.den); }\n    Rational operator/(const\
+    \ Rational& r) const { return Rational(num * r.den, den * r.num); }\n    Rational&\
+    \ operator+=(const Rational& r) { return *this = *this + r; }\n    Rational& operator-=(const\
+    \ Rational& r) { return *this = *this - r; }\n    Rational& operator*=(const Rational&\
+    \ r) { return *this = *this * r; }\n    Rational& operator/=(const Rational& r)\
+    \ { return *this = *this / r; }\n\n    Rational operator+(const T& val) const\
+    \ { return *this + Rational(val); }\n    Rational operator-(const T& val) const\
     \ { return *this - Rational(val); }\n    Rational operator*(const T& val) const\
     \ { return *this * Rational(val); }\n    Rational operator/(const T& val) const\
     \ { return *this / Rational(val); }\n    Rational& operator+=(const T& val) {\
@@ -134,7 +134,7 @@ data:
   isVerificationFile: false
   path: src/util/Rational.hpp
   requiredBy: []
-  timestamp: '2023-01-12 23:01:53+09:00'
+  timestamp: '2023-08-02 03:14:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/1131.test.cpp
@@ -146,4 +146,9 @@ title: "\u6709\u7406\u6570\u30E9\u30A4\u30D6\u30E9\u30EA"
 ## 概要
 有理数を効率的に処理するためのライブラリ. 基本的な四則演算や比較演算子等に対応している. また $1/0$ や $-1/0$ によって $\pm \infty$ にも対応している.
 
-デフォルトでは約分は行わない設定となっている (約分する際には分子と分母の $\gcd$ を求める必要があるが, これによって TLE する可能性がある, [問題例](https://onlinejudge.u-aizu.ac.jp/problems/1131)) が, 関数 `normalize()` 内の `return` 文をコメントアウトすることで適宜調整可能である.
+デフォルトでは約分は行わない設定となっている (約分する際には分子と分母の $\gcd$ を求める必要があるが, これによって TLE する可能性がある [問題例](https://onlinejudge.u-aizu.ac.jp/problems/1131)) ．
+引数 `Reduce` を `true` にすることで自動で約分を行うようにできる．
+ただし，`my_gcd` 内で 64 bit 整数特有の計算を行っているため 128 bit 整数を扱う際には注意が必要である．
+
+## 問題例
+- [AtCoder Beginner Contest 301 G - Worst Picture](https://atcoder.jp/contests/abc301/tasks/abc301_g)
