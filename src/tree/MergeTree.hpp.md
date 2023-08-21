@@ -66,3 +66,4 @@ title: "\u30DE\u30FC\u30B8\u904E\u7A0B\u3092\u8868\u3059\u6728"
 
 ## 問題例
 - [Codeforces Round 317 [AimFund Thanks-Round] (Div. 1) D. Campus](https://codeforces.com/contest/571/problem/D)
+- [AtCoder Beginner Contest 314 F - A Certain Game](https://atcoder.jp/contests/abc314/tasks/abc314_f)

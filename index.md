@@ -89,7 +89,7 @@ data:
       title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
     - icon: ':warning:'
       path: src/geometry/geometry3D.hpp
-      title: src/geometry/geometry3D.hpp
+      title: "3 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
   - name: src/graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -144,6 +144,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/Nimber.hpp
       title: Nimber
+    - icon: ':warning:'
+      path: src/math/RelaxedConvolution.hpp
+      title: Relaxed Convolution
     - icon: ':heavy_check_mark:'
       path: src/math/Simplex.hpp
       title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"

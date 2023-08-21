@@ -183,41 +183,43 @@ data:
     \ Circle& c1, const Circle& c2) {\n    Real r1 = c1.radius, r2 = c2.radius;\n\
     \    if (r1 < r2) return crosspoint(c2, c1);\n    Real d = distance(c1.center,\
     \ c2.center);\n    if (compare(d, r1 + r2) > 0 || compare(d, r1 - r2) < 0) return\
-    \ {};\n    Real alpha = std::acos((r1 * r1 + d * d - r2 * r2) / (2 * r1 * d));\n\
-    \    Real theta = (c2.center - c1.center).arg();\n    Point p = c1.center + polar(r1,\
-    \ theta + alpha);\n    Point q = c1.center + polar(r1, theta - alpha);\n    if\
-    \ (p == q) return {p};\n    return {p, q};\n}\n\nReal commonarea(Circle c1, Circle\
-    \ c2) {\n    Real r1 = c1.radius, r2 = c2.radius;\n    Real d = (c1.center - c2.center).abs();\n\
-    \    if (compare(r1 + r2, d) <= 0) return 0;\n    if (compare(std::fabs(r1 - r2),\
-    \ d) >= 0) return PI * std::min(r1, r2) * std::min(r1, r2);\n    Real res = 0;\n\
-    \    for (int _ = 0; _ < 2; _++) {\n        r1 = c1.radius, r2 = c2.radius;\n\
-    \        Real cosine = (d * d + r1 * r1 - r2 * r2) / (2 * d * r1);\n        Real\
-    \ theta = std::acos(cosine) * 2;\n        res += (theta - std::sin(theta)) * r1\
-    \ * r1 / 2;\n        std::swap(c1, c2);\n    }\n    return res;\n}\n\nLine bisector(const\
-    \ Point& p, const Point& q) {\n    Point c = (p + q) * 0.5;\n    Point v = (q\
-    \ - p).normal();\n    return Line(c - v, c + v);\n}\n\nCircle circumcircle(Point\
-    \ a, Point b, const Point& c) {\n    Point center = crosspoint(bisector(a, c),\
-    \ bisector(b, c));\n    return Circle(center, distance(c, center));\n}\n\nCircle\
-    \ incircle(const Point& a, const Point& b, const Point& c) {\n    Real A = (b\
-    \ - c).abs(), B = (c - a).abs(), C = (a - b).abs();\n    Point center = (a * A\
-    \ + b * B + c * C) / (A + B + C);\n    return Circle(center, distance(Segment(a,\
-    \ b), center));\n}\n\nstd::vector<Point> center_given_radius(const Point& a, const\
-    \ Point& b, const Real& r) {\n    Point m = (b - a) * 0.5;\n    Real d1 = m.abs();\n\
-    \    if (equals(d1, 0) || d1 > r) return {};\n    Real d2 = sqrt(r * r - d1 *\
-    \ d1);\n    Point n = m.normal() * d2 / d1;\n    Point p = a + m - n, q = a +\
-    \ m + n;\n    if (p == q) return {p};\n    return {p, q};\n}\n\nint count_tangent(const\
-    \ Circle& c1, const Circle& c2) {\n    Real r1 = c1.radius, r2 = c2.radius;\n\
-    \    if (r1 < r2) return count_tangent(c2, c1);\n    Real d = distance(c1.center,\
-    \ c2.center);\n    if (compare(d, r1 + r2) > 0) return 4;\n    if (compare(d,\
-    \ r1 + r2) == 0) return 3;\n    if (compare(d, r1 - r2) > 0) return 2;\n    if\
-    \ (compare(d, r1 - r2) == 0) return 1;\n    return 0;\n}\n\nstd::vector<Point>\
-    \ tangent_to_circle(const Circle& c, const Point& p) {\n    return crosspoint(c,\
-    \ Circle(p, sqrt((c.center - p).norm() - c.radius * c.radius)));\n}\n\nstd::vector<Line>\
-    \ common_tangent(const Circle& c1, const Circle& c2) {\n    if (c1.radius < c2.radius)\
-    \ return common_tangent(c2, c1);\n    std::vector<Line> res;\n    Real g = distance(c1.center,\
-    \ c2.center);\n    if (equals(g, 0)) return res;\n    Point u = (c2.center - c1.center)\
-    \ / g, v = u.normal();\n    for (int s : {-1, 1}) {\n        Real h = (c1.radius\
-    \ + c2.radius * s) / g;\n        if (equals(1 - h * h, 0))\n            res.emplace_back(c1.center\
+    \ {};\n    if (equals(d, r1 + r2)) return {c1.center + (c2.center - c1.center)\
+    \ * r1 / (r1 + r2)};\n    Real alpha = std::acos((r1 * r1 + d * d - r2 * r2) /\
+    \ (2 * r1 * d));\n    Real theta = (c2.center - c1.center).arg();\n    Point p\
+    \ = c1.center + polar(r1, theta + alpha);\n    Point q = c1.center + polar(r1,\
+    \ theta - alpha);\n    if (p == q) return {p};\n    return {p, q};\n}\n\nReal\
+    \ commonarea(Circle c1, Circle c2) {\n    Real r1 = c1.radius, r2 = c2.radius;\n\
+    \    Real d = (c1.center - c2.center).abs();\n    if (compare(r1 + r2, d) <= 0)\
+    \ return 0;\n    if (compare(std::fabs(r1 - r2), d) >= 0) return PI * std::min(r1,\
+    \ r2) * std::min(r1, r2);\n    Real res = 0;\n    for (int _ = 0; _ < 2; _++)\
+    \ {\n        r1 = c1.radius, r2 = c2.radius;\n        Real cosine = (d * d + r1\
+    \ * r1 - r2 * r2) / (2 * d * r1);\n        Real theta = std::acos(cosine) * 2;\n\
+    \        res += (theta - std::sin(theta)) * r1 * r1 / 2;\n        std::swap(c1,\
+    \ c2);\n    }\n    return res;\n}\n\nLine bisector(const Point& p, const Point&\
+    \ q) {\n    Point c = (p + q) * 0.5;\n    Point v = (q - p).normal();\n    return\
+    \ Line(c - v, c + v);\n}\n\nCircle circumcircle(Point a, Point b, const Point&\
+    \ c) {\n    Point center = crosspoint(bisector(a, c), bisector(b, c));\n    return\
+    \ Circle(center, distance(c, center));\n}\n\nCircle incircle(const Point& a, const\
+    \ Point& b, const Point& c) {\n    Real A = (b - c).abs(), B = (c - a).abs(),\
+    \ C = (a - b).abs();\n    Point center = (a * A + b * B + c * C) / (A + B + C);\n\
+    \    return Circle(center, distance(Segment(a, b), center));\n}\n\nstd::vector<Point>\
+    \ center_given_radius(const Point& a, const Point& b, const Real& r) {\n    Point\
+    \ m = (b - a) * 0.5;\n    Real d1 = m.abs();\n    if (equals(d1, 0) || d1 > r)\
+    \ return {};\n    Real d2 = sqrt(r * r - d1 * d1);\n    Point n = m.normal() *\
+    \ d2 / d1;\n    Point p = a + m - n, q = a + m + n;\n    if (p == q) return {p};\n\
+    \    return {p, q};\n}\n\nint count_tangent(const Circle& c1, const Circle& c2)\
+    \ {\n    Real r1 = c1.radius, r2 = c2.radius;\n    if (r1 < r2) return count_tangent(c2,\
+    \ c1);\n    Real d = distance(c1.center, c2.center);\n    if (compare(d, r1 +\
+    \ r2) > 0) return 4;\n    if (compare(d, r1 + r2) == 0) return 3;\n    if (compare(d,\
+    \ r1 - r2) > 0) return 2;\n    if (compare(d, r1 - r2) == 0) return 1;\n    return\
+    \ 0;\n}\n\nstd::vector<Point> tangent_to_circle(const Circle& c, const Point&\
+    \ p) {\n    return crosspoint(c, Circle(p, sqrt((c.center - p).norm() - c.radius\
+    \ * c.radius)));\n}\n\nstd::vector<Line> common_tangent(const Circle& c1, const\
+    \ Circle& c2) {\n    if (c1.radius < c2.radius) return common_tangent(c2, c1);\n\
+    \    std::vector<Line> res;\n    Real g = distance(c1.center, c2.center);\n  \
+    \  if (equals(g, 0)) return res;\n    Point u = (c2.center - c1.center) / g, v\
+    \ = u.normal();\n    for (int s : {-1, 1}) {\n        Real h = (c1.radius + c2.radius\
+    \ * s) / g;\n        if (equals(1 - h * h, 0))\n            res.emplace_back(c1.center\
     \ + u * c1.radius, c1.center + (u + v) * c1.radius);\n        else if (compare(1\
     \ - h * h, 0) > 0) {\n            Point U = u * h, V = v * std::sqrt(1 - h * h);\n\
     \            res.emplace_back(c1.center + (U + V) * c1.radius, c2.center - (U\
@@ -413,41 +415,43 @@ data:
     \ Circle& c1, const Circle& c2) {\n    Real r1 = c1.radius, r2 = c2.radius;\n\
     \    if (r1 < r2) return crosspoint(c2, c1);\n    Real d = distance(c1.center,\
     \ c2.center);\n    if (compare(d, r1 + r2) > 0 || compare(d, r1 - r2) < 0) return\
-    \ {};\n    Real alpha = std::acos((r1 * r1 + d * d - r2 * r2) / (2 * r1 * d));\n\
-    \    Real theta = (c2.center - c1.center).arg();\n    Point p = c1.center + polar(r1,\
-    \ theta + alpha);\n    Point q = c1.center + polar(r1, theta - alpha);\n    if\
-    \ (p == q) return {p};\n    return {p, q};\n}\n\nReal commonarea(Circle c1, Circle\
-    \ c2) {\n    Real r1 = c1.radius, r2 = c2.radius;\n    Real d = (c1.center - c2.center).abs();\n\
-    \    if (compare(r1 + r2, d) <= 0) return 0;\n    if (compare(std::fabs(r1 - r2),\
-    \ d) >= 0) return PI * std::min(r1, r2) * std::min(r1, r2);\n    Real res = 0;\n\
-    \    for (int _ = 0; _ < 2; _++) {\n        r1 = c1.radius, r2 = c2.radius;\n\
-    \        Real cosine = (d * d + r1 * r1 - r2 * r2) / (2 * d * r1);\n        Real\
-    \ theta = std::acos(cosine) * 2;\n        res += (theta - std::sin(theta)) * r1\
-    \ * r1 / 2;\n        std::swap(c1, c2);\n    }\n    return res;\n}\n\nLine bisector(const\
-    \ Point& p, const Point& q) {\n    Point c = (p + q) * 0.5;\n    Point v = (q\
-    \ - p).normal();\n    return Line(c - v, c + v);\n}\n\nCircle circumcircle(Point\
-    \ a, Point b, const Point& c) {\n    Point center = crosspoint(bisector(a, c),\
-    \ bisector(b, c));\n    return Circle(center, distance(c, center));\n}\n\nCircle\
-    \ incircle(const Point& a, const Point& b, const Point& c) {\n    Real A = (b\
-    \ - c).abs(), B = (c - a).abs(), C = (a - b).abs();\n    Point center = (a * A\
-    \ + b * B + c * C) / (A + B + C);\n    return Circle(center, distance(Segment(a,\
-    \ b), center));\n}\n\nstd::vector<Point> center_given_radius(const Point& a, const\
-    \ Point& b, const Real& r) {\n    Point m = (b - a) * 0.5;\n    Real d1 = m.abs();\n\
-    \    if (equals(d1, 0) || d1 > r) return {};\n    Real d2 = sqrt(r * r - d1 *\
-    \ d1);\n    Point n = m.normal() * d2 / d1;\n    Point p = a + m - n, q = a +\
-    \ m + n;\n    if (p == q) return {p};\n    return {p, q};\n}\n\nint count_tangent(const\
-    \ Circle& c1, const Circle& c2) {\n    Real r1 = c1.radius, r2 = c2.radius;\n\
-    \    if (r1 < r2) return count_tangent(c2, c1);\n    Real d = distance(c1.center,\
-    \ c2.center);\n    if (compare(d, r1 + r2) > 0) return 4;\n    if (compare(d,\
-    \ r1 + r2) == 0) return 3;\n    if (compare(d, r1 - r2) > 0) return 2;\n    if\
-    \ (compare(d, r1 - r2) == 0) return 1;\n    return 0;\n}\n\nstd::vector<Point>\
-    \ tangent_to_circle(const Circle& c, const Point& p) {\n    return crosspoint(c,\
-    \ Circle(p, sqrt((c.center - p).norm() - c.radius * c.radius)));\n}\n\nstd::vector<Line>\
-    \ common_tangent(const Circle& c1, const Circle& c2) {\n    if (c1.radius < c2.radius)\
-    \ return common_tangent(c2, c1);\n    std::vector<Line> res;\n    Real g = distance(c1.center,\
-    \ c2.center);\n    if (equals(g, 0)) return res;\n    Point u = (c2.center - c1.center)\
-    \ / g, v = u.normal();\n    for (int s : {-1, 1}) {\n        Real h = (c1.radius\
-    \ + c2.radius * s) / g;\n        if (equals(1 - h * h, 0))\n            res.emplace_back(c1.center\
+    \ {};\n    if (equals(d, r1 + r2)) return {c1.center + (c2.center - c1.center)\
+    \ * r1 / (r1 + r2)};\n    Real alpha = std::acos((r1 * r1 + d * d - r2 * r2) /\
+    \ (2 * r1 * d));\n    Real theta = (c2.center - c1.center).arg();\n    Point p\
+    \ = c1.center + polar(r1, theta + alpha);\n    Point q = c1.center + polar(r1,\
+    \ theta - alpha);\n    if (p == q) return {p};\n    return {p, q};\n}\n\nReal\
+    \ commonarea(Circle c1, Circle c2) {\n    Real r1 = c1.radius, r2 = c2.radius;\n\
+    \    Real d = (c1.center - c2.center).abs();\n    if (compare(r1 + r2, d) <= 0)\
+    \ return 0;\n    if (compare(std::fabs(r1 - r2), d) >= 0) return PI * std::min(r1,\
+    \ r2) * std::min(r1, r2);\n    Real res = 0;\n    for (int _ = 0; _ < 2; _++)\
+    \ {\n        r1 = c1.radius, r2 = c2.radius;\n        Real cosine = (d * d + r1\
+    \ * r1 - r2 * r2) / (2 * d * r1);\n        Real theta = std::acos(cosine) * 2;\n\
+    \        res += (theta - std::sin(theta)) * r1 * r1 / 2;\n        std::swap(c1,\
+    \ c2);\n    }\n    return res;\n}\n\nLine bisector(const Point& p, const Point&\
+    \ q) {\n    Point c = (p + q) * 0.5;\n    Point v = (q - p).normal();\n    return\
+    \ Line(c - v, c + v);\n}\n\nCircle circumcircle(Point a, Point b, const Point&\
+    \ c) {\n    Point center = crosspoint(bisector(a, c), bisector(b, c));\n    return\
+    \ Circle(center, distance(c, center));\n}\n\nCircle incircle(const Point& a, const\
+    \ Point& b, const Point& c) {\n    Real A = (b - c).abs(), B = (c - a).abs(),\
+    \ C = (a - b).abs();\n    Point center = (a * A + b * B + c * C) / (A + B + C);\n\
+    \    return Circle(center, distance(Segment(a, b), center));\n}\n\nstd::vector<Point>\
+    \ center_given_radius(const Point& a, const Point& b, const Real& r) {\n    Point\
+    \ m = (b - a) * 0.5;\n    Real d1 = m.abs();\n    if (equals(d1, 0) || d1 > r)\
+    \ return {};\n    Real d2 = sqrt(r * r - d1 * d1);\n    Point n = m.normal() *\
+    \ d2 / d1;\n    Point p = a + m - n, q = a + m + n;\n    if (p == q) return {p};\n\
+    \    return {p, q};\n}\n\nint count_tangent(const Circle& c1, const Circle& c2)\
+    \ {\n    Real r1 = c1.radius, r2 = c2.radius;\n    if (r1 < r2) return count_tangent(c2,\
+    \ c1);\n    Real d = distance(c1.center, c2.center);\n    if (compare(d, r1 +\
+    \ r2) > 0) return 4;\n    if (compare(d, r1 + r2) == 0) return 3;\n    if (compare(d,\
+    \ r1 - r2) > 0) return 2;\n    if (compare(d, r1 - r2) == 0) return 1;\n    return\
+    \ 0;\n}\n\nstd::vector<Point> tangent_to_circle(const Circle& c, const Point&\
+    \ p) {\n    return crosspoint(c, Circle(p, sqrt((c.center - p).norm() - c.radius\
+    \ * c.radius)));\n}\n\nstd::vector<Line> common_tangent(const Circle& c1, const\
+    \ Circle& c2) {\n    if (c1.radius < c2.radius) return common_tangent(c2, c1);\n\
+    \    std::vector<Line> res;\n    Real g = distance(c1.center, c2.center);\n  \
+    \  if (equals(g, 0)) return res;\n    Point u = (c2.center - c1.center) / g, v\
+    \ = u.normal();\n    for (int s : {-1, 1}) {\n        Real h = (c1.radius + c2.radius\
+    \ * s) / g;\n        if (equals(1 - h * h, 0))\n            res.emplace_back(c1.center\
     \ + u * c1.radius, c1.center + (u + v) * c1.radius);\n        else if (compare(1\
     \ - h * h, 0) > 0) {\n            Point U = u * h, V = v * std::sqrt(1 - h * h);\n\
     \            res.emplace_back(c1.center + (U + V) * c1.radius, c2.center - (U\
@@ -542,32 +546,32 @@ data:
   isVerificationFile: false
   path: src/geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2023-04-23 21:07:48+09:00'
+  timestamp: '2023-08-21 17:26:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/CGL_7_C.test.cpp
-  - test/aoj/CGL_2_A.test.cpp
-  - test/aoj/CGL_7_F.test.cpp
-  - test/aoj/CGL_7_I.test.cpp
-  - test/aoj/CGL_7_D.test.cpp
   - test/aoj/CGL_4_B.test.cpp
+  - test/aoj/CGL_1_A.test.cpp
+  - test/aoj/CGL_7_F.test.cpp
+  - test/aoj/CGL_3_B.test.cpp
+  - test/aoj/CGL_7_D.test.cpp
   - test/aoj/CGL_1_C.test.cpp
+  - test/aoj/CGL_4_C.test.cpp
+  - test/aoj/CGL_7_G.test.cpp
+  - test/aoj/CGL_7_B.test.cpp
+  - test/aoj/CGL_4_A.test.cpp
+  - test/aoj/CGL_2_C.test.cpp
+  - test/aoj/CGL_7_A.test.cpp
+  - test/aoj/CGL_7_I.test.cpp
+  - test/aoj/CGL_2_A.test.cpp
+  - test/aoj/CGL_7_E.test.cpp
+  - test/aoj/CGL_7_C.test.cpp
+  - test/aoj/CGL_3_C.test.cpp
+  - test/aoj/CGL_3_A.test.cpp
   - test/aoj/CGL_5_A.test.cpp
   - test/aoj/CGL_2_D.test.cpp
-  - test/aoj/CGL_7_A.test.cpp
   - test/aoj/CGL_7_H.test.cpp
-  - test/aoj/CGL_1_A.test.cpp
-  - test/aoj/CGL_7_G.test.cpp
-  - test/aoj/CGL_3_A.test.cpp
-  - test/aoj/CGL_3_C.test.cpp
-  - test/aoj/CGL_4_A.test.cpp
   - test/aoj/CGL_1_B.test.cpp
-  - test/aoj/CGL_7_B.test.cpp
   - test/aoj/CGL_2_B.test.cpp
-  - test/aoj/CGL_4_C.test.cpp
-  - test/aoj/CGL_3_B.test.cpp
-  - test/aoj/CGL_2_C.test.cpp
-  - test/aoj/CGL_7_E.test.cpp
 documentation_of: src/geometry/geometry.hpp
 layout: document
 title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"

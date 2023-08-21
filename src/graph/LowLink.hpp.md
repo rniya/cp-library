@@ -84,9 +84,9 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/two_edge_connected_components.test.cpp
   - test/aoj/GRL_3_B.test.cpp
   - test/aoj/GRL_3_A.test.cpp
-  - test/yosupo/two_edge_connected_components.test.cpp
 documentation_of: src/graph/LowLink.hpp
 layout: document
 title: LowLink (with Two Edge Connected Components, Bi Connected Components)

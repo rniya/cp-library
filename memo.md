@@ -9,6 +9,7 @@
 - [ゲーム](#ゲーム)
     - [問題例](#問題例-4)
 - [操作における不変量](#操作における不変量)
+- [部分和問題](#部分和問題)
 - [その他](#その他)
 - [反省](#反省)
 
@@ -67,6 +68,13 @@ $$
 - [Hokkaido University Competitive Programming Camp 2023 Day 1 D: Beam Beam Beam](https://onlinejudge.u-aizu.ac.jp/beta/room.html#HUPC2023Day1/problems/D)
   - グリッド上の各マス目に数字が書かれていて，各行および各列に値を一律に加算する操作を行えるとき，数字を全て $0$ にすることができる必要十分条件は任意の連続する $2$ 行及び列からなる $2 \times 2$ 部分行列の行列式が $0$ であることである．[参考](https://potato167.hatenablog.com/entry/2023/05/05/012415)．
 
+## 部分和問題
+- [Codeforces Round 890 (Div. 2) supported by Constructor Institute E2. PermuTree (hard version)](https://codeforces.com/contest/1856/problem/E2)
+  - 総和 $n$ の部分和問題は $\mathrm{O}\left(\frac{n \sqrt{n}}{w}\right)$ で解ける（[参考](https://twitter.com/noshi91/status/1404719619097567236?s=20)）．
+    - 同じ重みのアイテムが $3$ つ存在する場合は $2$ つをまとめてもよく，この操作により各重みのアイテムは高々 $2$ 個で重みの種類数は $\mathrm{O}(\sqrt{n})$ で抑えられるからアイテムの個数も $\mathrm{O}(\sqrt{n})$ 個である．
+  - 動的 bitset は template 引数を利用して書ける．
+
+
 ## その他
 - [The 1st Universal Cup. Stage 16: Gomel H. Classical Maximization Problem](https://qoj.ac/contest/1223/problem/6414?v=1)
   - 端点を共有する辺同士のマッチングは dfs 木を取ってボトムアップに構築可能．また，連結成分内の辺の本数が偶数ならば必ず完全マッチングが存在する．
@@ -78,7 +86,7 @@ $$
   - [AtCoder Regular Contest 159 C - Permutation Addition](https://atcoder.jp/contests/arc159/tasks/arc159_c)
 - 任意の順列をソートできる $\iff$ 任意の 01 列をソートできる
   - [AtCoder Regular Contest 160 F - Count Sorted Arrays](https://atcoder.jp/contests/arc160/tasks/arc160_f)
-- 区間に対して操作した後，宝箱 $i$ が開いているならば報酬 $A_i$ を受け取ることができる→元から $A_i$ 所持しているとして $A_i$ 支払うことで宝箱 $i$ を開けることができるとして、宝箱を全て開ける問題に言い換える
+- 区間に対して操作した後，宝箱 $i$ が開いているならば報酬 $A_i$ を受け取ることができる→元から $A_i$ 所持しているとして $A_i$ 支払うことで宝箱 $i$ を開けることができるとして，宝箱を全て開ける問題に言い換える
   - [yukicoder No.2321 Continuous Flip](https://yukicoder.me/problems/no/2321)
   - [第四回 アルゴリズム実技検定 過去問 O - 宝箱](https://atcoder.jp/contests/past202010-open/tasks/past202010_o)
 - 構築でジャッジができたら乱択を疑う
@@ -88,3 +96,5 @@ $$
   - [AtCoder Regular Contest 063 F - すぬけ君の塗り絵 2](https://atcoder.jp/contests/arc063/tasks/arc063_d)
 - ゲームで 2 次元での勝敗を表すグリッドからエスパー
   - [AtCoder Regular Contest 163 E - Chmin XOR Game](https://atcoder.jp/contests/arc163/tasks/arc163_e)
+- 2 値 dp の値の連続性に注目
+  - [Codeforces Round 887 (Div. 1) D. Miriany and Matchstick](https://codeforces.com/contest/1852/problem/D)
