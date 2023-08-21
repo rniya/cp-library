@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-template <typename T> class Rational {
+template <typename T, bool Reduce = false> class Rational {
     T num, den;
 
     static T my_gcd(T x_, T y_) {
@@ -20,9 +20,11 @@ template <typename T> class Rational {
 
     void normalize() {
         if (den < 0) num = -num, den = -den;
-        return;  // comment out this flexibly
-        T g = my_gcd(num, den);
-        num /= g, den /= g;
+        if (den == 0) num = (num > 0 ? 1 : num < 0 ? -1 : 0);
+        if constexpr (Reduce) {
+            T g = my_gcd(num, den);
+            if (g > 0) num /= g, den /= g;
+        }
     }
 
   public:

@@ -254,6 +254,7 @@ std::vector<Point> crosspoint(const Circle& c1, const Circle& c2) {
     if (r1 < r2) return crosspoint(c2, c1);
     Real d = distance(c1.center, c2.center);
     if (compare(d, r1 + r2) > 0 || compare(d, r1 - r2) < 0) return {};
+    if (equals(d, r1 + r2)) return {c1.center + (c2.center - c1.center) * r1 / (r1 + r2)};
     Real alpha = std::acos((r1 * r1 + d * d - r2 * r2) / (2 * r1 * d));
     Real theta = (c2.center - c1.center).arg();
     Point p = c1.center + polar(r1, theta + alpha);

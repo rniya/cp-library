@@ -16,3 +16,4 @@ documentation_of: ./MergeTree.hpp
 
 ## 問題例
 - [Codeforces Round 317 [AimFund Thanks-Round] (Div. 1) D. Campus](https://codeforces.com/contest/571/problem/D)
+- [AtCoder Beginner Contest 314 F - A Certain Game](https://atcoder.jp/contests/abc314/tasks/abc314_f)
