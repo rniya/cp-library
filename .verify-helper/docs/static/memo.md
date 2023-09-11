@@ -12,6 +12,7 @@
 - [部分和問題](#部分和問題)
 - [その他](#その他)
 - [反省](#反省)
+- [実装](#実装)
 
 
 ## Burnside の補題 / Polya の定理
@@ -98,3 +99,15 @@ $$
   - [AtCoder Regular Contest 163 E - Chmin XOR Game](https://atcoder.jp/contests/arc163/tasks/arc163_e)
 - 2 値 dp の値の連続性に注目
   - [Codeforces Round 887 (Div. 1) D. Miriany and Matchstick](https://codeforces.com/contest/1852/problem/D)
+- 区間長の 2 乗時間かかる dp を更新しながら区間 dp を行える．
+  - [COMPFEST 15 - Preliminary Online Mirror (Unrated, ICPC Rules, Teams Preferred) J. Jackets and Packets](https://codeforces.com/contest/1866/problem/J)
+- top 2 の値は乱択でグループ分けしてそれらが別グループに入れば良い．
+  - [COMPFEST 15 - Preliminary Online Mirror (Unrated, ICPC Rules, Teams Preferred) K. Keen Tree Calculation](https://codeforces.com/contest/1866/problem/K)
+  - もしくは，2 番目の最大値は CHT の凸包の与えられた $x$ が属する直線の左右に隣接する直線の $x$ における値及び凸包の制作過程で棄却された直線群の最大値（再び凸方を構成する）から得られる．
+
+## 実装
+- $n$ 頂点の完全二分木の左部分木の頂点数は以下で求まる．
+```c++
+int k = std::__lg(n + 1);
+long long l = ((1LL << (k - 1)) - 1) + std::min(1LL << (k - 1), n - (1LL << k) + 1);
+```

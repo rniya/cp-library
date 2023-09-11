@@ -1,6 +1,6 @@
 ---
 title: 補グラフ上の最短路
-documentation_of: ./complement_graph_shorterst_path.hpp
+documentation_of: ./complement_graph_shortest_path.hpp
 ---
 
 
