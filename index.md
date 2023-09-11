@@ -104,6 +104,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/Dijkstra.hpp
       title: Dijkstra
+    - icon: ':heavy_check_mark:'
+      path: src/graph/DirectedCycleDetection.hpp
+      title: Directed Cycle Detection
     - icon: ':warning:'
       path: src/graph/EdgeMatching.hpp
       title: "\u8FBA\u540C\u58EB\u306E\u30DE\u30C3\u30C1\u30F3\u30B0"
@@ -133,9 +136,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/TwoSAT.hpp
       title: 2-SAT
+    - icon: ':warning:'
+      path: src/graph/complement_graph_shortest_path.hpp
+      title: src/graph/complement_graph_shortest_path.hpp
     - icon: ':heavy_check_mark:'
       path: src/graph/enumerate_cliques.hpp
       title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
+    - icon: ':heavy_check_mark:'
+      path: src/graph/maxflow_lowerbound.hpp
+      title: "\u6D41\u91CF\u4E0B\u9650\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
     - icon: ':warning:'
       path: src/graph/min_cost_b_flow.hpp
       title: Minimum Cost b-flow
@@ -290,6 +299,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/1181.test.cpp
       title: test/aoj/1181.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/1615.test.cpp
+      title: test/aoj/1615.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/2306.test.cpp
       title: test/aoj/2306.test.cpp
@@ -475,6 +487,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/characteristic_polynomial.test.cpp
       title: test/yosupo/characteristic_polynomial.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/cycle_detection.test.cpp
+      title: test/yosupo/cycle_detection.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/discrete_logarithm_mod.test.cpp
       title: test/yosupo/discrete_logarithm_mod.test.cpp

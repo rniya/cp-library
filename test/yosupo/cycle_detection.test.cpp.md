@@ -2,11 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/base.hpp
-    title: src/base.hpp
-  - icon: ':heavy_check_mark:'
-    path: src/datastructure/CumulativeSum2D.hpp
-    title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
+    path: src/graph/DirectedCycleDetection.hpp
+    title: Directed Cycle Detection
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -14,9 +11,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/5/DSL_5_B
+    PROBLEM: https://judge.yosupo.jp/problem/cycle_detection
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/5/DSL_5_B
+    - https://judge.yosupo.jp/problem/cycle_detection
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.5/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -27,31 +24,28 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.5/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
-    \ -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/5/DSL_5_B\"\
-    \n\n#include \"base.hpp\"\n#include \"datastructure/CumulativeSum2D.hpp\"\n\n\
-    const int MAX_X = 1010;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int N;\n    cin >> N;\n    vector<vector<int>> v(MAX_X, vector<int>(MAX_X,\
-    \ 0));\n    for (; N--;) {\n        int a, b, c, d;\n        cin >> a >> b >>\
-    \ c >> d;\n        ++v[a][b];\n        ++v[c][d];\n        --v[a][d];\n      \
-    \  --v[c][b];\n    }\n\n    CumulativeSum2D<int> CS(v);\n    int ans = 0;\n  \
-    \  for (int i = 0; i < MAX_X; i++) {\n        for (int j = 0; j < MAX_X; j++)\
-    \ {\n            ans = max(ans, CS.query(0, i, 0, j));\n        }\n    }\n\n \
-    \   cout << ans << '\\n';\n}"
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/DirectedCycleDetection.hpp:\
+    \ line -1: no such header\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/cycle_detection\"\n\n#include\
+    \ <iostream>\n#include \"graph/DirectedCycleDetection.hpp\"\n\nint main() {\n\
+    \    std::ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    int N,\
+    \ M;\n    std::cin >> N >> M;\n    DirectedCycleDetection G(N);\n    for (; M--;)\
+    \ {\n        int u, v;\n        std::cin >> u >> v;\n        G.add_edge(u, v);\n\
+    \    }\n\n    auto [vs, es] = G.build();\n    if (es.empty()) {\n        std::cout\
+    \ << -1 << '\\n';\n        return 0;\n    }\n    std::cout << es.size() << '\\\
+    n';\n    for (auto& e : es) std::cout << e << '\\n';\n    return 0;\n}"
   dependsOn:
-  - src/base.hpp
-  - src/datastructure/CumulativeSum2D.hpp
+  - src/graph/DirectedCycleDetection.hpp
   isVerificationFile: true
-  path: test/aoj/DSL_5_B.test.cpp
+  path: test/yosupo/cycle_detection.test.cpp
   requiredBy: []
-  timestamp: '2023-04-22 02:23:28+09:00'
+  timestamp: '2023-09-11 12:23:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/DSL_5_B.test.cpp
+documentation_of: test/yosupo/cycle_detection.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/DSL_5_B.test.cpp
-- /verify/test/aoj/DSL_5_B.test.cpp.html
-title: test/aoj/DSL_5_B.test.cpp
+- /verify/test/yosupo/cycle_detection.test.cpp
+- /verify/test/yosupo/cycle_detection.test.cpp.html
+title: test/yosupo/cycle_detection.test.cpp
 ---
