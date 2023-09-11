@@ -1,6 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/3335"
 
 #include <iostream>
+#include <string>
 #include "atcoder/modint"
 #include "math/binomial.hpp"
 #include "math/count_young_paths.hpp"
