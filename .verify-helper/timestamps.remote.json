@@ -57,6 +57,7 @@
 "test/aoj/NTL_1_E.test.cpp": "2023-04-22 02:23:28 +0900",
 "test/aoj/example.test.cpp": "2021-01-20 11:24:35 +0900",
 "test/yosupo/aplusb.test.cpp": "2023-04-22 02:23:28 +0900",
+"test/yosupo/assignment.test.cpp": "2023-09-11 22:32:46 +0900",
 "test/yosupo/associative_array.test.cpp": "2023-04-22 02:23:28 +0900",
 "test/yosupo/bipartitematching.test.cpp": "2023-04-23 18:55:45 +0900",
 "test/yosupo/bitwise_and_convolution.test.cpp": "2023-04-23 19:32:20 +0900",
