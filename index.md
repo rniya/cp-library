@@ -138,7 +138,7 @@ data:
       title: 2-SAT
     - icon: ':warning:'
       path: src/graph/complement_graph_shortest_path.hpp
-      title: src/graph/complement_graph_shortest_path.hpp
+      title: "\u88DC\u30B0\u30E9\u30D5\u4E0A\u306E\u6700\u77ED\u8DEF"
     - icon: ':heavy_check_mark:'
       path: src/graph/enumerate_cliques.hpp
       title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
@@ -664,7 +664,7 @@ layout: toppage
 ---
 競技プログラミングで使用するライブラリ集です。
 
-C++ 14 でコーディング及びテストされています。
+C++ 17 でコーディング及びテストされています。
 
 [ac-library](https://github.com/atcoder/ac-library) に一部準拠しています。
 
