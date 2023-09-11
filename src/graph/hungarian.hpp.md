@@ -3,20 +3,21 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/assignment.test.cpp
     title: test/yosupo/assignment.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/graph/hungarian.hpp\"\n#include <limits>\n#include <utility>\n\
-    #include <vector>\n\ntemplate <class Cost> std::pair<Cost, std::vector<int>> hungarian(const\
-    \ std::vector<std::vector<Cost>>& a) {\n    const Cost inf = std::numeric_limits<Cost>::max();\n\
-    \    int n = a.size(), m = a[0].size();\n    assert(n <= m);\n    std::vector<int>\
-    \ P(m + 1, -1);\n    std::vector<Cost> yl(n, 0), yr(m + 1, 0);\n    for (int i\
-    \ = 0; i < n; i++) {\n        std::vector<Cost> adjmin(m + 1, inf);\n        std::vector<bool>\
+  bundledCode: "#line 1 \"src/graph/hungarian.hpp\"\n#include <cassert>\n#include\
+    \ <limits>\n#include <utility>\n#include <vector>\n\ntemplate <class Cost> std::pair<Cost,\
+    \ std::vector<int>> hungarian(const std::vector<std::vector<Cost>>& a) {\n   \
+    \ const Cost inf = std::numeric_limits<Cost>::max();\n    int n = a.size(), m\
+    \ = a[0].size();\n    assert(n <= m);\n    std::vector<int> P(m + 1, -1);\n  \
+    \  std::vector<Cost> yl(n, 0), yr(m + 1, 0);\n    for (int i = 0; i < n; i++)\
+    \ {\n        std::vector<Cost> adjmin(m + 1, inf);\n        std::vector<bool>\
     \ inL(m + 1, false);\n        std::vector<int> pre(m + 1, -1);\n        int j_cur\
     \ = m;\n        P[j_cur] = i;\n        while (P[j_cur] != -1) {\n            inL[j_cur]\
     \ = true;\n            int i_cur = P[j_cur], j_nxt = 0;\n            Cost delta\
@@ -31,8 +32,8 @@ data:
     \    }\n    std::vector<int> res(n);\n    for (int i = 0; i < m; i++) {\n    \
     \    if (P[i] != -1) {\n            res[P[i]] = i;\n        }\n    }\n    return\
     \ {-yr[m], res};\n}\n"
-  code: "#include <limits>\n#include <utility>\n#include <vector>\n\ntemplate <class\
-    \ Cost> std::pair<Cost, std::vector<int>> hungarian(const std::vector<std::vector<Cost>>&\
+  code: "#include <cassert>\n#include <limits>\n#include <utility>\n#include <vector>\n\
+    \ntemplate <class Cost> std::pair<Cost, std::vector<int>> hungarian(const std::vector<std::vector<Cost>>&\
     \ a) {\n    const Cost inf = std::numeric_limits<Cost>::max();\n    int n = a.size(),\
     \ m = a[0].size();\n    assert(n <= m);\n    std::vector<int> P(m + 1, -1);\n\
     \    std::vector<Cost> yl(n, 0), yr(m + 1, 0);\n    for (int i = 0; i < n; i++)\
@@ -55,8 +56,8 @@ data:
   isVerificationFile: false
   path: src/graph/hungarian.hpp
   requiredBy: []
-  timestamp: '2023-09-11 22:23:33+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2023-09-11 22:32:46+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/assignment.test.cpp
 documentation_of: src/graph/hungarian.hpp
