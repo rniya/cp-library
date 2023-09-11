@@ -142,6 +142,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/enumerate_cliques.hpp
       title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
+    - icon: ':x:'
+      path: src/graph/hungarian.hpp
+      title: "Hungarian\uFF08\u5272\u5F53\u554F\u984C\uFF0C\u4E8C\u90E8\u30B0\u30E9\
+        \u30D5\u306E\u6700\u5C0F\u91CD\u307F\u5B8C\u5168\u30DE\u30C3\u30C1\u30F3\u30B0\
+        \uFF09"
     - icon: ':heavy_check_mark:'
       path: src/graph/maxflow_lowerbound.hpp
       title: "\u6D41\u91CF\u4E0B\u9650\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
@@ -472,6 +477,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/aplusb.test.cpp
       title: test/yosupo/aplusb.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/assignment.test.cpp
+      title: test/yosupo/assignment.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/associative_array.test.cpp
       title: test/yosupo/associative_array.test.cpp
