@@ -15,16 +15,16 @@ template <class T> class RelaxedConvolution {
         int p = __builtin_ctz(n + 2);
         for (int k = 0; k <= p; k++) {
             {
-                std::vector<T> a1(f.begin() + (1 << k) - 1, f.begin() + (1 << (k + 1)) - 1);
-                std::vector<T> b1(g.end() - (1 << k), g.end());
-                auto c1 = atcoder::convolution(a1, b1);
+                std::vector<T> f1(f.begin() + (1 << k) - 1, f.begin() + (1 << (k + 1)) - 1);
+                std::vector<T> g1(g.end() - (1 << k), g.end());
+                auto c1 = atcoder::convolution(f1, g1);
                 for (int i = 0; i < (1 << (k + 1)) - 1; i++) h[n + i] += c1[i];
             }
             if ((1 << p) == n + 2 and k == p - 1) break;
             {
-                std::vector<T> a2(f.end() - (1 << k), f.end());
-                std::vector<T> b2(g.begin() + (1 << k) - 1, g.begin() + (1 << (k + 1)) - 1);
-                auto c2 = atcoder::convolution(a2, b2);
+                std::vector<T> f2(f.end() - (1 << k), f.end());
+                std::vector<T> g2(g.begin() + (1 << k) - 1, g.begin() + (1 << (k + 1)) - 1);
+                auto c2 = atcoder::convolution(f2, g2);
                 for (int i = 0; i < (1 << (k + 1)) - 1; i++) h[n + i] += c2[i];
             }
         }

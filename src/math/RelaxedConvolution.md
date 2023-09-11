@@ -4,7 +4,7 @@ documentation_of: ./RelaxedConvolution.hpp
 ---
 
 ## 概要
-未知の $n$ 次多項式 $f, g$ があり，$h(x) = f(x) g(x)$ であるとき，$i = 0, 1, \dots , n$ の順に以下のクエリを処理する．
+未知の $n$ 次多項式 $f, g$ があり，$h(x) = f(x) g(x)$ であるとき，$i = 0, 1, \dots , n$ の順に以下のクエリを計 $\mathrm{O}(n (\log n)^2)$ 時間で処理する．
 - $[x^i] f(x), [x^i] g(x)$ が与えられるので，$[x^i] h(x)$ を返す．
 
 ## Links
