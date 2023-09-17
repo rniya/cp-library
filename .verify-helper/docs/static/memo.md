@@ -4,10 +4,8 @@
     - [問題例](#問題例-1)
 - [凸包](#凸包)
     - [問題例](#問題例-2)
-- [$C\_3, C\_4, K\_4$ counting in undirected graph](#c_3-c_4-k_4-counting-in-undirected-graph)
-    - [問題例](#問題例-3)
 - [ゲーム](#ゲーム)
-    - [問題例](#問題例-4)
+    - [問題例](#問題例-3)
 - [操作における不変量](#操作における不変量)
 - [部分和問題](#部分和問題)
 - [その他](#その他)
@@ -44,15 +42,6 @@ $$
   - 各頂点の状態としては凸包の頂点のみが重要となるが，$n \times n$ の格子点を頂点にもつ凸包の頂点数は $O(n^{2 / 3})$ で抑えられる（[参照](https://not522.hatenablog.com/entry/2016/09/24/154939)）．
 - [The 1st Universal Cup. Stage 3: Poland B. Big Picture](https://qoj.ac/contest/1099/problem/5456?v=1)
   - 利益を考えると最終的な開店の仕方は凸包に一致する．
-
-## $C_3, C_4, K_4$ counting in undirected graph
-頂点数 $n$，辺数 $m$ のグラフの各種部分グラフを列挙及び数え上げる．
-頂点を次数の昇順に並べ，各辺を右方向に向きづけることにする．
-このとき，各頂点の出次数は $\sqrt{2 m}$ で抑えられ，各種列挙が効率的に行える．
-
-#### 問題例
-- [The 1st Universal Cup. Stage 13: Iberia K. 4](https://qoj.ac/problem/6354)
-  - [ecnerwala のコメント](https://codeforces.com/blog/entry/97762?#comment-866645)
 
 ## ゲーム
 #### 問題例
@@ -104,6 +93,9 @@ $$
 - top 2 の値は乱択でグループ分けしてそれらが別グループに入れば良い．
   - [COMPFEST 15 - Preliminary Online Mirror (Unrated, ICPC Rules, Teams Preferred) K. Keen Tree Calculation](https://codeforces.com/contest/1866/problem/K)
   - もしくは，2 番目の最大値は CHT の凸包の与えられた $x$ が属する直線の左右に隣接する直線の $x$ における値及び凸包の制作過程で棄却された直線群の最大値（再び凸方を構成する）から得られる．
+- 削除する操作は打ち切らずに順列から一様ランダムに操作列が決まると考える．
+  - [AtCoder Regular Contest 165 E - Random Isolation](https://atcoder.jp/contests/arc165/tasks/arc165_e)
+  - [AtCoder Grand Contest 049 A - Erasing Vertices](https://atcoder.jp/contests/agc049/tasks/agc049_a)
 
 ## 実装
 - $n$ 頂点の完全二分木の左部分木の頂点数は以下で求まる．
