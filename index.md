@@ -113,6 +113,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/EulerianTrail.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u306E\u69CB\u7BC9"
+    - icon: ':warning:'
+      path: src/graph/FunctionalGraph.hpp
+      title: Functional Graph
     - icon: ':heavy_check_mark:'
       path: src/graph/LowLink.hpp
       title: LowLink (with Two Edge Connected Components, Bi Connected Components)

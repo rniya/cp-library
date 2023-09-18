@@ -46,7 +46,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/enumerate_cliques.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 23:01:53+09:00'
+  timestamp: '2023-09-18 22:25:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/enumerate_cliques.test.cpp

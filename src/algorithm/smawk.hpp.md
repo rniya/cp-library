@@ -111,3 +111,5 @@ $A$ の奇数行目の答えはその前後の行の答えの間にあり，そ�
 - [Monge の手引書 (tatyam)](https://speakerdeck.com/tatyam_prime/monge-noshou-yin-shu)
 
 ## 問題例
+- [JAG 3 日目 G]
+  - 凸多角形のある 1 点から他の点までの距離は monge で，各端点からの最遠端点が求まる．

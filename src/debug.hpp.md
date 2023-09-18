@@ -39,12 +39,16 @@ data:
     \ Args...>(os, t);\n    return os << '}';\n}\n\nvoid debug_out() { std::cerr <<\
     \ '\\n'; }\ntemplate <class Head, class... Tail> void debug_out(Head&& head, Tail&&...\
     \ tail) {\n    std::cerr << head;\n    if (sizeof...(Tail) > 0) std::cerr << \"\
-    , \";\n    debug_out(std::move(tail)...);\n}\n#define debug(...)             \
-    \                                                            \\\n    std::cerr\
-    \ << \" \";                                                                  \
-    \    \\\n    std::cerr << #__VA_ARGS__ << \": [\" << __LINE__ << \": \" << __FUNCTION__\
-    \ << \"]\" << '\\n'; \\\n    std::cerr << \" \";                             \
-    \                                         \\\n    debug_out(__VA_ARGS__)\n"
+    , \";\n    debug_out(std::move(tail)...);\n}\nconst std::string COLOR_RESET =\
+    \ \"\\033[0m\", BRIGHT_CYAN = \"\\033[1;36m\", NORMAL_FAINT = \"\\033[0;2m\";\n\
+    #define debug(...)                                                           \
+    \                                   \\\n    std::cerr << \" \";              \
+    \                                                                            \
+    \ \\\n    std::cerr << BRIGHT_CYAN << #__VA_ARGS__ << COLOR_RESET << \" : \" <<\
+    \ NORMAL_FAINT << \"[\" << __LINE__ << \": \" \\\n              << __FUNCTION__\
+    \ << \"]\" << COLOR_RESET << '\\n';                                          \
+    \          \\\n    std::cerr << \" \";                                       \
+    \                                                    \\\n    debug_out(__VA_ARGS__)\n"
   code: "#pragma once\n#include <bits/stdc++.h>\n\ntemplate <typename T, typename\
     \ U> std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p);\ntemplate\
     \ <typename T, typename U> std::ostream& operator<<(std::ostream& os, const std::map<T,\
@@ -76,17 +80,21 @@ data:
     \ Args...>(os, t);\n    return os << '}';\n}\n\nvoid debug_out() { std::cerr <<\
     \ '\\n'; }\ntemplate <class Head, class... Tail> void debug_out(Head&& head, Tail&&...\
     \ tail) {\n    std::cerr << head;\n    if (sizeof...(Tail) > 0) std::cerr << \"\
-    , \";\n    debug_out(std::move(tail)...);\n}\n#define debug(...)             \
-    \                                                            \\\n    std::cerr\
-    \ << \" \";                                                                  \
-    \    \\\n    std::cerr << #__VA_ARGS__ << \": [\" << __LINE__ << \": \" << __FUNCTION__\
-    \ << \"]\" << '\\n'; \\\n    std::cerr << \" \";                             \
-    \                                         \\\n    debug_out(__VA_ARGS__)\n"
+    , \";\n    debug_out(std::move(tail)...);\n}\nconst std::string COLOR_RESET =\
+    \ \"\\033[0m\", BRIGHT_CYAN = \"\\033[1;36m\", NORMAL_FAINT = \"\\033[0;2m\";\n\
+    #define debug(...)                                                           \
+    \                                   \\\n    std::cerr << \" \";              \
+    \                                                                            \
+    \ \\\n    std::cerr << BRIGHT_CYAN << #__VA_ARGS__ << COLOR_RESET << \" : \" <<\
+    \ NORMAL_FAINT << \"[\" << __LINE__ << \": \" \\\n              << __FUNCTION__\
+    \ << \"]\" << COLOR_RESET << '\\n';                                          \
+    \          \\\n    std::cerr << \" \";                                       \
+    \                                                    \\\n    debug_out(__VA_ARGS__)\n"
   dependsOn: []
   isVerificationFile: false
   path: src/debug.hpp
   requiredBy: []
-  timestamp: '2023-04-23 18:55:45+09:00'
+  timestamp: '2023-09-18 22:25:37+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/debug.hpp

@@ -105,17 +105,16 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint:\
     \ line -1: no such header\n"
   code: "#pragma once\n#include <iostream>\n#include \"atcoder/modint\"\n\nnamespace\
-    \ atcoder {\n\ntemplate <int MOD> std::istream& operator>>(std::istream& is, static_modint<MOD>&\
-    \ x) {\n    int64_t v;\n    x = static_modint<MOD>{(is >> v, v)};\n    return\
-    \ is;\n}\n\ntemplate <int MOD> std::ostream& operator<<(std::ostream& os, const\
-    \ static_modint<MOD>& x) { return os << x.val(); }\n\ntemplate <int ID> std::ostream&\
-    \ operator<<(std::ostream& os, const dynamic_modint<ID>& x) { return os << x.val();\
-    \ }\n\n}  // namespace atcoder\n"
+    \ atcoder {\n\ntemplate <class T, internal::is_modint_t<T>* = nullptr> std::istream&\
+    \ operator>>(std::istream& is, T& x) {\n    int v;\n    is >> v;\n    x = T::raw(v);\n\
+    \    return is;\n}\n\ntemplate <class T, internal::is_modint_t<T>* = nullptr>\
+    \ std::ostream& operator<<(std::ostream& os, const T& x) {\n    return os << x.val();\n\
+    }\n\n}  // namespace atcoder\n"
   dependsOn: []
   isVerificationFile: false
   path: src/util/modint.hpp
   requiredBy: []
-  timestamp: '2023-01-12 23:01:53+09:00'
+  timestamp: '2023-09-18 22:25:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1289.test.cpp
