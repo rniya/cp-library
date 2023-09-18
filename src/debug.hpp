@@ -64,8 +64,10 @@ template <class Head, class... Tail> void debug_out(Head&& head, Tail&&... tail)
     if (sizeof...(Tail) > 0) std::cerr << ", ";
     debug_out(std::move(tail)...);
 }
-#define debug(...)                                                                         \
-    std::cerr << " ";                                                                      \
-    std::cerr << #__VA_ARGS__ << ": [" << __LINE__ << ": " << __FUNCTION__ << "]" << '\n'; \
-    std::cerr << " ";                                                                      \
+const std::string COLOR_RESET = "\033[0m", BRIGHT_CYAN = "\033[1;36m", NORMAL_FAINT = "\033[0;2m";
+#define debug(...)                                                                                              \
+    std::cerr << " ";                                                                                           \
+    std::cerr << BRIGHT_CYAN << #__VA_ARGS__ << COLOR_RESET << " : " << NORMAL_FAINT << "[" << __LINE__ << ": " \
+              << __FUNCTION__ << "]" << COLOR_RESET << '\n';                                                    \
+    std::cerr << " ";                                                                                           \
     debug_out(__VA_ARGS__)
