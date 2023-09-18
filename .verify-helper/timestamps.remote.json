@@ -68,6 +68,7 @@
 "test/yosupo/division_of_polynomials.test.cpp": "2023-05-21 16:36:42 +0900",
 "test/yosupo/enumerate_cliques.test.cpp": "2023-01-12 23:01:53 +0900",
 "test/yosupo/enumerate_palindromes.test.cpp": "2023-04-22 02:23:28 +0900",
+"test/yosupo/enumerate_triangles.test.cpp": "2023-09-18 02:03:26 +0900",
 "test/yosupo/exp_of_formal_power_series.test.cpp": "2023-05-21 16:36:42 +0900",
 "test/yosupo/factorize.test.cpp": "2023-04-22 02:23:28 +0900",
 "test/yosupo/frequency_table_of_tree_distance.test.cpp": "2023-01-12 22:28:24 +0900",
