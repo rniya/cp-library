@@ -1,19 +1,19 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_14_C"
 
-#include "base.hpp"
+#include <iostream>
 #include "string/RollingHash2D.hpp"
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int H, W;
-    cin >> H >> W;
-    vector<string> S(H);
-    for (auto& s : S) cin >> s;
+    std::cin >> H >> W;
+    std::vector<std::string> S(H);
+    for (auto& s : S) std::cin >> s;
     int R, C;
-    cin >> R >> C;
-    vector<string> T(R);
-    for (auto& t : T) cin >> t;
+    std::cin >> R >> C;
+    std::vector<std::string> T(R);
+    for (auto& t : T) std::cin >> t;
 
     RollingHash2D RH;
     auto a = RH.build(S);
@@ -22,7 +22,7 @@ int main() {
     for (int i = 0; i + R <= H; i++) {
         for (int j = 0; j + C <= W; j++) {
             if (RH.query(a, i, i + R, j, j + C) == correct) {
-                cout << i << ' ' << j << '\n';
+                std::cout << i << ' ' << j << '\n';
             }
         }
     }
