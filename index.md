@@ -108,9 +108,6 @@ data:
       path: src/graph/CycleDetection.hpp
       title: Cycle Detection
     - icon: ':heavy_check_mark:'
-      path: src/graph/Dijkstra.hpp
-      title: Dijkstra
-    - icon: ':heavy_check_mark:'
       path: src/graph/DirectedCycleDetection.hpp
       title: Directed Cycle Detection
     - icon: ':warning:'
@@ -242,7 +239,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/string/AhoCorasick.hpp
       title: Aho Corasick
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/string/Hash.hpp
       title: "Hash \u69CB\u9020\u4F53 (reversible)"
     - icon: ':heavy_check_mark:'
@@ -298,9 +295,6 @@ data:
     - icon: ':warning:'
       path: src/util/flow_graphviz.hpp
       title: "\u6700\u5927\u6D41\u30FB\u6700\u5C0F\u8CBB\u7528\u6D41\u306E\u56F3\u793A"
-    - icon: ':warning:'
-      path: src/util/gray_code.hpp
-      title: Gray Code
     - icon: ':heavy_check_mark:'
       path: src/util/modint.hpp
       title: modint (input/output)
@@ -604,9 +598,6 @@ data:
       path: test/yosupo/shift_of_sampling_points_of_polynomial.test.cpp
       title: test/yosupo/shift_of_sampling_points_of_polynomial.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/yosupo/shortest_path.test.cpp
-      title: test/yosupo/shortest_path.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/yosupo/sqrt_of_formal_power_series.test.cpp
       title: test/yosupo/sqrt_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -665,12 +656,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1907.test.cpp
       title: test/yukicoder/1907.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/yukicoder/430.AhoCorasick.test.cpp
-      title: test/yukicoder/430.AhoCorasick.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/yukicoder/430.test.cpp
-      title: test/yukicoder/430.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/453.test.cpp
       title: test/yukicoder/453.test.cpp

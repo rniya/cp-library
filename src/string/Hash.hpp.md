@@ -1,11 +1,23 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: src/string/RollingHash.hpp
+    title: Rolling Hash
+  - icon: ':heavy_check_mark:'
+    path: src/string/RollingHash2D.hpp
+    title: Rolling Hash 2D
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/ALDS1_14_B.test.cpp
+    title: test/aoj/ALDS1_14_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/ALDS1_14_C.test.cpp
+    title: test/aoj/ALDS1_14_C.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/string/Hash.hpp\"\n#include <cassert>\n#include <chrono>\n\
@@ -103,10 +115,14 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/string/Hash.hpp
-  requiredBy: []
+  requiredBy:
+  - src/string/RollingHash2D.hpp
+  - src/string/RollingHash.hpp
   timestamp: '2023-10-01 16:26:05+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/ALDS1_14_C.test.cpp
+  - test/aoj/ALDS1_14_B.test.cpp
 documentation_of: src/string/Hash.hpp
 layout: document
 title: "Hash \u69CB\u9020\u4F53 (reversible)"

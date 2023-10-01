@@ -9,15 +9,9 @@ data:
     path: src/datastructure/SparseTable.hpp
     title: Sparse Table
   - icon: ':heavy_check_mark:'
-    path: src/graph/Dijkstra.hpp
-    title: Dijkstra
-  - icon: ':heavy_check_mark:'
     path: src/math/fast_factorize.hpp
     title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
       \ + Pollard's rho algorithm)"
-  - icon: ':warning:'
-    path: src/util/gray_code.hpp
-    title: Gray Code
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/1131.test.cpp
@@ -28,12 +22,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2891.test.cpp
     title: test/aoj/2891.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/ALDS1_14_B.test.cpp
-    title: test/aoj/ALDS1_14_B.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/ALDS1_14_C.test.cpp
-    title: test/aoj/ALDS1_14_C.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_1_A.test.cpp
     title: test/aoj/CGL_1_A.test.cpp
@@ -185,9 +173,6 @@ data:
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/shortest_path.test.cpp
-    title: test/yosupo/shortest_path.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/static_range_sum.test.cpp
     title: test/yosupo/static_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -211,12 +196,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1678.test.cpp
     title: test/yukicoder/1678.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/430.AhoCorasick.test.cpp
-    title: test/yukicoder/430.AhoCorasick.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/430.test.cpp
-    title: test/yukicoder/430.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/583.test.cpp
     title: test/yukicoder/583.test.cpp
@@ -261,15 +240,12 @@ data:
   isVerificationFile: false
   path: src/base.hpp
   requiredBy:
-  - src/graph/Dijkstra.hpp
-  - src/util/gray_code.hpp
   - src/datastructure/SparseTable.hpp
   - src/datastructure/RectangleSet.hpp
   - src/math/fast_factorize.hpp
   timestamp: '2023-04-22 02:23:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/ALDS1_14_C.test.cpp
   - test/aoj/NTL_1_E.test.cpp
   - test/aoj/2306.test.cpp
   - test/aoj/CGL_1_A.test.cpp
@@ -284,7 +260,6 @@ data:
   - test/aoj/GRL_3_C.test.cpp
   - test/aoj/NTL_1_D.test.cpp
   - test/aoj/ITP1_11_C.test.cpp
-  - test/aoj/ALDS1_14_B.test.cpp
   - test/aoj/CGL_2_C.test.cpp
   - test/aoj/CGL_7_A.test.cpp
   - test/aoj/DSL_1_B.test.cpp
@@ -321,7 +296,6 @@ data:
   - test/yosupo/discrete_logarithm_mod.test.cpp
   - test/yosupo/unionfind.test.cpp
   - test/yosupo/staticrmq.test.cpp
-  - test/yosupo/shortest_path.test.cpp
   - test/yosupo/two_sat.test.cpp
   - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
   - test/yosupo/factorize.test.cpp
@@ -334,8 +308,6 @@ data:
   - test/yukicoder/952.test.cpp
   - test/yukicoder/1678.test.cpp
   - test/yukicoder/1240.test.cpp
-  - test/yukicoder/430.AhoCorasick.test.cpp
-  - test/yukicoder/430.test.cpp
   - test/yukicoder/583.test.cpp
 documentation_of: src/base.hpp
 layout: document

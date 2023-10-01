@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/base.hpp
-    title: src/base.hpp
+    path: src/string/Hash.hpp
+    title: "Hash \u69CB\u9020\u4F53 (reversible)"
   - icon: ':heavy_check_mark:'
     path: src/string/RollingHash.hpp
     title: Rolling Hash
@@ -27,22 +27,22 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.5/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
-    \ -1: no such header\n"
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: string/RollingHash.hpp:\
+    \ line -1: no such header\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B\"\
-    \n\n#include \"base.hpp\"\n#include \"string/RollingHash.hpp\"\n\nint main() {\n\
-    \    cin.tie(0);\n    ios::sync_with_stdio(false);\n    string T, P;\n    cin\
-    \ >> T >> P;\n\n    RollingHash RH;\n    auto a = RH.build(T), b = RH.build(P);\n\
+    \n\n#include \"string/RollingHash.hpp\"\n\nint main() {\n    std::cin.tie(0);\n\
+    \    std::ios::sync_with_stdio(false);\n    std::string T, P;\n    std::cin >>\
+    \ T >> P;\n\n    RollingHash RH;\n    auto a = RH.build(T), b = RH.build(P);\n\
     \    int s = T.size(), t = P.size();\n\n    for (int i = 0; i + t <= s; i++) {\n\
-    \        if (RH.query(a, i, i + t) == RH.query(b, 0, t)) {\n            cout <<\
-    \ i << '\\n';\n        }\n    }\n    return 0;\n}"
+    \        if (RH.query(a, i, i + t) == RH.query(b, 0, t)) {\n            std::cout\
+    \ << i << '\\n';\n        }\n    }\n    return 0;\n}"
   dependsOn:
-  - src/base.hpp
   - src/string/RollingHash.hpp
+  - src/string/Hash.hpp
   isVerificationFile: true
   path: test/aoj/ALDS1_14_B.test.cpp
   requiredBy: []
-  timestamp: '2023-10-01 16:26:05+09:00'
+  timestamp: '2023-10-01 19:51:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1_14_B.test.cpp

@@ -208,5 +208,5 @@ $O(n^{1/4})$
 - [2019-2020 Winter Petrozavodsk Camp, Day 8: Almost Algorithmic Contest D. FFT Algorithm](https://codeforces.com/gym/103261/problem/D)
 
 ## 参照
-- [素因数分解の高速なアルゴリズム（ロー法） | 高校数学の美しい物語](https://manabitimes.jp/math/1192)
+- [素因数分解の高速なアルゴリズム（ロー法） \| 高校数学の美しい物語](https://manabitimes.jp/math/1192)
 - [素因数分解を $O(n^{1/4})$ でする - Qiita](https://qiita.com/Kiri8128/items/eca965fe86ea5f4cbb98)
