@@ -49,7 +49,7 @@ struct RollingHash {
         return lb;
     }
 
-private:
+  private:
     static constexpr uint64_t mod = (1ULL << 61) - 1;
     const uint64_t base;
     std::vector<uint64_t> power;

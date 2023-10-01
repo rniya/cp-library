@@ -1,3 +1,4 @@
+#pragma once
 #include "atcoder/maxflow"
 
 template <class Cap> struct maxflow_lowerbound {

@@ -36,7 +36,8 @@ $\blacksquare$
 ### アルゴリズム
 
 SMAWK algorithm は totally monotone な $N \times M$ 行列 $A$ を入力として，各 $i$ について $\underset{j}{\operatorname{argmin}}\ A_{i, j}$ を $\mathrm{O}(N + M)$ 時間で求める．
-ここで，$A$ は $(i, j)$ 要素が $f(i, j)$ に等しいという形式で与えられるものとする．
+実装中の関数 `select(i, j, k)` は $j < k$ が保証されているもとで，$A_{i, j}$ よりも $A_{i, k}$ が好ましいとされる場合に `true` を，そうでないときは `false` を返す関数である．
+以下，$A_{i, j} = f(i, j)$ と表記する．
 
 #### Step 1. Reduce
 
