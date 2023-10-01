@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/graph/FunctionalGraph.hpp\"\n#include <cassert>\n#include\
+  bundledCode: "#line 2 \"src/graph/FunctionalGraph.hpp\"\n#include <cassert>\n#include\
     \ <vector>\n\nstruct FunctionalGraph {\n    int n, L;\n    std::vector<int> visit;\n\
     \    std::vector<std::vector<int>> loops, G;\n\n    FunctionalGraph(int n) : n(n),\
     \ L(1), visit(n), G(n), nxt(n, -1) {}\n\n    void add_edge(int u, int v) {\n \
@@ -28,11 +28,11 @@ data:
     \            if (res == 0) return 0;\n            return visit[v] = res;\n   \
     \     }\n        return visit[v] = (visit[u] > 0 ? -visit[u] : visit[u]);\n  \
     \  }\n};\n"
-  code: "#include <cassert>\n#include <vector>\n\nstruct FunctionalGraph {\n    int\
-    \ n, L;\n    std::vector<int> visit;\n    std::vector<std::vector<int>> loops,\
-    \ G;\n\n    FunctionalGraph(int n) : n(n), L(1), visit(n), G(n), nxt(n, -1) {}\n\
-    \n    void add_edge(int u, int v) {\n        assert(0 <= u and u < n);\n     \
-    \   assert(0 <= v and v < n);\n        nxt[u] = v;\n    }\n\n    void build()\
+  code: "#pragma once\n#include <cassert>\n#include <vector>\n\nstruct FunctionalGraph\
+    \ {\n    int n, L;\n    std::vector<int> visit;\n    std::vector<std::vector<int>>\
+    \ loops, G;\n\n    FunctionalGraph(int n) : n(n), L(1), visit(n), G(n), nxt(n,\
+    \ -1) {}\n\n    void add_edge(int u, int v) {\n        assert(0 <= u and u < n);\n\
+    \        assert(0 <= v and v < n);\n        nxt[u] = v;\n    }\n\n    void build()\
     \ {\n        for (int i = 0; i < n; i++) {\n            if (visit[i] != 0) continue;\n\
     \            std::vector<int> loop;\n            dfs(i, loop);\n            if\
     \ (not loop.empty()) loops.emplace_back(loop);\n        }\n        for (int i\
@@ -51,7 +51,7 @@ data:
   isVerificationFile: false
   path: src/graph/FunctionalGraph.hpp
   requiredBy: []
-  timestamp: '2023-09-18 22:25:37+09:00'
+  timestamp: '2023-10-01 16:26:05+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/graph/FunctionalGraph.hpp

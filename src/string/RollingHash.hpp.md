@@ -34,7 +34,7 @@ data:
     \   int len = std::min(r1 - l1, r2 - l2);\n        int lb = 0, ub = len + 1;\n\
     \        while (ub - lb > 1) {\n            int mid = (lb + ub) >> 1;\n      \
     \      (query(a, l1, l1 + mid) == query(b, l2, l2 + mid) ? lb : ub) = mid;\n \
-    \       }\n        return lb;\n    }\n\nprivate:\n    static constexpr uint64_t\
+    \       }\n        return lb;\n    }\n\n  private:\n    static constexpr uint64_t\
     \ mod = (1ULL << 61) - 1;\n    const uint64_t base;\n    std::vector<uint64_t>\
     \ power;\n\n    static inline uint64_t add(uint64_t a, uint64_t b) {\n       \
     \ if ((a += b) >= mod) a -= mod;\n        return a;\n    }\n\n    static inline\
@@ -63,7 +63,7 @@ data:
     \   int len = std::min(r1 - l1, r2 - l2);\n        int lb = 0, ub = len + 1;\n\
     \        while (ub - lb > 1) {\n            int mid = (lb + ub) >> 1;\n      \
     \      (query(a, l1, l1 + mid) == query(b, l2, l2 + mid) ? lb : ub) = mid;\n \
-    \       }\n        return lb;\n    }\n\nprivate:\n    static constexpr uint64_t\
+    \       }\n        return lb;\n    }\n\n  private:\n    static constexpr uint64_t\
     \ mod = (1ULL << 61) - 1;\n    const uint64_t base;\n    std::vector<uint64_t>\
     \ power;\n\n    static inline uint64_t add(uint64_t a, uint64_t b) {\n       \
     \ if ((a += b) >= mod) a -= mod;\n        return a;\n    }\n\n    static inline\
@@ -76,11 +76,11 @@ data:
   isVerificationFile: false
   path: src/string/RollingHash.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-10-01 16:26:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/430.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
+  - test/yukicoder/430.test.cpp
 documentation_of: src/string/RollingHash.hpp
 layout: document
 title: Rolling Hash

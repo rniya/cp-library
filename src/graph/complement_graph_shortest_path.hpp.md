@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/graph/complement_graph_shortest_path.hpp\"\n#include\
+  bundledCode: "#line 2 \"src/graph/complement_graph_shortest_path.hpp\"\n#include\
     \ <algorithm>\n#include <limits>\n#include <queue>\n#include <vector>\n\nstd::vector<int>\
     \ complement_graph_shortest_path(const std::vector<std::vector<int>>& G, int s)\
     \ {\n    int n = G.size();\n    std::vector<int> dist(n, (1 << 30) - 1);\n   \
@@ -21,8 +21,8 @@ data:
     \ = L.back();\n            if (mark[u]) break;\n            L.pop_back();\n  \
     \          dist[u] = dist[v] + 1;\n            Q.emplace(u);\n        }\n    \
     \    for (const int& u : G[v]) mark[u] = false;\n    }\n    return dist;\n}\n"
-  code: "#include <algorithm>\n#include <limits>\n#include <queue>\n#include <vector>\n\
-    \nstd::vector<int> complement_graph_shortest_path(const std::vector<std::vector<int>>&\
+  code: "#pragma once\n#include <algorithm>\n#include <limits>\n#include <queue>\n\
+    #include <vector>\n\nstd::vector<int> complement_graph_shortest_path(const std::vector<std::vector<int>>&\
     \ G, int s) {\n    int n = G.size();\n    std::vector<int> dist(n, (1 << 30) -\
     \ 1);\n    dist[s] = 0;\n    std::vector<int> L;\n    std::vector<bool> mark(n,\
     \ false);\n    for (int i = 0; i < n; i++) {\n        if (i != s) {\n        \
@@ -38,7 +38,7 @@ data:
   isVerificationFile: false
   path: src/graph/complement_graph_shortest_path.hpp
   requiredBy: []
-  timestamp: '2023-09-11 12:23:25+09:00'
+  timestamp: '2023-10-01 16:26:05+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/graph/complement_graph_shortest_path.hpp

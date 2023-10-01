@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/graph/count_graphs.hpp\"\n#include <algorithm>\n#include\
+  bundledCode: "#line 2 \"src/graph/count_graphs.hpp\"\n#include <algorithm>\n#include\
     \ <tuple>\n#include <vector>\n\nnamespace count_graphs {\n\nstd::vector<std::tuple<int,\
     \ int, int>> enumerate_C4(const std::vector<std::vector<int>>& G) {\n    int n\
     \ = G.size();\n    std::vector<int> deg(n);\n    for (int i = 0; i < n; i++) deg[i]\
@@ -57,22 +57,23 @@ data:
     \ += __builtin_popcountll(adj[j] & adj[k]);\n                }\n            }\n\
     \        }\n        for (int j = 0; j < len; j++) idx[H[i][j]] = -1;\n    }\n\
     \    return res;\n}\n\n}  // namespace count_graphs\n"
-  code: "#include <algorithm>\n#include <tuple>\n#include <vector>\n\nnamespace count_graphs\
-    \ {\n\nstd::vector<std::tuple<int, int, int>> enumerate_C4(const std::vector<std::vector<int>>&\
-    \ G) {\n    int n = G.size();\n    std::vector<int> deg(n);\n    for (int i =\
-    \ 0; i < n; i++) deg[i] = G[i].size();\n    auto comp = [&](int u, int v) -> bool\
-    \ { return deg[u] != deg[v] ? deg[u] < deg[v] : u < v; };\n    std::vector<std::vector<int>>\
-    \ H(n);\n    for (int i = 0; i < n; i++) {\n        for (const int& j : G[i])\
-    \ {\n            if (comp(i, j)) {\n                H[i].emplace_back(j);\n  \
-    \          }\n        }\n    }\n    std::vector<bool> f(n, false);\n    std::vector<std::tuple<int,\
-    \ int, int>> res;\n    for (int i = 0; i < n; i++) {\n        for (int& j : H[i])\
-    \ f[j] = true;\n        for (int& j : H[i]) {\n            for (int& k : H[j])\
-    \ {\n                if (f[k]) {\n                    res.emplace_back(i, j, k);\n\
-    \                }\n            }\n        }\n        for (int& j : H[i]) f[j]\
-    \ = false;\n    }\n    return res;\n}\n\nlong long count_C4(const std::vector<std::vector<int>>&\
-    \ G) {\n    int n = G.size();\n    std::vector<int> deg(n);\n    for (int i =\
-    \ 0; i < n; i++) deg[i] = G[i].size();\n    auto comp = [&](int u, int v) -> bool\
-    \ { return deg[u] != deg[v] ? deg[u] < deg[v] : u < v; };\n    std::vector<std::vector<int>>\
+  code: "#pragma once\n#include <algorithm>\n#include <tuple>\n#include <vector>\n\
+    \nnamespace count_graphs {\n\nstd::vector<std::tuple<int, int, int>> enumerate_C4(const\
+    \ std::vector<std::vector<int>>& G) {\n    int n = G.size();\n    std::vector<int>\
+    \ deg(n);\n    for (int i = 0; i < n; i++) deg[i] = G[i].size();\n    auto comp\
+    \ = [&](int u, int v) -> bool { return deg[u] != deg[v] ? deg[u] < deg[v] : u\
+    \ < v; };\n    std::vector<std::vector<int>> H(n);\n    for (int i = 0; i < n;\
+    \ i++) {\n        for (const int& j : G[i]) {\n            if (comp(i, j)) {\n\
+    \                H[i].emplace_back(j);\n            }\n        }\n    }\n    std::vector<bool>\
+    \ f(n, false);\n    std::vector<std::tuple<int, int, int>> res;\n    for (int\
+    \ i = 0; i < n; i++) {\n        for (int& j : H[i]) f[j] = true;\n        for\
+    \ (int& j : H[i]) {\n            for (int& k : H[j]) {\n                if (f[k])\
+    \ {\n                    res.emplace_back(i, j, k);\n                }\n     \
+    \       }\n        }\n        for (int& j : H[i]) f[j] = false;\n    }\n    return\
+    \ res;\n}\n\nlong long count_C4(const std::vector<std::vector<int>>& G) {\n  \
+    \  int n = G.size();\n    std::vector<int> deg(n);\n    for (int i = 0; i < n;\
+    \ i++) deg[i] = G[i].size();\n    auto comp = [&](int u, int v) -> bool { return\
+    \ deg[u] != deg[v] ? deg[u] < deg[v] : u < v; };\n    std::vector<std::vector<int>>\
     \ H(n);\n    for (int i = 0; i < n; i++) {\n        for (const int& j : G[i])\
     \ {\n            if (comp(i, j)) {\n                H[i].emplace_back(j);\n  \
     \          }\n        }\n    }\n    std::vector<int> f(n, 0);\n    long long res\
@@ -106,7 +107,7 @@ data:
   isVerificationFile: false
   path: src/graph/count_graphs.hpp
   requiredBy: []
-  timestamp: '2023-09-18 02:03:26+09:00'
+  timestamp: '2023-10-01 16:26:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/enumerate_triangles.test.cpp

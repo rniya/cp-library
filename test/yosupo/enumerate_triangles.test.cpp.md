@@ -41,7 +41,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/enumerate_triangles.test.cpp
   requiredBy: []
-  timestamp: '2023-09-18 02:03:26+09:00'
+  timestamp: '2023-10-01 16:26:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/enumerate_triangles.test.cpp

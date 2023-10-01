@@ -2,53 +2,57 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp
+    title: test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/algorithm/smawk.hpp\"\n#include <vector>\n\ntemplate\
-    \ <class F> std::vector<int> smawk(int N, int M, const F& f) {\n    auto solve\
+  bundledCode: "#line 2 \"src/algorithm/smawk.hpp\"\n#include <numeric>\n#include\
+    \ <vector>\n\ntemplate <class Select> std::vector<int> smawk(int N, int M, const\
+    \ Select& select) {\n    auto solve = [&](auto&& self, const std::vector<int>&\
+    \ row, const std::vector<int>& col) -> std::vector<int> {\n        int n = row.size();\n\
+    \        if (n == 0) return {};\n        std::vector<int> nrow, ncol;\n      \
+    \  for (const int& i : col) {\n            while (not ncol.empty() and select(row[ncol.size()\
+    \ - 1], ncol.back(), i)) ncol.pop_back();\n            if (int(ncol.size()) <\
+    \ n) ncol.emplace_back(i);\n        }\n        for (int i = 1; i < n; i += 2)\
+    \ nrow.emplace_back(row[i]);\n        auto nres = self(self, nrow, ncol);\n  \
+    \      std::vector<int> res(n);\n        for (int i = 0; i < int(nres.size());\
+    \ i++) res[2 * i + 1] = nres[i];\n        for (int i = 0, j = 0; i < n; i += 2)\
+    \ {\n            res[i] = ncol[j];\n            int last = i + 1 == n ? ncol.back()\
+    \ : res[i + 1];\n            while (ncol[j] < last) {\n                j++;\n\
+    \                if (select(row[i], res[i], ncol[j])) res[i] = ncol[j];\n    \
+    \        }\n        }\n        return res;\n    };\n    std::vector<int> row(N),\
+    \ col(M);\n    std::iota(begin(row), end(row), 0);\n    std::iota(begin(col),\
+    \ end(col), 0);\n    return solve(solve, row, col);\n}\n"
+  code: "#pragma once\n#include <numeric>\n#include <vector>\n\ntemplate <class Select>\
+    \ std::vector<int> smawk(int N, int M, const Select& select) {\n    auto solve\
     \ = [&](auto&& self, const std::vector<int>& row, const std::vector<int>& col)\
     \ -> std::vector<int> {\n        int n = row.size();\n        if (n == 0) return\
     \ {};\n        std::vector<int> nrow, ncol;\n        for (const int& i : col)\
-    \ {\n            while (not ncol.empty() and f(row[ncol.size() - 1], ncol.back())\
-    \ > f(row[ncol.size() - 1], i))\n                ncol.pop_back();\n          \
-    \  if (int(ncol.size()) < n) ncol.emplace_back(i);\n        }\n        for (int\
-    \ i = 1; i < n; i += 2) nrow.emplace_back(row[i]);\n        auto nres = self(self,\
-    \ nrow, ncol);\n        std::vector<int> res(n);\n        for (int i = 0; i <\
-    \ int(nres.size()); i++) res[2 * i + 1] = nres[i];\n        for (int i = 0, j\
-    \ = 0; i < n; i += 2) {\n            res[i] = ncol[j];\n            int last =\
-    \ i + 1 == n ? ncol.back() : res[i + 1];\n            while (ncol[j] < last) {\n\
-    \                j++;\n                if (f(row[i], res[i]) > f(row[i], ncol[j]))\
-    \ res[i] = ncol[j];\n            }\n        }\n        return res;\n    };\n \
-    \   std::vector<int> row(N), col(M);\n    iota(begin(row), end(row), 0);\n   \
-    \ iota(begin(col), end(col), 0);\n    return solve(solve, row, col);\n}\n"
-  code: "#include <vector>\n\ntemplate <class F> std::vector<int> smawk(int N, int\
-    \ M, const F& f) {\n    auto solve = [&](auto&& self, const std::vector<int>&\
-    \ row, const std::vector<int>& col) -> std::vector<int> {\n        int n = row.size();\n\
-    \        if (n == 0) return {};\n        std::vector<int> nrow, ncol;\n      \
-    \  for (const int& i : col) {\n            while (not ncol.empty() and f(row[ncol.size()\
-    \ - 1], ncol.back()) > f(row[ncol.size() - 1], i))\n                ncol.pop_back();\n\
-    \            if (int(ncol.size()) < n) ncol.emplace_back(i);\n        }\n    \
-    \    for (int i = 1; i < n; i += 2) nrow.emplace_back(row[i]);\n        auto nres\
-    \ = self(self, nrow, ncol);\n        std::vector<int> res(n);\n        for (int\
-    \ i = 0; i < int(nres.size()); i++) res[2 * i + 1] = nres[i];\n        for (int\
-    \ i = 0, j = 0; i < n; i += 2) {\n            res[i] = ncol[j];\n            int\
-    \ last = i + 1 == n ? ncol.back() : res[i + 1];\n            while (ncol[j] <\
-    \ last) {\n                j++;\n                if (f(row[i], res[i]) > f(row[i],\
-    \ ncol[j])) res[i] = ncol[j];\n            }\n        }\n        return res;\n\
-    \    };\n    std::vector<int> row(N), col(M);\n    iota(begin(row), end(row),\
-    \ 0);\n    iota(begin(col), end(col), 0);\n    return solve(solve, row, col);\n\
-    }"
+    \ {\n            while (not ncol.empty() and select(row[ncol.size() - 1], ncol.back(),\
+    \ i)) ncol.pop_back();\n            if (int(ncol.size()) < n) ncol.emplace_back(i);\n\
+    \        }\n        for (int i = 1; i < n; i += 2) nrow.emplace_back(row[i]);\n\
+    \        auto nres = self(self, nrow, ncol);\n        std::vector<int> res(n);\n\
+    \        for (int i = 0; i < int(nres.size()); i++) res[2 * i + 1] = nres[i];\n\
+    \        for (int i = 0, j = 0; i < n; i += 2) {\n            res[i] = ncol[j];\n\
+    \            int last = i + 1 == n ? ncol.back() : res[i + 1];\n            while\
+    \ (ncol[j] < last) {\n                j++;\n                if (select(row[i],\
+    \ res[i], ncol[j])) res[i] = ncol[j];\n            }\n        }\n        return\
+    \ res;\n    };\n    std::vector<int> row(N), col(M);\n    std::iota(begin(row),\
+    \ end(row), 0);\n    std::iota(begin(col), end(col), 0);\n    return solve(solve,\
+    \ row, col);\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: src/algorithm/smawk.hpp
   requiredBy: []
-  timestamp: '2023-04-24 02:22:41+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2023-10-01 16:26:05+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp
 documentation_of: src/algorithm/smawk.hpp
 layout: document
 title: SMAWK algotirhm
@@ -87,7 +91,8 @@ $\blacksquare$
 ### アルゴリズム
 
 SMAWK algorithm は totally monotone な $N \times M$ 行列 $A$ を入力として，各 $i$ について $\underset{j}{\operatorname{argmin}}\ A_{i, j}$ を $\mathrm{O}(N + M)$ 時間で求める．
-ここで，$A$ は $(i, j)$ 要素が $f(i, j)$ に等しいという形式で与えられるものとする．
+実装中の関数 `select(i, j, k)` は $j < k$ が保証されているもとで，$A_{i, j}$ よりも $A_{i, k}$ が好ましいとされる場合に `true` を，そうでないときは `false` を返す関数である．
+以下，$A_{i, j} = f(i, j)$ と表記する．
 
 #### Step 1. Reduce
 

@@ -18,10 +18,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/algorithm/longest_increasing_subsequence.hpp
       title: Longest Increasing Subsequence (LIS)
+    - icon: ':heavy_check_mark:'
+      path: src/algorithm/min_plus_convolution_convex_arbitrary.hpp
+      title: Min Plus Convolution (Convex and Arbitary)
     - icon: ':warning:'
       path: src/algorithm/monge_d_edge_shortest_path.hpp
       title: "Monge \u30B0\u30E9\u30D5\u4E0A\u306E $d$-\u8FBA\u6700\u77ED\u8DEF\u9577"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
+      path: src/algorithm/monotone_minima.hpp
+      title: monotone minima
+    - icon: ':heavy_check_mark:'
       path: src/algorithm/smawk.hpp
       title: SMAWK algotirhm
   - name: src
@@ -549,6 +555,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_det.test.cpp
       title: test/yosupo/matrix_det.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp
+      title: test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/min_plus_convolution_convex_arbitrary.test.cpp
+      title: test/yosupo/min_plus_convolution_convex_arbitrary.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/multipoint_evaluation.test.cpp
       title: test/yosupo/multipoint_evaluation.test.cpp

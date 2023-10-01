@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/string/Hash.hpp\"\n#include <cassert>\n#include <chrono>\n\
+  bundledCode: "#line 2 \"src/string/Hash.hpp\"\n#include <cassert>\n#include <chrono>\n\
     #include <iostream>\n#include <random>\n#include <vector>\n\nnamespace hash_impl\
     \ {\n\nstatic constexpr unsigned long long mod = (1ULL << 61) - 1;\n\nstruct modint\
     \ {\n    modint() : _v(0) {}\n    modint(unsigned long long v) {\n        v =\
@@ -54,27 +54,27 @@ data:
     \ rhs.len;\n        return *this;\n    }\n    ReversibleHash operator+(const ReversibleHash&\
     \ rhs) { return *this += rhs; }\n    bool operator==(const ReversibleHash& rhs)\
     \ { return x == rhs.x and rx == rhs.rx and len == rhs.len; }\n};\n"
-  code: "#include <cassert>\n#include <chrono>\n#include <iostream>\n#include <random>\n\
-    #include <vector>\n\nnamespace hash_impl {\n\nstatic constexpr unsigned long long\
-    \ mod = (1ULL << 61) - 1;\n\nstruct modint {\n    modint() : _v(0) {}\n    modint(unsigned\
-    \ long long v) {\n        v = (v >> 61) + (v & mod);\n        if (v >= mod) v\
-    \ -= mod;\n        _v = v;\n    }\n\n    unsigned long long val() const { return\
-    \ _v; }\n\n    modint& operator+=(const modint& rhs) {\n        _v += rhs._v;\n\
-    \        if (_v >= mod) _v -= mod;\n        return *this;\n    }\n    modint&\
-    \ operator-=(const modint& rhs) {\n        if (_v < rhs._v) _v += mod;\n     \
-    \   _v -= rhs._v;\n        return *this;\n    }\n    modint& operator*=(const\
-    \ modint& rhs) {\n        __uint128_t t = __uint128_t(_v) * rhs._v;\n        t\
-    \ = (t >> 61) + (t & mod);\n        if (t >= mod) t -= mod;\n        _v = t;\n\
-    \        return *this;\n    }\n    modint& operator/=(const modint& rhs) { return\
-    \ *this = *this * rhs.inv(); }\n\n    modint operator-() const { return modint()\
-    \ - *this; }\n\n    modint pow(long long n) const {\n        assert(0 <= n);\n\
-    \        modint x = *this, r = 1;\n        while (n) {\n            if (n & 1)\
-    \ r *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
-    \ r;\n    }\n    modint inv() const { return pow(mod - 2); }\n\n    friend modint\
-    \ operator+(const modint& lhs, const modint& rhs) { return modint(lhs) += rhs;\
-    \ }\n    friend modint operator-(const modint& lhs, const modint& rhs) { return\
-    \ modint(lhs) -= rhs; }\n    friend modint operator*(const modint& lhs, const\
-    \ modint& rhs) { return modint(lhs) *= rhs; }\n    friend bool operator==(const\
+  code: "#pragma once\n#include <cassert>\n#include <chrono>\n#include <iostream>\n\
+    #include <random>\n#include <vector>\n\nnamespace hash_impl {\n\nstatic constexpr\
+    \ unsigned long long mod = (1ULL << 61) - 1;\n\nstruct modint {\n    modint()\
+    \ : _v(0) {}\n    modint(unsigned long long v) {\n        v = (v >> 61) + (v &\
+    \ mod);\n        if (v >= mod) v -= mod;\n        _v = v;\n    }\n\n    unsigned\
+    \ long long val() const { return _v; }\n\n    modint& operator+=(const modint&\
+    \ rhs) {\n        _v += rhs._v;\n        if (_v >= mod) _v -= mod;\n        return\
+    \ *this;\n    }\n    modint& operator-=(const modint& rhs) {\n        if (_v <\
+    \ rhs._v) _v += mod;\n        _v -= rhs._v;\n        return *this;\n    }\n  \
+    \  modint& operator*=(const modint& rhs) {\n        __uint128_t t = __uint128_t(_v)\
+    \ * rhs._v;\n        t = (t >> 61) + (t & mod);\n        if (t >= mod) t -= mod;\n\
+    \        _v = t;\n        return *this;\n    }\n    modint& operator/=(const modint&\
+    \ rhs) { return *this = *this * rhs.inv(); }\n\n    modint operator-() const {\
+    \ return modint() - *this; }\n\n    modint pow(long long n) const {\n        assert(0\
+    \ <= n);\n        modint x = *this, r = 1;\n        while (n) {\n            if\
+    \ (n & 1) r *= x;\n            x *= x;\n            n >>= 1;\n        }\n    \
+    \    return r;\n    }\n    modint inv() const { return pow(mod - 2); }\n\n   \
+    \ friend modint operator+(const modint& lhs, const modint& rhs) { return modint(lhs)\
+    \ += rhs; }\n    friend modint operator-(const modint& lhs, const modint& rhs)\
+    \ { return modint(lhs) -= rhs; }\n    friend modint operator*(const modint& lhs,\
+    \ const modint& rhs) { return modint(lhs) *= rhs; }\n    friend bool operator==(const\
     \ modint& lhs, const modint& rhs) { return lhs._v == rhs._v; }\n    friend bool\
     \ operator!=(const modint& lhs, const modint& rhs) { return lhs._v != rhs._v;\
     \ }\n    friend std::ostream& operator<<(std::ostream& os, const modint& rhs)\
@@ -104,7 +104,7 @@ data:
   isVerificationFile: false
   path: src/string/Hash.hpp
   requiredBy: []
-  timestamp: '2023-04-23 22:47:32+09:00'
+  timestamp: '2023-10-01 16:26:05+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/string/Hash.hpp

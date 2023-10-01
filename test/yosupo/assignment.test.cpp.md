@@ -40,7 +40,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/assignment.test.cpp
   requiredBy: []
-  timestamp: '2023-09-11 22:32:46+09:00'
+  timestamp: '2023-10-01 16:26:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/assignment.test.cpp
