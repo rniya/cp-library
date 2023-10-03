@@ -4,6 +4,7 @@ exclude:
 - src/trash
 - src/wip
 - expander.py
+- src/geometry/all
 plugins:
 - jemoji
 - jekyll-redirect-from

@@ -2,11 +2,23 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/base.hpp
-    title: src/base.hpp
+    path: src/geometry/Circle.hpp
+    title: src/geometry/Circle.hpp
   - icon: ':heavy_check_mark:'
-    path: src/geometry/geometry.hpp
-    title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
+    path: src/geometry/Line.hpp
+    title: src/geometry/Line.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/geometry/Point.hpp
+    title: src/geometry/Point.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/geometry/ccw.hpp
+    title: src/geometry/ccw.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/geometry/crosspoint.hpp
+    title: src/geometry/crosspoint.hpp
+  - icon: ':heavy_check_mark:'
+    path: src/geometry/projection.hpp
+    title: src/geometry/projection.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -27,21 +39,25 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.5/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
-    \ -1: no such header\n"
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: geometry/crosspoint.hpp:\
+    \ line -1: no such header\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_B\"\
-    \n\n#include \"base.hpp\"\n#include \"geometry/geometry.hpp\"\n\nusing namespace\
-    \ geometry;\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int q;\n    cin >> q;\n    for (; q--;) {\n        Segment s_1, s_2;\n  \
-    \      cin >> s_1 >> s_2;\n        cout << intersect(s_1, s_2) << '\\n';\n   \
-    \ }\n    return 0;\n}"
+    \n\n#include \"geometry/crosspoint.hpp\"\n\nusing namespace geometry;\n\nint main()\
+    \ {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    int\
+    \ q;\n    std::cin >> q;\n    for (; q--;) {\n        Segment<int> s, t;\n   \
+    \     std::cin >> s >> t;\n        std::cout << has_crosspoint(s, t) << '\\n';\n\
+    \    }\n}"
   dependsOn:
-  - src/base.hpp
-  - src/geometry/geometry.hpp
+  - src/geometry/crosspoint.hpp
+  - src/geometry/Circle.hpp
+  - src/geometry/Point.hpp
+  - src/geometry/ccw.hpp
+  - src/geometry/projection.hpp
+  - src/geometry/Line.hpp
   isVerificationFile: true
   path: test/aoj/CGL_2_B.test.cpp
   requiredBy: []
-  timestamp: '2023-08-21 17:26:55+09:00'
+  timestamp: '2023-10-04 02:39:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL_2_B.test.cpp

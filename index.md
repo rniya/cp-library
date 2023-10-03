@@ -91,11 +91,59 @@ data:
   - name: src/geometry
     pages:
     - icon: ':heavy_check_mark:'
-      path: src/geometry/geometry.hpp
-      title: "2 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
+      path: src/geometry/Circle.hpp
+      title: src/geometry/Circle.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/Line.hpp
+      title: src/geometry/Line.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/Point.hpp
+      title: src/geometry/Point.hpp
     - icon: ':warning:'
-      path: src/geometry/geometry3D.hpp
-      title: "3 \u6B21\u5143\u5E7E\u4F55\u30E9\u30A4\u30D6\u30E9\u30EA"
+      path: src/geometry/Point3D.hpp
+      title: src/geometry/Point3D.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/Polygon.hpp
+      title: src/geometry/Polygon.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/ccw.hpp
+      title: src/geometry/ccw.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/circumcircle.hpp
+      title: src/geometry/circumcircle.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/closest_pair.hpp
+      title: src/geometry/closest_pair.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/contain.hpp
+      title: src/geometry/contain.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/convex_cut.hpp
+      title: src/geometry/convex_cut.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/convex_diameter.hpp
+      title: src/geometry/convex_diameter.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/convex_hull.hpp
+      title: src/geometry/convex_hull.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/crosspoint.hpp
+      title: src/geometry/crosspoint.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/distance.hpp
+      title: src/geometry/distance.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/incircle.hpp
+      title: src/geometry/incircle.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/projection.hpp
+      title: src/geometry/projection.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/geometry/reflection.hpp
+      title: src/geometry/reflection.hpp
+    - icon: ':warning:'
+      path: src/geometry/sort_points_by_argument.hpp
+      title: src/geometry/sort_points_by_argument.hpp
   - name: src/graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -391,18 +439,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_7_E.test.cpp
       title: test/aoj/CGL_7_E.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/CGL_7_F.test.cpp
-      title: test/aoj/CGL_7_F.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/CGL_7_G.test.cpp
-      title: test/aoj/CGL_7_G.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/CGL_7_H.test.cpp
-      title: test/aoj/CGL_7_H.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/CGL_7_I.test.cpp
-      title: test/aoj/CGL_7_I.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL_5_E.test.cpp
       title: test/aoj/DPL_5_E.test.cpp
