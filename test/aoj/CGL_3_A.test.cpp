@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/3/CGL_3_A"
 
 #include <iomanip>
-#include "Polygon.hpp"
+#include "geometry/Polygon.hpp"
 
 using namespace geometry;
 

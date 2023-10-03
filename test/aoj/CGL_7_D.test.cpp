@@ -3,7 +3,7 @@
 
 #include <algorithm>
 #include <iomanip>
-#include "crosspoint.hpp"
+#include "geometry/crosspoint.hpp"
 
 using namespace geometry;
 

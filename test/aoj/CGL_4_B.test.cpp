@@ -2,7 +2,7 @@
 #define ERROR 0.000001
 
 #include <iomanip>
-#include "convex_diameter.hpp"
+#include "geometry/convex_diameter.hpp"
 
 using namespace geometry;
 

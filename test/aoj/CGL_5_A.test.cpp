@@ -2,7 +2,7 @@
 #define ERROR 0.000001
 
 #include <iomanip>
-#include "closest_pair.hpp"
+#include "geometry/closest_pair.hpp"
 
 using namespace geometry;
 

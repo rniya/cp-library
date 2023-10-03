@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_A"
 
-#include "crosspoint.hpp"
+#include "geometry/crosspoint.hpp"
 
 using namespace geometry;
 

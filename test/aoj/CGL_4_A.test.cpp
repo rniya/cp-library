@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_A"
 #define ERROR 0.00000001
 
-#include "convex_hull.hpp"
+#include "geometry/convex_hull.hpp"
 
 using namespace geometry;
 

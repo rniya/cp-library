@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_D"
 
 #include <iomanip>
-#include "distance.hpp"
+#include "geometry/distance.hpp"
 
 using namespace geometry;
 

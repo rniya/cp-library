@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C"
 
-#include "ccw.hpp"
+#include "geometry/ccw.hpp"
 
 using namespace geometry;
 
