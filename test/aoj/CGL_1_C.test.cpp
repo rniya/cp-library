@@ -1,31 +1,30 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C"
 
-#include "base.hpp"
-#include "geometry/geometry.hpp"
+#include "ccw.hpp"
 
 using namespace geometry;
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    Point p_0, p_1;
-    cin >> p_0 >> p_1;
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    Point<long long> a, b;
+    std::cin >> a >> b;
     int q;
-    cin >> q;
+    std::cin >> q;
     for (; q--;) {
-        Point p_2;
-        cin >> p_2;
-        int res = ccw(p_0, p_1, p_2);
+        Point<long long> c;
+        std::cin >> c;
+        int res = ccw(a, b, c);
         if (res == 1)
-            cout << "COUNTER_CLOCKWISE" << '\n';
+            std::cout << "COUNTER_CLOCKWISE" << '\n';
         else if (res == -1)
-            cout << "CLOCKWISE" << '\n';
+            std::cout << "CLOCKWISE" << '\n';
         else if (res == 2)
-            cout << "ONLINE_BACK" << '\n';
+            std::cout << "ONLINE_BACK" << '\n';
         else if (res == -2)
-            cout << "ONLINE_FRONT" << '\n';
+            std::cout << "ONLINE_FRONT" << '\n';
         else
-            cout << "ON_SEGMENT" << '\n';
+            std::cout << "ON_SEGMENT" << '\n';
     }
     return 0;
 }

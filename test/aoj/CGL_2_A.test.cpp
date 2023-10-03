@@ -1,24 +1,18 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_A"
 
-#include "base.hpp"
-#include "geometry/geometry.hpp"
+#include "crosspoint.hpp"
 
 using namespace geometry;
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
     int q;
-    cin >> q;
+    std::cin >> q;
     for (; q--;) {
-        Line s_1, s_2;
-        cin >> s_1 >> s_2;
-        if (parallel(s_1, s_2))
-            cout << 2 << '\n';
-        else if (orthogonal(s_1, s_2))
-            cout << 1 << '\n';
-        else
-            cout << 0 << '\n';
+        Line<int> s, t;
+        std::cin >> s >> t;
+        std::cout << (is_parallel(s, t) ? 2 : is_orthogonal(s, t) ? 1 : 0) << '\n';
     }
     return 0;
 }

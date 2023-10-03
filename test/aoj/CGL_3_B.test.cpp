@@ -1,17 +1,15 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/3/CGL_3_B"
 
-#include "base.hpp"
-#include "geometry/geometry.hpp"
+#include "Polygon.hpp"
 
 using namespace geometry;
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
     int n;
-    cin >> n;
-    Polygon g(n);
-    for (auto& p : g) cin >> p;
-    cout << g.is_convex() << '\n';
-    return 0;
+    std::cin >> n;
+    Polygon<double> P(n);
+    for (auto& p : P) std::cin >> p;
+    std::cout << P.is_convex() << '\n';
 }

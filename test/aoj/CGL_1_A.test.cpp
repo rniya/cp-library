@@ -1,23 +1,23 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_A"
 #define ERROR 0.00000001
 
-#include "base.hpp"
-#include "geometry/geometry.hpp"
+#include <iomanip>
+#include "projection.hpp"
 
 using namespace geometry;
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    cout << fixed << setprecision(10);
-    Line l;
-    cin >> l;
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    std::cout << std::fixed << std::setprecision(15);
+    Line<double> l;
+    std::cin >> l;
     int q;
-    cin >> q;
+    std::cin >> q;
     for (; q--;) {
-        Point p;
-        cin >> p;
-        cout << proj(l, p) << '\n';
+        Point<double> p;
+        std::cin >> p;
+        std::cout << projection(l, p) << '\n';
     }
     return 0;
 }

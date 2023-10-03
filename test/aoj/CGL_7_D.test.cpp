@@ -1,29 +1,26 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_D"
 #define ERROR 0.000001
 
-#include "base.hpp"
-#include "geometry/geometry.hpp"
+#include <algorithm>
+#include <iomanip>
+#include "crosspoint.hpp"
 
 using namespace geometry;
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    cout << fixed << setprecision(10);
-    Circle c;
-    cin >> c;
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    std::cout << std::fixed << std::setprecision(15);
+    Circle<double> c;
+    std::cin >> c;
     int q;
-    cin >> q;
+    std::cin >> q;
     for (; q--;) {
-        Line l;
-        cin >> l;
+        Line<double> l;
+        std::cin >> l;
         auto res = crosspoint(c, l);
-        if (res.size() == 1)
-            cout << res[0] << ' ' << res[0] << '\n';
-        else {
-            if (res[1] < res[0]) swap(res[0], res[1]);
-            cout << res[0] << ' ' << res[1] << '\n';
-        }
+        if (int(res.size()) < 2) res.emplace_back(res[0]);
+        std::sort(begin(res), end(res));
+        for (int i = 0; i < 2; i++) std::cout << res[i] << (i + 1 == 2 ? '\n' : ' ');
     }
-    return 0;
 }

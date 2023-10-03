@@ -1,19 +1,17 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_B"
 
-#include "base.hpp"
-#include "geometry/geometry.hpp"
+#include "crosspoint.hpp"
 
 using namespace geometry;
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
     int q;
-    cin >> q;
+    std::cin >> q;
     for (; q--;) {
-        Segment s_1, s_2;
-        cin >> s_1 >> s_2;
-        cout << intersect(s_1, s_2) << '\n';
+        Segment<int> s, t;
+        std::cin >> s >> t;
+        std::cout << has_crosspoint(s, t) << '\n';
     }
-    return 0;
 }

@@ -1,20 +1,26 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_A"
+#define ERROR 0.00000001
 
-#include "base.hpp"
-#include "geometry/geometry.hpp"
+#include "convex_hull.hpp"
 
 using namespace geometry;
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    cout << fixed << setprecision(0);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
     int n;
-    cin >> n;
-    Polygon P(n);
-    for (auto& p : P) cin >> p;
+    std::cin >> n;
+    std::vector<Point<int>> P(n);
+    for (auto& p : P) std::cin >> p;
     auto res = convex_hull(P, true);
-    cout << res.size() << '\n';
-    for (auto p : res) cout << p.x << ' ' << p.y << '\n';
+    int start = 0;
+    for (int i = 1; i < int(res.size()); i++) {
+        if (P[res[i]].y == P[res[start]].y ? P[res[i]].x < P[res[start]].x : P[res[i]].y < P[res[start]].y) {
+            start = i;
+        }
+    }
+    std::rotate(begin(res), begin(res) + start, end(res));
+    std::cout << res.size() << '\n';
+    for (int& i : res) std::cout << P[i].x << ' ' << P[i].y << '\n';
     return 0;
 }
