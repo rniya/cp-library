@@ -1,3 +1,4 @@
+#pragma once
 #include "Circle.hpp"
 
 namespace geometry {
