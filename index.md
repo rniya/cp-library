@@ -125,7 +125,7 @@ data:
       title: src/geometry/convex_diameter.hpp
     - icon: ':heavy_check_mark:'
       path: src/geometry/convex_hull.hpp
-      title: src/geometry/convex_hull.hpp
+      title: "\u51F8\u5305"
     - icon: ':heavy_check_mark:'
       path: src/geometry/crosspoint.hpp
       title: src/geometry/crosspoint.hpp
@@ -308,6 +308,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/string/run_enumerate.hpp
       title: Run Enumerate
+    - icon: ':warning:'
+      path: src/string/wildcard_pattern_matching.hpp
+      title: Wildcard Pattern Matching
   - name: src/tree
     pages:
     - icon: ':heavy_check_mark:'

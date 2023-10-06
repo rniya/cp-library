@@ -6,7 +6,7 @@ data:
     title: src/geometry/Point.hpp
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_hull.hpp
-    title: src/geometry/convex_hull.hpp
+    title: "\u51F8\u5305"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

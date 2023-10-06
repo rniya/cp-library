@@ -76,8 +76,5 @@ data:
   - test/aoj/CGL_4_A.test.cpp
 documentation_of: src/geometry/convex_hull.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/convex_hull.hpp
-- /library/src/geometry/convex_hull.hpp.html
-title: src/geometry/convex_hull.hpp
+title: "\u51F8\u5305"
 ---

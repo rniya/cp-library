@@ -47,16 +47,16 @@ data:
     \ friend std::istream& operator>>(std::istream& is, Circle& c) { return is >>\
     \ c.c >> c.r; }\n\n    friend std::ostream& operator<<(std::ostream& os, const\
     \ Circle& c) { return os << c.c << ' ' << c.r; }\n};\n\n}  // namespace geometry\n\
-    #line 2 \"src/geometry/incircle.hpp\"\n\nnamespace geometry {\n\ntemplate <typename\
+    #line 3 \"src/geometry/incircle.hpp\"\n\nnamespace geometry {\n\ntemplate <typename\
     \ T> Circle<T> incircle(const Point<T>& a, const Point<T>& b, const Point<T>&\
     \ c) {\n    T la = (b - c).norm(), lb = (c - a).norm(), lc = (a - b).norm();\n\
     \    Point<T> center = (a * la + b * lb + c * lc) / (la + lb + lc);\n    T radius\
     \ = std::abs((b - a).det(c - a)) / (la + lb + lc);\n    return Circle<T>(center,\
     \ radius);\n}\n\n}  // namespace geometry\n"
-  code: "#include \"Circle.hpp\"\n\nnamespace geometry {\n\ntemplate <typename T>\
-    \ Circle<T> incircle(const Point<T>& a, const Point<T>& b, const Point<T>& c)\
-    \ {\n    T la = (b - c).norm(), lb = (c - a).norm(), lc = (a - b).norm();\n  \
-    \  Point<T> center = (a * la + b * lb + c * lc) / (la + lb + lc);\n    T radius\
+  code: "#pragma once\n#include \"Circle.hpp\"\n\nnamespace geometry {\n\ntemplate\
+    \ <typename T> Circle<T> incircle(const Point<T>& a, const Point<T>& b, const\
+    \ Point<T>& c) {\n    T la = (b - c).norm(), lb = (c - a).norm(), lc = (a - b).norm();\n\
+    \    Point<T> center = (a * la + b * lb + c * lc) / (la + lb + lc);\n    T radius\
     \ = std::abs((b - a).det(c - a)) / (la + lb + lc);\n    return Circle<T>(center,\
     \ radius);\n}\n\n}  // namespace geometry"
   dependsOn:
@@ -65,7 +65,7 @@ data:
   isVerificationFile: false
   path: src/geometry/incircle.hpp
   requiredBy: []
-  timestamp: '2023-10-04 02:32:44+09:00'
+  timestamp: '2023-10-07 00:10:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL_7_B.test.cpp

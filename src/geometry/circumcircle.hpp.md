@@ -47,27 +47,27 @@ data:
     \ friend std::istream& operator>>(std::istream& is, Circle& c) { return is >>\
     \ c.c >> c.r; }\n\n    friend std::ostream& operator<<(std::ostream& os, const\
     \ Circle& c) { return os << c.c << ' ' << c.r; }\n};\n\n}  // namespace geometry\n\
-    #line 2 \"src/geometry/circumcircle.hpp\"\n\nnamespace geometry {\n\ntemplate\
+    #line 3 \"src/geometry/circumcircle.hpp\"\n\nnamespace geometry {\n\ntemplate\
     \ <typename T> Circle<T> circumcircle(const Point<T>& a, const Point<T>& b, const\
     \ Point<T>& c) {\n    T la = (b - c).norm2(), lb = (c - a).norm2(), lc = (a -\
     \ b).norm2();\n    T s = la * (lb + lc - la), t = lb * (lc + la - lb), u = lc\
     \ * (la + lb - lc), l = s + t + u;\n    s /= l, t /= l, u /= l;\n    Point<T>\
     \ center = a * s + b * t + c * u;\n    return Circle<T>(center, (a - center).norm());\n\
     }\n\n}  // namespace geometry\n"
-  code: "#include \"Circle.hpp\"\n\nnamespace geometry {\n\ntemplate <typename T>\
-    \ Circle<T> circumcircle(const Point<T>& a, const Point<T>& b, const Point<T>&\
-    \ c) {\n    T la = (b - c).norm2(), lb = (c - a).norm2(), lc = (a - b).norm2();\n\
-    \    T s = la * (lb + lc - la), t = lb * (lc + la - lb), u = lc * (la + lb - lc),\
-    \ l = s + t + u;\n    s /= l, t /= l, u /= l;\n    Point<T> center = a * s + b\
-    \ * t + c * u;\n    return Circle<T>(center, (a - center).norm());\n}\n\n}  //\
-    \ namespace geometry"
+  code: "#pragma once\n#include \"Circle.hpp\"\n\nnamespace geometry {\n\ntemplate\
+    \ <typename T> Circle<T> circumcircle(const Point<T>& a, const Point<T>& b, const\
+    \ Point<T>& c) {\n    T la = (b - c).norm2(), lb = (c - a).norm2(), lc = (a -\
+    \ b).norm2();\n    T s = la * (lb + lc - la), t = lb * (lc + la - lb), u = lc\
+    \ * (la + lb - lc), l = s + t + u;\n    s /= l, t /= l, u /= l;\n    Point<T>\
+    \ center = a * s + b * t + c * u;\n    return Circle<T>(center, (a - center).norm());\n\
+    }\n\n}  // namespace geometry"
   dependsOn:
   - src/geometry/Circle.hpp
   - src/geometry/Point.hpp
   isVerificationFile: false
   path: src/geometry/circumcircle.hpp
   requiredBy: []
-  timestamp: '2023-10-04 02:32:44+09:00'
+  timestamp: '2023-10-07 00:10:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL_7_C.test.cpp
