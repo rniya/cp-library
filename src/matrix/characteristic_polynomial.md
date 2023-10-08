@@ -1,5 +1,5 @@
 ---
-title: Characteristic Polynomial
+title: Characteristic Polynomial / $\det(M_0 + x M_1)$
 documentation_of: ./characteristic_polynomial.hpp
 ---
 
@@ -73,6 +73,7 @@ $$ \begin{aligned}
 ## 問題例
 - [2020-2021 Summer Petrozavodsk Camp, Day 6: Korean Contest K. Determinant](https://codeforces.com/gym/102984/problem/K)
   - とはいってもライブラリさえ持っていれば本当に貼るだけ…．
+- [AtCoder Beginner Contest 323 G - Inversion of Tree](https://atcoder.jp/contests/abc323/tasks/abc323_g)
 
 ## References
 [1] [R. Rehman, I. Ipsen (2011).  La Budde's Method for Computing Characteristic Polynomials](https://arxiv.org/abs/1104.3769)
