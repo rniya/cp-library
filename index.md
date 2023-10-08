@@ -264,7 +264,7 @@ data:
       title: "\u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
     - icon: ':heavy_check_mark:'
       path: src/matrix/characteristic_polynomial.hpp
-      title: Characteristic Polynomial
+      title: Characteristic Polynomial / $\det(M_0 + x M_1)$
   - name: src/polynomial
     pages:
     - icon: ':heavy_check_mark:'

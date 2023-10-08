@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/matrix/characteristic_polynomial.hpp
-    title: Characteristic Polynomial
+    title: Characteristic Polynomial / $\det(M_0 + x M_1)$
   - icon: ':heavy_check_mark:'
     path: src/util/modint.hpp
     title: modint (input/output)
