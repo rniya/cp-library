@@ -21,6 +21,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/algorithm/min_plus_convolution_convex_arbitrary.hpp
       title: Min Plus Convolution (Convex and Arbitary)
+    - icon: ':heavy_check_mark:'
+      path: src/algorithm/min_plus_convolution_convex_convex.hpp
+      title: Min Plus Convolution (Convex and Convex)
     - icon: ':warning:'
       path: src/algorithm/monge_d_edge_shortest_path.hpp
       title: "Monge \u30B0\u30E9\u30D5\u4E0A\u306E $d$-\u8FBA\u6700\u77ED\u8DEF\u9577"
@@ -594,6 +597,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/min_plus_convolution_convex_arbitrary.test.cpp
       title: test/yosupo/min_plus_convolution_convex_arbitrary.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/min_plus_convolution_convex_convex.test.cpp
+      title: test/yosupo/min_plus_convolution_convex_convex.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/multipoint_evaluation.test.cpp
       title: test/yosupo/multipoint_evaluation.test.cpp
