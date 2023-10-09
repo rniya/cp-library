@@ -13,7 +13,6 @@ $$
 
 subset convolution はランク付き zeta / mobius 変換を経由して $\mathrm{O}(n^2 2^n)$ 時間で計算することができる。
 
-
 ## Links
 - [Xmas Contest 2020 H: Hierarchical Phylogeny 解説 - hos.lyric's blog](https://hos-lyric.hatenablog.com/entry/2021/01/14/201231)
 - [Subset Convolutionのアルゴリズム – 37zigenのHP](https://37zigen.com/subset-convolution/)
