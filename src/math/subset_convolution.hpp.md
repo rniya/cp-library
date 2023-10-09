@@ -1,8 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: src/math/exp_of_set_power_series.hpp
+    title: Exp of Set Power Series
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/exp_of_set_power_series.test.cpp
+    title: test/yosupo/exp_of_set_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/subset_convolution.test.cpp
     title: test/yosupo/subset_convolution.test.cpp
@@ -65,11 +71,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/math/subset_convolution.hpp
-  requiredBy: []
+  requiredBy:
+  - src/math/exp_of_set_power_series.hpp
   timestamp: '2023-10-09 17:44:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/subset_convolution.test.cpp
+  - test/yosupo/exp_of_set_power_series.test.cpp
 documentation_of: src/math/subset_convolution.hpp
 layout: document
 title: Subset Convolution
@@ -84,7 +92,6 @@ $$
 $$
 
 subset convolution はランク付き zeta / mobius 変換を経由して $\mathrm{O}(n^2 2^n)$ 時間で計算することができる。
-
 
 ## Links
 - [Xmas Contest 2020 H: Hierarchical Phylogeny 解説 - hos.lyric's blog](https://hos-lyric.hatenablog.com/entry/2021/01/14/201231)

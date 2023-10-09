@@ -241,6 +241,9 @@ data:
       path: src/math/elementary_math.hpp
       title: elementary math
     - icon: ':heavy_check_mark:'
+      path: src/math/exp_of_set_power_series.hpp
+      title: Exp of Set Power Series
+    - icon: ':heavy_check_mark:'
       path: src/math/fast_factorize.hpp
       title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
         \ + Pollard's rho algorithm)"
@@ -567,6 +570,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/exp_of_formal_power_series.test.cpp
       title: test/yosupo/exp_of_formal_power_series.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/exp_of_set_power_series.test.cpp
+      title: test/yosupo/exp_of_set_power_series.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/factorize.test.cpp
       title: test/yosupo/factorize.test.cpp
