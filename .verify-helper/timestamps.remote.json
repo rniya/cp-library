@@ -96,6 +96,7 @@
 "test/yosupo/static_range_inversions_query.test.cpp": "2023-01-12 22:28:24 +0900",
 "test/yosupo/static_range_sum.test.cpp": "2023-04-22 02:23:28 +0900",
 "test/yosupo/staticrmq.test.cpp": "2023-04-22 02:23:28 +0900",
+"test/yosupo/subset_convolution.test.cpp": "2023-10-09 17:44:26 +0900",
 "test/yosupo/tree_diameter.test.cpp": "2023-04-22 02:23:28 +0900",
 "test/yosupo/two_edge_connected_components.test.cpp": "2023-01-12 22:28:24 +0900",
 "test/yosupo/two_sat.test.cpp": "2023-04-22 02:23:28 +0900",
