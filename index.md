@@ -251,6 +251,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/set_function.hpp
       title: set function (FZT, FMT, FWHT)
+    - icon: ':heavy_check_mark:'
+      path: src/math/subset_convolution.hpp
+      title: Subset Convolution
   - name: src/matrix
     pages:
     - icon: ':heavy_check_mark:'
@@ -654,6 +657,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq.test.cpp
       title: test/yosupo/staticrmq.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/subset_convolution.test.cpp
+      title: test/yosupo/subset_convolution.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/tree_diameter.test.cpp
       title: test/yosupo/tree_diameter.test.cpp
