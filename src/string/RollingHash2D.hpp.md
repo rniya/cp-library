@@ -48,18 +48,17 @@ data:
     \ yl and yl <= yr);\n        extend(0, xr - xl);\n        extend(1, yr - yl);\n\
     \        return hash[xr][yr] - hash[xl][yr] * power[0][xr - xl] - hash[xr][yl]\
     \ * power[1][yr - yl] +\n               hash[xl][yl] * power[0][xr - xl] * power[1][yr\
-    \ - yl];\n    }\n\n  private:\n    const mint base = hash_impl::base;\n    mint\
-    \ basis[2];\n    std::vector<mint> power[2];\n\n    inline void extend(int x,\
-    \ size_t len) {\n        if (int(power[x].size()) > len) return;\n        int\
-    \ pre = power[x].size();\n        power[x].resize(len + 1);\n        for (size_t\
-    \ i = pre - 1; i < len; i++) power[x][i + 1] = power[x][i] * basis[x];\n    }\n\
-    };\n"
+    \ - yl];\n    }\n\n  private:\n    mint basis[2];\n    std::vector<mint> power[2];\n\
+    \n    inline void extend(int x, int len) {\n        if (int(power[x].size()) >\
+    \ len) return;\n        int pre = power[x].size();\n        power[x].resize(len\
+    \ + 1);\n        for (int i = pre - 1; i < len; i++) power[x][i + 1] = power[x][i]\
+    \ * basis[x];\n    }\n};\n"
   dependsOn:
   - src/string/Hash.hpp
   isVerificationFile: false
   path: src/string/RollingHash2D.hpp
   requiredBy: []
-  timestamp: '2023-10-01 19:51:06+09:00'
+  timestamp: '2023-10-17 23:13:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_14_C.test.cpp

@@ -35,12 +35,13 @@ data:
     \ friend modint operator+(const modint& lhs, const modint& rhs) { return modint(lhs)\
     \ += rhs; }\n    friend modint operator-(const modint& lhs, const modint& rhs)\
     \ { return modint(lhs) -= rhs; }\n    friend modint operator*(const modint& lhs,\
-    \ const modint& rhs) { return modint(lhs) *= rhs; }\n    friend bool operator==(const\
-    \ modint& lhs, const modint& rhs) { return lhs._v == rhs._v; }\n    friend bool\
-    \ operator!=(const modint& lhs, const modint& rhs) { return lhs._v != rhs._v;\
-    \ }\n    friend std::ostream& operator<<(std::ostream& os, const modint& rhs)\
-    \ { os << rhs._v; }\n\n  private:\n    unsigned long long _v;\n};\n\nuint64_t\
-    \ generate_base() {\n    std::mt19937_64 mt(std::chrono::steady_clock::now().time_since_epoch().count());\n\
+    \ const modint& rhs) { return modint(lhs) *= rhs; }\n    friend modint operator/(const\
+    \ modint& lhs, const modint& rhs) { return modint(lhs) /= rhs; }\n    friend bool\
+    \ operator==(const modint& lhs, const modint& rhs) { return lhs._v == rhs._v;\
+    \ }\n    friend bool operator!=(const modint& lhs, const modint& rhs) { return\
+    \ lhs._v != rhs._v; }\n    friend std::ostream& operator<<(std::ostream& os, const\
+    \ modint& rhs) { os << rhs._v; }\n\n  private:\n    unsigned long long _v;\n};\n\
+    \nuint64_t generate_base() {\n    std::mt19937_64 mt(std::chrono::steady_clock::now().time_since_epoch().count());\n\
     \    std::uniform_int_distribution<uint64_t> rand(2, mod - 1);\n    return rand(mt);\n\
     }\n\nmodint base(generate_base());\nstd::vector<modint> power{1};\n\nmodint get_pow(int\
     \ n) {\n    if (n < int(power.size())) return power[n];\n    int m = power.size();\n\
@@ -77,9 +78,9 @@ data:
     \   while (ub - lb > 1) {\n            int mid = (lb + ub) >> 1;\n           \
     \ (query(a, l1, l1 + mid) == query(b, l2, l2 + mid) ? lb : ub) = mid;\n      \
     \  }\n        return lb;\n    }\n\n  private:\n    const mint base = hash_impl::base;\n\
-    \    std::vector<mint> power;\n\n    inline void extend(size_t len) {\n      \
-    \  if (int(power.size()) > len) return;\n        int pre = power.size();\n   \
-    \     power.resize(len + 1);\n        for (int i = pre - 1; i < len; i++) power[i\
+    \    std::vector<mint> power;\n\n    inline void extend(int len) {\n        if\
+    \ (int(power.size()) > len) return;\n        int pre = power.size();\n       \
+    \ power.resize(len + 1);\n        for (int i = pre - 1; i < len; i++) power[i\
     \ + 1] = power[i] * base;\n    }\n};\n"
   code: "#pragma once\n#include <algorithm>\n#include <string>\n#include \"Hash.hpp\"\
     \n\nstruct RollingHash {\n    using mint = hash_impl::modint;\n\n    RollingHash()\
@@ -98,16 +99,16 @@ data:
     \   while (ub - lb > 1) {\n            int mid = (lb + ub) >> 1;\n           \
     \ (query(a, l1, l1 + mid) == query(b, l2, l2 + mid) ? lb : ub) = mid;\n      \
     \  }\n        return lb;\n    }\n\n  private:\n    const mint base = hash_impl::base;\n\
-    \    std::vector<mint> power;\n\n    inline void extend(size_t len) {\n      \
-    \  if (int(power.size()) > len) return;\n        int pre = power.size();\n   \
-    \     power.resize(len + 1);\n        for (int i = pre - 1; i < len; i++) power[i\
+    \    std::vector<mint> power;\n\n    inline void extend(int len) {\n        if\
+    \ (int(power.size()) > len) return;\n        int pre = power.size();\n       \
+    \ power.resize(len + 1);\n        for (int i = pre - 1; i < len; i++) power[i\
     \ + 1] = power[i] * base;\n    }\n};\n"
   dependsOn:
   - src/string/Hash.hpp
   isVerificationFile: false
   path: src/string/RollingHash.hpp
   requiredBy: []
-  timestamp: '2023-10-01 19:51:06+09:00'
+  timestamp: '2023-10-17 23:13:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_14_B.test.cpp

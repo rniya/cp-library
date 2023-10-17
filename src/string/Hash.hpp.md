@@ -40,12 +40,13 @@ data:
     \ friend modint operator+(const modint& lhs, const modint& rhs) { return modint(lhs)\
     \ += rhs; }\n    friend modint operator-(const modint& lhs, const modint& rhs)\
     \ { return modint(lhs) -= rhs; }\n    friend modint operator*(const modint& lhs,\
-    \ const modint& rhs) { return modint(lhs) *= rhs; }\n    friend bool operator==(const\
-    \ modint& lhs, const modint& rhs) { return lhs._v == rhs._v; }\n    friend bool\
-    \ operator!=(const modint& lhs, const modint& rhs) { return lhs._v != rhs._v;\
-    \ }\n    friend std::ostream& operator<<(std::ostream& os, const modint& rhs)\
-    \ { os << rhs._v; }\n\n  private:\n    unsigned long long _v;\n};\n\nuint64_t\
-    \ generate_base() {\n    std::mt19937_64 mt(std::chrono::steady_clock::now().time_since_epoch().count());\n\
+    \ const modint& rhs) { return modint(lhs) *= rhs; }\n    friend modint operator/(const\
+    \ modint& lhs, const modint& rhs) { return modint(lhs) /= rhs; }\n    friend bool\
+    \ operator==(const modint& lhs, const modint& rhs) { return lhs._v == rhs._v;\
+    \ }\n    friend bool operator!=(const modint& lhs, const modint& rhs) { return\
+    \ lhs._v != rhs._v; }\n    friend std::ostream& operator<<(std::ostream& os, const\
+    \ modint& rhs) { os << rhs._v; }\n\n  private:\n    unsigned long long _v;\n};\n\
+    \nuint64_t generate_base() {\n    std::mt19937_64 mt(std::chrono::steady_clock::now().time_since_epoch().count());\n\
     \    std::uniform_int_distribution<uint64_t> rand(2, mod - 1);\n    return rand(mt);\n\
     }\n\nmodint base(generate_base());\nstd::vector<modint> power{1};\n\nmodint get_pow(int\
     \ n) {\n    if (n < int(power.size())) return power[n];\n    int m = power.size();\n\
@@ -86,12 +87,13 @@ data:
     \ friend modint operator+(const modint& lhs, const modint& rhs) { return modint(lhs)\
     \ += rhs; }\n    friend modint operator-(const modint& lhs, const modint& rhs)\
     \ { return modint(lhs) -= rhs; }\n    friend modint operator*(const modint& lhs,\
-    \ const modint& rhs) { return modint(lhs) *= rhs; }\n    friend bool operator==(const\
-    \ modint& lhs, const modint& rhs) { return lhs._v == rhs._v; }\n    friend bool\
-    \ operator!=(const modint& lhs, const modint& rhs) { return lhs._v != rhs._v;\
-    \ }\n    friend std::ostream& operator<<(std::ostream& os, const modint& rhs)\
-    \ { os << rhs._v; }\n\n  private:\n    unsigned long long _v;\n};\n\nuint64_t\
-    \ generate_base() {\n    std::mt19937_64 mt(std::chrono::steady_clock::now().time_since_epoch().count());\n\
+    \ const modint& rhs) { return modint(lhs) *= rhs; }\n    friend modint operator/(const\
+    \ modint& lhs, const modint& rhs) { return modint(lhs) /= rhs; }\n    friend bool\
+    \ operator==(const modint& lhs, const modint& rhs) { return lhs._v == rhs._v;\
+    \ }\n    friend bool operator!=(const modint& lhs, const modint& rhs) { return\
+    \ lhs._v != rhs._v; }\n    friend std::ostream& operator<<(std::ostream& os, const\
+    \ modint& rhs) { os << rhs._v; }\n\n  private:\n    unsigned long long _v;\n};\n\
+    \nuint64_t generate_base() {\n    std::mt19937_64 mt(std::chrono::steady_clock::now().time_since_epoch().count());\n\
     \    std::uniform_int_distribution<uint64_t> rand(2, mod - 1);\n    return rand(mt);\n\
     }\n\nmodint base(generate_base());\nstd::vector<modint> power{1};\n\nmodint get_pow(int\
     \ n) {\n    if (n < int(power.size())) return power[n];\n    int m = power.size();\n\
@@ -118,7 +120,7 @@ data:
   requiredBy:
   - src/string/RollingHash2D.hpp
   - src/string/RollingHash.hpp
-  timestamp: '2023-10-01 16:26:05+09:00'
+  timestamp: '2023-10-17 23:13:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_14_C.test.cpp
