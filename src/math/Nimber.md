@@ -25,7 +25,9 @@ $$
 
 ## 問題例
 - [AtCoder Beginner Contest 274 Ex - XOR Sum of Arrays](https://atcoder.jp/contests/abc274/tasks/abc274_h)
+- [The 2nd Universal Cup. Stage 5: Northern D. Two Missing Numbers](https://contest.ucup.ac/contest/1388/problem/6549)
 
 ## Links
 - [Nim product - kyopro_friends’ diary](https://kyopro-friends.hatenablog.com/entry/2020/04/07/195850)
   - 代数的性質の証明について詳しい．
+- [Nimberの乗法・Sqrt・逆元・二次方程式 - でも今日はSRMあるから](https://natsugiri.hatenablog.com/entry/2020/03/29/073605)

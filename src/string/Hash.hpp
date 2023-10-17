@@ -55,6 +55,7 @@ struct modint {
     friend modint operator+(const modint& lhs, const modint& rhs) { return modint(lhs) += rhs; }
     friend modint operator-(const modint& lhs, const modint& rhs) { return modint(lhs) -= rhs; }
     friend modint operator*(const modint& lhs, const modint& rhs) { return modint(lhs) *= rhs; }
+    friend modint operator/(const modint& lhs, const modint& rhs) { return modint(lhs) /= rhs; }
     friend bool operator==(const modint& lhs, const modint& rhs) { return lhs._v == rhs._v; }
     friend bool operator!=(const modint& lhs, const modint& rhs) { return lhs._v != rhs._v; }
     friend std::ostream& operator<<(std::ostream& os, const modint& rhs) { os << rhs._v; }

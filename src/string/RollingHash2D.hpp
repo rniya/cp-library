@@ -49,14 +49,13 @@ struct RollingHash2D {
     }
 
   private:
-    const mint base = hash_impl::base;
     mint basis[2];
     std::vector<mint> power[2];
 
-    inline void extend(int x, size_t len) {
+    inline void extend(int x, int len) {
         if (int(power[x].size()) > len) return;
         int pre = power[x].size();
         power[x].resize(len + 1);
-        for (size_t i = pre - 1; i < len; i++) power[x][i + 1] = power[x][i] * basis[x];
+        for (int i = pre - 1; i < len; i++) power[x][i + 1] = power[x][i] * basis[x];
     }
 };

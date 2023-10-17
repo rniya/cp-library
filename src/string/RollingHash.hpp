@@ -47,7 +47,7 @@ struct RollingHash {
     const mint base = hash_impl::base;
     std::vector<mint> power;
 
-    inline void extend(size_t len) {
+    inline void extend(int len) {
         if (int(power.size()) > len) return;
         int pre = power.size();
         power.resize(len + 1);
