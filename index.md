@@ -144,9 +144,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/geometry/reflection.hpp
       title: src/geometry/reflection.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/sort_points_by_argument.hpp
-      title: src/geometry/sort_points_by_argument.hpp
+      title: "\u504F\u89D2\u30BD\u30FC\u30C8"
   - name: src/graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -651,6 +651,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/shift_of_sampling_points_of_polynomial.test.cpp
       title: test/yosupo/shift_of_sampling_points_of_polynomial.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/sort_points_by_argument.test.cpp
+      title: test/yosupo/sort_points_by_argument.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/sqrt_of_formal_power_series.test.cpp
       title: test/yosupo/sqrt_of_formal_power_series.test.cpp

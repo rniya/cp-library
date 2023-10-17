@@ -47,9 +47,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/reflection.hpp
     title: src/geometry/reflection.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/sort_points_by_argument.hpp
-    title: src/geometry/sort_points_by_argument.hpp
+    title: "\u504F\u89D2\u30BD\u30FC\u30C8"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_1_A.test.cpp
@@ -108,6 +108,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_E.test.cpp
     title: test/aoj/CGL_7_E.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/sort_points_by_argument.test.cpp
+    title: test/yosupo/sort_points_by_argument.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -204,6 +207,7 @@ data:
   - test/aoj/CGL_3_A.test.cpp
   - test/aoj/CGL_3_B.test.cpp
   - test/aoj/CGL_4_A.test.cpp
+  - test/yosupo/sort_points_by_argument.test.cpp
 documentation_of: src/geometry/Point.hpp
 layout: document
 redirect_from:
