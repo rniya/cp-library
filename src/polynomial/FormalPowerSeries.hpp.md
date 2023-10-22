@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: src/polynomial/difference_product.hpp
     title: "\u5DEE\u7A4D (Difference Product, Vandermonde's determinant)"
   - icon: ':heavy_check_mark:'
@@ -45,6 +45,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/2513.test.cpp
+    title: test/yukicoder/2513.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -235,6 +238,7 @@ data:
   timestamp: '2023-05-21 16:36:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yukicoder/2513.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/sharp_p_subset_sum.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp

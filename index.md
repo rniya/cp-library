@@ -279,7 +279,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/polynomial/FormalPowerSeries.hpp
       title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/polynomial/difference_product.hpp
       title: "\u5DEE\u7A4D (Difference Product, Vandermonde's determinant)"
     - icon: ':heavy_check_mark:'
@@ -719,6 +719,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1907.test.cpp
       title: test/yukicoder/1907.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/2513.test.cpp
+      title: test/yukicoder/2513.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/453.test.cpp
       title: test/yukicoder/453.test.cpp

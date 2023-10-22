@@ -5,10 +5,13 @@ data:
     path: src/polynomial/FormalPowerSeries.hpp
     title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/2513.test.cpp
+    title: test/yukicoder/2513.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.6/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -41,8 +44,9 @@ data:
   path: src/polynomial/difference_product.hpp
   requiredBy: []
   timestamp: '2023-10-22 18:19:19+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/2513.test.cpp
 documentation_of: src/polynomial/difference_product.hpp
 layout: document
 title: "\u5DEE\u7A4D (Difference Product, Vandermonde's determinant)"
