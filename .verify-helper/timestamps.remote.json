@@ -93,6 +93,7 @@
 "test/yosupo/set_xor_min.test.cpp": "2023-06-08 18:42:58 +0900",
 "test/yosupo/sharp_p_subset_sum.test.cpp": "2023-09-18 22:25:37 +0900",
 "test/yosupo/shift_of_sampling_points_of_polynomial.test.cpp": "2023-05-24 23:58:25 +0900",
+"test/yosupo/sort_points_by_argument.test.cpp": "2023-10-17 23:40:16 +0900",
 "test/yosupo/sqrt_of_formal_power_series.test.cpp": "2023-09-18 22:25:37 +0900",
 "test/yosupo/static_range_inversions_query.test.cpp": "2023-01-12 22:28:24 +0900",
 "test/yosupo/static_range_sum.test.cpp": "2023-04-22 02:23:28 +0900",
