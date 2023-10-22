@@ -1,17 +1,32 @@
-- [Burnside の補題 / Polya の定理](#burnside-の補題--polya-の定理)
+- [Prüfer Code](#prüfer-code)
     - [問題例](#問題例)
-- [Lagrange の反転公式](#lagrange-の反転公式)
+- [Burnside の補題 / Polya の定理](#burnside-の補題--polya-の定理)
     - [問題例](#問題例-1)
-- [凸包](#凸包)
+- [Lagrange の反転公式](#lagrange-の反転公式)
     - [問題例](#問題例-2)
-- [ゲーム](#ゲーム)
+- [凸包](#凸包)
     - [問題例](#問題例-3)
+- [ゲーム](#ゲーム)
+    - [問題例](#問題例-4)
 - [操作における不変量](#操作における不変量)
 - [部分和問題](#部分和問題)
 - [その他](#その他)
 - [反省](#反省)
 - [実装](#実装)
 
+## Pr&uuml;fer Code
+$n$ 頂点ラベル付き木は $n^{n - 2}$ 個ある．
+また，各頂点 $i$ の次数が $d_i\ (1 \leq i \leq n)$ であるような木は
+$$
+\binom{n - 2}{d_1 - 1, d_2 - 1, \dots , d_n - 1}
+$$
+個ある（[参照](https://37zigen.com/prufer-code/)）．
+
+#### 問題例
+- [AtCoder Beginner Contest 303 Ex - Constrained Tree Degree](https://atcoder.jp/contests/abc303/tasks/abc303_h)
+- [AtCoder Regular Contest 106 F - Figures](https://atcoder.jp/contests/arc106/tasks/arc106_f)
+- [AtCoder Regular Contest 162 D - Smallest Vertices](https://atcoder.jp/contests/arc162/tasks/arc162_d)
+- [東京工業大学プログラミングコンテスト2023 P - Bridge Elimination](https://atcoder.jp/contests/ttpc2023/tasks/ttpc2023_p)
 
 ## Burnside の補題 / Polya の定理
 $n$ 個の要素の組 $(x_1, \dots, x_n)$ からなる有限集合を $X$，その置換の集合を $G$ とする．
@@ -20,6 +35,7 @@ $$
 \frac{1}{|G|} \sum_{g \in G} |\{x \in X \mid gx = x\}|
 $$
 に等しい．
+
 #### 問題例
 - [AtCoder Beginner Contest 198 F - Cube](https://atcoder.jp/contests/abc198/tasks/abc198_f)
 - [AtCoder Beginner Contest 284 Ex - Count Unlabeled Graphs](https://atcoder.jp/contests/abc284/tasks/abc284_h)
