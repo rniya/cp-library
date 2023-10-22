@@ -105,10 +105,10 @@ data:
   timestamp: '2023-04-23 19:32:20+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/bitwise_xor_convolution.test.cpp
-  - test/yosupo/bitwise_and_convolution.test.cpp
   - test/yukicoder/1240.test.cpp
   - test/yukicoder/1289.test.cpp
+  - test/yosupo/bitwise_xor_convolution.test.cpp
+  - test/yosupo/bitwise_and_convolution.test.cpp
 documentation_of: src/math/set_function.hpp
 layout: document
 title: set function (FZT, FMT, FWHT)
