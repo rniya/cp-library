@@ -111,8 +111,8 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/NTL_1_B.test.cpp
   - test/aoj/NTL_1_D.test.cpp
+  - test/aoj/NTL_1_B.test.cpp
   - test/aoj/NTL_1_A.test.cpp
   - test/aoj/NTL_1_E.test.cpp
 documentation_of: src/math/elementary_math.hpp

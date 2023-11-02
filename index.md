@@ -196,9 +196,15 @@ data:
     - icon: ':warning:'
       path: src/graph/complement_graph_shortest_path.hpp
       title: "\u88DC\u30B0\u30E9\u30D5\u4E0A\u306E\u6700\u77ED\u8DEF"
+    - icon: ':warning:'
+      path: src/graph/count_clique.hpp
+      title: "\u30AF\u30EA\u30FC\u30AF\u306E\u6570\u3048\u4E0A\u3052"
     - icon: ':heavy_check_mark:'
       path: src/graph/count_graphs.hpp
       title: "$C_3$ \u306E\u5217\u6319\uFF0C$C_4, K_4$ \u306E\u6570\u3048\u4E0A\u3052"
+    - icon: ':warning:'
+      path: src/graph/count_independent_set.hpp
+      title: "\u72EC\u7ACB\u96C6\u5408\u306E\u6570\u3048\u4E0A\u3052"
     - icon: ':heavy_check_mark:'
       path: src/graph/enumerate_cliques.hpp
       title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"

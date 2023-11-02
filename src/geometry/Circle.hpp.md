@@ -109,27 +109,27 @@ data:
   isVerificationFile: false
   path: src/geometry/Circle.hpp
   requiredBy:
+  - src/geometry/convex_diameter.hpp
+  - src/geometry/convex_cut.hpp
   - src/geometry/contain.hpp
   - src/geometry/crosspoint.hpp
-  - src/geometry/convex_cut.hpp
-  - src/geometry/distance.hpp
-  - src/geometry/incircle.hpp
   - src/geometry/circumcircle.hpp
-  - src/geometry/convex_diameter.hpp
+  - src/geometry/incircle.hpp
+  - src/geometry/distance.hpp
   timestamp: '2023-10-04 02:32:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/CGL_2_A.test.cpp
+  - test/aoj/CGL_7_B.test.cpp
+  - test/aoj/CGL_7_E.test.cpp
+  - test/aoj/CGL_7_C.test.cpp
+  - test/aoj/CGL_2_B.test.cpp
+  - test/aoj/CGL_7_D.test.cpp
   - test/aoj/CGL_7_A.test.cpp
   - test/aoj/CGL_2_C.test.cpp
   - test/aoj/CGL_4_B.test.cpp
-  - test/aoj/CGL_7_C.test.cpp
-  - test/aoj/CGL_2_B.test.cpp
-  - test/aoj/CGL_2_A.test.cpp
-  - test/aoj/CGL_7_B.test.cpp
-  - test/aoj/CGL_3_C.test.cpp
-  - test/aoj/CGL_7_E.test.cpp
   - test/aoj/CGL_4_C.test.cpp
-  - test/aoj/CGL_7_D.test.cpp
+  - test/aoj/CGL_3_C.test.cpp
   - test/aoj/CGL_2_D.test.cpp
 documentation_of: src/geometry/Circle.hpp
 layout: document

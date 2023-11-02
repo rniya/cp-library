@@ -154,8 +154,8 @@ data:
   isVerificationFile: false
   path: src/geometry/distance.hpp
   requiredBy:
-  - src/geometry/contain.hpp
   - src/geometry/convex_diameter.hpp
+  - src/geometry/contain.hpp
   timestamp: '2023-10-04 02:32:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
