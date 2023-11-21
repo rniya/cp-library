@@ -2,11 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/matrix/SquareMatrix.hpp
-    title: "\u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
-  - icon: ':heavy_check_mark:'
-    path: src/util/modint.hpp
-    title: modint (input/output)
+    path: src/math/convolution_arbitary_mod.hpp
+    title: src/math/convolution_arbitary_mod.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -14,9 +11,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/1050
+    PROBLEM: https://judge.yosupo.jp/problem/convolution_mod_1000000007
     links:
-    - https://yukicoder.me/problems/no/1050
+    - https://judge.yosupo.jp/problem/convolution_mod_1000000007
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -27,28 +24,29 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: matrix/SquareMatrix.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/convolution_arbitary_mod.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://yukicoder.me/problems/no/1050\"\n\n#include \"\
-    matrix/SquareMatrix.hpp\"\n#include \"util/modint.hpp\"\n\nusing mint = atcoder::modint1000000007;\n\
-    \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
-    \    int M, K;\n    std::cin >> M >> K;\n\n    SquareMatrix<mint, 55> SM;\n  \
-    \  for (int i = 0; i < M; i++) {\n        for (int j = 0; j < M; j++) {\n    \
-    \        SM[i][(i + j) % M]++;\n            SM[i][i * j % M]++;\n        }\n \
-    \   }\n\n    SM ^= K;\n    std::cout << SM[0][0] << '\\n';\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod_1000000007\"\
+    \n\n#include <iostream>\n#include \"math/convolution_arbitary_mod.hpp\"\n\nusing\
+    \ mint = atcoder::modint1000000007;\n\nint main() {\n    std::ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    int N, M;\n    std::cin >> N >> M;\n    std::vector<mint>\
+    \ a(N), b(M);\n    for (int i = 0; i < N; i++) {\n        int x;\n        std::cin\
+    \ >> x;\n        a[i] = x;\n    }\n    for (int i = 0; i < M; i++) {\n       \
+    \ int x;\n        std::cin >> x;\n        b[i] = x;\n    }\n\n    auto c = convolution_arbitary_mod(a,\
+    \ b);\n    for (int i = 0; i < N + M - 1; i++) std::cout << c[i].val() << (i +\
+    \ 1 == N + M - 1 ? '\\n' : ' ');\n}"
   dependsOn:
-  - src/matrix/SquareMatrix.hpp
-  - src/util/modint.hpp
+  - src/math/convolution_arbitary_mod.hpp
   isVerificationFile: true
-  path: test/yukicoder/1050.test.cpp
+  path: test/yosupo/convolution_mod_1000000007.test.cpp
   requiredBy: []
   timestamp: '2023-11-21 21:50:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yukicoder/1050.test.cpp
+documentation_of: test/yosupo/convolution_mod_1000000007.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yukicoder/1050.test.cpp
-- /verify/test/yukicoder/1050.test.cpp.html
-title: test/yukicoder/1050.test.cpp
+- /verify/test/yosupo/convolution_mod_1000000007.test.cpp
+- /verify/test/yosupo/convolution_mod_1000000007.test.cpp.html
+title: test/yosupo/convolution_mod_1000000007.test.cpp
 ---

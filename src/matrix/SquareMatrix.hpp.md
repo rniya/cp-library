@@ -54,26 +54,39 @@ data:
     \n    SquareMatrix transpose() const {\n        SquareMatrix res;\n        for\
     \ (size_t i = 0; i < N; i++) {\n            for (size_t j = 0; j < N; j++) {\n\
     \                res[j][i] = (*this)[i][j];\n            }\n        }\n      \
-    \  return res;\n    }\n\n    T determinant(size_t n = N) const {\n        SquareMatrix\
-    \ B(*this);\n        T res = 1;\n        for (size_t i = 0; i < n; i++) {\n  \
-    \          int pivot = -1;\n            for (size_t j = i; j < n; j++) {\n   \
-    \             if (B[j][i] != 0) {\n                    pivot = j;\n          \
-    \          break;\n                }\n            }\n            if (pivot ==\
-    \ -1) return 0;\n            if (pivot != (int)i) {\n                res *= -1;\n\
-    \                std::swap(B[i], B[pivot]);\n            }\n            res *=\
-    \ B[i][i];\n            T inv = T(1) / B[i][i];\n            for (size_t j = 0;\
-    \ j < n; j++) B[i][j] *= inv;\n            for (size_t j = i + 1; j < n; j++)\
-    \ {\n                T a = B[j][i];\n                for (size_t k = 0; k < n;\
-    \ k++) {\n                    B[j][k] -= B[i][k] * a;\n                }\n   \
-    \         }\n        }\n    }\n\n    friend std::ostream& operator<<(std::ostream&\
-    \ os, const SquareMatrix& p) {\n        os << \"[(\" << N << \" * \" << N << \"\
-    \ Matrix)\";\n        os << \"\\n[columun sums: \";\n        for (size_t j = 0;\
-    \ j < N; j++) {\n            T sum = 0;\n            for (size_t i = 0; i < N;\
-    \ i++) sum += p[i][j];\n            ;\n            os << sum << (j + 1 < N ? \"\
-    ,\" : \"\");\n        }\n        os << \"]\";\n        for (size_t i = 0; i <\
-    \ N; i++) {\n            os << \"\\n[\";\n            for (size_t j = 0; j < N;\
-    \ j++) os << p[i][j] << (j + 1 < N ? \",\" : \"\");\n            os << \"]\";\n\
-    \        }\n        os << \"]\\n\";\n        return os;\n    }\n};\n"
+    \  return res;\n    }\n\n    T determinant() const {\n        SquareMatrix B(*this);\n\
+    \        T res = 1;\n        for (size_t i = 0; i < N; i++) {\n            int\
+    \ pivot = -1;\n            for (size_t j = i; j < N; j++) {\n                if\
+    \ (B[j][i] != 0) {\n                    pivot = j;\n                    break;\n\
+    \                }\n            }\n            if (pivot == -1) return 0;\n  \
+    \          if (pivot != (int)i) {\n                res *= -1;\n              \
+    \  std::swap(B[i], B[pivot]);\n            }\n            res *= B[i][i];\n  \
+    \          T inv = T(1) / B[i][i];\n            for (size_t j = 0; j < N; j++)\
+    \ B[i][j] *= inv;\n            for (size_t j = i + 1; j < N; j++) {\n        \
+    \        T a = B[j][i];\n                for (size_t k = 0; k < N; k++) {\n  \
+    \                  B[j][k] -= B[i][k] * a;\n                }\n            }\n\
+    \        }\n    }\n\n    SquareMatrix inv() const {\n        SquareMatrix B(*this),\
+    \ C = SquareMatrix::I();\n        for (size_t i = 0; i < N; i++) {\n         \
+    \   int pivot = -1;\n            for (size_t j = i; j < N; j++) {\n          \
+    \      if (B[j][i] != 0) {\n                    pivot = j;\n                 \
+    \   break;\n                }\n            }\n            if (pivot == -1) return\
+    \ {};\n            if (pivot != (int)i) {\n                std::swap(B[i], B[pivot]);\n\
+    \                std::swap(C[i], C[pivot]);\n            }\n            T inv\
+    \ = T(1) / B[i][i];\n            for (size_t j = 0; j < N; j++) {\n          \
+    \      B[i][j] *= inv;\n                C[i][j] *= inv;\n            }\n     \
+    \       for (size_t j = 0; j < N; j++) {\n                if (j == i) continue;\n\
+    \                T a = B[j][i];\n                for (size_t k = 0; k < N; k++)\
+    \ {\n                    B[j][k] -= B[i][k] * a;\n                    C[j][k]\
+    \ -= C[i][k] * a;\n                }\n            }\n        }\n        return\
+    \ C;\n    }\n\n    friend std::ostream& operator<<(std::ostream& os, const SquareMatrix&\
+    \ p) {\n        os << \"[(\" << N << \" * \" << N << \" Matrix)\";\n        os\
+    \ << \"\\n[columun sums: \";\n        for (size_t j = 0; j < N; j++) {\n     \
+    \       T sum = 0;\n            for (size_t i = 0; i < N; i++) sum += p[i][j];\n\
+    \            ;\n            os << sum << (j + 1 < N ? \",\" : \"\");\n       \
+    \ }\n        os << \"]\";\n        for (size_t i = 0; i < N; i++) {\n        \
+    \    os << \"\\n[\";\n            for (size_t j = 0; j < N; j++) os << p[i][j]\
+    \ << (j + 1 < N ? \",\" : \"\");\n            os << \"]\";\n        }\n      \
+    \  os << \"]\\n\";\n        return os;\n    }\n};\n"
   code: "#pragma once\n#include <array>\n#include <cassert>\n#include <iostream>\n\
     \ntemplate <typename T, size_t N> struct SquareMatrix {\n    std::array<std::array<T,\
     \ N>, N> A;\n\n    SquareMatrix() : A{{}} {}\n\n    size_t size() const { return\
@@ -116,32 +129,44 @@ data:
     \ B) const { return A != B.A; }\n\n    SquareMatrix transpose() const {\n    \
     \    SquareMatrix res;\n        for (size_t i = 0; i < N; i++) {\n           \
     \ for (size_t j = 0; j < N; j++) {\n                res[j][i] = (*this)[i][j];\n\
-    \            }\n        }\n        return res;\n    }\n\n    T determinant(size_t\
-    \ n = N) const {\n        SquareMatrix B(*this);\n        T res = 1;\n       \
-    \ for (size_t i = 0; i < n; i++) {\n            int pivot = -1;\n            for\
-    \ (size_t j = i; j < n; j++) {\n                if (B[j][i] != 0) {\n        \
-    \            pivot = j;\n                    break;\n                }\n     \
-    \       }\n            if (pivot == -1) return 0;\n            if (pivot != (int)i)\
-    \ {\n                res *= -1;\n                std::swap(B[i], B[pivot]);\n\
-    \            }\n            res *= B[i][i];\n            T inv = T(1) / B[i][i];\n\
-    \            for (size_t j = 0; j < n; j++) B[i][j] *= inv;\n            for (size_t\
-    \ j = i + 1; j < n; j++) {\n                T a = B[j][i];\n                for\
-    \ (size_t k = 0; k < n; k++) {\n                    B[j][k] -= B[i][k] * a;\n\
-    \                }\n            }\n        }\n    }\n\n    friend std::ostream&\
-    \ operator<<(std::ostream& os, const SquareMatrix& p) {\n        os << \"[(\"\
-    \ << N << \" * \" << N << \" Matrix)\";\n        os << \"\\n[columun sums: \"\
-    ;\n        for (size_t j = 0; j < N; j++) {\n            T sum = 0;\n        \
-    \    for (size_t i = 0; i < N; i++) sum += p[i][j];\n            ;\n         \
-    \   os << sum << (j + 1 < N ? \",\" : \"\");\n        }\n        os << \"]\";\n\
-    \        for (size_t i = 0; i < N; i++) {\n            os << \"\\n[\";\n     \
-    \       for (size_t j = 0; j < N; j++) os << p[i][j] << (j + 1 < N ? \",\" : \"\
-    \");\n            os << \"]\";\n        }\n        os << \"]\\n\";\n        return\
-    \ os;\n    }\n};\n"
+    \            }\n        }\n        return res;\n    }\n\n    T determinant() const\
+    \ {\n        SquareMatrix B(*this);\n        T res = 1;\n        for (size_t i\
+    \ = 0; i < N; i++) {\n            int pivot = -1;\n            for (size_t j =\
+    \ i; j < N; j++) {\n                if (B[j][i] != 0) {\n                    pivot\
+    \ = j;\n                    break;\n                }\n            }\n       \
+    \     if (pivot == -1) return 0;\n            if (pivot != (int)i) {\n       \
+    \         res *= -1;\n                std::swap(B[i], B[pivot]);\n           \
+    \ }\n            res *= B[i][i];\n            T inv = T(1) / B[i][i];\n      \
+    \      for (size_t j = 0; j < N; j++) B[i][j] *= inv;\n            for (size_t\
+    \ j = i + 1; j < N; j++) {\n                T a = B[j][i];\n                for\
+    \ (size_t k = 0; k < N; k++) {\n                    B[j][k] -= B[i][k] * a;\n\
+    \                }\n            }\n        }\n    }\n\n    SquareMatrix inv()\
+    \ const {\n        SquareMatrix B(*this), C = SquareMatrix::I();\n        for\
+    \ (size_t i = 0; i < N; i++) {\n            int pivot = -1;\n            for (size_t\
+    \ j = i; j < N; j++) {\n                if (B[j][i] != 0) {\n                \
+    \    pivot = j;\n                    break;\n                }\n            }\n\
+    \            if (pivot == -1) return {};\n            if (pivot != (int)i) {\n\
+    \                std::swap(B[i], B[pivot]);\n                std::swap(C[i], C[pivot]);\n\
+    \            }\n            T inv = T(1) / B[i][i];\n            for (size_t j\
+    \ = 0; j < N; j++) {\n                B[i][j] *= inv;\n                C[i][j]\
+    \ *= inv;\n            }\n            for (size_t j = 0; j < N; j++) {\n     \
+    \           if (j == i) continue;\n                T a = B[j][i];\n          \
+    \      for (size_t k = 0; k < N; k++) {\n                    B[j][k] -= B[i][k]\
+    \ * a;\n                    C[j][k] -= C[i][k] * a;\n                }\n     \
+    \       }\n        }\n        return C;\n    }\n\n    friend std::ostream& operator<<(std::ostream&\
+    \ os, const SquareMatrix& p) {\n        os << \"[(\" << N << \" * \" << N << \"\
+    \ Matrix)\";\n        os << \"\\n[columun sums: \";\n        for (size_t j = 0;\
+    \ j < N; j++) {\n            T sum = 0;\n            for (size_t i = 0; i < N;\
+    \ i++) sum += p[i][j];\n            ;\n            os << sum << (j + 1 < N ? \"\
+    ,\" : \"\");\n        }\n        os << \"]\";\n        for (size_t i = 0; i <\
+    \ N; i++) {\n            os << \"\\n[\";\n            for (size_t j = 0; j < N;\
+    \ j++) os << p[i][j] << (j + 1 < N ? \",\" : \"\");\n            os << \"]\";\n\
+    \        }\n        os << \"]\\n\";\n        return os;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: src/matrix/SquareMatrix.hpp
   requiredBy: []
-  timestamp: '2023-04-23 21:07:48+09:00'
+  timestamp: '2023-11-21 21:50:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1050.test.cpp

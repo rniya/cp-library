@@ -236,6 +236,9 @@ data:
     - icon: ':question:'
       path: src/math/binomial.hpp
       title: binomial
+    - icon: ':heavy_check_mark:'
+      path: src/math/convolution_arbitary_mod.hpp
+      title: src/math/convolution_arbitary_mod.hpp
     - icon: ':x:'
       path: src/math/count_young_paths.hpp
       title: "Young \u56F3\u5F62\u4E0A\u306E\u6700\u77ED\u7D4C\u8DEF\u306E\u6570\u3048\
@@ -558,6 +561,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/characteristic_polynomial.test.cpp
       title: test/yosupo/characteristic_polynomial.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/convolution_mod_1000000007.test.cpp
+      title: test/yosupo/convolution_mod_1000000007.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/cycle_detection.test.cpp
       title: test/yosupo/cycle_detection.test.cpp
