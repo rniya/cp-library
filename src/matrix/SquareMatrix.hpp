@@ -118,12 +118,12 @@ template <typename T, size_t N> struct SquareMatrix {
         return res;
     }
 
-    T determinant(size_t n = N) const {
+    T determinant() const {
         SquareMatrix B(*this);
         T res = 1;
-        for (size_t i = 0; i < n; i++) {
+        for (size_t i = 0; i < N; i++) {
             int pivot = -1;
-            for (size_t j = i; j < n; j++) {
+            for (size_t j = i; j < N; j++) {
                 if (B[j][i] != 0) {
                     pivot = j;
                     break;
@@ -136,14 +136,46 @@ template <typename T, size_t N> struct SquareMatrix {
             }
             res *= B[i][i];
             T inv = T(1) / B[i][i];
-            for (size_t j = 0; j < n; j++) B[i][j] *= inv;
-            for (size_t j = i + 1; j < n; j++) {
+            for (size_t j = 0; j < N; j++) B[i][j] *= inv;
+            for (size_t j = i + 1; j < N; j++) {
                 T a = B[j][i];
-                for (size_t k = 0; k < n; k++) {
+                for (size_t k = 0; k < N; k++) {
                     B[j][k] -= B[i][k] * a;
                 }
             }
         }
+    }
+
+    SquareMatrix inv() const {
+        SquareMatrix B(*this), C = SquareMatrix::I();
+        for (size_t i = 0; i < N; i++) {
+            int pivot = -1;
+            for (size_t j = i; j < N; j++) {
+                if (B[j][i] != 0) {
+                    pivot = j;
+                    break;
+                }
+            }
+            if (pivot == -1) return {};
+            if (pivot != (int)i) {
+                std::swap(B[i], B[pivot]);
+                std::swap(C[i], C[pivot]);
+            }
+            T inv = T(1) / B[i][i];
+            for (size_t j = 0; j < N; j++) {
+                B[i][j] *= inv;
+                C[i][j] *= inv;
+            }
+            for (size_t j = 0; j < N; j++) {
+                if (j == i) continue;
+                T a = B[j][i];
+                for (size_t k = 0; k < N; k++) {
+                    B[j][k] -= B[i][k] * a;
+                    C[j][k] -= C[i][k] * a;
+                }
+            }
+        }
+        return C;
     }
 
     friend std::ostream& operator<<(std::ostream& os, const SquareMatrix& p) {
