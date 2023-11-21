@@ -53,8 +53,5 @@ data:
   - test/yosupo/convolution_mod_1000000007.test.cpp
 documentation_of: src/math/convolution_arbitary_mod.hpp
 layout: document
-redirect_from:
-- /library/src/math/convolution_arbitary_mod.hpp
-- /library/src/math/convolution_arbitary_mod.hpp.html
-title: src/math/convolution_arbitary_mod.hpp
+title: "\u4EFB\u610F mod \u7573\u307F\u8FBC\u307F"
 ---

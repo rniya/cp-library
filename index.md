@@ -238,7 +238,7 @@ data:
       title: binomial
     - icon: ':heavy_check_mark:'
       path: src/math/convolution_arbitary_mod.hpp
-      title: src/math/convolution_arbitary_mod.hpp
+      title: "\u4EFB\u610F mod \u7573\u307F\u8FBC\u307F"
     - icon: ':x:'
       path: src/math/count_young_paths.hpp
       title: "Young \u56F3\u5F62\u4E0A\u306E\u6700\u77ED\u7D4C\u8DEF\u306E\u6570\u3048\
