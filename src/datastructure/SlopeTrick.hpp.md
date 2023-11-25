@@ -29,11 +29,11 @@ data:
     \     T res = min_f;\n        while (!L.empty()) res += std::max(T(0), pop_L()\
     \ - x);\n        while (!R.empty()) res += std::max(T(0), x - pop_R());\n    \
     \    return res;\n    }\n\n    // f(x) += g(x), g destructive\n    void merge_destructive(SlopeTrick&\
-    \ g) {\n        if (g.size() < size()) {\n            std::swap(min_f, g.min_f);\n\
-    \            std::swap(L, g.L);\n            std::swap(R, g.R);\n            std::swap(min_f,\
-    \ g.add_l);\n            std::swap(min_f, g.add_r);\n        }\n        min_f\
+    \ g) {\n        if (g.size() > size()) {\n            std::swap(min_f, g.min_f);\n\
+    \            std::swap(L, g.L);\n            std::swap(R, g.R);\n            std::swap(add_l,\
+    \ g.add_l);\n            std::swap(add_r, g.add_r);\n        }\n        min_f\
     \ += g.min_f;\n        while (!g.L.empty()) add_a_minus_x(g.pop_L());\n      \
-    \  while (!g.R.empty()) add_x_minus_a(g.pop_R());\n    }\n\nprivate:\n    const\
+    \  while (!g.R.empty()) add_x_minus_a(g.pop_R());\n    }\n\n  private:\n    const\
     \ T inf = std::numeric_limits<T>::max() / 2;\n    T min_f;\n    std::priority_queue<T,\
     \ std::vector<T>, std::less<>> L;\n    std::priority_queue<T, std::vector<T>,\
     \ std::greater<>> R;\n    T add_l, add_r;\n\n    void push_L(const T& a) { L.emplace(a\
@@ -64,12 +64,12 @@ data:
     \    T get_destructive(const T& x) {\n        T res = min_f;\n        while (!L.empty())\
     \ res += std::max(T(0), pop_L() - x);\n        while (!R.empty()) res += std::max(T(0),\
     \ x - pop_R());\n        return res;\n    }\n\n    // f(x) += g(x), g destructive\n\
-    \    void merge_destructive(SlopeTrick& g) {\n        if (g.size() < size()) {\n\
+    \    void merge_destructive(SlopeTrick& g) {\n        if (g.size() > size()) {\n\
     \            std::swap(min_f, g.min_f);\n            std::swap(L, g.L);\n    \
-    \        std::swap(R, g.R);\n            std::swap(min_f, g.add_l);\n        \
-    \    std::swap(min_f, g.add_r);\n        }\n        min_f += g.min_f;\n      \
+    \        std::swap(R, g.R);\n            std::swap(add_l, g.add_l);\n        \
+    \    std::swap(add_r, g.add_r);\n        }\n        min_f += g.min_f;\n      \
     \  while (!g.L.empty()) add_a_minus_x(g.pop_L());\n        while (!g.R.empty())\
-    \ add_x_minus_a(g.pop_R());\n    }\n\nprivate:\n    const T inf = std::numeric_limits<T>::max()\
+    \ add_x_minus_a(g.pop_R());\n    }\n\n  private:\n    const T inf = std::numeric_limits<T>::max()\
     \ / 2;\n    T min_f;\n    std::priority_queue<T, std::vector<T>, std::less<>>\
     \ L;\n    std::priority_queue<T, std::vector<T>, std::greater<>> R;\n    T add_l,\
     \ add_r;\n\n    void push_L(const T& a) { L.emplace(a - add_l); }\n\n    T top_L()\
@@ -83,7 +83,7 @@ data:
   isVerificationFile: false
   path: src/datastructure/SlopeTrick.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2023-11-25 23:47:19+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/datastructure/SlopeTrick.hpp
