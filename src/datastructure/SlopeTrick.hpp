@@ -63,19 +63,19 @@ template <typename T> struct SlopeTrick {
 
     // f(x) += g(x), g destructive
     void merge_destructive(SlopeTrick& g) {
-        if (g.size() < size()) {
+        if (g.size() > size()) {
             std::swap(min_f, g.min_f);
             std::swap(L, g.L);
             std::swap(R, g.R);
-            std::swap(min_f, g.add_l);
-            std::swap(min_f, g.add_r);
+            std::swap(add_l, g.add_l);
+            std::swap(add_r, g.add_r);
         }
         min_f += g.min_f;
         while (!g.L.empty()) add_a_minus_x(g.pop_L());
         while (!g.R.empty()) add_x_minus_a(g.pop_R());
     }
 
-private:
+  private:
     const T inf = std::numeric_limits<T>::max() / 2;
     T min_f;
     std::priority_queue<T, std::vector<T>, std::less<>> L;
