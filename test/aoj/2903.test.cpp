@@ -23,12 +23,12 @@ int main() {
                 if (R <= nx || C <= ny) continue;
                 if (S[nx][ny] != '#') continue;
                 if (!k)
-                    PSP.x_false_y_false_profit(id(i, j), id(nx, ny), 1);
+                    PSP.add_profit_00(id(i, j), id(nx, ny), 1);
                 else
-                    PSP.x_true_y_true_profit(id(i, j), id(nx, ny), 1);
+                    PSP.add_profit_11(id(i, j), id(nx, ny), 1);
             }
         }
     }
 
-    std::cout << ans - PSP.max_profit() << '\n';
+    std::cout << ans - PSP.max_profit().first << '\n';
 }
