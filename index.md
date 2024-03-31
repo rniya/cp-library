@@ -177,7 +177,7 @@ data:
       path: src/graph/PrimalDualonDAG.hpp
       title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\
         \u6D41\uFF09"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/ProjectSelectionProblem.hpp
       title: Project Selection Problem (based on ac-library)
     - icon: ':warning:'
@@ -394,7 +394,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/2891.test.cpp
       title: test/aoj/2891.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/2903.test.cpp
       title: test/aoj/2903.test.cpp
     - icon: ':x:'
@@ -731,6 +731,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1907.test.cpp
       title: test/yukicoder/1907.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1984.test.cpp
+      title: test/yukicoder/1984.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/2513.test.cpp
       title: test/yukicoder/2513.test.cpp
