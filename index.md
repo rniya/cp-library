@@ -154,7 +154,7 @@ data:
       title: Bellman-Ford
     - icon: ':heavy_check_mark:'
       path: src/graph/BinaryOptimization.hpp
-      title: src/graph/BinaryOptimization.hpp
+      title: Binary Optimization (Project Selection Problem)
     - icon: ':heavy_check_mark:'
       path: src/graph/BipartiteMatching.hpp
       title: Bipartite Matching
@@ -173,6 +173,9 @@ data:
     - icon: ':warning:'
       path: src/graph/FunctionalGraph.hpp
       title: Functional Graph
+    - icon: ':warning:'
+      path: src/graph/KaryOptimization.hpp
+      title: K-ary Optimization
     - icon: ':heavy_check_mark:'
       path: src/graph/LowLink.hpp
       title: LowLink (with Two Edge Connected Components, Bi Connected Components)
