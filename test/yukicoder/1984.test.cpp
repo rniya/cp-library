@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1984"
 
 #include <iostream>
-#include "graph/ProjectSelectionProblem.hpp"
+#include "graph/BinaryOptimization.hpp"
 
 const long long inf = 1LL << 40;
 
@@ -14,7 +14,7 @@ int main() {
     for (int& val : E) std::cin >> val;
     for (int& val : F) std::cin >> val;
     for (int& val : V) std::cin >> val;
-    ProjectSelectionProblem<long long> PSP(N + M + K);
+    BinaryOptimization<long long> PSP(N + M + K);
     for (int i = 0; i < N; i++) {
         int L;
         std::cin >> L;

@@ -2,10 +2,10 @@
 #include <tuple>
 #include "atcoder/maxflow"
 
-template <typename T> struct ProjectSelectionProblem {
-    ProjectSelectionProblem() = default;
+template <typename T> struct BinaryOptimization {
+    BinaryOptimization() = default;
 
-    explicit ProjectSelectionProblem(int n) : n(n), costs(n, std::vector<T>(2, 0)) {}
+    explicit BinaryOptimization(int n) : n(n), costs(n, std::vector<T>(2, 0)) {}
 
     void add_cost_0(int x, T cost) {
         assert(0 <= x and x < n);

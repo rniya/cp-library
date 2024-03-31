@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/2903"
 
 #include <iostream>
-#include "graph/ProjectSelectionProblem.hpp"
+#include "graph/BinaryOptimization.hpp"
 
 int main() {
     std::cin.tie(0);
@@ -12,7 +12,7 @@ int main() {
     for (int i = 0; i < R; i++) std::cin >> S[i];
 
     auto id = [&](int i, int j) { return i * C + j; };
-    ProjectSelectionProblem<int> PSP(R * C);
+    BinaryOptimization<int> PSP(R * C);
     int ans = 0;
     for (int i = 0; i < R; i++) {
         for (int j = 0; j < C; j++) {
