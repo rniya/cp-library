@@ -1,106 +1,109 @@
+#pragma once
 #include <array>
 #include <tuple>
 #include "atcoder/maxflow"
 
-template <typename T> struct BinaryOptimization {
+template <typename T, bool MINIMIZE = true> struct BinaryOptimization {
     BinaryOptimization() = default;
 
-    explicit BinaryOptimization(int n) : n(n), costs(n, std::vector<T>(2, 0)) {}
+    explicit BinaryOptimization(int n) : n(n) {}
 
-    void add_cost_0(int x, T cost) {
-        assert(0 <= x and x < n);
-        assert(cost >= 0);
-        add_cost(x, {cost, 0});
+    void add(T x) {
+        if (not MINIMIZE) x = -x;
+        _add(x);
     }
 
-    void add_cost_1(int x, T cost) {
-        assert(0 <= x and x < n);
-        assert(cost >= 0);
-        add_cost(x, {0, cost});
-    }
-
-    void add_profit_0(int x, T profit) {
-        assert(0 <= x and x < n);
-        assert(profit >= 0);
-        add_cost(x, {-profit, 0});
-    }
-
-    void add_profit_1(int x, T profit) {
-        assert(0 <= x and x < n);
-        assert(profit >= 0);
-        add_cost(x, {0, -profit});
-    }
-
-    void add_cost_01(int x, int y, T cost) {
-        assert(0 <= x and x < n);
-        assert(0 <= y and y < n);
-        assert(cost >= 0);
-        add_edge(x, y, cost);
-    }
-
-    void add_cost_10(int x, int y, T cost) { add_cost_01(y, x, cost); }
-
-    void add_profit_00(int x, int y, T profit) {
-        assert(0 <= x and x < n);
-        assert(0 <= y and y < n);
-        assert(profit >= 0);
-        add_cost(x, y, {-profit, 0, 0, 0});
-    }
-
-    void add_profit_11(int x, int y, T profit) {
-        assert(0 <= x and x < n);
-        assert(0 <= y and y < n);
-        assert(profit >= 0);
-        add_cost(x, y, {0, 0, 0, -profit});
-    }
-
-    // void add_cost_for_3(int x, int y, int z, std::array<std::array<std::array<T, 2>, 2>, 2> cost) {
-    //     add_cost(x, y, z, cost);
-    // }
-
-    void add_profit_all_0(const std::vector<int>& v, T profit) {
-        assert(profit >= 0);
-        if (v.size() == 0)
-            base_cost -= profit;
-        else if (v.size() == 1)
-            add_profit_0(v[0], profit);
-        else if (v.size() == 2)
-            add_profit_00(v[0], v[1], profit);
-        else {
-            base_cost -= profit;
-            int nxt = n + aux++;
-            add_edge(source, nxt, profit);
-            for (const int& x : v) add_edge(nxt, x, profit);
-        }
-    }
-
-    void add_profit_all_1(const std::vector<int>& v, T profit) {
-        assert(profit >= 0);
-        if (v.size() == 0)
-            base_cost -= profit;
-        else if (v.size() == 1)
-            add_profit_1(v[0], profit);
-        else if (v.size() == 2)
-            add_profit_11(v[0], v[1], profit);
-        else {
-            base_cost -= profit;
-            int nxt = n + aux++;
-            add_edge(nxt, sink, profit);
-            for (const int& x : v) add_edge(x, nxt, profit);
-        }
-    }
-
-    std::pair<T, std::vector<bool>> min_cost() {
-        for (int i = 0; i < n; i++) {
-            auto& tmp = costs[i];
-            if (tmp[0] <= tmp[1]) {
-                base_cost += tmp[0];
-                add_edge(source, i, tmp[1] - tmp[0]);
-            } else {
-                base_cost += tmp[1];
-                add_edge(i, sink, tmp[0] - tmp[1]);
+    void add(int i, std::array<T, 2> x) {
+        assert(0 <= i and i < n);
+        if (not MINIMIZE) {
+            for (int i = 0; i < 2; i++) {
+                x[i] = -x[i];
             }
         }
+        _add(i, x);
+    }
+
+    void add_01(int i, int j, T x) {
+        assert(0 <= i and i < n);
+        assert(0 <= j and j < n);
+        if (not MINIMIZE) x = -x;
+        assert(x >= 0);
+        add_edge(i, j, x);
+    }
+
+    void add_10(int i, int j, T x) { add_01(j, i, x); }
+
+    void add(int i, int j, std::array<std::array<T, 2>, 2> x) {
+        assert(0 <= i and i < n);
+        assert(0 <= j and j < n);
+        if (not MINIMIZE) {
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 2; j++) {
+                    x[i][j] = -x[i][j];
+                }
+            }
+        }
+        assert(x[0][1] + x[1][0] >= x[0][0] + x[1][1]);
+        _add(i, j, x);
+    }
+
+    void add(int i, int j, int k, std::array<std::array<std::array<T, 2>, 2>, 2> x) {
+        assert(0 <= i and i < n);
+        assert(0 <= j and j < n);
+        assert(0 <= k and k < n);
+        if (not MINIMIZE) {
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 2; j++) {
+                    for (int k = 0; k < 2; k++) {
+                        x[i][j][k] = -x[i][j][k];
+                    }
+                }
+            }
+        }
+        _add(i, j, k, x);
+    }
+
+    void add_all_0(const std::vector<int>& is, T x) {
+        if (not MINIMIZE) x = -x;
+        assert(x <= 0);
+        if (is.size() == 0)
+            _add(x);
+        else if (is.size() == 1)
+            _add(is[0], {x, 0});
+        else if (is.size() == 2)
+            _add(is[0], is[1], {x, 0, 0, 0});
+        else {
+            _add(x);
+            int nxt = n + aux++;
+            add_edge(source, nxt, -x);
+            for (const int& i : is) {
+                assert(0 <= i and i < n);
+                add_edge(nxt, i, -x);
+            }
+        }
+    }
+
+    void add_all_1(const std::vector<int>& is, T x) {
+        if (not MINIMIZE) x = -x;
+        assert(x <= 0);
+        if (is.size() == 0)
+            _add(x);
+        else if (is.size() == 1)
+            _add(is[0], {0, x});
+        else if (is.size() == 2)
+            _add(is[0], is[1], {0, 0, 0, x});
+        else {
+            _add(x);
+            int nxt = n + aux++;
+            add_edge(nxt, sink, -x);
+            for (const int& i : is) {
+                assert(0 <= i and i < n);
+                add_edge(i, nxt, -x);
+            }
+        }
+    }
+
+    std::pair<T, std::vector<bool>> solve() {
         atcoder::mf_graph<T> g(n + aux + 2);
         int s = n + aux, t = s + 1;
         for (auto [u, v, w] : es) {
@@ -108,43 +111,76 @@ template <typename T> struct BinaryOptimization {
             v = (v == source ? s : v == sink ? t : v);
             g.add_edge(u, v, w);
         }
-        auto sum = base_cost + g.flow(s, t);
-        auto x = g.min_cut(s);
-        x.resize(n);
-        for (int i = 0; i < n; i++) x[i] = not x[i];
-        return {sum, x};
-    }
-
-    std::pair<T, std::vector<bool>> max_profit() {
-        auto res = min_cost();
-        res.first *= -1;
-        return res;
+        T sum = base + g.flow(s, t);
+        auto cut = g.min_cut(s);
+        cut.resize(n);
+        for (int i = 0; i < n; i++) cut[i] = not cut[i];
+        if (not MINIMIZE) sum = -sum;
+        return {sum, cut};
     }
 
   private:
     int n, aux = 0, source = -1, sink = -2;
-    T base_cost = 0;
-    std::vector<std::vector<T>> costs;
+    T base = 0;
     std::vector<std::tuple<int, int, T>> es;
 
-    void add_edge(int x, int y, T cost) {
-        assert(x == source or x == sink or (0 <= x and x < n + aux));
-        assert(y == source or y == sink or (0 <= y and y < n + aux));
-        if (cost == 0) return;
-        es.emplace_back(x, y, cost);
+    void add_edge(int i, int j, T x) {
+        assert(i == source or i == sink or (0 <= i and i < n + aux));
+        assert(j == source or j == sink or (0 <= j and j < n + aux));
+        if (x == 0) return;
+        assert(x > 0);
+        es.emplace_back(i, j, x);
     }
 
-    void add_cost(int x, std::array<T, 2> cost) {
-        for (int i = 0; i < 2; i++) costs[x][i] += cost[i];
+    void _add(T x) { base += x; }
+
+    void _add(int i, const std::array<T, 2>& x) {
+        if (x[0] <= x[1]) {
+            _add(x[0]);
+            add_edge(source, i, x[1] - x[0]);
+        } else {
+            _add(x[1]);
+            add_edge(i, sink, x[0] - x[1]);
+        }
     }
 
-    void add_cost(int x, int y, std::array<std::array<T, 2>, 2> cost) {
-        assert(cost[0][1] + cost[1][0] >= cost[0][0] + cost[1][1]);
-        base_cost += cost[0][0];
-        add_cost(x, {0, cost[1][0] - cost[0][0]});
-        add_cost(y, {0, cost[1][1] - cost[1][0]});
-        add_cost_01(x, y, (cost[0][1] - cost[0][0]) - (cost[1][1] - cost[1][0]));
+    void _add(int i, int j, const std::array<std::array<T, 2>, 2>& x) {
+        _add(i, {x[0][0], x[1][0]});
+        _add(j, {0, x[1][1] - x[1][0]});
+        add_edge(i, j, (x[0][1] + x[1][0]) - (x[0][0] + x[1][1]));
     }
 
-    // void add_cost(int x, int y, std::array<std::array<std::array<T, 2>, 2>, 2> cost) {}
+    void _add(int i, int j, int k, const std::array<std::array<std::array<T, 2>, 2>, 2>& x) {
+        T P = x[0][0][0] - (x[1][0][0] + x[0][1][0] + x[0][0][1]) + (x[1][1][0] + x[0][1][1] + x[1][0][1]) - x[1][1][1];
+        if (P >= 0) {
+            _add(x[0][0][0]);
+            _add(i, {0, x[1][0][0] - x[0][0][0]});
+            _add(j, {0, x[0][1][0] - x[0][0][0]});
+            _add(k, {0, x[0][0][1] - x[0][0][0]});
+            _add(i, j, {0, 0, 0, (x[0][0][0] + x[1][1][0]) - (x[1][0][0] + x[0][1][0])});
+            _add(j, k, {0, 0, 0, (x[0][0][0] + x[0][1][1]) - (x[0][1][0] + x[0][0][1])});
+            _add(k, i, {0, 0, 0, (x[0][0][0] + x[1][0][1]) - (x[0][0][1] + x[1][0][0])});
+            _add(-P);
+            int nxt = n + aux++;
+            add_edge(i, nxt, P);
+            add_edge(j, nxt, P);
+            add_edge(k, nxt, P);
+            add_edge(nxt, sink, P);
+        } else {
+            _add(x[1][1][1]);
+            _add(i, {x[0][1][1] - x[1][1][1], 0});
+            _add(j, {x[1][0][1] - x[1][1][1], 0});
+            _add(k, {x[1][1][0] - x[1][1][1], 0});
+            _add(i, j, {(x[1][1][1] + x[0][0][1]) - (x[0][1][1] + x[1][0][1]), 0, 0, 0});
+            _add(j, k, {(x[1][1][1] + x[1][0][0]) - (x[1][0][1] + x[1][1][0]), 0, 0, 0});
+            _add(k, i, {(x[1][1][1] + x[0][1][0]) - (x[1][1][0] + x[0][1][1]), 0, 0, 0});
+            P = -P;
+            _add(-P);
+            int nxt = n + aux++;
+            add_edge(nxt, i, P);
+            add_edge(nxt, j, P);
+            add_edge(nxt, k, P);
+            add_edge(source, nxt, P);
+        }
+    }
 };

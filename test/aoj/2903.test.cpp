@@ -12,7 +12,7 @@ int main() {
     for (int i = 0; i < R; i++) std::cin >> S[i];
 
     auto id = [&](int i, int j) { return i * C + j; };
-    BinaryOptimization<int> PSP(R * C);
+    BinaryOptimization<int, false> BOPT(R * C);
     int ans = 0;
     for (int i = 0; i < R; i++) {
         for (int j = 0; j < C; j++) {
@@ -23,12 +23,12 @@ int main() {
                 if (R <= nx || C <= ny) continue;
                 if (S[nx][ny] != '#') continue;
                 if (!k)
-                    PSP.add_profit_00(id(i, j), id(nx, ny), 1);
+                    BOPT.add(id(i, j), id(nx, ny), {1, 0, 0, 0});
                 else
-                    PSP.add_profit_11(id(i, j), id(nx, ny), 1);
+                    BOPT.add(id(i, j), id(nx, ny), {0, 0, 0, 1});
             }
         }
     }
 
-    std::cout << ans - PSP.max_profit().first << '\n';
+    std::cout << ans - BOPT.solve().first << '\n';
 }

@@ -14,7 +14,7 @@ int main() {
     for (int& val : E) std::cin >> val;
     for (int& val : F) std::cin >> val;
     for (int& val : V) std::cin >> val;
-    BinaryOptimization<long long> PSP(N + M + K);
+    BinaryOptimization<long long, false> BOPT(N + M + K);
     for (int i = 0; i < N; i++) {
         int L;
         std::cin >> L;
@@ -22,20 +22,20 @@ int main() {
             int A;
             std::cin >> A;
             A--;
-            PSP.add_cost_10(i, N + M + A, inf);
+            BOPT.add(i, N + M + A, {0, 0, -inf, 0});
         }
-        PSP.add_profit_1(i, E[i]);
+        BOPT.add(i, {0, E[i]});
     }
-    for (int i = 0; i < M; i++) PSP.add_profit_0(N + i, F[i]);
-    for (int i = 0; i < K; i++) PSP.add_cost_1(N + M + i, V[i]);
+    for (int i = 0; i < M; i++) BOPT.add(N + i, {F[i], 0});
+    for (int i = 0; i < K; i++) BOPT.add(N + M + i, {0, -V[i]});
     for (; P--;) {
         int I, J;
         std::cin >> I >> J;
         I--, J--;
-        PSP.add_cost_10(I, N + J, inf);
+        BOPT.add(I, N + J, {0, 0, -inf, 0});
     }
 
-    auto [C, res] = PSP.max_profit();
+    auto [C, res] = BOPT.solve();
     std::cout << C << '\n';
     for (int i = N; i < N + M; i++) res[i] = not res[i];
     int T = 0;
