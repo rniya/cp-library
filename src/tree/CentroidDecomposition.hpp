@@ -21,7 +21,7 @@ struct CentroidDecomposition {
         return centroids;
     }
 
-private:
+  private:
     int n;
     std::vector<int> sub, centroids;
     std::vector<bool> is_centroid;
