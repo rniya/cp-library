@@ -153,6 +153,9 @@ data:
       path: src/graph/BellmanFord.hpp
       title: Bellman-Ford
     - icon: ':heavy_check_mark:'
+      path: src/graph/BinaryOptimization.hpp
+      title: src/graph/BinaryOptimization.hpp
+    - icon: ':heavy_check_mark:'
       path: src/graph/BipartiteMatching.hpp
       title: Bipartite Matching
     - icon: ':heavy_check_mark:'
@@ -177,9 +180,6 @@ data:
       path: src/graph/PrimalDualonDAG.hpp
       title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\
         \u6D41\uFF09"
-    - icon: ':heavy_check_mark:'
-      path: src/graph/ProjectSelectionProblem.hpp
-      title: Project Selection Problem (based on ac-library)
     - icon: ':warning:'
       path: src/graph/RangeEdgeGraph.hpp
       title: Range Edge Graph

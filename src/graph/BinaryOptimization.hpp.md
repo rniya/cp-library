@@ -27,12 +27,12 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/maxflow:\
     \ line -1: no such header\n"
   code: "#include <array>\n#include <tuple>\n#include \"atcoder/maxflow\"\n\ntemplate\
-    \ <typename T> struct ProjectSelectionProblem {\n    ProjectSelectionProblem()\
-    \ = default;\n\n    explicit ProjectSelectionProblem(int n) : n(n), costs(n, std::vector<T>(2,\
-    \ 0)) {}\n\n    void add_cost_0(int x, T cost) {\n        assert(0 <= x and x\
-    \ < n);\n        assert(cost >= 0);\n        add_cost(x, {cost, 0});\n    }\n\n\
-    \    void add_cost_1(int x, T cost) {\n        assert(0 <= x and x < n);\n   \
-    \     assert(cost >= 0);\n        add_cost(x, {0, cost});\n    }\n\n    void add_profit_0(int\
+    \ <typename T> struct BinaryOptimization {\n    BinaryOptimization() = default;\n\
+    \n    explicit BinaryOptimization(int n) : n(n), costs(n, std::vector<T>(2, 0))\
+    \ {}\n\n    void add_cost_0(int x, T cost) {\n        assert(0 <= x and x < n);\n\
+    \        assert(cost >= 0);\n        add_cost(x, {cost, 0});\n    }\n\n    void\
+    \ add_cost_1(int x, T cost) {\n        assert(0 <= x and x < n);\n        assert(cost\
+    \ >= 0);\n        add_cost(x, {0, cost});\n    }\n\n    void add_profit_0(int\
     \ x, T profit) {\n        assert(0 <= x and x < n);\n        assert(profit >=\
     \ 0);\n        add_cost(x, {-profit, 0});\n    }\n\n    void add_profit_1(int\
     \ x, T profit) {\n        assert(0 <= x and x < n);\n        assert(profit >=\
@@ -89,49 +89,17 @@ data:
     \ {}\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/graph/ProjectSelectionProblem.hpp
+  path: src/graph/BinaryOptimization.hpp
   requiredBy: []
-  timestamp: '2024-03-31 19:13:44+09:00'
+  timestamp: '2024-03-31 19:30:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp
   - test/yukicoder/1984.test.cpp
-documentation_of: src/graph/ProjectSelectionProblem.hpp
+documentation_of: src/graph/BinaryOptimization.hpp
 layout: document
-title: Project Selection Problem (based on ac-library)
+redirect_from:
+- /library/src/graph/BinaryOptimization.hpp
+- /library/src/graph/BinaryOptimization.hpp.html
+title: src/graph/BinaryOptimization.hpp
 ---
-
-## 概要
-Project Selection Problem，いわゆる燃やす埋める問題を解く際の補助ライブラリ．
-
-| メンバ関数                        | 効果                                           | 時間計算量 |
-| --------------------------------- | ---------------------------------------------- | ---------- |
-| `ProjectSelectionProblem(n)`      | 頂点数 $n$ のグラフとして初期化する．          | $O(n)$     |
-| `x_false_loss(x, z)`              | $x$ が $0$ のときに $z$ 失う．                 | $O(1)$     |
-| `x_false_profit(x, z)`            | $x$ が $0$ のときに $z$ 得る．                 | $O(1)$     |
-| `x_true_loss(x, z)`               | $x$ が $1$ のときに $z$ 失う．                 | $O(1)$     |
-| `x_true_profit(x, z)`             | $x$ が $1$ のときに $z$ 得る．                 | $O(1)$     |
-| `x_false_y_true_loss(x, y, z)`    | $x$ が $0$ かつ $y$ が $1$ のときに $z$ 失う． | $O(1)$     |
-| `x_true_y_false_loss(x, y, z)`    | $x$ が $1$ かつ $y$ が $0$ のときに $z$ 失う． | $O(1)$     |
-| `x_false_y_false_profit(x, y, z)` | $x$ が $0$ かつ $y$ が $0$ のときに $z$ 得る． | $O(1)$     |
-| `x_true_y_true_profit(x, y, z)`   | $x$ が $1$ かつ $y$ が $1$ のときに $z$ 得る． | $O(1)$     |
-| `min_loss()`                      | 損失の最小値を返す．                           | $O(n^2m)$  |
-| `max_profit()`                    | 利得の最大値を返す．                           | $O(n^2m)$  |
-
-一般にこれ以外の条件に対応する際には 2 部グラフなどの制約が必要になる．
-
-## 問題例
-- [Codeforces Round #668 (Div. 1) E. Bricks](https://codeforces.com/contest/1404/problem/E)
-- [AtCoder Regular Contest 085 E - MUL](https://atcoder.jp/contests/arc085/tasks/arc085_c)
-- [AtCoder Regular Contest 107 F - Sum of Abs](https://atcoder.jp/contests/arc107/tasks/arc107_f)
-- [AtCoder Regular Contest 129 E - Yet Another Minimization](https://atcoder.jp/contests/arc129/tasks/arc129_e)
-  - 2 択だけでなく選択肢が $k$ 個あるような場合の問題．[このブログ](https://maspypy.com/atcoder-%e5%8f%82%e5%8a%a0%e6%84%9f%e6%83%b3-2020-10-31arc107)の F の解説にある辺の張り方が参考になる．ライブラリにしていいかもしれない．
-- [yukicoder No.1984 [Cherry 4th Tune*] Dilemma](https://yukicoder.me/problems/no/1984)
-  - 復元の際には `atcoder::mf_graph::min_cut(s)` を利用する．
-- [2023牛客暑期多校训练营2 B Link with Railway Company](https://ac.nowcoder.com/acm/contest/57356/F)
-
-## 参照
-- [最小カットを使って「燃やす埋める問題」を解く](https://www.slideshare.net/shindannin/project-selection-problem)
-- [最小カットについて - よすぽの日記](https://yosupo.hatenablog.com/entry/2015/03/31/134336)
-- [Project Selection (燃やす埋める) 周りの話についてもう少し考えた - とこはるのまとめ](http://tokoharuland.hateblo.jp/entry/2017/12/25/000003)
-- [続：『燃やす埋める』と『ProjectSelectionProblem』 - とこはるのまとめ](http://tokoharuland.hateblo.jp/entry/2017/11/13/220607)
