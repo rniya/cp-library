@@ -53,8 +53,8 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/2891.test.cpp
   - test/aoj/GRL_4_A.test.cpp
+  - test/aoj/2891.test.cpp
 documentation_of: src/graph/CycleDetection.hpp
 layout: document
 title: Cycle Detection

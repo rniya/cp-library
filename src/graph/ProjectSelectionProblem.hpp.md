@@ -3,111 +3,92 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/2903.test.cpp
     title: test/aoj/2903.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
-    \ File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/internal_queue:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/maxflow:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <limits>\n\
-    #include <queue>\n#include <vector>\n\n#include \"atcoder/internal_queue\"\n\n\
-    namespace ProjectSelectionProblem_Impl {\n\ntemplate <class Cap> struct mf_graph\
-    \ {\npublic:\n    mf_graph() : _n(0) {}\n    explicit mf_graph(int n) : _n(n),\
-    \ g(n) {}\n\n    int add_edge(int from, int to, Cap cap) {\n        assert(0 <=\
-    \ from && from < _n);\n        assert(0 <= to && to < _n);\n        assert(0 <=\
-    \ cap);\n        int m = int(pos.size());\n        pos.push_back({from, int(g[from].size())});\n\
-    \        int from_id = int(g[from].size());\n        int to_id = int(g[to].size());\n\
-    \        if (from == to) to_id++;\n        g[from].push_back(_edge{to, to_id,\
-    \ cap});\n        g[to].push_back(_edge{from, from_id, 0});\n        return m;\n\
-    \    }\n    int add_vertex() {\n        g.resize(_n + 1);\n        return _n++;\n\
-    \    }\n\n    struct edge {\n        int from, to;\n        Cap cap, flow;\n \
-    \   };\n\n    edge get_edge(int i) {\n        int m = int(pos.size());\n     \
-    \   assert(0 <= i && i < m);\n        auto _e = g[pos[i].first][pos[i].second];\n\
-    \        auto _re = g[_e.to][_e.rev];\n        return edge{pos[i].first, _e.to,\
-    \ _e.cap + _re.cap, _re.cap};\n    }\n    std::vector<edge> edges() {\n      \
-    \  int m = int(pos.size());\n        std::vector<edge> result;\n        for (int\
-    \ i = 0; i < m; i++) {\n            result.push_back(get_edge(i));\n        }\n\
-    \        return result;\n    }\n    void change_edge(int i, Cap new_cap, Cap new_flow)\
-    \ {\n        int m = int(pos.size());\n        assert(0 <= i && i < m);\n    \
-    \    assert(0 <= new_flow && new_flow <= new_cap);\n        auto& _e = g[pos[i].first][pos[i].second];\n\
-    \        auto& _re = g[_e.to][_e.rev];\n        _e.cap = new_cap - new_flow;\n\
-    \        _re.cap = new_flow;\n    }\n\n    Cap flow(int s, int t) { return flow(s,\
-    \ t, std::numeric_limits<Cap>::max()); }\n    Cap flow(int s, int t, Cap flow_limit)\
-    \ {\n        assert(0 <= s && s < _n);\n        assert(0 <= t && t < _n);\n  \
-    \      assert(s != t);\n\n        std::vector<int> level(_n), iter(_n);\n    \
-    \    atcoder::internal::simple_queue<int> que;\n\n        auto bfs = [&]() {\n\
-    \            std::fill(level.begin(), level.end(), -1);\n            level[s]\
-    \ = 0;\n            que.clear();\n            que.push(s);\n            while\
-    \ (!que.empty()) {\n                int v = que.front();\n                que.pop();\n\
-    \                for (auto e : g[v]) {\n                    if (e.cap == 0 ||\
-    \ level[e.to] >= 0) continue;\n                    level[e.to] = level[v] + 1;\n\
-    \                    if (e.to == t) return;\n                    que.push(e.to);\n\
-    \                }\n            }\n        };\n        auto dfs = [&](auto self,\
-    \ int v, Cap up) {\n            if (v == s) return up;\n            Cap res =\
-    \ 0;\n            int level_v = level[v];\n            for (int& i = iter[v];\
-    \ i < int(g[v].size()); i++) {\n                _edge& e = g[v][i];\n        \
-    \        if (level_v <= level[e.to] || g[e.to][e.rev].cap == 0) continue;\n  \
-    \              Cap d = self(self, e.to, std::min(up - res, g[e.to][e.rev].cap));\n\
-    \                if (d <= 0) continue;\n                g[v][i].cap += d;\n  \
-    \              g[e.to][e.rev].cap -= d;\n                res += d;\n         \
-    \       if (res == up) return res;\n            }\n            level[v] = _n;\n\
-    \            return res;\n        };\n\n        Cap flow = 0;\n        while (flow\
-    \ < flow_limit) {\n            bfs();\n            if (level[t] == -1) break;\n\
-    \            std::fill(iter.begin(), iter.end(), 0);\n            Cap f = dfs(dfs,\
-    \ t, flow_limit - flow);\n            if (!f) break;\n            flow += f;\n\
-    \        }\n        return flow;\n    }\n\n    std::vector<bool> min_cut(int s)\
-    \ {\n        std::vector<bool> visited(_n);\n        atcoder::internal::simple_queue<int>\
-    \ que;\n        que.push(s);\n        while (!que.empty()) {\n            int\
-    \ p = que.front();\n            que.pop();\n            visited[p] = true;\n \
-    \           for (auto e : g[p]) {\n                if (e.cap && !visited[e.to])\
-    \ {\n                    visited[e.to] = true;\n                    que.push(e.to);\n\
-    \                }\n            }\n        }\n        return visited;\n    }\n\
-    \nprivate:\n    int _n;\n    struct _edge {\n        int to, rev;\n        Cap\
-    \ cap;\n    };\n    std::vector<std::pair<int, int>> pos;\n    std::vector<std::vector<_edge>>\
-    \ g;\n};\n\ntemplate <typename T> struct ProjectSelectionProblem {\n    ProjectSelectionProblem(int\
-    \ n) : n(n + 2), s(n), t(n + 1), sum(T(0)), graph(n + 2) {}\n\n    void x_false_loss(int\
-    \ x, T z) {\n        assert(0 <= x and x < n);\n        graph.add_edge(x, t, z);\n\
-    \    }\n\n    void x_false_profit(int x, T z) {\n        assert(0 <= x and x <\
-    \ n);\n        sum += z;\n        x_true_loss(x, z);\n    }\n\n    void x_true_loss(int\
-    \ x, T z) {\n        assert(0 <= x and x < n);\n        graph.add_edge(s, x, z);\n\
-    \    }\n\n    void x_true_profit(int x, T z) {\n        assert(0 <= x and x <\
-    \ n);\n        sum += z;\n        x_false_loss(x, z);\n    }\n\n    void x_false_y_true_loss(int\
-    \ x, int y, T z) {\n        assert(0 <= x and x < n);\n        assert(0 <= y and\
-    \ y < n);\n        graph.add_edge(x, y, z);\n    }\n\n    void x_true_y_false_loss(int\
-    \ x, int y, T z) {\n        assert(0 <= x and x < n);\n        assert(0 <= y and\
-    \ y < n);\n        graph.add_edge(y, x, z);\n    }\n\n    void x_false_y_false_profit(int\
-    \ x, int y, T z) {\n        assert(0 <= x and x < n);\n        assert(0 <= y and\
-    \ y < n);\n        sum += z;\n        int w = graph.add_vertex();\n        n++;\n\
-    \        x_true_loss(w, z);\n        x_false_y_true_loss(w, x, inf);\n       \
-    \ x_false_y_true_loss(w, y, inf);\n    }\n\n    void x_true_y_true_profit(int\
-    \ x, int y, T z) {\n        assert(0 <= x and x < n);\n        assert(0 <= y and\
-    \ y < n);\n        sum += z;\n        int w = graph.add_vertex();\n        n++;\n\
-    \        x_false_loss(w, z);\n        x_true_y_false_loss(w, x, inf);\n      \
-    \  x_true_y_false_loss(w, y, inf);\n    }\n\n    T min_loss() { return graph.flow(s,\
-    \ t) - sum; }\n\n    T max_profit() { return -min_loss(); }\n\nprivate:\n    int\
-    \ n, s, t;\n    T sum;\n    const T inf = std::numeric_limits<T>::max() / 2;\n\
-    \    mf_graph<T> graph;\n};\n\n}  // namespace ProjectSelectionProblem_Impl\n\n\
-    using ProjectSelectionProblem_Impl::ProjectSelectionProblem;\n"
+  code: "#include \"atcoder/maxflow\"\n\ntemplate <typename T> struct ProjectSelectionProblem\
+    \ {\n    ProjectSelectionProblem() = default;\n\n    explicit ProjectSelectionProblem(int\
+    \ n) : n(n), costs(n, std::vector<T>(2, 0)) {}\n\n    void add_cost_0(int x, T\
+    \ cost) {\n        assert(0 <= x and x < n);\n        assert(cost >= 0);\n   \
+    \     add_cost(x, {cost, 0});\n    }\n\n    void add_cost_1(int x, T cost) {\n\
+    \        assert(0 <= x and x < n);\n        assert(cost >= 0);\n        add_cost(x,\
+    \ {0, cost});\n    }\n\n    void add_profit_0(int x, T profit) {\n        assert(0\
+    \ <= x and x < n);\n        assert(profit >= 0);\n        add_cost(x, {-profit,\
+    \ 0});\n    }\n\n    void add_profit_1(int x, T profit) {\n        assert(0 <=\
+    \ x and x < n);\n        assert(profit >= 0);\n        add_cost(x, {0, -profit});\n\
+    \    }\n\n    void add_cost_01(int x, int y, T cost) {\n        assert(0 <= x\
+    \ and x < n);\n        assert(0 <= y and y < n);\n        assert(cost >= 0);\n\
+    \        add_edge(x, y, cost);\n    }\n\n    void add_cost_10(int x, int y, T\
+    \ cost) { add_cost_01(y, x, cost); }\n\n    void add_profit_00(int x, int y, T\
+    \ profit) {\n        assert(0 <= x and x < n);\n        assert(0 <= y and y <\
+    \ n);\n        assert(profit >= 0);\n        add_cost(x, y, {-profit, 0, 0, 0});\n\
+    \    }\n\n    void add_profit_11(int x, int y, T profit) {\n        assert(0 <=\
+    \ x and x < n);\n        assert(0 <= y and y < n);\n        assert(profit >= 0);\n\
+    \        add_cost(x, y, {0, 0, 0, -profit});\n    }\n\n    // void add_cost_for_3(int\
+    \ x, int y, int z, std::array<std::array<std::array<T, 2>, 2>, 2> cost) {\n  \
+    \  //     add_cost(x, y, z, cost);\n    // }\n\n    void add_profit_all_0(const\
+    \ std::vector<int>& v, T profit) {\n        assert(profit >= 0);\n        if (v.size()\
+    \ == 0)\n            base_cost -= profit;\n        else if (v.size() == 1)\n \
+    \           add_profit_0(v[0], profit);\n        else if (v.size() == 2)\n   \
+    \         add_profit_00(v[0], v[1], profit);\n        else {\n            base_cost\
+    \ -= profit;\n            int nxt = n + aux++;\n            add_edge(source, nxt,\
+    \ profit);\n            for (const int& x : v) add_edge(nxt, x, profit);\n   \
+    \     }\n    }\n\n    void add_profit_all_1(const std::vector<int>& v, T profit)\
+    \ {\n        assert(profit >= 0);\n        if (v.size() == 0)\n            base_cost\
+    \ -= profit;\n        else if (v.size() == 1)\n            add_profit_1(v[0],\
+    \ profit);\n        else if (v.size() == 2)\n            add_profit_11(v[0], v[1],\
+    \ profit);\n        else {\n            base_cost -= profit;\n            int\
+    \ nxt = n + aux++;\n            add_edge(nxt, sink, profit);\n            for\
+    \ (const int& x : v) add_edge(x, nxt, profit);\n        }\n    }\n\n    std::pair<T,\
+    \ std::vector<bool>> min_cost() {\n        for (int i = 0; i < n; i++) {\n   \
+    \         auto& tmp = costs[i];\n            if (tmp[0] <= tmp[1]) {\n       \
+    \         base_cost += tmp[0];\n                add_edge(source, i, tmp[1] - tmp[0]);\n\
+    \            } else {\n                base_cost += tmp[1];\n                add_edge(i,\
+    \ sink, tmp[0] - tmp[1]);\n            }\n        }\n        atcoder::mf_graph<T>\
+    \ g(n + aux + 2);\n        int s = n + aux, t = s + 1;\n        for (auto [u,\
+    \ v, w] : es) {\n            u = (u == source ? s : u == sink ? t : u);\n    \
+    \        v = (v == source ? s : v == sink ? t : v);\n            g.add_edge(u,\
+    \ v, w);\n        }\n        auto sum = base_cost + g.flow(s, t);\n        auto\
+    \ x = g.min_cut(s);\n        x.resize(n);\n        for (int i = 0; i < n; i++)\
+    \ x[i] = not x[i];\n        return {sum, x};\n    }\n\n    std::pair<T, std::vector<bool>>\
+    \ max_profit() {\n        auto res = min_cost();\n        res.first *= -1;\n \
+    \       return res;\n    }\n\n  private:\n    int n, aux = 0, source = -1, sink\
+    \ = -2;\n    T base_cost;\n    std::vector<std::vector<T>> costs;\n    std::vector<std::tuple<int,\
+    \ int, T>> es;\n\n    void add_edge(int x, int y, T cost) {\n        assert(x\
+    \ == source or x == sink or (0 <= x and x < n + aux));\n        assert(y == source\
+    \ or y == sink or (0 <= y and y < n + aux));\n        if (cost == 0) return;\n\
+    \        es.emplace_back(x, y, cost);\n    }\n\n    void add_cost(int x, std::array<T,\
+    \ 2> cost) {\n        for (int i = 0; i < 2; i++) costs[x][i] += cost[i];\n  \
+    \  }\n\n    void add_cost(int x, int y, std::array<std::array<T, 2>, 2> cost)\
+    \ {\n        assert(cost[0][1] + cost[1][0] >= cost[0][0] + cost[1][1]);\n   \
+    \     base_cost += cost[0][0];\n        add_cost(x, {0, cost[1][0] - cost[0][0]});\n\
+    \        add_cost(y, {0, cost[1][1] - cost[1][0]});\n        add_cost_01(x, y,\
+    \ (cost[0][1] - cost[0][0]) - (cost[1][1] - cost[1][0]));\n    }\n\n    // void\
+    \ add_cost(int x, int y, std::array<std::array<std::array<T, 2>, 2>, 2> cost)\
+    \ {}\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: src/graph/ProjectSelectionProblem.hpp
   requiredBy: []
-  timestamp: '2023-04-23 18:55:45+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-03-31 18:08:00+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/2903.test.cpp
 documentation_of: src/graph/ProjectSelectionProblem.hpp

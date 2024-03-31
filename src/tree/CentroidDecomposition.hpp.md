@@ -18,7 +18,7 @@ data:
     \        assert(0 <= v && v < n);\n        G[u].emplace_back(v);\n        G[v].emplace_back(u);\n\
     \    }\n\n    std::vector<int> build(int x = 0) {\n        centroids.clear();\n\
     \        fill(is_centroid.begin(), is_centroid.end(), false);\n        centroid_decomposition(x);\n\
-    \        return centroids;\n    }\n\nprivate:\n    int n;\n    std::vector<int>\
+    \        return centroids;\n    }\n\n  private:\n    int n;\n    std::vector<int>\
     \ sub, centroids;\n    std::vector<bool> is_centroid;\n\n    int dfs_sz(int v,\
     \ int p) {\n        sub[v] = 1;\n        for (int& u : G[v]) {\n            if\
     \ (u == p || is_centroid[u]) continue;\n            sub[v] += dfs_sz(u, v);\n\
@@ -37,7 +37,7 @@ data:
     \        G[v].emplace_back(u);\n    }\n\n    std::vector<int> build(int x = 0)\
     \ {\n        centroids.clear();\n        fill(is_centroid.begin(), is_centroid.end(),\
     \ false);\n        centroid_decomposition(x);\n        return centroids;\n   \
-    \ }\n\nprivate:\n    int n;\n    std::vector<int> sub, centroids;\n    std::vector<bool>\
+    \ }\n\n  private:\n    int n;\n    std::vector<int> sub, centroids;\n    std::vector<bool>\
     \ is_centroid;\n\n    int dfs_sz(int v, int p) {\n        sub[v] = 1;\n      \
     \  for (int& u : G[v]) {\n            if (u == p || is_centroid[u]) continue;\n\
     \            sub[v] += dfs_sz(u, v);\n        }\n        return sub[v];\n    }\n\
@@ -53,7 +53,7 @@ data:
   isVerificationFile: false
   path: src/tree/CentroidDecomposition.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2024-03-31 18:08:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/frequency_table_of_tree_distance.test.cpp

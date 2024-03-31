@@ -104,9 +104,9 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL_3_B.test.cpp
+  - test/aoj/CGL_4_B.test.cpp
   - test/aoj/CGL_4_C.test.cpp
   - test/aoj/CGL_3_C.test.cpp
-  - test/aoj/CGL_4_B.test.cpp
   - test/aoj/CGL_3_A.test.cpp
 documentation_of: src/geometry/Polygon.hpp
 layout: document

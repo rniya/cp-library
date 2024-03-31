@@ -73,8 +73,8 @@ data:
   isVerificationFile: false
   path: src/math/binomial.hpp
   requiredBy:
-  - src/math/count_young_paths.hpp
   - src/polynomial/lagrange_interpolation.hpp
+  - src/math/count_young_paths.hpp
   timestamp: '2023-05-21 16:36:42+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
