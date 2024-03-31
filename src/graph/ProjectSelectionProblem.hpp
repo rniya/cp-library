@@ -1,3 +1,5 @@
+#include <array>
+#include <tuple>
 #include "atcoder/maxflow"
 
 template <typename T> struct ProjectSelectionProblem {
@@ -121,7 +123,7 @@ template <typename T> struct ProjectSelectionProblem {
 
   private:
     int n, aux = 0, source = -1, sink = -2;
-    T base_cost;
+    T base_cost = 0;
     std::vector<std::vector<T>> costs;
     std::vector<std::tuple<int, int, T>> es;
 
