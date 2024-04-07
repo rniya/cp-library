@@ -2,8 +2,6 @@
 #include <iostream>
 
 template <typename T, bool Reduce = false> class Rational {
-    T num, den;
-
     static T my_gcd(T x_, T y_) {
         unsigned long long x = x_ < 0 ? -x_ : x_, y = y_ < 0 ? -y_ : y_;
         if (!x or !y) return x + y;
@@ -28,6 +26,8 @@ template <typename T, bool Reduce = false> class Rational {
     }
 
   public:
+    T num, den;
+
     Rational() {}
     Rational(T num) : num(num), den(T(1)) {}
     Rational(T num, T den) : num(num), den(den) { normalize(); }

@@ -1,22 +1,25 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 
-#include "base.hpp"
+#include <iostream>
 #include "datastructure/SparseTable.hpp"
 
-int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    int N, Q;
-    cin >> N >> Q;
-    vector<int> a(N);
-    for (int i = 0; i < N; i++) cin >> a[i];
+int op(int l, int r) { return l < r ? l : r; }
 
-    SparseTable<int> ST([](int a, int b) { return min(a, b); });
-    ST.build(a);
+int e() { return (1 << 30) - 1; }
+
+int main() {
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
+    int N, Q;
+    std::cin >> N >> Q;
+    std::vector<int> a(N);
+    for (int& val : a) std::cin >> val;
+
+    SparseTable<int, op, e> ST(a);
 
     for (; Q--;) {
         int l, r;
-        cin >> l >> r;
-        cout << ST.query(l, r) << '\n';
+        std::cin >> l >> r;
+        std::cout << ST.prod(l, r) << '\n';
     }
 }
