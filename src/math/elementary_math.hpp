@@ -97,7 +97,7 @@ template <typename T> T euler_phi(T n) {
 
 std::vector<int> euler_phi_table(int n) {
     std::vector<int> res(n + 1, 0);
-    iota(res.begin(), res.end(), 0);
+    std::iota(res.begin(), res.end(), 0);
     for (int i = 2; i <= n; i++) {
         if (res[i] != i) continue;
         for (int j = i; j <= n; j += i) res[j] = res[j] / i * (i - 1);
