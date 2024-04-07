@@ -3,10 +3,10 @@
 #include "base.hpp"
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int A, B;
-    cin >> A >> B;
+    std::cin >> A >> B;
 
-    cout << A + B << '\n';
+    std::cout << A + B << '\n';
 }

@@ -1,23 +1,23 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/persistent_unionfind"
 
-#include "base.hpp"
+#include <iostream>
 #include "datastructure/UndoUnionFind.hpp"
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int N, Q;
-    cin >> N >> Q;
-    vector<int> t(Q), u(Q), v(Q);
-    vector<vector<int>> G(Q + 1);
+    std::cin >> N >> Q;
+    std::vector<int> t(Q), u(Q), v(Q);
+    std::vector<std::vector<int>> G(Q + 1);
     for (int i = 0; i < Q; i++) {
         int k;
-        cin >> t[i] >> k >> u[i] >> v[i];
+        std::cin >> t[i] >> k >> u[i] >> v[i];
         G[++k].emplace_back(i + 1);
     }
 
     UndoUnionFind UF(N);
-    vector<int> ans(Q, -1);
+    std::vector<int> ans(Q, -1);
     auto dfs = [&](auto self, int cur) -> void {
         if (cur) {
             if (!t[cur - 1])
@@ -31,7 +31,7 @@ int main() {
     dfs(dfs, 0);
     for (int i = 0; i < Q; i++) {
         if (~ans[i]) {
-            cout << ans[i] << '\n';
+            std::cout << ans[i] << '\n';
         }
     }
     return 0;

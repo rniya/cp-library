@@ -1,20 +1,20 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/factorize"
 
-#include "base.hpp"
+#include <iostream>
 #include "math/fast_factorize.hpp"
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int Q;
-    cin >> Q;
+    std::cin >> Q;
     for (; Q--;) {
         long long a;
-        cin >> a;
+        std::cin >> a;
         auto res = fast_factorize::factorize(a);
-        cout << res.size();
-        for (auto& x : res) cout << ' ' << x;
-        cout << '\n';
+        std::cout << res.size();
+        for (auto& x : res) std::cout << ' ' << x;
+        std::cout << '\n';
     }
     return 0;
 }

@@ -1,24 +1,24 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 
 #include "graph/BipartiteMatching.hpp"
-#include "base.hpp"
+#include <iostream>
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int L, R, M;
-    cin >> L >> R >> M;
+    std::cin >> L >> R >> M;
 
     BipartiteMatching BM(L, R);
     for (; M--;) {
         int a, b;
-        cin >> a >> b;
+        std::cin >> a >> b;
         BM.add_edge(a, b);
     }
 
     BM.solve();
     auto ans = BM.max_matching();
-    cout << ans.size() << '\n';
-    for (auto p : ans) cout << p.first << ' ' << p.second << '\n';
+    std::cout << ans.size() << '\n';
+    for (auto p : ans) std::cout << p.first << ' ' << p.second << '\n';
     return 0;
 }

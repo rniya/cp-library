@@ -1,17 +1,17 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/discrete_logarithm_mod"
 
-#include "base.hpp"
+#include <iostream>
 #include "math/discrete_logarithm.hpp"
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
     int T;
-    cin >> T;
+    std::cin >> T;
     for (; T--;) {
         int X, Y, M;
-        cin >> X >> Y >> M;
-        cout << discrete_logarithm(X, Y, M) << '\n';
+        std::cin >> X >> Y >> M;
+        std::cout << discrete_logarithm(X, Y, M) << '\n';
     }
     return 0;
 }
