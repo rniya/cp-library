@@ -1,4 +1,6 @@
 #pragma once
+#include <algorithm>
+#include <cassert>
 #include <numeric>
 #include <tuple>
 #include <vector>
@@ -107,7 +109,7 @@ std::vector<int> euler_phi_table(int n) {
 template <typename T> T order(T x, T m) {
     T n = euler_phi(m);
     auto cand = divisor(n);
-    sort(cand.begin(), cand.end());
+    std::sort(cand.begin(), cand.end());
     for (auto& i : cand) {
         if (modpow(x, i, m) == 1) {
             return i;
