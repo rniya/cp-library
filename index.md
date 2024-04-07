@@ -164,6 +164,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/DirectedCycleDetection.hpp
       title: Directed Cycle Detection
+    - icon: ':heavy_check_mark:'
+      path: src/graph/DirectedShortestCycle.hpp
+      title: Directed Shortest Cycle
     - icon: ':warning:'
       path: src/graph/EdgeMatching.hpp
       title: "\u8FBA\u540C\u58EB\u306E\u30DE\u30C3\u30C1\u30F3\u30B0"
@@ -196,6 +199,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/TwoSAT.hpp
       title: 2-SAT
+    - icon: ':heavy_check_mark:'
+      path: src/graph/UndirectedShortestCycle.hpp
+      title: Undirected Shortest Cycle
     - icon: ':warning:'
       path: src/graph/complement_graph_shortest_path.hpp
       title: "\u88DC\u30B0\u30E9\u30D5\u4E0A\u306E\u6700\u77ED\u8DEF"
@@ -695,6 +701,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1289.test.cpp
       title: test/yukicoder/1289.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1320.test.cpp
+      title: test/yukicoder/1320.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1678.test.cpp
       title: test/yukicoder/1678.test.cpp
