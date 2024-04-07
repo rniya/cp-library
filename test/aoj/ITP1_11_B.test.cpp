@@ -1,25 +1,27 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/ITP1_11_B"
 
-#include "base.hpp"
+#include <iostream>
+#include <map>
+#include <utility>
 #include "util/Dice.hpp"
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    vector<int> v(6);
-    for (int i = 0; i < 6; i++) cin >> v[i];
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
+    std::vector<int> v(6);
+    for (int i = 0; i < 6; i++) std::cin >> v[i];
 
     Dice d(v);
     auto ds = d.make_all();
-    map<pair<int, int>, int> mp;
+    std::map<std::pair<int, int>, int> mp;
     for (auto& x : ds) mp[{x.top(), x.front()}] = x.right();
 
     int q;
-    cin >> q;
+    std::cin >> q;
     for (; q--;) {
         int t, f;
-        cin >> t >> f;
-        cout << mp[{t, f}] << '\n';
+        std::cin >> t >> f;
+        std::cout << mp[{t, f}] << '\n';
     }
     return 0;
 }

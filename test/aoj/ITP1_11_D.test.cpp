@@ -1,20 +1,21 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/ITP1_11_D"
 
-#include "base.hpp"
+#include <iostream>
+#include <set>
 #include "util/Dice.hpp"
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    size_t n;
-    cin >> n;
-    set<Dice> s;
-    vector<int> v(6);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
+    int n;
+    std::cin >> n;
+    std::set<Dice> s;
+    std::vector<int> v(6);
     for (size_t i = 0; i < n; i++) {
-        for (int j = 0; j < 6; j++) cin >> v[j];
+        for (int j = 0; j < 6; j++) std::cin >> v[j];
         Dice d(v);
         s.emplace(d.identifier());
     }
-    cout << (s.size() == n ? "Yes" : "No") << '\n';
+    std::cout << (s.size() == n ? "Yes" : "No") << '\n';
     return 0;
 }

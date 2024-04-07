@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/1131"
 
-#include "base.hpp"
+#include <iostream>
 #include "util/Rational.hpp"
 
 using R = Rational<int>;
@@ -19,12 +19,12 @@ int dfs(R r, int dep, int pre, int mul, int a) {
 void solve(int p, int q, int a, int n) {
     R r(p, q);
     int ans = dfs(r, n, 1, 1, a);
-    cout << ans << '\n';
+    std::cout << ans << '\n';
 }
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    for (int p, q, a, n; cin >> p >> q >> a >> n, n;) solve(p, q, a, n);
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
+    for (int p, q, a, n; std::cin >> p >> q >> a >> n, n;) solve(p, q, a, n);
     return 0;
 }
