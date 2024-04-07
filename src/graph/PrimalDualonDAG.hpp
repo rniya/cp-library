@@ -1,4 +1,5 @@
 #pragma once
+#include <algorithm>
 #include <cassert>
 #include <limits>
 #include <queue>
@@ -42,7 +43,7 @@ template <typename Cap, typename Cost> struct PrimalDualonDAG {
 
     std::vector<std::pair<Cap, Cost>> slope(int s, int t) { return slope(s, t, std::numeric_limits<Cap>::max()); }
 
-private:
+  private:
     struct edge {
         int to;
         Cap cap;
@@ -76,7 +77,7 @@ private:
             }
         }
 
-        return *max_element(indeg.begin(), indeg.end()) == 0;
+        return *std::max_element(indeg.begin(), indeg.end()) == 0;
     }
 
     void calc_potential(int s) {
