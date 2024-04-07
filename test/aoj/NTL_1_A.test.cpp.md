@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
-    path: src/base.hpp
-    title: src/base.hpp
-  - icon: ':x:'
     path: src/math/elementary_math.hpp
     title: elementary math
   _extendedRequiredBy: []
@@ -27,22 +24,21 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
-    \ -1: no such header\n"
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/elementary_math.hpp:\
+    \ line -1: no such header\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_A\"\
-    \n\n#include \"base.hpp\"\n#include \"math/elementary_math.hpp\"\n\nint main()\
-    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n;\n    cin >>\
-    \ n;\n    auto ans = elementary_math::prime_factor(n);\n    cout << n << ':';\n\
-    \    for (auto p : ans) {\n        for (int i = 0; i < p.second; i++) {\n    \
-    \        cout << ' ' << p.first;\n        }\n    }\n    cout << '\\n';\n    return\
-    \ 0;\n}"
+    \n\n#include <iostream>\n#include \"math/elementary_math.hpp\"\n\nint main() {\n\
+    \    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int n;\n   \
+    \ std::cin >> n;\n\n    auto ans = elementary_math::prime_factor(n);\n    std::cout\
+    \ << n << ':';\n    for (auto p : ans) {\n        for (int i = 0; i < p.second;\
+    \ i++) {\n            std::cout << ' ' << p.first;\n        }\n    }\n    std::cout\
+    \ << '\\n';\n    return 0;\n}"
   dependsOn:
-  - src/base.hpp
   - src/math/elementary_math.hpp
   isVerificationFile: true
   path: test/aoj/NTL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2024-04-07 16:52:23+09:00'
+  timestamp: '2024-04-07 17:12:28+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/NTL_1_A.test.cpp

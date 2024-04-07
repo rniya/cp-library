@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/graph/enumerate_cliques.hpp
     title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
   - icon: ':heavy_check_mark:'

@@ -4,9 +4,6 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/aoj/DSL_1_A.test.cpp
-    title: test/aoj/DSL_1_A.test.cpp
-  - icon: ':x:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
   _isVerificationFailed: true
@@ -56,7 +53,6 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/aoj/DSL_1_A.test.cpp
   - test/yosupo/unionfind.test.cpp
 documentation_of: src/datastructure/UnionFind.hpp
 layout: document

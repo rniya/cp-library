@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation
   - icon: ':heavy_check_mark:'

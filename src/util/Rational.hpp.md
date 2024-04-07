@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/1131.test.cpp
     title: test/aoj/1131.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/util/Rational.hpp\"\n#include <iostream>\n\ntemplate\
@@ -138,7 +138,7 @@ data:
   path: src/util/Rational.hpp
   requiredBy: []
   timestamp: '2024-04-07 16:52:23+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/1131.test.cpp
 documentation_of: src/util/Rational.hpp

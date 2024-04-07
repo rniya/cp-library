@@ -3,10 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/aoj/GRL_5_A.test.cpp
-    title: test/aoj/GRL_5_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_B.test.cpp
     title: test/aoj/GRL_5_B.test.cpp
   - icon: ':x:'
@@ -14,7 +11,7 @@ data:
     title: test/yosupo/tree_diameter.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/tree/TreeDiameter.hpp\"\n#include <cassert>\n#include\
@@ -62,10 +59,9 @@ data:
   path: src/tree/TreeDiameter.hpp
   requiredBy: []
   timestamp: '2023-01-12 22:28:24+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/GRL_5_B.test.cpp
-  - test/aoj/GRL_5_A.test.cpp
   - test/yosupo/tree_diameter.test.cpp
 documentation_of: src/tree/TreeDiameter.hpp
 layout: document

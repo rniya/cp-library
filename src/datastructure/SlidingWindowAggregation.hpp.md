@@ -3,15 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
-    title: test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/queue_operate_all_composite.test.cpp
     title: test/yosupo/queue_operate_all_composite.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/datastructure/SlidingWindowAggregation.hpp\"\n#include\
@@ -45,9 +42,8 @@ data:
   path: src/datastructure/SlidingWindowAggregation.hpp
   requiredBy: []
   timestamp: '2023-01-12 22:28:24+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DSL_3_D.SlidingWindowAggregation.test.cpp
   - test/yosupo/queue_operate_all_composite.test.cpp
 documentation_of: src/datastructure/SlidingWindowAggregation.hpp
 layout: document

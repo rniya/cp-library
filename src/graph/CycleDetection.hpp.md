@@ -2,16 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/aoj/2891.test.cpp
-    title: test/aoj/2891.test.cpp
-  - icon: ':x:'
-    path: test/aoj/GRL_4_A.test.cpp
-    title: test/aoj/GRL_4_A.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/graph/CycleDetection.hpp\"\n#include <stack>\n#include\
@@ -51,10 +45,8 @@ data:
   path: src/graph/CycleDetection.hpp
   requiredBy: []
   timestamp: '2023-01-12 22:28:24+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/aoj/2891.test.cpp
-  - test/aoj/GRL_4_A.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: src/graph/CycleDetection.hpp
 layout: document
 title: Cycle Detection

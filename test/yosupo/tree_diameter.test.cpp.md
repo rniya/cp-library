@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: src/base.hpp
     title: src/base.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/tree/TreeDiameter.hpp
     title: Tree Diameter
   _extendedRequiredBy: []

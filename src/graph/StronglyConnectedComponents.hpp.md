@@ -7,9 +7,6 @@ data:
     title: 2-SAT
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/aoj/GRL_3_C.test.cpp
-    title: test/aoj/GRL_3_C.test.cpp
-  - icon: ':x:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
   - icon: ':x:'
@@ -87,7 +84,6 @@ data:
   timestamp: '2023-01-12 22:28:24+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/aoj/GRL_3_C.test.cpp
   - test/yosupo/two_sat.test.cpp
   - test/yosupo/scc.test.cpp
 documentation_of: src/graph/StronglyConnectedComponents.hpp
