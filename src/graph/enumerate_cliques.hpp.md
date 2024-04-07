@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/2306.test.cpp
     title: test/aoj/2306.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/enumerate_cliques.test.cpp
     title: test/yosupo/enumerate_cliques.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/graph/enumerate_cliques.hpp\"\n#include <queue>\n#include\
@@ -82,7 +82,7 @@ data:
   path: src/graph/enumerate_cliques.hpp
   requiredBy: []
   timestamp: '2023-01-12 22:28:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/2306.test.cpp
   - test/yosupo/enumerate_cliques.test.cpp

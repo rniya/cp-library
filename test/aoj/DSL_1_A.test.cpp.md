@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/base.hpp
     title: src/base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/datastructure/UnionFind.hpp
     title: Union Find (Disjoint Set Union)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A
@@ -41,8 +41,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2023-04-22 02:23:28+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-04-07 16:52:23+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL_1_A.test.cpp
 layout: document

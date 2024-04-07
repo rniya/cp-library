@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/base.hpp
     title: src/base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/util/Dice.hpp
     title: "\u30B5\u30A4\u30B3\u30ED"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/ITP1_11_A
@@ -40,8 +40,8 @@ data:
   isVerificationFile: true
   path: test/aoj/ITP1_11_A.test.cpp
   requiredBy: []
-  timestamp: '2023-04-22 02:23:28+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-04-07 16:52:23+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/ITP1_11_A.test.cpp
 layout: document

@@ -3,21 +3,21 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/NTL_1_A.test.cpp
     title: test/aoj/NTL_1_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/NTL_1_B.test.cpp
     title: test/aoj/NTL_1_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/NTL_1_D.test.cpp
     title: test/aoj/NTL_1_D.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/NTL_1_E.test.cpp
     title: test/aoj/NTL_1_E.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/math/elementary_math.hpp\"\n#include <numeric>\n#include\
@@ -109,12 +109,12 @@ data:
   path: src/math/elementary_math.hpp
   requiredBy: []
   timestamp: '2023-01-12 22:28:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/NTL_1_B.test.cpp
+  - test/aoj/NTL_1_E.test.cpp
   - test/aoj/NTL_1_A.test.cpp
   - test/aoj/NTL_1_D.test.cpp
-  - test/aoj/NTL_1_E.test.cpp
 documentation_of: src/math/elementary_math.hpp
 layout: document
 title: elementary math

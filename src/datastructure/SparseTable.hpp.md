@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: src/base.hpp
-    title: src/base.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -14,50 +11,36 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/base.hpp\"\n#include <bits/stdc++.h>\n#ifdef LOCAL\n\
-    #include <debug.hpp>\n#else\n#define debug(...) void(0)\n#endif\n\nusing namespace\
-    \ std;\n\ntypedef long long ll;\n#define all(x) begin(x), end(x)\nconstexpr int\
-    \ INF = (1 << 30) - 1;\nconstexpr long long IINF = (1LL << 60) - 1;\nconstexpr\
-    \ int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};\n\ntemplate <class T> istream&\
-    \ operator>>(istream& is, vector<T>& v) {\n    for (auto& x : v) is >> x;\n  \
-    \  return is;\n}\n\ntemplate <class T> ostream& operator<<(ostream& os, const\
-    \ vector<T>& v) {\n    auto sep = \"\";\n    for (const auto& x : v) os << exchange(sep,\
-    \ \" \") << x;\n    return os;\n}\n\ntemplate <class T, class U = T> bool chmin(T&\
-    \ x, U&& y) { return y < x and (x = forward<U>(y), true); }\n\ntemplate <class\
-    \ T, class U = T> bool chmax(T& x, U&& y) { return x < y and (x = forward<U>(y),\
-    \ true); }\n\ntemplate <class T> void mkuni(vector<T>& v) {\n    sort(begin(v),\
-    \ end(v));\n    v.erase(unique(begin(v), end(v)), end(v));\n}\n\ntemplate <class\
-    \ T> int lwb(const vector<T>& v, const T& x) { return lower_bound(begin(v), end(v),\
-    \ x) - begin(v); }\n#line 3 \"src/datastructure/SparseTable.hpp\"\n\ntemplate\
-    \ <typename T> struct SparseTable {\n    typedef function<T(T, T)> F;\n    vector<vector<T>>\
-    \ dat;\n    vector<int> lookup;\n    const F f;\n    SparseTable(F f) : f(f) {}\n\
-    \    void build(const vector<T>& v) {\n        int n = v.size(), h = 1;\n    \
-    \    while ((1 << h) <= n) h++;\n        dat.assign(h, vector<T>(n));\n      \
-    \  lookup.assign(n + 1, 0);\n        for (int i = 2; i <= n; i++) lookup[i] =\
-    \ lookup[i >> 1] + 1;\n        for (int j = 0; j < n; j++) dat[0][j] = v[j];\n\
-    \        for (int i = 1, mask = 1; i < h; i++, mask <<= 1) {\n            for\
-    \ (int j = 0; j < n; j++) {\n                dat[i][j] = f(dat[i - 1][j], dat[i\
-    \ - 1][min(j + mask, n - 1)]);\n            }\n        }\n    }\n    T query(int\
-    \ a, int b) {\n        int d = lookup[b - a];\n        return f(dat[d][a], dat[d][b\
-    \ - (1 << d)]);\n    }\n};\n"
-  code: "#pragma once\n#include \"../base.hpp\"\n\ntemplate <typename T> struct SparseTable\
-    \ {\n    typedef function<T(T, T)> F;\n    vector<vector<T>> dat;\n    vector<int>\
-    \ lookup;\n    const F f;\n    SparseTable(F f) : f(f) {}\n    void build(const\
-    \ vector<T>& v) {\n        int n = v.size(), h = 1;\n        while ((1 << h) <=\
-    \ n) h++;\n        dat.assign(h, vector<T>(n));\n        lookup.assign(n + 1,\
-    \ 0);\n        for (int i = 2; i <= n; i++) lookup[i] = lookup[i >> 1] + 1;\n\
-    \        for (int j = 0; j < n; j++) dat[0][j] = v[j];\n        for (int i = 1,\
-    \ mask = 1; i < h; i++, mask <<= 1) {\n            for (int j = 0; j < n; j++)\
-    \ {\n                dat[i][j] = f(dat[i - 1][j], dat[i - 1][min(j + mask, n -\
-    \ 1)]);\n            }\n        }\n    }\n    T query(int a, int b) {\n      \
-    \  int d = lookup[b - a];\n        return f(dat[d][a], dat[d][b - (1 << d)]);\n\
-    \    }\n};"
-  dependsOn:
-  - src/base.hpp
+  bundledCode: "#line 2 \"src/datastructure/SparseTable.hpp\"\n#include <cassert>\n\
+    #include <vector>\n\ntemplate <class S, S (*op)(S, S), S (*e)()> struct SparseTable\
+    \ {\n    SparseTable() {}\n\n    SparseTable(const std::vector<S>& v) : n(v.size())\
+    \ {\n        table.resize(n + 1);\n        // table[0] = table[1] = 0;\n     \
+    \   for (int i = 2; i <= n; i++) table[i] = table[i >> 1] + 1;\n        int h\
+    \ = table.back() + 1;\n        d.assign(h, std::vector<S>(n, e()));\n        d[0]\
+    \ = v;\n        for (int i = 1; i < h; i++) {\n            for (int j = 0; j +\
+    \ (1 << i) <= n; j++) {\n                d[i][j] = op(d[i - 1][j], d[i - 1][j\
+    \ + (1 << (i - 1))]);\n            }\n        }\n    }\n    S prod(int l, int\
+    \ r) const {\n        assert(0 <= l and r <= n);\n        if (l >= r) return e();\n\
+    \        int h = table[r - l];\n        return op(d[h][l], d[h][r - (1 << h)]);\n\
+    \    }\n\n  private:\n    int n;\n    std::vector<std::vector<S>> d;\n    std::vector<int>\
+    \ table;\n};\n"
+  code: "#pragma once\n#include <cassert>\n#include <vector>\n\ntemplate <class S,\
+    \ S (*op)(S, S), S (*e)()> struct SparseTable {\n    SparseTable() {}\n\n    SparseTable(const\
+    \ std::vector<S>& v) : n(v.size()) {\n        table.resize(n + 1);\n        //\
+    \ table[0] = table[1] = 0;\n        for (int i = 2; i <= n; i++) table[i] = table[i\
+    \ >> 1] + 1;\n        int h = table.back() + 1;\n        d.assign(h, std::vector<S>(n,\
+    \ e()));\n        d[0] = v;\n        for (int i = 1; i < h; i++) {\n         \
+    \   for (int j = 0; j + (1 << i) <= n; j++) {\n                d[i][j] = op(d[i\
+    \ - 1][j], d[i - 1][j + (1 << (i - 1))]);\n            }\n        }\n    }\n \
+    \   S prod(int l, int r) const {\n        assert(0 <= l and r <= n);\n       \
+    \ if (l >= r) return e();\n        int h = table[r - l];\n        return op(d[h][l],\
+    \ d[h][r - (1 << h)]);\n    }\n\n  private:\n    int n;\n    std::vector<std::vector<S>>\
+    \ d;\n    std::vector<int> table;\n};"
+  dependsOn: []
   isVerificationFile: false
   path: src/datastructure/SparseTable.hpp
   requiredBy: []
-  timestamp: '2023-04-22 02:23:28+09:00'
+  timestamp: '2024-04-07 16:52:23+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/staticrmq.test.cpp

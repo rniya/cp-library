@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/math/set_function.hpp
     title: set function (FZT, FMT, FWHT)
   - icon: ':heavy_check_mark:'

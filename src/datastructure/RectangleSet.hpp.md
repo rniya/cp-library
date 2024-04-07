@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/base.hpp
     title: src/base.hpp
   _extendedRequiredBy: []
@@ -11,22 +11,20 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/base.hpp\"\n#include <bits/stdc++.h>\n#ifdef LOCAL\n\
-    #include <debug.hpp>\n#else\n#define debug(...) void(0)\n#endif\n\nusing namespace\
-    \ std;\n\ntypedef long long ll;\n#define all(x) begin(x), end(x)\nconstexpr int\
-    \ INF = (1 << 30) - 1;\nconstexpr long long IINF = (1LL << 60) - 1;\nconstexpr\
-    \ int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};\n\ntemplate <class T> istream&\
-    \ operator>>(istream& is, vector<T>& v) {\n    for (auto& x : v) is >> x;\n  \
-    \  return is;\n}\n\ntemplate <class T> ostream& operator<<(ostream& os, const\
-    \ vector<T>& v) {\n    auto sep = \"\";\n    for (const auto& x : v) os << exchange(sep,\
-    \ \" \") << x;\n    return os;\n}\n\ntemplate <class T, class U = T> bool chmin(T&\
-    \ x, U&& y) { return y < x and (x = forward<U>(y), true); }\n\ntemplate <class\
-    \ T, class U = T> bool chmax(T& x, U&& y) { return x < y and (x = forward<U>(y),\
-    \ true); }\n\ntemplate <class T> void mkuni(vector<T>& v) {\n    sort(begin(v),\
+  bundledCode: "#line 1 \"src/base.hpp\"\n#include <bits/stdc++.h>\n#ifdef LOCAL\n\
+    #include <debug.hpp>\n#else\n#define debug(...) void(0)\n#endif\n\ntemplate <class\
+    \ T> std::istream& operator>>(std::istream& is, std::vector<T>& v) {\n    for\
+    \ (auto& x : v) is >> x;\n    return is;\n}\n\ntemplate <class T> std::ostream&\
+    \ operator<<(std::ostream& os, const std::vector<T>& v) {\n    auto sep = \"\"\
+    ;\n    for (const auto& x : v) os << std::exchange(sep, \" \") << x;\n    return\
+    \ os;\n}\n\ntemplate <class T, class U = T> bool chmin(T& x, U&& y) { return y\
+    \ < x and (x = std::forward<U>(y), true); }\n\ntemplate <class T, class U = T>\
+    \ bool chmax(T& x, U&& y) { return x < y and (x = std::forward<U>(y), true); }\n\
+    \ntemplate <class T> void mkuni(std::vector<T>& v) {\n    std::sort(begin(v),\
     \ end(v));\n    v.erase(unique(begin(v), end(v)), end(v));\n}\n\ntemplate <class\
-    \ T> int lwb(const vector<T>& v, const T& x) { return lower_bound(begin(v), end(v),\
-    \ x) - begin(v); }\n#line 3 \"src/datastructure/RectangleSet.hpp\"\n\ntemplate\
-    \ <typename T> struct RectangleSet {\n    constexpr T inf = numeric_limits<T>::max()\
+    \ T> int lwb(const std::vector<T>& v, const T& x) {\n    return std::lower_bound(begin(v),\
+    \ end(v), x) - begin(v);\n}\n#line 3 \"src/datastructure/RectangleSet.hpp\"\n\n\
+    template <typename T> struct RectangleSet {\n    constexpr T inf = numeric_limits<T>::max()\
     \ / 2;\n    set<pair<T, T>> s;\n    multiset<T> val;\n    RectangleSet() {\n \
     \       s.emplace(-1, inf);\n        s.emplace(0, 0);\n        val.emplace(0);\n\
     \    }\n\n    void add(T x, T y) {\n        auto itr = s.lower_bound(make_pair(x,\
@@ -56,7 +54,7 @@ data:
   isVerificationFile: false
   path: src/datastructure/RectangleSet.hpp
   requiredBy: []
-  timestamp: '2023-04-22 02:23:28+09:00'
+  timestamp: '2024-04-07 16:52:23+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/datastructure/RectangleSet.hpp

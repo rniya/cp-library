@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/base.hpp
     title: src/base.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/tree/TreeDiameter.hpp
     title: Tree Diameter
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_A
@@ -42,8 +42,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_5_A.test.cpp
   requiredBy: []
-  timestamp: '2023-04-22 02:23:28+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-04-07 16:52:23+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_5_A.test.cpp
 layout: document

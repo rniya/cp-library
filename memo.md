@@ -4,10 +4,12 @@
     - [問題例](#問題例-1)
 - [Lagrange の反転公式](#lagrange-の反転公式)
     - [問題例](#問題例-2)
-- [凸包](#凸包)
+- [BEST Theorem](#best-theorem)
     - [問題例](#問題例-3)
-- [ゲーム](#ゲーム)
+- [凸包](#凸包)
     - [問題例](#問題例-4)
+- [ゲーム](#ゲーム)
+    - [問題例](#問題例-5)
 - [操作における不変量](#操作における不変量)
 - [部分和問題](#部分和問題)
 - [その他](#その他)
@@ -51,6 +53,21 @@ $$
 - [AtCoder Beginner Contest 222 H - Beautiful Binary Tree](https://atcoder.jp/contests/abc222/tasks/abc222_h)
 - [Educational Codeforces Round 142 (Rated for Div. 2) F2. Graph Coloring (hard version)](https://codeforces.com/contest/1792/problem/F2)
   - [参考](https://codeforces.com/blog/entry/111835?#comment-996577)
+
+## BEST Theorem
+有向グラフに含まれるオイラー閉路の数え上げに用いられる定理．
+
+グラフ $G$ がオイラー閉路をもつ必要十分条件は $G$ が連結かつ全ての頂点の入次数と出次数が等しいことである．
+このようなグラフをオイラーグラフと呼び，オイラーグラフ $G$ に含まれるオイラー閉路の個数は次の式で表せる：
+$$
+c(G, v) \prod_{w \in V} (\mathrm{outdeg}(w) - 1)!
+$$
+ここで，$c(G, v)$ は頂点 $v$ を根とする有向全域木（全ての辺が根の方向を向いている全域木）の個数（実は $c(G, v)$ の値は $v$ によらず一定なので $v$ は任意にとって良い），$\mathrm{outdeg}(w)$ は頂点 $w$ の出次数である（[解説](https://atcoder.jp/contests/abc336/editorial/9060)より引用）．
+
+また，終点から始点に仮想的に追加で辺を張ることで，始点と終点が指定された walk の個数も数え上げることが可能である．
+
+#### 問題例
+- [AtCoder Beginner Contest 336 G - 16 Integers](https://atcoder.jp/contests/abc336/tasks/abc336_g)
 
 ## 凸包
 #### 問題例

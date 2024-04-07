@@ -9,15 +9,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/bitwise_xor_convolution.test.cpp
     title: test/yosupo/bitwise_xor_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1240.test.cpp
     title: test/yukicoder/1240.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1289.test.cpp
     title: test/yukicoder/1289.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/math/set_function.hpp\"\n#include <cassert>\n#include\
@@ -103,12 +103,12 @@ data:
   path: src/math/set_function.hpp
   requiredBy: []
   timestamp: '2023-04-23 19:32:20+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/yosupo/bitwise_xor_convolution.test.cpp
+  - test/yosupo/bitwise_and_convolution.test.cpp
   - test/yukicoder/1289.test.cpp
   - test/yukicoder/1240.test.cpp
-  - test/yosupo/bitwise_and_convolution.test.cpp
-  - test/yosupo/bitwise_xor_convolution.test.cpp
 documentation_of: src/math/set_function.hpp
 layout: document
 title: set function (FZT, FMT, FWHT)
