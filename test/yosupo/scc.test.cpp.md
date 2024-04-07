@@ -1,18 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: src/base.hpp
-    title: src/base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/graph/StronglyConnectedComponents.hpp
     title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\
       \u89E3\uFF09"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/scc
@@ -28,24 +25,24 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
-    \ -1: no such header\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n\n#include \"base.hpp\"\
-    \n#include \"graph/StronglyConnectedComponents.hpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N, M;\n    cin >> N >> M;\n\n    StronglyConnectedComponents\
-    \ SCC(N);\n    for (int i = 0; i < M; i++) {\n        int a, b;\n        cin >>\
-    \ a >> b;\n        SCC.add_edge(a, b);\n    }\n\n    auto res = SCC.build();\n\
-    \    cout << res.size() << '\\n';\n    for (auto& group : res) {\n        cout\
-    \ << group.size();\n        for (int& v : group) cout << ' ' << v;\n        cout\
-    \ << '\\n';\n    }\n}"
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/StronglyConnectedComponents.hpp:\
+    \ line -1: no such header\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n\n#include <iostream>\n\
+    #include \"graph/StronglyConnectedComponents.hpp\"\n\nint main() {\n    std::cin.tie(0);\n\
+    \    std::ios::sync_with_stdio(false);\n    int N, M;\n    std::cin >> N >> M;\n\
+    \n    StronglyConnectedComponents SCC(N);\n    for (int i = 0; i < M; i++) {\n\
+    \        int a, b;\n        std::cin >> a >> b;\n        SCC.add_edge(a, b);\n\
+    \    }\n\n    auto res = SCC.build();\n    std::cout << res.size() << '\\n';\n\
+    \    for (auto& group : res) {\n        std::cout << group.size();\n        for\
+    \ (int& v : group) std::cout << ' ' << v;\n        std::cout << '\\n';\n    }\n\
+    }"
   dependsOn:
-  - src/base.hpp
   - src/graph/StronglyConnectedComponents.hpp
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '2024-04-07 16:52:23+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-04-07 17:26:46+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp
 layout: document

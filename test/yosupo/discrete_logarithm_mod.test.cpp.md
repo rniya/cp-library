@@ -1,17 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: src/base.hpp
-    title: src/base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/math/discrete_logarithm.hpp
     title: "Discrete Logarithm\uFF08\u96E2\u6563\u5BFE\u6570\u554F\u984C\uFF09"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/discrete_logarithm_mod
@@ -27,22 +24,21 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
-    \ -1: no such header\n"
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/discrete_logarithm.hpp:\
+    \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/discrete_logarithm_mod\"\
-    \n\n#include \"base.hpp\"\n#include \"math/discrete_logarithm.hpp\"\n\nint main()\
-    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int T;\n    cin >>\
-    \ T;\n    for (; T--;) {\n        int X, Y, M;\n        cin >> X >> Y >> M;\n\
-    \        cout << discrete_logarithm(X, Y, M) << '\\n';\n    }\n    return 0;\n\
-    }"
+    \n\n#include <iostream>\n#include \"math/discrete_logarithm.hpp\"\n\nint main()\
+    \ {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int T;\n\
+    \    std::cin >> T;\n    for (; T--;) {\n        int X, Y, M;\n        std::cin\
+    \ >> X >> Y >> M;\n        std::cout << discrete_logarithm(X, Y, M) << '\\n';\n\
+    \    }\n    return 0;\n}"
   dependsOn:
-  - src/base.hpp
   - src/math/discrete_logarithm.hpp
   isVerificationFile: true
   path: test/yosupo/discrete_logarithm_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-04-07 16:52:23+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-04-07 17:26:46+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/discrete_logarithm_mod.test.cpp
 layout: document

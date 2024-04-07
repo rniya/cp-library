@@ -1,17 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: src/base.hpp
-    title: src/base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/datastructure/UndoUnionFind.hpp
     title: Union Find with Undo Operation
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/persistent_unionfind
@@ -27,29 +24,29 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
-    \ -1: no such header\n"
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/UndoUnionFind.hpp:\
+    \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/persistent_unionfind\"\n\
-    \n#include \"base.hpp\"\n#include \"datastructure/UndoUnionFind.hpp\"\n\nint main()\
-    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n    cin\
-    \ >> N >> Q;\n    vector<int> t(Q), u(Q), v(Q);\n    vector<vector<int>> G(Q +\
-    \ 1);\n    for (int i = 0; i < Q; i++) {\n        int k;\n        cin >> t[i]\
-    \ >> k >> u[i] >> v[i];\n        G[++k].emplace_back(i + 1);\n    }\n\n    UndoUnionFind\
-    \ UF(N);\n    vector<int> ans(Q, -1);\n    auto dfs = [&](auto self, int cur)\
-    \ -> void {\n        if (cur) {\n            if (!t[cur - 1])\n              \
-    \  UF.merge(u[cur - 1], v[cur - 1]);\n            else\n                ans[cur\
-    \ - 1] = UF.same(u[cur - 1], v[cur - 1]);\n        }\n        for (int nxt : G[cur])\
-    \ self(self, nxt);\n        if (cur && !t[cur - 1]) UF.undo();\n    };\n    dfs(dfs,\
-    \ 0);\n    for (int i = 0; i < Q; i++) {\n        if (~ans[i]) {\n           \
-    \ cout << ans[i] << '\\n';\n        }\n    }\n    return 0;\n}"
+    \n#include <iostream>\n#include \"datastructure/UndoUnionFind.hpp\"\n\nint main()\
+    \ {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int N, Q;\n\
+    \    std::cin >> N >> Q;\n    std::vector<int> t(Q), u(Q), v(Q);\n    std::vector<std::vector<int>>\
+    \ G(Q + 1);\n    for (int i = 0; i < Q; i++) {\n        int k;\n        std::cin\
+    \ >> t[i] >> k >> u[i] >> v[i];\n        G[++k].emplace_back(i + 1);\n    }\n\n\
+    \    UndoUnionFind UF(N);\n    std::vector<int> ans(Q, -1);\n    auto dfs = [&](auto\
+    \ self, int cur) -> void {\n        if (cur) {\n            if (!t[cur - 1])\n\
+    \                UF.merge(u[cur - 1], v[cur - 1]);\n            else\n       \
+    \         ans[cur - 1] = UF.same(u[cur - 1], v[cur - 1]);\n        }\n       \
+    \ for (int nxt : G[cur]) self(self, nxt);\n        if (cur && !t[cur - 1]) UF.undo();\n\
+    \    };\n    dfs(dfs, 0);\n    for (int i = 0; i < Q; i++) {\n        if (~ans[i])\
+    \ {\n            std::cout << ans[i] << '\\n';\n        }\n    }\n    return 0;\n\
+    }"
   dependsOn:
-  - src/base.hpp
   - src/datastructure/UndoUnionFind.hpp
   isVerificationFile: true
   path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
   requiredBy: []
-  timestamp: '2024-04-07 16:52:23+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-04-07 17:26:46+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
 layout: document

@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/base.hpp
     title: src/base.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -27,15 +27,15 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
     \ -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n\n#include \"\
-    base.hpp\"\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    int A, B;\n    cin >> A >> B;\n\n    cout << A + B << '\\n';\n}"
+    base.hpp\"\n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \    int A, B;\n    std::cin >> A >> B;\n\n    std::cout << A + B << '\\n';\n}"
   dependsOn:
   - src/base.hpp
   isVerificationFile: true
   path: test/yosupo/aplusb.test.cpp
   requiredBy: []
-  timestamp: '2024-04-07 16:52:23+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-04-07 17:26:46+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/aplusb.test.cpp
 layout: document

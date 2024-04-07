@@ -13,63 +13,15 @@ data:
   - icon: ':x:'
     path: test/aoj/DSL_3_D.test.cpp
     title: test/aoj/DSL_3_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/aplusb.test.cpp
     title: test/yosupo/aplusb.test.cpp
   - icon: ':x:'
-    path: test/yosupo/associative_array.test.cpp
-    title: test/yosupo/associative_array.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/bipartitematching.test.cpp
-    title: test/yosupo/bipartitematching.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/discrete_logarithm_mod.test.cpp
-    title: test/yosupo/discrete_logarithm_mod.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/enumerate_palindromes.test.cpp
-    title: test/yosupo/enumerate_palindromes.test.cpp
-  - icon: ':x:'
     path: test/yosupo/factorize.test.cpp
     title: test/yosupo/factorize.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/factorize.test.cpp
-    title: test/yosupo/factorize.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
-    title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/scc.test.cpp
-    title: test/yosupo/scc.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/static_range_sum.test.cpp
-    title: test/yosupo/static_range_sum.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/tree_diameter.test.cpp
-    title: test/yosupo/tree_diameter.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/two_sat.test.cpp
-    title: test/yosupo/two_sat.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/unionfind.test.cpp
-    title: test/yosupo/unionfind.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/zalgorithm.test.cpp
-    title: test/yosupo/zalgorithm.test.cpp
-  - icon: ':x:'
-    path: test/yukicoder/1240.test.cpp
-    title: test/yukicoder/1240.test.cpp
-  - icon: ':x:'
-    path: test/yukicoder/1678.test.cpp
-    title: test/yukicoder/1678.test.cpp
-  - icon: ':x:'
-    path: test/yukicoder/583.test.cpp
-    title: test/yukicoder/583.test.cpp
-  - icon: ':x:'
-    path: test/yukicoder/952.test.cpp
-    title: test/yukicoder/952.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/base.hpp\"\n#include <bits/stdc++.h>\n#ifdef LOCAL\n\
@@ -104,27 +56,11 @@ data:
   - src/datastructure/RectangleSet.hpp
   - src/math/fast_factorize.hpp
   timestamp: '2024-04-07 16:52:23+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DSL_3_D.test.cpp
-  - test/yosupo/bipartitematching.test.cpp
-  - test/yosupo/static_range_sum.test.cpp
-  - test/yosupo/associative_array.test.cpp
-  - test/yosupo/unionfind.test.cpp
-  - test/yosupo/zalgorithm.test.cpp
-  - test/yosupo/tree_diameter.test.cpp
-  - test/yosupo/two_sat.test.cpp
-  - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
   - test/yosupo/aplusb.test.cpp
   - test/yosupo/factorize.test.cpp
-  - test/yosupo/factorize.test.cpp
-  - test/yosupo/discrete_logarithm_mod.test.cpp
-  - test/yosupo/enumerate_palindromes.test.cpp
-  - test/yosupo/scc.test.cpp
-  - test/yukicoder/583.test.cpp
-  - test/yukicoder/1240.test.cpp
-  - test/yukicoder/952.test.cpp
-  - test/yukicoder/1678.test.cpp
 documentation_of: src/base.hpp
 layout: document
 redirect_from:

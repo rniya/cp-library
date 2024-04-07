@@ -1,17 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: src/base.hpp
-    title: src/base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/graph/BipartiteMatching.hpp
     title: Bipartite Matching
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/bipartitematching
@@ -30,21 +27,20 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/BipartiteMatching.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bipartitematching\"\n\n\
-    #include \"graph/BipartiteMatching.hpp\"\n#include \"base.hpp\"\n\nint main()\
-    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int L, R, M;\n   \
-    \ cin >> L >> R >> M;\n\n    BipartiteMatching BM(L, R);\n    for (; M--;) {\n\
-    \        int a, b;\n        cin >> a >> b;\n        BM.add_edge(a, b);\n    }\n\
-    \n    BM.solve();\n    auto ans = BM.max_matching();\n    cout << ans.size() <<\
-    \ '\\n';\n    for (auto p : ans) cout << p.first << ' ' << p.second << '\\n';\n\
-    \    return 0;\n}"
+    #include \"graph/BipartiteMatching.hpp\"\n#include <iostream>\n\nint main() {\n\
+    \    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int L, R, M;\n\
+    \    std::cin >> L >> R >> M;\n\n    BipartiteMatching BM(L, R);\n    for (; M--;)\
+    \ {\n        int a, b;\n        std::cin >> a >> b;\n        BM.add_edge(a, b);\n\
+    \    }\n\n    BM.solve();\n    auto ans = BM.max_matching();\n    std::cout <<\
+    \ ans.size() << '\\n';\n    for (auto p : ans) std::cout << p.first << ' ' <<\
+    \ p.second << '\\n';\n    return 0;\n}"
   dependsOn:
   - src/graph/BipartiteMatching.hpp
-  - src/base.hpp
   isVerificationFile: true
   path: test/yosupo/bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2024-04-07 16:52:23+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-04-07 17:26:46+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/bipartitematching.test.cpp
 layout: document

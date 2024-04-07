@@ -1,17 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: src/base.hpp
-    title: src/base.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/datastructure/UnionFind.hpp
     title: Union Find (Disjoint Set Union)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/unionfind
@@ -30,19 +27,18 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: datastructure/UnionFind.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\n\n#include\
-    \ \"datastructure/UnionFind.hpp\"\n#include \"base.hpp\"\n\nint main() {\n   \
-    \ cin.tie(0);\n    ios::sync_with_stdio(false);\n    int N, Q;\n    cin >> N >>\
-    \ Q;\n\n    UnionFind UF(N);\n    for (; Q--;) {\n        int t, u, v;\n     \
-    \   cin >> t >> u >> v;\n        if (!t)\n            UF.merge(u, v);\n      \
-    \  else\n            cout << UF.same(u, v) << '\\n';\n    }\n}"
+    \ \"datastructure/UnionFind.hpp\"\n#include <iostream>\n\nint main() {\n    std::cin.tie(0);\n\
+    \    std::ios::sync_with_stdio(false);\n    int N, Q;\n    std::cin >> N >> Q;\n\
+    \n    UnionFind UF(N);\n    for (; Q--;) {\n        int t, u, v;\n        std::cin\
+    \ >> t >> u >> v;\n        if (!t)\n            UF.merge(u, v);\n        else\n\
+    \            std::cout << UF.same(u, v) << '\\n';\n    }\n}"
   dependsOn:
   - src/datastructure/UnionFind.hpp
-  - src/base.hpp
   isVerificationFile: true
   path: test/yosupo/unionfind.test.cpp
   requiredBy: []
-  timestamp: '2024-04-07 16:52:23+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-04-07 17:26:46+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/unionfind.test.cpp
 layout: document

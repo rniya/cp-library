@@ -1,17 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: src/base.hpp
-    title: src/base.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/tree/TreeDiameter.hpp
     title: Tree Diameter
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/tree_diameter
@@ -27,25 +24,24 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: base.hpp: line\
-    \ -1: no such header\n"
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/TreeDiameter.hpp:\
+    \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n\n#include\
-    \ \"base.hpp\"\n#include \"tree/TreeDiameter.hpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios::sync_with_stdio(false);\n    int N;\n    cin >> N;\n\n    TreeDiameter<long\
-    \ long> TD(N);\n    for (int i = 0; i < N - 1; i++) {\n        int a, b;\n   \
-    \     long long c;\n        cin >> a >> b >> c;\n        TD.add_edge(a, b, c);\n\
-    \    }\n\n    auto res = TD.get_diameter_path();\n    long long X = res.first;\n\
-    \    auto ans = res.second;\n    int Y = ans.size();\n    cout << X << ' ' <<\
-    \ Y << '\\n';\n    for (int i = 0; i < Y; i++) cout << ans[i] << (i + 1 == Y ?\
-    \ '\\n' : ' ');\n    return 0;\n}"
+    \ <iostream>\n#include \"tree/TreeDiameter.hpp\"\n\nint main() {\n    std::cin.tie(0);\n\
+    \    std::ios::sync_with_stdio(false);\n    int N;\n    std::cin >> N;\n\n   \
+    \ TreeDiameter<long long> TD(N);\n    for (int i = 0; i < N - 1; i++) {\n    \
+    \    int a, b;\n        long long c;\n        std::cin >> a >> b >> c;\n     \
+    \   TD.add_edge(a, b, c);\n    }\n\n    auto res = TD.get_diameter_path();\n \
+    \   long long X = res.first;\n    auto ans = res.second;\n    int Y = ans.size();\n\
+    \    std::cout << X << ' ' << Y << '\\n';\n    for (int i = 0; i < Y; i++) std::cout\
+    \ << ans[i] << (i + 1 == Y ? '\\n' : ' ');\n    return 0;\n}"
   dependsOn:
-  - src/base.hpp
   - src/tree/TreeDiameter.hpp
   isVerificationFile: true
   path: test/yosupo/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2024-04-07 16:52:23+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-04-07 17:26:46+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/tree_diameter.test.cpp
 layout: document
