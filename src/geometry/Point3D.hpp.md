@@ -61,8 +61,5 @@ data:
   verifiedWith: []
 documentation_of: src/geometry/Point3D.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/Point3D.hpp
-- /library/src/geometry/Point3D.hpp.html
-title: src/geometry/Point3D.hpp
+title: "Point \u69CB\u9020\u4F53 (3D)"
 ---

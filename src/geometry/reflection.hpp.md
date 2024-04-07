@@ -6,7 +6,7 @@ data:
     title: src/geometry/Line.hpp
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
-    title: src/geometry/Point.hpp
+    title: "Point \u69CB\u9020\u4F53"
   - icon: ':heavy_check_mark:'
     path: src/geometry/projection.hpp
     title: src/geometry/projection.hpp

@@ -6,17 +6,17 @@ data:
     title: src/geometry/Line.hpp
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
-    title: src/geometry/Point.hpp
+    title: "Point \u69CB\u9020\u4F53"
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: src/geometry/contain.hpp
     title: src/geometry/contain.hpp
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
-    title: src/geometry/convex_cut.hpp
+    title: "\u51F8\u591A\u89D2\u5F62\u306E\u5207\u65AD"
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_diameter.hpp
-    title: src/geometry/convex_diameter.hpp
+    title: "\u51F8\u591A\u89D2\u5F62\u306E\u76F4\u5F84"
   - icon: ':heavy_check_mark:'
     path: src/geometry/crosspoint.hpp
     title: src/geometry/crosspoint.hpp

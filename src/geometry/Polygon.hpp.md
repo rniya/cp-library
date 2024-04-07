@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
-    title: src/geometry/Point.hpp
+    title: "Point \u69CB\u9020\u4F53"
   - icon: ':heavy_check_mark:'
     path: src/geometry/ccw.hpp
     title: src/geometry/ccw.hpp
@@ -13,10 +13,10 @@ data:
     title: src/geometry/contain.hpp
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
-    title: src/geometry/convex_cut.hpp
+    title: "\u51F8\u591A\u89D2\u5F62\u306E\u5207\u65AD"
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_diameter.hpp
-    title: src/geometry/convex_diameter.hpp
+    title: "\u51F8\u591A\u89D2\u5F62\u306E\u76F4\u5F84"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_3_A.test.cpp

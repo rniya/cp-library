@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
-    title: src/geometry/Point.hpp
+    title: "Point \u69CB\u9020\u4F53"
   - icon: ':heavy_check_mark:'
     path: src/geometry/closest_pair.hpp
-    title: src/geometry/closest_pair.hpp
+    title: "\u6700\u8FD1\u70B9\u5BFE"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

@@ -101,10 +101,10 @@ data:
       title: src/geometry/Line.hpp
     - icon: ':heavy_check_mark:'
       path: src/geometry/Point.hpp
-      title: src/geometry/Point.hpp
+      title: "Point \u69CB\u9020\u4F53"
     - icon: ':warning:'
       path: src/geometry/Point3D.hpp
-      title: src/geometry/Point3D.hpp
+      title: "Point \u69CB\u9020\u4F53 (3D)"
     - icon: ':heavy_check_mark:'
       path: src/geometry/Polygon.hpp
       title: src/geometry/Polygon.hpp
@@ -116,16 +116,16 @@ data:
       title: src/geometry/circumcircle.hpp
     - icon: ':heavy_check_mark:'
       path: src/geometry/closest_pair.hpp
-      title: src/geometry/closest_pair.hpp
+      title: "\u6700\u8FD1\u70B9\u5BFE"
     - icon: ':heavy_check_mark:'
       path: src/geometry/contain.hpp
       title: src/geometry/contain.hpp
     - icon: ':heavy_check_mark:'
       path: src/geometry/convex_cut.hpp
-      title: src/geometry/convex_cut.hpp
+      title: "\u51F8\u591A\u89D2\u5F62\u306E\u5207\u65AD"
     - icon: ':heavy_check_mark:'
       path: src/geometry/convex_diameter.hpp
-      title: src/geometry/convex_diameter.hpp
+      title: "\u51F8\u591A\u89D2\u5F62\u306E\u76F4\u5F84"
     - icon: ':heavy_check_mark:'
       path: src/geometry/convex_hull.hpp
       title: "\u51F8\u5305"
@@ -179,7 +179,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/LowLink.hpp
       title: LowLink (with Two Edge Connected Components, Bi Connected Components)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/PrimalDualonDAG.hpp
       title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\
         \u6D41\uFF09"
@@ -695,7 +695,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1289.test.cpp
       title: test/yukicoder/1289.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1678.test.cpp
       title: test/yukicoder/1678.test.cpp
     - icon: ':heavy_check_mark:'

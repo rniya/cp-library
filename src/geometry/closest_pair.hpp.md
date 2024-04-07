@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
-    title: src/geometry/Point.hpp
+    title: "Point \u69CB\u9020\u4F53"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -94,8 +94,5 @@ data:
   - test/aoj/CGL_5_A.test.cpp
 documentation_of: src/geometry/closest_pair.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/closest_pair.hpp
-- /library/src/geometry/closest_pair.hpp.html
-title: src/geometry/closest_pair.hpp
+title: "\u6700\u8FD1\u70B9\u5BFE"
 ---

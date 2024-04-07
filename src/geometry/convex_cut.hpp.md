@@ -9,7 +9,7 @@ data:
     title: src/geometry/Line.hpp
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
-    title: src/geometry/Point.hpp
+    title: "Point \u69CB\u9020\u4F53"
   - icon: ':heavy_check_mark:'
     path: src/geometry/Polygon.hpp
     title: src/geometry/Polygon.hpp
@@ -156,8 +156,5 @@ data:
   - test/aoj/CGL_4_C.test.cpp
 documentation_of: src/geometry/convex_cut.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/convex_cut.hpp
-- /library/src/geometry/convex_cut.hpp.html
-title: src/geometry/convex_cut.hpp
+title: "\u51F8\u591A\u89D2\u5F62\u306E\u5207\u65AD"
 ---
