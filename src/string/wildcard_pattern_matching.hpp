@@ -3,7 +3,7 @@
 
 std::vector<bool> wildcard_pattern_matching(const std::string& s, const std::string& t, char wild = '?') {
     int n = s.size(), m = t.size();
-    assert(n >= m);
+    assert(n >= m and n > 0);
     char mini = s[0];
     for (const auto& c : s) {
         if (c != wild) {
@@ -30,6 +30,8 @@ std::vector<bool> wildcard_pattern_matching(const std::string& s, const std::str
     auto h2 = atcoder::convolution(f2, g2);
     auto h3 = atcoder::convolution(f3, g1);
     std::vector<bool> res(n - m + 1);
-    for (int i = 0; i < n - m + 1; i++) res[i] = (h1[m - 1 + i] - 2 * h2[m - 1 + i] + h3[m - 1 + i] == 0);
+    for (int i = 0; i < n - m + 1; i++) {
+        res[i] = (h1[m - 1 + i] - 2 * h2[m - 1 + i] + h3[m - 1 + i] == 0);
+    }
     return res;
 }

@@ -39,6 +39,8 @@ documentation_of: ./HeavyLightDecomposition.hpp
 - [AtCoder Beginner Contest 269 Ex - Antichain](https://atcoder.jp/contests/abc269/tasks/abc269_h)
   - heavy path 上の分割統治を適切にまとめていくことで解ける．各 heavy path の先頭の頂点の部分木の大きさの総和が $O(N \log N)$ であること等を利用する．
 - [Hokkaido University Competitive Programming Camp 2023 Day 1 G: Detour](https://onlinejudge.u-aizu.ac.jp/beta/room.html#HUPC2023Day1/problems/G)
+- [AtCoder Beginner Contest 311 Ex - Many Illumination Plans](https://atcoder.jp/contests/abc311/tasks/abc311_h)
+  - 重軽再帰動的計画法（[参照](https://qiita.com/tmaehara/items/4b2735e56843bad89949)）
 
 ## Links
 - [Easiest HLD with subtree queries - Codeforces](https://codeforces.com/blog/entry/53170)

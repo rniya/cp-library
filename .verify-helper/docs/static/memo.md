@@ -4,14 +4,20 @@
     - [問題例](#問題例-1)
 - [Lagrange の反転公式](#lagrange-の反転公式)
     - [問題例](#問題例-2)
-- [BEST Theorem](#best-theorem)
+- [LGV 公式](#lgv-公式)
     - [問題例](#問題例-3)
-- [凸包](#凸包)
+- [BEST Theorem](#best-theorem)
     - [問題例](#問題例-4)
-- [ゲーム](#ゲーム)
+- [五角数定理](#五角数定理)
     - [問題例](#問題例-5)
+- [凸包](#凸包)
+    - [問題例](#問題例-6)
+- [ゲーム](#ゲーム)
+    - [問題例](#問題例-7)
 - [操作における不変量](#操作における不変量)
 - [部分和問題](#部分和問題)
+- [トーナメントグラフ](#トーナメントグラフ)
+    - [問題例](#問題例-8)
 - [その他](#その他)
 - [反省](#反省)
 - [実装](#実装)
@@ -54,6 +60,14 @@ $$
 - [Educational Codeforces Round 142 (Rated for Div. 2) F2. Graph Coloring (hard version)](https://codeforces.com/contest/1792/problem/F2)
   - [参考](https://codeforces.com/blog/entry/111835?#comment-996577)
 
+## LGV 公式
+
+#### 問題例
+- [Codeforces Round 202 (Div. 1) D. Turtles](https://codeforces.com/contest/348/problem/D)
+- [AtCoder Beginner Contest 216 H - Random Robots](https://atcoder.jp/contests/abc216/tasks/abc216_h)
+- [The 1st Universal Cup. Stage 10: Zhejiang J. Junk Problem](https://qoj.ac/contest/1195/problem/6193)
+- [東北大学プログラミングコンテスト 2023 B - 012 Grid](https://atcoder.jp/contests/tupc2023/tasks/tupc2023_b)
+
 ## BEST Theorem
 有向グラフに含まれるオイラー閉路の数え上げに用いられる定理．
 
@@ -67,7 +81,21 @@ $$
 また，終点から始点に仮想的に追加で辺を張ることで，始点と終点が指定された walk の個数も数え上げることが可能である．
 
 #### 問題例
+- [AtCoder Grand Contest 051 (Good Bye rng_58 Day 2) D - C4](https://atcoder.jp/contests/agc051/tasks/agc051_d)
+- [AtCoder Regular Contest 146 E - Simple Speed](https://atcoder.jp/contests/arc146/tasks/arc146_e)
+- [Hello 2024 E. Counting Prefixes](https://codeforces.com/contest/1919/problem/E)
+- [Codeforces Round 925 (Div. 3) G. One-Dimensional Puzzle](https://codeforces.com/contest/1931/problem/G)
 - [AtCoder Beginner Contest 336 G - 16 Integers](https://atcoder.jp/contests/abc336/tasks/abc336_g)
+
+## 五角数定理
+以下の等式が成立する：
+$$
+\prod_{i = 1}^n \left(1 - x^i\right) = \sum_{n = -\infty}^\infty (-1)^n x^{\frac{n (3 n - 1)}{2}}
+$$
+
+#### 問題例
+- [AtCoder Beginner Contest 279 Ex - Sum of Prod of Min](https://atcoder.jp/contests/abc279/tasks/abc279_h)
+- [東京工業大学プログラミングコンテスト2023 G - Cola](https://atcoder.jp/contests/ttpc2023/tasks/ttpc2023_g)
 
 ## 凸包
 #### 問題例
@@ -97,6 +125,17 @@ $$
     - 同じ重みのアイテムが $3$ つ存在する場合は $2$ つをまとめてもよく，この操作により各重みのアイテムは高々 $2$ 個で重みの種類数は $\mathrm{O}(\sqrt{n})$ で抑えられるからアイテムの個数も $\mathrm{O}(\sqrt{n})$ 個である．
   - 動的 bitset は template 引数を利用して書ける．
 
+## トーナメントグラフ
+- トーナメントグラフには必ずハミルトンパスが存在する．
+- トーナメントグラフを強連結成分分解してできる縮約グラフは 1 本のパスとなる．
+- 強連結成分をトポロジカル順に $V_1, \dots , V_k$ とすると，任意の $1 \leq i < j \leq k$ 及び $v \in V_i, u \in V_j$ について，$v$ の出次数は $u$ の出次数より大きい．
+  - 同じ強連結成分に出次数の異なる頂点が属する可能性はあるが，境界は出次数の和を見ることでチェックすることができる．
+- 次数最大の頂点からは任意の頂点に高々 2 本の辺を通って到達可能である．
+
+#### 問題例
+- [AtCoder Regular Contest 163 D - Sum of SCC](https://atcoder.jp/contests/arc163/tasks/arc163_d)
+- [Hello 2023 E. Anya's Simultaneous Exhibition](https://codeforces.com/contest/1779/problem/E?locale=en)
+- [The 2nd Universal Cup. Stage 27: India I. Slothful Secretary](https://contest.ucup.ac/contest/1586/problem/8573)
 
 ## その他
 - [The 1st Universal Cup. Stage 16: Gomel H. Classical Maximization Problem](https://qoj.ac/contest/1223/problem/6414?v=1)
@@ -105,7 +144,7 @@ $$
 ## 反省
 - 木上の任意のパスを扱う際には重心分解による分割統治が有効であるのと同様に，数列上の任意の区間を扱う際にも分割統治が有効
   - [AtCoder Regular Contest 158 E - All Pair Shortest Paths](https://atcoder.jp/contests/arc158/tasks/arc158_e)
-- 回数制限のない構築等では最小単位の扱いやすい操作を扱う操作を合成することを考える
+- 回数制限のない構築等では最小単位の扱いやすい操作を合成することを考える
   - [AtCoder Regular Contest 159 C - Permutation Addition](https://atcoder.jp/contests/arc159/tasks/arc159_c)
 - 任意の順列をソートできる $\iff$ 任意の 01 列をソートできる
   - [AtCoder Regular Contest 160 F - Count Sorted Arrays](https://atcoder.jp/contests/arc160/tasks/arc160_f)
