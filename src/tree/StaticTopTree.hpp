@@ -130,8 +130,8 @@ struct StaticTopTree {
 };
 
 template <class TreeDP> struct DynamicDPonStaticTopTree {
-    using Path = TreeDP::Path;
-    using Point = TreeDP::Point;
+    using Path = typename TreeDP::Path;
+    using Point = typename TreeDP::Point;
     const StaticTopTree& stt;
     TreeDP& treedp;
     std::vector<Path> paths;

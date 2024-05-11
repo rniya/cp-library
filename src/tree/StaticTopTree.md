@@ -1,11 +1,12 @@
 ---
 title: Static Top Tree
-documentation_of: ./Static Top Tree.hpp
+documentation_of: ./StaticTopTree.hpp
 ---
 
 ## 概要
 以下の関数をもつ構造体 `TreeDP` が必要となる。
 ここで、`compress(l, r)` においては `l` の方が根寄りの cluster である。
+詳細は verify code や問題例での提出を参照。
 
 ```C++
 struct TreeDP {
