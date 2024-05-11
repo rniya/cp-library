@@ -20,7 +20,7 @@ struct TreeDP {
     Path vertex(int v) { return {b[v], mint(a[v]) * b[v] + c[v], c[v], 1}; }
 
     Path compress(const Path& l, const Path& r) {
-        return Path(l.a * r.a, l.a * r.b + l.b + l.c * r.sub, l.c + l.a * r.c, l.sub + r.sub);
+        return {l.a * r.a, l.a * r.b + l.b + l.c * r.sub, l.c + l.a * r.c, l.sub + r.sub};
     }
 
     Path add_vertex(const Point& p, int v) {
