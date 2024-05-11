@@ -35,7 +35,7 @@ data:
       title: SMAWK algotirhm
   - name: src
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/base.hpp
       title: src/base.hpp
     - icon: ':warning:'
@@ -73,9 +73,6 @@ data:
     - icon: ':warning:'
       path: src/datastructure/RectangleSet.hpp
       title: Rectangle Set
-    - icon: ':x:'
-      path: src/datastructure/Slide_Min.hpp
-      title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
     - icon: ':heavy_check_mark:'
       path: src/datastructure/SlidingWindowAggregation.hpp
       title: Sliding Window Aggregation
@@ -261,10 +258,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/exp_of_set_power_series.hpp
       title: Exp of Set Power Series
-    - icon: ':x:'
-      path: src/math/fast_factorize.hpp
-      title: "\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3 (Miller-Rabin primality test\
-        \ + Pollard's rho algorithm)"
     - icon: ':heavy_check_mark:'
       path: src/math/gcd_convolution.hpp
       title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\
@@ -297,6 +290,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/polynomial/FormalPowerSeries.hpp
       title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
+    - icon: ':warning:'
+      path: src/polynomial/coefficient_of_powers.hpp
+      title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u306E\u51AA\u4E57\u306E\u4FC2\u6570\
+        \u5217\u6319"
     - icon: ':heavy_check_mark:'
       path: src/polynomial/difference_product.hpp
       title: "\u5DEE\u7A4D (Difference Product, Vandermonde's determinant)"
@@ -359,6 +356,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/tree/Rerooting.hpp
       title: "\u5168\u65B9\u4F4D\u6728 dp"
+    - icon: ':heavy_check_mark:'
+      path: src/tree/StaticTopTree.hpp
+      title: Static Top Tree
     - icon: ':heavy_check_mark:'
       path: src/tree/TreeDiameter.hpp
       title: Tree Diameter
@@ -472,9 +472,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_1_B.test.cpp
       title: test/aoj/DSL_1_B.test.cpp
-    - icon: ':x:'
-      path: test/aoj/DSL_3_D.test.cpp
-      title: test/aoj/DSL_3_D.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL_5_B.test.cpp
       title: test/aoj/DSL_5_B.test.cpp
@@ -570,9 +567,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/exp_of_set_power_series.test.cpp
       title: test/yosupo/exp_of_set_power_series.test.cpp
-    - icon: ':x:'
-      path: test/yosupo/factorize.test.cpp
-      title: test/yosupo/factorize.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/frequency_table_of_tree_distance.test.cpp
       title: test/yosupo/frequency_table_of_tree_distance.test.cpp
@@ -618,6 +612,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_rectangle_sum.test.cpp
       title: test/yosupo/point_add_rectangle_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/point_set_tree_path_composite_sum_fixed_root.test.cpp
+      title: test/yosupo/point_set_tree_path_composite_sum_fixed_root.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_taylor_shift.test.cpp
       title: test/yosupo/polynomial_taylor_shift.test.cpp
@@ -741,7 +738,7 @@ layout: toppage
 ---
 競技プログラミングで使用するライブラリ集です。
 
-C++ 17 でコーディング及びテストされています。
+C++ 20 でコーディング及びテストされています。
 
 [ac-library](https://github.com/atcoder/ac-library) に一部準拠しています。
 

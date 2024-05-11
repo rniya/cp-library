@@ -73,14 +73,14 @@ data:
   isVerificationFile: false
   path: src/math/binomial.hpp
   requiredBy:
-  - src/polynomial/lagrange_interpolation.hpp
   - src/math/count_young_paths.hpp
+  - src/polynomial/lagrange_interpolation.hpp
   timestamp: '2023-05-21 16:36:42+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/yukicoder/665.test.cpp
   - test/aoj/3335.test.cpp
   - test/aoj/DPL_5_E.test.cpp
-  - test/yukicoder/665.test.cpp
 documentation_of: src/math/binomial.hpp
 layout: document
 title: binomial

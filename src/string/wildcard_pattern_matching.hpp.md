@@ -8,25 +8,25 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
-    \ File \"/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution:\
     \ line -1: no such header\n"
   code: "#include <string>\n#include \"atcoder/convolution\"\n\nstd::vector<bool>\
     \ wildcard_pattern_matching(const std::string& s, const std::string& t, char wild\
-    \ = '?') {\n    int n = s.size(), m = t.size();\n    assert(n >= m);\n    char\
-    \ mini = s[0];\n    for (const auto& c : s) {\n        if (c != wild) {\n    \
-    \        mini = std::min(mini, c);\n        }\n    }\n    for (const auto& c :\
-    \ s) {\n        if (c != wild) {\n            mini = std::min(mini, c);\n    \
-    \    }\n    }\n    std::vector<atcoder::modint998244353> f1(n), f2(n), f3(n),\
+    \ = '?') {\n    int n = s.size(), m = t.size();\n    assert(n >= m and n > 0);\n\
+    \    char mini = s[0];\n    for (const auto& c : s) {\n        if (c != wild)\
+    \ {\n            mini = std::min(mini, c);\n        }\n    }\n    for (const auto&\
+    \ c : s) {\n        if (c != wild) {\n            mini = std::min(mini, c);\n\
+    \        }\n    }\n    std::vector<atcoder::modint998244353> f1(n), f2(n), f3(n),\
     \ g1(m), g2(m), g3(m);\n    for (int i = 0; i < n; i++) {\n        f1[i] = (s[i]\
     \ == wild ? 0 : s[i] - mini + 1);\n        f2[i] = f1[i] * f1[i];\n        f3[i]\
     \ = f2[i] * f1[i];\n    }\n    for (int i = 0; i < m; i++) {\n        g1[m - 1\
@@ -34,13 +34,14 @@ data:
     \ 1 - i] * g1[m - 1 - i];\n        g3[m - 1 - i] = g2[m - 1 - i] * g1[m - 1 -\
     \ i];\n    }\n    auto h1 = atcoder::convolution(f1, g3);\n    auto h2 = atcoder::convolution(f2,\
     \ g2);\n    auto h3 = atcoder::convolution(f3, g1);\n    std::vector<bool> res(n\
-    \ - m + 1);\n    for (int i = 0; i < n - m + 1; i++) res[i] = (h1[m - 1 + i] -\
-    \ 2 * h2[m - 1 + i] + h3[m - 1 + i] == 0);\n    return res;\n}"
+    \ - m + 1);\n    for (int i = 0; i < n - m + 1; i++) {\n        res[i] = (h1[m\
+    \ - 1 + i] - 2 * h2[m - 1 + i] + h3[m - 1 + i] == 0);\n    }\n    return res;\n\
+    }"
   dependsOn: []
   isVerificationFile: false
   path: src/string/wildcard_pattern_matching.hpp
   requiredBy: []
-  timestamp: '2023-10-07 00:10:49+09:00'
+  timestamp: '2024-05-12 03:06:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/string/wildcard_pattern_matching.hpp
