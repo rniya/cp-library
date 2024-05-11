@@ -1,8 +1,3 @@
----
-title: 高速素因数分解 (Miller-Rabin primality test + Pollard's rho algorithm)
-documentation_of: ./fast_factorize.hpp
----
-
 ## 概要
 #### Miller-Rabin の素数判定法
 与えられた $n$ の素数判定を高速に行う乱択（ただし $2^64$ 未満の数については決定的に行うことが可能）アルゴリズム。
