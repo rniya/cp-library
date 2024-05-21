@@ -1,5 +1,5 @@
 #pragma once
-#include "graph/BinaryOptimization.hpp"
+#include "BinaryOptimization.hpp"
 
 template <typename T, bool MINIMIZE = true> struct KaryOptimization {
     KaryOptimization() = default;

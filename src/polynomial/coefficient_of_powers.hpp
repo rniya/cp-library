@@ -1,5 +1,5 @@
 #include <vector>
-#include "polynomial/FormalPowerSeries.hpp"
+#include "FormalPowerSeries.hpp"
 
 namespace internal {
 

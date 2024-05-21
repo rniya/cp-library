@@ -1,4 +1,4 @@
-#include "atcoder/convolution"
+#include "../atcoder/convolution"
 
 template <class T> class RelaxedConvolution {
     int n;

@@ -7,7 +7,7 @@ template <class S, S (*op)(S, S), S (*e)()> struct SparseTable {
 
     SparseTable(const std::vector<S>& v) : n(v.size()) {
         table.resize(n + 1);
-        // table[0] = table[1] = 0;
+        table[0] = table[1] = 0;
         for (int i = 2; i <= n; i++) table[i] = table[i >> 1] + 1;
         int h = table.back() + 1;
         d.assign(h, std::vector<S>(n, e()));

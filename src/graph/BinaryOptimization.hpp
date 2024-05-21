@@ -1,7 +1,7 @@
 #pragma once
 #include <array>
 #include <tuple>
-#include "atcoder/maxflow"
+#include "../atcoder/maxflow"
 
 template <typename T, bool MINIMIZE = true> struct BinaryOptimization {
     BinaryOptimization() = default;

@@ -1,5 +1,5 @@
 #pragma once
-#include "atcoder/convolution"
+#include "../atcoder/convolution"
 
 template <typename T> T BostanMori(std::vector<T> Q, std::vector<T> P, long long N) {
     assert(Q[0] == 1);

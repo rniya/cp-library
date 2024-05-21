@@ -1,5 +1,5 @@
 #pragma once
-#include "atcoder/maxflow"
+#include "../atcoder/maxflow"
 
 template <class Cap> struct maxflow_lowerbound {
     maxflow_lowerbound() {}

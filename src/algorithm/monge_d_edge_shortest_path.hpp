@@ -2,7 +2,7 @@
 #include <functional>
 #include <limits>
 #include <vector>
-#include "algorithm/golden_section_search.hpp"
+#include "golden_section_search.hpp"
 
 template <typename T> std::vector<T> monge_shortest_path(int N, const std::function<T(int, int)>& f) {
     std::vector<T> dp(N + 1, std::numeric_limits<T>::max() / 2);

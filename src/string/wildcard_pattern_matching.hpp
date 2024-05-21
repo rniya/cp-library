@@ -1,5 +1,5 @@
 #include <string>
-#include "atcoder/convolution"
+#include "../atcoder/convolution"
 
 std::vector<bool> wildcard_pattern_matching(const std::string& s, const std::string& t, char wild = '?') {
     int n = s.size(), m = t.size();

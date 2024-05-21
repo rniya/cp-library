@@ -1,5 +1,5 @@
-#include "atcoder/convolution"
-#include "math/binomial.hpp"
+#include "../atcoder/convolution"
+#include "binomial.hpp"
 
 template <class T>
 std::vector<T> count_young_paths(const std::vector<int>& h, const std::vector<T>& a, Binomial<T>& binom) {

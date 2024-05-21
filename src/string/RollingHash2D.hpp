@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "string/Hash.hpp"
+#include "Hash.hpp"
 
 struct RollingHash2D {
     using mint = hash_impl::modint;

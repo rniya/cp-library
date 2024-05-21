@@ -1,5 +1,5 @@
 #pragma once
-#include "atcoder/convolution"
+#include "../atcoder/convolution"
 
 template <class mint>
 std::vector<mint> convolution_arbitary_mod(const std::vector<mint>& a, const std::vector<mint>& b) {

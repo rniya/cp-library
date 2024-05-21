@@ -1,7 +1,7 @@
 #pragma once
 #include <numeric>
 #include <tuple>
-#include "atcoder/dsu"
+#include "../atcoder/dsu"
 
 struct MergeTree : atcoder::dsu {
     MergeTree() {}
@@ -40,7 +40,7 @@ struct MergeTree : atcoder::dsu {
 
     int operator[](int v) const { return vid[v]; }
 
-private:
+  private:
     int n;
     std::vector<int> vid;
     std::vector<std::pair<int, int>> child, range;

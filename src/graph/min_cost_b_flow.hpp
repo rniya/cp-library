@@ -3,7 +3,7 @@
 #include <cassert>
 #include <utility>
 #include <vector>
-#include "atcoder/mincostflow"
+#include "../atcoder/mincostflow"
 
 template <class Cap, class Cost> struct min_cost_b_flow {
     min_cost_b_flow() {}
@@ -56,7 +56,7 @@ template <class Cap, class Cost> struct min_cost_b_flow {
         return make_pair(true, sum + cost);
     }
 
-private:
+  private:
     int n;
     atcoder::mcf_graph<Cap, Cost> graph;
     std::vector<Cap> b;
