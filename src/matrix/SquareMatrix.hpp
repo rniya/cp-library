@@ -144,6 +144,7 @@ template <typename T, size_t N> struct SquareMatrix {
                 }
             }
         }
+        return res;
     }
 
     SquareMatrix inv() const {

@@ -4,6 +4,8 @@
 #include <vector>
 
 struct UndoUnionFind {
+    UndoUnionFind() {}
+
     UndoUnionFind(int n) : n(n), data(n, -1) {}
 
     int find(int x) const {
@@ -53,7 +55,7 @@ struct UndoUnionFind {
 
     int operator[](int x) const { return find(x); }
 
-private:
+  private:
     int n;
     std::vector<int> data;
     std::stack<std::pair<int, int>> history;

@@ -20,6 +20,7 @@ documentation_of: ./UndoUnionFind.hpp
 | `operator[x]`      | 頂点 $x$ の属する集合の代表元を返す．                                                                             | $O(\log n)$                                                                     |
 
 ## 問題例
+- [Codeforces Round 319 (Div. 1) E. Painting Edges](https://codeforces.com/contest/576/problem/E)
 - [Codeforces Round #680 (Div. 1, based on Moscow Team Olympiad) C. Team-Building](https://codeforces.com/contest/1444/problem/C)
 
 ## 参照
