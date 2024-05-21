@@ -57,13 +57,13 @@ title: Wildcard Pattern Matching
 ---
 
 ## 入力
-文字列 $S, T\ (|S| \geq |T|)$
+文字列 `$S, T\ ( |S| \geq |T| )$`
 
-以下では $n := |S|, m := |T|$ とする．
+以下では $n := |S| , m := |T|$ とする．
 
 ## 出力
 
-長さの等しい文字列 $S^\prime, T^\prime$ が各 $0 \leq i < |S^\prime|$ について
+長さの等しい文字列 $S^\prime, T^\prime$ が各 $0 \leq i < |S^\prime| $ について
 
 - $S^\prime_i = T^\prime_i$
 - $S^\prime_i$ が wildcard
