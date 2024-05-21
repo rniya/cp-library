@@ -78,6 +78,7 @@
 "test/yosupo/pow_of_formal_power_series.test.cpp": "2023-09-18 22:25:37 +0900",
 "test/yosupo/pow_of_formal_power_series_sparse.test.cpp": "2023-09-18 22:25:37 +0900",
 "test/yosupo/product_of_polynomial_sequence.test.cpp": "2023-09-18 22:25:37 +0900",
+"test/yosupo/queue_operate_all_composite.test.cpp": "2024-05-21 23:53:14 +0900",
 "test/yosupo/runenumerate.test.cpp": "2023-01-12 22:28:24 +0900",
 "test/yosupo/scc.test.cpp": "2024-04-07 17:26:46 +0900",
 "test/yosupo/set_xor_min.test.cpp": "2023-06-08 18:42:58 +0900",
