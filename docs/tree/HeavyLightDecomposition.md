@@ -1,6 +1,6 @@
 ---
 title: Heavy Light Decomposition
-documentation_of: ../../src/tree/HeavyLightDecomposition.hpp
+documentation_of: //src/tree/HeavyLightDecomposition.hpp
 ---
 
 木構造を分解する手法の一つで，部分木やパスに対する更新・取得処理を効率的に行うことができる．
