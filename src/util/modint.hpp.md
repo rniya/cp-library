@@ -54,9 +54,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/product_of_polynomial_sequence.test.cpp
     title: test/yosupo/product_of_polynomial_sequence.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/queue_operate_all_composite.test.cpp
-    title: test/yosupo/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sharp_p_subset_sum.test.cpp
     title: test/yosupo/sharp_p_subset_sum.test.cpp
@@ -87,9 +84,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/886.test.cpp
     title: test/yukicoder/886.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -115,7 +112,7 @@ data:
   path: src/util/modint.hpp
   requiredBy: []
   timestamp: '2023-09-18 22:25:37+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DPL_5_E.test.cpp
   - test/yukicoder/1269.test.cpp
@@ -126,7 +123,6 @@ data:
   - test/yukicoder/1907.test.cpp
   - test/yukicoder/1289.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/queue_operate_all_composite.test.cpp
   - test/yosupo/bitwise_and_convolution.test.cpp
   - test/yosupo/product_of_polynomial_sequence.test.cpp
   - test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp

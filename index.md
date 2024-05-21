@@ -73,7 +73,7 @@ data:
     - icon: ':warning:'
       path: src/datastructure/RectangleSet.hpp
       title: Rectangle Set
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/SlidingWindowAggregation.hpp
       title: Sliding Window Aggregation
     - icon: ':warning:'
@@ -373,7 +373,7 @@ data:
     - icon: ':warning:'
       path: src/util/flow_graphviz.hpp
       title: "\u6700\u5927\u6D41\u30FB\u6700\u5C0F\u8CBB\u7528\u6D41\u306E\u56F3\u793A"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/util/modint.hpp
       title: modint (input/output)
     - icon: ':warning:'
@@ -624,7 +624,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/product_of_polynomial_sequence.test.cpp
       title: test/yosupo/product_of_polynomial_sequence.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/queue_operate_all_composite.test.cpp
       title: test/yosupo/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
