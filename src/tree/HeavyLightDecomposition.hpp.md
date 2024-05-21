@@ -4,9 +4,6 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/aoj/2667.test.cpp
-    title: test/aoj/2667.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_5_C.test.cpp
     title: test/aoj/GRL_5_C.test.cpp
   - icon: ':heavy_check_mark:'
@@ -172,7 +169,6 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_5_C.test.cpp
-  - test/aoj/2667.test.cpp
   - test/yosupo/vertex_set_path_composite.test.cpp
   - test/yosupo/jump_on_tree.test.cpp
   - test/yosupo/vertex_add_subtree_sum.test.cpp
@@ -182,7 +178,6 @@ layout: document
 title: Heavy Light Decomposition
 ---
 
-## 概要
 木構造を分解する手法の一つで，部分木やパスに対する更新・取得処理を効率的に行うことができる．
 
 以下に記す内容について，時間計算量は区間 $[l,r)$ に対する更新や総積の取得といった操作が 1 区間あたり $\mathrm{O}(\log n)$ で行えるとしたうえでの計算量である．

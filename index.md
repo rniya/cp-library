@@ -329,7 +329,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/string/run_enumerate.hpp
       title: Run Enumerate
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/string/wildcard_pattern_matching.hpp
       title: Wildcard Pattern Matching
   - name: src/tree
@@ -388,9 +388,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/1615.test.cpp
       title: test/aoj/1615.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/aoj/2667.test.cpp
-      title: test/aoj/2667.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/2903.test.cpp
       title: test/aoj/2903.test.cpp
@@ -646,6 +643,9 @@ data:
       path: test/yosupo/sqrt_of_formal_power_series.test.cpp
       title: test/yosupo/sqrt_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/static_convex_hull.test.cpp
+      title: test/yosupo/static_convex_hull.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/static_range_inversions_query.test.cpp
       title: test/yosupo/static_range_inversions_query.test.cpp
     - icon: ':heavy_check_mark:'
@@ -675,6 +675,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/vertex_set_path_composite.test.cpp
       title: test/yosupo/vertex_set_path_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/wildcard_pattern_matching.test.cpp
+      title: test/yosupo/wildcard_pattern_matching.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/zalgorithm.test.cpp
       title: test/yosupo/zalgorithm.test.cpp

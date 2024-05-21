@@ -111,6 +111,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sort_points_by_argument.test.cpp
     title: test/yosupo/sort_points_by_argument.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/static_convex_hull.test.cpp
+    title: test/yosupo/static_convex_hull.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -207,6 +210,7 @@ data:
   - test/aoj/CGL_7_B.test.cpp
   - test/aoj/CGL_3_B.test.cpp
   - test/aoj/CGL_1_B.test.cpp
+  - test/yosupo/static_convex_hull.test.cpp
   - test/yosupo/sort_points_by_argument.test.cpp
 documentation_of: src/geometry/Point.hpp
 layout: document

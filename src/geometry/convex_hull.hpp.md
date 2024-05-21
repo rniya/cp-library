@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_4_A.test.cpp
     title: test/aoj/CGL_4_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/static_convex_hull.test.cpp
+    title: test/yosupo/static_convex_hull.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -42,38 +45,43 @@ data:
     \ }\n\n}  // namespace geometry\n#line 6 \"src/geometry/convex_hull.hpp\"\n\n\
     namespace geometry {\n\ntemplate <typename T> std::vector<int> convex_hull(const\
     \ std::vector<Point<T>>& P, bool inclusive = false) {\n    int n = P.size();\n\
-    \    if (n == 1) return {0};\n    if (n == 2) return {0, 1};\n    std::vector<int>\
-    \ ord(n);\n    std::iota(begin(ord), end(ord), 0);\n    std::sort(begin(ord),\
-    \ end(ord), [&](int l, int r) { return P[l] < P[r]; });\n    std::vector<int>\
-    \ ch(n + 1, -1);\n    int s = 0, t = 0;\n    for (int _ = 0; _ < 2; _++, s = --t,\
-    \ std::reverse(begin(ord), end(ord))) {\n        for (int& i : ord) {\n      \
-    \      for (; t >= s + 2; t--) {\n                auto det = (P[ch[t - 1]] - P[ch[t\
-    \ - 2]]).det(P[i] - P[ch[t - 2]]);\n                if (inclusive ? det >= 0 :\
-    \ det > 0) break;\n            }\n            ch[t++] = i;\n        }\n    }\n\
-    \    return {begin(ch), begin(ch) + t - (t == 2 and ch[0] == ch[1])};\n}\n\n}\
-    \  // namespace geometry\n"
+    \    if (n == 0) return {};\n    if (n == 1) return {0};\n    if (n == 2) return\
+    \ (P[0] != P[1] or inclusive ? std::vector<int>{0, 1} : std::vector<int>{0});\n\
+    \    std::vector<int> ord(n);\n    std::iota(ord.begin(), ord.end(), 0);\n   \
+    \ std::sort(ord.begin(), ord.end(), [&](int l, int r) { return P[l] < P[r]; });\n\
+    \    std::vector<int> ch(n + 1, -1);\n    int s = 0, t = 0;\n    for (int _ =\
+    \ 0; _ < 2; _++, s = --t, std::reverse(ord.begin(), ord.end())) {\n        for\
+    \ (int& i : ord) {\n            for (; t >= s + 2; t--) {\n                auto\
+    \ det = (P[ch[t - 1]] - P[ch[t - 2]]).det(P[i] - P[ch[t - 2]]);\n            \
+    \    if (inclusive ? det >= 0 : det > 0) break;\n            }\n            ch[t++]\
+    \ = i;\n        }\n    }\n    while (not inclusive and t >= 2 and P[ch[0]] ==\
+    \ P[ch[t - 1]]) t--;\n    return {begin(ch), begin(ch) + t};\n}\n\n}  // namespace\
+    \ geometry\n"
   code: "#pragma once\n#include <algorithm>\n#include <numeric>\n#include <vector>\n\
     #include \"Point.hpp\"\n\nnamespace geometry {\n\ntemplate <typename T> std::vector<int>\
     \ convex_hull(const std::vector<Point<T>>& P, bool inclusive = false) {\n    int\
-    \ n = P.size();\n    if (n == 1) return {0};\n    if (n == 2) return {0, 1};\n\
-    \    std::vector<int> ord(n);\n    std::iota(begin(ord), end(ord), 0);\n    std::sort(begin(ord),\
-    \ end(ord), [&](int l, int r) { return P[l] < P[r]; });\n    std::vector<int>\
-    \ ch(n + 1, -1);\n    int s = 0, t = 0;\n    for (int _ = 0; _ < 2; _++, s = --t,\
-    \ std::reverse(begin(ord), end(ord))) {\n        for (int& i : ord) {\n      \
-    \      for (; t >= s + 2; t--) {\n                auto det = (P[ch[t - 1]] - P[ch[t\
-    \ - 2]]).det(P[i] - P[ch[t - 2]]);\n                if (inclusive ? det >= 0 :\
-    \ det > 0) break;\n            }\n            ch[t++] = i;\n        }\n    }\n\
-    \    return {begin(ch), begin(ch) + t - (t == 2 and ch[0] == ch[1])};\n}\n\n}\
-    \  // namespace geometry\n"
+    \ n = P.size();\n    if (n == 0) return {};\n    if (n == 1) return {0};\n   \
+    \ if (n == 2) return (P[0] != P[1] or inclusive ? std::vector<int>{0, 1} : std::vector<int>{0});\n\
+    \    std::vector<int> ord(n);\n    std::iota(ord.begin(), ord.end(), 0);\n   \
+    \ std::sort(ord.begin(), ord.end(), [&](int l, int r) { return P[l] < P[r]; });\n\
+    \    std::vector<int> ch(n + 1, -1);\n    int s = 0, t = 0;\n    for (int _ =\
+    \ 0; _ < 2; _++, s = --t, std::reverse(ord.begin(), ord.end())) {\n        for\
+    \ (int& i : ord) {\n            for (; t >= s + 2; t--) {\n                auto\
+    \ det = (P[ch[t - 1]] - P[ch[t - 2]]).det(P[i] - P[ch[t - 2]]);\n            \
+    \    if (inclusive ? det >= 0 : det > 0) break;\n            }\n            ch[t++]\
+    \ = i;\n        }\n    }\n    while (not inclusive and t >= 2 and P[ch[0]] ==\
+    \ P[ch[t - 1]]) t--;\n    return {begin(ch), begin(ch) + t};\n}\n\n}  // namespace\
+    \ geometry\n"
   dependsOn:
   - src/geometry/Point.hpp
   isVerificationFile: false
   path: src/geometry/convex_hull.hpp
   requiredBy: []
-  timestamp: '2023-10-04 02:32:44+09:00'
+  timestamp: '2024-05-22 03:00:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL_4_A.test.cpp
+  - test/yosupo/static_convex_hull.test.cpp
 documentation_of: src/geometry/convex_hull.hpp
 layout: document
 title: "\u51F8\u5305"
