@@ -72,3 +72,4 @@ title: Exp of Set Power Series
 ## 概要
 
 ## 問題例
+- [yukicoder No.2507 Yet Another Subgraph Counting](https://yukicoder.me/problems/no/2507)

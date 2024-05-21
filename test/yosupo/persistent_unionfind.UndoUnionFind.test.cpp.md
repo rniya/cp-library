@@ -45,7 +45,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
   requiredBy: []
-  timestamp: '2024-04-07 17:26:46+09:00'
+  timestamp: '2024-05-21 23:41:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp

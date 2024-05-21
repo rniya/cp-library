@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/datastructure/SlidingWindowAggregation.hpp
     title: Sliding Window Aggregation
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/util/modint.hpp
     title: modint (input/output)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/queue_operate_all_composite
@@ -47,8 +47,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/queue_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2023-09-18 22:25:37+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-21 23:41:26+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/queue_operate_all_composite.test.cpp
 layout: document

@@ -5,7 +5,7 @@ data:
     path: src/math/gcd_convolution.hpp
     title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\
       \uFF09"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/util/modint.hpp
     title: modint (input/output)
   _extendedRequiredBy: []

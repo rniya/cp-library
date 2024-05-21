@@ -159,9 +159,9 @@ data:
   timestamp: '2023-10-04 02:32:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/CGL_4_B.test.cpp
-  - test/aoj/CGL_3_C.test.cpp
   - test/aoj/CGL_2_D.test.cpp
+  - test/aoj/CGL_3_C.test.cpp
+  - test/aoj/CGL_4_B.test.cpp
 documentation_of: src/geometry/distance.hpp
 layout: document
 redirect_from:

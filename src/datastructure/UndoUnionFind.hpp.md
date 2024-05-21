@@ -15,30 +15,12 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"src/datastructure/UndoUnionFind.hpp\"\n#include <cassert>\n\
-    #include <stack>\n#include <vector>\n\nstruct UndoUnionFind {\n    UndoUnionFind(int\
-    \ n) : n(n), data(n, -1) {}\n\n    int find(int x) const {\n        assert(0 <=\
-    \ x && x < n);\n        return data[x] < 0 ? x : find(data[x]);\n    }\n\n   \
-    \ bool merge(int x, int y) {\n        assert(0 <= x && x < n);\n        assert(0\
-    \ <= y && y < n);\n        x = find(x), y = find(y);\n        history.emplace(x,\
-    \ data[x]);\n        history.emplace(y, data[y]);\n        if (x == y) return\
-    \ false;\n        if (-data[x] < -data[y]) std::swap(x, y);\n        data[x] +=\
-    \ data[y];\n        data[y] = x;\n        return true;\n    }\n\n    bool same(int\
-    \ x, int y) const {\n        assert(0 <= x && x < n);\n        assert(0 <= y &&\
-    \ y < n);\n        return find(x) == find(y);\n    }\n\n    int size(int x) const\
-    \ {\n        assert(0 <= x && x < n);\n        return -data[find(x)];\n    }\n\
-    \n    void undo() {\n        assert(!history.empty());\n        data[history.top().first]\
-    \ = history.top().second;\n        history.pop();\n        data[history.top().first]\
-    \ = history.top().second;\n        history.pop();\n    }\n\n    void snapshot()\
-    \ {\n        while (!history.empty()) history.pop();\n    }\n\n    void rollback()\
-    \ {\n        while (!history.empty()) undo();\n    }\n\n    int operator[](int\
-    \ x) const { return find(x); }\n\nprivate:\n    int n;\n    std::vector<int> data;\n\
-    \    std::stack<std::pair<int, int>> history;\n};\n"
-  code: "#pragma once\n#include <cassert>\n#include <stack>\n#include <vector>\n\n\
-    struct UndoUnionFind {\n    UndoUnionFind(int n) : n(n), data(n, -1) {}\n\n  \
-    \  int find(int x) const {\n        assert(0 <= x && x < n);\n        return data[x]\
-    \ < 0 ? x : find(data[x]);\n    }\n\n    bool merge(int x, int y) {\n        assert(0\
-    \ <= x && x < n);\n        assert(0 <= y && y < n);\n        x = find(x), y =\
-    \ find(y);\n        history.emplace(x, data[x]);\n        history.emplace(y, data[y]);\n\
+    #include <stack>\n#include <vector>\n\nstruct UndoUnionFind {\n    UndoUnionFind()\
+    \ {}\n\n    UndoUnionFind(int n) : n(n), data(n, -1) {}\n\n    int find(int x)\
+    \ const {\n        assert(0 <= x && x < n);\n        return data[x] < 0 ? x :\
+    \ find(data[x]);\n    }\n\n    bool merge(int x, int y) {\n        assert(0 <=\
+    \ x && x < n);\n        assert(0 <= y && y < n);\n        x = find(x), y = find(y);\n\
+    \        history.emplace(x, data[x]);\n        history.emplace(y, data[y]);\n\
     \        if (x == y) return false;\n        if (-data[x] < -data[y]) std::swap(x,\
     \ y);\n        data[x] += data[y];\n        data[y] = x;\n        return true;\n\
     \    }\n\n    bool same(int x, int y) const {\n        assert(0 <= x && x < n);\n\
@@ -49,15 +31,34 @@ data:
     \        data[history.top().first] = history.top().second;\n        history.pop();\n\
     \    }\n\n    void snapshot() {\n        while (!history.empty()) history.pop();\n\
     \    }\n\n    void rollback() {\n        while (!history.empty()) undo();\n  \
-    \  }\n\n    int operator[](int x) const { return find(x); }\n\nprivate:\n    int\
-    \ n;\n    std::vector<int> data;\n    std::stack<std::pair<int, int>> history;\n\
+    \  }\n\n    int operator[](int x) const { return find(x); }\n\n  private:\n  \
+    \  int n;\n    std::vector<int> data;\n    std::stack<std::pair<int, int>> history;\n\
     };\n"
+  code: "#pragma once\n#include <cassert>\n#include <stack>\n#include <vector>\n\n\
+    struct UndoUnionFind {\n    UndoUnionFind() {}\n\n    UndoUnionFind(int n) : n(n),\
+    \ data(n, -1) {}\n\n    int find(int x) const {\n        assert(0 <= x && x <\
+    \ n);\n        return data[x] < 0 ? x : find(data[x]);\n    }\n\n    bool merge(int\
+    \ x, int y) {\n        assert(0 <= x && x < n);\n        assert(0 <= y && y <\
+    \ n);\n        x = find(x), y = find(y);\n        history.emplace(x, data[x]);\n\
+    \        history.emplace(y, data[y]);\n        if (x == y) return false;\n   \
+    \     if (-data[x] < -data[y]) std::swap(x, y);\n        data[x] += data[y];\n\
+    \        data[y] = x;\n        return true;\n    }\n\n    bool same(int x, int\
+    \ y) const {\n        assert(0 <= x && x < n);\n        assert(0 <= y && y < n);\n\
+    \        return find(x) == find(y);\n    }\n\n    int size(int x) const {\n  \
+    \      assert(0 <= x && x < n);\n        return -data[find(x)];\n    }\n\n   \
+    \ void undo() {\n        assert(!history.empty());\n        data[history.top().first]\
+    \ = history.top().second;\n        history.pop();\n        data[history.top().first]\
+    \ = history.top().second;\n        history.pop();\n    }\n\n    void snapshot()\
+    \ {\n        while (!history.empty()) history.pop();\n    }\n\n    void rollback()\
+    \ {\n        while (!history.empty()) undo();\n    }\n\n    int operator[](int\
+    \ x) const { return find(x); }\n\n  private:\n    int n;\n    std::vector<int>\
+    \ data;\n    std::stack<std::pair<int, int>> history;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: src/datastructure/UndoUnionFind.hpp
   requiredBy:
   - src/datastructure/OfflineDynamicConnectivity.hpp
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2024-05-21 23:41:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
@@ -83,6 +84,7 @@ title: Union Find with Undo Operation
 | `operator[x]`      | 頂点 $x$ の属する集合の代表元を返す．                                                                             | $O(\log n)$                                                                     |
 
 ## 問題例
+- [Codeforces Round 319 (Div. 1) E. Painting Edges](https://codeforces.com/contest/576/problem/E)
 - [Codeforces Round #680 (Div. 1, based on Moscow Team Olympiad) C. Team-Building](https://codeforces.com/contest/1444/problem/C)
 
 ## 参照

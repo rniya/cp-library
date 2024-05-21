@@ -14,24 +14,24 @@ data:
   bundledCode: "#line 2 \"src/datastructure/OfflineDynamicConnectivity.hpp\"\n#include\
     \ <algorithm>\n#include <map>\n#include <tuple>\n#include <utility>\n#line 2 \"\
     src/datastructure/UndoUnionFind.hpp\"\n#include <cassert>\n#include <stack>\n\
-    #include <vector>\n\nstruct UndoUnionFind {\n    UndoUnionFind(int n) : n(n),\
-    \ data(n, -1) {}\n\n    int find(int x) const {\n        assert(0 <= x && x <\
-    \ n);\n        return data[x] < 0 ? x : find(data[x]);\n    }\n\n    bool merge(int\
-    \ x, int y) {\n        assert(0 <= x && x < n);\n        assert(0 <= y && y <\
-    \ n);\n        x = find(x), y = find(y);\n        history.emplace(x, data[x]);\n\
-    \        history.emplace(y, data[y]);\n        if (x == y) return false;\n   \
-    \     if (-data[x] < -data[y]) std::swap(x, y);\n        data[x] += data[y];\n\
-    \        data[y] = x;\n        return true;\n    }\n\n    bool same(int x, int\
-    \ y) const {\n        assert(0 <= x && x < n);\n        assert(0 <= y && y < n);\n\
-    \        return find(x) == find(y);\n    }\n\n    int size(int x) const {\n  \
-    \      assert(0 <= x && x < n);\n        return -data[find(x)];\n    }\n\n   \
-    \ void undo() {\n        assert(!history.empty());\n        data[history.top().first]\
+    #include <vector>\n\nstruct UndoUnionFind {\n    UndoUnionFind() {}\n\n    UndoUnionFind(int\
+    \ n) : n(n), data(n, -1) {}\n\n    int find(int x) const {\n        assert(0 <=\
+    \ x && x < n);\n        return data[x] < 0 ? x : find(data[x]);\n    }\n\n   \
+    \ bool merge(int x, int y) {\n        assert(0 <= x && x < n);\n        assert(0\
+    \ <= y && y < n);\n        x = find(x), y = find(y);\n        history.emplace(x,\
+    \ data[x]);\n        history.emplace(y, data[y]);\n        if (x == y) return\
+    \ false;\n        if (-data[x] < -data[y]) std::swap(x, y);\n        data[x] +=\
+    \ data[y];\n        data[y] = x;\n        return true;\n    }\n\n    bool same(int\
+    \ x, int y) const {\n        assert(0 <= x && x < n);\n        assert(0 <= y &&\
+    \ y < n);\n        return find(x) == find(y);\n    }\n\n    int size(int x) const\
+    \ {\n        assert(0 <= x && x < n);\n        return -data[find(x)];\n    }\n\
+    \n    void undo() {\n        assert(!history.empty());\n        data[history.top().first]\
     \ = history.top().second;\n        history.pop();\n        data[history.top().first]\
     \ = history.top().second;\n        history.pop();\n    }\n\n    void snapshot()\
     \ {\n        while (!history.empty()) history.pop();\n    }\n\n    void rollback()\
     \ {\n        while (!history.empty()) undo();\n    }\n\n    int operator[](int\
-    \ x) const { return find(x); }\n\nprivate:\n    int n;\n    std::vector<int> data;\n\
-    \    std::stack<std::pair<int, int>> history;\n};\n#line 7 \"src/datastructure/OfflineDynamicConnectivity.hpp\"\
+    \ x) const { return find(x); }\n\n  private:\n    int n;\n    std::vector<int>\
+    \ data;\n    std::stack<std::pair<int, int>> history;\n};\n#line 7 \"src/datastructure/OfflineDynamicConnectivity.hpp\"\
     \n\nstruct OfflineDynamicConnectivity {\n    OfflineDynamicConnectivity(int n)\
     \ : n(n) {}\n\n    void add(int u, int v) {\n        assert(0 <= u and u < n);\n\
     \        assert(0 <= v and v < n);\n        time.emplace(std::minmax(u, v), qs.size());\n\
@@ -90,7 +90,7 @@ data:
   isVerificationFile: false
   path: src/datastructure/OfflineDynamicConnectivity.hpp
   requiredBy: []
-  timestamp: '2023-06-08 18:42:58+09:00'
+  timestamp: '2024-05-21 23:41:26+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/datastructure/OfflineDynamicConnectivity.hpp

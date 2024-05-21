@@ -73,7 +73,7 @@ data:
     - icon: ':warning:'
       path: src/datastructure/RectangleSet.hpp
       title: Rectangle Set
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/datastructure/SlidingWindowAggregation.hpp
       title: Sliding Window Aggregation
     - icon: ':warning:'
@@ -190,9 +190,6 @@ data:
       path: src/graph/StronglyConnectedComponents.hpp
       title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\
         \u89E3\uFF09"
-    - icon: ':warning:'
-      path: src/graph/TopologicalSort.hpp
-      title: Topological Sort
     - icon: ':heavy_check_mark:'
       path: src/graph/TwoSAT.hpp
       title: 2-SAT
@@ -376,7 +373,7 @@ data:
     - icon: ':warning:'
       path: src/util/flow_graphviz.hpp
       title: "\u6700\u5927\u6D41\u30FB\u6700\u5C0F\u8CBB\u7528\u6D41\u306E\u56F3\u793A"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/util/modint.hpp
       title: modint (input/output)
     - icon: ':warning:'
@@ -627,7 +624,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/product_of_polynomial_sequence.test.cpp
       title: test/yosupo/product_of_polynomial_sequence.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/queue_operate_all_composite.test.cpp
       title: test/yosupo/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'

@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/matrix/Matrix.hpp
     title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/util/modint.hpp
     title: modint (input/output)
   _extendedRequiredBy: []

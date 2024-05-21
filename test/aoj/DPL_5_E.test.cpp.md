@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: src/math/binomial.hpp
     title: binomial
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/util/modint.hpp
     title: modint (input/output)
   _extendedRequiredBy: []
