@@ -61,7 +61,7 @@ title: Wildcard Pattern Matching
 
 ## 出力
 
-文字列 $S^\prime, T^\prime$ が $|S^\prime| = |T^\prime|$ を満たし，各 $0 \leq i < |S^\prime|$ について
+文字列 $S^\prime, T^\prime$ が $\left| S^\prime \right| = \left| T^\prime \right|$ を満たし，各 $0 \leq i < \left| S^\prime \right|$ について
 
 - $S^\prime_i = T^\prime_i$
 - $S^\prime_i$ が wildcard
@@ -74,18 +74,18 @@ title: Wildcard Pattern Matching
 $$
 v_i = 
 \begin{cases}
-1 & \text{($S[i, i + |T|)$ と $T$ がマッチしている)} \\
-0 & \text{otherwise}
+1 & \text{($S[i, i + \left| T \right|)$ と $T$ がマッチしている)} \\
+0 & \text{(otherwise)}
 \end{cases}
-\quad (0 \leq i \leq |S| - |T|)
+\quad (0 \leq i \leq \left| S \right| - \left| T \right|)
 $$
 
-で定まる長さ $|S| - |T| + 1$ の配列 $v$
+で定まる長さ $\left| S \right| - \left| T \right| + 1$ の配列 $v$
 
 ## 計算量
 
-- 時間計算量 $\mathrm{O}((|S| + |T|) \log (|S| + |T|))$
-- 空間計算量 $\mathrm{O}(|S| + |T|)$
+- 時間計算量 $\mathrm{O}((\left| S \right| + \left| T \right|) \log (\left| S \right| + \left| T \right|))$
+- 空間計算量 $\mathrm{O}(\left| S \right| + \left| T \right|)$
 
 ## 概要
 
@@ -103,8 +103,8 @@ $$
 $$
 \begin{aligned}
     S[i,  i + |T|) = T
-    && \iff & \sum_{k = 0}^{|T| - 1} \mathrm{cmp}(S[i + k], T[k]) = 0 \\
-    && \iff & \sum_{k = 0}^{|T| - 1} \left[ S[i + k]^2 \mathbf{1}(s > 0) \mathbf{1}(t > 0) \right. \\
+    && \iff & \sum_{k = 0}^{\left| T \right| - 1} \mathrm{cmp}(S[i + k], T[k]) = 0 \\
+    && \iff & \sum_{k = 0}^{\left| T \right| - 1} \left[ S[i + k]^2 \mathbf{1}(s > 0) \mathbf{1}(t > 0) \right. \\
     &&& - 2 S[i + k] T[k] \mathbf{1}(s > 0) \mathbf{1}(t > 0) \\
     &&& \left. + T[k]^2 \mathbf{1}(s > 0) \mathbf{1}(t > 0) \right] = 0
 \end{aligned}
