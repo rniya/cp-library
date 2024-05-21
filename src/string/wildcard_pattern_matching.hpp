@@ -17,14 +17,16 @@ std::vector<bool> wildcard_pattern_matching(const std::string& s, const std::str
     }
     std::vector<atcoder::modint998244353> f1(n), f2(n), f3(n), g1(m), g2(m), g3(m);
     for (int i = 0; i < n; i++) {
-        f1[i] = (s[i] == wild ? 0 : s[i] - mini + 1);
-        f2[i] = f1[i] * f1[i];
-        f3[i] = f2[i] * f1[i];
+        atcoder::modint998244353 x = (s[i] == wild ? 0 : s[i] - mini + 1), y = (s[i] == wild ? 0 : 1);
+        f1[i] = y;
+        f2[i] = y * x;
+        f3[i] = y * x * x;
     }
     for (int i = 0; i < m; i++) {
-        g1[m - 1 - i] = (t[i] == wild ? 0 : t[i] - mini + 1);
-        g2[m - 1 - i] = g1[m - 1 - i] * g1[m - 1 - i];
-        g3[m - 1 - i] = g2[m - 1 - i] * g1[m - 1 - i];
+        atcoder::modint998244353 x = (t[i] == wild ? 0 : t[i] - mini + 1), y = (t[i] == wild ? 0 : 1);
+        g1[m - 1 - i] = y;
+        g2[m - 1 - i] = y * x;
+        g3[m - 1 - i] = y * x * x;
     }
     auto h1 = atcoder::convolution(f1, g3);
     auto h2 = atcoder::convolution(f2, g2);

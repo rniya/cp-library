@@ -3,7 +3,6 @@ title: Heavy Light Decomposition
 documentation_of: ../../src/tree/HeavyLightDecomposition.hpp
 ---
 
-## 概要
 木構造を分解する手法の一つで，部分木やパスに対する更新・取得処理を効率的に行うことができる．
 
 以下に記す内容について，時間計算量は区間 $[l,r)$ に対する更新や総積の取得といった操作が 1 区間あたり $\mathrm{O}(\log n)$ で行えるとしたうえでの計算量である．
