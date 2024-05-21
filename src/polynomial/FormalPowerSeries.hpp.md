@@ -66,13 +66,15 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution.hpp:\
     \ line -1: no such header\n"
   code: "#pragma once\n#include <algorithm>\n#include <cassert>\n#include <functional>\n\
-    #include <queue>\n#include <utility>\n#include <vector>\n\n#include \"atcoder/convolution\"\
+    #include <queue>\n#include <utility>\n#include <vector>\n\n#include \"../atcoder/convolution\"\
     \n\ntemplate <typename T> struct FormalPowerSeries : std::vector<T> {\n  private:\n\
     \    using std::vector<T>::vector;\n    using FPS = FormalPowerSeries;\n    void\
     \ shrink() {\n        while (this->size() and this->back() == T(0)) this->pop_back();\n\
@@ -240,7 +242,7 @@ data:
   - src/polynomial/subset_sum.hpp
   - src/polynomial/coefficient_of_powers.hpp
   - src/polynomial/difference_product.hpp
-  timestamp: '2023-05-21 16:36:42+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/2513.test.cpp

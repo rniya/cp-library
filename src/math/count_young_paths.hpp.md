@@ -21,12 +21,14 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution.hpp:\
     \ line -1: no such header\n"
-  code: "#include \"atcoder/convolution\"\n#include \"math/binomial.hpp\"\n\ntemplate\
+  code: "#include \"../atcoder/convolution\"\n#include \"binomial.hpp\"\n\ntemplate\
     \ <class T>\nstd::vector<T> count_young_paths(const std::vector<int>& h, const\
     \ std::vector<T>& a, Binomial<T>& binom) {\n    assert(h.size() == a.size());\n\
     \    assert(std::is_sorted(begin(h), end(h)));\n    int n = h.size(), m = n >>\
@@ -62,7 +64,7 @@ data:
   isVerificationFile: false
   path: src/math/count_young_paths.hpp
   requiredBy: []
-  timestamp: '2023-05-21 16:36:42+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/3335.test.cpp

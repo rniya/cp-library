@@ -58,7 +58,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/sqrt_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2023-09-18 22:25:37+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/sqrt_of_formal_power_series.test.cpp

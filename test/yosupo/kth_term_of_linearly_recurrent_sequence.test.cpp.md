@@ -42,7 +42,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
   requiredBy: []
-  timestamp: '2023-09-18 22:25:37+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp

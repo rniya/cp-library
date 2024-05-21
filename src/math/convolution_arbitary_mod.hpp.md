@@ -18,12 +18,14 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"atcoder/convolution\"\n\ntemplate <class mint>\n\
+  code: "#pragma once\n#include \"../atcoder/convolution\"\n\ntemplate <class mint>\n\
     std::vector<mint> convolution_arbitary_mod(const std::vector<mint>& a, const std::vector<mint>&\
     \ b) {\n    int n = a.size(), m = b.size();\n    if (n == 0 or m == 0) return\
     \ {};\n    static constexpr unsigned long long MOD1 = 754974721;  // 2^24\n  \
@@ -47,7 +49,7 @@ data:
   isVerificationFile: false
   path: src/math/convolution_arbitary_mod.hpp
   requiredBy: []
-  timestamp: '2023-11-21 21:50:30+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/convolution_mod_1000000007.test.cpp

@@ -20,13 +20,15 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"atcoder/convolution\"\n\ntemplate <typename T> T\
-    \ BostanMori(std::vector<T> Q, std::vector<T> P, long long N) {\n    assert(Q[0]\
+  code: "#pragma once\n#include \"../atcoder/convolution\"\n\ntemplate <typename T>\
+    \ T BostanMori(std::vector<T> Q, std::vector<T> P, long long N) {\n    assert(Q[0]\
     \ == 1);\n    assert(P.size() < Q.size());\n    const int d = Q.size();\n    for\
     \ (; N; N >>= 1) {\n        auto Q_neg = Q;\n        for (int i = 1; i < int(Q.size());\
     \ i += 2) Q_neg[i] *= -1;\n        P = atcoder::convolution(P, Q_neg);\n     \
@@ -47,7 +49,7 @@ data:
   isVerificationFile: false
   path: src/polynomial/BostanMori.hpp
   requiredBy: []
-  timestamp: '2023-05-21 16:36:42+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp

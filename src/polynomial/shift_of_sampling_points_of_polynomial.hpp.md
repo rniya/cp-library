@@ -18,23 +18,25 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"atcoder/convolution\"\n\ntemplate <typename T> std::vector<T>\
-    \ shift_of_sampling_points_of_polynomial(const std::vector<T>& ys, T c, int m)\
-    \ {\n    int n = ys.size();\n    int len = std::max(n, m);\n    std::vector<T>\
-    \ fac(len), finv(len);\n    fac[0] = 1;\n    for (int i = 1; i < len; i++) fac[i]\
-    \ = fac[i - 1] * i;\n    finv[len - 1] = fac[len - 1].inv();\n    for (int i =\
-    \ len - 2; i >= 0; i--) finv[i] = finv[i + 1] * (i + 1);\n    std::vector<T> a(n),\
-    \ f(n);\n    {\n        for (int i = 0; i < n; i++) {\n            a[i] = ys[i]\
-    \ * finv[i];\n            f[i] = (i & 1 ? -1 : 1) * finv[i];\n        }\n    \
-    \    a = atcoder::convolution(a, f);\n        a.resize(n);\n    }\n    {\n   \
-    \     std::reverse(begin(a), end(a));\n        T prod = 1;\n        for (int i\
-    \ = 0; i < n; prod *= c - (i++)) {\n            a[i] *= fac[n - 1 - i];\n    \
-    \        f[i] = prod * finv[i];\n        }\n        a = atcoder::convolution(a,\
+  code: "#pragma once\n#include \"../atcoder/convolution\"\n\ntemplate <typename T>\
+    \ std::vector<T> shift_of_sampling_points_of_polynomial(const std::vector<T>&\
+    \ ys, T c, int m) {\n    int n = ys.size();\n    int len = std::max(n, m);\n \
+    \   std::vector<T> fac(len), finv(len);\n    fac[0] = 1;\n    for (int i = 1;\
+    \ i < len; i++) fac[i] = fac[i - 1] * i;\n    finv[len - 1] = fac[len - 1].inv();\n\
+    \    for (int i = len - 2; i >= 0; i--) finv[i] = finv[i + 1] * (i + 1);\n   \
+    \ std::vector<T> a(n), f(n);\n    {\n        for (int i = 0; i < n; i++) {\n \
+    \           a[i] = ys[i] * finv[i];\n            f[i] = (i & 1 ? -1 : 1) * finv[i];\n\
+    \        }\n        a = atcoder::convolution(a, f);\n        a.resize(n);\n  \
+    \  }\n    {\n        std::reverse(begin(a), end(a));\n        T prod = 1;\n  \
+    \      for (int i = 0; i < n; prod *= c - (i++)) {\n            a[i] *= fac[n\
+    \ - 1 - i];\n            f[i] = prod * finv[i];\n        }\n        a = atcoder::convolution(a,\
     \ f);\n        a.resize(n);\n    }\n    {\n        std::reverse(begin(a), end(a));\n\
     \        for (int i = 0; i < n; i++) a[i] *= finv[i];\n        f.resize(m);\n\
     \        for (int i = 0; i < m; i++) f[i] = finv[i];\n        auto res = atcoder::convolution(a,\
@@ -44,7 +46,7 @@ data:
   isVerificationFile: false
   path: src/polynomial/shift_of_sampling_points_of_polynomial.hpp
   requiredBy: []
-  timestamp: '2023-05-24 23:58:25+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/shift_of_sampling_points_of_polynomial.test.cpp

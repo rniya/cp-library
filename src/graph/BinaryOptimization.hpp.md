@@ -24,12 +24,14 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/maxflow:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/maxflow.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include <array>\n#include <tuple>\n#include \"atcoder/maxflow\"\
+  code: "#pragma once\n#include <array>\n#include <tuple>\n#include \"../atcoder/maxflow\"\
     \n\ntemplate <typename T, bool MINIMIZE = true> struct BinaryOptimization {\n\
     \    BinaryOptimization() = default;\n\n    explicit BinaryOptimization(int n)\
     \ : n(n) {}\n\n    void add(T x) {\n        if (not MINIMIZE) x = -x;\n      \
@@ -111,7 +113,7 @@ data:
   path: src/graph/BinaryOptimization.hpp
   requiredBy:
   - src/graph/KaryOptimization.hpp
-  timestamp: '2024-04-01 01:36:46+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp

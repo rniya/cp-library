@@ -15,12 +15,14 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution.hpp:\
     \ line -1: no such header\n"
-  code: "#include <string>\n#include \"atcoder/convolution\"\n\nstd::vector<bool>\
+  code: "#include <string>\n#include \"../atcoder/convolution\"\n\nstd::vector<bool>\
     \ wildcard_pattern_matching(const std::string& s, const std::string& t, char wild\
     \ = '?') {\n    int n = s.size(), m = t.size();\n    assert(n >= m and n > 0);\n\
     \    char mini = s[0];\n    for (const auto& c : s) {\n        if (c != wild)\
@@ -41,7 +43,7 @@ data:
   isVerificationFile: false
   path: src/string/wildcard_pattern_matching.hpp
   requiredBy: []
-  timestamp: '2024-05-12 03:06:16+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/string/wildcard_pattern_matching.hpp

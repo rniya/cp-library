@@ -18,21 +18,25 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/BinaryOptimization.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/maxflow.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"graph/BinaryOptimization.hpp\"\n\ntemplate <typename\
-    \ T, bool MINIMIZE = true> struct KaryOptimization {\n    KaryOptimization() =\
-    \ default;\n\n    KaryOptimization(const std::vector<int>& ks) : n(ks.size()),\
-    \ ks(ks), idx(ks.size()) {\n        int cur = 0;\n        for (int i = 0; i <\
-    \ n; i++) {\n            assert(ks[i] > 0);\n            idx[i].resize(ks[i]);\n\
-    \            idx[i][0] = -1;\n            for (int d = 1; d < ks[i]; d++) idx[i][d]\
-    \ = cur++;\n        }\n        bopt = BinaryOptimization<T, MINIMIZE>(cur);\n\
-    \        for (int i = 0; i < n; i++) {\n            for (int d = 1; d + 1 < ks[i];\
-    \ d++) {\n                bopt.add_10(idx[i][d], idx[i][d + 1], MINIMIZE ? inf\
-    \ : -inf);\n            }\n        }\n    }\n\n    void add(int i, const std::vector<T>&\
+  code: "#pragma once\n#include \"BinaryOptimization.hpp\"\n\ntemplate <typename T,\
+    \ bool MINIMIZE = true> struct KaryOptimization {\n    KaryOptimization() = default;\n\
+    \n    KaryOptimization(const std::vector<int>& ks) : n(ks.size()), ks(ks), idx(ks.size())\
+    \ {\n        int cur = 0;\n        for (int i = 0; i < n; i++) {\n           \
+    \ assert(ks[i] > 0);\n            idx[i].resize(ks[i]);\n            idx[i][0]\
+    \ = -1;\n            for (int d = 1; d < ks[i]; d++) idx[i][d] = cur++;\n    \
+    \    }\n        bopt = BinaryOptimization<T, MINIMIZE>(cur);\n        for (int\
+    \ i = 0; i < n; i++) {\n            for (int d = 1; d + 1 < ks[i]; d++) {\n  \
+    \              bopt.add_10(idx[i][d], idx[i][d + 1], MINIMIZE ? inf : -inf);\n\
+    \            }\n        }\n    }\n\n    void add(int i, const std::vector<T>&\
     \ theta) {\n        assert(0 <= i and i < n);\n        assert(theta.size() ==\
     \ ks[i]);\n        bopt.add(theta.back());\n        for (int d = 1; d < ks[i];\
     \ d++) bopt.add(idx[i][d], {0, theta[d - 1] - theta[d]});\n    }\n\n    void add(int\
@@ -60,7 +64,7 @@ data:
   isVerificationFile: false
   path: src/graph/KaryOptimization.hpp
   requiredBy: []
-  timestamp: '2024-04-01 01:36:46+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/graph/KaryOptimization.hpp

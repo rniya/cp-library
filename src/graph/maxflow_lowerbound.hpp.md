@@ -18,12 +18,14 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/maxflow:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/maxflow.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"atcoder/maxflow\"\n\ntemplate <class Cap> struct\
+  code: "#pragma once\n#include \"../atcoder/maxflow\"\n\ntemplate <class Cap> struct\
     \ maxflow_lowerbound {\n    maxflow_lowerbound() {}\n    maxflow_lowerbound(int\
     \ n) : n(n), graph(n + 2), in(n, 0) {}\n\n    int add_edge(int from, int to, Cap\
     \ lower, Cap upper) {\n        assert(0 <= from and from < n);\n        assert(0\
@@ -47,7 +49,7 @@ data:
   isVerificationFile: false
   path: src/graph/maxflow_lowerbound.hpp
   requiredBy: []
-  timestamp: '2023-10-01 16:26:05+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/1615.test.cpp

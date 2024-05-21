@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/tree/HeavyLightDecomposition.hpp
-    title: Heavy Light Decomposition
+    title: src/tree/HeavyLightDecomposition.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

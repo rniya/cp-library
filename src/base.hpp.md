@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: src/datastructure/RectangleSet.hpp
-    title: Rectangle Set
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/aplusb.test.cpp
@@ -44,8 +41,7 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/base.hpp
-  requiredBy:
-  - src/datastructure/RectangleSet.hpp
+  requiredBy: []
   timestamp: '2024-05-12 03:06:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

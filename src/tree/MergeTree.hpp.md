@@ -15,12 +15,14 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/dsu: line\
-    \ -1: no such header\n"
-  code: "#pragma once\n#include <numeric>\n#include <tuple>\n#include \"atcoder/dsu\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/dsu.hpp:\
+    \ line -1: no such header\n"
+  code: "#pragma once\n#include <numeric>\n#include <tuple>\n#include \"../atcoder/dsu\"\
     \n\nstruct MergeTree : atcoder::dsu {\n    MergeTree() {}\n\n    MergeTree(int\
     \ n) : atcoder::dsu(n), n(n), vid(n) {}\n\n    std::vector<std::pair<int, int>>\
     \ build(const std::vector<std::tuple<int, int, int>>& qs) {\n        int q = qs.size();\n\
@@ -35,7 +37,7 @@ data:
     \   }\n        }\n        std::vector<std::pair<int, int>> res(q);\n        for\
     \ (int i = 0; i < q; i++) {\n            if (idx[i] != -1) {\n               \
     \ res[i] = range[idx[i]];\n            }\n        }\n        return res;\n   \
-    \ }\n\n    int operator[](int v) const { return vid[v]; }\n\nprivate:\n    int\
+    \ }\n\n    int operator[](int v) const { return vid[v]; }\n\n  private:\n    int\
     \ n;\n    std::vector<int> vid;\n    std::vector<std::pair<int, int>> child, range;\n\
     \n    void dfs(int v, int& cur) {\n        int l = cur;\n        if (v < n)\n\
     \            vid[v] = cur++;\n        else {\n            auto [a, b] = child[v\
@@ -45,7 +47,7 @@ data:
   isVerificationFile: false
   path: src/tree/MergeTree.hpp
   requiredBy: []
-  timestamp: '2023-04-23 21:15:49+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/tree/MergeTree.hpp

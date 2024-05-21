@@ -1,8 +1,7 @@
 競技プログラミングで使用するライブラリ集です．
 
-C++ 20 でコーディング及びテストされています．
-
-[ac-library](https://github.com/atcoder/ac-library) に一部準拠しています。
+- C++ 20 でコーディング及びテストされています．
+- [ac-library](https://github.com/atcoder/ac-library) に一部準拠しています．
 
 [![Actions Status](https://github.com/rniya/competitive-programming-library/workflows/verify/badge.svg)](https://github.com/rniya/competitive-programming-library/actions)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/rniya/cp-library)

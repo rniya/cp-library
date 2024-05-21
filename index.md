@@ -70,9 +70,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/datastructure/RangeTree.hpp
       title: Range Tree
-    - icon: ':warning:'
-      path: src/datastructure/RectangleSet.hpp
-      title: Rectangle Set
     - icon: ':heavy_check_mark:'
       path: src/datastructure/SlidingWindowAggregation.hpp
       title: Sliding Window Aggregation
@@ -346,7 +343,7 @@ data:
         \u984C"
     - icon: ':heavy_check_mark:'
       path: src/tree/HeavyLightDecomposition.hpp
-      title: Heavy Light Decomposition
+      title: src/tree/HeavyLightDecomposition.hpp
     - icon: ':warning:'
       path: src/tree/MergeTree.hpp
       title: "\u30DE\u30FC\u30B8\u904E\u7A0B\u3092\u8868\u3059\u6728"

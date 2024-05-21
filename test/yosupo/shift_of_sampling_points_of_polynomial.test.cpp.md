@@ -39,7 +39,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/shift_of_sampling_points_of_polynomial.test.cpp
   requiredBy: []
-  timestamp: '2023-05-24 23:58:25+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/shift_of_sampling_points_of_polynomial.test.cpp

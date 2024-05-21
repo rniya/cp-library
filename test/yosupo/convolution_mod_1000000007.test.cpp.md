@@ -40,7 +40,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/convolution_mod_1000000007.test.cpp
   requiredBy: []
-  timestamp: '2023-11-21 21:50:30+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/convolution_mod_1000000007.test.cpp

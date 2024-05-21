@@ -11,20 +11,37 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
-    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
-    \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: algorithm/golden_section_search.hpp:\
-    \ line -1: no such header\n"
+  bundledCode: "#line 1 \"src/algorithm/monge_d_edge_shortest_path.hpp\"\n#include\
+    \ <cassert>\n#include <functional>\n#include <limits>\n#include <vector>\n#line\
+    \ 3 \"src/algorithm/golden_section_search.hpp\"\n#include <utility>\n\ntemplate\
+    \ <typename T, bool get_min = true>\nstd::pair<long long, T> golden_section_search(const\
+    \ std::function<T(long long)>& f, long long mini, long long maxi) {\n    assert(mini\
+    \ <= maxi);\n    long long a = mini - 1, x, b;\n    {\n        long long s = 1,\
+    \ t = 2;\n        while (t < maxi - mini + 2) std::swap(s += t, t);\n        x\
+    \ = a + t - s, b = a + t;\n    }\n    T fx = f(x), fy;\n    while (a + b != 2\
+    \ * x) {\n        long long y = a + b - x;\n        fy = f(y);\n        if (maxi\
+    \ < y or (get_min ? fx < fy : fx > fy)) {\n            b = a;\n            a =\
+    \ y;\n        } else {\n            a = x;\n            x = y;\n            fx\
+    \ = fy;\n        }\n    }\n    return {x, fx};\n}\n#line 6 \"src/algorithm/monge_d_edge_shortest_path.hpp\"\
+    \n\ntemplate <typename T> std::vector<T> monge_shortest_path(int N, const std::function<T(int,\
+    \ int)>& f) {\n    std::vector<T> dp(N + 1, std::numeric_limits<T>::max() / 2);\n\
+    \    std::vector<int> x(N + 1);\n    dp[0] = x[0] = 0, x[N] = N;\n    auto check\
+    \ = [&](int from, int to) {\n        if (from >= to) return;\n        T cost =\
+    \ f(from, to);\n        if (dp[from] + cost < dp[to]) {\n            dp[to] =\
+    \ dp[from] + cost;\n            x[to] = from;\n        }\n    };\n    auto solve\
+    \ = [&](auto&& self, int l, int r) -> void {\n        if (l >= r) return;\n  \
+    \      int m = (l + r) >> 1;\n        x[m] = x[l];\n        for (int i = x[l];\
+    \ i <= x[r]; i++) check(i, m);\n        if (r - l > 1) self(self, l, m);\n   \
+    \     for (int i = l; i <= m; i++) check(i, r);\n        if (r - l > 1) self(self,\
+    \ m, r);\n    };\n    solve(solve, 0, N);\n    return dp;\n}\n\nlong long monge_d_edge_shortest_path(int\
+    \ N, int D, long long upper, const std::function<long long(int, int)>& f) {\n\
+    \    assert(0 <= upper);\n    auto dp = [&](long long x) -> long long {\n    \
+    \    auto g = [&](int from, int to) -> long long { return f(from, to) + x; };\n\
+    \        long long cost = monge_shortest_path<long long>(N, g)[N];\n        return\
+    \ cost - 1LL * D * x;\n    };\n    auto [tmp, res] = golden_section_search<long\
+    \ long, false>(dp, -upper, upper);\n    return res;\n}\n"
   code: "#include <cassert>\n#include <functional>\n#include <limits>\n#include <vector>\n\
-    #include \"algorithm/golden_section_search.hpp\"\n\ntemplate <typename T> std::vector<T>\
+    #include \"golden_section_search.hpp\"\n\ntemplate <typename T> std::vector<T>\
     \ monge_shortest_path(int N, const std::function<T(int, int)>& f) {\n    std::vector<T>\
     \ dp(N + 1, std::numeric_limits<T>::max() / 2);\n    std::vector<int> x(N + 1);\n\
     \    dp[0] = x[0] = 0, x[N] = N;\n    auto check = [&](int from, int to) {\n \
@@ -47,7 +64,7 @@ data:
   isVerificationFile: false
   path: src/algorithm/monge_d_edge_shortest_path.hpp
   requiredBy: []
-  timestamp: '2023-04-24 16:07:50+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/algorithm/monge_d_edge_shortest_path.hpp

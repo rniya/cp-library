@@ -15,12 +15,14 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution.hpp:\
     \ line -1: no such header\n"
-  code: "#include \"atcoder/convolution\"\n\ntemplate <class T> class RelaxedConvolution\
+  code: "#include \"../atcoder/convolution\"\n\ntemplate <class T> class RelaxedConvolution\
     \ {\n    int n;\n    std::vector<T> f, g, h;\n\n  public:\n    RelaxedConvolution()\
     \ : n(0) {}\n\n    T query(T a, T b) {\n        f.emplace_back(a);\n        g.emplace_back(b);\n\
     \        h.emplace_back(0);\n        if (n > 0) h.emplace_back(0);\n        int\
@@ -39,7 +41,7 @@ data:
   isVerificationFile: false
   path: src/math/RelaxedConvolution.hpp
   requiredBy: []
-  timestamp: '2023-09-11 12:23:25+09:00'
+  timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/math/RelaxedConvolution.hpp
