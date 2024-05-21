@@ -265,7 +265,7 @@ title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
 ## 概要
 形式的冪級数 (Formal Power Series) を効率的に扱うためのライブラリ．
 AC Library の convolution に準拠している．
-`inv` 等の関数について特に $\mathbb{F}_{998244353}[x]$ 等 $\bmod$ が NTT-friendly な場合を想定した高速化のもとに実装しているため，$\mathbb{F}_{10^9 + 7}[x]$ 等を扱う際は注意が必要である．
+`inv` 等の関数について特に $\mathbb{F} _ {998244353} \lbrack x \rbrack$ 等 $\text{mod}$ が NTT-friendly な場合を想定した高速化のもとに実装しているため，$\mathbb{F} _ {10^9 + 7} \lbrack x \rbrack$ 等を扱う際は注意が必要である．
 
 以下では
 
