@@ -4,13 +4,13 @@ documentation_of: //src/string/wildcard_pattern_matching.hpp
 ---
 
 ## 入力
-文字列 `$S, T\ ( |S| \geq |T| )$`
+文字列 $S, T\ (\vert S \vert \geq \vert T \vert)$
 
-以下では $n := |S| , m := |T|$ とする．
+以下では $\vert S \vert := \vert S\vert , \vert T \vert := \vert T\vert$ とする．
 
 ## 出力
 
-長さの等しい文字列 $S^\prime, T^\prime$ が各 $0 \leq i < |S^\prime| $ について
+長さの等しい文字列 $S^\prime, T^\prime$ が各 $0 \leq i < \vert S^\prime \vert $ について
 
 - $S^\prime_i = T^\prime_i$
 - $S^\prime_i$ が wildcard
@@ -23,18 +23,18 @@ documentation_of: //src/string/wildcard_pattern_matching.hpp
 $$
 v_i = 
 \begin{cases}
-1 & \text{($S[i, i + m)$ と $T$ がマッチしている)} \\
+1 & \text{($S[i, i + \vert T \vert)$ と $T$ がマッチしている)} \\
 0 & \text{(otherwise)}
 \end{cases}
-\quad (0 \leq i \leq n - m)
+\quad (0 \leq i \leq \vert S \vert - \vert T \vert)
 $$
 
-で定まる長さ $n - m + 1$ の配列 $v$
+で定まる長さ $\vert S \vert - \vert T \vert + 1$ の配列 $v$
 
 ## 計算量
 
-- 時間計算量 $\mathrm{O}((n + m) \log (n + m))$
-- 空間計算量 $\mathrm{O}(n + m)$
+- 時間計算量 $\mathrm{O}((\vert S \vert + \vert T \vert) \log (\vert S \vert + \vert T \vert))$
+- 空間計算量 $\mathrm{O}(\vert S \vert + \vert T \vert)$
 
 ## 概要
 
@@ -51,9 +51,9 @@ $$
 
 $$
 \begin{aligned}
-    S[i,  i + |T|) = T
-    && \iff & \sum_{k = 0}^{m - 1} \mathrm{cmp}(S[i + k], T[k]) = 0 \\
-    && \iff & \sum_{k = 0}^{m - 1} \left[ S[i + k]^2 \mathbf{1}(s > 0) \mathbf{1}(t > 0) \right. \\
+    S[i,  i + \vert T \vert) = T
+    && \iff & \sum_{k = 0}^{\vert T \vert - 1} \mathrm{cmp}(S[i + k], T[k]) = 0 \\
+    && \iff & \sum_{k = 0}^{\vert T \vert - 1} \left[ S[i + k]^2 \mathbf{1}(s > 0) \mathbf{1}(t > 0) \right. \\
     &&& - 2 S[i + k] T[k] \mathbf{1}(s > 0) \mathbf{1}(t > 0) \\
     &&& \left. + T[k]^2 \mathbf{1}(s > 0) \mathbf{1}(t > 0) \right] = 0
 \end{aligned}
