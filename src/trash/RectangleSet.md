@@ -1,8 +1,3 @@
----
-title: Rectangle Set
-documentation_of: ./RectangleSet.hpp
----
-
 ## 概要
 「$x \geqq a$ または $y \geqq b$」という条件が追加されていく際の $\min x + y$ を逐次計算する．
 
