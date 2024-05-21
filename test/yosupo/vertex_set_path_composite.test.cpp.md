@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/tree/HeavyLightDecomposition.hpp
-    title: src/tree/HeavyLightDecomposition.hpp
+    title: Heavy Light Decomposition
   - icon: ':heavy_check_mark:'
     path: src/util/modint.hpp
     title: modint (input/output)
