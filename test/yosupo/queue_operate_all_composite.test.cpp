@@ -1,19 +1,25 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/queue_operate_all_composite"
 
+#include <iostream>
+#include "atcoder/modint"
 #include "datastructure/SlidingWindowAggregation.hpp"
-#include "util/modint.hpp"
 
 using mint = atcoder::modint998244353;
+
+struct S {
+    mint a, b;
+    S(mint a, mint b) : a(a), b(b) {}
+};
+
+S op(S a, S b) { return S(a.a * b.a, a.b * b.a + b.b); }
+
+S e() { return S(1, 0); }
 
 int main() {
     std::cin.tie(0);
     std::ios::sync_with_stdio(false);
-    struct node {
-        mint a, b;
-        node(mint a, mint b) : a(a), b(b) {}
-    };
-    auto f = [](node a, node b) { return node(a.a * b.a, a.b * b.a + b.b); };
-    SlidingWindowAggregation<node> SWAG(f, node(1, 0));
+
+    SlidingWindowAggregation<S, op, e> swag;
 
     int Q;
     std::cin >> Q;
@@ -23,14 +29,15 @@ int main() {
         if (t == 0) {
             int a, b;
             std::cin >> a >> b;
-            SWAG.push(node(a, b));
+            swag.push(S(a, b));
         } else if (t == 1) {
-            SWAG.pop();
+            swag.pop();
         } else {
             int x;
             std::cin >> x;
-            node ans = SWAG.fold();
-            std::cout << ans.a * x + ans.b << '\n';
+            S res = swag.fold();
+            mint ans = res.a * x + res.b;
+            std::cout << ans.val() << '\n';
         }
     }
 }
