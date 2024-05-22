@@ -121,9 +121,9 @@ template <typename T, int N> struct SquareMatrix {
         return res;
     }
 
-    int rank() const { return Matrix(*this).gauss_jordan().first; }
+    int rank() const { return SquareMatrix(*this).gauss_jordan().first; }
 
-    T det() const { return Matrix(*this).gauss_jordan().second; }
+    T det() const { return SquareMatrix(*this).gauss_jordan().second; }
 
     SquareMatrix inv() const {
         SquareMatrix B(*this), C = identity();
