@@ -1,5 +1,5 @@
 ---
-title: Bellman-Ford
+title: Bellman Ford
 documentation_of: ./BellmanFord.hpp
 ---
 

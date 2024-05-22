@@ -1,5 +1,5 @@
 ---
-title: 差積 (Difference Product, Vandermonde's determinant)
+title: Difference Product (Vandermonde's Determinant)
 documentation_of: ./difference_product.hpp
 ---
 

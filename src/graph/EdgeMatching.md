@@ -1,5 +1,5 @@
 ---
-title: 辺同士のマッチング
+title: Edge Matching
 documentation_of: ./EdgeMatching.hpp
 ---
 

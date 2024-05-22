@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/matrix_det"
 
+#include "atcoder/modint"
 #include "matrix/Matrix.hpp"
-#include "util/modint.hpp"
 
 using mint = atcoder::modint998244353;
 
@@ -13,9 +13,12 @@ int main() {
     Matrix<mint> a(N);
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
-            std::cin >> a[i][j];
+            int val;
+            std::cin >> val;
+            a[i][j] = val;
         }
     }
 
-    std::cout << a.determinant() << '\n';
+    mint ans = a.determinant();
+    std::cout << ans.val() << '\n';
 }

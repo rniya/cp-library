@@ -1,5 +1,5 @@
 ---
-title: Young 図形上の最短経路の数え上げ
+title: Count Paths on Young Tableau
 documentation_of: ./count_young_paths.hpp
 ---
 

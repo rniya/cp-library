@@ -1,5 +1,5 @@
 ---
-title: Discrete Logarithm（離散対数問題）
+title: Discrete Logarithm
 documentation_of: ./discrete_logarithm.hpp
 ---
 

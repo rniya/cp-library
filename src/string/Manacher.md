@@ -1,5 +1,5 @@
 ---
-title: Manacher（回分半径）
+title: Manacher (Lonegest Palindromic Substring)
 documentation_of: ./Manacher.hpp
 ---
 

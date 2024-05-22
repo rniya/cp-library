@@ -1,5 +1,5 @@
 ---
-title: set function (FZT, FMT, FWHT)
+title: Set Function (FZT, FMT, FWHT)
 documentation_of: ./set_function.hpp
 ---
 

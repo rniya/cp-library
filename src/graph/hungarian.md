@@ -1,5 +1,5 @@
 ---
-title: Hungarian（割当問題，二部グラフの最小重み完全マッチング）
+title: Hungarian (Assignment Problem)
 documentation_of: ./hungarian.hpp
 ---
 

@@ -1,4 +1,4 @@
 ---
-title: 任意 mod 畳み込み
+title: Convolution (Arbitary mod)
 documentation_of: ./convolution_arbitary_mod.hpp
 ---

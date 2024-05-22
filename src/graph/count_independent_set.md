@@ -1,5 +1,5 @@
 ---
-title: 独立集合の数え上げ
+title: Count Independent Sets
 documentation_of: ./count_independent_set.hpp
 ---
 

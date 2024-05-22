@@ -1,5 +1,5 @@
 ---
-title: Simplex（単体法）
+title: Simplex
 documentation_of: ./Simplex.hpp
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Monge グラフ上の $d$-辺最短路長
+title: $d$-edge Shortest Path on Monge Graph
 documentation_of: ./monge_d_edge_shortest_path.hpp
 ---
 

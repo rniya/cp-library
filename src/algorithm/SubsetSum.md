@@ -1,5 +1,5 @@
 ---
-title: Subset Sum（部分和問題）$O(NS)$
+title: Subset Sum $O(NS)$
 documentation_of: ./SubsetSum.hpp
 ---
 

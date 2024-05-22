@@ -1,5 +1,5 @@
 ---
-title: 形式的冪級数の冪乗の係数列挙
+title: Power Projection
 documentation_of: ./coefficient_of_powers.hpp
 ---
 

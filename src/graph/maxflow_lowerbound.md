@@ -1,5 +1,5 @@
 ---
-title: 流量下限制約付き最大流
+title: Max Flow (Lower Bound Constraints)
 documentation_of: ./maxflow_lowerbound.hpp
 ---
 

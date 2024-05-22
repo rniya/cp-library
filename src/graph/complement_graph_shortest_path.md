@@ -1,5 +1,5 @@
 ---
-title: 補グラフ上の最短路
+title: Shortest Path on Complement Graph
 documentation_of: ./complement_graph_shortest_path.hpp
 ---
 

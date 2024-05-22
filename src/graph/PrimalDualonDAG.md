@@ -1,5 +1,5 @@
 ---
-title: Primal Dual on DAG（負辺あり最小費用流）
+title: Primal Dual on DAG (Minimum Cost Flow with Negative Edges)
 documentation_of: ./PrimalDualonDAG.hpp
 ---
 

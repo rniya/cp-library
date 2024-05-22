@@ -1,5 +1,5 @@
 ---
-title: Hash 構造体 (reversible)
+title: Hash (reversible)
 documentation_of: ./Hash.hpp
 ---
 

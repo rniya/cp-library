@@ -1,5 +1,5 @@
 ---
-title: Centroid Decomposition（木の重心分解）
+title: Centroid Decomposition
 documentation_of: ./CentroidDecomposition.hpp
 ---
 

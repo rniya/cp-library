@@ -1,5 +1,5 @@
 ---
-title: 正方行列ライブラリ
+title: Square Matrix
 documentation_of: ./SquareMatrix.hpp
 ---
 

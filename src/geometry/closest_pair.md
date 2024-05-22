@@ -1,4 +1,4 @@
 ---
-title: 最近点対
+title: Closest Pair
 documentation_of: ./closest_pair.hpp
 ---

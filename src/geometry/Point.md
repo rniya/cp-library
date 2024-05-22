@@ -1,4 +1,4 @@
 ---
-title: Point 構造体
+title: Point
 documentation_of: ./Point.hpp
 ---

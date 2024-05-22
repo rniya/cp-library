@@ -1,5 +1,5 @@
 ---
-title: K-ary Optimization
+title: $K$-ary Optimization
 documentation_of: ./KaryOptimization.hpp
 ---
 

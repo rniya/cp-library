@@ -1,5 +1,5 @@
 ---
-title: クリークの数え上げ
+title: Count Cliques
 documentation_of: ./count_clique.hpp
 ---
 

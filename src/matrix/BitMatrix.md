@@ -1,5 +1,5 @@
 ---
-title: Bit Matrix
+title: Binary Matrix
 documentation_of: ./BitMatrix.hpp
 ---
 

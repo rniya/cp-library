@@ -1,5 +1,5 @@
 ---
-title: $C_3$ の列挙，$C_4, K_4$ の数え上げ
+title: Enuemrate $C_3$, Count $C_4, K_4$
 documentation_of: ./count_graphs.hpp
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 全方位木 dp
+title: Rerooting
 documentation_of: ./Rerooting.hpp
 ---
 

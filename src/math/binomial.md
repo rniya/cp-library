@@ -1,5 +1,5 @@
 ---
-title: binomial
+title: Binomial Coefficients
 documentation_of: ./binomial.hpp
 ---
 

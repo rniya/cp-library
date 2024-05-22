@@ -1,5 +1,5 @@
 ---
-title: elementary math
+title: Elementary Math
 documentation_of: ./elementary_math.hpp
 ---
 

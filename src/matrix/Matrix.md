@@ -1,5 +1,5 @@
 ---
-title: 行列ライブラリ
+title: Matrix
 documentation_of: ./Matrix.hpp
 ---
 

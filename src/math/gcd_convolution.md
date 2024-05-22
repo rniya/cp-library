@@ -1,5 +1,5 @@
 ---
-title: $\gcd$ convolution（添字 $\gcd$ 畳み込み）
+title: Gcd Convolution
 documentation_of: ./gcd_convolution.hpp
 ---
 

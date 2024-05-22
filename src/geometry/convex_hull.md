@@ -1,4 +1,4 @@
 ---
-title: 凸包
+title: Convex Hull
 documentation_of: ./convex_hull.hpp
 ---

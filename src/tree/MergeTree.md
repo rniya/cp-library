@@ -1,5 +1,5 @@
 ---
-title: マージ過程を表す木
+title: Merge Process Tree
 documentation_of: ./MergeTree.hpp
 ---
 

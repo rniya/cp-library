@@ -1,4 +1,4 @@
 ---
-title: 凸多角形の直径
+title: Convex Diameter
 documentation_of: ./convex_diameter.hpp
 ---

@@ -1,5 +1,5 @@
 ---
-title: 区間を管理する構造体
+title: Interval Manager
 documentation_of: ./IntervalManager.hpp
 ---
 

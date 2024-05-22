@@ -1,5 +1,5 @@
 ---
-title: クリーク全列挙
+title: Enumerate Cliques
 documentation_of: ./enumerate_cliques.hpp
 ---
 

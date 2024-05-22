@@ -1,5 +1,5 @@
 ---
-title: 黄金分割探索
+title: Golden Section Search
 documentation_of: ./golden_section_search.hpp
 ---
 

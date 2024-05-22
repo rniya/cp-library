@@ -1,5 +1,5 @@
 ---
-title: Formal Power Series（形式的冪級数）
+title: Formal Power Series
 documentation_of: ./FormalPowerSeries.hpp
 ---
 

@@ -60,5 +60,5 @@ $$
 が成立し，最後の式は畳み込みにより計算可能である．
 
 ## 出題例
--  \lbrack AtCoder Beginner Contest 307 Ex - Marquee \rbrack(https://atcoder.jp/contests/abc307/tasks/abc307_h)
--  \lbrack DEGwer さんの D 論応援コンテスト H - Incomplete Notes \rbrack(https://atcoder.jp/contests/DEGwer2023/tasks/1202Contest_h)
+-  [AtCoder Beginner Contest 307 Ex - Marquee](https://atcoder.jp/contests/abc307/tasks/abc307_h)
+-  [DEGwer さんの D 論応援コンテスト H - Incomplete Notes](https://atcoder.jp/contests/DEGwer2023/tasks/1202Contest_h)

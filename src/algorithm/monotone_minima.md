@@ -1,5 +1,5 @@
 ---
-title: monotone minima
+title: Monotone Minima
 documentation_of: ./monotone_minima.hpp
 ---
 

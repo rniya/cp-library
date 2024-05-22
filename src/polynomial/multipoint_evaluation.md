@@ -1,5 +1,5 @@
 ---
-title: multipoint evaluation
+title: Multipoint Evaluation
 documentation_of: ./multipoint_evaluation.hpp
 ---
 

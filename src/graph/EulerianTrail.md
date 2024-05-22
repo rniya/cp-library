@@ -1,5 +1,5 @@
 ---
-title: オイラー路の構築
+title: Eulerian Trail
 documentation_of: ./EulerianTrail.hpp
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: SMAWK algotirhm
+title: SMAWK Algotirhm
 documentation_of: ./smawk.hpp
 ---
 

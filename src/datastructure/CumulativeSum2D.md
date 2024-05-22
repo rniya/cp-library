@@ -1,5 +1,5 @@
 ---
-title: 2 次元累積和
+title: Cumulative Sum (2D)
 documentation_of: ./CumulativeSum2D.hpp
 ---
 
