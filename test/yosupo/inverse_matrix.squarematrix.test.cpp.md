@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/matrix/SquareMatrix.hpp
     title: Square Matrix
   _extendedRequiredBy: []

@@ -1,18 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/matrix/SquareMatrix.hpp
     title: Square Matrix
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_GCC: ''
+    PROBLEM: https://judge.yosupo.jp/problem/pow_of_matrix
     links:
     - https://judge.yosupo.jp/problem/pow_of_matrix
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -27,8 +26,8 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint:\
     \ line -1: no such header\n"
-  code: "#define IGNORE\n#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_matrix\"\
-    \n\n#include <iostream>\n#include \"atcoder/modint\"\n#include \"matrix/SquareMatrix.hpp\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_matrix\"\n\n#include\
+    \ <iostream>\n#include \"atcoder/modint\"\n#include \"matrix/SquareMatrix.hpp\"\
     \n\nusing mint = atcoder::modint998244353;\nconstexpr int MAX = 1 << 8;\n\nint\
     \ main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int\
     \ N;\n    long long K;\n    std::cin >> N >> K;\n    SquareMatrix<mint, MAX> A;\n\
@@ -42,8 +41,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/pow_of_matrix.squarematrix.test.cpp
   requiredBy: []
-  timestamp: '2024-05-23 02:00:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-05-23 02:04:20+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/pow_of_matrix.squarematrix.test.cpp
 layout: document

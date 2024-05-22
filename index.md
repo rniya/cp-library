@@ -264,7 +264,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/matrix/Matrix.hpp
       title: Matrix
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/matrix/SquareMatrix.hpp
       title: Square Matrix
     - icon: ':heavy_check_mark:'
@@ -622,7 +622,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series_sparse.test.cpp
       title: test/yosupo/pow_of_formal_power_series_sparse.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_matrix.squarematrix.test.cpp
       title: test/yosupo/pow_of_matrix.squarematrix.test.cpp
     - icon: ':heavy_check_mark:'

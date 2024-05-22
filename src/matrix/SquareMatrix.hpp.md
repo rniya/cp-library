@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix_det.squarematrix.test.cpp
     title: test/yosupo/matrix_det.squarematrix.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_matrix.squarematrix.test.cpp
     title: test/yosupo/pow_of_matrix.squarematrix.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/matrix/SquareMatrix.hpp\"\n#include <array>\n#include\
@@ -184,7 +184,7 @@ data:
   path: src/matrix/SquareMatrix.hpp
   requiredBy: []
   timestamp: '2024-05-23 02:00:55+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/matrix_det.squarematrix.test.cpp
   - test/yosupo/inverse_matrix.squarematrix.test.cpp
