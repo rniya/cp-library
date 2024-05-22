@@ -129,14 +129,14 @@ template <typename T, int N> struct SquareMatrix {
                     break;
                 }
             }
-            if (pivot == -1) return {};
+            assert(pivot != -1);
             if (pivot != j) {
-                std::swap(B[pivot], B[rank]);
-                std::swap(C[pivot], C[rank]);
+                std::swap(B[pivot], B[j]);
+                std::swap(C[pivot], C[j]);
             }
             {
                 T coef = T(1) / B[j][j];
-                for (int k = j; k < N; k++) {
+                for (int k = 0; k < N; k++) {
                     B[j][k] *= coef;
                     C[j][k] *= coef;
                 }
@@ -145,7 +145,7 @@ template <typename T, int N> struct SquareMatrix {
                 if (i == j) continue;
                 T coef = B[i][j];
                 if (coef == T(0)) continue;
-                for (int k = j; k < N; k++) {
+                for (int k = 0; k < N; k++) {
                     B[i][k] -= B[j][k] * coef;
                     C[i][k] -= C[j][k] * coef;
                 }
