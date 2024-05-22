@@ -6,7 +6,13 @@
 template <typename T, int N> struct SquareMatrix {
     std::array<std::array<T, N>, N> A;
 
-    SquareMatrix() : A{{}} {}
+    SquareMatrix() : A() {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                A[i][j] = T();
+            }
+        }
+    }
 
     int size() const { return N; }
 
@@ -39,7 +45,7 @@ template <typename T, int N> struct SquareMatrix {
     }
 
     SquareMatrix& operator*=(const SquareMatrix& B) {
-        std::array<std::array<T, N>, N> C = {};
+        std::array<std::array<T, N>, N> C;
         for (int i = 0; i < N; i++) {
             for (int k = 0; k < N; k++) {
                 for (int j = 0; j < N; j++) {

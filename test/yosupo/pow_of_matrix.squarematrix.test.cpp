@@ -1,3 +1,4 @@
+#define IGNORE
 #define PROBLEM "https://judge.yosupo.jp/problem/pow_of_matrix"
 
 #include <iostream>
