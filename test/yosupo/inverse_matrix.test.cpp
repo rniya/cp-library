@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/matrix_det"
+#define PROBLEM "https://judge.yosupo.jp/problem/inverse_matrix"
 
 #include <iostream>
 #include "atcoder/modint"
@@ -20,6 +20,15 @@ int main() {
         }
     }
 
-    mint det = A.det();
-    std::cout << det.val() << '\n';
+    auto B = A.inv();
+    if (B.size() == 0) {
+        std::cout << -1 << '\n';
+        return 0;
+    }
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            std::cout << B[i][j].val() << (j + 1 == N ? '\n' : ' ');
+        }
+    }
+    return 0;
 }

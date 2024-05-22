@@ -13,11 +13,16 @@ template <typename T> struct Matrix {
 
     Matrix(int n) : A(n, std::vector<T>(n, 0)) {}
 
+    bool empty() const { return A.empty(); }
+
     int size() const { return A.size(); }
 
     int height() const { return A.size(); }
 
-    int width() const { return A[0].size(); }
+    int width() const {
+        assert(not A.empty());
+        return A[0].size();
+    }
 
     inline const std::vector<T>& operator[](int k) const { return A[k]; }
     inline std::vector<T>& operator[](int k) { return A[k]; }
@@ -135,45 +140,57 @@ template <typename T> struct Matrix {
         return res;
     }
 
-    T determinant() const {
+    int rank() const { return Matrix(*this).gauss_jordan().first; }
+
+    T det() const { return Matrix(*this).gauss_jordan().second; }
+
+    Matrix inv() const {
         assert(height() == width());
+        int n = height();
         Matrix B(*this);
-        T res = 1;
-        for (int i = 0; i < height(); i++) {
-            int pivot = -1;
-            for (int j = i; j < height(); j++) {
-                if (B[j][i] != 0) {
-                    pivot = j;
-                    break;
+        for (int i = 0; i < n; i++) {
+            B[i].resize(2 * n, T(0));
+            B[i][n + i] = T(1);
+        }
+        int rank = B.gauss_jordan(n).first;
+        if (rank != n) return {};
+        for (int i = 0; i < n; i++) {
+            B[i].erase(B[i].begin(), B[i].begin() + n);
+        }
+        return B;
+    }
+
+    std::vector<std::vector<T>> system_of_linear_equations(const std::vector<T>& b) const {
+        assert(height() == int(b.size()));
+        int n = height(), m = width();
+        Matrix B(*this);
+        for (int i = 0; i < n; i++) B[i].emplace_back(b[i]);
+        int rank = B.gauss_jordan(m).first;
+        for (int i = rank; i < n; i++) {
+            if (B[i][m] != T(0)) {
+                return {};
+            }
+        }
+        std::vector<std::vector<T>> res(1, std::vector<T>(m, 0));
+        std::vector<int> pivot(m, -1);
+        for (int i = 0, j = 0; i < rank; i++) {
+            while (B[i][j] == T(0)) j++;
+            res[0][j] = B[i][m];
+            pivot[j] = i;
+        }
+        for (int j = 0; j < m; j++) {
+            if (pivot[j] != -1) continue;
+            std::vector<T> x(m);
+            x[j] = 1;
+            for (int k = 0; k < j; k++) {
+                if (pivot[k] != -1) {
+                    x[k] = -B[pivot[k]][j];
                 }
             }
-            if (pivot == -1) return 0;
-            if (pivot != (int)i) {
-                res *= -1;
-                std::swap(B[i], B[pivot]);
-            }
-            res *= B[i][i];
-            T inv = T(1) / B[i][i];
-            for (int j = 0; j < width(); j++) B[i][j] *= inv;
-            for (int j = i + 1; j < height(); j++) {
-                T a = B[j][i];
-                for (int k = 0; k < width(); k++) {
-                    B[j][k] -= B[i][k] * a;
-                }
-            }
+            res.emplace_back(x);
         }
         return res;
     }
-
-    std::pair<int, T> gauss_jordan() {}
-
-    int rank() const {}
-
-    T det() const {}
-
-    Matrix inv() const {}
-
-    std::vector<std::vector<T>> system_of_linear_equations(const std::vector<T>& b) const {}
 
     friend std::ostream& operator<<(std::ostream& os, const Matrix& p) {
         int n = p.height(), m = p.width();
@@ -192,5 +209,43 @@ template <typename T> struct Matrix {
         }
         os << "]\n";
         return os;
+    }
+
+  private:
+    std::pair<int, T> gauss_jordan(int pivot_end = -1) {
+        if (empty()) return {0, T(1)};
+        if (pivot_end == -1) pivot_end = width();
+        int rank = 0;
+        T det = 1;
+        for (int j = 0; j < pivot_end; j++) {
+            int pivot = -1;
+            for (int i = rank; i < height(); i++) {
+                if ((*this)[i][j] != T(0)) {
+                    pivot = i;
+                    break;
+                }
+            }
+            if (pivot == -1) {
+                det = 0;
+                continue;
+            }
+            if (pivot != rank) {
+                det = -det;
+                std::swap((*this)[pivot], (*this)[rank]);
+            }
+            det *= A[rank][j];
+            if (A[rank][j] != T(1)) {
+                T coef = T(1) / (*this)[rank][j];
+                for (int k = j; k < width(); k++) (*this)[rank][k] *= coef;
+            }
+            for (int i = 0; i < height(); i++) {
+                if (i == rank) continue;
+                T coef = (*this)[i][j];
+                if (coef == T(0)) continue;
+                for (int k = j; k < width(); k++) (*this)[i][k] -= (*this)[rank][k] * coef;
+            }
+            rank++;
+        }
+        return {rank, det};
     }
 };

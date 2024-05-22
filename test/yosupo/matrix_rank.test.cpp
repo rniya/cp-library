@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/matrix_det"
+#define PROBLEM "https://judge.yosupo.jp/problem/matrix_rank"
 
 #include <iostream>
 #include "atcoder/modint"
@@ -9,17 +9,18 @@ using mint = atcoder::modint998244353;
 int main() {
     std::cin.tie(0);
     std::ios::sync_with_stdio(false);
-    int N;
-    std::cin >> N;
-    Matrix<mint> A(N);
+    int N, M;
+    std::cin >> N >> M;
+    Matrix<mint> A(N, M);
     for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
+        for (int j = 0; j < M; j++) {
             int val;
             std::cin >> val;
             A[i][j] = val;
         }
     }
 
-    mint det = A.det();
-    std::cout << det.val() << '\n';
+    int rank = A.rank();
+    std::cout << rank << '\n';
+    return 0;
 }

@@ -1,5 +1,5 @@
 ---
-title: Gcd Convolution
+title: GCD Convolution
 documentation_of: ./gcd_convolution.hpp
 ---
 
