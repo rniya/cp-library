@@ -249,7 +249,7 @@ data:
       title: Exp of Set Power Series
     - icon: ':heavy_check_mark:'
       path: src/math/gcd_convolution.hpp
-      title: Gcd Convolution
+      title: GCD Convolution
     - icon: ':heavy_check_mark:'
       path: src/math/set_function.hpp
       title: Set Function (FZT, FMT, FWHT)
@@ -560,6 +560,9 @@ data:
       path: test/yosupo/inv_of_formal_power_series.test.cpp
       title: test/yosupo/inv_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/inverse_matrix.test.cpp
+      title: test/yosupo/inverse_matrix.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/jump_on_tree.test.cpp
       title: test/yosupo/jump_on_tree.test.cpp
     - icon: ':heavy_check_mark:'
@@ -577,6 +580,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_product.test.cpp
       title: test/yosupo/matrix_product.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/matrix_rank.test.cpp
+      title: test/yosupo/matrix_rank.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp
       title: test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp
@@ -652,6 +658,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/subset_convolution.test.cpp
       title: test/yosupo/subset_convolution.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/system_of_linear_equations.test.cpp
+      title: test/yosupo/system_of_linear_equations.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/tree_diameter.test.cpp
       title: test/yosupo/tree_diameter.test.cpp

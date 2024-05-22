@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/math/gcd_convolution.hpp
-    title: Gcd Convolution
+    title: GCD Convolution
   - icon: ':heavy_check_mark:'
     path: src/util/modint.hpp
     title: modint (input/output)

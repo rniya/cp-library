@@ -27,18 +27,19 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n\n#include\
-    \ \"atcoder/modint\"\n#include \"matrix/Matrix.hpp\"\n\nusing mint = atcoder::modint998244353;\n\
-    \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
-    \    int N;\n    std::cin >> N;\n    Matrix<mint> a(N);\n    for (int i = 0; i\
-    \ < N; i++) {\n        for (int j = 0; j < N; j++) {\n            int val;\n \
-    \           std::cin >> val;\n            a[i][j] = val;\n        }\n    }\n\n\
-    \    mint ans = a.determinant();\n    std::cout << ans.val() << '\\n';\n}"
+    \ <iostream>\n#include \"atcoder/modint\"\n#include \"matrix/Matrix.hpp\"\n\n\
+    using mint = atcoder::modint998244353;\n\nint main() {\n    std::cin.tie(0);\n\
+    \    std::ios::sync_with_stdio(false);\n    int N;\n    std::cin >> N;\n    Matrix<mint>\
+    \ A(N);\n    for (int i = 0; i < N; i++) {\n        for (int j = 0; j < N; j++)\
+    \ {\n            int val;\n            std::cin >> val;\n            A[i][j] =\
+    \ val;\n        }\n    }\n\n    mint det = A.det();\n    std::cout << det.val()\
+    \ << '\\n';\n}"
   dependsOn:
   - src/matrix/Matrix.hpp
   isVerificationFile: true
   path: test/yosupo/matrix_det.test.cpp
   requiredBy: []
-  timestamp: '2024-05-22 22:29:20+09:00'
+  timestamp: '2024-05-23 00:46:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix_det.test.cpp
