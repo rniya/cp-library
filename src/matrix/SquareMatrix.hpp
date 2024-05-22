@@ -1,28 +1,28 @@
 #pragma once
 #include <array>
 #include <cassert>
-#include <iostream>
+#include <utility>
 
-template <typename T, size_t N> struct SquareMatrix {
+template <typename T, int N> struct SquareMatrix {
     std::array<std::array<T, N>, N> A;
 
     SquareMatrix() : A{{}} {}
 
-    size_t size() const { return N; }
+    int size() const { return N; }
 
     inline const std::array<T, N>& operator[](int k) const { return A[k]; }
 
     inline std::array<T, N>& operator[](int k) { return A[k]; }
 
-    static SquareMatrix I() {
+    static SquareMatrix identity() {
         SquareMatrix res;
-        for (size_t i = 0; i < N; i++) res[i][i] = 1;
+        for (int i = 0; i < N; i++) res[i][i] = 1;
         return res;
     }
 
     SquareMatrix& operator+=(const SquareMatrix& B) {
-        for (size_t i = 0; i < N; i++) {
-            for (size_t j = 0; j < N; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 (*this)[i][j] += B[i][j];
             }
         }
@@ -30,8 +30,8 @@ template <typename T, size_t N> struct SquareMatrix {
     }
 
     SquareMatrix& operator-=(const SquareMatrix& B) {
-        for (size_t i = 0; i < N; i++) {
-            for (size_t j = 0; j < N; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 (*this)[i][j] -= B[i][j];
             }
         }
@@ -40,20 +40,20 @@ template <typename T, size_t N> struct SquareMatrix {
 
     SquareMatrix& operator*=(const SquareMatrix& B) {
         std::array<std::array<T, N>, N> C = {};
-        for (size_t i = 0; i < N; i++) {
-            for (size_t k = 0; k < N; k++) {
-                for (size_t j = 0; j < N; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int k = 0; k < N; k++) {
+                for (int j = 0; j < N; j++) {
                     C[i][j] += (*this)[i][k] * B[k][j];
                 }
             }
         }
-        A.swap(C);
+        std::swap(A, C);
         return *this;
     }
 
     SquareMatrix& operator*=(const T& v) {
-        for (size_t i = 0; i < N; i++) {
-            for (size_t j = 0; j < N; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 (*this)[i][j] *= v;
             }
         }
@@ -62,30 +62,18 @@ template <typename T, size_t N> struct SquareMatrix {
 
     SquareMatrix& operator/=(const T& v) {
         T inv = T(1) / v;
-        for (size_t i = 0; i < N; i++) {
-            for (size_t j = 0; j < N; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 (*this)[i][j] *= inv;
             }
         }
         return *this;
     }
 
-    SquareMatrix& operator^=(long long k) {
-        assert(0 <= k);
-        SquareMatrix B = SquareMatrix::I();
-        while (k > 0) {
-            if (k & 1) B *= *this;
-            *this *= *this;
-            k >>= 1;
-        }
-        A.swap(B.A);
-        return *this;
-    }
-
     SquareMatrix operator-() const {
         SquareMatrix res;
-        for (size_t i = 0; i < N; i++) {
-            for (size_t j = 0; j < N; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 res[i][j] = -(*this)[i][j];
             }
         }
@@ -102,77 +90,64 @@ template <typename T, size_t N> struct SquareMatrix {
 
     SquareMatrix operator/(const T& v) const { return SquareMatrix(*this) /= v; }
 
-    SquareMatrix operator^(const long long k) const { return SquareMatrix(*this) ^= k; }
-
     bool operator==(const SquareMatrix& B) const { return A == B.A; }
 
     bool operator!=(const SquareMatrix& B) const { return A != B.A; }
 
+    SquareMatrix pow(long long n) const {
+        assert(0 <= n);
+        SquareMatrix x = *this, r = identity();
+        while (n) {
+            if (n & 1) r *= x;
+            x *= x;
+            n >>= 1;
+        }
+        return r;
+    }
+
     SquareMatrix transpose() const {
         SquareMatrix res;
-        for (size_t i = 0; i < N; i++) {
-            for (size_t j = 0; j < N; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 res[j][i] = (*this)[i][j];
             }
         }
         return res;
     }
 
-    T determinant() const {
-        SquareMatrix B(*this);
-        T res = 1;
-        for (size_t i = 0; i < N; i++) {
-            int pivot = -1;
-            for (size_t j = i; j < N; j++) {
-                if (B[j][i] != 0) {
-                    pivot = j;
-                    break;
-                }
-            }
-            if (pivot == -1) return 0;
-            if (pivot != (int)i) {
-                res *= -1;
-                std::swap(B[i], B[pivot]);
-            }
-            res *= B[i][i];
-            T inv = T(1) / B[i][i];
-            for (size_t j = 0; j < N; j++) B[i][j] *= inv;
-            for (size_t j = i + 1; j < N; j++) {
-                T a = B[j][i];
-                for (size_t k = 0; k < N; k++) {
-                    B[j][k] -= B[i][k] * a;
-                }
-            }
-        }
-        return res;
-    }
+    int rank() const { return Matrix(*this).gauss_jordan().first; }
+
+    T det() const { return Matrix(*this).gauss_jordan().second; }
 
     SquareMatrix inv() const {
-        SquareMatrix B(*this), C = SquareMatrix::I();
-        for (size_t i = 0; i < N; i++) {
+        SquareMatrix B(*this), C = identity();
+        for (int j = 0; j < N; j++) {
             int pivot = -1;
-            for (size_t j = i; j < N; j++) {
-                if (B[j][i] != 0) {
-                    pivot = j;
+            for (int i = j; i < N; i++) {
+                if (B[i][j] != T(0)) {
+                    pivot = i;
                     break;
                 }
             }
             if (pivot == -1) return {};
-            if (pivot != (int)i) {
-                std::swap(B[i], B[pivot]);
-                std::swap(C[i], C[pivot]);
+            if (pivot != j) {
+                std::swap(B[pivot], B[rank]);
+                std::swap(C[pivot], C[rank]);
             }
-            T inv = T(1) / B[i][i];
-            for (size_t j = 0; j < N; j++) {
-                B[i][j] *= inv;
-                C[i][j] *= inv;
+            {
+                T coef = T(1) / B[j][j];
+                for (int k = j; k < N; k++) {
+                    B[j][k] *= coef;
+                    C[j][k] *= coef;
+                }
             }
-            for (size_t j = 0; j < N; j++) {
-                if (j == i) continue;
-                T a = B[j][i];
-                for (size_t k = 0; k < N; k++) {
-                    B[j][k] -= B[i][k] * a;
-                    C[j][k] -= C[i][k] * a;
+            for (int i = 0; i < N; i++) {
+                if (i == j) continue;
+                T coef = B[i][j];
+                if (coef == T(0)) continue;
+                for (int k = j; k < N; k++) {
+                    B[i][k] -= B[j][k] * coef;
+                    C[i][k] -= C[j][k] * coef;
                 }
             }
         }
@@ -182,19 +157,55 @@ template <typename T, size_t N> struct SquareMatrix {
     friend std::ostream& operator<<(std::ostream& os, const SquareMatrix& p) {
         os << "[(" << N << " * " << N << " Matrix)";
         os << "\n[columun sums: ";
-        for (size_t j = 0; j < N; j++) {
+        for (int j = 0; j < N; j++) {
             T sum = 0;
-            for (size_t i = 0; i < N; i++) sum += p[i][j];
+            for (int i = 0; i < N; i++) sum += p[i][j];
             ;
             os << sum << (j + 1 < N ? "," : "");
         }
         os << "]";
-        for (size_t i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) {
             os << "\n[";
-            for (size_t j = 0; j < N; j++) os << p[i][j] << (j + 1 < N ? "," : "");
+            for (int j = 0; j < N; j++) os << p[i][j] << (j + 1 < N ? "," : "");
             os << "]";
         }
         os << "]\n";
         return os;
+    }
+
+  private:
+    std::pair<int, T> gauss_jordan() {
+        int rank = 0;
+        T det = 1;
+        for (int j = 0; j < N; j++) {
+            int pivot = -1;
+            for (int i = rank; i < N; i++) {
+                if ((*this)[i][j] != T(0)) {
+                    pivot = i;
+                    break;
+                }
+            }
+            if (pivot == -1) {
+                det = 0;
+                continue;
+            }
+            if (pivot != rank) {
+                det = -det;
+                std::swap((*this)[pivot], (*this)[rank]);
+            }
+            det *= A[rank][j];
+            if (A[rank][j] != T(1)) {
+                T coef = T(1) / (*this)[rank][j];
+                for (int k = j; k < N; k++) (*this)[rank][k] *= coef;
+            }
+            for (int i = 0; i < N; i++) {
+                if (i == rank) continue;
+                T coef = (*this)[i][j];
+                if (coef == T(0)) continue;
+                for (int k = j; k < N; k++) (*this)[i][k] -= (*this)[rank][k] * coef;
+            }
+            rank++;
+        }
+        return {rank, det};
     }
 };

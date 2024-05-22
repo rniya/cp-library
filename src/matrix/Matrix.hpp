@@ -25,6 +25,7 @@ template <typename T> struct Matrix {
     }
 
     inline const std::vector<T>& operator[](int k) const { return A[k]; }
+
     inline std::vector<T>& operator[](int k) { return A[k]; }
 
     static Matrix identity(int n) {
