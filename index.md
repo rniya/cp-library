@@ -264,7 +264,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/matrix/Matrix.hpp
       title: Matrix
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/matrix/SquareMatrix.hpp
       title: Square Matrix
     - icon: ':heavy_check_mark:'
@@ -362,7 +362,7 @@ data:
     - icon: ':warning:'
       path: src/util/flow_graphviz.hpp
       title: "\u6700\u5927\u6D41\u30FB\u6700\u5C0F\u8CBB\u7528\u6D41\u306E\u56F3\u793A"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/util/modint.hpp
       title: modint (input/output)
     - icon: ':warning:'
@@ -616,6 +616,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series_sparse.test.cpp
       title: test/yosupo/pow_of_formal_power_series_sparse.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/pow_of_matrix.squarematrix.test.cpp
+      title: test/yosupo/pow_of_matrix.squarematrix.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_matrix.test.cpp
       title: test/yosupo/pow_of_matrix.test.cpp
@@ -690,7 +693,7 @@ data:
       title: test/yosupo/zalgorithm.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/1050.test.cpp
       title: test/yukicoder/1050.test.cpp
     - icon: ':heavy_check_mark:'

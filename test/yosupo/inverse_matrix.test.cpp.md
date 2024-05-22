@@ -42,7 +42,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/inverse_matrix.test.cpp
   requiredBy: []
-  timestamp: '2024-05-23 00:46:50+09:00'
+  timestamp: '2024-05-23 01:25:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/inverse_matrix.test.cpp

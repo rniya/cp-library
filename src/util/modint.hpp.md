@@ -60,7 +60,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/vertex_set_path_composite.test.cpp
     title: test/yosupo/vertex_set_path_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1050.test.cpp
     title: test/yukicoder/1050.test.cpp
   - icon: ':heavy_check_mark:'
@@ -81,9 +81,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/886.test.cpp
     title: test/yukicoder/886.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -109,7 +109,7 @@ data:
   path: src/util/modint.hpp
   requiredBy: []
   timestamp: '2023-09-18 22:25:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DPL_5_E.test.cpp
   - test/yukicoder/1269.test.cpp

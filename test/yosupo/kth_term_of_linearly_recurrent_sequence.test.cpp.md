@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/polynomial/BostanMori.hpp
     title: Bostan-Mori Algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/util/modint.hpp
     title: modint (input/output)
   _extendedRequiredBy: []
