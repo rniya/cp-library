@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':warning:'
     path: src/graph/KaryOptimization.hpp
-    title: K-ary Optimization
+    title: $K$-ary Optimization
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/2903.test.cpp

@@ -3,8 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/graph/StronglyConnectedComponents.hpp
-    title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\
-      \u89E3\uFF09"
+    title: Strongly Connected Components
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

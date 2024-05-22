@@ -19,19 +19,19 @@ data:
     title: src/geometry/circumcircle.hpp
   - icon: ':heavy_check_mark:'
     path: src/geometry/closest_pair.hpp
-    title: "\u6700\u8FD1\u70B9\u5BFE"
+    title: Closest Pair
   - icon: ':heavy_check_mark:'
     path: src/geometry/contain.hpp
     title: src/geometry/contain.hpp
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
-    title: "\u51F8\u591A\u89D2\u5F62\u306E\u5207\u65AD"
+    title: Convex Cut
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_diameter.hpp
-    title: "\u51F8\u591A\u89D2\u5F62\u306E\u76F4\u5F84"
+    title: Convex Diameter
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_hull.hpp
-    title: "\u51F8\u5305"
+    title: Convex Hull
   - icon: ':heavy_check_mark:'
     path: src/geometry/crosspoint.hpp
     title: src/geometry/crosspoint.hpp
@@ -49,7 +49,7 @@ data:
     title: src/geometry/reflection.hpp
   - icon: ':heavy_check_mark:'
     path: src/geometry/sort_points_by_argument.hpp
-    title: "\u504F\u89D2\u30BD\u30FC\u30C8"
+    title: Sort Points by Argument
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_1_A.test.cpp
@@ -214,5 +214,5 @@ data:
   - test/yosupo/sort_points_by_argument.test.cpp
 documentation_of: src/geometry/Point.hpp
 layout: document
-title: "Point \u69CB\u9020\u4F53"
+title: Point
 ---

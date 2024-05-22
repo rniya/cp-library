@@ -66,7 +66,7 @@ data:
   verifiedWith: []
 documentation_of: src/algorithm/SubsetSum2.hpp
 layout: document
-title: "Subset Sum\uFF08\u90E8\u5206\u548C\u554F\u984C\uFF09$O(Na_{\\max})$"
+title: Subset Sum $O(Na_{\max})$
 ---
 
 ## 概要

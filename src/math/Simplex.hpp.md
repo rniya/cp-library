@@ -158,7 +158,7 @@ data:
   - test/yukicoder/453.test.cpp
 documentation_of: src/math/Simplex.hpp
 layout: document
-title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"
+title: Simplex
 ---
 
 ## 概要

@@ -8,13 +8,13 @@ data:
       title: Mo's Algorithm
     - icon: ':warning:'
       path: src/algorithm/SubsetSum.hpp
-      title: "Subset Sum\uFF08\u90E8\u5206\u548C\u554F\u984C\uFF09$O(NS)$"
+      title: Subset Sum $O(NS)$
     - icon: ':warning:'
       path: src/algorithm/SubsetSum2.hpp
-      title: "Subset Sum\uFF08\u90E8\u5206\u548C\u554F\u984C\uFF09$O(Na_{\\max})$"
+      title: Subset Sum $O(Na_{\max})$
     - icon: ':warning:'
       path: src/algorithm/golden_section_search.hpp
-      title: "\u9EC4\u91D1\u5206\u5272\u63A2\u7D22"
+      title: Golden Section Search
     - icon: ':heavy_check_mark:'
       path: src/algorithm/longest_increasing_subsequence.hpp
       title: Longest Increasing Subsequence (LIS)
@@ -26,13 +26,13 @@ data:
       title: Min Plus Convolution (Convex and Convex)
     - icon: ':warning:'
       path: src/algorithm/monge_d_edge_shortest_path.hpp
-      title: "Monge \u30B0\u30E9\u30D5\u4E0A\u306E $d$-\u8FBA\u6700\u77ED\u8DEF\u9577"
+      title: $d$-edge Shortest Path on Monge Graph
     - icon: ':heavy_check_mark:'
       path: src/algorithm/monotone_minima.hpp
-      title: monotone minima
+      title: Monotone Minima
     - icon: ':heavy_check_mark:'
       path: src/algorithm/smawk.hpp
-      title: SMAWK algotirhm
+      title: SMAWK Algotirhm
   - name: src
     pages:
     - icon: ':heavy_check_mark:'
@@ -51,10 +51,10 @@ data:
       title: Convex Hull Trick (Add-Monotonic Slope Optimization)
     - icon: ':heavy_check_mark:'
       path: src/datastructure/CumulativeSum2D.hpp
-      title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
+      title: Cumulative Sum (2D)
     - icon: ':warning:'
       path: src/datastructure/IntervalManager.hpp
-      title: "\u533A\u9593\u3092\u7BA1\u7406\u3059\u308B\u69CB\u9020\u4F53"
+      title: Interval Manager
     - icon: ':warning:'
       path: src/datastructure/LineContainer.hpp
       title: Line Container (based on kactl)
@@ -95,10 +95,10 @@ data:
       title: src/geometry/Line.hpp
     - icon: ':heavy_check_mark:'
       path: src/geometry/Point.hpp
-      title: "Point \u69CB\u9020\u4F53"
+      title: Point
     - icon: ':warning:'
       path: src/geometry/Point3D.hpp
-      title: "Point \u69CB\u9020\u4F53 (3D)"
+      title: Point (3D)
     - icon: ':heavy_check_mark:'
       path: src/geometry/Polygon.hpp
       title: src/geometry/Polygon.hpp
@@ -110,19 +110,19 @@ data:
       title: src/geometry/circumcircle.hpp
     - icon: ':heavy_check_mark:'
       path: src/geometry/closest_pair.hpp
-      title: "\u6700\u8FD1\u70B9\u5BFE"
+      title: Closest Pair
     - icon: ':heavy_check_mark:'
       path: src/geometry/contain.hpp
       title: src/geometry/contain.hpp
     - icon: ':heavy_check_mark:'
       path: src/geometry/convex_cut.hpp
-      title: "\u51F8\u591A\u89D2\u5F62\u306E\u5207\u65AD"
+      title: Convex Cut
     - icon: ':heavy_check_mark:'
       path: src/geometry/convex_diameter.hpp
-      title: "\u51F8\u591A\u89D2\u5F62\u306E\u76F4\u5F84"
+      title: Convex Diameter
     - icon: ':heavy_check_mark:'
       path: src/geometry/convex_hull.hpp
-      title: "\u51F8\u5305"
+      title: Convex Hull
     - icon: ':heavy_check_mark:'
       path: src/geometry/crosspoint.hpp
       title: src/geometry/crosspoint.hpp
@@ -140,12 +140,12 @@ data:
       title: src/geometry/reflection.hpp
     - icon: ':heavy_check_mark:'
       path: src/geometry/sort_points_by_argument.hpp
-      title: "\u504F\u89D2\u30BD\u30FC\u30C8"
+      title: Sort Points by Argument
   - name: src/graph
     pages:
     - icon: ':heavy_check_mark:'
       path: src/graph/BellmanFord.hpp
-      title: Bellman-Ford
+      title: Bellman Ford
     - icon: ':heavy_check_mark:'
       path: src/graph/BinaryOptimization.hpp
       title: Binary Optimization (Project Selection Problem)
@@ -163,30 +163,28 @@ data:
       title: Directed Shortest Cycle
     - icon: ':warning:'
       path: src/graph/EdgeMatching.hpp
-      title: "\u8FBA\u540C\u58EB\u306E\u30DE\u30C3\u30C1\u30F3\u30B0"
+      title: Edge Matching
     - icon: ':heavy_check_mark:'
       path: src/graph/EulerianTrail.hpp
-      title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u306E\u69CB\u7BC9"
+      title: Eulerian Trail
     - icon: ':warning:'
       path: src/graph/FunctionalGraph.hpp
       title: Functional Graph
     - icon: ':warning:'
       path: src/graph/KaryOptimization.hpp
-      title: K-ary Optimization
+      title: $K$-ary Optimization
     - icon: ':heavy_check_mark:'
       path: src/graph/LowLink.hpp
       title: LowLink (with Two Edge Connected Components, Bi Connected Components)
     - icon: ':heavy_check_mark:'
       path: src/graph/PrimalDualonDAG.hpp
-      title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\
-        \u6D41\uFF09"
+      title: Primal Dual on DAG (Minimum Cost Flow with Negative Edges)
     - icon: ':warning:'
       path: src/graph/RangeEdgeGraph.hpp
       title: Range Edge Graph
     - icon: ':heavy_check_mark:'
       path: src/graph/StronglyConnectedComponents.hpp
-      title: "Strongly Connected Components\uFF08\u5F37\u9023\u7D50\u6210\u5206\u5206\
-        \u89E3\uFF09"
+      title: Strongly Connected Components
     - icon: ':heavy_check_mark:'
       path: src/graph/TwoSAT.hpp
       title: 2-SAT
@@ -195,27 +193,25 @@ data:
       title: Undirected Shortest Cycle
     - icon: ':warning:'
       path: src/graph/complement_graph_shortest_path.hpp
-      title: "\u88DC\u30B0\u30E9\u30D5\u4E0A\u306E\u6700\u77ED\u8DEF"
+      title: Shortest Path on Complement Graph
     - icon: ':warning:'
       path: src/graph/count_clique.hpp
-      title: "\u30AF\u30EA\u30FC\u30AF\u306E\u6570\u3048\u4E0A\u3052"
+      title: Count Cliques
     - icon: ':heavy_check_mark:'
       path: src/graph/count_graphs.hpp
-      title: "$C_3$ \u306E\u5217\u6319\uFF0C$C_4, K_4$ \u306E\u6570\u3048\u4E0A\u3052"
+      title: Enuemrate $C_3$, Count $C_4, K_4$
     - icon: ':warning:'
       path: src/graph/count_independent_set.hpp
-      title: "\u72EC\u7ACB\u96C6\u5408\u306E\u6570\u3048\u4E0A\u3052"
+      title: Count Independent Sets
     - icon: ':heavy_check_mark:'
       path: src/graph/enumerate_cliques.hpp
-      title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
+      title: Enumerate Cliques
     - icon: ':heavy_check_mark:'
       path: src/graph/hungarian.hpp
-      title: "Hungarian\uFF08\u5272\u5F53\u554F\u984C\uFF0C\u4E8C\u90E8\u30B0\u30E9\
-        \u30D5\u306E\u6700\u5C0F\u91CD\u307F\u5B8C\u5168\u30DE\u30C3\u30C1\u30F3\u30B0\
-        \uFF09"
+      title: Hungarian (Assignment Problem)
     - icon: ':heavy_check_mark:'
       path: src/graph/maxflow_lowerbound.hpp
-      title: "\u6D41\u91CF\u4E0B\u9650\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
+      title: Max Flow (Lower Bound Constraints)
     - icon: ':warning:'
       path: src/graph/min_cost_b_flow.hpp
       title: Minimum Cost b-flow
@@ -229,36 +225,34 @@ data:
       title: Relaxed Convolution
     - icon: ':heavy_check_mark:'
       path: src/math/Simplex.hpp
-      title: "Simplex\uFF08\u5358\u4F53\u6CD5\uFF09"
+      title: Simplex
     - icon: ':heavy_check_mark:'
       path: src/math/binary_gcd.hpp
       title: binary gcd
     - icon: ':question:'
       path: src/math/binomial.hpp
-      title: binomial
+      title: Binomial Coefficients
     - icon: ':heavy_check_mark:'
       path: src/math/convolution_arbitary_mod.hpp
-      title: "\u4EFB\u610F mod \u7573\u307F\u8FBC\u307F"
+      title: Convolution (Arbitary mod)
     - icon: ':x:'
       path: src/math/count_young_paths.hpp
-      title: "Young \u56F3\u5F62\u4E0A\u306E\u6700\u77ED\u7D4C\u8DEF\u306E\u6570\u3048\
-        \u4E0A\u3052"
+      title: Count Paths on Young Tableau
     - icon: ':heavy_check_mark:'
       path: src/math/discrete_logarithm.hpp
-      title: "Discrete Logarithm\uFF08\u96E2\u6563\u5BFE\u6570\u554F\u984C\uFF09"
+      title: Discrete Logarithm
     - icon: ':heavy_check_mark:'
       path: src/math/elementary_math.hpp
-      title: elementary math
+      title: Elementary Math
     - icon: ':heavy_check_mark:'
       path: src/math/exp_of_set_power_series.hpp
       title: Exp of Set Power Series
     - icon: ':heavy_check_mark:'
       path: src/math/gcd_convolution.hpp
-      title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\
-        \uFF09"
+      title: Gcd Convolution
     - icon: ':heavy_check_mark:'
       path: src/math/set_function.hpp
-      title: set function (FZT, FMT, FWHT)
+      title: Set Function (FZT, FMT, FWHT)
     - icon: ':heavy_check_mark:'
       path: src/math/subset_convolution.hpp
       title: Subset Convolution
@@ -266,13 +260,13 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/matrix/BitMatrix.hpp
-      title: Bit Matrix
+      title: Binary Matrix
     - icon: ':heavy_check_mark:'
       path: src/matrix/Matrix.hpp
-      title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
+      title: Matrix
     - icon: ':heavy_check_mark:'
       path: src/matrix/SquareMatrix.hpp
-      title: "\u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
+      title: Square Matrix
     - icon: ':heavy_check_mark:'
       path: src/matrix/characteristic_polynomial.hpp
       title: Characteristic Polynomial / $\det(M_0 + x M_1)$
@@ -283,20 +277,19 @@ data:
       title: Bostan-Mori Algorithm
     - icon: ':heavy_check_mark:'
       path: src/polynomial/FormalPowerSeries.hpp
-      title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
+      title: Formal Power Series
     - icon: ':warning:'
       path: src/polynomial/coefficient_of_powers.hpp
-      title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u306E\u51AA\u4E57\u306E\u4FC2\u6570\
-        \u5217\u6319"
+      title: Power Projection
     - icon: ':heavy_check_mark:'
       path: src/polynomial/difference_product.hpp
-      title: "\u5DEE\u7A4D (Difference Product, Vandermonde's determinant)"
+      title: Difference Product (Vandermonde's Determinant)
     - icon: ':heavy_check_mark:'
       path: src/polynomial/lagrange_interpolation.hpp
       title: Lagrange Interpolation
     - icon: ':heavy_check_mark:'
       path: src/polynomial/multipoint_evaluation.hpp
-      title: multipoint evaluation
+      title: Multipoint Evaluation
     - icon: ':heavy_check_mark:'
       path: src/polynomial/shift_of_sampling_points_of_polynomial.hpp
       title: Shift of Sampling Points of Polynomial
@@ -310,10 +303,10 @@ data:
       title: Aho Corasick
     - icon: ':heavy_check_mark:'
       path: src/string/Hash.hpp
-      title: "Hash \u69CB\u9020\u4F53 (reversible)"
+      title: Hash (reversible)
     - icon: ':heavy_check_mark:'
       path: src/string/Manacher.hpp
-      title: "Manacher\uFF08\u56DE\u5206\u534A\u5F84\uFF09"
+      title: Manacher (Lonegest Palindromic Substring)
     - icon: ':heavy_check_mark:'
       path: src/string/RollingHash.hpp
       title: Rolling Hash
@@ -336,20 +329,19 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/tree/CentroidDecomposition.hpp
-      title: "Centroid Decomposition\uFF08\u6728\u306E\u91CD\u5FC3\u5206\u89E3\uFF09"
+      title: Centroid Decomposition
     - icon: ':warning:'
       path: src/tree/ForestScheduling.hpp
-      title: "\u68EE\u4E0A\u306E\u30B9\u30B1\u30B8\u30E5\u30FC\u30EA\u30F3\u30B0\u554F\
-        \u984C"
+      title: Scheduling Problem on Forest
     - icon: ':heavy_check_mark:'
       path: src/tree/HeavyLightDecomposition.hpp
       title: Heavy Light Decomposition
     - icon: ':warning:'
       path: src/tree/MergeTree.hpp
-      title: "\u30DE\u30FC\u30B8\u904E\u7A0B\u3092\u8868\u3059\u6728"
+      title: Merge Process Tree
     - icon: ':heavy_check_mark:'
       path: src/tree/Rerooting.hpp
-      title: "\u5168\u65B9\u4F4D\u6728 dp"
+      title: Rerooting
     - icon: ':heavy_check_mark:'
       path: src/tree/StaticTopTree.hpp
       title: Static Top Tree
@@ -583,6 +575,9 @@ data:
       path: test/yosupo/matrix_det.test.cpp
       title: test/yosupo/matrix_det.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/matrix_product.test.cpp
+      title: test/yosupo/matrix_product.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp
       title: test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp
     - icon: ':heavy_check_mark:'
@@ -615,6 +610,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series_sparse.test.cpp
       title: test/yosupo/pow_of_formal_power_series_sparse.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/pow_of_matrix.test.cpp
+      title: test/yosupo/pow_of_matrix.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/product_of_polynomial_sequence.test.cpp
       title: test/yosupo/product_of_polynomial_sequence.test.cpp

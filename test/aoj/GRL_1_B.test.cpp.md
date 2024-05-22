@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/graph/BellmanFord.hpp
-    title: Bellman-Ford
+    title: Bellman Ford
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

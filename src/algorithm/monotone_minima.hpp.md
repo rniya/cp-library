@@ -42,7 +42,7 @@ data:
   - test/yosupo/min_plus_convolution_convex_arbitrary.test.cpp
 documentation_of: src/algorithm/monotone_minima.hpp
 layout: document
-title: monotone minima
+title: Monotone Minima
 ---
 
 ## 概要

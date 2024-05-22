@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
-    title: "Point \u69CB\u9020\u4F53"
+    title: Point
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -74,5 +74,5 @@ data:
   - test/yosupo/sort_points_by_argument.test.cpp
 documentation_of: src/geometry/sort_points_by_argument.hpp
 layout: document
-title: "\u504F\u89D2\u30BD\u30FC\u30C8"
+title: Sort Points by Argument
 ---

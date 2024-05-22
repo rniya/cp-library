@@ -49,7 +49,7 @@ data:
   - test/yosupo/discrete_logarithm_mod.test.cpp
 documentation_of: src/math/discrete_logarithm.hpp
 layout: document
-title: "Discrete Logarithm\uFF08\u96E2\u6563\u5BFE\u6570\u554F\u984C\uFF09"
+title: Discrete Logarithm
 ---
 
 ## 概要

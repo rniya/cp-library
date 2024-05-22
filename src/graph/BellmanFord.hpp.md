@@ -79,7 +79,7 @@ data:
   - test/aoj/GRL_1_B.test.cpp
 documentation_of: src/graph/BellmanFord.hpp
 layout: document
-title: Bellman-Ford
+title: Bellman Ford
 ---
 
 ## 概要

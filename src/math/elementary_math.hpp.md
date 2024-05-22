@@ -117,7 +117,7 @@ data:
   - test/aoj/NTL_1_B.test.cpp
 documentation_of: src/math/elementary_math.hpp
 layout: document
-title: elementary math
+title: Elementary Math
 ---
 
 ## 概要

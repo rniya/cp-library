@@ -69,7 +69,7 @@ data:
   verifiedWith: []
 documentation_of: src/graph/KaryOptimization.hpp
 layout: document
-title: K-ary Optimization
+title: $K$-ary Optimization
 ---
 
 **`MINIMIZE = false` は未 verify につき注意**

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: src/math/binomial.hpp
-    title: binomial
+    title: Binomial Coefficients
   - icon: ':heavy_check_mark:'
     path: src/util/modint.hpp
     title: modint (input/output)

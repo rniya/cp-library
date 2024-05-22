@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
-    title: "Point \u69CB\u9020\u4F53"
+    title: Point
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -84,5 +84,5 @@ data:
   - test/yosupo/static_convex_hull.test.cpp
 documentation_of: src/geometry/convex_hull.hpp
 layout: document
-title: "\u51F8\u5305"
+title: Convex Hull
 ---

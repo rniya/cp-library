@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/polynomial/FormalPowerSeries.hpp
-    title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
+    title: Formal Power Series
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -54,7 +54,7 @@ data:
   - test/yosupo/multipoint_evaluation.test.cpp
 documentation_of: src/polynomial/multipoint_evaluation.hpp
 layout: document
-title: multipoint evaluation
+title: Multipoint Evaluation
 ---
 
 ## 概要

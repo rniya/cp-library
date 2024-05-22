@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/polynomial/FormalPowerSeries.hpp
-    title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
+    title: Formal Power Series
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -69,8 +69,7 @@ data:
   verifiedWith: []
 documentation_of: src/polynomial/coefficient_of_powers.hpp
 layout: document
-title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u306E\u51AA\u4E57\u306E\u4FC2\u6570\u5217\
-  \u6319"
+title: Power Projection
 ---
 
 ## 概要

@@ -66,7 +66,7 @@ data:
   verifiedWith: []
 documentation_of: src/graph/EdgeMatching.hpp
 layout: document
-title: "\u8FBA\u540C\u58EB\u306E\u30DE\u30C3\u30C1\u30F3\u30B0"
+title: Edge Matching
 ---
 
 ## 概要

@@ -63,7 +63,7 @@ data:
   verifiedWith: []
 documentation_of: src/tree/ForestScheduling.hpp
 layout: document
-title: "\u68EE\u4E0A\u306E\u30B9\u30B1\u30B8\u30E5\u30FC\u30EA\u30F3\u30B0\u554F\u984C"
+title: Scheduling Problem on Forest
 ---
 
 ## 概要

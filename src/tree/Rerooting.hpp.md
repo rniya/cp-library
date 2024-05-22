@@ -69,7 +69,7 @@ data:
   - test/yukicoder/1718.test.cpp
 documentation_of: src/tree/Rerooting.hpp
 layout: document
-title: "\u5168\u65B9\u4F4D\u6728 dp"
+title: Rerooting
 ---
 
 ## 概要

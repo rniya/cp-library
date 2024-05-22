@@ -59,7 +59,7 @@ data:
   - test/yosupo/frequency_table_of_tree_distance.test.cpp
 documentation_of: src/tree/CentroidDecomposition.hpp
 layout: document
-title: "Centroid Decomposition\uFF08\u6728\u306E\u91CD\u5FC3\u5206\u89E3\uFF09"
+title: Centroid Decomposition
 ---
 
 ## 概要

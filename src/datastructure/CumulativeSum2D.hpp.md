@@ -43,7 +43,7 @@ data:
   - test/aoj/DSL_5_B.test.cpp
 documentation_of: src/datastructure/CumulativeSum2D.hpp
 layout: document
-title: "2 \u6B21\u5143\u7D2F\u7A4D\u548C"
+title: Cumulative Sum (2D)
 ---
 
 ## 概要

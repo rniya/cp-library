@@ -55,7 +55,7 @@ data:
   - test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp
 documentation_of: src/algorithm/smawk.hpp
 layout: document
-title: SMAWK algotirhm
+title: SMAWK Algotirhm
 ---
 
 ## 概要

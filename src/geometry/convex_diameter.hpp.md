@@ -9,7 +9,7 @@ data:
     title: src/geometry/Line.hpp
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
-    title: "Point \u69CB\u9020\u4F53"
+    title: Point
   - icon: ':heavy_check_mark:'
     path: src/geometry/Polygon.hpp
     title: src/geometry/Polygon.hpp
@@ -181,5 +181,5 @@ data:
   - test/aoj/CGL_4_B.test.cpp
 documentation_of: src/geometry/convex_diameter.hpp
 layout: document
-title: "\u51F8\u591A\u89D2\u5F62\u306E\u76F4\u5F84"
+title: Convex Diameter
 ---

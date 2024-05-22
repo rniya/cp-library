@@ -113,7 +113,7 @@ data:
   - test/yosupo/enumerate_triangles.test.cpp
 documentation_of: src/graph/count_graphs.hpp
 layout: document
-title: "$C_3$ \u306E\u5217\u6319\uFF0C$C_4, K_4$ \u306E\u6570\u3048\u4E0A\u3052"
+title: Enuemrate $C_3$, Count $C_4, K_4$
 ---
 
 ## 概要

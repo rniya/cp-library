@@ -37,9 +37,6 @@ data:
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/matrix_det.test.cpp
-    title: test/yosupo/matrix_det.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -135,7 +132,6 @@ data:
   - test/yosupo/multipoint_evaluation.test.cpp
   - test/yosupo/sharp_p_subset_sum.test.cpp
   - test/yosupo/gcd_convolution.test.cpp
-  - test/yosupo/matrix_det.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp

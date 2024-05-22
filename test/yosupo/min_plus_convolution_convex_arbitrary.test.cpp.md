@@ -6,7 +6,7 @@ data:
     title: Min Plus Convolution (Convex and Arbitary)
   - icon: ':heavy_check_mark:'
     path: src/algorithm/monotone_minima.hpp
-    title: monotone minima
+    title: Monotone Minima
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/string/Manacher.hpp
-    title: "Manacher\uFF08\u56DE\u5206\u534A\u5F84\uFF09"
+    title: Manacher (Lonegest Palindromic Substring)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

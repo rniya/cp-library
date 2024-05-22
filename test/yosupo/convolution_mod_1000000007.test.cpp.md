@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/math/convolution_arbitary_mod.hpp
-    title: "\u4EFB\u610F mod \u7573\u307F\u8FBC\u307F"
+    title: Convolution (Arbitary mod)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

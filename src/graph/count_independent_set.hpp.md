@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':warning:'
     path: src/graph/count_clique.hpp
-    title: "\u30AF\u30EA\u30FC\u30AF\u306E\u6570\u3048\u4E0A\u3052"
+    title: Count Cliques
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -86,7 +86,7 @@ data:
   verifiedWith: []
 documentation_of: src/graph/count_independent_set.hpp
 layout: document
-title: "\u72EC\u7ACB\u96C6\u5408\u306E\u6570\u3048\u4E0A\u3052"
+title: Count Independent Sets
 ---
 
 ## 概要

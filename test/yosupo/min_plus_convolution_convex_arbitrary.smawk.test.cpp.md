@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/algorithm/smawk.hpp
-    title: SMAWK algotirhm
+    title: SMAWK Algotirhm
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

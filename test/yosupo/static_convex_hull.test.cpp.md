@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
-    title: "Point \u69CB\u9020\u4F53"
+    title: Point
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_hull.hpp
-    title: "\u51F8\u5305"
+    title: Convex Hull
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

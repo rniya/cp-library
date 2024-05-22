@@ -4,8 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':x:'
     path: src/math/count_young_paths.hpp
-    title: "Young \u56F3\u5F62\u4E0A\u306E\u6700\u77ED\u7D4C\u8DEF\u306E\u6570\u3048\
-      \u4E0A\u3052"
+    title: Count Paths on Young Tableau
   - icon: ':heavy_check_mark:'
     path: src/polynomial/lagrange_interpolation.hpp
     title: Lagrange Interpolation
@@ -83,7 +82,7 @@ data:
   - test/yukicoder/665.test.cpp
 documentation_of: src/math/binomial.hpp
 layout: document
-title: binomial
+title: Binomial Coefficients
 ---
 
 ## 概要

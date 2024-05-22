@@ -61,5 +61,5 @@ data:
   verifiedWith: []
 documentation_of: src/geometry/Point3D.hpp
 layout: document
-title: "Point \u69CB\u9020\u4F53 (3D)"
+title: Point (3D)
 ---

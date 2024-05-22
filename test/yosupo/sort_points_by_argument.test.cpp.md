@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
-    title: "Point \u69CB\u9020\u4F53"
+    title: Point
   - icon: ':heavy_check_mark:'
     path: src/geometry/sort_points_by_argument.hpp
-    title: "\u504F\u89D2\u30BD\u30FC\u30C8"
+    title: Sort Points by Argument
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

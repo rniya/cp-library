@@ -3,10 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/matrix/Matrix.hpp
-    title: "\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
-  - icon: ':heavy_check_mark:'
-    path: src/util/modint.hpp
-    title: modint (input/output)
+    title: Matrix
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -27,21 +24,21 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: matrix/Matrix.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n\n#include\
-    \ \"matrix/Matrix.hpp\"\n#include \"util/modint.hpp\"\n\nusing mint = atcoder::modint998244353;\n\
+    \ \"atcoder/modint\"\n#include \"matrix/Matrix.hpp\"\n\nusing mint = atcoder::modint998244353;\n\
     \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
     \    int N;\n    std::cin >> N;\n    Matrix<mint> a(N);\n    for (int i = 0; i\
-    \ < N; i++) {\n        for (int j = 0; j < N; j++) {\n            std::cin >>\
-    \ a[i][j];\n        }\n    }\n\n    std::cout << a.determinant() << '\\n';\n}"
+    \ < N; i++) {\n        for (int j = 0; j < N; j++) {\n            int val;\n \
+    \           std::cin >> val;\n            a[i][j] = val;\n        }\n    }\n\n\
+    \    mint ans = a.determinant();\n    std::cout << ans.val() << '\\n';\n}"
   dependsOn:
   - src/matrix/Matrix.hpp
-  - src/util/modint.hpp
   isVerificationFile: true
   path: test/yosupo/matrix_det.test.cpp
   requiredBy: []
-  timestamp: '2023-09-18 22:25:37+09:00'
+  timestamp: '2024-05-22 22:29:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix_det.test.cpp

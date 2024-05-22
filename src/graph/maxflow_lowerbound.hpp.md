@@ -55,7 +55,7 @@ data:
   - test/aoj/1615.test.cpp
 documentation_of: src/graph/maxflow_lowerbound.hpp
 layout: document
-title: "\u6D41\u91CF\u4E0B\u9650\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
+title: Max Flow (Lower Bound Constraints)
 ---
 
 ## 概要

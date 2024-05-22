@@ -90,7 +90,7 @@ data:
   - test/yukicoder/803.test.cpp
 documentation_of: src/matrix/BitMatrix.hpp
 layout: document
-title: Bit Matrix
+title: Binary Matrix
 ---
 
 ## 概要

@@ -3,8 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/graph/hungarian.hpp
-    title: "Hungarian\uFF08\u5272\u5F53\u554F\u984C\uFF0C\u4E8C\u90E8\u30B0\u30E9\u30D5\
-      \u306E\u6700\u5C0F\u91CD\u307F\u5B8C\u5168\u30DE\u30C3\u30C1\u30F3\u30B0\uFF09"
+    title: Hungarian (Assignment Problem)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

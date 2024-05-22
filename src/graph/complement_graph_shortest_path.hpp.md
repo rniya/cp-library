@@ -43,7 +43,7 @@ data:
   verifiedWith: []
 documentation_of: src/graph/complement_graph_shortest_path.hpp
 layout: document
-title: "\u88DC\u30B0\u30E9\u30D5\u4E0A\u306E\u6700\u77ED\u8DEF"
+title: Shortest Path on Complement Graph
 ---
 
 

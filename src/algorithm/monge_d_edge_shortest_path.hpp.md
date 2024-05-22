@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':warning:'
     path: src/algorithm/golden_section_search.hpp
-    title: "\u9EC4\u91D1\u5206\u5272\u63A2\u7D22"
+    title: Golden Section Search
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -69,7 +69,7 @@ data:
   verifiedWith: []
 documentation_of: src/algorithm/monge_d_edge_shortest_path.hpp
 layout: document
-title: "Monge \u30B0\u30E9\u30D5\u4E0A\u306E $d$-\u8FBA\u6700\u77ED\u8DEF\u9577"
+title: $d$-edge Shortest Path on Monge Graph
 ---
 
 ## 概要

@@ -6,7 +6,7 @@ data:
     title: src/geometry/Circle.hpp
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
-    title: "Point \u69CB\u9020\u4F53"
+    title: Point
   - icon: ':heavy_check_mark:'
     path: src/geometry/circumcircle.hpp
     title: src/geometry/circumcircle.hpp

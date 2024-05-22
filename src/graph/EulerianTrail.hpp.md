@@ -104,7 +104,7 @@ data:
   - test/yukicoder/583.test.cpp
 documentation_of: src/graph/EulerianTrail.hpp
 layout: document
-title: "\u30AA\u30A4\u30E9\u30FC\u8DEF\u306E\u69CB\u7BC9"
+title: Eulerian Trail
 ---
 
 ## 概要

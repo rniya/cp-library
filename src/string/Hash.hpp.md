@@ -127,7 +127,7 @@ data:
   - test/aoj/ALDS1_14_B.test.cpp
 documentation_of: src/string/Hash.hpp
 layout: document
-title: "Hash \u69CB\u9020\u4F53 (reversible)"
+title: Hash (reversible)
 ---
 
 ## 問題例

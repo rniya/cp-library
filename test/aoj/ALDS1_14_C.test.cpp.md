@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/string/Hash.hpp
-    title: "Hash \u69CB\u9020\u4F53 (reversible)"
+    title: Hash (reversible)
   - icon: ':heavy_check_mark:'
     path: src/string/RollingHash2D.hpp
     title: Rolling Hash 2D

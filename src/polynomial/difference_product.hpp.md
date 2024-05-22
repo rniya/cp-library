@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/polynomial/FormalPowerSeries.hpp
-    title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
+    title: Formal Power Series
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -51,7 +51,7 @@ data:
   - test/yukicoder/2513.test.cpp
 documentation_of: src/polynomial/difference_product.hpp
 layout: document
-title: "\u5DEE\u7A4D (Difference Product, Vandermonde's determinant)"
+title: Difference Product (Vandermonde's Determinant)
 ---
 
 ## 概要

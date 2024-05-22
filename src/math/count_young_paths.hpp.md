@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: src/math/binomial.hpp
-    title: binomial
+    title: Binomial Coefficients
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
@@ -70,8 +70,7 @@ data:
   - test/aoj/3335.test.cpp
 documentation_of: src/math/count_young_paths.hpp
 layout: document
-title: "Young \u56F3\u5F62\u4E0A\u306E\u6700\u77ED\u7D4C\u8DEF\u306E\u6570\u3048\u4E0A\
-  \u3052"
+title: Count Paths on Young Tableau
 ---
 
 ## 概要

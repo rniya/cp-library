@@ -111,7 +111,7 @@ data:
   - test/yosupo/bitwise_xor_convolution.test.cpp
 documentation_of: src/math/set_function.hpp
 layout: document
-title: set function (FZT, FMT, FWHT)
+title: Set Function (FZT, FMT, FWHT)
 ---
 
 ## 概要

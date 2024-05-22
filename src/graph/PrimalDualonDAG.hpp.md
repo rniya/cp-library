@@ -150,8 +150,7 @@ data:
   - test/yukicoder/1678.test.cpp
 documentation_of: src/graph/PrimalDualonDAG.hpp
 layout: document
-title: "Primal Dual on DAG\uFF08\u8CA0\u8FBA\u3042\u308A\u6700\u5C0F\u8CBB\u7528\u6D41\
-  \uFF09"
+title: Primal Dual on DAG (Minimum Cost Flow with Negative Edges)
 ---
 
 ## 概要

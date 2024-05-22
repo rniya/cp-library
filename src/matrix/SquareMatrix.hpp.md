@@ -173,7 +173,7 @@ data:
   - test/yukicoder/1050.test.cpp
 documentation_of: src/matrix/SquareMatrix.hpp
 layout: document
-title: "\u6B63\u65B9\u884C\u5217\u30E9\u30A4\u30D6\u30E9\u30EA"
+title: Square Matrix
 ---
 
 ## 概要

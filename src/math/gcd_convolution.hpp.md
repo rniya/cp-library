@@ -59,7 +59,7 @@ data:
   - test/yosupo/gcd_convolution.test.cpp
 documentation_of: src/math/gcd_convolution.hpp
 layout: document
-title: "$\\gcd$ convolution\uFF08\u6DFB\u5B57 $\\gcd$ \u7573\u307F\u8FBC\u307F\uFF09"
+title: Gcd Convolution
 ---
 
 ## 概要

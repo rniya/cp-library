@@ -116,7 +116,7 @@ data:
   verifiedWith: []
 documentation_of: src/datastructure/IntervalManager.hpp
 layout: document
-title: "\u533A\u9593\u3092\u7BA1\u7406\u3059\u308B\u69CB\u9020\u4F53"
+title: Interval Manager
 ---
 
 ## 概要

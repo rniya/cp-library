@@ -84,7 +84,7 @@ data:
   - test/yosupo/enumerate_cliques.test.cpp
 documentation_of: src/graph/enumerate_cliques.hpp
 layout: document
-title: "\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319"
+title: Enumerate Cliques
 ---
 
 ## 概要

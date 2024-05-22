@@ -42,7 +42,7 @@ data:
   - test/yosupo/enumerate_palindromes.test.cpp
 documentation_of: src/string/Manacher.hpp
 layout: document
-title: "Manacher\uFF08\u56DE\u5206\u534A\u5F84\uFF09"
+title: Manacher (Lonegest Palindromic Substring)
 ---
 
 ## 概要

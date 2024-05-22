@@ -4,14 +4,13 @@ data:
   _extendedRequiredBy:
   - icon: ':warning:'
     path: src/polynomial/coefficient_of_powers.hpp
-    title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u306E\u51AA\u4E57\u306E\u4FC2\u6570\
-      \u5217\u6319"
+    title: Power Projection
   - icon: ':heavy_check_mark:'
     path: src/polynomial/difference_product.hpp
-    title: "\u5DEE\u7A4D (Difference Product, Vandermonde's determinant)"
+    title: Difference Product (Vandermonde's Determinant)
   - icon: ':heavy_check_mark:'
     path: src/polynomial/multipoint_evaluation.hpp
-    title: multipoint evaluation
+    title: Multipoint Evaluation
   - icon: ':heavy_check_mark:'
     path: src/polynomial/subset_sum.hpp
     title: $\#_p$ Subset Sum
@@ -259,7 +258,7 @@ data:
   - test/yosupo/exp_of_formal_power_series.test.cpp
 documentation_of: src/polynomial/FormalPowerSeries.hpp
 layout: document
-title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
+title: Formal Power Series
 ---
 
 ## 概要

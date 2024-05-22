@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/polynomial/FormalPowerSeries.hpp
-    title: "Formal Power Series\uFF08\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\uFF09"
+    title: Formal Power Series
   - icon: ':heavy_check_mark:'
     path: src/polynomial/multipoint_evaluation.hpp
-    title: multipoint evaluation
+    title: Multipoint Evaluation
   - icon: ':heavy_check_mark:'
     path: src/util/modint.hpp
     title: modint (input/output)
