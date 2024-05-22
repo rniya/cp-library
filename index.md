@@ -264,7 +264,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/matrix/Matrix.hpp
       title: Matrix
-    - icon: ':x:'
+    - icon: ':question:'
       path: src/matrix/SquareMatrix.hpp
       title: Square Matrix
     - icon: ':heavy_check_mark:'
@@ -362,7 +362,7 @@ data:
     - icon: ':warning:'
       path: src/util/flow_graphviz.hpp
       title: "\u6700\u5927\u6D41\u30FB\u6700\u5C0F\u8CBB\u7528\u6D41\u306E\u56F3\u793A"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/util/modint.hpp
       title: modint (input/output)
     - icon: ':warning:'
@@ -560,6 +560,9 @@ data:
       path: test/yosupo/inv_of_formal_power_series.test.cpp
       title: test/yosupo/inv_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/inverse_matrix.squarematrix.test.cpp
+      title: test/yosupo/inverse_matrix.squarematrix.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/inverse_matrix.test.cpp
       title: test/yosupo/inverse_matrix.test.cpp
     - icon: ':heavy_check_mark:'
@@ -574,6 +577,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/longest_increasing_subsequence.test.cpp
       title: test/yosupo/longest_increasing_subsequence.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/matrix_det.squarematrix.test.cpp
+      title: test/yosupo/matrix_det.squarematrix.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_det.test.cpp
       title: test/yosupo/matrix_det.test.cpp
@@ -693,9 +699,6 @@ data:
       title: test/yosupo/zalgorithm.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':x:'
-      path: test/yukicoder/1050.test.cpp
-      title: test/yukicoder/1050.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1240.test.cpp
       title: test/yukicoder/1240.test.cpp

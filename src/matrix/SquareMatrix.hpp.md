@@ -3,15 +3,18 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/inverse_matrix.squarematrix.test.cpp
+    title: test/yosupo/inverse_matrix.squarematrix.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/matrix_det.squarematrix.test.cpp
+    title: test/yosupo/matrix_det.squarematrix.test.cpp
   - icon: ':x:'
     path: test/yosupo/pow_of_matrix.squarematrix.test.cpp
     title: test/yosupo/pow_of_matrix.squarematrix.test.cpp
-  - icon: ':x:'
-    path: test/yukicoder/1050.test.cpp
-    title: test/yukicoder/1050.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/matrix/SquareMatrix.hpp\"\n#include <array>\n#include\
@@ -56,9 +59,9 @@ data:
     \    return r;\n    }\n\n    SquareMatrix transpose() const {\n        SquareMatrix\
     \ res;\n        for (int i = 0; i < N; i++) {\n            for (int j = 0; j <\
     \ N; j++) {\n                res[j][i] = (*this)[i][j];\n            }\n     \
-    \   }\n        return res;\n    }\n\n    int rank() const { return Matrix(*this).gauss_jordan().first;\
-    \ }\n\n    T det() const { return Matrix(*this).gauss_jordan().second; }\n\n \
-    \   SquareMatrix inv() const {\n        SquareMatrix B(*this), C = identity();\n\
+    \   }\n        return res;\n    }\n\n    int rank() const { return SquareMatrix(*this).gauss_jordan().first;\
+    \ }\n\n    T det() const { return SquareMatrix(*this).gauss_jordan().second; }\n\
+    \n    SquareMatrix inv() const {\n        SquareMatrix B(*this), C = identity();\n\
     \        for (int j = 0; j < N; j++) {\n            int pivot = -1;\n        \
     \    for (int i = j; i < N; i++) {\n                if (B[i][j] != T(0)) {\n \
     \                   pivot = i;\n                    break;\n                }\n\
@@ -137,9 +140,9 @@ data:
     \    return r;\n    }\n\n    SquareMatrix transpose() const {\n        SquareMatrix\
     \ res;\n        for (int i = 0; i < N; i++) {\n            for (int j = 0; j <\
     \ N; j++) {\n                res[j][i] = (*this)[i][j];\n            }\n     \
-    \   }\n        return res;\n    }\n\n    int rank() const { return Matrix(*this).gauss_jordan().first;\
-    \ }\n\n    T det() const { return Matrix(*this).gauss_jordan().second; }\n\n \
-    \   SquareMatrix inv() const {\n        SquareMatrix B(*this), C = identity();\n\
+    \   }\n        return res;\n    }\n\n    int rank() const { return SquareMatrix(*this).gauss_jordan().first;\
+    \ }\n\n    T det() const { return SquareMatrix(*this).gauss_jordan().second; }\n\
+    \n    SquareMatrix inv() const {\n        SquareMatrix B(*this), C = identity();\n\
     \        for (int j = 0; j < N; j++) {\n            int pivot = -1;\n        \
     \    for (int i = j; i < N; i++) {\n                if (B[i][j] != T(0)) {\n \
     \                   pivot = i;\n                    break;\n                }\n\
@@ -180,10 +183,11 @@ data:
   isVerificationFile: false
   path: src/matrix/SquareMatrix.hpp
   requiredBy: []
-  timestamp: '2024-05-23 01:55:05+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-05-23 02:00:55+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yukicoder/1050.test.cpp
+  - test/yosupo/matrix_det.squarematrix.test.cpp
+  - test/yosupo/inverse_matrix.squarematrix.test.cpp
   - test/yosupo/pow_of_matrix.squarematrix.test.cpp
 documentation_of: src/matrix/SquareMatrix.hpp
 layout: document

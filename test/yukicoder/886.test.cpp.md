@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/math/gcd_convolution.hpp
     title: GCD Convolution
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/util/modint.hpp
     title: modint (input/output)
   _extendedRequiredBy: []

@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/matrix/characteristic_polynomial.hpp
     title: Characteristic Polynomial / $\det(M_0 + x M_1)$
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/util/modint.hpp
     title: modint (input/output)
   _extendedRequiredBy: []

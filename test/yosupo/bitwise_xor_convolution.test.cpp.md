@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/math/set_function.hpp
     title: Set Function (FZT, FMT, FWHT)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/util/modint.hpp
     title: modint (input/output)
   _extendedRequiredBy: []

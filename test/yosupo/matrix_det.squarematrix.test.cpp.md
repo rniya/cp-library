@@ -1,22 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/matrix/SquareMatrix.hpp
     title: Square Matrix
-  - icon: ':question:'
-    path: src/util/modint.hpp
-    title: modint (input/output)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/1050
+    PROBLEM: https://judge.yosupo.jp/problem/matrix_det
     links:
-    - https://yukicoder.me/problems/no/1050
+    - https://judge.yosupo.jp/problem/matrix_det
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -27,28 +24,29 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: matrix/SquareMatrix.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://yukicoder.me/problems/no/1050\"\n\n#include \"\
-    matrix/SquareMatrix.hpp\"\n#include \"util/modint.hpp\"\n\nusing mint = atcoder::modint1000000007;\n\
-    \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
-    \    int M, K;\n    std::cin >> M >> K;\n\n    SquareMatrix<mint, 55> SM;\n  \
-    \  for (int i = 0; i < M; i++) {\n        for (int j = 0; j < M; j++) {\n    \
-    \        SM[i][(i + j) % M]++;\n            SM[i][i * j % M]++;\n        }\n \
-    \   }\n\n    SM ^= K;\n    std::cout << SM[0][0] << '\\n';\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n\n#include\
+    \ <iostream>\n#include \"atcoder/modint\"\n#include \"matrix/SquareMatrix.hpp\"\
+    \n\nusing mint = atcoder::modint998244353;\nconstexpr int MAX = 1 << 9;\n\nint\
+    \ main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int\
+    \ N;\n    std::cin >> N;\n    SquareMatrix<mint, MAX> A;\n    for (int i = 0;\
+    \ i < MAX; i++) A[i][i] = 1;\n    for (int i = 0; i < N; i++) {\n        for (int\
+    \ j = 0; j < N; j++) {\n            int val;\n            std::cin >> val;\n \
+    \           A[i][j] = val;\n        }\n    }\n\n    auto det = A.det();\n    std::cout\
+    \ << det.val() << '\\n';\n    return 0;\n}\n"
   dependsOn:
   - src/matrix/SquareMatrix.hpp
-  - src/util/modint.hpp
   isVerificationFile: true
-  path: test/yukicoder/1050.test.cpp
+  path: test/yosupo/matrix_det.squarematrix.test.cpp
   requiredBy: []
-  timestamp: '2024-05-23 01:55:05+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-05-23 02:00:55+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yukicoder/1050.test.cpp
+documentation_of: test/yosupo/matrix_det.squarematrix.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yukicoder/1050.test.cpp
-- /verify/test/yukicoder/1050.test.cpp.html
-title: test/yukicoder/1050.test.cpp
+- /verify/test/yosupo/matrix_det.squarematrix.test.cpp
+- /verify/test/yosupo/matrix_det.squarematrix.test.cpp.html
+title: test/yosupo/matrix_det.squarematrix.test.cpp
 ---
