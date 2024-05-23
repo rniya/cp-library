@@ -21,10 +21,10 @@ data:
     \ <cassert>\n#include <utility>\n\ntemplate <typename T, int N> struct SquareMatrix\
     \ {\n    std::array<std::array<T, N>, N> A;\n\n    SquareMatrix() : A() {\n  \
     \      for (int i = 0; i < N; i++) {\n            for (int j = 0; j < N; j++)\
-    \ {\n                A[i][j] = T();\n            }\n        }\n    }\n\n    int\
+    \ {\n                A[i][j] = T(0);\n            }\n        }\n    }\n\n    int\
     \ size() const { return N; }\n\n    inline const std::array<T, N>& operator[](int\
-    \ k) const { return A[k]; }\n\n    inline std::array<T, N>& operator[](int k)\
-    \ { return A[k]; }\n\n    static SquareMatrix identity() {\n        SquareMatrix\
+    \ i) const { return A[i]; }\n\n    inline std::array<T, N>& operator[](int i)\
+    \ { return A[i]; }\n\n    static SquareMatrix identity() {\n        SquareMatrix\
     \ res;\n        for (int i = 0; i < N; i++) res[i][i] = 1;\n        return res;\n\
     \    }\n\n    SquareMatrix& operator+=(const SquareMatrix& B) {\n        for (int\
     \ i = 0; i < N; i++) {\n            for (int j = 0; j < N; j++) {\n          \
@@ -101,10 +101,10 @@ data:
   code: "#pragma once\n#include <array>\n#include <cassert>\n#include <utility>\n\n\
     template <typename T, int N> struct SquareMatrix {\n    std::array<std::array<T,\
     \ N>, N> A;\n\n    SquareMatrix() : A() {\n        for (int i = 0; i < N; i++)\
-    \ {\n            for (int j = 0; j < N; j++) {\n                A[i][j] = T();\n\
+    \ {\n            for (int j = 0; j < N; j++) {\n                A[i][j] = T(0);\n\
     \            }\n        }\n    }\n\n    int size() const { return N; }\n\n   \
-    \ inline const std::array<T, N>& operator[](int k) const { return A[k]; }\n\n\
-    \    inline std::array<T, N>& operator[](int k) { return A[k]; }\n\n    static\
+    \ inline const std::array<T, N>& operator[](int i) const { return A[i]; }\n\n\
+    \    inline std::array<T, N>& operator[](int i) { return A[i]; }\n\n    static\
     \ SquareMatrix identity() {\n        SquareMatrix res;\n        for (int i = 0;\
     \ i < N; i++) res[i][i] = 1;\n        return res;\n    }\n\n    SquareMatrix&\
     \ operator+=(const SquareMatrix& B) {\n        for (int i = 0; i < N; i++) {\n\
@@ -183,7 +183,7 @@ data:
   isVerificationFile: false
   path: src/matrix/SquareMatrix.hpp
   requiredBy: []
-  timestamp: '2024-05-23 02:00:55+09:00'
+  timestamp: '2024-05-24 00:56:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/matrix_det.squarematrix.test.cpp

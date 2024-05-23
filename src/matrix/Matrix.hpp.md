@@ -33,8 +33,8 @@ data:
     \ 0)) {}\n\n    bool empty() const { return A.empty(); }\n\n    int size() const\
     \ { return A.size(); }\n\n    int height() const { return A.size(); }\n\n    int\
     \ width() const {\n        assert(not A.empty());\n        return A[0].size();\n\
-    \    }\n\n    inline const std::vector<T>& operator[](int k) const { return A[k];\
-    \ }\n\n    inline std::vector<T>& operator[](int k) { return A[k]; }\n\n    static\
+    \    }\n\n    inline const std::vector<T>& operator[](int i) const { return A[i];\
+    \ }\n\n    inline std::vector<T>& operator[](int i) { return A[i]; }\n\n    static\
     \ Matrix identity(int n) {\n        Matrix res(n);\n        for (int i = 0; i\
     \ < n; i++) res[i][i] = 1;\n        return res;\n    }\n\n    Matrix& operator+=(const\
     \ Matrix& B) {\n        int n = height(), m = width();\n        assert(n == B.height()\
@@ -129,8 +129,8 @@ data:
     \ const { return A.empty(); }\n\n    int size() const { return A.size(); }\n\n\
     \    int height() const { return A.size(); }\n\n    int width() const {\n    \
     \    assert(not A.empty());\n        return A[0].size();\n    }\n\n    inline\
-    \ const std::vector<T>& operator[](int k) const { return A[k]; }\n\n    inline\
-    \ std::vector<T>& operator[](int k) { return A[k]; }\n\n    static Matrix identity(int\
+    \ const std::vector<T>& operator[](int i) const { return A[i]; }\n\n    inline\
+    \ std::vector<T>& operator[](int i) { return A[i]; }\n\n    static Matrix identity(int\
     \ n) {\n        Matrix res(n);\n        for (int i = 0; i < n; i++) res[i][i]\
     \ = 1;\n        return res;\n    }\n\n    Matrix& operator+=(const Matrix& B)\
     \ {\n        int n = height(), m = width();\n        assert(n == B.height() and\
@@ -222,7 +222,7 @@ data:
   isVerificationFile: false
   path: src/matrix/Matrix.hpp
   requiredBy: []
-  timestamp: '2024-05-23 01:25:29+09:00'
+  timestamp: '2024-05-24 00:56:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/system_of_linear_equations.test.cpp

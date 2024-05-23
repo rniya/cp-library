@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/matrix/Matrix.hpp
-    title: Matrix
+    path: src/matrix/F2Matrix.hpp
+    title: Matrix on $\mathbb{F}_2$
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -11,9 +11,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/inverse_matrix
+    PROBLEM: https://judge.yosupo.jp/problem/matrix_product_mod_2
     links:
-    - https://judge.yosupo.jp/problem/inverse_matrix
+    - https://judge.yosupo.jp/problem/matrix_product_mod_2
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -24,31 +24,31 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: matrix/F2Matrix.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/inverse_matrix\"\n\n#include\
-    \ <iostream>\n#include \"atcoder/modint\"\n#include \"matrix/Matrix.hpp\"\n\n\
-    using mint = atcoder::modint998244353;\n\nint main() {\n    std::cin.tie(0);\n\
-    \    std::ios::sync_with_stdio(false);\n    int N;\n    std::cin >> N;\n    Matrix<mint>\
-    \ A(N);\n    for (int i = 0; i < N; i++) {\n        for (int j = 0; j < N; j++)\
-    \ {\n            int val;\n            std::cin >> val;\n            A[i][j] =\
-    \ val;\n        }\n    }\n\n    auto B = A.inv();\n    if (B.size() == 0) {\n\
-    \        std::cout << -1 << '\\n';\n        return 0;\n    }\n    for (int i =\
-    \ 0; i < N; i++) {\n        for (int j = 0; j < N; j++) {\n            std::cout\
-    \ << B[i][j].val() << (j + 1 == N ? '\\n' : ' ');\n        }\n    }\n    return\
-    \ 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product_mod_2\"\n\
+    \n#include <iostream>\n#include \"matrix/F2Matrix.hpp\"\n\nconst int MAX = 1 <<\
+    \ 12;\n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \    int N, M, K;\n    std::cin >> N >> M >> K;\n    F2Matrix<MAX> A(N, M), B(M,\
+    \ K);\n    for (int i = 0; i < N; i++) {\n        for (int j = 0; j < M; j++)\
+    \ {\n            char val;\n            std::cin >> val;\n            A[i][j]\
+    \ = val - '0';\n        }\n    }\n    for (int i = 0; i < M; i++) {\n        for\
+    \ (int j = 0; j < K; j++) {\n            char val;\n            std::cin >> val;\n\
+    \            B[i][j] = val - '0';\n        }\n    }\n\n    auto C = A * B;\n \
+    \   for (int i = 0; i < N; i++) {\n        for (int j = 0; j < K; j++) std::cout\
+    \ << C[i][j];\n        std::cout << '\\n';\n    }\n    return 0;\n}\n"
   dependsOn:
-  - src/matrix/Matrix.hpp
+  - src/matrix/F2Matrix.hpp
   isVerificationFile: true
-  path: test/yosupo/inverse_matrix.test.cpp
+  path: test/yosupo/matrix_product_mod_2.test.cpp
   requiredBy: []
   timestamp: '2024-05-24 00:56:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/inverse_matrix.test.cpp
+documentation_of: test/yosupo/matrix_product_mod_2.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/inverse_matrix.test.cpp
-- /verify/test/yosupo/inverse_matrix.test.cpp.html
-title: test/yosupo/inverse_matrix.test.cpp
+- /verify/test/yosupo/matrix_product_mod_2.test.cpp
+- /verify/test/yosupo/matrix_product_mod_2.test.cpp.html
+title: test/yosupo/matrix_product_mod_2.test.cpp
 ---

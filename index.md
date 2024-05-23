@@ -259,8 +259,8 @@ data:
   - name: src/matrix
     pages:
     - icon: ':heavy_check_mark:'
-      path: src/matrix/BitMatrix.hpp
-      title: Binary Matrix
+      path: src/matrix/F2Matrix.hpp
+      title: Matrix on $\mathbb{F}_2$
     - icon: ':heavy_check_mark:'
       path: src/matrix/Matrix.hpp
       title: Matrix
@@ -584,8 +584,14 @@ data:
       path: test/yosupo/matrix_det.test.cpp
       title: test/yosupo/matrix_det.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/matrix_det_mod_2.test.cpp
+      title: test/yosupo/matrix_det_mod_2.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_product.test.cpp
       title: test/yosupo/matrix_product.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/matrix_product_mod_2.test.cpp
+      title: test/yosupo/matrix_product_mod_2.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_rank.test.cpp
       title: test/yosupo/matrix_rank.test.cpp
@@ -735,9 +741,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/665.test.cpp
       title: test/yukicoder/665.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/yukicoder/803.test.cpp
-      title: test/yukicoder/803.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/886.test.cpp
       title: test/yukicoder/886.test.cpp
