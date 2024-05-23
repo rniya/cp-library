@@ -9,16 +9,16 @@ template <typename T, int N> struct SquareMatrix {
     SquareMatrix() : A() {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                A[i][j] = T();
+                A[i][j] = T(0);
             }
         }
     }
 
     int size() const { return N; }
 
-    inline const std::array<T, N>& operator[](int k) const { return A[k]; }
+    inline const std::array<T, N>& operator[](int i) const { return A[i]; }
 
-    inline std::array<T, N>& operator[](int k) { return A[k]; }
+    inline std::array<T, N>& operator[](int i) { return A[i]; }
 
     static SquareMatrix identity() {
         SquareMatrix res;

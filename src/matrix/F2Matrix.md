@@ -1,6 +1,6 @@
 ---
-title: Binary Matrix
-documentation_of: ./BitMatrix.hpp
+title: Matrix on $\mathbb{F}_2$
+documentation_of: ./F2Matrix.hpp
 ---
 
 ## 概要
