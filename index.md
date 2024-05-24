@@ -8,10 +8,10 @@ data:
       title: Mo's Algorithm
     - icon: ':warning:'
       path: src/algorithm/SubsetSum.hpp
-      title: Subset Sum $O(NS)$
+      title: Subset Sum $\mathrm{O}(NS)$
     - icon: ':warning:'
       path: src/algorithm/SubsetSum2.hpp
-      title: Subset Sum $O(Na_{\max})$
+      title: Subset Sum $\mathrm{O}(Na_{\max})$
     - icon: ':warning:'
       path: src/algorithm/golden_section_search.hpp
       title: Golden Section Search
@@ -55,7 +55,7 @@ data:
     - icon: ':warning:'
       path: src/datastructure/IntervalManager.hpp
       title: Interval Manager
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/LineContainer.hpp
       title: Line Container (based on kactl)
     - icon: ':warning:'
@@ -220,7 +220,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/Nimber.hpp
       title: Nimber
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/math/RelaxedConvolution.hpp
       title: Relaxed Convolution
     - icon: ':heavy_check_mark:'
@@ -352,22 +352,19 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/util/Dice.hpp
-      title: "\u30B5\u30A4\u30B3\u30ED"
+      title: Dice
     - icon: ':warning:'
       path: src/util/RandomNumberGenerator.hpp
-      title: "\u4E71\u6570\u751F\u6210"
+      title: Random Number Generator
     - icon: ':heavy_check_mark:'
       path: src/util/Rational.hpp
-      title: "\u6709\u7406\u6570\u30E9\u30A4\u30D6\u30E9\u30EA"
-    - icon: ':warning:'
-      path: src/util/flow_graphviz.hpp
-      title: "\u6700\u5927\u6D41\u30FB\u6700\u5C0F\u8CBB\u7528\u6D41\u306E\u56F3\u793A"
+      title: Rational Number
     - icon: ':heavy_check_mark:'
       path: src/util/modint.hpp
       title: modint (input/output)
     - icon: ':warning:'
       path: src/util/stack_extend.hpp
-      title: "\u30B9\u30BF\u30C3\u30AF\u62E1\u5F35\u30DE\u30AF\u30ED"
+      title: Stack Extend
   verificationCategories:
   - name: test/aoj
     pages:
@@ -524,6 +521,9 @@ data:
       path: test/yosupo/characteristic_polynomial.test.cpp
       title: test/yosupo/characteristic_polynomial.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/convolution_mod.relaxedconvolution.test.cpp
+      title: test/yosupo/convolution_mod.relaxedconvolution.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution_mod_1000000007.test.cpp
     - icon: ':heavy_check_mark:'
@@ -571,6 +571,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
       title: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/line_add_get_min.test.cpp
+      title: test/yosupo/line_add_get_min.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/log_of_formal_power_series.test.cpp
       title: test/yosupo/log_of_formal_power_series.test.cpp

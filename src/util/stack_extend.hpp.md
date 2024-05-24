@@ -46,7 +46,7 @@ data:
   verifiedWith: []
 documentation_of: src/util/stack_extend.hpp
 layout: document
-title: "\u30B9\u30BF\u30C3\u30AF\u62E1\u5F35\u30DE\u30AF\u30ED"
+title: Stack Extend
 ---
 
 ## 概要

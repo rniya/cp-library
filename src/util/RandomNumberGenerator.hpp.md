@@ -45,7 +45,7 @@ data:
   verifiedWith: []
 documentation_of: src/util/RandomNumberGenerator.hpp
 layout: document
-title: "\u4E71\u6570\u751F\u6210"
+title: Random Number Generator
 ---
 
 ## 概要

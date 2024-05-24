@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/util/Dice.hpp
-    title: "\u30B5\u30A4\u30B3\u30ED"
+    title: Dice
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/convolution_mod.relaxedconvolution.test.cpp
+    title: test/yosupo/convolution_mod.relaxedconvolution.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -42,8 +45,9 @@ data:
   path: src/math/RelaxedConvolution.hpp
   requiredBy: []
   timestamp: '2024-05-22 00:21:24+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/convolution_mod.relaxedconvolution.test.cpp
 documentation_of: src/math/RelaxedConvolution.hpp
 layout: document
 title: Relaxed Convolution

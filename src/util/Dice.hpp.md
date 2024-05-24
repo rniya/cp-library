@@ -123,7 +123,7 @@ data:
   - test/aoj/ITP1_11_B.test.cpp
 documentation_of: src/util/Dice.hpp
 layout: document
-title: "\u30B5\u30A4\u30B3\u30ED"
+title: Dice
 ---
 
 ## 概要

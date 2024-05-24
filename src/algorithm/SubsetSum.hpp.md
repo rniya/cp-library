@@ -44,7 +44,7 @@ data:
   verifiedWith: []
 documentation_of: src/algorithm/SubsetSum.hpp
 layout: document
-title: Subset Sum $O(NS)$
+title: Subset Sum $\mathrm{O}(NS)$
 ---
 
 ## 概要

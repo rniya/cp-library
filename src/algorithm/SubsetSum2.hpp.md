@@ -66,7 +66,7 @@ data:
   verifiedWith: []
 documentation_of: src/algorithm/SubsetSum2.hpp
 layout: document
-title: Subset Sum $O(Na_{\max})$
+title: Subset Sum $\mathrm{O}(Na_{\max})$
 ---
 
 ## 概要

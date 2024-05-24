@@ -143,7 +143,7 @@ data:
   - test/aoj/1131.test.cpp
 documentation_of: src/util/Rational.hpp
 layout: document
-title: "\u6709\u7406\u6570\u30E9\u30A4\u30D6\u30E9\u30EA"
+title: Rational Number
 ---
 
 ## 概要
