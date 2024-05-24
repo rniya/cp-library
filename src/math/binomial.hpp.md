@@ -15,6 +15,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/binomial_coefficient_prime_mod.test.cpp
+    title: test/yosupo/binomial_coefficient_prime_mod.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
@@ -83,6 +86,7 @@ data:
   - test/aoj/3335.test.cpp
   - test/aoj/DPL_5_E.test.cpp
   - test/yukicoder/665.test.cpp
+  - test/yosupo/binomial_coefficient_prime_mod.test.cpp
 documentation_of: src/math/binomial.hpp
 layout: document
 title: Binomial Coefficients
