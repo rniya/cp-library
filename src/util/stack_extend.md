@@ -1,5 +1,5 @@
 ---
-title: スタック拡張マクロ
+title: Stack Extend
 documentation_of: ./stack_extend.hpp
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 有理数ライブラリ
+title: Rational Number
 documentation_of: ./Rational.hpp
 ---
 

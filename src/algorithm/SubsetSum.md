@@ -1,5 +1,5 @@
 ---
-title: Subset Sum $O(NS)$
+title: Subset Sum $\mathrm{O}(NS)$
 documentation_of: ./SubsetSum.hpp
 ---
 

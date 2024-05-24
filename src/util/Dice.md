@@ -1,5 +1,5 @@
 ---
-title: サイコロ
+title: Dice
 documentation_of: ./Dice.hpp
 ---
 

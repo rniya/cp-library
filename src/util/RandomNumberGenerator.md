@@ -1,5 +1,5 @@
 ---
-title: 乱数生成
+title: Random Number Generator
 documentation_of: ./RandomNumberGenerator.hpp
 ---
 

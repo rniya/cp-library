@@ -1,5 +1,5 @@
 ---
-title: Subset Sum $O(Na_{\max})$
+title: Subset Sum $\mathrm{O}(Na_{\max})$
 documentation_of: ./SubsetSum2.hpp
 ---
 
