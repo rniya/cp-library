@@ -1,10 +1,12 @@
 #pragma once
+#include <algorithm>
 #include <cassert>
 #include <vector>
 
 template <typename T> struct Binomial {
     Binomial(int MAX = 0) : n(1), facs(1, T(1)), finvs(1, T(1)), invs(1, T(1)) {
-        while (n <= MAX) extend();
+        assert(T::mod() != 0);
+        if (MAX > 0) extend(MAX + 1);
     }
 
     T fac(int i) {
@@ -52,8 +54,10 @@ template <typename T> struct Binomial {
     int n;
     std::vector<T> facs, finvs, invs;
 
-    inline void extend() {
-        int m = n << 1;
+    inline void extend(int m = -1) {
+        if (m == -1) m = n * 2;
+        m = std::min(m, T::mod());
+        if (n >= m) return;
         facs.resize(m);
         finvs.resize(m);
         invs.resize(m);
