@@ -508,6 +508,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/assignment.test.cpp
       title: test/yosupo/assignment.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/binomial_coefficient_prime_mod.test.cpp
+      title: test/yosupo/binomial_coefficient_prime_mod.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/bipartitematching.test.cpp
       title: test/yosupo/bipartitematching.test.cpp

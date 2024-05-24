@@ -64,7 +64,7 @@ data:
   isVerificationFile: false
   path: src/math/count_young_paths.hpp
   requiredBy: []
-  timestamp: '2024-05-22 00:21:24+09:00'
+  timestamp: '2024-05-25 01:38:25+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/3335.test.cpp
