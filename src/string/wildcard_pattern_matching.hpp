@@ -10,7 +10,7 @@ std::vector<bool> wildcard_pattern_matching(const std::string& s, const std::str
             mini = std::min(mini, c);
         }
     }
-    for (const auto& c : s) {
+    for (const auto& c : t) {
         if (c != wild) {
             mini = std::min(mini, c);
         }

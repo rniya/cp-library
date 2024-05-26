@@ -51,14 +51,20 @@ $$
 \begin{aligned}
     S \lbrack i,  i + \vert T \vert) = T
     && \iff & \sum _ {k = 0} ^ {\vert T \vert - 1} \mathrm{cmp}(S \lbrack i + k \rbrack, T \lbrack k \rbrack) = 0 \\
-    && \iff & \sum _ {k = 0} ^ {\vert T \vert - 1} \left \lbrack  S \lbrack i + k \rbrack^2 \mathbf{1}(s \gt 0) \mathbf{1}(t \gt 0) \right. \\
-    &&& - 2 S \lbrack i + k \rbrack T \lbrack k \rbrack \mathbf{1}(s \gt 0) \mathbf{1}(t \gt 0) \\
-    &&& \left. + T \lbrack k \rbrack^2 \mathbf{1}(s \gt 0) \mathbf{1}(t \gt 0) \right \rbrack = 0
+    && \iff & \sum _ {k = 0} ^ {\vert T \vert - 1} \left \lbrack  S \lbrack i + k \rbrack^2 \mathbf{1}(S \lbrack i + k \rbrack \gt 0) \mathbf{1}(T \lbrack k \rbrack \gt 0) \right. \\
+    &&& - 2 S \lbrack i + k \rbrack T \lbrack k \rbrack \mathbf{1}(S \lbrack i + k \rbrack \gt 0) \mathbf{1}(T \lbrack k \rbrack \gt 0) \\
+    &&& \left. + T \lbrack k \rbrack^2 \mathbf{1}(S \lbrack i + k \rbrack \gt 0) \mathbf{1}(T \lbrack k \rbrack \gt 0) \right \rbrack = 0
 \end{aligned}
 $$
 
 が成立し，最後の式は畳み込みにより計算可能である．
 
+また，現れる文字の種類数を $\sigma$ として，畳み込んだ結果現れる数値の最大値 $(\sigma - 1) ^ 2 |T|$ が畳み込みで用いる $\text{mod}$ 未満ならば判定は決定的となる．
+
 ## 出題例
--  [AtCoder Beginner Contest 307 Ex - Marquee](https://atcoder.jp/contests/abc307/tasks/abc307_h)
--  [DEGwer さんの D 論応援コンテスト H - Incomplete Notes](https://atcoder.jp/contests/DEGwer2023/tasks/1202Contest_h)
+- [AtCoder Beginner Contest 307 Ex - Marquee](https://atcoder.jp/contests/abc307/tasks/abc307_h)
+- [DEGwer さんの D 論応援コンテスト H - Incomplete Notes](https://atcoder.jp/contests/DEGwer2023/tasks/1202Contest_h)
+- [Codeforces Round 947 (Div. 1 + Div. 2) G. Zimpha Fan Club](https://codeforces.com/contest/1975/problem/G)
+
+## Links
+- [ワイルドカードマッチングの高速化 - noshi91のメモ](https://noshi91.hatenablog.com/entry/2024/05/26/060854)

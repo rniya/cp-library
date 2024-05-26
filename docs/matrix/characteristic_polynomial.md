@@ -3,31 +3,31 @@ title: Characteristic Polynomial / $\det(M_0 + x M_1)$
 documentation_of: //src/matrix/characteristic_polynomial.hpp
 ---
 
-# `characteristic_polynomial`
+## `characteristic_polynomial`
 
-## 入力
+### 入力
 
 $n \times n$ 行列 $M$
 
-## 出力
+### 出力
 
 $\det (x I - M) = \sum _ {i = 0}^{n} c \lbrack i \rbrack x ^ i$ を満たす長さ $n + 1$ の配列 $c$
 
-## 計算量
+### 計算量
 
 時間計算量 $\mathrm{O}(n ^ 3)$
 
-# `determinant_polynomial`
+## `determinant_polynomial`
 
-## 入力
+### 入力
 
 $n \times n$ 行列 $M _ 0, M _ 1$
 
-## 出力
+### 出力
 
 $\det (M _ 0 + M _ 1 x) = \sum _ {i = 0}^{n} c \lbrack i \rbrack x ^ i$ を満たす長さ $n + 1$ の配列 $c$
 
-## 計算量
+### 計算量
 
 時間計算量 $\mathrm{O}(n ^ 3)$
 
