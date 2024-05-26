@@ -37,7 +37,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/wildcard_pattern_matching.test.cpp
   requiredBy: []
-  timestamp: '2024-05-22 03:00:55+09:00'
+  timestamp: '2024-05-26 15:33:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/wildcard_pattern_matching.test.cpp

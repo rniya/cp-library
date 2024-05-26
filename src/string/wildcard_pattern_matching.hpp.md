@@ -30,7 +30,7 @@ data:
     \ = '?') {\n    int n = s.size(), m = t.size();\n    assert(n >= m and n > 0);\n\
     \    char mini = s[0];\n    for (const auto& c : s) {\n        if (c != wild)\
     \ {\n            mini = std::min(mini, c);\n        }\n    }\n    for (const auto&\
-    \ c : s) {\n        if (c != wild) {\n            mini = std::min(mini, c);\n\
+    \ c : t) {\n        if (c != wild) {\n            mini = std::min(mini, c);\n\
     \        }\n    }\n    std::vector<atcoder::modint998244353> f1(n), f2(n), f3(n),\
     \ g1(m), g2(m), g3(m);\n    for (int i = 0; i < n; i++) {\n        atcoder::modint998244353\
     \ x = (s[i] == wild ? 0 : s[i] - mini + 1), y = (s[i] == wild ? 0 : 1);\n    \
@@ -47,7 +47,7 @@ data:
   isVerificationFile: false
   path: src/string/wildcard_pattern_matching.hpp
   requiredBy: []
-  timestamp: '2024-05-22 03:00:55+09:00'
+  timestamp: '2024-05-26 15:33:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/wildcard_pattern_matching.test.cpp
@@ -104,14 +104,20 @@ $$
 \begin{aligned}
     S \lbrack i,  i + \vert T \vert) = T
     && \iff & \sum _ {k = 0} ^ {\vert T \vert - 1} \mathrm{cmp}(S \lbrack i + k \rbrack, T \lbrack k \rbrack) = 0 \\
-    && \iff & \sum _ {k = 0} ^ {\vert T \vert - 1} \left \lbrack  S \lbrack i + k \rbrack^2 \mathbf{1}(s \gt 0) \mathbf{1}(t \gt 0) \right. \\
-    &&& - 2 S \lbrack i + k \rbrack T \lbrack k \rbrack \mathbf{1}(s \gt 0) \mathbf{1}(t \gt 0) \\
-    &&& \left. + T \lbrack k \rbrack^2 \mathbf{1}(s \gt 0) \mathbf{1}(t \gt 0) \right \rbrack = 0
+    && \iff & \sum _ {k = 0} ^ {\vert T \vert - 1} \left \lbrack  S \lbrack i + k \rbrack^2 \mathbf{1}(S \lbrack i + k \rbrack \gt 0) \mathbf{1}(T \lbrack k \rbrack \gt 0) \right. \\
+    &&& - 2 S \lbrack i + k \rbrack T \lbrack k \rbrack \mathbf{1}(S \lbrack i + k \rbrack \gt 0) \mathbf{1}(T \lbrack k \rbrack \gt 0) \\
+    &&& \left. + T \lbrack k \rbrack^2 \mathbf{1}(S \lbrack i + k \rbrack \gt 0) \mathbf{1}(T \lbrack k \rbrack \gt 0) \right \rbrack = 0
 \end{aligned}
 $$
 
 が成立し，最後の式は畳み込みにより計算可能である．
 
+また，現れる文字の種類数を $\sigma$ として，畳み込んだ結果現れる数値の最大値 $(\sigma - 1) ^ 2 |T|$ が畳み込みで用いる $\text{mod}$ 未満ならば判定は決定的となる．
+
 ## 出題例
--  [AtCoder Beginner Contest 307 Ex - Marquee](https://atcoder.jp/contests/abc307/tasks/abc307_h)
--  [DEGwer さんの D 論応援コンテスト H - Incomplete Notes](https://atcoder.jp/contests/DEGwer2023/tasks/1202Contest_h)
+- [AtCoder Beginner Contest 307 Ex - Marquee](https://atcoder.jp/contests/abc307/tasks/abc307_h)
+- [DEGwer さんの D 論応援コンテスト H - Incomplete Notes](https://atcoder.jp/contests/DEGwer2023/tasks/1202Contest_h)
+- [Codeforces Round 947 (Div. 1 + Div. 2) G. Zimpha Fan Club](https://codeforces.com/contest/1975/problem/G)
+
+## Links
+- [ワイルドカードマッチングの高速化 - noshi91のメモ](https://noshi91.hatenablog.com/entry/2024/05/26/060854)
