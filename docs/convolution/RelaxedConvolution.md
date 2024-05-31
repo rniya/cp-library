@@ -1,6 +1,6 @@
 ---
 title: Relaxed Convolution
-documentation_of: ./RelaxedConvolution.hpp
+documentation_of: //src/RelaxedConvolution.hpp
 ---
 
 ## 概要
@@ -10,6 +10,6 @@ documentation_of: ./RelaxedConvolution.hpp
 ## Links
 - [オンライン畳み込み - Qiita](https://qiita.com/Kiri8128/items/1738d5403764a0e26b4c)
 
-## 問題例
+## 出題例
 - [AtCoder Beginner Contest 230 H - Bullion](https://atcoder.jp/contests/abc230/tasks/abc230_h)
 - [AtCoder Beginner Contest 315 Ex - Typical Convolution Problem](https://atcoder.jp/contests/abc315/tasks/abc315_h)
