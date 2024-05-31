@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/convolution/RelaxedConvolution.hpp
-    title: Relaxed Convolution
+    title: src/convolution/RelaxedConvolution.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

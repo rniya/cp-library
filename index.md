@@ -13,16 +13,16 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/convolution/RelaxedConvolution.hpp
-      title: Relaxed Convolution
+      title: src/convolution/RelaxedConvolution.hpp
     - icon: ':heavy_check_mark:'
       path: src/convolution/convolution_arbitary_mod.hpp
-      title: Convolution (Arbitary mod)
+      title: src/convolution/convolution_arbitary_mod.hpp
     - icon: ':heavy_check_mark:'
       path: src/convolution/min_plus_convolution_convex_arbitrary.hpp
-      title: Min Plus Convolution (Convex and Arbitary)
+      title: src/convolution/min_plus_convolution_convex_arbitrary.hpp
     - icon: ':heavy_check_mark:'
       path: src/convolution/min_plus_convolution_convex_convex.hpp
-      title: Min Plus Convolution (Convex and Convex)
+      title: src/convolution/min_plus_convolution_convex_convex.hpp
   - name: src/datastructure
     pages:
     - icon: ':heavy_check_mark:'
@@ -507,7 +507,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/assignment.test.cpp
       title: test/yosupo/assignment.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/binomial_coefficient_prime_mod.test.cpp
       title: test/yosupo/binomial_coefficient_prime_mod.test.cpp
     - icon: ':heavy_check_mark:'

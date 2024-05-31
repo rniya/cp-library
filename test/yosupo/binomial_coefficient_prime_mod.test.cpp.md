@@ -6,12 +6,14 @@ data:
     title: Binomial Coefficients
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    links: []
+    PROBLEM: https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
+    links:
+    - https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -24,7 +26,8 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint:\
     \ line -1: no such header\n"
-  code: "#include <iostream>\n#include \"atcoder/modint\"\n#include \"math/binomial.hpp\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
+    \n\n#include <iostream>\n#include \"atcoder/modint\"\n#include \"math/binomial.hpp\"\
     \n\nusing mint = atcoder::modint;\n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
     \    int T, m;\n    std::cin >> T >> m;\n    mint::set_mod(m);\n    Binomial<mint>\
     \ BINOM;\n    for (; T--;) {\n        int n, k;\n        std::cin >> n >> k;\n\
@@ -34,8 +37,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/binomial_coefficient_prime_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-05-25 01:52:56+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-01 02:03:33+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/binomial_coefficient_prime_mod.test.cpp
 layout: document
