@@ -44,6 +44,7 @@
 "test/aoj/example.test.cpp": "2021-01-20 11:24:35 +0900",
 "test/yosupo/aplusb.test.cpp": "2024-05-12 03:06:16 +0900",
 "test/yosupo/assignment.test.cpp": "2024-06-01 01:35:37 +0900",
+"test/yosupo/binomial_coefficient_prime_mod.test.cpp": "2024-06-01 02:03:33 +0900",
 "test/yosupo/bipartitematching.test.cpp": "2024-04-07 17:26:46 +0900",
 "test/yosupo/bitwise_and_convolution.test.cpp": "2023-09-18 22:25:37 +0900",
 "test/yosupo/bitwise_xor_convolution.test.cpp": "2023-09-18 22:25:37 +0900",
