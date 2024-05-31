@@ -25,12 +25,12 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution.hpp:\
     \ line -1: no such header\n"
-  code: "#include \"../atcoder/convolution\"\n\ntemplate <class T> class RelaxedConvolution\
-    \ {\n    int n;\n    std::vector<T> f, g, h;\n\n  public:\n    RelaxedConvolution()\
-    \ : n(0) {}\n\n    T query(T a, T b) {\n        f.emplace_back(a);\n        g.emplace_back(b);\n\
-    \        h.emplace_back(0);\n        if (n > 0) h.emplace_back(0);\n        int\
-    \ p = __builtin_ctz(n + 2);\n        for (int k = 0; k <= p; k++) {\n        \
-    \    {\n                std::vector<T> f1(f.begin() + (1 << k) - 1, f.begin()\
+  code: "#pragma once\n#include \"../atcoder/convolution\"\n\ntemplate <class T> class\
+    \ RelaxedConvolution {\n    int n;\n    std::vector<T> f, g, h;\n\n  public:\n\
+    \    RelaxedConvolution() : n(0) {}\n\n    T query(T a, T b) {\n        f.emplace_back(a);\n\
+    \        g.emplace_back(b);\n        h.emplace_back(0);\n        if (n > 0) h.emplace_back(0);\n\
+    \        int p = __builtin_ctz(n + 2);\n        for (int k = 0; k <= p; k++) {\n\
+    \            {\n                std::vector<T> f1(f.begin() + (1 << k) - 1, f.begin()\
     \ + (1 << (k + 1)) - 1);\n                std::vector<T> g1(g.end() - (1 << k),\
     \ g.end());\n                auto c1 = atcoder::convolution(f1, g1);\n       \
     \         for (int i = 0; i < (1 << (k + 1)) - 1; i++) h[n + i] += c1[i];\n  \
@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: src/convolution/RelaxedConvolution.hpp
   requiredBy: []
-  timestamp: '2024-06-01 01:35:37+09:00'
+  timestamp: '2024-06-01 02:28:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/convolution_mod.relaxedconvolution.test.cpp

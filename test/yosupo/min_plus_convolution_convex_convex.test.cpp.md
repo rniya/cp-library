@@ -39,7 +39,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/min_plus_convolution_convex_convex.test.cpp
   requiredBy: []
-  timestamp: '2024-06-01 01:35:37+09:00'
+  timestamp: '2024-06-01 02:28:17+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/min_plus_convolution_convex_convex.test.cpp
