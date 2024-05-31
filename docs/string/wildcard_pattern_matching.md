@@ -36,6 +36,8 @@ $$
 
 ## 概要
 
+### 決定的解法
+
 任意の文字 $s, t$ について
 
 $$
@@ -59,7 +61,20 @@ $$
 
 が成立し，最後の式は畳み込みにより計算可能である．
 
-また，現れる文字の種類数を $\sigma$ として，畳み込んだ結果現れる数値の最大値 $(\sigma - 1) ^ 2 |T|$ が畳み込みで用いる $\text{mod}$ 未満ならば判定は決定的となる．
+また，現れる文字の種類数を $\sigma$ として，畳み込んだ結果現れる数値の最大値 $\sigma ^ 2 |T|$ が畳み込みで用いる $\text{mod}$ 未満ならば判定は決定的となる．
+
+### 乱択解法
+
+素数 $P \geq \sigma$ 及び $0$ 以上 $P$ 未満の一様乱数 $r_ik\ (k = 0, \dots , \vert T \vert - 1)$ を取る．
+マッチの判定式を
+
+$$
+\sum _ {k = 0} ^ {\vert T \vert - 1} r_k (S \lbrack i + k \rbrack - T \lbrack k \rbrack) \mathbf{1}(S \lbrack i + k \rbrack \gt 0) \mathbf{1}(T \lbrack k \rbrack \gt 0)
+\equiv 0 \pmod{P}
+$$
+
+と改めると，Schwartz-Zippel の補題よりこの判定式によりマッチしていないのにマッチしていると誤って判定される確率は $1 / P$ 以下となる．
+<!-- $\sigma$ や $\vert T \vert$ の値によらず，畳み込みの回数も決定的解法に比べて 1 回減り高速なため本実装ではこちらを採用している． -->
 
 ## 出題例
 - [AtCoder Beginner Contest 307 Ex - Marquee](https://atcoder.jp/contests/abc307/tasks/abc307_h)

@@ -2,7 +2,7 @@
 
 #include <cassert>
 #include <iostream>
-#include "algorithm/smawk.hpp"
+#include "optimization/smawk.hpp"
 
 template <typename T>
 std::vector<T> min_plus_convolution_convex_arbitrary(const std::vector<T>& a, const std::vector<T>& b) {

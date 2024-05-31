@@ -89,6 +89,7 @@ struct Hash {
     int len;
 
     Hash() : x(0), len(0) {}
+    Hash(mint x) : x(x), len(1) {}
     Hash(mint x, int len) : x(x), len(len) {}
 
     Hash& operator+=(const Hash& rhs) {
@@ -96,8 +97,8 @@ struct Hash {
         len += rhs.len;
         return *this;
     }
-    Hash operator+(const Hash& rhs) { return *this += rhs; }
-    bool operator==(const Hash& rhs) { return x == rhs.x and len == rhs.len; }
+    Hash operator+(const Hash& rhs) const { return Hash(*this) += rhs; }
+    bool operator==(const Hash& rhs) const { return x == rhs.x and len == rhs.len; }
 };
 
 struct ReversibleHash {
@@ -117,6 +118,6 @@ struct ReversibleHash {
         len += rhs.len;
         return *this;
     }
-    ReversibleHash operator+(const ReversibleHash& rhs) { return *this += rhs; }
-    bool operator==(const ReversibleHash& rhs) { return x == rhs.x and rx == rhs.rx and len == rhs.len; }
+    ReversibleHash operator+(const ReversibleHash& rhs) const { return ReversibleHash(*this) += rhs; }
+    bool operator==(const ReversibleHash& rhs) const { return x == rhs.x and rx == rhs.rx and len == rhs.len; }
 };

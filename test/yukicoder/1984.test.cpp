@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1984"
 
 #include <iostream>
-#include "graph/BinaryOptimization.hpp"
+#include "optimization/BinaryOptimization.hpp"
 
 const long long inf = 1LL << 40;
 

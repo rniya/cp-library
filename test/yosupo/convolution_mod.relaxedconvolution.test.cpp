@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "atcoder/modint"
-#include "math/RelaxedConvolution.hpp"
+#include "convolution/RelaxedConvolution.hpp"
 
 using mint = atcoder::modint998244353;
 

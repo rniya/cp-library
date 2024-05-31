@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod_1000000007"
 
 #include <iostream>
-#include "math/convolution_arbitary_mod.hpp"
+#include "convolution/convolution_arbitary_mod.hpp"
 
 using mint = atcoder::modint1000000007;
 

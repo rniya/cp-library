@@ -1,6 +1,6 @@
 #pragma once
 #include <cassert>
-#include "monotone_minima.hpp"
+#include "../optimization/monotone_minima.hpp"
 
 template <typename T>
 std::vector<T> min_plus_convolution_convex_arbitrary(const std::vector<T>& a, const std::vector<T>& b) {

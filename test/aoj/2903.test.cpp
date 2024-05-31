@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/2903"
 
 #include <iostream>
-#include "graph/BinaryOptimization.hpp"
+#include "optimization/BinaryOptimization.hpp"
 
 int main() {
     std::cin.tie(0);

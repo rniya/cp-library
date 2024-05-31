@@ -1,8 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_inversions_query"
 
 #include <iostream>
-#include "algorithm/Mo.hpp"
 #include "atcoder/fenwicktree"
+#include "datastructure/Mo.hpp"
 
 int main() {
     std::cin.tie(0);

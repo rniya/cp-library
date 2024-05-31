@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/assignment"
 
 #include <iostream>
-#include "graph/hungarian.hpp"
+#include "optimization/hungarian.hpp"
 
 int main() {
     std::ios::sync_with_stdio(false);
