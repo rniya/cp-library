@@ -1,6 +1,6 @@
 ---
 title: Min Plus Convolution (Convex and Arbitary)
-documentation_of: //src/min_plus_convolution_convex_arbitrary.hpp
+documentation_of: //src/convolution/min_plus_convolution_convex_arbitrary.hpp
 ---
 
 ## 入力

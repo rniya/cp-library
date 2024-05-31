@@ -1,6 +1,6 @@
 ---
 title: Min Plus Convolution (Convex and Convex)
-documentation_of: //src/min_plus_convolution_convex_convex.hpp
+documentation_of: //src/convolution/min_plus_convolution_convex_convex.hpp
 ---
 
 ## 入力

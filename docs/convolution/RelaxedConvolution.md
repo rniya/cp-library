@@ -1,6 +1,6 @@
 ---
 title: Relaxed Convolution
-documentation_of: //src/RelaxedConvolution.hpp
+documentation_of: //src/convolution/RelaxedConvolution.hpp
 ---
 
 ## 概要
