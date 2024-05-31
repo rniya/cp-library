@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/math/convolution_arbitary_mod.hpp
+    path: src/convolution/convolution_arbitary_mod.hpp
     title: Convolution (Arbitary mod)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -24,11 +24,11 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/convolution_arbitary_mod.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: convolution/convolution_arbitary_mod.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod_1000000007\"\
-    \n\n#include <iostream>\n#include \"math/convolution_arbitary_mod.hpp\"\n\nusing\
-    \ mint = atcoder::modint1000000007;\n\nint main() {\n    std::ios::sync_with_stdio(false);\n\
+    \n\n#include <iostream>\n#include \"convolution/convolution_arbitary_mod.hpp\"\
+    \n\nusing mint = atcoder::modint1000000007;\n\nint main() {\n    std::ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    int N, M;\n    std::cin >> N >> M;\n    std::vector<mint>\
     \ a(N), b(M);\n    for (int i = 0; i < N; i++) {\n        int x;\n        std::cin\
     \ >> x;\n        a[i] = x;\n    }\n    for (int i = 0; i < M; i++) {\n       \
@@ -36,11 +36,11 @@ data:
     \ b);\n    for (int i = 0; i < N + M - 1; i++) std::cout << c[i].val() << (i +\
     \ 1 == N + M - 1 ? '\\n' : ' ');\n}"
   dependsOn:
-  - src/math/convolution_arbitary_mod.hpp
+  - src/convolution/convolution_arbitary_mod.hpp
   isVerificationFile: true
   path: test/yosupo/convolution_mod_1000000007.test.cpp
   requiredBy: []
-  timestamp: '2024-05-22 00:21:24+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/convolution_mod_1000000007.test.cpp

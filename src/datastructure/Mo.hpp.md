@@ -11,13 +11,13 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/algorithm/Mo.hpp\"\n#include <algorithm>\n#include <cassert>\n\
-    #include <cmath>\n#include <numeric>\n#include <vector>\n\nstruct Mo {\n    Mo(int\
-    \ n) : n(n) {}\n\n    void add(int l, int r) {\n        assert(l <= r);\n    \
-    \    left.emplace_back(l);\n        right.emplace_back(r);\n    }\n\n    template\
-    \ <typename AL, typename AR, typename DL, typename DR, typename REM>\n    void\
-    \ run(const AL& add_left, const AR& add_right, const DL& del_left, const DR del_right,\
-    \ const REM& rem) {\n        int q = left.size(), width = n / std::min(std::max<int>(sqrt(q\
+  bundledCode: "#line 2 \"src/datastructure/Mo.hpp\"\n#include <algorithm>\n#include\
+    \ <cassert>\n#include <cmath>\n#include <numeric>\n#include <vector>\n\nstruct\
+    \ Mo {\n    Mo(int n) : n(n) {}\n\n    void add(int l, int r) {\n        assert(l\
+    \ <= r);\n        left.emplace_back(l);\n        right.emplace_back(r);\n    }\n\
+    \n    template <typename AL, typename AR, typename DL, typename DR, typename REM>\n\
+    \    void run(const AL& add_left, const AR& add_right, const DL& del_left, const\
+    \ DR del_right, const REM& rem) {\n        int q = left.size(), width = n / std::min(std::max<int>(sqrt(q\
     \ * 2 / 3), 1), n);\n        std::vector<int> order(q);\n        std::iota(order.begin(),\
     \ order.end(), 0);\n        std::sort(order.begin(), order.end(), [&](int a, int\
     \ b) {\n            int ablock = left[a] / width, bblock = left[b] / width;\n\
@@ -51,13 +51,13 @@ data:
     \    std::vector<int> left, right;\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/algorithm/Mo.hpp
+  path: src/datastructure/Mo.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/static_range_inversions_query.test.cpp
-documentation_of: src/algorithm/Mo.hpp
+documentation_of: src/datastructure/Mo.hpp
 layout: document
 title: Mo's Algorithm
 ---

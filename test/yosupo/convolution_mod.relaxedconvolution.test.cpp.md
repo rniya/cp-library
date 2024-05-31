@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/math/RelaxedConvolution.hpp
+    path: src/convolution/RelaxedConvolution.hpp
     title: Relaxed Convolution
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -27,7 +27,7 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod\"\n\n#include\
-    \ <iostream>\n#include \"atcoder/modint\"\n#include \"math/RelaxedConvolution.hpp\"\
+    \ <iostream>\n#include \"atcoder/modint\"\n#include \"convolution/RelaxedConvolution.hpp\"\
     \n\nusing mint = atcoder::modint998244353;\n\nint main() {\n    std::cin.tie(0);\n\
     \    std::ios::sync_with_stdio(false);\n    int N, M;\n    std::cin >> N >> M;\n\
     \    std::vector<int> a(N), b(M);\n    for (int i = 0; i < N; i++) std::cin >>\
@@ -36,11 +36,11 @@ data:
     \ < N ? a[i] : 0, i < M ? b[i] : 0);\n        std::cout << ans.val() << (i ==\
     \ N + M - 2 ? '\\n' : ' ');\n    }\n    return 0;\n}"
   dependsOn:
-  - src/math/RelaxedConvolution.hpp
+  - src/convolution/RelaxedConvolution.hpp
   isVerificationFile: true
   path: test/yosupo/convolution_mod.relaxedconvolution.test.cpp
   requiredBy: []
-  timestamp: '2024-05-25 00:17:07+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/convolution_mod.relaxedconvolution.test.cpp

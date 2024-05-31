@@ -4,25 +4,25 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Circle.hpp
-    title: src/geometry/Circle.hpp
+    title: Circle
   - icon: ':heavy_check_mark:'
     path: src/geometry/Line.hpp
-    title: src/geometry/Line.hpp
+    title: Line
   - icon: ':heavy_check_mark:'
     path: src/geometry/Polygon.hpp
-    title: src/geometry/Polygon.hpp
+    title: Polygon
   - icon: ':heavy_check_mark:'
     path: src/geometry/ccw.hpp
-    title: src/geometry/ccw.hpp
+    title: Counter Clockwise
   - icon: ':heavy_check_mark:'
     path: src/geometry/circumcircle.hpp
-    title: src/geometry/circumcircle.hpp
+    title: Circumcircle
   - icon: ':heavy_check_mark:'
     path: src/geometry/closest_pair.hpp
     title: Closest Pair
   - icon: ':heavy_check_mark:'
     path: src/geometry/contain.hpp
-    title: src/geometry/contain.hpp
+    title: Contain
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
     title: Convex Cut
@@ -34,19 +34,19 @@ data:
     title: Convex Hull
   - icon: ':heavy_check_mark:'
     path: src/geometry/crosspoint.hpp
-    title: src/geometry/crosspoint.hpp
+    title: Crosspoint
   - icon: ':heavy_check_mark:'
     path: src/geometry/distance.hpp
-    title: src/geometry/distance.hpp
+    title: Distance
   - icon: ':heavy_check_mark:'
     path: src/geometry/incircle.hpp
-    title: src/geometry/incircle.hpp
+    title: Incircle
   - icon: ':heavy_check_mark:'
     path: src/geometry/projection.hpp
-    title: src/geometry/projection.hpp
+    title: projection
   - icon: ':heavy_check_mark:'
     path: src/geometry/reflection.hpp
-    title: src/geometry/reflection.hpp
+    title: reflection
   - icon: ':heavy_check_mark:'
     path: src/geometry/sort_points_by_argument.hpp
     title: Sort Points by Argument

@@ -1,38 +1,6 @@
 ---
 data:
   libraryCategories:
-  - name: src/algorithm
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: src/algorithm/Mo.hpp
-      title: Mo's Algorithm
-    - icon: ':warning:'
-      path: src/algorithm/SubsetSum.hpp
-      title: Subset Sum $\mathrm{O}(NS)$
-    - icon: ':warning:'
-      path: src/algorithm/SubsetSum2.hpp
-      title: Subset Sum $\mathrm{O}(Na_{\max})$
-    - icon: ':warning:'
-      path: src/algorithm/golden_section_search.hpp
-      title: Golden Section Search
-    - icon: ':heavy_check_mark:'
-      path: src/algorithm/longest_increasing_subsequence.hpp
-      title: Longest Increasing Subsequence (LIS)
-    - icon: ':heavy_check_mark:'
-      path: src/algorithm/min_plus_convolution_convex_arbitrary.hpp
-      title: Min Plus Convolution (Convex and Arbitary)
-    - icon: ':heavy_check_mark:'
-      path: src/algorithm/min_plus_convolution_convex_convex.hpp
-      title: Min Plus Convolution (Convex and Convex)
-    - icon: ':warning:'
-      path: src/algorithm/monge_d_edge_shortest_path.hpp
-      title: $d$-edge Shortest Path on Monge Graph
-    - icon: ':heavy_check_mark:'
-      path: src/algorithm/monotone_minima.hpp
-      title: Monotone Minima
-    - icon: ':heavy_check_mark:'
-      path: src/algorithm/smawk.hpp
-      title: SMAWK Algotirhm
   - name: src
     pages:
     - icon: ':heavy_check_mark:'
@@ -41,6 +9,20 @@ data:
     - icon: ':warning:'
       path: src/debug.hpp
       title: src/debug.hpp
+  - name: src/convolution
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: src/convolution/RelaxedConvolution.hpp
+      title: Relaxed Convolution
+    - icon: ':heavy_check_mark:'
+      path: src/convolution/convolution_arbitary_mod.hpp
+      title: Convolution (Arbitary mod)
+    - icon: ':heavy_check_mark:'
+      path: src/convolution/min_plus_convolution_convex_arbitrary.hpp
+      title: Min Plus Convolution (Convex and Arbitary)
+    - icon: ':heavy_check_mark:'
+      path: src/convolution/min_plus_convolution_convex_convex.hpp
+      title: Min Plus Convolution (Convex and Convex)
   - name: src/datastructure
     pages:
     - icon: ':heavy_check_mark:'
@@ -58,6 +40,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/datastructure/LineContainer.hpp
       title: Line Container (based on kactl)
+    - icon: ':heavy_check_mark:'
+      path: src/datastructure/Mo.hpp
+      title: Mo's Algorithm
     - icon: ':warning:'
       path: src/datastructure/OfflineDynamicConnectivity.hpp
       title: Offline Dynamic Connectivity
@@ -89,10 +74,10 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/geometry/Circle.hpp
-      title: src/geometry/Circle.hpp
+      title: Circle
     - icon: ':heavy_check_mark:'
       path: src/geometry/Line.hpp
-      title: src/geometry/Line.hpp
+      title: Line
     - icon: ':heavy_check_mark:'
       path: src/geometry/Point.hpp
       title: Point
@@ -101,19 +86,19 @@ data:
       title: Point (3D)
     - icon: ':heavy_check_mark:'
       path: src/geometry/Polygon.hpp
-      title: src/geometry/Polygon.hpp
+      title: Polygon
     - icon: ':heavy_check_mark:'
       path: src/geometry/ccw.hpp
-      title: src/geometry/ccw.hpp
+      title: Counter Clockwise
     - icon: ':heavy_check_mark:'
       path: src/geometry/circumcircle.hpp
-      title: src/geometry/circumcircle.hpp
+      title: Circumcircle
     - icon: ':heavy_check_mark:'
       path: src/geometry/closest_pair.hpp
       title: Closest Pair
     - icon: ':heavy_check_mark:'
       path: src/geometry/contain.hpp
-      title: src/geometry/contain.hpp
+      title: Contain
     - icon: ':heavy_check_mark:'
       path: src/geometry/convex_cut.hpp
       title: Convex Cut
@@ -125,19 +110,19 @@ data:
       title: Convex Hull
     - icon: ':heavy_check_mark:'
       path: src/geometry/crosspoint.hpp
-      title: src/geometry/crosspoint.hpp
+      title: Crosspoint
     - icon: ':heavy_check_mark:'
       path: src/geometry/distance.hpp
-      title: src/geometry/distance.hpp
+      title: Distance
     - icon: ':heavy_check_mark:'
       path: src/geometry/incircle.hpp
-      title: src/geometry/incircle.hpp
+      title: Incircle
     - icon: ':heavy_check_mark:'
       path: src/geometry/projection.hpp
-      title: src/geometry/projection.hpp
+      title: projection
     - icon: ':heavy_check_mark:'
       path: src/geometry/reflection.hpp
-      title: src/geometry/reflection.hpp
+      title: reflection
     - icon: ':heavy_check_mark:'
       path: src/geometry/sort_points_by_argument.hpp
       title: Sort Points by Argument
@@ -146,9 +131,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/BellmanFord.hpp
       title: Bellman Ford
-    - icon: ':heavy_check_mark:'
-      path: src/graph/BinaryOptimization.hpp
-      title: Binary Optimization (Project Selection Problem)
     - icon: ':heavy_check_mark:'
       path: src/graph/BipartiteMatching.hpp
       title: Bipartite Matching
@@ -170,9 +152,6 @@ data:
     - icon: ':warning:'
       path: src/graph/FunctionalGraph.hpp
       title: Functional Graph
-    - icon: ':warning:'
-      path: src/graph/KaryOptimization.hpp
-      title: $K$-ary Optimization
     - icon: ':heavy_check_mark:'
       path: src/graph/LowLink.hpp
       title: LowLink (with Two Edge Connected Components, Bi Connected Components)
@@ -207,9 +186,6 @@ data:
       path: src/graph/enumerate_cliques.hpp
       title: Enumerate Cliques
     - icon: ':heavy_check_mark:'
-      path: src/graph/hungarian.hpp
-      title: Hungarian (Assignment Problem)
-    - icon: ':heavy_check_mark:'
       path: src/graph/maxflow_lowerbound.hpp
       title: Max Flow (Lower Bound Constraints)
     - icon: ':warning:'
@@ -221,9 +197,6 @@ data:
       path: src/math/Nimber.hpp
       title: Nimber
     - icon: ':heavy_check_mark:'
-      path: src/math/RelaxedConvolution.hpp
-      title: Relaxed Convolution
-    - icon: ':heavy_check_mark:'
       path: src/math/Simplex.hpp
       title: Simplex
     - icon: ':heavy_check_mark:'
@@ -232,9 +205,6 @@ data:
     - icon: ':question:'
       path: src/math/binomial.hpp
       title: Binomial Coefficients
-    - icon: ':heavy_check_mark:'
-      path: src/math/convolution_arbitary_mod.hpp
-      title: Convolution (Arbitary mod)
     - icon: ':x:'
       path: src/math/count_young_paths.hpp
       title: Count Paths on Young Tableau
@@ -250,6 +220,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/gcd_convolution.hpp
       title: GCD Convolution
+    - icon: ':heavy_check_mark:'
+      path: src/math/longest_increasing_subsequence.hpp
+      title: Longest Increasing Subsequence (LIS)
     - icon: ':heavy_check_mark:'
       path: src/math/set_function.hpp
       title: Set Function (FZT, FMT, FWHT)
@@ -270,6 +243,32 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/matrix/characteristic_polynomial.hpp
       title: Characteristic Polynomial / $\det(M_0 + x M_1)$
+  - name: src/optimization
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: src/optimization/BinaryOptimization.hpp
+      title: Binary Optimization (Project Selection Problem)
+    - icon: ':warning:'
+      path: src/optimization/KaryOptimization.hpp
+      title: $K$-ary Optimization
+    - icon: ':warning:'
+      path: src/optimization/SubsetSum.hpp
+      title: Subset Sum $\mathrm{O}(NS)$
+    - icon: ':warning:'
+      path: src/optimization/golden_section_search.hpp
+      title: Golden Section Search
+    - icon: ':heavy_check_mark:'
+      path: src/optimization/hungarian.hpp
+      title: Hungarian (Assignment Problem)
+    - icon: ':warning:'
+      path: src/optimization/monge_d_edge_shortest_path.hpp
+      title: $d$-edge Shortest Path on Monge Graph
+    - icon: ':heavy_check_mark:'
+      path: src/optimization/monotone_minima.hpp
+      title: Monotone Minima
+    - icon: ':heavy_check_mark:'
+      path: src/optimization/smawk.hpp
+      title: SMAWK Algotirhm
   - name: src/polynomial
     pages:
     - icon: ':heavy_check_mark:'

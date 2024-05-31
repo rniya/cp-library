@@ -3,13 +3,13 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Line.hpp
-    title: src/geometry/Line.hpp
+    title: Line
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
     title: Point
   - icon: ':heavy_check_mark:'
     path: src/geometry/projection.hpp
-    title: src/geometry/projection.hpp
+    title: projection
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -76,8 +76,5 @@ data:
   - test/aoj/CGL_1_B.test.cpp
 documentation_of: src/geometry/reflection.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/reflection.hpp
-- /library/src/geometry/reflection.hpp.html
-title: src/geometry/reflection.hpp
+title: reflection
 ---

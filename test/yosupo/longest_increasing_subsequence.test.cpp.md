@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/algorithm/longest_increasing_subsequence.hpp
+    path: src/math/longest_increasing_subsequence.hpp
     title: Longest Increasing Subsequence (LIS)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -24,10 +24,10 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: algorithm/longest_increasing_subsequence.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/longest_increasing_subsequence.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/longest_increasing_subsequence\"\
-    \n\n#include \"algorithm/longest_increasing_subsequence.hpp\"\n#include <iostream>\n\
+    \n\n#include \"math/longest_increasing_subsequence.hpp\"\n#include <iostream>\n\
     \nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
     \    int N;\n    std::cin >> N;\n    std::vector<int> A(N);\n    for (int& x :\
     \ A) std::cin >> x;\n\n    auto ans = longest_increasing_subsequence_restore(A);\n\
@@ -35,11 +35,11 @@ data:
     \    for (int i = 0; i < K; i++) std::cout << ans[i] << (i + 1 == K ? '\\n' :\
     \ ' ');\n}"
   dependsOn:
-  - src/algorithm/longest_increasing_subsequence.hpp
+  - src/math/longest_increasing_subsequence.hpp
   isVerificationFile: true
   path: test/yosupo/longest_increasing_subsequence.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/longest_increasing_subsequence.test.cpp

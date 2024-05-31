@@ -47,13 +47,13 @@ data:
     \ c;\n}\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/math/convolution_arbitary_mod.hpp
+  path: src/convolution/convolution_arbitary_mod.hpp
   requiredBy: []
-  timestamp: '2024-05-22 00:21:24+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/convolution_mod_1000000007.test.cpp
-documentation_of: src/math/convolution_arbitary_mod.hpp
+documentation_of: src/convolution/convolution_arbitary_mod.hpp
 layout: document
 title: Convolution (Arbitary mod)
 ---

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':warning:'
-    path: src/graph/KaryOptimization.hpp
+    path: src/optimization/KaryOptimization.hpp
     title: $K$-ary Optimization
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -110,15 +110,15 @@ data:
     \        }\n    }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: src/graph/BinaryOptimization.hpp
+  path: src/optimization/BinaryOptimization.hpp
   requiredBy:
-  - src/graph/KaryOptimization.hpp
-  timestamp: '2024-05-22 00:21:24+09:00'
+  - src/optimization/KaryOptimization.hpp
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/2903.test.cpp
   - test/yukicoder/1984.test.cpp
-documentation_of: src/graph/BinaryOptimization.hpp
+documentation_of: src/optimization/BinaryOptimization.hpp
 layout: document
 title: Binary Optimization (Project Selection Problem)
 ---

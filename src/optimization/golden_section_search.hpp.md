@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':warning:'
-    path: src/algorithm/monge_d_edge_shortest_path.hpp
+    path: src/optimization/monge_d_edge_shortest_path.hpp
     title: $d$-edge Shortest Path on Monge Graph
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/algorithm/golden_section_search.hpp\"\n#include <cassert>\n\
+  bundledCode: "#line 1 \"src/optimization/golden_section_search.hpp\"\n#include <cassert>\n\
     #include <functional>\n#include <utility>\n\ntemplate <typename T, bool get_min\
     \ = true>\nstd::pair<long long, T> golden_section_search(const std::function<T(long\
     \ long)>& f, long long mini, long long maxi) {\n    assert(mini <= maxi);\n  \
@@ -34,13 +34,13 @@ data:
     \ = fy;\n        }\n    }\n    return {x, fx};\n}\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/algorithm/golden_section_search.hpp
+  path: src/optimization/golden_section_search.hpp
   requiredBy:
-  - src/algorithm/monge_d_edge_shortest_path.hpp
-  timestamp: '2023-04-24 16:07:50+09:00'
+  - src/optimization/monge_d_edge_shortest_path.hpp
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: src/algorithm/golden_section_search.hpp
+documentation_of: src/optimization/golden_section_search.hpp
 layout: document
 title: Golden Section Search
 ---

@@ -11,8 +11,8 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/algorithm/min_plus_convolution_convex_convex.hpp\"\n\
-    #include <cassert>\n#include <vector>\n\ntemplate <typename T>\nstd::vector<T>\
+  bundledCode: "#line 1 \"src/convolution/min_plus_convolution_convex_convex.hpp\"\
+    \n#include <cassert>\n#include <vector>\n\ntemplate <typename T>\nstd::vector<T>\
     \ min_plus_convolution_convex_convex(const std::vector<T>& a, const std::vector<T>&\
     \ b) {\n    int n = a.size(), m = b.size();\n    assert(n and m);\n    for (int\
     \ i = 0; i + 2 < n; i++) assert(a[i + 1] - a[i] <= a[i + 2] - a[i + 1]);\n   \
@@ -32,13 +32,13 @@ data:
     \     else\n            c[k] = a[i] + b[++j];\n    }\n    return c;\n}"
   dependsOn: []
   isVerificationFile: false
-  path: src/algorithm/min_plus_convolution_convex_convex.hpp
+  path: src/convolution/min_plus_convolution_convex_convex.hpp
   requiredBy: []
-  timestamp: '2023-10-08 15:03:12+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/min_plus_convolution_convex_convex.test.cpp
-documentation_of: src/algorithm/min_plus_convolution_convex_convex.hpp
+documentation_of: src/convolution/min_plus_convolution_convex_convex.hpp
 layout: document
 title: Min Plus Convolution (Convex and Convex)
 ---

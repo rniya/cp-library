@@ -6,11 +6,11 @@ data:
     title: Point
   - icon: ':heavy_check_mark:'
     path: src/geometry/ccw.hpp
-    title: src/geometry/ccw.hpp
+    title: Counter Clockwise
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: src/geometry/contain.hpp
-    title: src/geometry/contain.hpp
+    title: Contain
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
     title: Convex Cut
@@ -110,8 +110,5 @@ data:
   - test/aoj/CGL_3_B.test.cpp
 documentation_of: src/geometry/Polygon.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/Polygon.hpp
-- /library/src/geometry/Polygon.hpp.html
-title: src/geometry/Polygon.hpp
+title: Polygon
 ---

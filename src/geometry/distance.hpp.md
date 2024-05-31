@@ -3,26 +3,26 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Circle.hpp
-    title: src/geometry/Circle.hpp
+    title: Circle
   - icon: ':heavy_check_mark:'
     path: src/geometry/Line.hpp
-    title: src/geometry/Line.hpp
+    title: Line
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
     title: Point
   - icon: ':heavy_check_mark:'
     path: src/geometry/ccw.hpp
-    title: src/geometry/ccw.hpp
+    title: Counter Clockwise
   - icon: ':heavy_check_mark:'
     path: src/geometry/crosspoint.hpp
-    title: src/geometry/crosspoint.hpp
+    title: Crosspoint
   - icon: ':heavy_check_mark:'
     path: src/geometry/projection.hpp
-    title: src/geometry/projection.hpp
+    title: projection
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: src/geometry/contain.hpp
-    title: src/geometry/contain.hpp
+    title: Contain
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_diameter.hpp
     title: Convex Diameter
@@ -164,8 +164,5 @@ data:
   - test/aoj/CGL_4_B.test.cpp
 documentation_of: src/geometry/distance.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/distance.hpp
-- /library/src/geometry/distance.hpp.html
-title: src/geometry/distance.hpp
+title: Distance
 ---

@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/algorithm/smawk.hpp\"\n#include <numeric>\n#include\
+  bundledCode: "#line 2 \"src/optimization/smawk.hpp\"\n#include <numeric>\n#include\
     \ <vector>\n\ntemplate <class Select> std::vector<int> smawk(int N, int M, const\
     \ Select& select) {\n    auto solve = [&](auto&& self, const std::vector<int>&\
     \ row, const std::vector<int>& col) -> std::vector<int> {\n        int n = row.size();\n\
@@ -47,13 +47,13 @@ data:
     \ row, col);\n}\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/algorithm/smawk.hpp
+  path: src/optimization/smawk.hpp
   requiredBy: []
-  timestamp: '2023-10-01 16:26:05+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp
-documentation_of: src/algorithm/smawk.hpp
+documentation_of: src/optimization/smawk.hpp
 layout: document
 title: SMAWK Algotirhm
 ---

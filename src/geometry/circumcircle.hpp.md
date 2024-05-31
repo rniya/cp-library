@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Circle.hpp
-    title: src/geometry/Circle.hpp
+    title: Circle
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
     title: Point
@@ -73,8 +73,5 @@ data:
   - test/aoj/CGL_7_C.test.cpp
 documentation_of: src/geometry/circumcircle.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/circumcircle.hpp
-- /library/src/geometry/circumcircle.hpp.html
-title: src/geometry/circumcircle.hpp
+title: Circumcircle
 ---

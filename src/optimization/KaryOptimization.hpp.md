@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/graph/BinaryOptimization.hpp
+    path: src/optimization/BinaryOptimization.hpp
     title: Binary Optimization (Project Selection Problem)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -60,14 +60,14 @@ data:
     \  std::vector<int> ks;\n    std::vector<std::vector<int>> idx;\n    BinaryOptimization<T,\
     \ MINIMIZE> bopt;\n};\n"
   dependsOn:
-  - src/graph/BinaryOptimization.hpp
+  - src/optimization/BinaryOptimization.hpp
   isVerificationFile: false
-  path: src/graph/KaryOptimization.hpp
+  path: src/optimization/KaryOptimization.hpp
   requiredBy: []
-  timestamp: '2024-05-22 00:21:24+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: src/graph/KaryOptimization.hpp
+documentation_of: src/optimization/KaryOptimization.hpp
 layout: document
 title: $K$-ary Optimization
 ---

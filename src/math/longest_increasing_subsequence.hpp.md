@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/algorithm/longest_increasing_subsequence.hpp\"\n#include\
+  bundledCode: "#line 2 \"src/math/longest_increasing_subsequence.hpp\"\n#include\
     \ <algorithm>\n#include <iterator>\n#include <vector>\n\ntemplate <typename T>\
     \ int longest_increasing_subsequence(const std::vector<T>& a, bool strict = true)\
     \ {\n    std::vector<T> lis;\n    for (const auto& x : a) {\n        auto it =\
@@ -46,13 +46,13 @@ data:
     \    std::reverse(res.begin(), res.end());\n    return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/algorithm/longest_increasing_subsequence.hpp
+  path: src/math/longest_increasing_subsequence.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/longest_increasing_subsequence.test.cpp
-documentation_of: src/algorithm/longest_increasing_subsequence.hpp
+documentation_of: src/math/longest_increasing_subsequence.hpp
 layout: document
 title: Longest Increasing Subsequence (LIS)
 ---

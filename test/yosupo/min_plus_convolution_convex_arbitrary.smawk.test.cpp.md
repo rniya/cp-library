@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/algorithm/smawk.hpp
+    path: src/optimization/smawk.hpp
     title: SMAWK Algotirhm
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -24,11 +24,11 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: algorithm/smawk.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: optimization/smawk.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/min_plus_convolution_convex_arbitrary\"\
-    \n\n#include <cassert>\n#include <iostream>\n#include \"algorithm/smawk.hpp\"\n\
-    \ntemplate <typename T>\nstd::vector<T> min_plus_convolution_convex_arbitrary(const\
+    \n\n#include <cassert>\n#include <iostream>\n#include \"optimization/smawk.hpp\"\
+    \n\ntemplate <typename T>\nstd::vector<T> min_plus_convolution_convex_arbitrary(const\
     \ std::vector<T>& a, const std::vector<T>& b) {\n    int n = a.size(), m = b.size();\n\
     \    assert(n and m);\n    for (int i = 0; i + 2 < n; i++) assert(a[i + 1] - a[i]\
     \ <= a[i + 2] - a[i + 1]);\n    auto f = [&](int i, int j) { return a[i - j] +\
@@ -43,11 +43,11 @@ data:
     \ b);\n    for (int i = 0; i < N + M - 1; i++) std::cout << c[i] << (i + 1 ==\
     \ N + M - 1 ? '\\n' : ' ');\n    return 0;\n}"
   dependsOn:
-  - src/algorithm/smawk.hpp
+  - src/optimization/smawk.hpp
   isVerificationFile: true
   path: test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp
   requiredBy: []
-  timestamp: '2023-10-01 16:26:05+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/min_plus_convolution_convex_arbitrary.smawk.test.cpp

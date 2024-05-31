@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/algorithm/Mo.hpp
+    path: src/datastructure/Mo.hpp
     title: Mo's Algorithm
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -24,10 +24,10 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: algorithm/Mo.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/fenwicktree:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
-    \n\n#include <iostream>\n#include \"algorithm/Mo.hpp\"\n#include \"atcoder/fenwicktree\"\
+    \n\n#include <iostream>\n#include \"atcoder/fenwicktree\"\n#include \"datastructure/Mo.hpp\"\
     \n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
     \    int N, Q;\n    std::cin >> N >> Q;\n    std::vector<int> A(N);\n    for (int\
     \ i = 0; i < N; i++) std::cin >> A[i];\n\n    Mo mo(N);\n    for (int i = 0; i\
@@ -47,11 +47,11 @@ data:
     \ add_right, del_left, del_right, rem);\n\n    for (int i = 0; i < Q; i++) std::cout\
     \ << ans[i] << '\\n';\n    return 0;\n}"
   dependsOn:
-  - src/algorithm/Mo.hpp
+  - src/datastructure/Mo.hpp
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp

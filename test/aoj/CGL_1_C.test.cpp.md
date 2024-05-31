@@ -6,7 +6,7 @@ data:
     title: Point
   - icon: ':heavy_check_mark:'
     path: src/geometry/ccw.hpp
-    title: src/geometry/ccw.hpp
+    title: Counter Clockwise
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

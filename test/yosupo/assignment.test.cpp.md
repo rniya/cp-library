@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/graph/hungarian.hpp
+    path: src/optimization/hungarian.hpp
     title: Hungarian (Assignment Problem)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -24,10 +24,10 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/hungarian.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: optimization/hungarian.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/assignment\"\n\n#include\
-    \ <iostream>\n#include \"graph/hungarian.hpp\"\n\nint main() {\n    std::ios::sync_with_stdio(false);\n\
+    \ <iostream>\n#include \"optimization/hungarian.hpp\"\n\nint main() {\n    std::ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    int N;\n    std::cin >> N;\n    std::vector a(N,\
     \ std::vector<long long>(N));\n    for (int i = 0; i < N; i++) {\n        for\
     \ (int j = 0; j < N; j++) {\n            std::cin >> a[i][j];\n        }\n   \
@@ -35,11 +35,11 @@ data:
     \ i = 0; i < N; i++) std::cout << p[i] << (i + 1 == N ? '\\n' : ' ');\n    return\
     \ 0;\n}"
   dependsOn:
-  - src/graph/hungarian.hpp
+  - src/optimization/hungarian.hpp
   isVerificationFile: true
   path: test/yosupo/assignment.test.cpp
   requiredBy: []
-  timestamp: '2023-10-01 16:26:05+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/assignment.test.cpp

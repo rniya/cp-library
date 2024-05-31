@@ -3,14 +3,14 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Line.hpp
-    title: src/geometry/Line.hpp
+    title: Line
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
     title: Point
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: src/geometry/contain.hpp
-    title: src/geometry/contain.hpp
+    title: Contain
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
     title: Convex Cut
@@ -19,13 +19,13 @@ data:
     title: Convex Diameter
   - icon: ':heavy_check_mark:'
     path: src/geometry/crosspoint.hpp
-    title: src/geometry/crosspoint.hpp
+    title: Crosspoint
   - icon: ':heavy_check_mark:'
     path: src/geometry/distance.hpp
-    title: src/geometry/distance.hpp
+    title: Distance
   - icon: ':heavy_check_mark:'
     path: src/geometry/reflection.hpp
-    title: src/geometry/reflection.hpp
+    title: reflection
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_1_A.test.cpp
@@ -137,8 +137,5 @@ data:
   - test/aoj/CGL_1_B.test.cpp
 documentation_of: src/geometry/projection.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/projection.hpp
-- /library/src/geometry/projection.hpp.html
-title: src/geometry/projection.hpp
+title: projection
 ---

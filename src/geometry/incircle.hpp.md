@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Circle.hpp
-    title: src/geometry/Circle.hpp
+    title: Circle
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
     title: Point
@@ -71,8 +71,5 @@ data:
   - test/aoj/CGL_7_B.test.cpp
 documentation_of: src/geometry/incircle.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/incircle.hpp
-- /library/src/geometry/incircle.hpp.html
-title: src/geometry/incircle.hpp
+title: Incircle
 ---

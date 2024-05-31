@@ -42,13 +42,13 @@ data:
     \            }\n        }\n        return h[n++];\n    }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: src/math/RelaxedConvolution.hpp
+  path: src/convolution/RelaxedConvolution.hpp
   requiredBy: []
-  timestamp: '2024-05-22 00:21:24+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/convolution_mod.relaxedconvolution.test.cpp
-documentation_of: src/math/RelaxedConvolution.hpp
+documentation_of: src/convolution/RelaxedConvolution.hpp
 layout: document
 title: Relaxed Convolution
 ---

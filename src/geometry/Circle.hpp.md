@@ -7,10 +7,10 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: src/geometry/circumcircle.hpp
-    title: src/geometry/circumcircle.hpp
+    title: Circumcircle
   - icon: ':heavy_check_mark:'
     path: src/geometry/contain.hpp
-    title: src/geometry/contain.hpp
+    title: Contain
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
     title: Convex Cut
@@ -19,13 +19,13 @@ data:
     title: Convex Diameter
   - icon: ':heavy_check_mark:'
     path: src/geometry/crosspoint.hpp
-    title: src/geometry/crosspoint.hpp
+    title: Crosspoint
   - icon: ':heavy_check_mark:'
     path: src/geometry/distance.hpp
-    title: src/geometry/distance.hpp
+    title: Distance
   - icon: ':heavy_check_mark:'
     path: src/geometry/incircle.hpp
-    title: src/geometry/incircle.hpp
+    title: Incircle
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_2_A.test.cpp
@@ -133,8 +133,5 @@ data:
   - test/aoj/CGL_7_B.test.cpp
 documentation_of: src/geometry/Circle.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/Circle.hpp
-- /library/src/geometry/Circle.hpp.html
-title: src/geometry/Circle.hpp
+title: Circle
 ---

@@ -53,20 +53,22 @@ data:
     \    power.resize(n + 1);\n    for (int i = m; i <= n; i++) power[i] = power[i\
     \ - 1] * base;\n    return power[n];\n}\n\n};  // namespace hash_impl\n\nstruct\
     \ Hash {\n    using mint = hash_impl::modint;\n    mint x;\n    int len;\n\n \
-    \   Hash() : x(0), len(0) {}\n    Hash(mint x, int len) : x(x), len(len) {}\n\n\
-    \    Hash& operator+=(const Hash& rhs) {\n        x = x * hash_impl::get_pow(rhs.len)\
-    \ + rhs.x;\n        len += rhs.len;\n        return *this;\n    }\n    Hash operator+(const\
-    \ Hash& rhs) { return *this += rhs; }\n    bool operator==(const Hash& rhs) {\
-    \ return x == rhs.x and len == rhs.len; }\n};\n\nstruct ReversibleHash {\n   \
-    \ using mint = hash_impl::modint;\n    mint x, rx;\n    int len;\n\n    ReversibleHash()\
+    \   Hash() : x(0), len(0) {}\n    Hash(mint x) : x(x), len(1) {}\n    Hash(mint\
+    \ x, int len) : x(x), len(len) {}\n\n    Hash& operator+=(const Hash& rhs) {\n\
+    \        x = x * hash_impl::get_pow(rhs.len) + rhs.x;\n        len += rhs.len;\n\
+    \        return *this;\n    }\n    Hash operator+(const Hash& rhs) const { return\
+    \ Hash(*this) += rhs; }\n    bool operator==(const Hash& rhs) const { return x\
+    \ == rhs.x and len == rhs.len; }\n};\n\nstruct ReversibleHash {\n    using mint\
+    \ = hash_impl::modint;\n    mint x, rx;\n    int len;\n\n    ReversibleHash()\
     \ : x(0), rx(0), len(0) {}\n    ReversibleHash(mint x) : x(x), rx(x), len(1) {}\n\
     \    ReversibleHash(mint x, mint rx, int len) : x(x), rx(rx), len(len) {}\n\n\
     \    ReversibleHash rev() const { return ReversibleHash(rx, x, len); }\n\n   \
     \ ReversibleHash operator+=(const ReversibleHash& rhs) {\n        x = x * hash_impl::get_pow(rhs.len)\
     \ + rhs.x;\n        rx = rx + rhs.rx * hash_impl::get_pow(len);\n        len +=\
     \ rhs.len;\n        return *this;\n    }\n    ReversibleHash operator+(const ReversibleHash&\
-    \ rhs) { return *this += rhs; }\n    bool operator==(const ReversibleHash& rhs)\
-    \ { return x == rhs.x and rx == rhs.rx and len == rhs.len; }\n};\n"
+    \ rhs) const { return ReversibleHash(*this) += rhs; }\n    bool operator==(const\
+    \ ReversibleHash& rhs) const { return x == rhs.x and rx == rhs.rx and len == rhs.len;\
+    \ }\n};\n"
   code: "#pragma once\n#include <cassert>\n#include <chrono>\n#include <iostream>\n\
     #include <random>\n#include <vector>\n\nnamespace hash_impl {\n\nstatic constexpr\
     \ unsigned long long mod = (1ULL << 61) - 1;\n\nstruct modint {\n    modint()\
@@ -100,27 +102,29 @@ data:
     \    power.resize(n + 1);\n    for (int i = m; i <= n; i++) power[i] = power[i\
     \ - 1] * base;\n    return power[n];\n}\n\n};  // namespace hash_impl\n\nstruct\
     \ Hash {\n    using mint = hash_impl::modint;\n    mint x;\n    int len;\n\n \
-    \   Hash() : x(0), len(0) {}\n    Hash(mint x, int len) : x(x), len(len) {}\n\n\
-    \    Hash& operator+=(const Hash& rhs) {\n        x = x * hash_impl::get_pow(rhs.len)\
-    \ + rhs.x;\n        len += rhs.len;\n        return *this;\n    }\n    Hash operator+(const\
-    \ Hash& rhs) { return *this += rhs; }\n    bool operator==(const Hash& rhs) {\
-    \ return x == rhs.x and len == rhs.len; }\n};\n\nstruct ReversibleHash {\n   \
-    \ using mint = hash_impl::modint;\n    mint x, rx;\n    int len;\n\n    ReversibleHash()\
+    \   Hash() : x(0), len(0) {}\n    Hash(mint x) : x(x), len(1) {}\n    Hash(mint\
+    \ x, int len) : x(x), len(len) {}\n\n    Hash& operator+=(const Hash& rhs) {\n\
+    \        x = x * hash_impl::get_pow(rhs.len) + rhs.x;\n        len += rhs.len;\n\
+    \        return *this;\n    }\n    Hash operator+(const Hash& rhs) const { return\
+    \ Hash(*this) += rhs; }\n    bool operator==(const Hash& rhs) const { return x\
+    \ == rhs.x and len == rhs.len; }\n};\n\nstruct ReversibleHash {\n    using mint\
+    \ = hash_impl::modint;\n    mint x, rx;\n    int len;\n\n    ReversibleHash()\
     \ : x(0), rx(0), len(0) {}\n    ReversibleHash(mint x) : x(x), rx(x), len(1) {}\n\
     \    ReversibleHash(mint x, mint rx, int len) : x(x), rx(rx), len(len) {}\n\n\
     \    ReversibleHash rev() const { return ReversibleHash(rx, x, len); }\n\n   \
     \ ReversibleHash operator+=(const ReversibleHash& rhs) {\n        x = x * hash_impl::get_pow(rhs.len)\
     \ + rhs.x;\n        rx = rx + rhs.rx * hash_impl::get_pow(len);\n        len +=\
     \ rhs.len;\n        return *this;\n    }\n    ReversibleHash operator+(const ReversibleHash&\
-    \ rhs) { return *this += rhs; }\n    bool operator==(const ReversibleHash& rhs)\
-    \ { return x == rhs.x and rx == rhs.rx and len == rhs.len; }\n};\n"
+    \ rhs) const { return ReversibleHash(*this) += rhs; }\n    bool operator==(const\
+    \ ReversibleHash& rhs) const { return x == rhs.x and rx == rhs.rx and len == rhs.len;\
+    \ }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: src/string/Hash.hpp
   requiredBy:
   - src/string/RollingHash.hpp
   - src/string/RollingHash2D.hpp
-  timestamp: '2023-10-17 23:13:38+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_14_C.test.cpp

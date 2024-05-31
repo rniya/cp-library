@@ -3,13 +3,13 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Circle.hpp
-    title: src/geometry/Circle.hpp
+    title: Circle
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
     title: Point
   - icon: ':heavy_check_mark:'
     path: src/geometry/circumcircle.hpp
-    title: src/geometry/circumcircle.hpp
+    title: Circumcircle
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

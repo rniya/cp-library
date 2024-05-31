@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/graph/hungarian.hpp\"\n#include <cassert>\n#include\
+  bundledCode: "#line 2 \"src/optimization/hungarian.hpp\"\n#include <cassert>\n#include\
     \ <limits>\n#include <utility>\n#include <vector>\n\ntemplate <class Cost> std::pair<Cost,\
     \ std::vector<int>> hungarian(const std::vector<std::vector<Cost>>& a) {\n   \
     \ const Cost inf = std::numeric_limits<Cost>::max();\n    int n = a.size(), m\
@@ -54,13 +54,13 @@ data:
     \ {-yr[m], res};\n}\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/graph/hungarian.hpp
+  path: src/optimization/hungarian.hpp
   requiredBy: []
-  timestamp: '2023-10-01 16:26:05+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/assignment.test.cpp
-documentation_of: src/graph/hungarian.hpp
+documentation_of: src/optimization/hungarian.hpp
 layout: document
 title: Hungarian (Assignment Problem)
 ---

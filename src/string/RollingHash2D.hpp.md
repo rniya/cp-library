@@ -48,22 +48,24 @@ data:
     \    power.resize(n + 1);\n    for (int i = m; i <= n; i++) power[i] = power[i\
     \ - 1] * base;\n    return power[n];\n}\n\n};  // namespace hash_impl\n\nstruct\
     \ Hash {\n    using mint = hash_impl::modint;\n    mint x;\n    int len;\n\n \
-    \   Hash() : x(0), len(0) {}\n    Hash(mint x, int len) : x(x), len(len) {}\n\n\
-    \    Hash& operator+=(const Hash& rhs) {\n        x = x * hash_impl::get_pow(rhs.len)\
-    \ + rhs.x;\n        len += rhs.len;\n        return *this;\n    }\n    Hash operator+(const\
-    \ Hash& rhs) { return *this += rhs; }\n    bool operator==(const Hash& rhs) {\
-    \ return x == rhs.x and len == rhs.len; }\n};\n\nstruct ReversibleHash {\n   \
-    \ using mint = hash_impl::modint;\n    mint x, rx;\n    int len;\n\n    ReversibleHash()\
+    \   Hash() : x(0), len(0) {}\n    Hash(mint x) : x(x), len(1) {}\n    Hash(mint\
+    \ x, int len) : x(x), len(len) {}\n\n    Hash& operator+=(const Hash& rhs) {\n\
+    \        x = x * hash_impl::get_pow(rhs.len) + rhs.x;\n        len += rhs.len;\n\
+    \        return *this;\n    }\n    Hash operator+(const Hash& rhs) const { return\
+    \ Hash(*this) += rhs; }\n    bool operator==(const Hash& rhs) const { return x\
+    \ == rhs.x and len == rhs.len; }\n};\n\nstruct ReversibleHash {\n    using mint\
+    \ = hash_impl::modint;\n    mint x, rx;\n    int len;\n\n    ReversibleHash()\
     \ : x(0), rx(0), len(0) {}\n    ReversibleHash(mint x) : x(x), rx(x), len(1) {}\n\
     \    ReversibleHash(mint x, mint rx, int len) : x(x), rx(rx), len(len) {}\n\n\
     \    ReversibleHash rev() const { return ReversibleHash(rx, x, len); }\n\n   \
     \ ReversibleHash operator+=(const ReversibleHash& rhs) {\n        x = x * hash_impl::get_pow(rhs.len)\
     \ + rhs.x;\n        rx = rx + rhs.rx * hash_impl::get_pow(len);\n        len +=\
     \ rhs.len;\n        return *this;\n    }\n    ReversibleHash operator+(const ReversibleHash&\
-    \ rhs) { return *this += rhs; }\n    bool operator==(const ReversibleHash& rhs)\
-    \ { return x == rhs.x and rx == rhs.rx and len == rhs.len; }\n};\n#line 4 \"src/string/RollingHash2D.hpp\"\
-    \n\nstruct RollingHash2D {\n    using mint = hash_impl::modint;\n\n    static\
-    \ inline uint64_t generate_base() {\n        std::mt19937_64 mt(std::chrono::steady_clock::now().time_since_epoch().count());\n\
+    \ rhs) const { return ReversibleHash(*this) += rhs; }\n    bool operator==(const\
+    \ ReversibleHash& rhs) const { return x == rhs.x and rx == rhs.rx and len == rhs.len;\
+    \ }\n};\n#line 4 \"src/string/RollingHash2D.hpp\"\n\nstruct RollingHash2D {\n\
+    \    using mint = hash_impl::modint;\n\n    static inline uint64_t generate_base()\
+    \ {\n        std::mt19937_64 mt(std::chrono::steady_clock::now().time_since_epoch().count());\n\
     \        std::uniform_int_distribution<uint64_t> rand(2, hash_impl::mod - 1);\n\
     \        return rand(mt);\n    }\n\n    RollingHash2D(uint64_t base0 = generate_base(),\
     \ uint64_t base1 = generate_base()) {\n        basis[0] = base0;\n        basis[1]\
@@ -120,7 +122,7 @@ data:
   isVerificationFile: false
   path: src/string/RollingHash2D.hpp
   requiredBy: []
-  timestamp: '2024-05-22 00:21:24+09:00'
+  timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_14_C.test.cpp

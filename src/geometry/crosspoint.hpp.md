@@ -3,23 +3,23 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Circle.hpp
-    title: src/geometry/Circle.hpp
+    title: Circle
   - icon: ':heavy_check_mark:'
     path: src/geometry/Line.hpp
-    title: src/geometry/Line.hpp
+    title: Line
   - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
     title: Point
   - icon: ':heavy_check_mark:'
     path: src/geometry/ccw.hpp
-    title: src/geometry/ccw.hpp
+    title: Counter Clockwise
   - icon: ':heavy_check_mark:'
     path: src/geometry/projection.hpp
-    title: src/geometry/projection.hpp
+    title: projection
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: src/geometry/contain.hpp
-    title: src/geometry/contain.hpp
+    title: Contain
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
     title: Convex Cut
@@ -28,7 +28,7 @@ data:
     title: Convex Diameter
   - icon: ':heavy_check_mark:'
     path: src/geometry/distance.hpp
-    title: src/geometry/distance.hpp
+    title: Distance
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_2_A.test.cpp
@@ -209,8 +209,5 @@ data:
   - test/aoj/CGL_4_B.test.cpp
 documentation_of: src/geometry/crosspoint.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/crosspoint.hpp
-- /library/src/geometry/crosspoint.hpp.html
-title: src/geometry/crosspoint.hpp
+title: Crosspoint
 ---

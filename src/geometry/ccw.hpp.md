@@ -7,10 +7,10 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Polygon.hpp
-    title: src/geometry/Polygon.hpp
+    title: Polygon
   - icon: ':heavy_check_mark:'
     path: src/geometry/contain.hpp
-    title: src/geometry/contain.hpp
+    title: Contain
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
     title: Convex Cut
@@ -19,10 +19,10 @@ data:
     title: Convex Diameter
   - icon: ':heavy_check_mark:'
     path: src/geometry/crosspoint.hpp
-    title: src/geometry/crosspoint.hpp
+    title: Crosspoint
   - icon: ':heavy_check_mark:'
     path: src/geometry/distance.hpp
-    title: src/geometry/distance.hpp
+    title: Distance
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_1_C.test.cpp
@@ -136,8 +136,5 @@ data:
   - test/aoj/CGL_3_B.test.cpp
 documentation_of: src/geometry/ccw.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/ccw.hpp
-- /library/src/geometry/ccw.hpp.html
-title: src/geometry/ccw.hpp
+title: Counter Clockwise
 ---
