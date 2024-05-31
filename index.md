@@ -13,16 +13,16 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/convolution/RelaxedConvolution.hpp
-      title: src/convolution/RelaxedConvolution.hpp
+      title: Relaxed Convolution
     - icon: ':heavy_check_mark:'
       path: src/convolution/convolution_arbitary_mod.hpp
-      title: src/convolution/convolution_arbitary_mod.hpp
+      title: Convolution (Arbitary mod)
     - icon: ':heavy_check_mark:'
       path: src/convolution/min_plus_convolution_convex_arbitrary.hpp
-      title: src/convolution/min_plus_convolution_convex_arbitrary.hpp
+      title: Min Plus Convolution (Convex and Arbitary)
     - icon: ':heavy_check_mark:'
       path: src/convolution/min_plus_convolution_convex_convex.hpp
-      title: src/convolution/min_plus_convolution_convex_convex.hpp
+      title: Min Plus Convolution (Convex and Convex)
   - name: src/datastructure
     pages:
     - icon: ':heavy_check_mark:'

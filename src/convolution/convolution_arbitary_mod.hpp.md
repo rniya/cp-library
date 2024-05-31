@@ -55,8 +55,5 @@ data:
   - test/yosupo/convolution_mod_1000000007.test.cpp
 documentation_of: src/convolution/convolution_arbitary_mod.hpp
 layout: document
-redirect_from:
-- /library/src/convolution/convolution_arbitary_mod.hpp
-- /library/src/convolution/convolution_arbitary_mod.hpp.html
-title: src/convolution/convolution_arbitary_mod.hpp
+title: Convolution (Arbitary mod)
 ---
