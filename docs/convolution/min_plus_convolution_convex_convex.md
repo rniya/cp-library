@@ -16,9 +16,11 @@ documentation_of: //src/convolution/min_plus_convolution_convex_convex.hpp
 
 数列 $a$ と $b$ の畳み込み．
 すなわち，
+
 $$
 c _ k = \min _ {i + j = k} (a _ i + b _ j)
 $$
+
 で定義される長さ $n + m - 1$ の数列 $c$．
 
 ## 計算量
