@@ -15,7 +15,7 @@ template <typename T, bool isMin = true> struct ConvexHullTrick {
         if (lines.front().first <= a) {
             if (lines.front().first == a) {
                 if (lines.front().second <= b) return;
-                lines.pop_back();
+                lines.pop_front();
             }
             while (lines.size() >= 2 && check(l, lines.front(), lines[1])) lines.pop_front();
             lines.emplace_front(l);
@@ -69,7 +69,7 @@ template <typename T, bool isMin = true> struct ConvexHullTrick {
         return isMin ? res : -res;
     }
 
-private:
+  private:
     std::deque<std::pair<T, T>> lines;  // slope decreases as index increases
     bool called_query = false, called_query_monotonic_inc = false, called_query_monotonic_dec = false;
     T prev_query;
