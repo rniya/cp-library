@@ -18,7 +18,7 @@ data:
     \        if (empty()) {\n            lines.emplace_back(a, b);\n            return;\n\
     \        }\n        if (lines.front().first <= a) {\n            if (lines.front().first\
     \ == a) {\n                if (lines.front().second <= b) return;\n          \
-    \      lines.pop_back();\n            }\n            while (lines.size() >= 2\
+    \      lines.pop_front();\n            }\n            while (lines.size() >= 2\
     \ && check(l, lines.front(), lines[1])) lines.pop_front();\n            lines.emplace_front(l);\n\
     \        } else if (a <= lines.back().first) {\n            if (lines.back().first\
     \ == a) {\n                if (lines.back().second <= b) return;\n           \
@@ -41,7 +41,7 @@ data:
     \ = true;\n        else\n            assert(x <= prev_query);\n        prev_query\
     \ = x;\n        while (lines.size() >= 2 && f(lines.back(), x) >= f(lines[lines.size()\
     \ - 2], x)) lines.pop_back();\n        T res = f(lines.back(), x);\n        return\
-    \ isMin ? res : -res;\n    }\n\nprivate:\n    std::deque<std::pair<T, T>> lines;\
+    \ isMin ? res : -res;\n    }\n\n  private:\n    std::deque<std::pair<T, T>> lines;\
     \  // slope decreases as index increases\n    bool called_query = false, called_query_monotonic_inc\
     \ = false, called_query_monotonic_dec = false;\n    T prev_query;\n\n    using\
     \ D = long double;\n\n    // check if b is unnecessary\n    inline bool check(const\
@@ -57,8 +57,8 @@ data:
     \ *= -1;\n        std::pair<T, T> l(a, b);\n        if (empty()) {\n         \
     \   lines.emplace_back(a, b);\n            return;\n        }\n        if (lines.front().first\
     \ <= a) {\n            if (lines.front().first == a) {\n                if (lines.front().second\
-    \ <= b) return;\n                lines.pop_back();\n            }\n          \
-    \  while (lines.size() >= 2 && check(l, lines.front(), lines[1])) lines.pop_front();\n\
+    \ <= b) return;\n                lines.pop_front();\n            }\n         \
+    \   while (lines.size() >= 2 && check(l, lines.front(), lines[1])) lines.pop_front();\n\
     \            lines.emplace_front(l);\n        } else if (a <= lines.back().first)\
     \ {\n            if (lines.back().first == a) {\n                if (lines.back().second\
     \ <= b) return;\n                lines.pop_back();\n            }\n          \
@@ -81,7 +81,7 @@ data:
     \ <= prev_query);\n        prev_query = x;\n        while (lines.size() >= 2 &&\
     \ f(lines.back(), x) >= f(lines[lines.size() - 2], x)) lines.pop_back();\n   \
     \     T res = f(lines.back(), x);\n        return isMin ? res : -res;\n    }\n\
-    \nprivate:\n    std::deque<std::pair<T, T>> lines;  // slope decreases as index\
+    \n  private:\n    std::deque<std::pair<T, T>> lines;  // slope decreases as index\
     \ increases\n    bool called_query = false, called_query_monotonic_inc = false,\
     \ called_query_monotonic_dec = false;\n    T prev_query;\n\n    using D = long\
     \ double;\n\n    // check if b is unnecessary\n    inline bool check(const std::pair<T,\
@@ -95,7 +95,7 @@ data:
   isVerificationFile: false
   path: src/datastructure/ConvexHullTrick.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2024-06-01 22:38:53+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/952.test.cpp
