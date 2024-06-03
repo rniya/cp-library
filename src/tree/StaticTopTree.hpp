@@ -85,13 +85,9 @@ struct StaticTopTree {
     }
 
     std::pair<int, int> merge(const std::vector<std::pair<int, int>>& a, Type t) {
-        if (a.size() == 1) {
-            return a[0];
-        }
+        if (a.size() == 1) return a[0];
         int sum = 0;
-        for (const auto& [_, s] : a) {
-            sum += s;
-        }
+        for (const auto& [_, s] : a) sum += s;
         std::vector<std::pair<int, int>> b, c;
         for (const auto& [i, s] : a) {
             (sum > s ? b : c).emplace_back(i, s);
@@ -104,9 +100,7 @@ struct StaticTopTree {
 
     std::pair<int, int> _compress(int v) {
         std::vector<std::pair<int, int>> chs{_add_vertex(v)};
-        while (not G[v].empty()) {
-            chs.emplace_back(_add_vertex(v = G[v][0]));
-        }
+        while (not G[v].empty()) chs.emplace_back(_add_vertex(v = G[v][0]));
         return merge(chs, Type::Compress);
     }
 
@@ -117,9 +111,7 @@ struct StaticTopTree {
 
     std::pair<int, int> _rake(int v) {
         std::vector<std::pair<int, int>> chs;
-        for (int i = 1; i < int(G[v].size()); i++) {
-            chs.emplace_back(_add_edge(G[v][i]));
-        }
+        for (int i = 1; i < int(G[v].size()); i++) chs.emplace_back(_add_edge(G[v][i]));
         return chs.empty() ? std::make_pair(-1, 0) : merge(chs, Type::Rake);
     }
 
@@ -152,12 +144,8 @@ template <class TreeDP> struct DynamicDPonStaticTopTree {
   private:
     void init(int k) {
         const auto& node = stt.nodes[k];
-        if (node.l != -1) {
-            init(node.l);
-        }
-        if (node.r != -1) {
-            init(node.r);
-        }
+        if (node.l != -1) init(node.l);
+        if (node.r != -1) init(node.r);
         update(k);
     }
 

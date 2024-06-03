@@ -3,6 +3,8 @@
 #include <queue>
 
 template <typename T, bool isMin = true> struct ConvexHullTrick {
+    std::deque<std::pair<T, T>> lines;  // slope decreases as index increases
+
     bool empty() const { return lines.empty(); }
 
     void add(T a, T b) {
@@ -70,7 +72,6 @@ template <typename T, bool isMin = true> struct ConvexHullTrick {
     }
 
   private:
-    std::deque<std::pair<T, T>> lines;  // slope decreases as index increases
     bool called_query = false, called_query_monotonic_inc = false, called_query_monotonic_dec = false;
     T prev_query;
 
