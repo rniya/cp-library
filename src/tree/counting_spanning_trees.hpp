@@ -26,5 +26,5 @@ template <typename T> T counting_spanning_trees_directed(std::vector<std::vector
 }
 
 template <typename T> T counting_spanning_trees_undirected(std::vector<std::vector<T>> G) {
-    return count_spanning_trees_directed(G, 0);
+    return counting_spanning_trees_directed(G, 0);
 }
