@@ -139,7 +139,7 @@ $\blacksquare$
 このとき，
 
 $$
-\delta \coloneqq \min_{i \in A \cap L,\ j \in B \setminus L} (c_{i, j} - y_i - y_j)
+\delta := \min _ {i \in A \cap L, j \in B \setminus L} (c _ {i, j} - y _ i - y _ j)
 $$
 
 とすると，$\delta \gt 0$ であり，これをもとにポテンシャル $y ^ \prime$ を次のように得る：
