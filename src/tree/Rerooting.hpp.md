@@ -71,20 +71,34 @@ title: Rerooting
 ---
 
 ## 概要
-`op` は根無し木同士の合成，`mapping` は根無し木の根に新たな根からの辺を加えると考えると良い．
+全方位木 dp を計算する．
+
+使用する際には，以下の関数をもつ構造体 `TreeDP` が必要となる．
+
+- `T e()`: 単位元を返す．
+- `T op(const T& l, const T& r)`: 根が virtual な木 $l, r$ の合成を返す．
+- `T add_vertex(const T& t, int v)`: 根が virtual な木 $t$ の根に $v$ を代入した木を返す．
+- `T add_edge(const T& t, int e)`: 木 $t$ の根に枝 $e$ を接続してできる，根が virtual な木を返す．
+
+```C++
+struct TreeDP {
+    struct T {};
+
+    T e() {}
+
+    T op(const T& l, const T& r) {}
+
+    T add_vertex(const T& t, int v) {}
+
+    T add_edge(const T& t, int e) {}
+};
+```
+
+計算量は時間・空間計算量ともに $\mathrm{O}(n)$．
 
 ## Links
 - [全方位木DP (ReRooting) の抽象化について - メモ帳](https://null-mn.hatenablog.com/entry/2020/04/14/124151)
 
-## 問題例
-- [Educational DP Contest / DP まとめコンテスト V - Subtree](https://atcoder.jp/contests/dp/tasks/dp_v)
-- [square869120Contest #4 D - Driving on a Tree](https://atcoder.jp/contests/s8pc-4/tasks/s8pc_4_d)
-- [AtCoder Beginner Contest 160 F - Distributing Integers](https://atcoder.jp/contests/abc160/tasks/abc160_f)
-- [AtCoder Beginner Contest 220 F - Distance Sums 2](https://atcoder.jp/contests/abc220/tasks/abc220_f)
-- [AtCoder Beginner Contest 222 F - Expensive Expense](https://atcoder.jp/contests/abc222/tasks/abc222_f)
+## 出題例
 - [The 2022 ICPC Asia Hangzhou Regional Programming Contest M. Please Save Pigeland](https://codeforces.com/gym/104090/problem/M)
-<!-- - [](https://yukicoder.me/problems/no/1718) -->
-<!-- - [](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A) -->
-<!-- - [](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_B) -->
-<!-- - [](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1595) -->
-<!-- - [](https://blog.hamayanhamayan.com/entry/2017/02/09/155738) -->
+- [AtCoder Regular Contest 179 D - Portable Gate](https://atcoder.jp/contests/arc179/tasks/arc179_d)
