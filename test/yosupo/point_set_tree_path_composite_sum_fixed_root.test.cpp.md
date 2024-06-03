@@ -63,7 +63,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-12 03:19:29+09:00'
+  timestamp: '2024-06-04 01:15:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_set_tree_path_composite_sum_fixed_root.test.cpp

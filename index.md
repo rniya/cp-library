@@ -234,7 +234,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/matrix/F2Matrix.hpp
       title: Matrix on $\mathbb{F}_2$
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/matrix/Matrix.hpp
       title: Matrix
     - icon: ':heavy_check_mark:'
@@ -347,6 +347,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/tree/TreeDiameter.hpp
       title: Tree Diameter
+    - icon: ':question:'
+      path: src/tree/counting_spanning_trees.hpp
+      title: Counting Spanning Trees
   - name: src/util
     pages:
     - icon: ':heavy_check_mark:'
@@ -528,6 +531,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution_mod_1000000007.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/counting_spanning_tree_directed.test.cpp
+      title: test/yosupo/counting_spanning_tree_directed.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/counting_spanning_tree_undirected.test.cpp
+      title: test/yosupo/counting_spanning_tree_undirected.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/cycle_detection.test.cpp
       title: test/yosupo/cycle_detection.test.cpp

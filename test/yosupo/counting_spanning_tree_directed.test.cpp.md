@@ -4,6 +4,9 @@ data:
   - icon: ':question:'
     path: src/matrix/Matrix.hpp
     title: Matrix
+  - icon: ':question:'
+    path: src/tree/counting_spanning_trees.hpp
+    title: Counting Spanning Trees
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -11,9 +14,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/matrix_product
+    PROBLEM: https://judge.yosupo.jp/problem/counting_spanning_tree_directed
     links:
-    - https://judge.yosupo.jp/problem/matrix_product
+    - https://judge.yosupo.jp/problem/counting_spanning_tree_directed
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -26,30 +29,27 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n\n#include\
-    \ <iostream>\n#include \"atcoder/modint\"\n#include \"matrix/Matrix.hpp\"\n\n\
-    using mint = atcoder::modint998244353;\n\nint main() {\n    std::cin.tie(0);\n\
-    \    std::ios::sync_with_stdio(false);\n    int N, M, K;\n    std::cin >> N >>\
-    \ M >> K;\n    Matrix<mint> A(N, M), B(M, K);\n    for (int i = 0; i < N; i++)\
-    \ {\n        for (int j = 0; j < M; j++) {\n            int val;\n           \
-    \ std::cin >> val;\n            A[i][j] = val;\n        }\n    }\n    for (int\
-    \ i = 0; i < M; i++) {\n        for (int j = 0; j < K; j++) {\n            int\
-    \ val;\n            std::cin >> val;\n            B[i][j] = val;\n        }\n\
-    \    }\n    auto C = A * B;\n    for (int i = 0; i < N; i++) {\n        for (int\
-    \ j = 0; j < K; j++) {\n            std::cout << C[i][j].val() << (j + 1 == K\
-    \ ? '\\n' : ' ');\n        }\n    }\n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/counting_spanning_tree_directed\"\
+    \n\n#include <iostream>\n#include \"atcoder/modint\"\n#include \"tree/counting_spanning_trees.hpp\"\
+    \n\nusing mint = atcoder::modint998244353;\n\nint main() {\n    std::ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    int N, M, r;\n    std::cin >> N >> M >> r;\n\
+    \    std::vector G(N, std::vector<mint>(N, 0));\n    for (; M--;) {\n        int\
+    \ u, v;\n        std::cin >> u >> v;\n        G[v][u]++;\n    }\n\n    auto ans\
+    \ = counting_spanning_trees_directed(G, r);\n    std::cout << ans.val() << '\\\
+    n';\n    return 0;\n}"
   dependsOn:
+  - src/tree/counting_spanning_trees.hpp
   - src/matrix/Matrix.hpp
   isVerificationFile: true
-  path: test/yosupo/matrix_product.test.cpp
+  path: test/yosupo/counting_spanning_tree_directed.test.cpp
   requiredBy: []
-  timestamp: '2024-05-24 00:56:59+09:00'
+  timestamp: '2024-06-04 01:15:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/matrix_product.test.cpp
+documentation_of: test/yosupo/counting_spanning_tree_directed.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/matrix_product.test.cpp
-- /verify/test/yosupo/matrix_product.test.cpp.html
-title: test/yosupo/matrix_product.test.cpp
+- /verify/test/yosupo/counting_spanning_tree_directed.test.cpp
+- /verify/test/yosupo/counting_spanning_tree_directed.test.cpp.html
+title: test/yosupo/counting_spanning_tree_directed.test.cpp
 ---
