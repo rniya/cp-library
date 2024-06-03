@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/matrix/Matrix.hpp
     title: Matrix
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/tree/counting_spanning_trees.hpp
     title: Counting Spanning Trees
   _extendedRequiredBy: []
@@ -43,7 +43,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/counting_spanning_tree_directed.test.cpp
   requiredBy: []
-  timestamp: '2024-06-04 01:15:26+09:00'
+  timestamp: '2024-06-04 01:23:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/counting_spanning_tree_directed.test.cpp

@@ -2,14 +2,14 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/tree/counting_spanning_trees.hpp
     title: Counting Spanning Trees
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/counting_spanning_tree_directed.test.cpp
     title: test/yosupo/counting_spanning_tree_directed.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/counting_spanning_tree_undirected.test.cpp
     title: test/yosupo/counting_spanning_tree_undirected.test.cpp
   - icon: ':heavy_check_mark:'
@@ -30,9 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/system_of_linear_equations.test.cpp
     title: test/yosupo/system_of_linear_equations.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/matrix/Matrix.hpp\"\n#include <cassert>\n#include <iostream>\n\
@@ -233,7 +233,7 @@ data:
   requiredBy:
   - src/tree/counting_spanning_trees.hpp
   timestamp: '2024-05-24 00:56:59+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/system_of_linear_equations.test.cpp
   - test/yosupo/inverse_matrix.test.cpp

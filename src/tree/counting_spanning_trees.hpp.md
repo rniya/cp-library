@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/matrix/Matrix.hpp
     title: Matrix
   _extendedRequiredBy: []
@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/counting_spanning_tree_directed.test.cpp
     title: test/yosupo/counting_spanning_tree_directed.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/counting_spanning_tree_undirected.test.cpp
     title: test/yosupo/counting_spanning_tree_undirected.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/matrix/Matrix.hpp\"\n#include <cassert>\n#include <iostream>\n\
@@ -122,7 +122,7 @@ data:
     \        for (int j = 0; j < n; j++) {\n            if (i != r and j != r) {\n\
     \                L[i - (i > r)][j - (j > r)] = G[i][j];\n            }\n     \
     \   }\n    }\n    return L.det();\n}\n\ntemplate <typename T> T counting_spanning_trees_undirected(std::vector<std::vector<T>>\
-    \ G) {\n    return count_spanning_trees_directed(G, 0);\n}\n"
+    \ G) {\n    return counting_spanning_trees_directed(G, 0);\n}\n"
   code: "#pragma once\n#include \"../matrix/Matrix.hpp\"\n\ntemplate <typename T>\
     \ T counting_spanning_trees_directed(std::vector<std::vector<T>> G, int r) {\n\
     \    int n = G.size();\n    assert(0 <= r and r < n);\n    if (n <= 1) return\
@@ -133,14 +133,14 @@ data:
     \ (int j = 0; j < n; j++) {\n            if (i != r and j != r) {\n          \
     \      L[i - (i > r)][j - (j > r)] = G[i][j];\n            }\n        }\n    }\n\
     \    return L.det();\n}\n\ntemplate <typename T> T counting_spanning_trees_undirected(std::vector<std::vector<T>>\
-    \ G) {\n    return count_spanning_trees_directed(G, 0);\n}"
+    \ G) {\n    return counting_spanning_trees_directed(G, 0);\n}"
   dependsOn:
   - src/matrix/Matrix.hpp
   isVerificationFile: false
   path: src/tree/counting_spanning_trees.hpp
   requiredBy: []
-  timestamp: '2024-06-04 01:15:26+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-06-04 01:23:18+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/counting_spanning_tree_undirected.test.cpp
   - test/yosupo/counting_spanning_tree_directed.test.cpp

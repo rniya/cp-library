@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/matrix/Matrix.hpp
     title: Matrix
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/tree/counting_spanning_trees.hpp
     title: Counting Spanning Trees
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/counting_spanning_tree_undirected
@@ -43,8 +43,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/counting_spanning_tree_undirected.test.cpp
   requiredBy: []
-  timestamp: '2024-06-04 01:15:26+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-04 01:23:18+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/counting_spanning_tree_undirected.test.cpp
 layout: document
