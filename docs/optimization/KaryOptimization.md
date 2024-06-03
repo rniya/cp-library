@@ -7,13 +7,15 @@ documentation_of: //src/optimization/KaryOptimization.hpp
 
 ## 概要
 $[k] := \lbrace 0, 1, \dots , k - 1 \rbrace$ とする．
-$\alpha \in \mathbb{Z}, \theta _ i \colon [k] \to \mathbb{Z}$ 及び Monge な関数 $\phi _ {i, j} \colon [k] ^ 2 \to \mathbb{Z}$ について
+$\alpha \in \mathbb{Z}, \theta _ i \colon [k] \to \mathbb{Z}$ 及び Monge な関数 $\phi _ {i, j} \colon [k] ^ 2 \to \mathbb{Z}$ について，
+
 $$
 \begin{alignedat}{3}
     & \mathrm{Minimize}     & \quad & \alpha + \sum _ i \theta _ i(x _ i) + \sum _ {i \lt j} \phi _ {i, j}(x _ i, x _ j) \\
     & \mathrm{subject\ to}  & \quad & x \in [k] ^ n
 \end{alignedat}
 $$
+
 を解く．
 ここで，$0 \le i _ 1 \lt i _ 2 \lt k$ 及び $0 \le j _ 1 \lt j _ 2 \lt k$ を満たす任意の整数の組 $(i _ 1, i _ 2, j _ 1, j _ 2)$ について，$\phi(i _ 1, j _ 1) + \phi(i _ 2, j _ 2) \le \phi(i _ 1, j _ 2) + \phi(i _ 2, j _ 1)$ が成立するとき，$\phi$ は Monge であるという．
 また，これは $0 \le i \lt k - 1$ 及び $0 \le j \lt k - 1$ を満たす任意の整数の組 

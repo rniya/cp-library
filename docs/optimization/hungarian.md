@@ -75,9 +75,11 @@ $\blacksquare$
 
 すなわち，任意の $i \in A \cap L, j \in B \setminus L$ について $y _ i + y _ j \lt c _ {i, j}$ が成立する．
 このとき，
+
 $$
 \delta \coloneqq \min_{i \in A \cap L,\ j \in B \setminus L} (c_{i, j} - y_i - y_j)
 $$
+
 とすると，$\delta \gt 0$ であり，これをもとにポテンシャル $y ^ \prime$ を次のように得る：
 
 $$
