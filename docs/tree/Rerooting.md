@@ -33,4 +33,5 @@ struct TreeDP {
 - [全方位木DP (ReRooting) の抽象化について - メモ帳](https://null-mn.hatenablog.com/entry/2020/04/14/124151)
 
 ## 出題例
+- [The 2022 ICPC Asia Hangzhou Regional Programming Contest M. Please Save Pigeland](https://codeforces.com/gym/104090/problem/M)
 - [AtCoder Regular Contest 179 D - Portable Gate](https://atcoder.jp/contests/arc179/tasks/arc179_d)
