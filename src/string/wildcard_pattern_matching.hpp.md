@@ -118,11 +118,11 @@ $$
 
 ### 乱択解法
 
-素数 $P \geq \sigma$ 及び $0$ 以上 $P$ 未満の一様乱数 $r_ik\ (k = 0, \dots , \vert T \vert - 1)$ を取る．
+素数 $P \geq \sigma$ 及び $0$ 以上 $P$ 未満の一様乱数 $r _ k\ (k = 0, \dots , \vert T \vert - 1)$ を取る．
 マッチの判定式を
 
 $$
-\sum _ {k = 0} ^ {\vert T \vert - 1} r_k (S \lbrack i + k \rbrack - T \lbrack k \rbrack) \mathbf{1}(S \lbrack i + k \rbrack \gt 0) \mathbf{1}(T \lbrack k \rbrack \gt 0)
+\sum _ {k = 0} ^ {\vert T \vert - 1} r _ k (S \lbrack i + k \rbrack - T \lbrack k \rbrack) \mathbf{1}(S \lbrack i + k \rbrack \gt 0) \mathbf{1}(T \lbrack k \rbrack \gt 0)
 \equiv 0 \pmod{P}
 $$
 
