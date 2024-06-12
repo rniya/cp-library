@@ -79,6 +79,33 @@ template <int MAX_W> struct F2Matrix {
         return rank() == H ? 1 : 0;
     }
 
+    F2Matrix inv() const {
+        assert(height() == width());
+        int n = height();
+        F2Matrix B(*this), C = identity(n);
+        for (int j = 0; j < n; j++) {
+            int pivot = -1;
+            for (int i = j; i < n; i++) {
+                if (B[i][j]) {
+                    pivot = i;
+                    break;
+                }
+            }
+            assert(pivot != -1);
+            if (pivot != j) {
+                std::swap(B[pivot], B[j]);
+                std::swap(C[pivot], C[j]);
+            }
+            for (int i = 0; i < n; i++) {
+                if (i != j and B[i][j]) {
+                    B[i] ^= B[j];
+                    C[i] ^= C[j];
+                }
+            }
+        }
+        return C;
+    }
+
     std::vector<std::bitset<MAX_W>> system_of_linear_equations(const std::vector<bool>& b) {
         assert(W + 1 <= MAX_W);
         assert(int(b.size()) == H);
