@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/inverse_matrix_mod_2.test.cpp
+    title: test/yosupo/inverse_matrix_mod_2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix_det_mod_2.test.cpp
     title: test/yosupo/matrix_det_mod_2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -40,7 +43,17 @@ data:
     \   while (n) {\n            if (n & 1) r *= x;\n            x *= x;\n       \
     \     n >>= 1;\n        }\n        return r;\n    }\n\n    int rank() const {\
     \ return F2Matrix(*this).gauss_jordan(); }\n\n    int det() const {\n        assert(H\
-    \ == W);\n        return rank() == H ? 1 : 0;\n    }\n\n    std::vector<std::bitset<MAX_W>>\
+    \ == W);\n        return rank() == H ? 1 : 0;\n    }\n\n    F2Matrix inv() const\
+    \ {\n        assert(height() == width());\n        int n = height();\n       \
+    \ F2Matrix B(*this), C = identity(n);\n        for (int j = 0; j < n; j++) {\n\
+    \            int pivot = -1;\n            for (int i = j; i < n; i++) {\n    \
+    \            if (B[i][j]) {\n                    pivot = i;\n                \
+    \    break;\n                }\n            }\n            assert(pivot != -1);\n\
+    \            if (pivot != j) {\n                std::swap(B[pivot], B[j]);\n \
+    \               std::swap(C[pivot], C[j]);\n            }\n            for (int\
+    \ i = 0; i < n; i++) {\n                if (i != j and B[i][j]) {\n          \
+    \          B[i] ^= B[j];\n                    C[i] ^= C[j];\n                }\n\
+    \            }\n        }\n        return C;\n    }\n\n    std::vector<std::bitset<MAX_W>>\
     \ system_of_linear_equations(const std::vector<bool>& b) {\n        assert(W +\
     \ 1 <= MAX_W);\n        assert(int(b.size()) == H);\n        F2Matrix B(*this);\n\
     \        for (int i = 0; i < H; i++) B[i][W] = b[i];\n        int rank = B.gauss_jordan(W);\n\
@@ -90,7 +103,17 @@ data:
     \   while (n) {\n            if (n & 1) r *= x;\n            x *= x;\n       \
     \     n >>= 1;\n        }\n        return r;\n    }\n\n    int rank() const {\
     \ return F2Matrix(*this).gauss_jordan(); }\n\n    int det() const {\n        assert(H\
-    \ == W);\n        return rank() == H ? 1 : 0;\n    }\n\n    std::vector<std::bitset<MAX_W>>\
+    \ == W);\n        return rank() == H ? 1 : 0;\n    }\n\n    F2Matrix inv() const\
+    \ {\n        assert(height() == width());\n        int n = height();\n       \
+    \ F2Matrix B(*this), C = identity(n);\n        for (int j = 0; j < n; j++) {\n\
+    \            int pivot = -1;\n            for (int i = j; i < n; i++) {\n    \
+    \            if (B[i][j]) {\n                    pivot = i;\n                \
+    \    break;\n                }\n            }\n            assert(pivot != -1);\n\
+    \            if (pivot != j) {\n                std::swap(B[pivot], B[j]);\n \
+    \               std::swap(C[pivot], C[j]);\n            }\n            for (int\
+    \ i = 0; i < n; i++) {\n                if (i != j and B[i][j]) {\n          \
+    \          B[i] ^= B[j];\n                    C[i] ^= C[j];\n                }\n\
+    \            }\n        }\n        return C;\n    }\n\n    std::vector<std::bitset<MAX_W>>\
     \ system_of_linear_equations(const std::vector<bool>& b) {\n        assert(W +\
     \ 1 <= MAX_W);\n        assert(int(b.size()) == H);\n        F2Matrix B(*this);\n\
     \        for (int i = 0; i < H; i++) B[i][W] = b[i];\n        int rank = B.gauss_jordan(W);\n\
@@ -118,10 +141,11 @@ data:
   isVerificationFile: false
   path: src/matrix/F2Matrix.hpp
   requiredBy: []
-  timestamp: '2024-05-24 00:56:59+09:00'
+  timestamp: '2024-06-13 02:05:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/matrix_product_mod_2.test.cpp
+  - test/yosupo/inverse_matrix_mod_2.test.cpp
   - test/yosupo/matrix_det_mod_2.test.cpp
 documentation_of: src/matrix/F2Matrix.hpp
 layout: document

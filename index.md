@@ -577,6 +577,9 @@ data:
       path: test/yosupo/inverse_matrix.test.cpp
       title: test/yosupo/inverse_matrix.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/inverse_matrix_mod_2.test.cpp
+      title: test/yosupo/inverse_matrix_mod_2.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/jump_on_tree.test.cpp
       title: test/yosupo/jump_on_tree.test.cpp
     - icon: ':heavy_check_mark:'

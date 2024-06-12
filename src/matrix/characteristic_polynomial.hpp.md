@@ -162,13 +162,16 @@ $$ \det(x I - A) = \det(x I - B) $$
 が成立する．
 
 #### 証明
-$$ \begin{aligned}
+
+$$
+\begin{aligned}
   \det(x I - B)
   &= \det(x P ^ {-1} P - P ^ {-1} A P) \\
   &= \det(P ^ {-1} (x I - A) P) \\
   &= \det(P ^ {-1}) \cdot \det(x I - A) \cdot \det(P) \\
   &= \det(x I - A)
-\end{aligned} $$
+\end{aligned}
+$$
 
 $\blacksquare$
 
@@ -187,22 +190,26 @@ $j + 2 \neq i$ ならば左からこの 2 行を入れ替える基本行列 $P _
 
 次のステップとして実際に変換された upper Hessenberg matrix $H$ の特性多項式を求める．
 
-$$ H = \begin{pmatrix}
+$$
+H = \begin{pmatrix}
     \alpha _ 1    & h _ {12}    & \cdots    & \cdots    & h _ {1n} \\
     \beta _ 2     & \alpha _ 2  & h_{23}    & \cdots    & h _ {2n} \\
                 & \beta _ 3   & \alpha _ 3  &           & \vdots \\
                 &           & \ddots    & \ddots    & h _ {n - 1, n} \\
                 &           &           & \beta _ n   & \alpha _ n
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 として，$i$ 次の leading principal submatrix の特性多項式を $p _ i(x)$ と表す．
 求めるべきは $p _ n(x)$ である．
 このとき,
 
-$$ \begin{aligned}
+$$
+\begin{aligned}
     p _ 0(x) &= 1 \\
     p _ {i + 1}(x) &= (x - \alpha _ {i + 1}) p _ i(x) - \sum _ {j = 1} ^ {i} \left( \prod _ {k = i + 2 - j} ^ {i + 1} \beta _ k \right) h _ {i + 1 - j, i + 1} p _ {i - j}(x) \quad (0 \leq i \lt n)
-\end{aligned} $$
+\end{aligned}
+$$
 
 というような関係が成立する．
 漸化式の右辺第 2 項については最後の第 $i + 1$ 行において $\alpha _ {i + 1}$ を選択しない場合には $\beta _ {k + 1}$ を選択せざるを得ず，より上の行について非零要素を選択していく際，帰納的に考えると $\beta _ k$ を選択しない場合には $h _ {k, k + 1}$ を選択せざるを得ないことによる．

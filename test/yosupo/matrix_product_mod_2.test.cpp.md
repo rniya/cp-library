@@ -42,7 +42,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix_product_mod_2.test.cpp
   requiredBy: []
-  timestamp: '2024-05-24 00:56:59+09:00'
+  timestamp: '2024-06-13 02:05:17+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix_product_mod_2.test.cpp
