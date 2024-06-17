@@ -78,16 +78,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/geometry/Line.hpp
       title: Line
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/geometry/Point.hpp
       title: Point
     - icon: ':warning:'
       path: src/geometry/Point3D.hpp
       title: Point (3D)
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/geometry/Polygon.hpp
       title: Polygon
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/geometry/ccw.hpp
       title: Counter Clockwise
     - icon: ':heavy_check_mark:'
@@ -102,10 +102,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/geometry/convex_cut.hpp
       title: Convex Cut
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/geometry/convex_diameter.hpp
       title: Convex Diameter
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/geometry/convex_hull.hpp
       title: Convex Hull
     - icon: ':heavy_check_mark:'
@@ -114,6 +114,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/geometry/distance.hpp
       title: Distance
+    - icon: ':x:'
+      path: src/geometry/furthest_pair.hpp
+      title: Furthest Pair
     - icon: ':heavy_check_mark:'
       path: src/geometry/incircle.hpp
       title: Incircle
@@ -424,7 +427,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_4_A.test.cpp
       title: test/aoj/CGL_4_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/CGL_4_B.test.cpp
       title: test/aoj/CGL_4_B.test.cpp
     - icon: ':heavy_check_mark:'
@@ -526,6 +529,9 @@ data:
       path: test/yosupo/characteristic_polynomial.test.cpp
       title: test/yosupo/characteristic_polynomial.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/closest_pair.test.cpp
+      title: test/yosupo/closest_pair.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod.relaxedconvolution.test.cpp
       title: test/yosupo/convolution_mod.relaxedconvolution.test.cpp
     - icon: ':heavy_check_mark:'
@@ -564,6 +570,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/frequency_table_of_tree_distance.test.cpp
       title: test/yosupo/frequency_table_of_tree_distance.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/furthest_pair.test.cpp
+      title: test/yosupo/furthest_pair.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/gcd_convolution.test.cpp
       title: test/yosupo/gcd_convolution.test.cpp

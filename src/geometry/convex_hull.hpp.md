@@ -1,20 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Point.hpp
     title: Point
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: src/geometry/furthest_pair.hpp
+    title: Furthest Pair
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_4_A.test.cpp
     title: test/aoj/CGL_4_A.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/furthest_pair.test.cpp
+    title: test/yosupo/furthest_pair.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/static_convex_hull.test.cpp
     title: test/yosupo/static_convex_hull.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/geometry/convex_hull.hpp\"\n#include <algorithm>\n#include\
@@ -76,11 +82,13 @@ data:
   - src/geometry/Point.hpp
   isVerificationFile: false
   path: src/geometry/convex_hull.hpp
-  requiredBy: []
+  requiredBy:
+  - src/geometry/furthest_pair.hpp
   timestamp: '2024-05-22 03:00:55+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/CGL_4_A.test.cpp
+  - test/yosupo/furthest_pair.test.cpp
   - test/yosupo/static_convex_hull.test.cpp
 documentation_of: src/geometry/convex_hull.hpp
 layout: document

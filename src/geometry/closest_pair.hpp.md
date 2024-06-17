@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Point.hpp
     title: Point
   _extendedRequiredBy: []
@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_5_A.test.cpp
     title: test/aoj/CGL_5_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/closest_pair.test.cpp
+    title: test/yosupo/closest_pair.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -92,6 +95,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL_5_A.test.cpp
+  - test/yosupo/closest_pair.test.cpp
 documentation_of: src/geometry/closest_pair.hpp
 layout: document
 title: Closest Pair

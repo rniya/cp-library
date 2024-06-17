@@ -10,14 +10,14 @@ data:
   - icon: ':question:'
     path: src/geometry/ccw.hpp
     title: Counter Clockwise
-  _extendedRequiredBy:
   - icon: ':x:'
-    path: src/geometry/furthest_pair.hpp
-    title: Furthest Pair
+    path: src/geometry/convex_diameter.hpp
+    title: Convex Diameter
+  - icon: ':question:'
+    path: src/geometry/convex_hull.hpp
+    title: Convex Hull
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/aoj/CGL_4_B.test.cpp
-    title: test/aoj/CGL_4_B.test.cpp
   - icon: ':x:'
     path: test/yosupo/furthest_pair.test.cpp
     title: test/yosupo/furthest_pair.test.cpp
@@ -79,33 +79,48 @@ data:
     \            argmax = {i, j};\n        }\n        int ni = (i + 1 == n ? 0 : i\
     \ + 1), nj = (j + 1 == n ? 0 : j + 1);\n        if ((convex[ni] - convex[i]).det(convex[nj]\
     \ - convex[j]) < 0)\n            i = ni;\n        else\n            j = nj;\n\
-    \    }\n    return argmax;\n}\n\n}  // namespace geometry\n"
-  code: "#pragma once\n#include <algorithm>\n#include <tuple>\n#include \"Polygon.hpp\"\
-    \n\nnamespace geometry {\n\ntemplate <typename T> std::pair<int, int> convex_diameter(const\
-    \ Polygon<T>& convex) {\n    int n = convex.size();\n    auto [si, sj] = [&] {\n\
-    \        auto [it_min, it_max] = std::minmax_element(begin(convex), end(convex));\n\
-    \        return std::pair<int, int>{it_min - begin(convex), it_max - begin(convex)};\n\
-    \    }();\n    T max_dist = -1;\n    std::pair<int, int> argmax{-1, -1};\n   \
-    \ for (int i = si, j = sj; i != sj or j != si;) {\n        T d = (convex[i] -\
-    \ convex[j]).norm2();\n        if (max_dist < d) {\n            max_dist = d;\n\
-    \            argmax = {i, j};\n        }\n        int ni = (i + 1 == n ? 0 : i\
-    \ + 1), nj = (j + 1 == n ? 0 : j + 1);\n        if ((convex[ni] - convex[i]).det(convex[nj]\
-    \ - convex[j]) < 0)\n            i = ni;\n        else\n            j = nj;\n\
-    \    }\n    return argmax;\n}\n\n}  // namespace geometry"
+    \    }\n    return argmax;\n}\n\n}  // namespace geometry\n#line 3 \"src/geometry/convex_hull.hpp\"\
+    \n#include <numeric>\n#line 6 \"src/geometry/convex_hull.hpp\"\n\nnamespace geometry\
+    \ {\n\ntemplate <typename T> std::vector<int> convex_hull(const std::vector<Point<T>>&\
+    \ P, bool inclusive = false) {\n    int n = P.size();\n    if (n == 0) return\
+    \ {};\n    if (n == 1) return {0};\n    if (n == 2) return (P[0] != P[1] or inclusive\
+    \ ? std::vector<int>{0, 1} : std::vector<int>{0});\n    std::vector<int> ord(n);\n\
+    \    std::iota(ord.begin(), ord.end(), 0);\n    std::sort(ord.begin(), ord.end(),\
+    \ [&](int l, int r) { return P[l] < P[r]; });\n    std::vector<int> ch(n + 1,\
+    \ -1);\n    int s = 0, t = 0;\n    for (int _ = 0; _ < 2; _++, s = --t, std::reverse(ord.begin(),\
+    \ ord.end())) {\n        for (int& i : ord) {\n            for (; t >= s + 2;\
+    \ t--) {\n                auto det = (P[ch[t - 1]] - P[ch[t - 2]]).det(P[i] -\
+    \ P[ch[t - 2]]);\n                if (inclusive ? det >= 0 : det > 0) break;\n\
+    \            }\n            ch[t++] = i;\n        }\n    }\n    while (not inclusive\
+    \ and t >= 2 and P[ch[0]] == P[ch[t - 1]]) t--;\n    return {begin(ch), begin(ch)\
+    \ + t};\n}\n\n}  // namespace geometry\n#line 4 \"src/geometry/furthest_pair.hpp\"\
+    \n\nnamespace geometry {\n\ntemplate <typename T> std::pair<int, int> furthest_pair(const\
+    \ std::vector<Point<T>>& P) {\n    int n = P.size();\n    assert(n >= 2);\n  \
+    \  auto convex = convex_hull(P);\n    n = convex.size();\n    if (n == 1) return\
+    \ {0, 1};\n    if (n == 2) return {convex[0], convex[1]};\n    Polygon<T> Q;\n\
+    \    for (int i : convex) Q.emplace_back(P[i]);\n    auto [i, j] = convex_diameter(Q);\n\
+    \    return {convex[i], convex[j]};\n}\n\n}  // namespace geometry\n"
+  code: "#pragma once\n#include \"convex_diameter.hpp\"\n#include \"convex_hull.hpp\"\
+    \n\nnamespace geometry {\n\ntemplate <typename T> std::pair<int, int> furthest_pair(const\
+    \ std::vector<Point<T>>& P) {\n    int n = P.size();\n    assert(n >= 2);\n  \
+    \  auto convex = convex_hull(P);\n    n = convex.size();\n    if (n == 1) return\
+    \ {0, 1};\n    if (n == 2) return {convex[0], convex[1]};\n    Polygon<T> Q;\n\
+    \    for (int i : convex) Q.emplace_back(P[i]);\n    auto [i, j] = convex_diameter(Q);\n\
+    \    return {convex[i], convex[j]};\n}\n\n}  // namespace geometry"
   dependsOn:
+  - src/geometry/convex_diameter.hpp
   - src/geometry/Polygon.hpp
   - src/geometry/ccw.hpp
   - src/geometry/Point.hpp
+  - src/geometry/convex_hull.hpp
   isVerificationFile: false
-  path: src/geometry/convex_diameter.hpp
-  requiredBy:
-  - src/geometry/furthest_pair.hpp
+  path: src/geometry/furthest_pair.hpp
+  requiredBy: []
   timestamp: '2024-06-18 01:28:06+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/aoj/CGL_4_B.test.cpp
   - test/yosupo/furthest_pair.test.cpp
-documentation_of: src/geometry/convex_diameter.hpp
+documentation_of: src/geometry/furthest_pair.hpp
 layout: document
-title: Convex Diameter
+title: Furthest Pair
 ---

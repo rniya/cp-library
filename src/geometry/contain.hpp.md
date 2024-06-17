@@ -7,13 +7,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Line.hpp
     title: Line
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Point.hpp
     title: Point
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Polygon.hpp
     title: Polygon
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/ccw.hpp
     title: Counter Clockwise
   - icon: ':heavy_check_mark:'

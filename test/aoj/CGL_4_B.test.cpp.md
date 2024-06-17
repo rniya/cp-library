@@ -1,38 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: src/geometry/Circle.hpp
-    title: Circle
-  - icon: ':heavy_check_mark:'
-    path: src/geometry/Line.hpp
-    title: Line
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Point.hpp
     title: Point
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Polygon.hpp
     title: Polygon
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/ccw.hpp
     title: Counter Clockwise
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/geometry/convex_diameter.hpp
     title: Convex Diameter
-  - icon: ':heavy_check_mark:'
-    path: src/geometry/crosspoint.hpp
-    title: Crosspoint
-  - icon: ':heavy_check_mark:'
-    path: src/geometry/distance.hpp
-    title: Distance
-  - icon: ':heavy_check_mark:'
-    path: src/geometry/projection.hpp
-    title: projection
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: '0.000001'
@@ -55,24 +40,20 @@ data:
     \n#define ERROR 0.000001\n\n#include <iomanip>\n#include \"geometry/convex_diameter.hpp\"\
     \n\nusing namespace geometry;\n\nint main() {\n    std::ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    std::cout << std::fixed << std::setprecision(15);\n\
-    \    int n;\n    std::cin >> n;\n    Polygon<double> P(n);\n    for (auto& p :\
-    \ P) std::cin >> p;\n    auto res = std::get<2>(convex_diameter(P));\n    std::cout\
-    \ << res << '\\n';\n}"
+    \    int n;\n    std::cin >> n;\n    Polygon<int> P(n);\n    for (auto& p : P)\
+    \ std::cin >> p;\n    auto [i, j] = convex_diameter(P);\n    auto d = P[i] - P[j];\n\
+    \    double res = std::sqrt(d.x * d.x + d.y * d.y);\n    std::cout << res << '\\\
+    n';\n}"
   dependsOn:
   - src/geometry/convex_diameter.hpp
   - src/geometry/Polygon.hpp
   - src/geometry/ccw.hpp
   - src/geometry/Point.hpp
-  - src/geometry/distance.hpp
-  - src/geometry/crosspoint.hpp
-  - src/geometry/Circle.hpp
-  - src/geometry/projection.hpp
-  - src/geometry/Line.hpp
   isVerificationFile: true
   path: test/aoj/CGL_4_B.test.cpp
   requiredBy: []
-  timestamp: '2023-10-04 02:39:30+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-06-18 01:28:06+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/CGL_4_B.test.cpp
 layout: document

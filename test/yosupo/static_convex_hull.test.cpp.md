@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Point.hpp
     title: Point
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/convex_hull.hpp
     title: Convex Hull
   _extendedRequiredBy: []

@@ -8,10 +8,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Line.hpp
     title: Line
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Polygon.hpp
     title: Polygon
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/ccw.hpp
     title: Counter Clockwise
   - icon: ':heavy_check_mark:'
@@ -26,10 +26,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
     title: Convex Cut
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/geometry/convex_diameter.hpp
     title: Convex Diameter
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/convex_hull.hpp
     title: Convex Hull
   - icon: ':heavy_check_mark:'
@@ -38,6 +38,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/distance.hpp
     title: Distance
+  - icon: ':x:'
+    path: src/geometry/furthest_pair.hpp
+    title: Furthest Pair
   - icon: ':heavy_check_mark:'
     path: src/geometry/incircle.hpp
     title: Incircle
@@ -84,7 +87,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_4_A.test.cpp
     title: test/aoj/CGL_4_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_4_B.test.cpp
     title: test/aoj/CGL_4_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -109,14 +112,20 @@ data:
     path: test/aoj/CGL_7_E.test.cpp
     title: test/aoj/CGL_7_E.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/closest_pair.test.cpp
+    title: test/yosupo/closest_pair.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/furthest_pair.test.cpp
+    title: test/yosupo/furthest_pair.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sort_points_by_argument.test.cpp
     title: test/yosupo/sort_points_by_argument.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/static_convex_hull.test.cpp
     title: test/yosupo/static_convex_hull.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/geometry/Point.hpp\"\n#include <cassert>\n#include <cmath>\n\
@@ -179,6 +188,7 @@ data:
   - src/geometry/convex_hull.hpp
   - src/geometry/convex_diameter.hpp
   - src/geometry/projection.hpp
+  - src/geometry/furthest_pair.hpp
   - src/geometry/reflection.hpp
   - src/geometry/convex_cut.hpp
   - src/geometry/circumcircle.hpp
@@ -189,7 +199,7 @@ data:
   - src/geometry/crosspoint.hpp
   - src/geometry/incircle.hpp
   timestamp: '2023-10-04 02:32:44+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/CGL_2_C.test.cpp
   - test/aoj/CGL_3_A.test.cpp
@@ -210,7 +220,9 @@ data:
   - test/aoj/CGL_7_B.test.cpp
   - test/aoj/CGL_3_B.test.cpp
   - test/aoj/CGL_1_B.test.cpp
+  - test/yosupo/furthest_pair.test.cpp
   - test/yosupo/static_convex_hull.test.cpp
+  - test/yosupo/closest_pair.test.cpp
   - test/yosupo/sort_points_by_argument.test.cpp
 documentation_of: src/geometry/Point.hpp
 layout: document

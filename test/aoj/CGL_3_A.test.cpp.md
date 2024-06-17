@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Point.hpp
     title: Point
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Polygon.hpp
     title: Polygon
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/ccw.hpp
     title: Counter Clockwise
   _extendedRequiredBy: []

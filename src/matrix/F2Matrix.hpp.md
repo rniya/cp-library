@@ -171,6 +171,7 @@ title: Matrix on $\mathbb{F}_2$
 | `pow(n)`                        | $N \times N$ 正方行列 $A$ を $n$ 乗した行列を返す．                                                                                                                                                                                    | $\mathrm{O} \left( \frac{N^3 \log n}{w} \right)$ |
 | `rank()`                        | $N \times M$ 行列 $A$ の rank を返す．                                                                                                                                                                                                 | $\mathrm{O} \left( \frac{N M^2}{w} \right)$      |
 | `det()`                         | $N \times N$ 正方行列 $A$ の determinant を返す．                                                                                                                                                                                      | $\mathrm{O} \left( \frac{N^3}{w} \right)$        |
+| `inv()`                         | $N \times N$ 正方行列 $A$ の逆行列を返す（行列が正則である必要がある）．                                                                                                                                                               | $\mathrm{O} \left( \frac{N^3}{w} \right)$        |
 | `system_of_linear_equations(b)` | $N \times M$ 行列 $A$ と長さ $N$ のｔ縦ベクトル $b$ について $A x = b$ という線形方程式系を考える．この方程式系に解が存在しない場合は空配列を返し，存在する場合は解のうちの 1 つ及び解空間の基底ベクトルをこの順にまとめた配列を返す． | $\mathrm{O} \left( \frac{N M^2}{w} \right)$      |
 
 

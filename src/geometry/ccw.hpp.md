@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Point.hpp
     title: Point
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Polygon.hpp
     title: Polygon
   - icon: ':heavy_check_mark:'
@@ -14,7 +14,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
     title: Convex Cut
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/geometry/convex_diameter.hpp
     title: Convex Diameter
   - icon: ':heavy_check_mark:'
@@ -23,6 +23,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/distance.hpp
     title: Distance
+  - icon: ':x:'
+    path: src/geometry/furthest_pair.hpp
+    title: Furthest Pair
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_1_C.test.cpp
@@ -48,7 +51,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_3_C.test.cpp
     title: test/aoj/CGL_3_C.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/CGL_4_B.test.cpp
     title: test/aoj/CGL_4_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -63,9 +66,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_E.test.cpp
     title: test/aoj/CGL_7_E.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yosupo/furthest_pair.test.cpp
+    title: test/yosupo/furthest_pair.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/geometry/Point.hpp\"\n#include <cassert>\n#include <cmath>\n\
@@ -114,12 +120,13 @@ data:
   requiredBy:
   - src/geometry/Polygon.hpp
   - src/geometry/convex_diameter.hpp
+  - src/geometry/furthest_pair.hpp
   - src/geometry/convex_cut.hpp
   - src/geometry/contain.hpp
   - src/geometry/distance.hpp
   - src/geometry/crosspoint.hpp
   timestamp: '2023-10-04 02:32:44+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/CGL_2_C.test.cpp
   - test/aoj/CGL_3_A.test.cpp
@@ -134,6 +141,7 @@ data:
   - test/aoj/CGL_1_C.test.cpp
   - test/aoj/CGL_4_B.test.cpp
   - test/aoj/CGL_3_B.test.cpp
+  - test/yosupo/furthest_pair.test.cpp
 documentation_of: src/geometry/ccw.hpp
 layout: document
 title: Counter Clockwise

@@ -7,10 +7,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Line.hpp
     title: Line
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Point.hpp
     title: Point
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/ccw.hpp
     title: Counter Clockwise
   - icon: ':heavy_check_mark:'
@@ -23,9 +23,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/contain.hpp
     title: Contain
-  - icon: ':heavy_check_mark:'
-    path: src/geometry/convex_diameter.hpp
-    title: Convex Diameter
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_2_D.test.cpp
@@ -33,9 +30,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_3_C.test.cpp
     title: test/aoj/CGL_3_C.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/CGL_4_B.test.cpp
-    title: test/aoj/CGL_4_B.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -154,14 +148,12 @@ data:
   isVerificationFile: false
   path: src/geometry/distance.hpp
   requiredBy:
-  - src/geometry/convex_diameter.hpp
   - src/geometry/contain.hpp
   timestamp: '2023-10-04 02:32:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL_2_D.test.cpp
   - test/aoj/CGL_3_C.test.cpp
-  - test/aoj/CGL_4_B.test.cpp
 documentation_of: src/geometry/distance.hpp
 layout: document
 title: Distance

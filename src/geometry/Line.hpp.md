@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/Point.hpp
     title: Point
   _extendedRequiredBy:
@@ -11,9 +11,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
     title: Convex Cut
-  - icon: ':heavy_check_mark:'
-    path: src/geometry/convex_diameter.hpp
-    title: Convex Diameter
   - icon: ':heavy_check_mark:'
     path: src/geometry/crosspoint.hpp
     title: Crosspoint
@@ -48,9 +45,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_3_C.test.cpp
     title: test/aoj/CGL_3_C.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/CGL_4_B.test.cpp
-    title: test/aoj/CGL_4_B.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_4_C.test.cpp
     title: test/aoj/CGL_4_C.test.cpp
@@ -114,7 +108,6 @@ data:
   isVerificationFile: false
   path: src/geometry/Line.hpp
   requiredBy:
-  - src/geometry/convex_diameter.hpp
   - src/geometry/projection.hpp
   - src/geometry/reflection.hpp
   - src/geometry/convex_cut.hpp
@@ -134,7 +127,6 @@ data:
   - test/aoj/CGL_7_A.test.cpp
   - test/aoj/CGL_2_A.test.cpp
   - test/aoj/CGL_2_B.test.cpp
-  - test/aoj/CGL_4_B.test.cpp
   - test/aoj/CGL_1_B.test.cpp
 documentation_of: src/geometry/Line.hpp
 layout: document
