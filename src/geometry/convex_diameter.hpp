@@ -1,11 +1,11 @@
 #pragma once
+#include <algorithm>
 #include <tuple>
 #include "Polygon.hpp"
-#include "distance.hpp"
 
 namespace geometry {
 
-template <typename T> std::tuple<int, int, T> convex_diameter(const Polygon<T>& convex) {
+template <typename T> std::pair<int, int> convex_diameter(const Polygon<T>& convex) {
     int n = convex.size();
     auto [si, sj] = [&] {
         auto [it_min, it_max] = std::minmax_element(begin(convex), end(convex));
@@ -14,7 +14,7 @@ template <typename T> std::tuple<int, int, T> convex_diameter(const Polygon<T>& 
     T max_dist = -1;
     std::pair<int, int> argmax{-1, -1};
     for (int i = si, j = sj; i != sj or j != si;) {
-        T d = distance(convex[i], convex[j]);
+        T d = (convex[i] - convex[j]).norm2();
         if (max_dist < d) {
             max_dist = d;
             argmax = {i, j};
@@ -25,7 +25,7 @@ template <typename T> std::tuple<int, int, T> convex_diameter(const Polygon<T>& 
         else
             j = nj;
     }
-    return {argmax.first, argmax.second, max_dist};
+    return argmax;
 }
 
 }  // namespace geometry

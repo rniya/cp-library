@@ -12,8 +12,10 @@ int main() {
     std::cout << std::fixed << std::setprecision(15);
     int n;
     std::cin >> n;
-    Polygon<double> P(n);
+    Polygon<int> P(n);
     for (auto& p : P) std::cin >> p;
-    auto res = std::get<2>(convex_diameter(P));
+    auto [i, j] = convex_diameter(P);
+    auto d = P[i] - P[j];
+    double res = std::sqrt(d.x * d.x + d.y * d.y);
     std::cout << res << '\n';
 }
