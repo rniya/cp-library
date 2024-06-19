@@ -76,8 +76,8 @@ data:
   timestamp: '2023-10-09 17:44:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/subset_convolution.test.cpp
   - test/yosupo/exp_of_set_power_series.test.cpp
+  - test/yosupo/subset_convolution.test.cpp
 documentation_of: src/math/subset_convolution.hpp
 layout: document
 title: Subset Convolution

@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
     title: Point
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/Polygon.hpp
     title: Polygon
   - icon: ':heavy_check_mark:'
@@ -14,7 +14,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/convex_cut.hpp
     title: Convex Cut
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/convex_diameter.hpp
     title: Convex Diameter
   - icon: ':heavy_check_mark:'
@@ -23,7 +23,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/distance.hpp
     title: Distance
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/furthest_pair.hpp
     title: Furthest Pair
   _extendedVerifiedWith:
@@ -51,7 +51,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_3_C.test.cpp
     title: test/aoj/CGL_3_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_4_B.test.cpp
     title: test/aoj/CGL_4_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -66,12 +66,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL_7_E.test.cpp
     title: test/aoj/CGL_7_E.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/furthest_pair.test.cpp
     title: test/yosupo/furthest_pair.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/geometry/Point.hpp\"\n#include <cassert>\n#include <cmath>\n\
@@ -118,29 +118,29 @@ data:
   isVerificationFile: false
   path: src/geometry/ccw.hpp
   requiredBy:
-  - src/geometry/Polygon.hpp
+  - src/geometry/crosspoint.hpp
   - src/geometry/convex_diameter.hpp
-  - src/geometry/furthest_pair.hpp
   - src/geometry/convex_cut.hpp
   - src/geometry/contain.hpp
+  - src/geometry/furthest_pair.hpp
   - src/geometry/distance.hpp
-  - src/geometry/crosspoint.hpp
+  - src/geometry/Polygon.hpp
   timestamp: '2023-10-04 02:32:44+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/CGL_2_C.test.cpp
-  - test/aoj/CGL_3_A.test.cpp
-  - test/aoj/CGL_2_D.test.cpp
-  - test/aoj/CGL_3_C.test.cpp
-  - test/aoj/CGL_7_D.test.cpp
-  - test/aoj/CGL_4_C.test.cpp
+  - test/aoj/CGL_2_B.test.cpp
   - test/aoj/CGL_7_E.test.cpp
+  - test/aoj/CGL_3_A.test.cpp
+  - test/aoj/CGL_3_C.test.cpp
+  - test/aoj/CGL_3_B.test.cpp
+  - test/aoj/CGL_7_D.test.cpp
+  - test/aoj/CGL_1_C.test.cpp
+  - test/aoj/CGL_4_C.test.cpp
+  - test/aoj/CGL_2_D.test.cpp
+  - test/aoj/CGL_2_C.test.cpp
   - test/aoj/CGL_7_A.test.cpp
   - test/aoj/CGL_2_A.test.cpp
-  - test/aoj/CGL_2_B.test.cpp
-  - test/aoj/CGL_1_C.test.cpp
   - test/aoj/CGL_4_B.test.cpp
-  - test/aoj/CGL_3_B.test.cpp
   - test/yosupo/furthest_pair.test.cpp
 documentation_of: src/geometry/ccw.hpp
 layout: document

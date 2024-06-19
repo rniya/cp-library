@@ -169,10 +169,10 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_5_C.test.cpp
-  - test/yosupo/vertex_set_path_composite.test.cpp
+  - test/yosupo/vertex_add_path_sum.test.cpp
   - test/yosupo/jump_on_tree.test.cpp
   - test/yosupo/vertex_add_subtree_sum.test.cpp
-  - test/yosupo/vertex_add_path_sum.test.cpp
+  - test/yosupo/vertex_set_path_composite.test.cpp
 documentation_of: src/tree/HeavyLightDecomposition.hpp
 layout: document
 title: Heavy Light Decomposition

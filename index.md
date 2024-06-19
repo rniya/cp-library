@@ -78,16 +78,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/geometry/Line.hpp
       title: Line
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/Point.hpp
       title: Point
     - icon: ':warning:'
       path: src/geometry/Point3D.hpp
       title: Point (3D)
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/Polygon.hpp
       title: Polygon
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/ccw.hpp
       title: Counter Clockwise
     - icon: ':heavy_check_mark:'
@@ -102,10 +102,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/geometry/convex_cut.hpp
       title: Convex Cut
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/convex_diameter.hpp
       title: Convex Diameter
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/convex_hull.hpp
       title: Convex Hull
     - icon: ':heavy_check_mark:'
@@ -114,7 +114,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/geometry/distance.hpp
       title: Distance
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/furthest_pair.hpp
       title: Furthest Pair
     - icon: ':heavy_check_mark:'
@@ -427,7 +427,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_4_A.test.cpp
       title: test/aoj/CGL_4_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL_4_B.test.cpp
       title: test/aoj/CGL_4_B.test.cpp
     - icon: ':heavy_check_mark:'
@@ -570,7 +570,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/frequency_table_of_tree_distance.test.cpp
       title: test/yosupo/frequency_table_of_tree_distance.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/furthest_pair.test.cpp
       title: test/yosupo/furthest_pair.test.cpp
     - icon: ':heavy_check_mark:'

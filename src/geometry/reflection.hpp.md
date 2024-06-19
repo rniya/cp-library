@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Line.hpp
     title: Line
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
     title: Point
   - icon: ':heavy_check_mark:'

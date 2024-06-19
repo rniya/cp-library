@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Line.hpp
     title: Line
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
     title: Point
   _extendedRequiredBy:
@@ -108,25 +108,25 @@ data:
   isVerificationFile: false
   path: src/geometry/projection.hpp
   requiredBy:
-  - src/geometry/reflection.hpp
+  - src/geometry/crosspoint.hpp
   - src/geometry/convex_cut.hpp
   - src/geometry/contain.hpp
   - src/geometry/distance.hpp
-  - src/geometry/crosspoint.hpp
+  - src/geometry/reflection.hpp
   timestamp: '2023-10-04 02:32:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/CGL_2_C.test.cpp
-  - test/aoj/CGL_2_D.test.cpp
-  - test/aoj/CGL_3_C.test.cpp
-  - test/aoj/CGL_7_D.test.cpp
-  - test/aoj/CGL_4_C.test.cpp
+  - test/aoj/CGL_2_B.test.cpp
   - test/aoj/CGL_7_E.test.cpp
   - test/aoj/CGL_1_A.test.cpp
+  - test/aoj/CGL_3_C.test.cpp
+  - test/aoj/CGL_7_D.test.cpp
+  - test/aoj/CGL_1_B.test.cpp
+  - test/aoj/CGL_4_C.test.cpp
+  - test/aoj/CGL_2_D.test.cpp
+  - test/aoj/CGL_2_C.test.cpp
   - test/aoj/CGL_7_A.test.cpp
   - test/aoj/CGL_2_A.test.cpp
-  - test/aoj/CGL_2_B.test.cpp
-  - test/aoj/CGL_1_B.test.cpp
 documentation_of: src/geometry/projection.hpp
 layout: document
 title: projection

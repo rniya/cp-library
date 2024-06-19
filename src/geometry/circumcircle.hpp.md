@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: src/geometry/Circle.hpp
     title: Circle
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/Point.hpp
     title: Point
   _extendedRequiredBy: []
