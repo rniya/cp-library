@@ -15,7 +15,7 @@ void solve() {
         P.emplace_back(x, y);
     }
 
-    auto [i, j, val] = furthest_pair(P);
+    auto [i, j] = furthest_pair(P);
     std::cout << i << " " << j << "\n";
 }
 

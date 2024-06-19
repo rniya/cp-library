@@ -12,7 +12,7 @@ int main() {
     std::cout << std::fixed << std::setprecision(15);
     int n;
     std::cin >> n;
-    Polygon<int> P(n);
+    Polygon<double> P(n);
     for (auto& p : P) std::cin >> p;
     auto [i, j] = convex_diameter(P);
     auto d = P[i] - P[j];
