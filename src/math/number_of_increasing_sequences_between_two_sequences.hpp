@@ -27,6 +27,7 @@ template <typename T> T number_of_increasing_sequences_between_two_sequences(std
     for (int i = n - 2; i >= 0; i--) U[i] = std::min(U[i], U[i + 1]);
     for (int i = 1; i < n; i++) U[i] = std::min(U[i], U[i - 1] + 1);
     Binomial<T> binom;
+
     auto extract = [](const std::vector<T>& dp, int l, int r = -1) {
         int len = dp.size();
         if (l >= len) return std::vector<T>();
@@ -98,6 +99,7 @@ template <typename T> T number_of_increasing_sequences_between_two_sequences(std
         int m = (l + r) >> 1;
         return self(self, m, r, self(self, l, m, dp));
     };
+
     std::vector<T> init(1, T(1));
     auto last = dfs(dfs, 0, n - 1, init);
     return std::accumulate(last.begin(), last.end(), T(0));
