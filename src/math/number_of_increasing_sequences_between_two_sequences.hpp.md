@@ -110,7 +110,7 @@ title: Number of Increasing Sequences Between Two Sequences
 
 ## 計算量
 
-$m \coloneqq \max _ i b _ i - \min _ i a _ i$ として時間計算量 $\mathrm{O}(n + m) \log ^ 2 (n + m)$
+$m := \max _ i b _ i - \min _ i a _ i$ として時間計算量 $\mathrm{O}(n + m) \log ^ 2 (n + m)$
 
 ## Links
 - [上限付き単調増加列の数え上げ - noshi91のメモ](https://noshi91.hatenablog.com/entry/2023/07/21/235339)
