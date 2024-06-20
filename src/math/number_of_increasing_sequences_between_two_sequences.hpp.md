@@ -42,8 +42,8 @@ data:
     \ - 1]);\n    for (int i = n - 2; i >= 0; i--) L[i] = std::max(L[i], L[i + 1]\
     \ - 1);\n    for (int i = n - 2; i >= 0; i--) U[i] = std::min(U[i], U[i + 1]);\n\
     \    for (int i = 1; i < n; i++) U[i] = std::min(U[i], U[i - 1] + 1);\n    Binomial<T>\
-    \ binom;\n    auto extract = [](const std::vector<T>& dp, int l, int r = -1) {\n\
-    \        int len = dp.size();\n        if (l >= len) return std::vector<T>();\n\
+    \ binom;\n\n    auto extract = [](const std::vector<T>& dp, int l, int r = -1)\
+    \ {\n        int len = dp.size();\n        if (l >= len) return std::vector<T>();\n\
     \        r = (r == -1 ? len : len < r ? len : r);\n        return std::vector<T>(dp.begin()\
     \ + l, dp.begin() + r);\n    };\n    auto go = [&](int l, int r, const std::vector<T>&\
     \ dp) -> std::vector<T> {\n        int len = r - l;\n        std::vector<T> f(len\
@@ -83,7 +83,7 @@ data:
     \ int(dp.size()) - (r - l)));\n            for (int i = 0; i < int(buf.size());\
     \ i++) res[int(res.size()) - 1 - i] += buf[int(buf.size()) - 1 - i];\n       \
     \     return res;\n        }\n\n        int m = (l + r) >> 1;\n        return\
-    \ self(self, m, r, self(self, l, m, dp));\n    };\n    std::vector<T> init(1,\
+    \ self(self, m, r, self(self, l, m, dp));\n    };\n\n    std::vector<T> init(1,\
     \ T(1));\n    auto last = dfs(dfs, 0, n - 1, init);\n    return std::accumulate(last.begin(),\
     \ last.end(), T(0));\n}\n"
   dependsOn:
@@ -91,7 +91,7 @@ data:
   isVerificationFile: false
   path: src/math/number_of_increasing_sequences_between_two_sequences.hpp
   requiredBy: []
-  timestamp: '2024-06-21 03:19:23+09:00'
+  timestamp: '2024-06-21 03:31:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp
@@ -110,7 +110,7 @@ title: Number of Increasing Sequences Between Two Sequences
 
 ## 計算量
 
-$m := \max _ i b _ i - \min _ i a _ i$ として時間計算量 $\mathrm{O}(n + m) \log ^ 2 (n + m)$
+$m := \max _ i b _ i - \min _ i a _ i$ として時間計算量 $\mathrm{O}((n + m) \log ^ 2 (n + m))$
 
 ## Links
 - [上限付き単調増加列の数え上げ - noshi91のメモ](https://noshi91.hatenablog.com/entry/2023/07/21/235339)
