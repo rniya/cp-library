@@ -385,9 +385,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/2903.test.cpp
       title: test/aoj/2903.test.cpp
-    - icon: ':x:'
-      path: test/aoj/3335.test.cpp
-      title: test/aoj/3335.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_14_B.test.cpp
       title: test/aoj/ALDS1_14_B.test.cpp
