@@ -85,6 +85,7 @@
 "test/yosupo/min_plus_convolution_convex_convex.test.cpp": "2024-06-01 02:28:17 +0900",
 "test/yosupo/multipoint_evaluation.test.cpp": "2024-05-22 00:21:24 +0900",
 "test/yosupo/nim_product_64.test.cpp": "2023-01-12 22:28:24 +0900",
+"test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp": "2024-06-21 03:19:23 +0900",
 "test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp": "2024-05-21 23:41:26 +0900",
 "test/yosupo/point_add_rectangle_sum.test.cpp": "2023-01-12 22:28:24 +0900",
 "test/yosupo/point_set_tree_path_composite_sum_fixed_root.test.cpp": "2024-06-04 01:15:26 +0900",
