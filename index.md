@@ -205,12 +205,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/binary_gcd.hpp
       title: binary gcd
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/math/binomial.hpp
       title: Binomial Coefficients
-    - icon: ':x:'
-      path: src/math/count_young_paths.hpp
-      title: Count Paths on Young Tableau
     - icon: ':heavy_check_mark:'
       path: src/math/discrete_logarithm.hpp
       title: Discrete Logarithm
@@ -226,6 +223,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/longest_increasing_subsequence.hpp
       title: Longest Increasing Subsequence (LIS)
+    - icon: ':heavy_check_mark:'
+      path: src/math/number_of_increasing_sequences_between_two_sequences.hpp
+      title: Number of Increasing Sequences Between Two Sequences
     - icon: ':heavy_check_mark:'
       path: src/math/set_function.hpp
       title: Set Function (FZT, FMT, FWHT)
@@ -636,6 +636,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/nim_product_64.test.cpp
       title: test/yosupo/nim_product_64.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp
+      title: test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp
       title: test/yosupo/persistent_unionfind.UndoUnionFind.test.cpp

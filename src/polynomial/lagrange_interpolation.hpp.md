@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/math/binomial.hpp
     title: Binomial Coefficients
   _extendedRequiredBy: []

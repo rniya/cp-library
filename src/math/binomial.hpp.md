@@ -2,16 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
-    path: src/math/count_young_paths.hpp
-    title: Count Paths on Young Tableau
+  - icon: ':heavy_check_mark:'
+    path: src/math/number_of_increasing_sequences_between_two_sequences.hpp
+    title: Number of Increasing Sequences Between Two Sequences
   - icon: ':heavy_check_mark:'
     path: src/polynomial/lagrange_interpolation.hpp
     title: Lagrange Interpolation
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/aoj/3335.test.cpp
-    title: test/aoj/3335.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_E.test.cpp
     title: test/aoj/DPL_5_E.test.cpp
@@ -19,11 +16,14 @@ data:
     path: test/yosupo/binomial_coefficient_prime_mod.test.cpp
     title: test/yosupo/binomial_coefficient_prime_mod.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp
+    title: test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/math/binomial.hpp\"\n#include <algorithm>\n#include\
@@ -78,15 +78,15 @@ data:
   isVerificationFile: false
   path: src/math/binomial.hpp
   requiredBy:
-  - src/math/count_young_paths.hpp
+  - src/math/number_of_increasing_sequences_between_two_sequences.hpp
   - src/polynomial/lagrange_interpolation.hpp
   timestamp: '2024-05-25 01:38:25+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/665.test.cpp
-  - test/aoj/3335.test.cpp
   - test/aoj/DPL_5_E.test.cpp
   - test/yosupo/binomial_coefficient_prime_mod.test.cpp
+  - test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp
 documentation_of: src/math/binomial.hpp
 layout: document
 title: Binomial Coefficients

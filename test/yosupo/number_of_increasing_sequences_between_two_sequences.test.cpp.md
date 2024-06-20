@@ -5,11 +5,8 @@ data:
     path: src/math/binomial.hpp
     title: Binomial Coefficients
   - icon: ':heavy_check_mark:'
-    path: src/polynomial/lagrange_interpolation.hpp
-    title: Lagrange Interpolation
-  - icon: ':heavy_check_mark:'
-    path: src/util/modint.hpp
-    title: modint (input/output)
+    path: src/math/number_of_increasing_sequences_between_two_sequences.hpp
+    title: Number of Increasing Sequences Between Two Sequences
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -17,9 +14,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/665
+    PROBLEM: https://judge.yosupo.jp/problem/number_of_increasing_sequences_between_two_sequences
     links:
-    - https://yukicoder.me/problems/no/665
+    - https://judge.yosupo.jp/problem/number_of_increasing_sequences_between_two_sequences
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.4/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -30,29 +27,29 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.4/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: polynomial/lagrange_interpolation.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/number_of_increasing_sequences_between_two_sequences.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://yukicoder.me/problems/no/665\"\n\n#include \"polynomial/lagrange_interpolation.hpp\"\
-    \n#include \"util/modint.hpp\"\n\nusing mint = atcoder::modint1000000007;\n\n\
-    int main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n  \
-    \  Binomial<mint> BINOM;\n    long long n;\n    int k;\n    std::cin >> n >> k;\n\
-    \    std::vector<mint> A(k + 2, 0);\n    for (int i = 1; i <= k + 1; i++) A[i]\
-    \ = A[i - 1] + ((mint)i).pow(k);\n    std::cout << lagrange_interpolation(A, n,\
-    \ BINOM) << '\\n';\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/number_of_increasing_sequences_between_two_sequences\"\
+    \n\n#include \"math/number_of_increasing_sequences_between_two_sequences.hpp\"\
+    \n#include <iostream>\n#include \"atcoder/modint\"\n\nusing mint = atcoder::modint998244353;\n\
+    \nint main() {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    int N, M;\n    std::cin >> N >> M;\n    std::vector<int> A(N), B(N);\n  \
+    \  for (int i = 0; i < N; i++) std::cin >> A[i];\n    for (int i = 0; i < N; i++)\
+    \ std::cin >> B[i];\n\n    auto ans = number_of_increasing_sequences_between_two_sequences<mint>(A,\
+    \ B);\n    std::cout << ans.val() << \"\\n\";\n    return 0;\n}"
   dependsOn:
-  - src/polynomial/lagrange_interpolation.hpp
+  - src/math/number_of_increasing_sequences_between_two_sequences.hpp
   - src/math/binomial.hpp
-  - src/util/modint.hpp
   isVerificationFile: true
-  path: test/yukicoder/665.test.cpp
+  path: test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp
   requiredBy: []
-  timestamp: '2024-05-25 01:38:25+09:00'
+  timestamp: '2024-06-21 03:19:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yukicoder/665.test.cpp
+documentation_of: test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yukicoder/665.test.cpp
-- /verify/test/yukicoder/665.test.cpp.html
-title: test/yukicoder/665.test.cpp
+- /verify/test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp
+- /verify/test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp.html
+title: test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp
 ---
