@@ -1,5 +1,7 @@
 #pragma once
+#include <algorithm>
 #include <cassert>
+#include <unordered_map>
 #include <utility>
 #include <vector>
 
@@ -112,7 +114,23 @@ struct HeavyLightDecomposition {
         f(vertex_id[u] + !vertex, vertex_id[u] + sub[u]);
     }
 
-private:
+    std::pair<std::unordered_map<int, std::vector<int>>, int> auxiliary_tree(std::vector<int> vs) {
+        int len = vs.size();
+        std::sort(vs.begin(), vs.end(), [&](int i, int j) { return vertex_id[i] < vertex_id[j]; });
+        for (int i = 0; i + 1 < len; i++) vs.emplace_back(lca(vs[i], vs[i + 1]));
+        std::sort(vs.begin(), vs.end(), [&](int i, int j) { return vertex_id[i] < vertex_id[j]; });
+        vs.erase(std::unique(vs.begin(), vs.end()), vs.end());
+        std::vector<int> st;
+        std::unordered_map<int, std::vector<int>> res;
+        for (int v : vs) {
+            while (not st.empty() and vertex_id[st.back()] + sub[st.back()] <= vertex_id[v]) st.pop_back();
+            if (not st.empty()) res[st.back()].emplace_back(v);
+            st.emplace_back(v);
+        }
+        return {res, vs[0]};
+    }
+
+  private:
     void dfs_sz(int v) {
         sub[v] = 1;
         if (!G[v].empty() and G[v].front() == par[v]) std::swap(G[v].front(), G[v].back());
