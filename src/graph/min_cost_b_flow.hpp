@@ -48,12 +48,12 @@ template <class Cap, class Cost> struct min_cost_b_flow {
                 negative += -b[v];
             }
         }
-        if (positive != negative) return make_pair(false, Cost{});
+        if (positive != negative) return std::make_pair(false, Cost{});
         auto res = graph.flow(source, sink);
         Cap flow = res.first;
         Cost cost = res.second;
-        if (flow < positive) return make_pair(false, Cost{});
-        return make_pair(true, sum + cost);
+        if (flow < positive) return std::make_pair(false, Cost{});
+        return std::make_pair(true, sum + cost);
     }
 
   private:

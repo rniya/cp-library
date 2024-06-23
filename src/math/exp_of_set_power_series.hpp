@@ -1,5 +1,6 @@
+#pragma once
 #include <algorithm>
-#include "subset_convolution.hpp"
+#include "../convolution/subset_convolution.hpp"
 
 template <typename T, int LIM = 20> std::vector<T> exp_of_set_power_series(std::vector<T>& a) {
     int n = __builtin_ctz(a.size());

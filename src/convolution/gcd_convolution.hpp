@@ -2,7 +2,7 @@
 #include <cassert>
 #include <vector>
 
-namespace gcd_convolution {
+namespace internal {
 
 // f(k) <- \sum_{k | i} f(i)
 template <typename T> void divisor_transform(std::vector<T>& f) {
@@ -34,13 +34,13 @@ template <typename T> void inverse_divisor_transform(std::vector<T>& f) {
     }
 }
 
+}  // namespace internal
+
 template <typename T> std::vector<T> gcd_convolution(std::vector<T> f, std::vector<T> g) {
     assert(f.size() == g.size());
-    divisor_transform(f);
-    divisor_transform(g);
+    internal::divisor_transform(f);
+    internal::divisor_transform(g);
     for (int i = 0; i < int(f.size()); i++) f[i] *= g[i];
-    inverse_divisor_transform(f);
+    internal::inverse_divisor_transform(f);
     return f;
 }
-
-}  // namespace gcd_convolution
