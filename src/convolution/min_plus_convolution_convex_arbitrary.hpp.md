@@ -86,7 +86,7 @@ $$
 $(n + m - 1) \times m$ 行列 $X$ を
 
 $$
-X _ {i, j} \coloneqq a _ {i - j} + b _ j
+X _ {i, j} := a _ {i - j} + b _ j
 $$
 
 により定めたとき，$X$ は totally monotone であり，monotone minima（時間計算量では SMAWK algorithm に劣るが，実用上はこちらの方が高速なのでこちらを採用している）により各行の最小値，すなわち所望の数列 $c$ を計算することが可能となる．

@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: src/convolution/subset_convolution.hpp
+    title: Subset Convolution
+  - icon: ':heavy_check_mark:'
     path: src/math/exp_of_set_power_series.hpp
     title: Exp of Set Power Series
-  - icon: ':heavy_check_mark:'
-    path: src/math/subset_convolution.hpp
-    title: Subset Convolution
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -39,11 +39,11 @@ data:
     \ << N; i++) std::cout << c[i].val() << (i + 1 == (1 << N) ? '\\n' : ' ');\n}"
   dependsOn:
   - src/math/exp_of_set_power_series.hpp
-  - src/math/subset_convolution.hpp
+  - src/convolution/subset_convolution.hpp
   isVerificationFile: true
   path: test/yosupo/exp_of_set_power_series.test.cpp
   requiredBy: []
-  timestamp: '2023-10-09 19:11:51+09:00'
+  timestamp: '2024-06-24 04:02:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/exp_of_set_power_series.test.cpp

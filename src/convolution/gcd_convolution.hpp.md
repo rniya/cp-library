@@ -6,16 +6,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/gcd_convolution.test.cpp
     title: test/yosupo/gcd_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/886.test.cpp
-    title: test/yukicoder/886.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/math/gcd_convolution.hpp\"\n#include <cassert>\n#include\
-    \ <vector>\n\nnamespace gcd_convolution {\n\n// f(k) <- \\sum_{k | i} f(i)\ntemplate\
+  bundledCode: "#line 2 \"src/convolution/gcd_convolution.hpp\"\n#include <cassert>\n\
+    #include <vector>\n\nnamespace internal {\n\n// f(k) <- \\sum_{k | i} f(i)\ntemplate\
     \ <typename T> void divisor_transform(std::vector<T>& f) {\n    int n = f.size();\n\
     \    std::vector<bool> sieve(n, true);\n    for (int p = 2; p < n; p++) {\n  \
     \      if (sieve[p]) {\n            for (int k = (n - 1) / p; k > 0; k--) {\n\
@@ -26,12 +23,12 @@ data:
     \ (int i = 1; i < n; i++) f[i] -= f[0];\n    for (int p = 2; p < n; p++) {\n \
     \       if (sieve[p]) {\n            for (int k = 1 / p; k * p < n; k++) {\n \
     \               sieve[k * p] = false;\n                f[k] -= f[k * p];\n   \
-    \         }\n        }\n    }\n}\n\ntemplate <typename T> std::vector<T> gcd_convolution(std::vector<T>\
-    \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    divisor_transform(f);\n\
-    \    divisor_transform(g);\n    for (int i = 0; i < int(f.size()); i++) f[i] *=\
-    \ g[i];\n    inverse_divisor_transform(f);\n    return f;\n}\n\n}  // namespace\
-    \ gcd_convolution\n"
-  code: "#pragma once\n#include <cassert>\n#include <vector>\n\nnamespace gcd_convolution\
+    \         }\n        }\n    }\n}\n\n}  // namespace internal\n\ntemplate <typename\
+    \ T> std::vector<T> gcd_convolution(std::vector<T> f, std::vector<T> g) {\n  \
+    \  assert(f.size() == g.size());\n    internal::divisor_transform(f);\n    internal::divisor_transform(g);\n\
+    \    for (int i = 0; i < int(f.size()); i++) f[i] *= g[i];\n    internal::inverse_divisor_transform(f);\n\
+    \    return f;\n}\n"
+  code: "#pragma once\n#include <cassert>\n#include <vector>\n\nnamespace internal\
     \ {\n\n// f(k) <- \\sum_{k | i} f(i)\ntemplate <typename T> void divisor_transform(std::vector<T>&\
     \ f) {\n    int n = f.size();\n    std::vector<bool> sieve(n, true);\n    for\
     \ (int p = 2; p < n; p++) {\n        if (sieve[p]) {\n            for (int k =\
@@ -43,35 +40,44 @@ data:
     \ n; i++) f[i] -= f[0];\n    for (int p = 2; p < n; p++) {\n        if (sieve[p])\
     \ {\n            for (int k = 1 / p; k * p < n; k++) {\n                sieve[k\
     \ * p] = false;\n                f[k] -= f[k * p];\n            }\n        }\n\
-    \    }\n}\n\ntemplate <typename T> std::vector<T> gcd_convolution(std::vector<T>\
-    \ f, std::vector<T> g) {\n    assert(f.size() == g.size());\n    divisor_transform(f);\n\
-    \    divisor_transform(g);\n    for (int i = 0; i < int(f.size()); i++) f[i] *=\
-    \ g[i];\n    inverse_divisor_transform(f);\n    return f;\n}\n\n}  // namespace\
-    \ gcd_convolution\n"
+    \    }\n}\n\n}  // namespace internal\n\ntemplate <typename T> std::vector<T>\
+    \ gcd_convolution(std::vector<T> f, std::vector<T> g) {\n    assert(f.size() ==\
+    \ g.size());\n    internal::divisor_transform(f);\n    internal::divisor_transform(g);\n\
+    \    for (int i = 0; i < int(f.size()); i++) f[i] *= g[i];\n    internal::inverse_divisor_transform(f);\n\
+    \    return f;\n}\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/math/gcd_convolution.hpp
+  path: src/convolution/gcd_convolution.hpp
   requiredBy: []
-  timestamp: '2023-04-23 19:32:20+09:00'
+  timestamp: '2024-06-24 04:02:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/886.test.cpp
   - test/yosupo/gcd_convolution.test.cpp
-documentation_of: src/math/gcd_convolution.hpp
+documentation_of: src/convolution/gcd_convolution.hpp
 layout: document
 title: GCD Convolution
 ---
 
-## 概要
-数列を添字の $\gcd$ 演算に関して畳み込む．
+## 入力
 
-| 関数                           | 効果                                                                                                         | 時間計算量          |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------- |
-| `divisor_transform(f)`         | $f(k) \leftarrow \sum_{k \| i} f(i)$ と変換する．                                                            | $O(n \log(\log n))$ |
-| `inverse_divisor_transform(f)` | `divisor_transform` の逆変換を施す．                                                                         | $O(n \log(\log n))$ |
-| `gcd_convolution(f, g)`        | 列 $f, g$ を $\gcd$ 演算に関して畳み込む. すなわち，$h_k = \sum_{\gcd(i, j) = k} f_ig_j$ なる列 $h$ を返す． | $O(n \log(\log n))$ |
+ともに長さ $n$ の数列 $a _ 1, \dots , a _ n$ 及び $b _ 1, \dots , b _ n$．
 
-## 問題例
+## 出力
+
+数列 $a$ と $b$ の index の最大公約数についての畳み込み．
+すなわち，
+
+$$
+c _ k = \sum _ {\gcd(i, j) = k} a _ i b _ j
+$$
+
+で定義される長さ $n$ の数列 $c$．
+
+## 計算量
+
+時間計算量 $\mathrm{O}(n \log \log n)$
+
+## 出題例
 - [AtCoder Grand Contest 038 C - LCMs](https://atcoder.jp/contests/agc038/tasks/agc038_c)
 - [COMPFEST 13 - Finals Online Mirror (Unrated, ICPC Rules, Teams Preferred) G. GCD Festival](https://codeforces.com/contest/1575/problem/G)
 

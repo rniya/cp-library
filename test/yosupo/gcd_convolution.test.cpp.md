@@ -2,11 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/math/gcd_convolution.hpp
+    path: src/convolution/gcd_convolution.hpp
     title: GCD Convolution
-  - icon: ':heavy_check_mark:'
-    path: src/util/modint.hpp
-    title: modint (input/output)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -27,23 +24,23 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.4/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/gcd_convolution.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: convolution/gcd_convolution.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/gcd_convolution\"\n\n#include\
-    \ \"math/gcd_convolution.hpp\"\n#include <iostream>\n#include \"util/modint.hpp\"\
+    \ \"convolution/gcd_convolution.hpp\"\n#include <iostream>\n#include \"atcoder/modint\"\
     \n\nusing mint = atcoder::modint998244353;\n\nint main() {\n    std::cin.tie(0);\n\
     \    std::ios::sync_with_stdio(false);\n    int N;\n    std::cin >> N;\n    std::vector<mint>\
-    \ a(N + 1), b(N + 1);\n    for (int i = 1; i <= N; i++) std::cin >> a[i];\n  \
-    \  for (int i = 1; i <= N; i++) std::cin >> b[i];\n\n    auto c = gcd_convolution::gcd_convolution(a,\
-    \ b);\n    for (int i = 1; i <= N; i++) std::cout << c[i] << (i == N ? '\\n' :\
-    \ ' ');\n    return 0;\n}"
+    \ a(N + 1), b(N + 1);\n    for (int i = 1; i <= N; i++) {\n        int val;\n\
+    \        std::cin >> val;\n        a[i] = val;\n    }\n    for (int i = 1; i <=\
+    \ N; i++) {\n        int val;\n        std::cin >> val;\n        b[i] = val;\n\
+    \    }\n\n    auto c = gcd_convolution(a, b);\n    for (int i = 1; i <= N; i++)\
+    \ std::cout << c[i].val() << (i == N ? '\\n' : ' ');\n    return 0;\n}"
   dependsOn:
-  - src/math/gcd_convolution.hpp
-  - src/util/modint.hpp
+  - src/convolution/gcd_convolution.hpp
   isVerificationFile: true
   path: test/yosupo/gcd_convolution.test.cpp
   requiredBy: []
-  timestamp: '2023-09-18 22:25:37+09:00'
+  timestamp: '2024-06-24 04:02:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/gcd_convolution.test.cpp

@@ -18,11 +18,17 @@ data:
       path: src/convolution/convolution_arbitary_mod.hpp
       title: Convolution (Arbitary mod)
     - icon: ':heavy_check_mark:'
+      path: src/convolution/gcd_convolution.hpp
+      title: GCD Convolution
+    - icon: ':heavy_check_mark:'
       path: src/convolution/min_plus_convolution_convex_arbitrary.hpp
       title: Min Plus Convolution (Convex and Arbitary)
     - icon: ':heavy_check_mark:'
       path: src/convolution/min_plus_convolution_convex_convex.hpp
       title: Min Plus Convolution (Convex and Convex)
+    - icon: ':heavy_check_mark:'
+      path: src/convolution/subset_convolution.hpp
+      title: Subset Convolution
   - name: src/datastructure
     pages:
     - icon: ':heavy_check_mark:'
@@ -218,9 +224,6 @@ data:
       path: src/math/exp_of_set_power_series.hpp
       title: Exp of Set Power Series
     - icon: ':heavy_check_mark:'
-      path: src/math/gcd_convolution.hpp
-      title: GCD Convolution
-    - icon: ':heavy_check_mark:'
       path: src/math/longest_increasing_subsequence.hpp
       title: Longest Increasing Subsequence (LIS)
     - icon: ':heavy_check_mark:'
@@ -229,9 +232,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/set_function.hpp
       title: Set Function (FZT, FMT, FWHT)
-    - icon: ':heavy_check_mark:'
-      path: src/math/subset_convolution.hpp
-      title: Subset Convolution
   - name: src/matrix
     pages:
     - icon: ':heavy_check_mark:'
@@ -767,9 +767,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/665.test.cpp
       title: test/yukicoder/665.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/yukicoder/886.test.cpp
-      title: test/yukicoder/886.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/952.test.cpp
       title: test/yukicoder/952.test.cpp

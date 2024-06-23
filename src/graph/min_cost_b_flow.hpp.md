@@ -41,16 +41,16 @@ data:
     \ 0);\n                positive += b[v];\n            } else if (b[v] < 0) {\n\
     \                graph.add_edge(v, sink, -b[v], 0);\n                negative\
     \ += -b[v];\n            }\n        }\n        if (positive != negative) return\
-    \ make_pair(false, Cost{});\n        auto res = graph.flow(source, sink);\n  \
-    \      Cap flow = res.first;\n        Cost cost = res.second;\n        if (flow\
-    \ < positive) return make_pair(false, Cost{});\n        return make_pair(true,\
+    \ std::make_pair(false, Cost{});\n        auto res = graph.flow(source, sink);\n\
+    \        Cap flow = res.first;\n        Cost cost = res.second;\n        if (flow\
+    \ < positive) return std::make_pair(false, Cost{});\n        return std::make_pair(true,\
     \ sum + cost);\n    }\n\n  private:\n    int n;\n    atcoder::mcf_graph<Cap, Cost>\
     \ graph;\n    std::vector<Cap> b;\n    Cost sum;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: src/graph/min_cost_b_flow.hpp
   requiredBy: []
-  timestamp: '2024-05-22 00:21:24+09:00'
+  timestamp: '2024-06-24 04:02:51+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: src/graph/min_cost_b_flow.hpp

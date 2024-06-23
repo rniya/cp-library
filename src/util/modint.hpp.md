@@ -25,9 +25,6 @@ data:
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/gcd_convolution.test.cpp
-    title: test/yosupo/gcd_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -72,9 +69,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/665.test.cpp
     title: test/yukicoder/665.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/886.test.cpp
-    title: test/yukicoder/886.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -107,7 +101,6 @@ data:
   verifiedWith:
   - test/yukicoder/1269.test.cpp
   - test/yukicoder/665.test.cpp
-  - test/yukicoder/886.test.cpp
   - test/yukicoder/1289.test.cpp
   - test/yukicoder/1907.test.cpp
   - test/aoj/DPL_5_E.test.cpp
@@ -127,7 +120,6 @@ data:
   - test/yosupo/bitwise_xor_convolution.test.cpp
   - test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/gcd_convolution.test.cpp
   - test/yosupo/vertex_set_path_composite.test.cpp
 documentation_of: src/util/modint.hpp
 layout: document
