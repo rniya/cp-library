@@ -1,8 +1,3 @@
----
-title: Count Paths on Young Tableau
-documentation_of: ./count_young_paths.hpp
----
-
 ## 概要
 $(A_1, \dots , A_n)\ (1 \leq A_1 \leq \dots \leq A_n)$ なる分割に対応するヤング図形上の箱 $(1, 1)$ から箱 $(n, i)\ (1 \leq i \leq A_n)$ までの最短経路の総数を数え上げる．
 
