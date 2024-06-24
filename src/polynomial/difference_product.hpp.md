@@ -54,14 +54,24 @@ layout: document
 title: Difference Product (Vandermonde's Determinant)
 ---
 
-## 概要
-数列 $(x_1, x_2, \dots , x_n)$ を入力として，差積
-$$
-\Prod_{1 \leq i < j \leq n} (x_j - x_i)
-$$
-を計算する．
+## 入力
 
-## 問題例
+長さ $N$ の数列 $x _ 0, \dots , x _ {N - 1}$．
+
+## 出力
+
+差積の値．
+すなわち，
+
+$$
+\prod _ {0 \le i < j \le n} (x _ j - x _ i).
+$$
+
+## 計算量
+
+時間計算量 $\mathrm{O}(N \log ^ 2 N)$
+
+## 出題例
 - [yukicoder No.2513 Power Eraser](https://yukicoder.me/problems/no/2513)
 
 ## Links

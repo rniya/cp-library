@@ -194,12 +194,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/enumerate_cliques.hpp
       title: Enumerate Cliques
-    - icon: ':heavy_check_mark:'
-      path: src/graph/maxflow_lowerbound.hpp
-      title: Max Flow (Lower Bound Constraints)
-    - icon: ':warning:'
-      path: src/graph/min_cost_b_flow.hpp
-      title: Minimum Cost b-flow
   - name: src/math
     pages:
     - icon: ':heavy_check_mark:'
@@ -256,13 +250,19 @@ data:
       title: $K$-ary Optimization
     - icon: ':warning:'
       path: src/optimization/SubsetSum.hpp
-      title: Subset Sum $\mathrm{O}(NS)$
+      title: Subset Sum $\mathrm{O}(NS), \mathrm{O}(N a _ {\max})$
     - icon: ':warning:'
       path: src/optimization/golden_section_search.hpp
       title: Golden Section Search
     - icon: ':heavy_check_mark:'
       path: src/optimization/hungarian.hpp
       title: Hungarian (Assignment Problem)
+    - icon: ':heavy_check_mark:'
+      path: src/optimization/maxflow_lowerbound.hpp
+      title: Max Flow (Lower Bound Constraints)
+    - icon: ':warning:'
+      path: src/optimization/min_cost_b_flow.hpp
+      title: Minimum Cost b-flow
     - icon: ':warning:'
       path: src/optimization/monge_d_edge_shortest_path.hpp
       title: $d$-edge Shortest Path on Monge Graph
@@ -288,7 +288,7 @@ data:
       title: Difference Product (Vandermonde's Determinant)
     - icon: ':heavy_check_mark:'
       path: src/polynomial/lagrange_interpolation.hpp
-      title: Lagrange Interpolation
+      title: src/polynomial/lagrange_interpolation.hpp
     - icon: ':heavy_check_mark:'
       path: src/polynomial/multipoint_evaluation.hpp
       title: Multipoint Evaluation

@@ -7,7 +7,7 @@ data:
     title: Number of Increasing Sequences Between Two Sequences
   - icon: ':heavy_check_mark:'
     path: src/polynomial/lagrange_interpolation.hpp
-    title: Lagrange Interpolation
+    title: src/polynomial/lagrange_interpolation.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_E.test.cpp

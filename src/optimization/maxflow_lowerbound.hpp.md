@@ -47,13 +47,13 @@ data:
     \ graph;\n    std::vector<Cap> in, lows;\n};"
   dependsOn: []
   isVerificationFile: false
-  path: src/graph/maxflow_lowerbound.hpp
+  path: src/optimization/maxflow_lowerbound.hpp
   requiredBy: []
-  timestamp: '2024-05-22 00:21:24+09:00'
+  timestamp: '2024-06-24 16:39:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/1615.test.cpp
-documentation_of: src/graph/maxflow_lowerbound.hpp
+documentation_of: src/optimization/maxflow_lowerbound.hpp
 layout: document
 title: Max Flow (Lower Bound Constraints)
 ---
@@ -62,5 +62,5 @@ title: Max Flow (Lower Bound Constraints)
 流量下限制約付きの最大流を解く．
 infeasible な場合は `-1` を返す．
 
-## 問題例
+## 出題例
 - [AtCoder Beginner Contest 285 G - Tatami](https://atcoder.jp/contests/abc285/tasks/abc285_g)

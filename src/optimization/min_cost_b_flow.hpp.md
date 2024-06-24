@@ -48,21 +48,20 @@ data:
     \ graph;\n    std::vector<Cap> b;\n    Cost sum;\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/graph/min_cost_b_flow.hpp
+  path: src/optimization/min_cost_b_flow.hpp
   requiredBy: []
-  timestamp: '2024-06-24 04:02:51+09:00'
+  timestamp: '2024-06-24 16:39:57+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: src/graph/min_cost_b_flow.hpp
+documentation_of: src/optimization/min_cost_b_flow.hpp
 layout: document
 title: Minimum Cost b-flow
 ---
 
 ## 概要
-Minimum Cost b-flow を解くための補助ライブラリ．
-この考え方に従うと容量下限や負のコストの辺が存在するような最小費用流のグラフを簡単に構成できる．
 
 ## 双対問題
 
-## 問題例
+## 出題例
 - [AtCoder Regular Contest 137 E - Bakery](https://atcoder.jp/contests/arc137/tasks/arc137_e)
+- [The 2nd Universal Cup. Stage 11: Nanjing E. Extending Distance](https://contest.ucup.ac/contest/1435/problem/7737)
