@@ -1,6 +1,6 @@
 ---
 title: Golden Section Search
-documentation_of: ./golden_section_search.hpp
+documentation_of: //src/optimization/golden_section_search.hpp
 ---
 
 ## Links

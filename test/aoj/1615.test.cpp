@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/1615"
 
 #include <iostream>
-#include "graph/maxflow_lowerbound.hpp"
+#include "optimization/maxflow_lowerbound.hpp"
 
 void solve(int n, int m) {
     std::vector<int> u(m), v(m);
