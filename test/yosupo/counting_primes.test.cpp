@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/bitwise_xor_convolution"
+#define PROBLEM "https://judge.yosupo.jp/problem/counting_primes"
 
 #include "math/counting_primes.hpp"
 #include <iostream>

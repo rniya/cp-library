@@ -42,3 +42,5 @@ $$
 $\pi(N)$ を求めるにあたり必要となる $f(n, x)$ の値は $n = \left \lfloor \frac{N}{1} \right \rfloor, \left \lfloor \frac{N}{2} \right \rfloor, \dots , \left \lfloor \frac{N}{N} \right \rfloor$ 及び $x = 1, \dots , \left \lfloor \sqrt{N} \right \rfloor$ のみで，これを動的計画法により計算していく．
 
 実装中の `internal::pi_table(N)` は $i$ 要素目 (1-indexed) が $\left \lfloor \frac{N}{i} \right \rfloor$ 及び $\pi(\frac{N}{i})$ に等しい配列を返している．
+
+また，応用して $N$ 以下の素数の $k$ 乗和を求めることも可能である（今回は $k = 0$，[参照](https://rsk0315.github.io/slides/prime-counting.pdf)）．
