@@ -1,6 +1,6 @@
 ---
 title: Lagrange Interpolation
-documentation_of: ./lagrange_interpolation.hpp
+documentation_of: //src/polynomial/lagrange_interpolation.hpp
 ---
 
 ## 入力

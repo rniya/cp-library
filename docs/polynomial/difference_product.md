@@ -13,7 +13,7 @@ documentation_of: //src/polynomial/difference_product.hpp
 すなわち，
 
 $$
-\prod _ {0 \le i < j \le n} (x _ j - x _ i).
+\prod _ {0 \le i \lt j \le n} (x _ j - x _ i).
 $$
 
 ## 計算量

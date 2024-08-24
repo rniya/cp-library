@@ -4,19 +4,21 @@
 #include <utility>
 #include <vector>
 
-struct DirectedCycleDetection {
-    DirectedCycleDetection(int n) : n(n), m(0), G(n), used(n, 0), par(n) {}
+struct UndirectedCycleDetection {
+    UndirectedCycleDetection(int n) : n(n), m(0), G(n), used(n, 0), par(n) {}
 
     void add_edge(int u, int v) {
         assert(0 <= u and u < n);
         assert(0 <= v and v < n);
-        G[u].emplace_back(v, m++);
+        G[u].emplace_back(v, m);
+        G[v].emplace_back(u, m);
+        m++;
     }
 
     std::pair<std::vector<int>, std::vector<int>> build() {
         for (int i = 0; i < n; i++) {
             if (used[i] == 0) {
-                dfs(i);
+                dfs(i, -1);
             }
         }
         return {vs, es};
@@ -28,14 +30,15 @@ struct DirectedCycleDetection {
     std::vector<int> used, vs, es;
     std::vector<std::pair<int, int>> par;
 
-    void dfs(int v) {
+    void dfs(int v, int pre) {
         used[v] = 1;
         for (auto [u, e] : G[v]) {
             if (not es.empty()) return;
+            if (e == pre) continue;
             if (used[u] == 0) {
                 par[u] = {v, e};
-                dfs(u);
-            } else if (used[u] == 1) {
+                dfs(u, e);
+            } else {
                 vs.emplace_back(v);
                 es.emplace_back(e);
                 for (int cur = v; cur != u; cur = par[cur].first) {
@@ -47,6 +50,5 @@ struct DirectedCycleDetection {
                 return;
             }
         }
-        used[v] = 2;
     }
 };

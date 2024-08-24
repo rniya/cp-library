@@ -1,6 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
 
 #include "base.hpp"
+#include "debug.hpp"
 
 int main() {
     std::cin.tie(0);

@@ -1,4 +1,3 @@
-#include <vector>
 #include "FormalPowerSeries.hpp"
 
 namespace internal {

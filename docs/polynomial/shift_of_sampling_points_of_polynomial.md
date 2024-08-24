@@ -61,6 +61,7 @@ $\blacksquare$
 #### 補題 2
 
 任意の $0$ 以上の整数 $n$ について，
+
 $$
 (a + b) ^ {\underline{n}} = \sum _ {i = 0} ^ n \binom{n}{i} a ^ {\underline{i}} b ^ {\underline{n - i}}.
 $$
