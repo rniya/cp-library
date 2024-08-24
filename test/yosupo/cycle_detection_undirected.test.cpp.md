@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/graph/LowLink.hpp
-    title: LowLink (with Two Edge Connected Components, Bi Connected Components)
+    path: src/graph/UndirectedCycleDetection.hpp
+    title: Cycle Detection (Undirected)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -11,9 +11,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_A
+    PROBLEM: https://judge.yosupo.jp/problem/cycle_detection_undirected
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_A
+    - https://judge.yosupo.jp/problem/cycle_detection_undirected
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -24,27 +24,31 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/LowLink.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/UndirectedCycleDetection.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_A\"\
-    \n\n#include <iostream>\n#include \"graph/LowLink.hpp\"\n\nint main() {\n    std::cin.tie(0);\n\
-    \    std::ios::sync_with_stdio(false);\n    int V, E;\n    std::cin >> V >> E;\n\
-    \    LowLink G(V);\n    for (; E--;) {\n        int s, t;\n        std::cin >>\
-    \ s >> t;\n        G.add_edge(s, t);\n    }\n\n    G.build();\n    for (int i\
-    \ = 0; i < V; i++) {\n        if (G.is_articulation[i]) {\n            std::cout\
-    \ << i << '\\n';\n        }\n    }\n    return 0;\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/cycle_detection_undirected\"\
+    \n\n#include <iostream>\n#include \"graph/UndirectedCycleDetection.hpp\"\n\nint\
+    \ main() {\n    std::ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    int N, M;\n    std::cin >> N >> M;\n    UndirectedCycleDetection G(N);\n\
+    \    for (; M--;) {\n        int u, v;\n        std::cin >> u >> v;\n        G.add_edge(u,\
+    \ v);\n    }\n\n    auto [vs, es] = G.build();\n    if (vs.empty()) {\n      \
+    \  std::cout << -1 << '\\n';\n        return 0;\n    }\n    int L = vs.size();\n\
+    \    assert(int(es.size()) == L);\n    std::cout << L << \"\\n\";\n    for (int\
+    \ i = 0; i < L; i++) std::cout << vs[i] << (i + 1 == L ? \"\\n\" : \" \");\n \
+    \   for (int i = 0; i < L; i++) std::cout << es[i] << (i + 1 == L ? \"\\n\" :\
+    \ \" \");\n    return 0;\n}"
   dependsOn:
-  - src/graph/LowLink.hpp
+  - src/graph/UndirectedCycleDetection.hpp
   isVerificationFile: true
-  path: test/aoj/GRL_3_A.test.cpp
+  path: test/yosupo/cycle_detection_undirected.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2024-08-25 02:56:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/GRL_3_A.test.cpp
+documentation_of: test/yosupo/cycle_detection_undirected.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL_3_A.test.cpp
-- /verify/test/aoj/GRL_3_A.test.cpp.html
-title: test/aoj/GRL_3_A.test.cpp
+- /verify/test/yosupo/cycle_detection_undirected.test.cpp
+- /verify/test/yosupo/cycle_detection_undirected.test.cpp.html
+title: test/yosupo/cycle_detection_undirected.test.cpp
 ---

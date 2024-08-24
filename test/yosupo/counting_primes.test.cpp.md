@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: src/graph/LowLink.hpp
-    title: LowLink (with Two Edge Connected Components, Bi Connected Components)
+  - icon: ':x:'
+    path: src/math/counting_primes.hpp
+    title: Counting Primes
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_A
+    PROBLEM: https://judge.yosupo.jp/problem/bitwise_xor_convolution
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_A
+    - https://judge.yosupo.jp/problem/bitwise_xor_convolution
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -24,27 +24,25 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/LowLink.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: math/counting_primes.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_A\"\
-    \n\n#include <iostream>\n#include \"graph/LowLink.hpp\"\n\nint main() {\n    std::cin.tie(0);\n\
-    \    std::ios::sync_with_stdio(false);\n    int V, E;\n    std::cin >> V >> E;\n\
-    \    LowLink G(V);\n    for (; E--;) {\n        int s, t;\n        std::cin >>\
-    \ s >> t;\n        G.add_edge(s, t);\n    }\n\n    G.build();\n    for (int i\
-    \ = 0; i < V; i++) {\n        if (G.is_articulation[i]) {\n            std::cout\
-    \ << i << '\\n';\n        }\n    }\n    return 0;\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_xor_convolution\"\
+    \n\n#include \"math/counting_primes.hpp\"\n#include <iostream>\n\nint main() {\n\
+    \    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\n    long long\
+    \ N;\n    std::cin >> N;\n\n    std::cout << counting_primes(N) << \"\\n\";\n\
+    \    return 0;\n}"
   dependsOn:
-  - src/graph/LowLink.hpp
+  - src/math/counting_primes.hpp
   isVerificationFile: true
-  path: test/aoj/GRL_3_A.test.cpp
+  path: test/yosupo/counting_primes.test.cpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-08-25 02:56:03+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/aoj/GRL_3_A.test.cpp
+documentation_of: test/yosupo/counting_primes.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL_3_A.test.cpp
-- /verify/test/aoj/GRL_3_A.test.cpp.html
-title: test/aoj/GRL_3_A.test.cpp
+- /verify/test/yosupo/counting_primes.test.cpp
+- /verify/test/yosupo/counting_primes.test.cpp.html
+title: test/yosupo/counting_primes.test.cpp
 ---

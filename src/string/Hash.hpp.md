@@ -127,8 +127,8 @@ data:
   timestamp: '2024-06-01 01:35:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/ALDS1_14_C.test.cpp
   - test/aoj/ALDS1_14_B.test.cpp
+  - test/aoj/ALDS1_14_C.test.cpp
 documentation_of: src/string/Hash.hpp
 layout: document
 title: Hash (reversible)

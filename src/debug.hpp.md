@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/aplusb.test.cpp
+    title: test/yosupo/aplusb.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/debug.hpp\"\n#include <bits/stdc++.h>\n\ntemplate <typename\
@@ -95,12 +98,10 @@ data:
   path: src/debug.hpp
   requiredBy: []
   timestamp: '2023-09-18 22:25:37+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/aplusb.test.cpp
 documentation_of: src/debug.hpp
 layout: document
-redirect_from:
-- /library/src/debug.hpp
-- /library/src/debug.hpp.html
-title: src/debug.hpp
+title: debug template
 ---

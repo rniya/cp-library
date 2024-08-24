@@ -7,7 +7,7 @@ data:
     title: Number of Increasing Sequences Between Two Sequences
   - icon: ':heavy_check_mark:'
     path: src/polynomial/lagrange_interpolation.hpp
-    title: src/polynomial/lagrange_interpolation.hpp
+    title: Lagrange Interpolation
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL_5_E.test.cpp
@@ -78,8 +78,8 @@ data:
   isVerificationFile: false
   path: src/math/binomial.hpp
   requiredBy:
-  - src/math/number_of_increasing_sequences_between_two_sequences.hpp
   - src/polynomial/lagrange_interpolation.hpp
+  - src/math/number_of_increasing_sequences_between_two_sequences.hpp
   timestamp: '2024-05-25 01:38:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

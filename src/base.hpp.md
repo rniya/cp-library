@@ -48,8 +48,5 @@ data:
   - test/yosupo/aplusb.test.cpp
 documentation_of: src/base.hpp
 layout: document
-redirect_from:
-- /library/src/base.hpp
-- /library/src/base.hpp.html
-title: src/base.hpp
+title: template
 ---

@@ -8,17 +8,17 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.4/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.12.4/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.4/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.12.4/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
-    \ File \"/opt/hostedtoolcache/Python/3.12.4/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ File \"/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/dsu.hpp:\
     \ line -1: no such header\n"
@@ -56,16 +56,17 @@ title: Merge Process Tree
 ---
 
 ## 概要
+
 マージ過程を表す木．
 
-| メンバ関数     | 効果                                                                                                                                                                                                              | 時間計算量                     |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `MergeTree(n)` | $n$ 要素について初期化する．                                                                                                                                                                                      | $\mathrm{O}(n)$                |
-| `build(qs)`    | タイプ `0` のクエリでは $2$ 要素 $u, v$ が含まれるグループを併合し，タイプ `1` のクエリではその時点での要素 $u$ の含まれるグループの成す区間 $[l, r)$ を求めたい．このとき，タイプ `1` のクエリの返り値を求める． | $\mathrm{O}((n + q)\alpha(n))$ |
-| `operator[i]`  | 列の中で頂点 $i$ に対応する位置を返す．                                                                                                                                                                           | $\mathrm{O}(1)$                |
+| メンバ関数     | 効果                                                                                                                                                                                                                     | 時間計算量                      |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- |
+| `MergeTree(n)` | $n$ 要素について初期化する．                                                                                                                                                                                             | $\mathrm{O}(n)$                 |
+| `build(qs)`    | タイプ `0` のクエリでは $2$ 要素 $u, v$ が含まれるグループを併合し，タイプ `1` のクエリではその時点での要素 $u$ の含まれるグループの成す区間 $\lbrack l, r)$ を求めたい．このとき，タイプ `1` のクエリの返り値を求める． | $\mathrm{O}((n + q) \alpha(n))$ |
+| `operator[i]`  | 列の中で頂点 $i$ に対応する位置を返す．                                                                                                                                                                                  | $\mathrm{O}(1)$                 |
 
 
 
-## 問題例
+## 出題例
 - [Codeforces Round 317 [AimFund Thanks-Round] (Div. 1) D. Campus](https://codeforces.com/contest/571/problem/D)
 - [AtCoder Beginner Contest 314 F - A Certain Game](https://atcoder.jp/contests/abc314/tasks/abc314_f)

@@ -5,10 +5,10 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/base.hpp
-      title: src/base.hpp
-    - icon: ':warning:'
+      title: template
+    - icon: ':heavy_check_mark:'
       path: src/debug.hpp
-      title: src/debug.hpp
+      title: debug template
   - name: src/convolution
     pages:
     - icon: ':heavy_check_mark:'
@@ -40,9 +40,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/datastructure/CumulativeSum2D.hpp
       title: Cumulative Sum (2D)
-    - icon: ':warning:'
-      path: src/datastructure/IntervalManager.hpp
-      title: Interval Manager
     - icon: ':heavy_check_mark:'
       path: src/datastructure/LineContainer.hpp
       title: Line Container (based on kactl)
@@ -143,12 +140,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/BipartiteMatching.hpp
       title: Bipartite Matching
-    - icon: ':warning:'
-      path: src/graph/CycleDetection.hpp
-      title: Cycle Detection
     - icon: ':heavy_check_mark:'
       path: src/graph/DirectedCycleDetection.hpp
-      title: Directed Cycle Detection
+      title: Cycle Detection (Directed)
     - icon: ':heavy_check_mark:'
       path: src/graph/DirectedShortestCycle.hpp
       title: Directed Shortest Cycle
@@ -176,6 +170,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/TwoSAT.hpp
       title: 2-SAT
+    - icon: ':heavy_check_mark:'
+      path: src/graph/UndirectedCycleDetection.hpp
+      title: Cycle Detection (Undirected)
     - icon: ':heavy_check_mark:'
       path: src/graph/UndirectedShortestCycle.hpp
       title: Undirected Shortest Cycle
@@ -208,6 +205,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/binomial.hpp
       title: Binomial Coefficients
+    - icon: ':x:'
+      path: src/math/counting_primes.hpp
+      title: Counting Primes
     - icon: ':heavy_check_mark:'
       path: src/math/discrete_logarithm.hpp
       title: Discrete Logarithm
@@ -288,7 +288,7 @@ data:
       title: Difference Product (Vandermonde's Determinant)
     - icon: ':heavy_check_mark:'
       path: src/polynomial/lagrange_interpolation.hpp
-      title: src/polynomial/lagrange_interpolation.hpp
+      title: Lagrange Interpolation
     - icon: ':heavy_check_mark:'
       path: src/polynomial/multipoint_evaluation.hpp
       title: Multipoint Evaluation
@@ -534,6 +534,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution_mod_1000000007.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/counting_primes.test.cpp
+      title: test/yosupo/counting_primes.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/counting_spanning_tree_directed.test.cpp
       title: test/yosupo/counting_spanning_tree_directed.test.cpp
@@ -543,6 +546,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/cycle_detection.test.cpp
       title: test/yosupo/cycle_detection.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/cycle_detection_undirected.test.cpp
+      title: test/yosupo/cycle_detection_undirected.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/discrete_logarithm_mod.test.cpp
       title: test/yosupo/discrete_logarithm_mod.test.cpp
