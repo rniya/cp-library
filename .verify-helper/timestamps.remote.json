@@ -109,6 +109,7 @@
 "test/yosupo/static_range_inversions_query.test.cpp": "2024-06-01 01:35:37 +0900",
 "test/yosupo/staticrmq.test.cpp": "2024-05-22 00:21:24 +0900",
 "test/yosupo/subset_convolution.test.cpp": "2024-06-24 04:02:51 +0900",
+"test/yosupo/sum_of_totient_function.test.cpp": "2024-08-27 15:11:19 +0900",
 "test/yosupo/system_of_linear_equations.test.cpp": "2024-05-24 00:56:59 +0900",
 "test/yosupo/tree_diameter.test.cpp": "2024-04-07 17:26:46 +0900",
 "test/yosupo/tree_path_composite_sum.test.cpp": "2024-06-04 02:28:59 +0900",
