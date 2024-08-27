@@ -15,30 +15,30 @@ data:
     \ <utility>\n#include <vector>\n\nnamespace internal {\n\nstd::pair<std::vector<long\
     \ long>, std::vector<long long>> pi_table(long long N) {\n    std::vector<long\
     \ long> ns{0};\n    for (long long i = N; i > 0; i = N / (N / i + 1)) ns.emplace_back(i);\n\
-    \    auto f = ns;\n    for (auto& val : f) val--;\n    for (long long x = 2, sq\
-    \ = sqrtl(N), len = ns.size(); x <= sq; x++) {\n        if (f[len - x] == f[len\
+    \    auto f = ns;\n    for (auto& val : f) val--;\n    for (long long x = 2, sqN\
+    \ = sqrtl(N), len = ns.size(); x <= sqN; x++) {\n        if (f[len - x] == f[len\
     \ - x + 1]) continue;\n        long long x2 = x * x, pi = f[len - x + 1];\n  \
     \      for (long long i = 1, n = ns[i]; i < len and n >= x2; n = ns[++i]) {\n\
-    \            f[i] -= f[i * x <= sq ? i * x : len - n / x] - pi;\n        }\n \
-    \   }\n    return {ns, f};\n}\n\n}  // namespace internal\n\nlong long counting_primes(long\
+    \            f[i] -= f[i * x <= sqN ? i * x : len - n / x] - pi;\n        }\n\
+    \    }\n    return {ns, f};\n}\n\n}  // namespace internal\n\nlong long counting_primes(long\
     \ long N) {\n    if (N < 2) return 0;\n    return internal::pi_table(N).second[1];\n\
     }\n"
   code: "#pragma once\n#include <cmath>\n#include <utility>\n#include <vector>\n\n\
     namespace internal {\n\nstd::pair<std::vector<long long>, std::vector<long long>>\
     \ pi_table(long long N) {\n    std::vector<long long> ns{0};\n    for (long long\
     \ i = N; i > 0; i = N / (N / i + 1)) ns.emplace_back(i);\n    auto f = ns;\n \
-    \   for (auto& val : f) val--;\n    for (long long x = 2, sq = sqrtl(N), len =\
-    \ ns.size(); x <= sq; x++) {\n        if (f[len - x] == f[len - x + 1]) continue;\n\
+    \   for (auto& val : f) val--;\n    for (long long x = 2, sqN = sqrtl(N), len\
+    \ = ns.size(); x <= sqN; x++) {\n        if (f[len - x] == f[len - x + 1]) continue;\n\
     \        long long x2 = x * x, pi = f[len - x + 1];\n        for (long long i\
     \ = 1, n = ns[i]; i < len and n >= x2; n = ns[++i]) {\n            f[i] -= f[i\
-    \ * x <= sq ? i * x : len - n / x] - pi;\n        }\n    }\n    return {ns, f};\n\
+    \ * x <= sqN ? i * x : len - n / x] - pi;\n        }\n    }\n    return {ns, f};\n\
     }\n\n}  // namespace internal\n\nlong long counting_primes(long long N) {\n  \
     \  if (N < 2) return 0;\n    return internal::pi_table(N).second[1];\n}"
   dependsOn: []
   isVerificationFile: false
   path: src/math/counting_primes.hpp
   requiredBy: []
-  timestamp: '2024-08-25 02:56:03+09:00'
+  timestamp: '2024-08-27 15:05:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/counting_primes.test.cpp
@@ -57,7 +57,7 @@ $N$ 以下の素数の個数．
 
 ## 計算量
 
-- 時間計算量 $\mathrm{O} \left( \frac{N^{3 / 4}}{\log N} \right)$
+- 時間計算量 $\mathrm{O} \left( \frac{N ^ {3 / 4}}{\log N} \right)$
 - 空間計算量 $\mathrm{O}(\sqrt{N})$
 
 ## 概要
@@ -77,7 +77,7 @@ $$
 $$
 f(n, x) =
 \begin{cases}
-    f(n, x - 1) & (x \text{ is not prime} \lor n < x^2) \\
+    f(n, x - 1) & (x \text{ is not prime} \lor n < x ^ 2) \\
     f(n, x - 1) - \left( f\left( \left \lfloor \frac{n}{x} \right \rfloor, x - 1 \right) - \pi(x - 1) \right) & (\text{o.w.})
 \end{cases}
 $$

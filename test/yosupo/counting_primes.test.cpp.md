@@ -35,7 +35,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/counting_primes.test.cpp
   requiredBy: []
-  timestamp: '2024-08-25 03:03:47+09:00'
+  timestamp: '2024-08-27 15:05:21+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/counting_primes.test.cpp

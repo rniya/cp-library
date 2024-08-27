@@ -1,19 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: src/tree/HeavyLightDecomposition.hpp
-    title: Heavy Light Decomposition
+  - icon: ':x:'
+    path: src/math/sum_of_multiplicative_function.hpp
+    title: Sum of Multiplicative Function
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C
-    links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C
+    PROBLEM: sum_of_totient_function
+    links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -24,29 +23,27 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/HeavyLightDecomposition.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_5_C\"\n\n\
-    #include <iostream>\n#include \"tree/HeavyLightDecomposition.hpp\"\n\nint main()\
-    \ {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n    int n;\n\
-    \    std::cin >> n;\n    HeavyLightDecomposition HLD(n);\n    for (int i = 0;\
-    \ i < n; i++) {\n        int k;\n        std::cin >> k;\n        for (; k--;)\
-    \ {\n            int c;\n            std::cin >> c;\n            HLD.add_edge(i,\
-    \ c);\n        }\n    }\n    HLD.build();\n\n    int q;\n    std::cin >> q;\n\
-    \    for (; q--;) {\n        int u, v;\n        std::cin >> u >> v;\n        std::cout\
-    \ << HLD.lca(u, v) << '\\n';\n    }\n}"
+  code: "#define PROBLEM \"sum_of_totient_function\"\n\n#include <iostream>\n#include\
+    \ \"atcoder/modint\"\n#include \"math/sum_of_multiplicative_function.hpp\"\n\n\
+    using mint = atcoder::modint998244353;\n\nmint f(long long p, long long c) { return\
+    \ mint(p).pow(c - 1) * (p - 1); }\n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
+    \n    long long N;\n    std::cin >> N;\n\n    sum_of_multiplicative_function<mint,\
+    \ f> smf(N);\n    auto ans = smf.sum_of_totient_function();\n\n    std::cout <<\
+    \ ans.val() << \"\\n\";\n    return 0;\n}"
   dependsOn:
-  - src/tree/HeavyLightDecomposition.hpp
+  - src/math/sum_of_multiplicative_function.hpp
   isVerificationFile: true
-  path: test/aoj/GRL_5_C.test.cpp
+  path: test/yosupo/sum_of_totient_function.test.cpp
   requiredBy: []
   timestamp: '2024-08-27 15:05:21+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/aoj/GRL_5_C.test.cpp
+documentation_of: test/yosupo/sum_of_totient_function.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL_5_C.test.cpp
-- /verify/test/aoj/GRL_5_C.test.cpp.html
-title: test/aoj/GRL_5_C.test.cpp
+- /verify/test/yosupo/sum_of_totient_function.test.cpp
+- /verify/test/yosupo/sum_of_totient_function.test.cpp.html
+title: test/yosupo/sum_of_totient_function.test.cpp
 ---

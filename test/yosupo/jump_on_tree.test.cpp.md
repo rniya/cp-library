@@ -39,7 +39,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/jump_on_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-06-23 01:25:00+09:00'
+  timestamp: '2024-08-27 15:05:21+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/jump_on_tree.test.cpp
