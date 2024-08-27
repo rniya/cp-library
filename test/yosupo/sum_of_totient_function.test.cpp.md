@@ -1,18 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/math/sum_of_multiplicative_function.hpp
     title: Sum of Multiplicative Function
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: sum_of_totient_function
-    links: []
+    PROBLEM: https://judge.yosupo.jp/problem/sum_of_totient_function
+    links:
+    - https://judge.yosupo.jp/problem/sum_of_totient_function
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -25,20 +26,20 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/modint:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"sum_of_totient_function\"\n\n#include <iostream>\n#include\
-    \ \"atcoder/modint\"\n#include \"math/sum_of_multiplicative_function.hpp\"\n\n\
-    using mint = atcoder::modint998244353;\n\nmint f(long long p, long long c) { return\
-    \ mint(p).pow(c - 1) * (p - 1); }\n\nint main() {\n    std::cin.tie(0);\n    std::ios::sync_with_stdio(false);\n\
-    \n    long long N;\n    std::cin >> N;\n\n    sum_of_multiplicative_function<mint,\
-    \ f> smf(N);\n    auto ans = smf.sum_of_totient_function();\n\n    std::cout <<\
-    \ ans.val() << \"\\n\";\n    return 0;\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sum_of_totient_function\"\
+    \n\n#include <iostream>\n#include \"atcoder/modint\"\n#include \"math/sum_of_multiplicative_function.hpp\"\
+    \n\nusing mint = atcoder::modint998244353;\n\nmint f(long long p, long long c)\
+    \ { return mint(p).pow(c - 1) * (p - 1); }\n\nint main() {\n    std::cin.tie(0);\n\
+    \    std::ios::sync_with_stdio(false);\n\n    long long N;\n    std::cin >> N;\n\
+    \n    sum_of_multiplicative_function<mint, f> smf(N);\n    auto ans = smf.sum_of_totient_function();\n\
+    \n    std::cout << ans.val() << \"\\n\";\n    return 0;\n}"
   dependsOn:
   - src/math/sum_of_multiplicative_function.hpp
   isVerificationFile: true
   path: test/yosupo/sum_of_totient_function.test.cpp
   requiredBy: []
-  timestamp: '2024-08-27 15:05:21+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-08-27 15:11:19+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/sum_of_totient_function.test.cpp
 layout: document

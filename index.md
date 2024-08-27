@@ -226,7 +226,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/set_function.hpp
       title: Set Function (FZT, FMT, FWHT)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/math/sum_of_multiplicative_function.hpp
       title: Sum of Multiplicative Function
   - name: src/matrix
@@ -708,7 +708,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/subset_convolution.test.cpp
       title: test/yosupo/subset_convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/sum_of_totient_function.test.cpp
       title: test/yosupo/sum_of_totient_function.test.cpp
     - icon: ':heavy_check_mark:'
