@@ -13,7 +13,7 @@ $N$ 以下の素数の個数．
 
 ## 計算量
 
-- 時間計算量 $\mathrm{O} \left( \frac{N^{3 / 4}}{\log N} \right)$
+- 時間計算量 $\mathrm{O} \left( \frac{N ^ {3 / 4}}{\log N} \right)$
 - 空間計算量 $\mathrm{O}(\sqrt{N})$
 
 ## 概要
@@ -33,7 +33,7 @@ $$
 $$
 f(n, x) =
 \begin{cases}
-    f(n, x - 1) & (x \text{ is not prime} \lor n < x^2) \\
+    f(n, x - 1) & (x \text{ is not prime} \lor n < x ^ 2) \\
     f(n, x - 1) - \left( f\left( \left \lfloor \frac{n}{x} \right \rfloor, x - 1 \right) - \pi(x - 1) \right) & (\text{o.w.})
 \end{cases}
 $$

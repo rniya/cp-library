@@ -16,6 +16,8 @@ struct HeavyLightDecomposition {
         vertex_id,         // id of vertex v (consecutive on heavy paths)
         vertex_id_inv;     // vertex_id_inv[vertex_id[v]] = v
 
+    HeavyLightDecomposition() {}
+
     HeavyLightDecomposition(int n)
         : G(n),
           n(n),
