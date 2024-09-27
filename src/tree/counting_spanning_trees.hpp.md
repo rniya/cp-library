@@ -142,8 +142,8 @@ data:
   timestamp: '2024-06-04 01:23:18+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/counting_spanning_tree_directed.test.cpp
   - test/yosupo/counting_spanning_tree_undirected.test.cpp
+  - test/yosupo/counting_spanning_tree_directed.test.cpp
 documentation_of: src/tree/counting_spanning_trees.hpp
 layout: document
 title: Counting Spanning Trees

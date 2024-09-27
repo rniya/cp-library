@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/sum_of_multiplicative_function.test.cpp
+    title: test/yosupo/sum_of_multiplicative_function.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sum_of_totient_function.test.cpp
     title: test/yosupo/sum_of_totient_function.test.cpp
   _isVerificationFailed: false
@@ -86,6 +89,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/sum_of_totient_function.test.cpp
+  - test/yosupo/sum_of_multiplicative_function.test.cpp
 documentation_of: src/math/sum_of_multiplicative_function.hpp
 layout: document
 title: Sum of Multiplicative Function

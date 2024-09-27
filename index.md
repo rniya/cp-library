@@ -709,6 +709,9 @@ data:
       path: test/yosupo/subset_convolution.test.cpp
       title: test/yosupo/subset_convolution.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/sum_of_multiplicative_function.test.cpp
+      title: test/yosupo/sum_of_multiplicative_function.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/sum_of_totient_function.test.cpp
       title: test/yosupo/sum_of_totient_function.test.cpp
     - icon: ':heavy_check_mark:'

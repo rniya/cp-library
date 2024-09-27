@@ -78,15 +78,15 @@ data:
   isVerificationFile: false
   path: src/math/binomial.hpp
   requiredBy:
-  - src/polynomial/lagrange_interpolation.hpp
   - src/math/number_of_increasing_sequences_between_two_sequences.hpp
+  - src/polynomial/lagrange_interpolation.hpp
   timestamp: '2024-05-25 01:38:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/665.test.cpp
   - test/aoj/DPL_5_E.test.cpp
   - test/yosupo/binomial_coefficient_prime_mod.test.cpp
   - test/yosupo/number_of_increasing_sequences_between_two_sequences.test.cpp
+  - test/yukicoder/665.test.cpp
 documentation_of: src/math/binomial.hpp
 layout: document
 title: Binomial Coefficients

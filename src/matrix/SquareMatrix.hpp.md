@@ -186,9 +186,9 @@ data:
   timestamp: '2024-05-24 00:56:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/pow_of_matrix.squarematrix.test.cpp
   - test/yosupo/matrix_det.squarematrix.test.cpp
   - test/yosupo/inverse_matrix.squarematrix.test.cpp
-  - test/yosupo/pow_of_matrix.squarematrix.test.cpp
 documentation_of: src/matrix/SquareMatrix.hpp
 layout: document
 title: Square Matrix
