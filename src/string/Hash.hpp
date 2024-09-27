@@ -11,10 +11,11 @@ static constexpr unsigned long long mod = (1ULL << 61) - 1;
 
 struct modint {
     modint() : _v(0) {}
-    modint(unsigned long long v) {
-        v = (v >> 61) + (v & mod);
-        if (v >= mod) v -= mod;
-        _v = v;
+    modint(long long v) {
+        unsigned long long vv = v < 0 ? v + mod : v;
+        vv = (vv >> 61) + (vv & mod);
+        if (vv >= mod) vv -= mod;
+        _v = vv;
     }
 
     unsigned long long val() const { return _v; }
@@ -58,7 +59,10 @@ struct modint {
     friend modint operator/(const modint& lhs, const modint& rhs) { return modint(lhs) /= rhs; }
     friend bool operator==(const modint& lhs, const modint& rhs) { return lhs._v == rhs._v; }
     friend bool operator!=(const modint& lhs, const modint& rhs) { return lhs._v != rhs._v; }
-    friend std::ostream& operator<<(std::ostream& os, const modint& rhs) { os << rhs._v; }
+    friend std::ostream& operator<<(std::ostream& os, const modint& rhs) {
+        os << rhs._v;
+        return os;
+    }
 
   private:
     unsigned long long _v;
