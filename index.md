@@ -344,7 +344,7 @@ data:
     - icon: ':warning:'
       path: src/tree/MergeTree.hpp
       title: Merge Process Tree
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/tree/Rerooting.hpp
       title: Rerooting
     - icon: ':heavy_check_mark:'
@@ -720,7 +720,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/tree_diameter.test.cpp
       title: test/yosupo/tree_diameter.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/tree_path_composite_sum.test.cpp
       title: test/yosupo/tree_path_composite_sum.test.cpp
     - icon: ':heavy_check_mark:'

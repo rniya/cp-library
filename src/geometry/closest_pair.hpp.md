@@ -94,8 +94,8 @@ data:
   timestamp: '2023-10-04 02:32:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/CGL_5_A.test.cpp
   - test/yosupo/closest_pair.test.cpp
+  - test/aoj/CGL_5_A.test.cpp
 documentation_of: src/geometry/closest_pair.hpp
 layout: document
 title: Closest Pair

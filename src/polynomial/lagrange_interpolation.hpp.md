@@ -23,30 +23,43 @@ data:
     \        return facs[i];\n    }\n\n    T finv(int i) {\n        assert(i >= 0);\n\
     \        while (n <= i) extend();\n        return finvs[i];\n    }\n\n    T inv(int\
     \ i) {\n        assert(i >= 0);\n        while (n <= i) extend();\n        return\
-    \ invs[i];\n    }\n\n    T P(int n, int r) {\n        if (n < 0 || n < r || r\
-    \ < 0) return T(0);\n        return fac(n) * finv(n - r);\n    }\n\n    T C(int\
-    \ n, int r) {\n        if (n < 0 || n < r || r < 0) return T(0);\n        return\
-    \ fac(n) * finv(n - r) * finv(r);\n    }\n\n    T H(int n, int r) {\n        if\
-    \ (n < 0 || r < 0) return T(0);\n        return r == 0 ? 1 : C(n + r - 1, r);\n\
-    \    }\n\n    T C_naive(int n, int r) {\n        if (n < 0 || n < r || r < 0)\
-    \ return T(0);\n        T res = 1;\n        r = std::min(r, n - r);\n        for\
-    \ (int i = 1; i <= r; i++) res *= inv(i) * (n--);\n        return res;\n    }\n\
-    \n  private:\n    int n;\n    std::vector<T> facs, finvs, invs;\n\n    inline\
-    \ void extend(int m = -1) {\n        if (m == -1) m = n * 2;\n        m = std::min(m,\
-    \ T::mod());\n        if (n >= m) return;\n        facs.resize(m);\n        finvs.resize(m);\n\
-    \        invs.resize(m);\n        for (int i = n; i < m; i++) facs[i] = facs[i\
-    \ - 1] * i;\n        finvs[m - 1] = T(1) / facs[m - 1];\n        invs[m - 1] =\
-    \ finvs[m - 1] * facs[m - 2];\n        for (int i = m - 2; i >= n; i--) {\n  \
-    \          finvs[i] = finvs[i + 1] * (i + 1);\n            invs[i] = finvs[i]\
-    \ * facs[i - 1];\n        }\n        n = m;\n    }\n};\n#line 4 \"src/polynomial/lagrange_interpolation.hpp\"\
-    \n\ntemplate <typename T> T lagrange_interpolation(const std::vector<T>& y, long\
-    \ long x, Binomial<T>& BINOM) {\n    int n = y.size() - 1;\n    if (0 <= x and\
-    \ x <= n) return y[x];\n    std::vector<T> left(n + 1, 1), right(n + 1, 1);\n\
-    \    for (int i = 0; i < n; i++) left[i + 1] = left[i] * (x - i);\n    for (int\
-    \ i = n; i > 0; i--) right[i - 1] = right[i] * (x - i);\n    T res = 0;\n    for\
-    \ (int i = 0; i <= n; i++) {\n        T add = y[i] * left[i] * right[i] * BINOM.finv(i)\
-    \ * BINOM.finv(n - i);\n        res += ((n - i) & 1) ? -add : add;\n    }\n  \
-    \  return res;\n}\n"
+    \ invs[i];\n    }\n\n    T P(int n, int r) {\n        if (n < r or r < 0) return\
+    \ 0;\n        return fac(n) * finv(n - r);\n    }\n\n    T C(int n, int r) {\n\
+    \        if (n < r or r < 0) return 0;\n        return fac(n) * finv(n - r) *\
+    \ finv(r);\n    }\n\n    T H(int n, int r) {\n        if (n < 0 or r < 0) return\
+    \ 0;\n        return r == 0 ? 1 : C(n + r - 1, r);\n    }\n\n    T negative_binom(int\
+    \ n, int k) { return H(k, n); }\n\n    T C_naive(int n, int r) {\n        if (n\
+    \ < r or r < 0) return 0;\n        T res = 1;\n        r = std::min(r, n - r);\n\
+    \        for (int i = 1; i <= r; i++) res *= inv(i) * (n--);\n        return res;\n\
+    \    }\n\n    T catalan(int n) {\n        if (n < 0) return 0;\n        return\
+    \ fac(2 * n) * finv(n + 1) * finv(n);\n    }\n\n    T catalan_pow(int n, int k)\
+    \ {\n        if (n < 0 or k < 0) return 0;\n        if (k == 0) return n == 0\
+    \ ? 1 : 0;\n        return inv(n + k) * k * C(2 * n + k - 1, n);\n    }\n\n  \
+    \  T calatan1(int n, int m) { return C(n + m, m) - C(n + m, m - 1); }\n\n    T\
+    \ catalan2(int n, int m, int k) { return n - m <= -k ? 0 : C(n + m, m) - C(n +\
+    \ m, m - k); }\n\n    T narayana(int n, int k) {\n        if (n < k or k <= 0)\
+    \ return 0;\n        return C(n, k) * C(n, k - 1) * inv(n);\n    }\n\n    T grid_sum(int\
+    \ x, int y) {\n        if (x < 0 or y < 0) return 0;\n        return C(x + y +\
+    \ 2, x + 1) - 1;\n    }\n\n    T grid_sum2(int xl, int xr, int yl, int yr) {\n\
+    \        if (xl >= xr or yl >= yr) return 0;\n        xl--, xr--, yl--, yr--;\n\
+    \        return grid_sum(xr, yr) - grid_sum(xl, yr) - grid_sum(xr, yl) + grid_sum(xl,\
+    \ yl);\n    }\n\n  private:\n    int n;\n    std::vector<T> facs, finvs, invs;\n\
+    \n    inline void extend(int m = -1) {\n        if (m == -1) m = n * 2;\n    \
+    \    m = std::min(m, T::mod());\n        if (n >= m) return;\n        facs.resize(m);\n\
+    \        finvs.resize(m);\n        invs.resize(m);\n        for (int i = n; i\
+    \ < m; i++) facs[i] = facs[i - 1] * i;\n        finvs[m - 1] = T(1) / facs[m -\
+    \ 1];\n        invs[m - 1] = finvs[m - 1] * facs[m - 2];\n        for (int i =\
+    \ m - 2; i >= n; i--) {\n            finvs[i] = finvs[i + 1] * (i + 1);\n    \
+    \        invs[i] = finvs[i] * facs[i - 1];\n        }\n        n = m;\n    }\n\
+    };\n#line 4 \"src/polynomial/lagrange_interpolation.hpp\"\n\ntemplate <typename\
+    \ T> T lagrange_interpolation(const std::vector<T>& y, long long x, Binomial<T>&\
+    \ BINOM) {\n    int n = y.size() - 1;\n    if (0 <= x and x <= n) return y[x];\n\
+    \    std::vector<T> left(n + 1, 1), right(n + 1, 1);\n    for (int i = 0; i <\
+    \ n; i++) left[i + 1] = left[i] * (x - i);\n    for (int i = n; i > 0; i--) right[i\
+    \ - 1] = right[i] * (x - i);\n    T res = 0;\n    for (int i = 0; i <= n; i++)\
+    \ {\n        T add = y[i] * left[i] * right[i] * BINOM.finv(i) * BINOM.finv(n\
+    \ - i);\n        res += ((n - i) & 1) ? -add : add;\n    }\n    return res;\n\
+    }\n"
   code: "#pragma once\n#include <vector>\n#include \"../math/binomial.hpp\"\n\ntemplate\
     \ <typename T> T lagrange_interpolation(const std::vector<T>& y, long long x,\
     \ Binomial<T>& BINOM) {\n    int n = y.size() - 1;\n    if (0 <= x and x <= n)\
@@ -61,7 +74,7 @@ data:
   isVerificationFile: false
   path: src/polynomial/lagrange_interpolation.hpp
   requiredBy: []
-  timestamp: '2024-06-24 16:39:57+09:00'
+  timestamp: '2024-10-28 15:43:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/665.test.cpp

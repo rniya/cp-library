@@ -104,8 +104,8 @@ data:
   timestamp: '2024-06-20 02:02:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/CGL_4_B.test.cpp
   - test/yosupo/furthest_pair.test.cpp
+  - test/aoj/CGL_4_B.test.cpp
 documentation_of: src/geometry/convex_diameter.hpp
 layout: document
 title: Convex Diameter

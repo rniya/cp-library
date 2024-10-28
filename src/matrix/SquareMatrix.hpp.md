@@ -187,8 +187,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/pow_of_matrix.squarematrix.test.cpp
-  - test/yosupo/matrix_det.squarematrix.test.cpp
   - test/yosupo/inverse_matrix.squarematrix.test.cpp
+  - test/yosupo/matrix_det.squarematrix.test.cpp
 documentation_of: src/matrix/SquareMatrix.hpp
 layout: document
 title: Square Matrix

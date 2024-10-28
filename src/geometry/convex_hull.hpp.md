@@ -87,9 +87,9 @@ data:
   timestamp: '2024-05-22 03:00:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/CGL_4_A.test.cpp
   - test/yosupo/furthest_pair.test.cpp
   - test/yosupo/static_convex_hull.test.cpp
+  - test/aoj/CGL_4_A.test.cpp
 documentation_of: src/geometry/convex_hull.hpp
 layout: document
 title: Convex Hull
