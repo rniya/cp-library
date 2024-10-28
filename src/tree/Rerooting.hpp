@@ -1,8 +1,9 @@
 #pragma once
 #include <cassert>
+#include <map>
 #include <vector>
 
-template <class TreeDP> struct Rerooting {
+template <class TreeDP, bool STORE_SUBTREE = false> struct Rerooting {
     using T = TreeDP::T;
 
     struct edge {
@@ -12,6 +13,7 @@ template <class TreeDP> struct Rerooting {
     };
 
     std::vector<std::vector<edge>> G;
+    std::unordered_map<long long, T> mp;
 
     Rerooting(int n, const TreeDP& treedp) : n(n), m(0), G(n), treedp(treedp), sub(n), dp(n) {}
 
@@ -27,6 +29,11 @@ template <class TreeDP> struct Rerooting {
         dfs_sub(0, -1);
         dfs_all(0, -1, treedp.e());
         return dp;
+    }
+
+    T get(int u, int v) {
+        assert(STORE_SUBTREE);
+        return mp[1LL * n * u + v];
     }
 
   private:
@@ -57,7 +64,13 @@ template <class TreeDP> struct Rerooting {
         for (int i = int(G[v].size()) - 1; i >= 0; i--) {
             auto& e = G[v][i];
             e.ndp = treedp.add_vertex(treedp.op(e.ndp, cur), v);
-            if (e.to != p) dfs_all(e.to, v, e.ndp);
+            if (e.to != p) {
+                if (STORE_SUBTREE) {
+                    mp[1LL * n * v + e.to] = e.ndp;
+                    mp[1LL * n * e.to + v] = sub[e.to];
+                }
+                dfs_all(e.to, v, e.ndp);
+            }
             cur = treedp.op(cur, e.dp);
         }
     }

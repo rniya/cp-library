@@ -29,6 +29,9 @@ struct TreeDP {
 
 計算量は時間・空間計算量ともに $\mathrm{O}(n)$．
 
+引数の `STORES_SUBTREE` を `true` にすることで，木全体から辺 $(u, v)$ を取り除いた際の $u$ を根とする部分木の情報を $get(u, v)$ で得ることができる．
+この場合，時間計算量は $\mathrm{O}(n \log n)$ となる．
+
 ## Links
 - [全方位木DP (ReRooting) の抽象化について - メモ帳](https://null-mn.hatenablog.com/entry/2020/04/14/124151)
 

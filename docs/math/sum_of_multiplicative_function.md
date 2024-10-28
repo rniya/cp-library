@@ -107,3 +107,5 @@ $S _ \mathrm{prime} ^ i(n)$ を求めるにあたり必要となる $f ^ i(n, x)
 
 ## 出題例
 - [第五回日本最強プログラマー学生選手権 -決勝- B - Erase Multiples](https://atcoder.jp/contests/jsc2024-final/tasks/jsc2024_final_b)
+- [AtCoder Beginner Contest 370 G - Divisible by 3](https://atcoder.jp/contests/abc370/tasks/abc370_g)
+- [Codeforces Round 976 (Div. 2) and Divide By Zero 9.0 F. Count Leaves](https://codeforces.com/contest/2020/problem/F)

@@ -28,26 +28,59 @@ template <typename T> struct Binomial {
     }
 
     T P(int n, int r) {
-        if (n < 0 || n < r || r < 0) return T(0);
+        if (n < r or r < 0) return 0;
         return fac(n) * finv(n - r);
     }
 
     T C(int n, int r) {
-        if (n < 0 || n < r || r < 0) return T(0);
+        if (n < r or r < 0) return 0;
         return fac(n) * finv(n - r) * finv(r);
     }
 
     T H(int n, int r) {
-        if (n < 0 || r < 0) return T(0);
+        if (n < 0 or r < 0) return 0;
         return r == 0 ? 1 : C(n + r - 1, r);
     }
 
+    T negative_binom(int n, int k) { return H(k, n); }
+
     T C_naive(int n, int r) {
-        if (n < 0 || n < r || r < 0) return T(0);
+        if (n < r or r < 0) return 0;
         T res = 1;
         r = std::min(r, n - r);
         for (int i = 1; i <= r; i++) res *= inv(i) * (n--);
         return res;
+    }
+
+    T catalan(int n) {
+        if (n < 0) return 0;
+        return fac(2 * n) * finv(n + 1) * finv(n);
+    }
+
+    T catalan_pow(int n, int k) {
+        if (n < 0 or k < 0) return 0;
+        if (k == 0) return n == 0 ? 1 : 0;
+        return inv(n + k) * k * C(2 * n + k - 1, n);
+    }
+
+    T calatan1(int n, int m) { return C(n + m, m) - C(n + m, m - 1); }
+
+    T catalan2(int n, int m, int k) { return n - m <= -k ? 0 : C(n + m, m) - C(n + m, m - k); }
+
+    T narayana(int n, int k) {
+        if (n < k or k <= 0) return 0;
+        return C(n, k) * C(n, k - 1) * inv(n);
+    }
+
+    T grid_sum(int x, int y) {
+        if (x < 0 or y < 0) return 0;
+        return C(x + y + 2, x + 1) - 1;
+    }
+
+    T grid_sum2(int xl, int xr, int yl, int yr) {
+        if (xl >= xr or yl >= yr) return 0;
+        xl--, xr--, yl--, yr--;
+        return grid_sum(xr, yr) - grid_sum(xl, yr) - grid_sum(xr, yl) + grid_sum(xl, yl);
     }
 
   private:
