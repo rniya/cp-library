@@ -181,7 +181,7 @@ template <typename T> struct Matrix {
         }
         for (int j = 0; j < m; j++) {
             if (pivot[j] != -1) continue;
-            std::vector<T> x(m);
+            std::vector<T> x(m, 0);
             x[j] = 1;
             for (int k = 0; k < j; k++) {
                 if (pivot[k] != -1) {

@@ -126,7 +126,7 @@ template <int MAX_W> struct F2Matrix {
         }
         for (int j = 0; j < W; j++) {
             if (pivot[j] != -1) continue;
-            std::bitset<MAX_W> x(W);
+            std::bitset<MAX_W> x;
             x[j] = 1;
             for (int k = 0; k < j; k++) {
                 if (pivot[k] != -1) {
