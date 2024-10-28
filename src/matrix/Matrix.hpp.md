@@ -101,7 +101,7 @@ data:
     \        std::vector<int> pivot(m, -1);\n        for (int i = 0, j = 0; i < rank;\
     \ i++) {\n            while (B[i][j] == T(0)) j++;\n            res[0][j] = B[i][m];\n\
     \            pivot[j] = i;\n        }\n        for (int j = 0; j < m; j++) {\n\
-    \            if (pivot[j] != -1) continue;\n            std::vector<T> x(m);\n\
+    \            if (pivot[j] != -1) continue;\n            std::vector<T> x(m, 0);\n\
     \            x[j] = 1;\n            for (int k = 0; k < j; k++) {\n          \
     \      if (pivot[k] != -1) {\n                    x[k] = -B[pivot[k]][j];\n  \
     \              }\n            }\n            res.emplace_back(x);\n        }\n\
@@ -197,7 +197,7 @@ data:
     \        std::vector<int> pivot(m, -1);\n        for (int i = 0, j = 0; i < rank;\
     \ i++) {\n            while (B[i][j] == T(0)) j++;\n            res[0][j] = B[i][m];\n\
     \            pivot[j] = i;\n        }\n        for (int j = 0; j < m; j++) {\n\
-    \            if (pivot[j] != -1) continue;\n            std::vector<T> x(m);\n\
+    \            if (pivot[j] != -1) continue;\n            std::vector<T> x(m, 0);\n\
     \            x[j] = 1;\n            for (int k = 0; k < j; k++) {\n          \
     \      if (pivot[k] != -1) {\n                    x[k] = -B[pivot[k]][j];\n  \
     \              }\n            }\n            res.emplace_back(x);\n        }\n\
@@ -232,7 +232,7 @@ data:
   path: src/matrix/Matrix.hpp
   requiredBy:
   - src/tree/counting_spanning_trees.hpp
-  timestamp: '2024-05-24 00:56:59+09:00'
+  timestamp: '2024-10-28 16:18:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/matrix_product.test.cpp

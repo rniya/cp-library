@@ -12,12 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix_product_mod_2.test.cpp
     title: test/yosupo/matrix_product_mod_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/system_of_linear_equations_mod_2.test.cpp
     title: test/yosupo/system_of_linear_equations_mod_2.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"src/matrix/F2Matrix.hpp\"\n#include <bitset>\n#include <cassert>\n\
@@ -66,8 +66,8 @@ data:
     \ 0; i < rank; i++) {\n            while (not B[i][j]) j++;\n            res[0][j]\
     \ = B[i][W];\n            pivot[j] = i;\n        }\n        for (int j = 0; j\
     \ < W; j++) {\n            if (pivot[j] != -1) continue;\n            std::bitset<MAX_W>\
-    \ x(W);\n            x[j] = 1;\n            for (int k = 0; k < j; k++) {\n  \
-    \              if (pivot[k] != -1) {\n                    x[k] = B[pivot[k]][j];\n\
+    \ x;\n            x[j] = 1;\n            for (int k = 0; k < j; k++) {\n     \
+    \           if (pivot[k] != -1) {\n                    x[k] = B[pivot[k]][j];\n\
     \                }\n            }\n            res.emplace_back(x);\n        }\n\
     \        return res;\n    }\n\n  private:\n    int gauss_jordan(int pivot_end\
     \ = -1) {\n        if (empty()) return 0;\n        if (pivot_end == -1) pivot_end\
@@ -126,8 +126,8 @@ data:
     \ 0; i < rank; i++) {\n            while (not B[i][j]) j++;\n            res[0][j]\
     \ = B[i][W];\n            pivot[j] = i;\n        }\n        for (int j = 0; j\
     \ < W; j++) {\n            if (pivot[j] != -1) continue;\n            std::bitset<MAX_W>\
-    \ x(W);\n            x[j] = 1;\n            for (int k = 0; k < j; k++) {\n  \
-    \              if (pivot[k] != -1) {\n                    x[k] = B[pivot[k]][j];\n\
+    \ x;\n            x[j] = 1;\n            for (int k = 0; k < j; k++) {\n     \
+    \           if (pivot[k] != -1) {\n                    x[k] = B[pivot[k]][j];\n\
     \                }\n            }\n            res.emplace_back(x);\n        }\n\
     \        return res;\n    }\n\n  private:\n    int gauss_jordan(int pivot_end\
     \ = -1) {\n        if (empty()) return 0;\n        if (pivot_end == -1) pivot_end\
@@ -144,8 +144,8 @@ data:
   isVerificationFile: false
   path: src/matrix/F2Matrix.hpp
   requiredBy: []
-  timestamp: '2024-06-13 02:05:17+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-10-28 16:18:08+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/system_of_linear_equations_mod_2.test.cpp
   - test/yosupo/inverse_matrix_mod_2.test.cpp

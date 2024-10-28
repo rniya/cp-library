@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/matrix/F2Matrix.hpp
     title: Matrix on $\mathbb{F}_2$
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2
@@ -43,8 +43,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/system_of_linear_equations_mod_2.test.cpp
   requiredBy: []
-  timestamp: '2024-10-28 15:48:27+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-10-28 16:18:08+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/system_of_linear_equations_mod_2.test.cpp
 layout: document

@@ -39,7 +39,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix_rank.test.cpp
   requiredBy: []
-  timestamp: '2024-05-24 00:56:59+09:00'
+  timestamp: '2024-10-28 16:18:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix_rank.test.cpp

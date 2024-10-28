@@ -231,7 +231,7 @@ data:
       title: Sum of Multiplicative Function
   - name: src/matrix
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/matrix/F2Matrix.hpp
       title: Matrix on $\mathbb{F}_2$
     - icon: ':heavy_check_mark:'
@@ -717,7 +717,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/system_of_linear_equations.test.cpp
       title: test/yosupo/system_of_linear_equations.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/system_of_linear_equations_mod_2.test.cpp
       title: test/yosupo/system_of_linear_equations_mod_2.test.cpp
     - icon: ':heavy_check_mark:'

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/matrix/F2Matrix.hpp
     title: Matrix on $\mathbb{F}_2$
   _extendedRequiredBy: []
@@ -41,7 +41,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/inverse_matrix_mod_2.test.cpp
   requiredBy: []
-  timestamp: '2024-06-13 02:05:17+09:00'
+  timestamp: '2024-10-28 16:18:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/inverse_matrix_mod_2.test.cpp
