@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/matrix/F2Matrix.hpp
     title: Matrix on $\mathbb{F}_2$
   _extendedRequiredBy: []
