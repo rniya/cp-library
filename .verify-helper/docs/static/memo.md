@@ -1,26 +1,27 @@
 - [Prüfer Code](#prüfer-code)
-    - [問題例](#問題例)
+  - [問題例](#問題例)
 - [Burnside の補題 / Polya の定理](#burnside-の補題--polya-の定理)
-    - [問題例](#問題例-1)
+  - [問題例](#問題例-1)
 - [Lagrange の反転公式](#lagrange-の反転公式)
-    - [問題例](#問題例-2)
+  - [問題例](#問題例-2)
 - [LGV 公式](#lgv-公式)
-    - [問題例](#問題例-3)
+  - [Links](#links)
+  - [問題例](#問題例-3)
 - [BEST Theorem](#best-theorem)
-    - [問題例](#問題例-4)
+  - [問題例](#問題例-4)
 - [五角数定理](#五角数定理)
-    - [問題例](#問題例-5)
+  - [問題例](#問題例-5)
+- [数え上げ一般](#数え上げ一般)
 - [凸包](#凸包)
-    - [問題例](#問題例-6)
+  - [問題例](#問題例-6)
 - [ゲーム](#ゲーム)
-    - [問題例](#問題例-7)
+  - [問題例](#問題例-7)
 - [操作における不変量](#操作における不変量)
 - [部分和問題](#部分和問題)
 - [トーナメントグラフ](#トーナメントグラフ)
-    - [問題例](#問題例-8)
+  - [問題例](#問題例-8)
 - [その他](#その他)
 - [反省](#反省)
-- [実装](#実装)
 
 ## Pr&uuml;fer Code
 $n$ 頂点ラベル付き木は $n^{n - 2}$ 個ある．
@@ -30,7 +31,7 @@ $$
 $$
 個ある（[参照](https://37zigen.com/prufer-code/)）．
 
-#### 問題例
+### 問題例
 - [AtCoder Beginner Contest 303 Ex - Constrained Tree Degree](https://atcoder.jp/contests/abc303/tasks/abc303_h)
 - [AtCoder Regular Contest 106 F - Figures](https://atcoder.jp/contests/arc106/tasks/arc106_f)
 - [AtCoder Regular Contest 162 D - Smallest Vertices](https://atcoder.jp/contests/arc162/tasks/arc162_d)
@@ -44,7 +45,7 @@ $$
 $$
 に等しい．
 
-#### 問題例
+### 問題例
 - [AtCoder Beginner Contest 198 F - Cube](https://atcoder.jp/contests/abc198/tasks/abc198_f)
 - [AtCoder Beginner Contest 284 Ex - Count Unlabeled Graphs](https://atcoder.jp/contests/abc284/tasks/abc284_h)
 
@@ -55,14 +56,17 @@ $$
 [x^n]G(x) = \frac{1}{n} [x^{n - 1}] \left(\frac{x}{F(x)}\right)^n.
 $$
 
-#### 問題例
+### 問題例
 - [AtCoder Beginner Contest 222 H - Beautiful Binary Tree](https://atcoder.jp/contests/abc222/tasks/abc222_h)
 - [Educational Codeforces Round 142 (Rated for Div. 2) F2. Graph Coloring (hard version)](https://codeforces.com/contest/1792/problem/F2)
   - [参考](https://codeforces.com/blog/entry/111835?#comment-996577)
 
 ## LGV 公式
 
-#### 問題例
+### Links
+- [Lattice paths and Lindström–Gessel–Viennot lemma - Codeforces](https://codeforces.com/blog/entry/108395)
+
+### 問題例
 - [Codeforces Round 202 (Div. 1) D. Turtles](https://codeforces.com/contest/348/problem/D)
 - [AtCoder Beginner Contest 216 H - Random Robots](https://atcoder.jp/contests/abc216/tasks/abc216_h)
 - [The 1st Universal Cup. Stage 10: Zhejiang J. Junk Problem](https://qoj.ac/contest/1195/problem/6193)
@@ -80,7 +84,7 @@ $$
 
 また，終点から始点に仮想的に追加で辺を張ることで，始点と終点が指定された walk の個数も数え上げることが可能である．
 
-#### 問題例
+### 問題例
 - [AtCoder Grand Contest 051 (Good Bye rng_58 Day 2) D - C4](https://atcoder.jp/contests/agc051/tasks/agc051_d)
 - [AtCoder Regular Contest 146 E - Simple Speed](https://atcoder.jp/contests/arc146/tasks/arc146_e)
 - [Hello 2024 E. Counting Prefixes](https://codeforces.com/contest/1919/problem/E)
@@ -93,19 +97,22 @@ $$
 \prod_{i = 1}^n \left(1 - x^i\right) = \sum_{n = -\infty}^\infty (-1)^n x^{\frac{n (3 n - 1)}{2}}
 $$
 
-#### 問題例
+### 問題例
 - [AtCoder Beginner Contest 279 Ex - Sum of Prod of Min](https://atcoder.jp/contests/abc279/tasks/abc279_h)
 - [東京工業大学プログラミングコンテスト2023 G - Cola](https://atcoder.jp/contests/ttpc2023/tasks/ttpc2023_g)
 
+## 数え上げ一般
+- [グリッドの最短経路の数え上げまとめ - かんプリンの学習記録](https://kanpurin.hatenablog.com/entry/2021/09/15/220913)
+
 ## 凸包
-#### 問題例
+### 問題例
 - [The 1st Universal Cup. Stage 2: Hong Kong D. Shortest Path Query](https://qoj.ac/contest/1099/problem/5458?v=1)
   - 各頂点の状態としては凸包の頂点のみが重要となるが，$n \times n$ の格子点を頂点にもつ凸包の頂点数は $O(n^{2 / 3})$ で抑えられる（[参照](https://not522.hatenablog.com/entry/2016/09/24/154939)）．
 - [The 1st Universal Cup. Stage 3: Poland B. Big Picture](https://qoj.ac/contest/1099/problem/5456?v=1)
   - 利益を考えると最終的な開店の仕方は凸包に一致する．
 
 ## ゲーム
-#### 問題例
+### 問題例
 - [CodeTON Round 2 (Div. 1 + Div. 2, Rated, Prizes!) F. Colouring Game](https://codeforces.com/contest/1704/problem/F)
   - 周期 34 の Grundy 数．
 - [yukicoder No.2285 Make A Unit Square](https://yukicoder.me/problems/no/2285)
@@ -132,7 +139,7 @@ $$
   - 同じ強連結成分に出次数の異なる頂点が属する可能性はあるが，境界は出次数の和を見ることでチェックすることができる．
 - 次数最大の頂点からは任意の頂点に高々 2 本の辺を通って到達可能である．
 
-#### 問題例
+### 問題例
 - [AtCoder Regular Contest 163 D - Sum of SCC](https://atcoder.jp/contests/arc163/tasks/arc163_d)
 - [Hello 2023 E. Anya's Simultaneous Exhibition](https://codeforces.com/contest/1779/problem/E?locale=en)
 - [The 2nd Universal Cup. Stage 27: India I. Slothful Secretary](https://contest.ucup.ac/contest/1586/problem/8573)
@@ -168,10 +175,3 @@ $$
 - 削除する操作は打ち切らずに順列から一様ランダムに操作列が決まると考える．
   - [AtCoder Regular Contest 165 E - Random Isolation](https://atcoder.jp/contests/arc165/tasks/arc165_e)
   - [AtCoder Grand Contest 049 A - Erasing Vertices](https://atcoder.jp/contests/agc049/tasks/agc049_a)
-
-## 実装
-- $n$ 頂点の完全二分木の左部分木の頂点数は以下で求まる．
-```c++
-int k = std::__lg(n + 1);
-long long l = ((1LL << (k - 1)) - 1) + std::min(1LL << (k - 1), n - (1LL << k) + 1);
-```
