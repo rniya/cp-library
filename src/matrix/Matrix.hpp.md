@@ -235,14 +235,14 @@ data:
   timestamp: '2024-10-28 16:18:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/matrix_product.test.cpp
-  - test/yosupo/system_of_linear_equations.test.cpp
-  - test/yosupo/inverse_matrix.test.cpp
-  - test/yosupo/matrix_rank.test.cpp
-  - test/yosupo/pow_of_matrix.test.cpp
-  - test/yosupo/counting_spanning_tree_directed.test.cpp
-  - test/yosupo/matrix_det.test.cpp
   - test/yosupo/counting_spanning_tree_undirected.test.cpp
+  - test/yosupo/system_of_linear_equations.test.cpp
+  - test/yosupo/counting_spanning_tree_directed.test.cpp
+  - test/yosupo/pow_of_matrix.test.cpp
+  - test/yosupo/matrix_rank.test.cpp
+  - test/yosupo/matrix_det.test.cpp
+  - test/yosupo/inverse_matrix.test.cpp
+  - test/yosupo/matrix_product.test.cpp
 documentation_of: src/matrix/Matrix.hpp
 layout: document
 title: Matrix

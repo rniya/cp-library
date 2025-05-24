@@ -148,9 +148,9 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/system_of_linear_equations_mod_2.test.cpp
-  - test/yosupo/inverse_matrix_mod_2.test.cpp
   - test/yosupo/matrix_product_mod_2.test.cpp
   - test/yosupo/matrix_det_mod_2.test.cpp
+  - test/yosupo/inverse_matrix_mod_2.test.cpp
 documentation_of: src/matrix/F2Matrix.hpp
 layout: document
 title: Matrix on $\mathbb{F}_2$

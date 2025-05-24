@@ -13,7 +13,7 @@ data:
     links: []
   bundledCode: "#line 2 \"src/graph/count_graphs.hpp\"\n#include <algorithm>\n#include\
     \ <tuple>\n#include <vector>\n\nnamespace count_graphs {\n\nstd::vector<std::tuple<int,\
-    \ int, int>> enumerate_C4(const std::vector<std::vector<int>>& G) {\n    int n\
+    \ int, int>> enumerate_C3(const std::vector<std::vector<int>>& G) {\n    int n\
     \ = G.size();\n    std::vector<int> deg(n);\n    for (int i = 0; i < n; i++) deg[i]\
     \ = G[i].size();\n    auto comp = [&](int u, int v) -> bool { return deg[u] !=\
     \ deg[v] ? deg[u] < deg[v] : u < v; };\n    std::vector<std::vector<int>> H(n);\n\
@@ -58,7 +58,7 @@ data:
     \        }\n        for (int j = 0; j < len; j++) idx[H[i][j]] = -1;\n    }\n\
     \    return res;\n}\n\n}  // namespace count_graphs\n"
   code: "#pragma once\n#include <algorithm>\n#include <tuple>\n#include <vector>\n\
-    \nnamespace count_graphs {\n\nstd::vector<std::tuple<int, int, int>> enumerate_C4(const\
+    \nnamespace count_graphs {\n\nstd::vector<std::tuple<int, int, int>> enumerate_C3(const\
     \ std::vector<std::vector<int>>& G) {\n    int n = G.size();\n    std::vector<int>\
     \ deg(n);\n    for (int i = 0; i < n; i++) deg[i] = G[i].size();\n    auto comp\
     \ = [&](int u, int v) -> bool { return deg[u] != deg[v] ? deg[u] < deg[v] : u\
@@ -107,7 +107,7 @@ data:
   isVerificationFile: false
   path: src/graph/count_graphs.hpp
   requiredBy: []
-  timestamp: '2023-10-01 16:26:05+09:00'
+  timestamp: '2025-05-24 15:05:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/enumerate_triangles.test.cpp

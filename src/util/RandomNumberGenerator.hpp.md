@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: src/util/RandomUndirectedGraphGenarator.hpp
+    title: src/util/RandomUndirectedGraphGenarator.hpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -39,7 +42,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/util/RandomNumberGenerator.hpp
-  requiredBy: []
+  requiredBy:
+  - src/util/RandomUndirectedGraphGenarator.hpp
   timestamp: '2023-12-18 21:46:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

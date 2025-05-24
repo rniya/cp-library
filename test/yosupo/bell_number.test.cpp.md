@@ -2,23 +2,14 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: src/geometry/Circle.hpp
-    title: Circle
+    path: src/enumerative_combinatorics/bell_number.hpp
+    title: Bell Number
   - icon: ':heavy_check_mark:'
-    path: src/geometry/Line.hpp
-    title: Line
+    path: src/math/binomial.hpp
+    title: Binomial Coefficients
   - icon: ':heavy_check_mark:'
-    path: src/geometry/Point.hpp
-    title: Point
-  - icon: ':heavy_check_mark:'
-    path: src/geometry/ccw.hpp
-    title: Counter Clockwise
-  - icon: ':heavy_check_mark:'
-    path: src/geometry/crosspoint.hpp
-    title: Crosspoint
-  - icon: ':heavy_check_mark:'
-    path: src/geometry/projection.hpp
-    title: projection
+    path: src/polynomial/FormalPowerSeries.hpp
+    title: Formal Power Series
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -26,10 +17,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    ERROR: '0.00000001'
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_C
+    PROBLEM: https://judge.yosupo.jp/problem/bell_number
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_C
+    - https://judge.yosupo.jp/problem/bell_number
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.13.3/x64/lib/python3.13/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -41,32 +31,29 @@ data:
     \                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.13.3/x64/lib/python3.13/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: geometry/crosspoint.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: enumerative_combinatorics/bell_number.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_C\"\
-    \n#define ERROR 0.00000001\n\n#include <iomanip>\n#include \"geometry/crosspoint.hpp\"\
-    \n\nusing namespace geometry;\n\nint main() {\n    std::ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    std::cout << std::fixed << std::setprecision(15);\n\
-    \    int q;\n    std::cin >> q;\n    for (; q--;) {\n        Segment<double> s,\
-    \ t;\n        std::cin >> s >> t;\n        auto res = crosspoint(s, t);\n    \
-    \    std::cout << res << '\\n';\n    }\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bell_number\"\n\n#include\
+    \ \"enumerative_combinatorics/bell_number.hpp\"\n#include <iostream>\n#include\
+    \ \"atcoder/modint\"\n\nusing mint = atcoder::modint998244353;\n\nvoid solve()\
+    \ {\n    int N;\n    std::cin >> N;\n    auto res = bell_number<mint>(N);\n  \
+    \  for (int i = 0; i <= N; i++) {\n        std::cout << res[i].val() << \" \\\
+    n\"[i == N];\n    }\n}\n\nint main() {\n    std::ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n\n    solve();\n    return 0;\n}"
   dependsOn:
-  - src/geometry/crosspoint.hpp
-  - src/geometry/Circle.hpp
-  - src/geometry/Point.hpp
-  - src/geometry/ccw.hpp
-  - src/geometry/projection.hpp
-  - src/geometry/Line.hpp
+  - src/enumerative_combinatorics/bell_number.hpp
+  - src/math/binomial.hpp
+  - src/polynomial/FormalPowerSeries.hpp
   isVerificationFile: true
-  path: test/aoj/CGL_2_C.test.cpp
+  path: test/yosupo/bell_number.test.cpp
   requiredBy: []
-  timestamp: '2023-10-04 02:48:57+09:00'
+  timestamp: '2025-05-24 15:05:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/CGL_2_C.test.cpp
+documentation_of: test/yosupo/bell_number.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/CGL_2_C.test.cpp
-- /verify/test/aoj/CGL_2_C.test.cpp.html
-title: test/aoj/CGL_2_C.test.cpp
+- /verify/test/yosupo/bell_number.test.cpp
+- /verify/test/yosupo/bell_number.test.cpp.html
+title: test/yosupo/bell_number.test.cpp
 ---

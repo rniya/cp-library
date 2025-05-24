@@ -19,7 +19,7 @@ data:
     #include <cassert>\n#include <string>\n#include <vector>\n\ntemplate <size_t char_size,\
     \ char margin = 'a'> struct Trie {\n    struct Node {\n        std::array<int,\
     \ char_size> nxt;\n        std::vector<int> idxs;\n        int idx, sub;\n   \
-    \     char key;\n        Node(char c) : idx(-1), key(c) { std::fill(nxt.begin(),\
+    \     char key;\n        Node(char c) : idx(-1), sub(0), key(c) { std::fill(nxt.begin(),\
     \ nxt.end(), -1); }\n    };\n\n    std::vector<Node> nodes;\n\n    inline int&\
     \ next(int i, int j) { return nodes[i].nxt[j]; }\n\n    Trie() { nodes.emplace_back('$');\
     \ }\n\n    void add(const std::string& s, int x = 0) {\n        int cur = 0;\n\
@@ -97,7 +97,7 @@ data:
   isVerificationFile: false
   path: src/string/AhoCorasick.hpp
   requiredBy: []
-  timestamp: '2023-01-12 22:28:24+09:00'
+  timestamp: '2025-05-24 15:07:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1269.test.cpp

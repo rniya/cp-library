@@ -73,6 +73,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/datastructure/UnionFind.hpp
       title: Union Find (Disjoint Set Union)
+  - name: src/enumerative_combinatorics
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: src/enumerative_combinatorics/bell_number.hpp
+      title: Bell Number
   - name: src/geometry
     pages:
     - icon: ':heavy_check_mark:'
@@ -364,6 +369,9 @@ data:
     - icon: ':warning:'
       path: src/util/RandomNumberGenerator.hpp
       title: Random Number Generator
+    - icon: ':warning:'
+      path: src/util/RandomUndirectedGraphGenarator.hpp
+      title: src/util/RandomUndirectedGraphGenarator.hpp
     - icon: ':heavy_check_mark:'
       path: src/util/Rational.hpp
       title: Rational Number
@@ -513,6 +521,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/assignment.test.cpp
       title: test/yosupo/assignment.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/bell_number.test.cpp
+      title: test/yosupo/bell_number.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/binomial_coefficient_prime_mod.test.cpp
       title: test/yosupo/binomial_coefficient_prime_mod.test.cpp

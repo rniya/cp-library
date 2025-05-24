@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: src/enumerative_combinatorics/bell_number.hpp
+    title: Bell Number
   - icon: ':warning:'
     path: src/polynomial/coefficient_of_powers.hpp
     title: Power Projection
@@ -15,6 +18,9 @@ data:
     path: src/polynomial/subset_sum.hpp
     title: $\#_p$ Subset Sum
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/bell_number.test.cpp
+    title: test/yosupo/bell_number.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/division_of_polynomials.test.cpp
     title: test/yosupo/division_of_polynomials.test.cpp
@@ -58,17 +64,19 @@ data:
     document_title: Exp of Formal Power Series
     links:
     - https://arxiv.org/pdf/1301.5804.pdf
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.13.3/x64/lib/python3.13/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
-    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+    \  File \"/opt/hostedtoolcache/Python/3.13.3/x64/lib/python3.13/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n    ~~~~~~~~~~~~~~^^^^^^\n  File\
+    \ \"/opt/hostedtoolcache/Python/3.13.3/x64/lib/python3.13/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+    \  File \"/opt/hostedtoolcache/Python/3.13.3/x64/lib/python3.13/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
-    \ File \"/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
+    \ File \"/opt/hostedtoolcache/Python/3.13.3/x64/lib/python3.13/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: atcoder/convolution.hpp:\
     \ line -1: no such header\n"
@@ -237,25 +245,27 @@ data:
   isVerificationFile: false
   path: src/polynomial/FormalPowerSeries.hpp
   requiredBy:
+  - src/enumerative_combinatorics/bell_number.hpp
   - src/polynomial/multipoint_evaluation.hpp
-  - src/polynomial/subset_sum.hpp
   - src/polynomial/difference_product.hpp
   - src/polynomial/coefficient_of_powers.hpp
+  - src/polynomial/subset_sum.hpp
   timestamp: '2024-05-22 00:21:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yukicoder/2513.test.cpp
+  - test/yosupo/polynomial_taylor_shift.test.cpp
   - test/yosupo/pow_of_formal_power_series_sparse.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/bell_number.test.cpp
+  - test/yosupo/sharp_p_subset_sum.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/multipoint_evaluation.test.cpp
   - test/yosupo/product_of_polynomial_sequence.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial_taylor_shift.test.cpp
-  - test/yukicoder/2513.test.cpp
 documentation_of: src/polynomial/FormalPowerSeries.hpp
 layout: document
 title: Formal Power Series
@@ -601,6 +611,9 @@ $$
 
 - [yukicoder No.2514 Twelvefold Way Returns](https://yukicoder.me/problems/no/2514)
   - $k$ の倍数次の係数を取り出したい際には $1$ の $k$ 乗根に注目すると良い（[参照 1 (Roots of Unity Filter)](https://codeforces.com/blog/entry/77551)，[参照 2](https://hackmd.io/@tko919/r1p17_-li)）．
+
+- [AtCoder Beginner Contest 387 G - Prime Circuit](https://atcoder.jp/contests/abc387/tasks/abc387_g)
+  - 畳み込みにおいて二項係数が関わってくる際には指数型母関数が有効．
 
 ## Reference
 [1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)

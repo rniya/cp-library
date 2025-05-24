@@ -11,11 +11,16 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"src/debug.hpp\"\n#include <bits/stdc++.h>\n\ntemplate <typename\
-    \ T, typename U> std::ostream& operator<<(std::ostream& os, const std::pair<T,\
-    \ U>& p);\ntemplate <typename T, typename U> std::ostream& operator<<(std::ostream&\
-    \ os, const std::map<T, U>& m);\ntemplate <typename T> std::ostream& operator<<(std::ostream&\
-    \ os, const std::set<T>& s);\ntemplate <typename T> std::ostream& operator<<(std::ostream&\
+  bundledCode: "#line 2 \"src/debug.hpp\"\n#include <bits/stdc++.h>\n\ntemplate <class\
+    \ T> std::istream& operator>>(std::istream& is, std::vector<T>& v) {\n    for\
+    \ (auto& e : v) {\n        is >> e;\n    }\n    return is;\n}\n\ntemplate <class\
+    \ T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& v) {\n \
+    \   for (std::string_view sep = \"\"; const auto& e : v) {\n        os << std::exchange(sep,\
+    \ \" \") << e;\n    }\n    return os;\n}\n\ntemplate <typename T, typename U>\
+    \ std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p);\ntemplate\
+    \ <typename T, typename U> std::ostream& operator<<(std::ostream& os, const std::map<T,\
+    \ U>& m);\ntemplate <typename T> std::ostream& operator<<(std::ostream& os, const\
+    \ std::set<T>& s);\ntemplate <typename T> std::ostream& operator<<(std::ostream&\
     \ os, const std::multiset<T>& s);\ntemplate <typename T> std::ostream& operator<<(std::ostream&\
     \ os, const std::deque<T>& v);\ntemplate <typename... Args> std::ostream& operator<<(std::ostream&\
     \ os, const std::tuple<Args...>& t);\n\ntemplate <typename T, typename U> std::ostream&\
@@ -52,9 +57,14 @@ data:
     \ << \"]\" << COLOR_RESET << '\\n';                                          \
     \          \\\n    std::cerr << \" \";                                       \
     \                                                    \\\n    debug_out(__VA_ARGS__)\n"
-  code: "#pragma once\n#include <bits/stdc++.h>\n\ntemplate <typename T, typename\
-    \ U> std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p);\ntemplate\
-    \ <typename T, typename U> std::ostream& operator<<(std::ostream& os, const std::map<T,\
+  code: "#pragma once\n#include <bits/stdc++.h>\n\ntemplate <class T> std::istream&\
+    \ operator>>(std::istream& is, std::vector<T>& v) {\n    for (auto& e : v) {\n\
+    \        is >> e;\n    }\n    return is;\n}\n\ntemplate <class T> std::ostream&\
+    \ operator<<(std::ostream& os, const std::vector<T>& v) {\n    for (std::string_view\
+    \ sep = \"\"; const auto& e : v) {\n        os << std::exchange(sep, \" \") <<\
+    \ e;\n    }\n    return os;\n}\n\ntemplate <typename T, typename U> std::ostream&\
+    \ operator<<(std::ostream& os, const std::pair<T, U>& p);\ntemplate <typename\
+    \ T, typename U> std::ostream& operator<<(std::ostream& os, const std::map<T,\
     \ U>& m);\ntemplate <typename T> std::ostream& operator<<(std::ostream& os, const\
     \ std::set<T>& s);\ntemplate <typename T> std::ostream& operator<<(std::ostream&\
     \ os, const std::multiset<T>& s);\ntemplate <typename T> std::ostream& operator<<(std::ostream&\
@@ -97,7 +107,7 @@ data:
   isVerificationFile: false
   path: src/debug.hpp
   requiredBy: []
-  timestamp: '2023-09-18 22:25:37+09:00'
+  timestamp: '2025-05-24 15:06:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/aplusb.test.cpp

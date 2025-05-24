@@ -88,8 +88,8 @@ data:
   timestamp: '2024-08-27 15:05:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/sum_of_totient_function.test.cpp
   - test/yosupo/sum_of_multiplicative_function.test.cpp
+  - test/yosupo/sum_of_totient_function.test.cpp
 documentation_of: src/math/sum_of_multiplicative_function.hpp
 layout: document
 title: Sum of Multiplicative Function
