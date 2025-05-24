@@ -1,22 +1,22 @@
 #pragma once
+#include <algorithm>
 #include <cassert>
 #include <queue>
 #include <utility>
 #include <vector>
 
 struct StaticTopTree {
-    enum Type { Vertex, Compress, Add_Vertex, Rake, Add_Edge };
     struct Node {
-        Type type;
-        int l, r, p;
+        int l, r, p, head, tail;
+        bool is_compress;
         Node() {}
-        Node(Type type, int l = -1, int r = -1, int p = -1) : type(type), l(l), r(r), p(p) {}
+        Node(int l, int r, int p, bool is_compress) : l(l), r(r), p(p), is_compress(is_compress) {}
     };
-    int n, stt_root;
+    int n;
     std::vector<std::vector<int>> G;
     std::vector<Node> nodes;
 
-    StaticTopTree(int n) : n(n), stt_root(-1), G(n), nodes(n) {}
+    StaticTopTree(int n) : n(n), G(n), nodes(n, {-1, -1, -1, false}) {}
 
     void add_edge(int u, int v) {
         assert(0 <= u and u < n);
@@ -26,17 +26,20 @@ struct StaticTopTree {
     }
 
     void build(int r = 0) {
-        assert(0 <= r and r < n);
-        dfs(r, -1);
-        auto [i, s] = _compress(r);
-        assert(s == n);
-        stt_root = i;
+        dfs_sz(r, -1);
+        dfs_stt(r);
+        assert(int(nodes.size()) == 2 * n - 1);
     }
 
-    int size() const { return nodes.size(); }
-
   private:
-    int dfs(int v, int p) {
+    int make_node(int l, int r, bool is_compress) {
+        int v = nodes.size();
+        nodes.emplace_back(l, r, -1, is_compress);
+        nodes[l].p = nodes[r].p = v;
+        return v;
+    }
+
+    int dfs_sz(int v, int p) {
         for (int& u : G[v]) {
             if (u == p) {
                 std::swap(u, G[v].back());
@@ -46,7 +49,7 @@ struct StaticTopTree {
         }
         int sum = 1, best = 0;
         for (int& u : G[v]) {
-            int ch = dfs(u, v);
+            int ch = dfs_sz(u, v);
             sum += ch;
             if (best < ch) {
                 best = ch;
@@ -56,113 +59,94 @@ struct StaticTopTree {
         return sum;
     }
 
-    int add(int l, int r, Type t) {
-        int v = nodes.size();
-        nodes.emplace_back(t, l, r);
-        if (l != -1) {
-            assert(l < v);
-            nodes[l].p = v;
+    std::pair<int, int> dfs_stt(int v) {
+        std::vector<std::pair<int, int>> st;
+        st.emplace_back(0, v);
+        auto merge_last = [&]() {
+            auto [hr, ir] = st.back();
+            st.pop_back();
+            auto [hl, il] = st.back();
+            st.pop_back();
+            st.emplace_back(std::max(hl, hr) + 1, make_node(il, ir, true));
+        };
+
+        for (int cur = v; not G[cur].empty(); cur = G[cur].front()) {
+            int nxt = G[cur].front(), marked = nxt;
+            std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>,
+                                std::greater<std::pair<int, int>>>
+                pq;
+            pq.emplace(0, marked);
+            for (int i = 1; i < int(G[cur].size()); i++) {
+                pq.emplace(dfs_stt(G[cur][i]));
+            }
+            while (pq.size() >= 2) {
+                auto [hl, il] = pq.top();
+                pq.pop();
+                auto [hr, ir] = pq.top();
+                pq.pop();
+                if (ir == marked) {
+                    std::swap(il, ir);
+                }
+                int i = make_node(il, ir, false);
+                if (il == marked) {
+                    marked = i;
+                }
+                pq.emplace(std::max(hl, hr) + 1, i);
+            }
+            st.emplace_back(pq.top());
+
+            while (true) {
+                int len = st.size();
+                if (len >= 3 and (st[len - 3].first == st[len - 2].first or st[len - 3].first <= st[len - 1].first)) {
+                    auto tmp = st.back();
+                    st.pop_back();
+                    merge_last();
+                    st.emplace_back(tmp);
+                } else if (len >= 2 and st[len - 2].first <= st[len - 1].first) {
+                    merge_last();
+                } else {
+                    break;
+                }
+            }
         }
-        if (r != -1) {
-            assert(r < v);
-            nodes[r].p = v;
+
+        while (st.size() >= 2) {
+            merge_last();
         }
-        return v;
-    }
-
-    int Add(int v, int l, int r, Type t) {
-        assert(v < n);
-        nodes[v].type = t, nodes[v].l = l, nodes[v].r = r, nodes[v].p = -1;
-        if (l != -1) {
-            assert(l < int(nodes.size()));
-            nodes[l].p = v;
-        }
-        if (r != -1) {
-            assert(r < int(nodes.size()));
-            nodes[r].p = v;
-        }
-        return v;
-    }
-
-    std::pair<int, int> merge(const std::vector<std::pair<int, int>>& a, Type t) {
-        if (a.size() == 1) return a[0];
-        int sum = 0;
-        for (const auto& [_, s] : a) sum += s;
-        std::vector<std::pair<int, int>> b, c;
-        for (const auto& [i, s] : a) {
-            (sum > s ? b : c).emplace_back(i, s);
-            sum -= s * 2;
-        }
-        auto [l, sl] = merge(b, t);
-        auto [r, sr] = merge(c, t);
-        return {add(l, r, t), sl + sr};
-    }
-
-    std::pair<int, int> _compress(int v) {
-        std::vector<std::pair<int, int>> chs{_add_vertex(v)};
-        while (not G[v].empty()) chs.emplace_back(_add_vertex(v = G[v][0]));
-        return merge(chs, Type::Compress);
-    }
-
-    std::pair<int, int> _add_vertex(int v) {
-        auto [i, s] = _rake(v);
-        return {Add(v, i, -1, i == -1 ? Type::Vertex : Type::Add_Vertex), s + 1};
-    }
-
-    std::pair<int, int> _rake(int v) {
-        std::vector<std::pair<int, int>> chs;
-        for (int i = 1; i < int(G[v].size()); i++) chs.emplace_back(_add_edge(G[v][i]));
-        return chs.empty() ? std::make_pair(-1, 0) : merge(chs, Type::Rake);
-    }
-
-    std::pair<int, int> _add_edge(int v) {
-        auto [i, s] = _compress(v);
-        return {add(i, -1, Type::Add_Edge), s};
+        return st.back();
     }
 };
 
-template <class TreeDP> struct DynamicDPonStaticTopTree {
-    using Path = typename TreeDP::Path;
-    using Point = typename TreeDP::Point;
-    const StaticTopTree& stt;
-    TreeDP& treedp;
-    std::vector<Path> paths;
-    std::vector<Point> points;
-    DynamicDPonStaticTopTree(const StaticTopTree& stt, TreeDP& treedp)
-        : stt(stt), treedp(treedp), paths(stt.size()), points(stt.size()) {
-        init(stt.stt_root);
-    }
+template <typename TREEDP> struct DynamicTreeDP {
+    using T = typename TREEDP::T;
 
-    void set(int k) {
-        for (; k != -1; k = stt.nodes[k].p) {
-            update(k);
+    template <typename F>
+    DynamicTreeDP(int n, const StaticTopTree& stt, const F& vertex) : n(n), stt(stt), dp(2 * n - 1) {
+        for (int i = 0; i < n; i++) {
+            dp[i] = vertex(i);
+        }
+        for (int i = n; i < 2 * n - 1; i++) {
+            update(i);
         }
     }
 
-    Path all_prod() const { return paths[stt.stt_root]; }
+    void set(int v, T x) {
+        assert(0 <= v and v < n);
+        dp[v] = x;
+        for (int i = stt.nodes[v].p; i != -1; i = stt.nodes[i].p) {
+            update(i);
+        }
+    }
+
+    T all_prod() const { return dp.back(); }
 
   private:
-    void init(int k) {
-        const auto& node = stt.nodes[k];
-        if (node.l != -1) init(node.l);
-        if (node.r != -1) init(node.r);
-        update(k);
-    }
+    int n;
+    const StaticTopTree& stt;
+    std::vector<T> dp;
 
     void update(int k) {
-        const auto& node = stt.nodes[k];
-        if (node.type == StaticTopTree::Type::Vertex) {
-            paths[k] = treedp.vertex(k);
-        } else if (node.type == StaticTopTree::Type::Compress) {
-            paths[k] = treedp.compress(paths[node.l], paths[node.r]);
-        } else if (node.type == StaticTopTree::Type::Add_Vertex) {
-            paths[k] = treedp.add_vertex(points[node.l], k);
-        } else if (node.type == StaticTopTree::Type::Rake) {
-            points[k] = treedp.rake(points[node.l], points[node.r]);
-        } else if (node.type == StaticTopTree::Type::Add_Edge) {
-            points[k] = treedp.add_edge(paths[node.l]);
-        } else {
-            assert(false);
-        }
+        const auto &L = dp[stt.nodes[k].l], &R = dp[stt.nodes[k].r];
+        dp[k] = (stt.nodes[k].is_compress ? TREEDP::compress(L, R) : TREEDP::rake(L, R));
     }
 };

@@ -7,29 +7,16 @@
 using mint = atcoder::modint998244353;
 
 struct TreeDP {
-    struct Path {
-        mint a, b, c, sub;
+    struct T {
+        mint a, b, cnt, sum;
     };
 
-    struct Point {
-        mint val, sub;
-    };
+    static T rake(const T& l, const T& r) { return {l.a, l.b, l.cnt + r.cnt, l.sum + r.sum}; }
 
-    std::vector<int> a, b, c;
-
-    Path vertex(int v) { return {b[v], mint(a[v]) * b[v] + c[v], c[v], 1}; }
-
-    Path compress(const Path& l, const Path& r) {
-        return {l.a * r.a, l.a * r.b + l.b + l.c * r.sub, l.c + l.a * r.c, l.sub + r.sub};
+    static T compress(const T& l, const T& r) {
+        mint a = l.a * r.a, b = l.a * r.b + l.b, cnt = l.cnt + r.cnt, sum = l.sum + l.a * r.sum + l.b * r.cnt;
+        return {a, b, cnt, sum};
     }
-
-    Path add_vertex(const Point& p, int v) {
-        return {b[v], (p.val + a[v]) * b[v] + (p.sub + 1) * c[v], c[v], p.sub + 1};
-    }
-
-    Point rake(const Point& l, const Point& r) { return {l.val + r.val, l.sub + r.sub}; }
-
-    Point add_edge(const Path& p) { return {p.b, p.sub}; }
 };
 
 int main() {
@@ -42,55 +29,56 @@ int main() {
         std::cin >> a[i];
     }
     StaticTopTree stt(N);
+    std::vector<std::vector<int>> g(N);
     for (int i = 0; i < N - 1; i++) {
         std::cin >> u[i] >> v[i] >> b[i] >> c[i];
         stt.add_edge(u[i], v[i]);
+        g[u[i]].emplace_back(i);
+        g[v[i]].emplace_back(i);
     }
 
     stt.build();
-    std::vector<int> par(N);
-    auto& G = stt.G;
-    std::queue<int> que;
-    par[0] = -1;
-    que.emplace(0);
-    while (not que.empty()) {
-        int v = que.front();
-        que.pop();
-        for (const int& u : G[v]) {
-            par[u] = v;
-            que.emplace(u);
+    std::vector<int> p(N);
+    auto dfs = [&](auto self, int cur, int pe) -> void {
+        p[cur] = pe;
+        if (pe != -1) {
+            if (cur != v[pe]) {
+                std::swap(u[pe], v[pe]);
+            }
         }
-    }
-    std::vector<int> B(N), C(N);
-    for (int i = 0; i < N - 1; i++) {
-        if (par[v[i]] != u[i]) {
-            std::swap(u[i], v[i]);
+        for (int i : g[cur]) {
+            if (i == pe) {
+                continue;
+            }
+            self(self, u[i] ^ v[i] ^ cur, i);
         }
-        assert(par[v[i]] == u[i]);
-        B[v[i]] = b[i], C[v[i]] = c[i];
-    }
-    B[0] = 1, C[0] = 0;
-    TreeDP treedp{a, B, C};
-    DynamicDPonStaticTopTree dp(stt, treedp);
+    };
+    dfs(dfs, 0, -1);
+    auto vertex = [&](int v) -> TreeDP::T {
+        if (v == 0) {
+            return {1, 0, 1, a[v]};
+        }
+        int e = p[v];
+        return {b[e], c[e], 1, mint(b[e]) * a[v] + c[e]};
+    };
+    DynamicTreeDP<TreeDP> dp(N, stt, vertex);
 
     for (; Q--;) {
-        int t;
-        std::cin >> t;
-        if (t == 0) {
+        int type;
+        std::cin >> type;
+        if (type == 0) {
             int w, x;
             std::cin >> w >> x;
-            treedp.a[w] = x;
-            dp.set(w);
+            a[w] = x;
+            dp.set(w, vertex(w));
         } else {
             int e, y, z;
             std::cin >> e >> y >> z;
-            int w = v[e];
-            treedp.b[w] = y;
-            treedp.c[w] = z;
-            dp.set(w);
+            b[e] = y, c[e] = z;
+            dp.set(v[e], vertex(v[e]));
         }
-        mint ans = dp.all_prod().b;
-        std::cout << ans.val() << '\n';
+        auto ans = dp.all_prod().sum;
+        std::cout << ans.val() << "\n";
     }
     return 0;
 }
