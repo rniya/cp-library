@@ -1,6 +1,20 @@
 #pragma once
 #include <bits/stdc++.h>
 
+template <class T> std::istream& operator>>(std::istream& is, std::vector<T>& v) {
+    for (auto& e : v) {
+        is >> e;
+    }
+    return is;
+}
+
+template <class T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& v) {
+    for (std::string_view sep = ""; const auto& e : v) {
+        os << std::exchange(sep, " ") << e;
+    }
+    return os;
+}
+
 template <typename T, typename U> std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p);
 template <typename T, typename U> std::ostream& operator<<(std::ostream& os, const std::map<T, U>& m);
 template <typename T> std::ostream& operator<<(std::ostream& os, const std::set<T>& s);
