@@ -5,7 +5,7 @@
 
 namespace count_graphs {
 
-std::vector<std::tuple<int, int, int>> enumerate_C4(const std::vector<std::vector<int>>& G) {
+std::vector<std::tuple<int, int, int>> enumerate_C3(const std::vector<std::vector<int>>& G) {
     int n = G.size();
     std::vector<int> deg(n);
     for (int i = 0; i < n; i++) deg[i] = G[i].size();
