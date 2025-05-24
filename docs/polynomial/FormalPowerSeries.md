@@ -344,6 +344,9 @@ $$
 - [yukicoder No.2514 Twelvefold Way Returns](https://yukicoder.me/problems/no/2514)
   - $k$ の倍数次の係数を取り出したい際には $1$ の $k$ 乗根に注目すると良い（[参照 1 (Roots of Unity Filter)](https://codeforces.com/blog/entry/77551)，[参照 2](https://hackmd.io/@tko919/r1p17_-li)）．
 
+- [AtCoder Beginner Contest 387 G - Prime Circuit](https://atcoder.jp/contests/abc387/tasks/abc387_g)
+  - 畳み込みにおいて二項係数が関わってくる際には指数型母関数が有効．
+
 ## Reference
 [1] [A simple and fast algorithm for computing exponentials of power series](https://arxiv.org/pdf/1301.5804.pdf)
 
