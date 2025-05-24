@@ -22,7 +22,7 @@ int main() {
     }
 
     mint ans = 0;
-    for (auto [a, b, c] : count_graphs::enumerate_C4(G)) ans += mint(1) * x[a] * x[b] * x[c];
+    for (auto [a, b, c] : count_graphs::enumerate_C3(G)) ans += mint(1) * x[a] * x[b] * x[c];
     std::cout << ans.val() << '\n';
     return 0;
 }
