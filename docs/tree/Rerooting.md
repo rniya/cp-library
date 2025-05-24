@@ -8,7 +8,7 @@ documentation_of: //src/tree/Rerooting.hpp
 
 使用する際には，以下の関数をもつ構造体 `TreeDP` が必要となる．
 
-- `T e()`: 単位元を返す．
+- `T e()`: 単位元（根が virtual で辺のない 1 頂点の木）を返す．
 - `T op(const T& l, const T& r)`: 根が virtual な木 $l, r$ の合成を返す．
 - `T add_vertex(const T& t, int v)`: 根が virtual な木 $t$ の根に $v$ を代入した木を返す．
 - `T add_edge(const T& t, int e)`: 木 $t$ の根に枝 $e$ を接続してできる，根が virtual な木を返す．
