@@ -11,7 +11,7 @@ template <size_t char_size, char margin = 'a'> struct Trie {
         std::vector<int> idxs;
         int idx, sub;
         char key;
-        Node(char c) : idx(-1), key(c) { std::fill(nxt.begin(), nxt.end(), -1); }
+        Node(char c) : idx(-1), sub(0), key(c) { std::fill(nxt.begin(), nxt.end(), -1); }
     };
 
     std::vector<Node> nodes;
