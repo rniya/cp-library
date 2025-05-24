@@ -24,6 +24,7 @@ $(i, j)$ について，$\phi(i, j) + \phi(i + 1, j + 1) \leq \phi(i, j + 1) + \
 ## 出題例
 - [AtCoder Regular Contest 129 E - Yet Another Minimization](https://atcoder.jp/contests/arc129/tasks/arc129_e?lang=ja)
 - [AtCoder Beginner Contest 347 G - Grid Coloring 2](https://atcoder.jp/contests/abc347/tasks/abc347_g)
+- [AtCoder Beginner Contest 397 G - Maximize Distance](https://atcoder.jp/contests/abc397/tasks/abc397_g)
 
 ## Links
 - [最小カット問題の $k$ 値への一般化 - noshi91のメモ](https://noshi91.hatenablog.com/entry/2021/06/29/044225)
